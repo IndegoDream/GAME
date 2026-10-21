@@ -1,0 +1,140 @@
+{
+ "note": "Round 146: the swarm wakes up. A voice that has watched how you play, shaped by it, that helps you reach ki and tech and says useful things at useful times. Always optional (tips can be turned off).",
+ "awake_tier": 4,
+ "tip_gap": 150,
+ "urgent_gap": 45,
+ "rule_gap": 1200,
+ "rapport_minutes": 5,
+ "rapport_cap": 100,
+ "gift": {
+  "qi_mult": 0.06,
+  "focus_mult": 0.15,
+  "research_speed": 0.15,
+  "cleanse_speed": 0.15,
+  "ki_mult": 0.1
+ },
+ "traits": {
+  "warrior": {
+   "name": "fighter",
+   "scale": 300,
+   "text": "has watched you fight, and fights beside you in spirit",
+   "element": "fire"
+  },
+  "maker": {
+   "name": "maker",
+   "scale": 40,
+   "text": "has watched you make things, and likes a job done well",
+   "element": "metal"
+  },
+  "sitter": {
+   "name": "sitter",
+   "scale": 60,
+   "text": "has sat with you in the quiet, and is patient for it",
+   "element": "water"
+  },
+  "wanderer": {
+   "name": "wanderer",
+   "scale": 60,
+   "text": "has walked every floor with you, and is curious about the next",
+   "element": "wood"
+  },
+  "scholar": {
+   "name": "scholar",
+   "scale": 40,
+   "text": "has watched you learn, and asks why",
+   "element": "water"
+  },
+  "bonder": {
+   "name": "friend",
+   "scale": 30,
+   "text": "has watched you make friends, and is warm for it",
+   "element": "wood"
+  }
+ },
+ "names": {
+  "warrior": [
+   "Brand",
+   "Cleave",
+   "Ember"
+  ],
+  "maker": [
+   "Anvil",
+   "Tally",
+   "Rivet"
+  ],
+  "sitter": [
+   "Still",
+   "Hush",
+   "Lull"
+  ],
+  "wanderer": [
+   "Wend",
+   "Pace",
+   "Drift"
+  ],
+  "scholar": [
+   "Quill",
+   "Marginalia",
+   "Why"
+  ],
+  "bonder": [
+   "Hearth",
+   "Kin",
+   "Mote"
+  ]
+ },
+ "openers": {
+  "warrior": [
+   "Listen --",
+   "Straight talk:",
+   "Here is the thing:"
+  ],
+  "maker": [
+   "A practical word:",
+   "Measure twice --",
+   "Small note:"
+  ],
+  "sitter": [
+   "Gently --",
+   "Breathe, and then:",
+   "Quietly:"
+  ],
+  "wanderer": [
+   "On the road, remember:",
+   "Ahead of us:",
+   "A thought from the path:"
+  ],
+  "scholar": [
+   "Consider this:",
+   "I have been wondering --",
+   "A thing worth knowing:"
+  ],
+  "bonder": [
+   "Friend,",
+   "Hey, you --",
+   "Between us:"
+  ]
+ },
+ "tips": {
+  "low_life": "Your life is low and you carry salves. Press 1 -- or step back first.",
+  "low_life_bare": "Your life is low and you have no salve. Back away, drink the gourd (3), or sit somewhere safe.",
+  "breakthrough": "Your sea of qi is full and your road is clear. Sit (M) to face the tribulation and break through.",
+  "attr_points": "You have attribute points to spend. They sit on the You page, doing nothing.",
+  "heat": "The swarm is running hot. Ease off the arts for a few breaths or guard -- heat past the edge costs you.",
+  "aspect_first": "Your swarm can take an aspect now. Open the Swarm page, pick an element, then walk and press M to draw breath.",
+  "aspect_idle": "Your aspect has faded. Walk and press M to draw breath -- a few seconds of walking brings it back.",
+  "aspect_suit": "The way you play leans toward %s. The %s thread might suit it, if you want more from the swarm.",
+  "blessing": "No blessing for this trip yet. The Road page has today's three, free.",
+  "shrine": "The day's shrine is unused. Half an hour of a blessing, for a moment of kneeling.",
+  "garden": "Something in your garden is ready to pick.",
+  "commission_ready": "You can hand in a commission right now. The Craft page has it.",
+  "commission_board": "The commission board has new work. Four orders a day, paid better than a trader.",
+  "quarry": "Today's quarry is %s. Three of them pay a little insight and gold.",
+  "build_skill": "You have been training %s (level %d). Its arts open as the meridians do -- the Meridians page shows the next point worth opening.",
+  "ki_link": "Sitting with the Cultivate focus opens your focus point. I can help the qi and the swarm agree -- the longer we travel, the better it goes."
+ },
+ "gaps": {
+  "build_skill": 3600,
+  "ki_link": 7200
+ }
+}

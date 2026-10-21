@@ -1,0 +1,39 @@
+{
+  "brief": "world_events",
+  "title": "Rare happenings in the deep",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "event": "blood_moon",
+      "name": "Red Veil",
+      "desc": "The dim lights flicker red, shadows pulse, and the air hums with a sinister energy."
+    },
+    {
+      "event": "spirit_tide",
+      "name": "Qi Flood",
+      "desc": "The halls seem to pulse with a faint glow, and the air feels thick with an otherworldly energy, making your own qi stir restlessly within you."
+    },
+    {
+      "event": "wandering_master",
+      "name": "Venerable Guide",
+      "desc": "Arriving on the floor, you see an old cultivator sitting under a flickering oil lamp, surrounded by a small circle of apprentices. The air hums with the faint scent of aged parchment and the sound of whispered knowledge."
+    },
+    {
+      "event": "meteor_fall",
+      "name": "Starfall Glitter",
+      "desc": "The ground glows with a strange, radiant blue light, casting eerie shadows as you step closer to the source of the luminescence, a piece of fallen star iron."
+    },
+    {
+      "event": "treasure_spirit",
+      "name": "Golden Hare",
+      "desc": "A small, gilded hare scampers across the floor, dropping coins in its path like seed pods; the moment feels weighted with ancient magic, as if the very air whispers with lost secrets."
+    },
+    {
+      "event": "heavenly_sign",
+      "name": "Sky's Whisper",
+      "desc": "The air feels thin and cold, and for a moment, the stars cut through the stone, their light like a promise from another world; the blood of your ancestors burns in your veins, calling you forward."
+    }
+  ],
+  "helped": []
+}

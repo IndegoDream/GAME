@@ -1,0 +1,69 @@
+You||你||Tú||Você||Вы||Du||Toi||あなた||나||Sen
+Spirit||灵||Espíritu||Espírito||Дух||Geist||Esprit||霊||영||Ruh
+Mind||心||Mente||Mente||Разум||Geist||Esprit||心||마음||Zihin
+Meridians||经脉||Meridianos||Meridianos||Меридианы||Meridiane||Méridiens||経絡||경락||Meridyenler
+Swarm||蜂群||Enjambre||Enxame||Рой||Schwarm||Essaim||群体||군체||Sürü
+Path||道途||Senda||Trilha||Путь||Pfad||Voie||道筋||길||Yol
+Party||队伍||Grupo||Grupo||Отряд||Gruppe||Groupe||パーティ||파티||Takım
+Road||行路||Camino||Estrada||Дорога||Weg||Route||行路||여정||Yol
+Craft||制作||Fabricar||Ofício||Ремесло||Handwerk||Artisanat||クラフト||제작||Zanaat
+World||世界||Mundo||Mundo||Мир||Welt||Monde||世界||세계||Dünya
+Guide||引导||Guía||Guia||Обучение||Anleitung||Guide||ガイド||안내||Rehber
+CHARACTER||角色||PERSONAJE||PERSONAGEM||ПЕРСОНАЖ||CHARAKTER||PERSONNAGE||キャラクター||캐릭터||KARAKTER
+PEOPLE AND GEAR||人物与装备||GENTE Y EQUIPO||PESSOAS E EQUIPAMENTO||ЛЮДИ И СНАРЯЖЕНИЕ||LEUTE UND AUSRÜSTUNG||GENS ET ÉQUIPEMENT||人々と装備||사람과 장비||İNSANLAR VE EKİPMAN
+JOURNEY||旅程||VIAJE||JORNADA||ПУТЕШЕСТВИЕ||REISE||VOYAGE||旅路||여정||YOLCULUK
+Nanoforge||纳米锻炉||Nanoforja||Nanoforja||Нанокузница||Nanoschmiede||Nanoforge||ナノ鍛冶||나노 대장간||Nanodemirhane
+All||全部||Todo||Tudo||Все||Alle||Tout||すべて||전체||Hepsi
+Gear||装备||Equipo||Equipamento||Снаряжение||Ausrüstung||Équipement||装備||장비||Ekipman
+Jewellery||首饰||Joyería||Joias||Украшения||Schmuck||Bijoux||装身具||장신구||Takılar
+Materials||材料||Materiales||Materiais||Материалы||Materialien||Matériaux||素材||재료||Malzemeler
+Consumables||消耗品||Consumibles||Consumíveis||Расходники||Verbrauchsgüter||Consommables||消耗品||소모품||Tüketilebilirler
+Other||其他||Otros||Outros||Прочее||Sonstiges||Autre||その他||기타||Diğer
+List||列表||Lista||Lista||Список||Liste||Liste||リスト||목록||Liste
+Pack view||背包视图||Vista de mochila||Vista da mochila||Вид рюкзака||Rucksackansicht||Vue du sac||バッグ表示||가방 보기||Çanta görünümü
+Supplies||补给||Suministros||Suprimentos||Припасы||Vorräte||Fournitures||補給品||보급품||Malzemeler
+Blade||剑刃||Filo||Lâmina||Клинок||Klinge||Lame||刃||칼날||Bıçak
+Flame||烈焰||Llama||Chama||Пламя||Flamme||Flamme||炎||불꽃||Alev
+Tide||潮汐||Marea||Maré||Прилив||Gezeiten||Marée||潮||조수||Gelgit
+Stone||磐石||Piedra||Pedra||Камень||Stein||Pierre||石||바위||Taş
+Verdant||青木||Verdor||Viço||Зелень||Grün||Verdure||翠||푸름||Yeşil
+Swarm||蜂群||Enjambre||Enxame||Рой||Schwarm||Essaim||群体||군체||Sürü
+Seeker||寻道者||Buscador||Buscador||Искатель||Sucher||Chercheur||探求者||탐구자||Arayıcı
+Unfelt||未觉||Inadvertido||Não sentido||Не ощущается||Ungespürt||Non ressenti||未感||느끼지 못함||Hissedilmemiş
+Glimpse||一瞥||Atisbo||Vislumbre||Проблеск||Erahnen||Aperçu||垣間見||엿봄||Bir bakış
+Understanding||领悟||Comprensión||Compreensão||Понимание||Verstehen||Compréhension||理解||이해||Anlayış
+Insight||洞见||Perspicacia||Percepção||Прозрение||Einsicht||Intuition||洞察||통찰||Kavrayış
+Mastery||精通||Maestría||Maestria||Мастерство||Meisterschaft||Maîtrise||極意||숙달||Ustalık
+Your own||自成一道||Propio||Seu próprio||Свой||Dein eigener||Le tien||我が道||나만의 것||Kendin
+Dull||迟钝||Embotado||Embotado||Притуплено||Stumpf||Émoussé||鈍い||둔함||Küt
+Stirring||萌动||Despertando||Despertando||Пробуждение||Regung||Éveil||兆し||꿈틀거림||Kıpırdanma
+Aware||觉察||Consciente||Ciente||Осознанность||Bewusst||Conscient||気づき||자각||Farkında
+Keen||敏锐||Agudo||Aguçado||Острое||Scharf||Aiguisé||鋭敏||예리함||Keskin
+Clear||澄明||Claro||Claro||Ясное||Klar||Clair||澄明||맑음||Berrak
+Dao-seeing||见道||Visión del Dao||Visão do Dao||Видение Дао||Dao-Schau||Vision du Dao||見道||견도||Dao görüşü
+Gentle||轻松||Suave||Suave||Мягкая||Sanft||Doux||やさしい||순함||Hafif
+Standard||标准||Estándar||Padrão||Обычная||Standard||Standard||標準||보통||Standart
+Hard||困难||Difícil||Difícil||Трудная||Schwer||Difficile||難しい||어려움||Zor
+Brutal||残酷||Brutal||Brutal||Жестокая||Brutal||Brutal||過酷||잔혹||Acımasız
+Mythic||神话||Mítica||Mítica||Мифическая||Mythisch||Mythique||神話||신화||Efsanevi
+Frail||孱弱||Frágil||Frágil||Хрупкий||Gebrechlich||Frêle||虚弱||허약||Çelimsiz
+Bare-handed||赤手空拳||A puño limpio||De mãos nuas||Голыми руками||Mit bloßen Händen||À mains nues||素手||맨손||Çıplak elle
+Slots||格子||Casillas||Espaços||Ячейки||Felder||Cases||スロット||칸||Gözler
+Language||语言||Idioma||Idioma||Язык||Sprache||Langue||言語||언어||Dil
+Antidote||解毒剂||Antídoto||Antídoto||Противоядие||Gegengift||Antidote||解毒薬||해독제||Panzehir
+Venom Coating||毒液涂层||Recubrimiento de veneno||Revestimento de veneno||Ядовитое покрытие||Giftüberzug||Enduit venimeux||毒の塗布剤||독 코팅||Zehir kaplaması
+Numbing Coating||麻痹涂层||Recubrimiento adormecedor||Revestimento entorpecente||Парализующее покрытие||Betäubender Überzug||Enduit engourdissant||麻痺の塗布剤||마비 코팅||Uyuşturucu kaplama
+Healing Salve||治疗药膏||Ungüento curativo||Unguento curativo||Целебная мазь||Heilsalbe||Onguent de soin||治療の軟膏||치유 연고||İyileştirici merhem
+Spirit Herb||灵草||Hierba espiritual||Erva espiritual||Духовная трава||Geisterkraut||Herbe spirituelle||霊草||영초||Ruh otu
+Iron Ore||铁矿石||Mineral de hierro||Minério de ferro||Железная руда||Eisenerz||Minerai de fer||鉄鉱石||철광석||Demir cevheri
+Goblin Tooth||哥布林之牙||Diente de goblin||Dente de goblin||Зуб гоблина||Goblinzahn||Dent de gobelin||ゴブリンの牙||고블린 이빨||Goblin dişi
+Bone Shard||骨片||Fragmento de hueso||Fragmento de osso||Осколок кости||Knochensplitter||Éclat d'os||骨片||뼛조각||Kemik kırığı
+Silver Ore||银矿石||Mineral de plata||Minério de prata||Серебряная руда||Silbererz||Minerai d'argent||銀鉱石||은광석||Gümüş cevheri
+Venom Sac||毒囊||Saco de veneno||Bolsa de veneno||Ядовитый мешочек||Giftbeutel||Sac à venin||毒嚢||독주머니||Zehir kesesi
+Spirit Resin||灵树脂||Resina espiritual||Resina espiritual||Духовная смола||Geisterharz||Résine spirituelle||霊樹脂||영수지||Ruh reçinesi
+Iron Thistle||铁蓟||Cardo de hierro||Cardo de ferro||Железный чертополох||Eisendistel||Chardon de fer||鉄アザミ||철엉겅퀴||Demir devedikeni
+Qi Pill||真气丹||Píldora de qi||Pílula de qi||Пилюля ци||Qi-Pille||Pilule de qi||気の丸薬||기환||Qi hapı
+Whetstone||磨刀石||Piedra de afilar||Pedra de amolar||Точильный камень||Wetzstein||Pierre à aiguiser||砥石||숫돌||Bileme taşı
+Study||研习||Estudiar||Estudar||Изучить||Studieren||Étudier||学ぶ||연구하기||İncele
+Absorb||吸收||Absorber||Absorver||Поглотить||Aufnehmen||Absorber||吸収する||흡수||Özümse
+Contemplate||感悟||Contemplar||Contemplar||Созерцать||Ergründen||Contempler||感じ取る||헤아리기||Düşün

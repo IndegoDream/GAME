@@ -1,0 +1,97 @@
+{
+  "brief": "reaches",
+  "title": "The deep's reaches: the ten lands past every floor's edge",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "reach_cave_01",
+      "text": "The walls hold crystals that hum when you pass and light your way from within. This is The Crystal Hollows, guarded by the Prism Warden."
+    },
+    {
+      "id": "REACH_06",
+      "text": "Cold air pours down from somewhere above. Pools have frozen solid, columns of ice stand where water once fell, and snow drifts down out of the dark."
+    },
+    {
+      "id": "reaches_guide_part_3",
+      "text": "Reaches join the dungeon to wide lands below. Each has a warden and a name you must remember."
+    },
+    {
+      "id": 4,
+      "text": "The rock splits open on rivers of slow fire. Black stone pillars, cracked and glowing, hold the roof up."
+    },
+    {
+      "id": 5,
+      "text": "The Crystal Hollows hum with living light. The Prism Warden guards the heart where stone sings."
+    },
+    {
+      "id": 6,
+      "text": "The room here holds no sun, but lanterns float on chains from the ceiling. A single door waits at the far end, guarded by the Door-Keeper."
+    },
+    {
+      "id": "item_7",
+      "text": "The deep ends here, where the rock becomes water and silence. A black lake holds your reflection twice as you cross causeways to the last island."
+    },
+    {
+      "id": "reaching-the-crystal-hollows",
+      "text": "The rock splits open to show a cave of glass. Crystal grows in sharp shapes along every wall and hums when you pass."
+    },
+    {
+      "id": 9,
+      "text": "The path here leads through a tunnel where the rock holds its breath. The air tastes of deep time and cold water."
+    },
+    {
+      "crystal": {
+        "id": "The Crystal Hollows",
+        "warden": "the Prism Warden",
+        "text": "Crystal grows out of every wall here in spears and clusters. The light comes from inside the stone."
+      },
+      "emberrift": {
+        "id": "The Ember Rift",
+        "warden": "the Rift-Born",
+        "text": "The rock splits open on rivers of slow fire. Black stone pillars, cracked and glowing, hold the roof up."
+      },
+      "frostgallery": {
+        "id": "The Frost Gallery",
+        "warden": "the Rime Sovereign",
+        "text": "Cold air pours down from somewhere above. Pools have frozen solid, columns of ice stand where water once fell."
+      },
+      "glowcap": {
+        "id": "The Glowcap Wood",
+        "warden": "the Glowcap Matriarch",
+        "text": "Mushrooms as tall as houses, their caps lit from inside. The air is thick and sweet and full of slow green motes."
+      },
+      "oldworkings": {
+        "id": "The Old Workings",
+        "warden": "the Foreman in the Dark",
+        "text": "Somebody mined here for generations, then left in a hurry. Props and carts, rails into the dark, seams still glittering in the walls."
+      },
+      "ossuary": {
+        "id": "The Ossuary Fields",
+        "warden": "the Ossuary Keeper",
+        "text": "Every one of the deep's dead seems to have been carried here and laid down. Skulls in niches, bones in drifts, statues no one remembers."
+      },
+      "rootcathedral": {
+        "id": "The Root Cathedral",
+        "warden": "the Rootbound Ancient",
+        "text": "The roots of something enormous on the surface have broken through the roof and grown down in arches. Pale light leaks through where they came in."
+      },
+      "stormchasm": {
+        "id": "The Storm Chasm",
+        "warden": "the Chasm Stormcaller",
+        "text": "Lightning lives down here. It crawls over tall black spires and leaves the air sharp and blue; the floor is scorched."
+      },
+      "sunkencity": {
+        "id": "The Sunken Street",
+        "warden": "the Last Watchman",
+        "text": "A whole street of some old city, swallowed into the rock: broken columns, toppled statues, flagstones worn by feet."
+      },
+      "underlake": {
+        "id": "The Underlake",
+        "warden": "the Thing Under the Water",
+        "text": "A black lake under the rock, so still it holds the cave's lights twice. Old stone causeways run from island to island."
+      }
+    }
+  ],
+  "helped": []
+}

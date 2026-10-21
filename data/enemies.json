@@ -1,0 +1,9123 @@
+{
+ "goblin": {
+  "floor": 1,
+  "name": "Goblin",
+  "model": "orc",
+  "tint": [
+   0.55,
+   0.85,
+   0.45
+  ],
+  "scale": 0.9,
+  "hp": 30,
+  "damage": 6,
+  "speed": 3.4,
+  "aggro": 9,
+  "range": 1.7,
+  "cooldown": 1.3,
+  "qi": 10,
+  "loot": {
+   "gold": [
+    2,
+    6
+   ],
+   "goblin_tooth": [
+    0,
+    1
+   ]
+  }
+ },
+ "goblin_brute": {
+  "floor": 1,
+  "name": "Goblin Brute",
+  "model": "orc",
+  "tint": [
+   0.45,
+   0.7,
+   0.35
+  ],
+  "scale": 1.25,
+  "hp": 90,
+  "damage": 13,
+  "speed": 2.7,
+  "aggro": 8,
+  "range": 2.0,
+  "cooldown": 1.7,
+  "qi": 28,
+  "loot": {
+   "gold": [
+    6,
+    14
+   ],
+   "goblin_tooth": [
+    1,
+    2
+   ],
+   "iron_ore": [
+    0,
+    1
+   ]
+  }
+ },
+ "goblin_chief": {
+  "floor": 1,
+  "name": "Goblin Chief",
+  "model": "orc",
+  "tint": [
+   0.9,
+   0.55,
+   0.3
+  ],
+  "scale": 1.6,
+  "boss": true,
+  "hp": 364,
+  "damage": 18,
+  "speed": 3.0,
+  "aggro": 11,
+  "range": 2.4,
+  "cooldown": 1.5,
+  "qi": 150,
+  "loot": {
+   "gold": [
+    40,
+    60
+   ],
+   "iron_ore": [
+    2,
+    4
+   ],
+   "nanite_shard": [
+    1,
+    1
+   ]
+  }
+ },
+ "skeleton": {
+  "floor": 2,
+  "name": "Skeleton",
+  "model": "human",
+  "tint": [
+   0.92,
+   0.9,
+   0.82
+  ],
+  "scale": 1.0,
+  "hp": 55,
+  "damage": 11,
+  "speed": 3.2,
+  "aggro": 9,
+  "range": 1.8,
+  "cooldown": 1.3,
+  "qi": 22,
+  "loot": {
+   "gold": [
+    4,
+    10
+   ],
+   "bone_shard": [
+    0,
+    2
+   ]
+  }
+ },
+ "skeleton_knight": {
+  "floor": 2,
+  "name": "Skeleton Knight",
+  "model": "human",
+  "tint": [
+   0.6,
+   0.62,
+   0.7
+  ],
+  "scale": 1.25,
+  "hp": 140,
+  "damage": 18,
+  "speed": 2.8,
+  "aggro": 9,
+  "range": 2.0,
+  "cooldown": 1.6,
+  "qi": 45,
+  "loot": {
+   "gold": [
+    10,
+    22
+   ],
+   "bone_shard": [
+    1,
+    3
+   ]
+  }
+ },
+ "bone_lord": {
+  "floor": 2,
+  "name": "Bone Lord",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.8,
+   0.55
+  ],
+  "scale": 1.7,
+  "boss": true,
+  "hp": 676,
+  "damage": 26,
+  "speed": 3.0,
+  "aggro": 12,
+  "range": 2.6,
+  "cooldown": 1.5,
+  "qi": 320,
+  "loot": {
+   "gold": [
+    80,
+    120
+   ],
+   "bone_shard": [
+    4,
+    6
+   ],
+   "nanite_shard": [
+    1,
+    2
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "mine_crawler": {
+  "floor": 3,
+  "name": "Mine Crawler",
+  "model": "orc",
+  "tint": [
+   0.45,
+   0.5,
+   0.62
+  ],
+  "scale": 0.85,
+  "hp": 80,
+  "damage": 15,
+  "speed": 4.0,
+  "aggro": 9,
+  "range": 1.7,
+  "cooldown": 1.1,
+  "qi": 36,
+  "loot": {
+   "gold": [
+    6,
+    14
+   ],
+   "iron_ore": [
+    0,
+    2
+   ],
+   "silver_ore": [
+    0,
+    1
+   ]
+  }
+ },
+ "drowned_miner": {
+  "floor": 3,
+  "name": "Drowned Miner",
+  "model": "human",
+  "tint": [
+   0.45,
+   0.65,
+   0.7
+  ],
+  "scale": 1.1,
+  "hp": 170,
+  "damage": 22,
+  "speed": 2.6,
+  "aggro": 8,
+  "range": 2.0,
+  "cooldown": 1.6,
+  "qi": 60,
+  "loot": {
+   "gold": [
+    12,
+    26
+   ],
+   "silver_ore": [
+    1,
+    2
+   ]
+  }
+ },
+ "foreman_golem": {
+  "floor": 3,
+  "name": "Foreman Golem",
+  "model": "orc",
+  "tint": [
+   0.5,
+   0.42,
+   0.38
+  ],
+  "scale": 1.9,
+  "boss": true,
+  "hp": 900,
+  "damage": 34,
+  "speed": 2.4,
+  "aggro": 12,
+  "range": 2.8,
+  "cooldown": 1.8,
+  "qi": 600,
+  "loot": {
+   "gold": [
+    140,
+    200
+   ],
+   "silver_ore": [
+    4,
+    6
+   ],
+   "nanite_shard": [
+    2,
+    3
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "nanite_wraith": {
+  "floor": 4,
+  "name": "Nanite Wraith",
+  "model": "human",
+  "tint": [
+   0.35,
+   0.9,
+   1.0
+  ],
+  "scale": 1.05,
+  "hp": 210,
+  "damage": 28,
+  "speed": 3.8,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.2,
+  "qi": 95,
+  "loot": {
+   "gold": [
+    18,
+    34
+   ],
+   "nanite_shard": [
+    0,
+    1
+   ]
+  }
+ },
+ "sanctum_sentinel": {
+  "floor": 4,
+  "name": "Sanctum Sentinel",
+  "model": "orc",
+  "tint": [
+   0.7,
+   0.75,
+   0.95
+  ],
+  "scale": 1.4,
+  "hp": 420,
+  "damage": 38,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.3,
+  "cooldown": 1.7,
+  "qi": 160,
+  "loot": {
+   "gold": [
+    30,
+    60
+   ],
+   "nanite_shard": [
+    1,
+    2
+   ]
+  }
+ },
+ "corrupted_warden": {
+  "floor": 4,
+  "name": "Corrupted Warden",
+  "model": "human",
+  "tint": [
+   0.95,
+   0.3,
+   0.9
+  ],
+  "scale": 2.0,
+  "boss": true,
+  "hp": 1600,
+  "damage": 48,
+  "speed": 3.0,
+  "aggro": 14,
+  "range": 3.0,
+  "cooldown": 1.5,
+  "qi": 1200,
+  "loot": {
+   "gold": [
+    300,
+    400
+   ],
+   "nanite_shard": [
+    4,
+    6
+   ],
+   "warden_core": [
+    1,
+    1
+   ]
+  }
+ },
+ "cave_hare": {
+  "floor": 1,
+  "name": "Cave Hare",
+  "model": "beast",
+  "tint": [
+   0.75,
+   0.7,
+   0.62
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "flees": true,
+  "tameable": 3,
+  "familiar": {
+   "name": "Burrow",
+   "finds": [
+    "spirit_herb",
+    "ember_root",
+    "iron_ore"
+   ],
+   "effect": {
+    "gather_chance": 0.1,
+    "sense_radius": 3
+   }
+  },
+  "hp": 12,
+  "damage": 0,
+  "speed": 5.2,
+  "aggro": 7,
+  "range": 1.0,
+  "cooldown": 2.0,
+  "qi": 3,
+  "loot": {
+   "raw_meat": [
+    1,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  }
+ },
+ "tunnel_boar": {
+  "floor": 2,
+  "name": "Tunnel Boar",
+  "model": "beast",
+  "tint": [
+   0.45,
+   0.33,
+   0.25
+  ],
+  "scale": 1.6,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 5,
+  "familiar": {
+   "name": "Tusk",
+   "finds": [
+    "iron_ore",
+    "raw_meat",
+    "rough_jade"
+   ],
+   "effect": {
+    "damage_mult": 1.05,
+    "hp_mult": 1.05
+   }
+  },
+  "hp": 70,
+  "damage": 12,
+  "speed": 3.6,
+  "aggro": 6,
+  "range": 1.6,
+  "cooldown": 1.6,
+  "qi": 14,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "thornling": {
+  "floor": 6,
+  "name": "Thornling",
+  "model": "orc",
+  "tint": [
+   0.4,
+   0.75,
+   0.3
+  ],
+  "scale": 0.85,
+  "hp": 230,
+  "damage": 30,
+  "speed": 4.2,
+  "aggro": 9,
+  "range": 1.7,
+  "cooldown": 1.0,
+  "qi": 110,
+  "loot": {
+   "gold": [
+    16,
+    30
+   ],
+   "spirit_resin": [
+    0,
+    1
+   ],
+   "spirit_herb": [
+    0,
+    2
+   ]
+  }
+ },
+ "rootbound_monk": {
+  "floor": 6,
+  "name": "Rootbound Monk",
+  "model": "human",
+  "tint": [
+   0.45,
+   0.6,
+   0.35
+  ],
+  "scale": 1.3,
+  "hp": 520,
+  "damage": 40,
+  "speed": 2.5,
+  "aggro": 8,
+  "range": 2.2,
+  "cooldown": 1.7,
+  "qi": 190,
+  "loot": {
+   "gold": [
+    30,
+    55
+   ],
+   "heartwood": [
+    0,
+    1
+   ],
+   "spirit_resin": [
+    0,
+    1
+   ]
+  }
+ },
+ "grove_mother": {
+  "floor": 6,
+  "name": "The Grove Mother",
+  "model": "human",
+  "tint": [
+   0.35,
+   0.8,
+   0.45
+  ],
+  "scale": 2.2,
+  "boss": true,
+  "hp": 2200,
+  "damage": 56,
+  "speed": 2.8,
+  "aggro": 14,
+  "range": 3.2,
+  "cooldown": 1.6,
+  "qi": 1600,
+  "loot": {
+   "gold": [
+    380,
+    500
+   ],
+   "heartwood": [
+    2,
+    4
+   ],
+   "spirit_resin": [
+    3,
+    5
+   ],
+   "verdant_heart": [
+    1,
+    1
+   ]
+  }
+ },
+ "moss_stag": {
+  "floor": 6,
+  "name": "Moss Stag",
+  "model": "beast",
+  "tint": [
+   0.4,
+   0.6,
+   0.35
+  ],
+  "scale": 1.9,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Fern",
+   "finds": [
+    "spirit_herb",
+    "moonpetal",
+    "spirit_resin"
+   ],
+   "effect": {
+    "gather_chance": 0.1
+   }
+  },
+  "hp": 120,
+  "damage": 16,
+  "speed": 4.4,
+  "aggro": 7,
+  "range": 1.8,
+  "cooldown": 1.5,
+  "qi": 30,
+  "loot": {
+   "raw_meat": [
+    1,
+    3
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "cinder_imp": {
+  "floor": 7,
+  "name": "Cinder Imp",
+  "model": "orc",
+  "tint": [
+   1.0,
+   0.45,
+   0.2
+  ],
+  "scale": 0.75,
+  "hp": 260,
+  "damage": 36,
+  "speed": 4.6,
+  "aggro": 10,
+  "range": 1.6,
+  "cooldown": 0.9,
+  "qi": 130,
+  "loot": {
+   "gold": [
+    18,
+    34
+   ],
+   "firestone": [
+    0,
+    1
+   ],
+   "ember_root": [
+    0,
+    1
+   ]
+  }
+ },
+ "slag_brute": {
+  "floor": 7,
+  "name": "Slag Brute",
+  "model": "orc",
+  "tint": [
+   0.5,
+   0.35,
+   0.3
+  ],
+  "scale": 1.6,
+  "hp": 700,
+  "damage": 50,
+  "speed": 2.3,
+  "aggro": 8,
+  "range": 2.4,
+  "cooldown": 1.9,
+  "qi": 240,
+  "loot": {
+   "gold": [
+    35,
+    65
+   ],
+   "slag_iron": [
+    1,
+    2
+   ]
+  }
+ },
+ "furnace_sovereign": {
+  "floor": 7,
+  "name": "The Furnace Sovereign",
+  "model": "human",
+  "tint": [
+   1.0,
+   0.5,
+   0.25
+  ],
+  "scale": 2.2,
+  "boss": true,
+  "hp": 2900,
+  "damage": 64,
+  "speed": 3.0,
+  "aggro": 14,
+  "range": 3.2,
+  "cooldown": 1.5,
+  "qi": 2100,
+  "loot": {
+   "gold": [
+    450,
+    600
+   ],
+   "firestone": [
+    3,
+    5
+   ],
+   "slag_iron": [
+    3,
+    5
+   ],
+   "sovereign_ember": [
+    1,
+    1
+   ]
+  }
+ },
+ "ember_salamander": {
+  "floor": 7,
+  "name": "Ember Salamander",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.4,
+   0.2
+  ],
+  "scale": 1.3,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Cinder",
+   "finds": [
+    "ember_root",
+    "gold_nugget",
+    "firestone"
+   ],
+   "effect": {
+    "damage_mult": 1.06
+   }
+  },
+  "hp": 140,
+  "damage": 20,
+  "speed": 4.0,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.4,
+  "qi": 34,
+  "loot": {
+   "beast_hide": [
+    1,
+    2
+   ],
+   "firestone": [
+    0,
+    1
+   ]
+  }
+ },
+ "clay_soldier": {
+  "floor": 8,
+  "name": "Clay Soldier",
+  "model": "human",
+  "tint": [
+   0.8,
+   0.6,
+   0.42
+  ],
+  "scale": 1.15,
+  "hp": 380,
+  "damage": 66,
+  "speed": 2.9,
+  "aggro": 9,
+  "range": 2.0,
+  "cooldown": 1.4,
+  "qi": 170,
+  "loot": {
+   "gold": [
+    22,
+    40
+   ],
+   "ancient_clay": [
+    1,
+    2
+   ]
+  }
+ },
+ "clay_cavalier": {
+  "floor": 8,
+  "name": "Clay Cavalier",
+  "model": "orc",
+  "tint": [
+   0.7,
+   0.5,
+   0.35
+  ],
+  "scale": 1.7,
+  "hp": 900,
+  "damage": 58,
+  "speed": 3.4,
+  "aggro": 10,
+  "range": 2.6,
+  "cooldown": 1.8,
+  "qi": 300,
+  "loot": {
+   "gold": [
+    40,
+    75
+   ],
+   "ancient_clay": [
+    1,
+    3
+   ],
+   "emperor_jade": [
+    0,
+    1
+   ]
+  }
+ },
+ "buried_emperor": {
+  "floor": 8,
+  "name": "The Buried Emperor",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.75,
+   0.4
+  ],
+  "scale": 2.4,
+  "boss": true,
+  "hp": 3800,
+  "damage": 72,
+  "speed": 2.6,
+  "aggro": 15,
+  "range": 3.4,
+  "cooldown": 1.6,
+  "qi": 2800,
+  "loot": {
+   "gold": [
+    550,
+    750
+   ],
+   "emperor_jade": [
+    2,
+    4
+   ],
+   "imperial_seal": [
+    1,
+    1
+   ]
+  }
+ },
+ "burrow_mole": {
+  "floor": 8,
+  "name": "Burrow Mole",
+  "model": "beast",
+  "tint": [
+   0.5,
+   0.42,
+   0.35
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Delve",
+   "finds": [
+    "iron_ore",
+    "silver_ore",
+    "rough_ruby",
+    "gold_nugget"
+   ],
+   "effect": {
+    "gather_chance": 0.12
+   }
+  },
+  "hp": 110,
+  "damage": 14,
+  "speed": 3.4,
+  "aggro": 6,
+  "range": 1.6,
+  "cooldown": 1.5,
+  "qi": 32,
+  "loot": {
+   "beast_hide": [
+    1,
+    2
+   ],
+   "raw_meat": [
+    1,
+    2
+   ]
+  }
+ },
+ "sword_wraith": {
+  "floor": 9,
+  "name": "Sword Wraith",
+  "model": "human",
+  "tint": [
+   0.8,
+   0.85,
+   0.95
+  ],
+  "scale": 1.0,
+  "hp": 340,
+  "damage": 53,
+  "speed": 4.4,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.0,
+  "qi": 210,
+  "loot": {
+   "gold": [
+    26,
+    48
+   ],
+   "grave_steel": [
+    0,
+    1
+   ]
+  }
+ },
+ "grave_keeper": {
+  "floor": 9,
+  "name": "Grave Keeper",
+  "model": "orc",
+  "tint": [
+   0.55,
+   0.58,
+   0.65
+  ],
+  "scale": 1.6,
+  "hp": 1100,
+  "damage": 64,
+  "speed": 2.4,
+  "aggro": 9,
+  "range": 2.5,
+  "cooldown": 1.8,
+  "qi": 360,
+  "loot": {
+   "gold": [
+    50,
+    90
+   ],
+   "grave_steel": [
+    1,
+    3
+   ]
+  }
+ },
+ "sword_saint_shade": {
+  "floor": 9,
+  "name": "Shade of the Sword Saint",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.9,
+   1.0
+  ],
+  "scale": 2.0,
+  "boss": true,
+  "hp": 4600,
+  "damage": 85,
+  "speed": 3.6,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 3600,
+  "loot": {
+   "gold": [
+    700,
+    900
+   ],
+   "grave_steel": [
+    4,
+    6
+   ],
+   "sword_intent_shard": [
+    1,
+    1
+   ]
+  }
+ },
+ "steel_crow": {
+  "floor": 9,
+  "name": "Steel Crow",
+  "model": "beast",
+  "tint": [
+   0.6,
+   0.65,
+   0.75
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Glint",
+   "finds": [
+    "grave_steel",
+    "silver_ore",
+    "sapphire_shard"
+   ],
+   "effect": {
+    "damage_mult": 1.04,
+    "hp_mult": 1.04
+   }
+  },
+  "hp": 90,
+  "damage": 18,
+  "speed": 5.0,
+  "aggro": 8,
+  "range": 1.6,
+  "cooldown": 1.2,
+  "qi": 36,
+  "loot": {
+   "grave_steel": [
+    0,
+    1
+   ],
+   "raw_meat": [
+    0,
+    1
+   ]
+  }
+ },
+ "drowned_weak_f11": {
+  "floor": 11,
+  "name": "Drowned Courtier",
+  "model": "human",
+  "tint": [
+   0.45,
+   0.7,
+   0.7
+  ],
+  "scale": 1.0,
+  "hp": 469,
+  "damage": 69,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 298,
+  "loot": {
+   "gold": [
+    22,
+    44
+   ],
+   "abyssal_pearl": [
+    0,
+    1
+   ]
+  }
+ },
+ "drowned_brute_f11": {
+  "floor": 11,
+  "name": "Coral Brute",
+  "model": "orc",
+  "tint": [
+   0.9,
+   0.55,
+   0.5
+  ],
+  "scale": 1.7,
+  "hp": 1223,
+  "damage": 89,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 744,
+  "loot": {
+   "gold": [
+    44,
+    77
+   ],
+   "coral_bone": [
+    1,
+    2
+   ],
+   "abyssal_pearl": [
+    0,
+    1
+   ]
+  }
+ },
+ "drowned_boss_f11": {
+  "floor": 11,
+  "name": "The Sea-Widow Empress",
+  "model": "human",
+  "tint": [
+   0.55,
+   0.8,
+   0.85
+  ],
+  "scale": 2.3,
+  "boss": true,
+  "hp": 6115,
+  "damage": 113,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 3573,
+  "loot": {
+   "gold": [
+    440,
+    660
+   ],
+   "abyssal_pearl": [
+    3,
+    5
+   ],
+   "coral_bone": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "drowned_animal_f11": {
+  "floor": 11,
+  "name": "Salt Crab",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.45,
+   0.35
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Pinch",
+   "finds": [
+    "abyssal_pearl",
+    "coral_bone",
+    "spirit_herb"
+   ],
+   "effect": {
+    "damage_taken": 0.97
+   }
+  },
+  "hp": 245,
+  "damage": 41,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 99,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "cloudruins_weak_f13": {
+  "floor": 13,
+  "name": "Cloud Wisp Guard",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.9,
+   1.0
+  ],
+  "scale": 1.0,
+  "hp": 539,
+  "damage": 79,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 726,
+  "loot": {
+   "gold": [
+    26,
+    52
+   ],
+   "cloud_jade": [
+    0,
+    1
+   ]
+  }
+ },
+ "cloudruins_brute_f13": {
+  "floor": 13,
+  "name": "Celestial Guardian",
+  "model": "orc",
+  "tint": [
+   0.9,
+   0.85,
+   0.6
+  ],
+  "scale": 1.9,
+  "hp": 1407,
+  "damage": 101,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 1814,
+  "loot": {
+   "gold": [
+    52,
+    91
+   ],
+   "immortal_dust": [
+    1,
+    2
+   ],
+   "cloud_jade": [
+    0,
+    1
+   ]
+  }
+ },
+ "cloudruins_boss_f13": {
+  "floor": 13,
+  "name": "The Fallen Immortal",
+  "model": "human",
+  "tint": [
+   1.0,
+   0.95,
+   0.8
+  ],
+  "scale": 2.4,
+  "boss": true,
+  "hp": 7036,
+  "damage": 129,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 8706,
+  "loot": {
+   "gold": [
+    520,
+    780
+   ],
+   "cloud_jade": [
+    3,
+    5
+   ],
+   "immortal_dust": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "cloudruins_animal_f13": {
+  "floor": 13,
+  "name": "Cloud Crane",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.95,
+   1.0
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Mist",
+   "finds": [
+    "cloud_jade",
+    "immortal_dust",
+    "spirit_herb"
+   ],
+   "effect": {
+    "meditate_mult": 1.1
+   }
+  },
+  "hp": 281,
+  "damage": 47,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 242,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "fungal_weak_f14": {
+  "floor": 14,
+  "name": "Sporeling",
+  "model": "orc",
+  "tint": [
+   0.55,
+   0.7,
+   0.4
+  ],
+  "scale": 0.8,
+  "hp": 593,
+  "damage": 86,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 1132,
+  "loot": {
+   "gold": [
+    28,
+    56
+   ],
+   "glowcap_spore": [
+    0,
+    1
+   ]
+  }
+ },
+ "fungal_brute_f14": {
+  "floor": 14,
+  "name": "Bloated Shambler",
+  "model": "orc",
+  "tint": [
+   0.5,
+   0.55,
+   0.35
+  ],
+  "scale": 1.7,
+  "hp": 1546,
+  "damage": 111,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 2831,
+  "loot": {
+   "gold": [
+    56,
+    98
+   ],
+   "mycelium_thread": [
+    1,
+    2
+   ],
+   "glowcap_spore": [
+    0,
+    1
+   ]
+  }
+ },
+ "fungal_boss_f14": {
+  "floor": 14,
+  "name": "The Mycelium Mother",
+  "model": "human",
+  "tint": [
+   0.65,
+   0.75,
+   0.45
+  ],
+  "scale": 2.3,
+  "boss": true,
+  "hp": 7730,
+  "damage": 141,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 13590,
+  "loot": {
+   "gold": [
+    560,
+    840
+   ],
+   "glowcap_spore": [
+    3,
+    5
+   ],
+   "mycelium_thread": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "fungal_animal_f14": {
+  "floor": 14,
+  "name": "Puffcap Toad",
+  "model": "beast",
+  "tint": [
+   0.7,
+   0.6,
+   0.45
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Puff",
+   "finds": [
+    "glowcap_spore",
+    "mycelium_thread",
+    "spirit_herb"
+   ],
+   "effect": {
+    "gather_chance": 0.1
+   }
+  },
+  "hp": 309,
+  "damage": 52,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 377,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "storm_weak_f16": {
+  "floor": 16,
+  "name": "Storm Imp",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.85,
+   1.0
+  ],
+  "scale": 0.8,
+  "hp": 663,
+  "damage": 96,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 2759,
+  "loot": {
+   "gold": [
+    32,
+    64
+   ],
+   "storm_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "storm_brute_f16": {
+  "floor": 16,
+  "name": "Thunder Brute",
+  "model": "orc",
+  "tint": [
+   0.55,
+   0.55,
+   0.75
+  ],
+  "scale": 1.7,
+  "hp": 1730,
+  "damage": 124,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 6898,
+  "loot": {
+   "gold": [
+    64,
+    112
+   ],
+   "thunder_iron": [
+    1,
+    2
+   ],
+   "storm_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "storm_boss_f16": {
+  "floor": 16,
+  "name": "The Storm Tyrant",
+  "model": "human",
+  "tint": [
+   0.9,
+   0.95,
+   1.0
+  ],
+  "scale": 2.3,
+  "boss": true,
+  "hp": 8650,
+  "damage": 158,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 33109,
+  "loot": {
+   "gold": [
+    640,
+    960
+   ],
+   "storm_glass": [
+    3,
+    5
+   ],
+   "thunder_iron": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "storm_animal_f16": {
+  "floor": 16,
+  "name": "Sky Goat",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.85,
+   0.85
+  ],
+  "scale": 1.2,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Bolt",
+   "finds": [
+    "storm_glass",
+    "thunder_iron",
+    "spirit_herb"
+   ],
+   "effect": {
+    "damage_mult": 1.05
+   }
+  },
+  "hp": 346,
+  "damage": 58,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 920,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "dragonspine_weak_f17": {
+  "floor": 17,
+  "name": "Drakeling",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.45,
+   0.3
+  ],
+  "scale": 0.9,
+  "hp": 716,
+  "damage": 104,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 4307,
+  "loot": {
+   "gold": [
+    34,
+    68
+   ],
+   "dragon_scale_shard": [
+    0,
+    1
+   ]
+  }
+ },
+ "dragonspine_brute_f17": {
+  "floor": 17,
+  "name": "Scale Guardian",
+  "model": "orc",
+  "tint": [
+   0.65,
+   0.35,
+   0.25
+  ],
+  "scale": 1.9,
+  "hp": 1869,
+  "damage": 134,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 10767,
+  "loot": {
+   "gold": [
+    68,
+    119
+   ],
+   "drake_blood": [
+    1,
+    2
+   ],
+   "dragon_scale_shard": [
+    0,
+    1
+   ]
+  }
+ },
+ "dragonspine_boss_f17": {
+  "floor": 17,
+  "name": "The Dragon's Dream",
+  "model": "human",
+  "tint": [
+   1.0,
+   0.55,
+   0.3
+  ],
+  "scale": 2.6,
+  "boss": true,
+  "hp": 9344,
+  "damage": 170,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 51680,
+  "loot": {
+   "gold": [
+    680,
+    1020
+   ],
+   "dragon_scale_shard": [
+    3,
+    5
+   ],
+   "drake_blood": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "dragonspine_animal_f17": {
+  "floor": 17,
+  "name": "Fire Newt",
+  "model": "beast",
+  "tint": [
+   1.0,
+   0.5,
+   0.25
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Spark",
+   "finds": [
+    "dragon_scale_shard",
+    "drake_blood",
+    "spirit_herb"
+   ],
+   "effect": {
+    "damage_mult": 1.05
+   }
+  },
+  "hp": 374,
+  "damage": 62,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 1436,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "crystal_weak_f19": {
+  "floor": 19,
+  "name": "Shard Wisp",
+  "model": "orc",
+  "tint": [
+   0.6,
+   0.85,
+   1.0
+  ],
+  "scale": 0.8,
+  "hp": 787,
+  "damage": 114,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 10493,
+  "loot": {
+   "gold": [
+    38,
+    76
+   ],
+   "singing_crystal": [
+    0,
+    1
+   ]
+  }
+ },
+ "crystal_brute_f19": {
+  "floor": 19,
+  "name": "Crystal Golem",
+  "model": "orc",
+  "tint": [
+   0.7,
+   0.8,
+   0.95
+  ],
+  "scale": 1.6,
+  "hp": 2053,
+  "damage": 146,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 26232,
+  "loot": {
+   "gold": [
+    76,
+    133
+   ],
+   "resonant_dust": [
+    1,
+    2
+   ],
+   "singing_crystal": [
+    0,
+    1
+   ]
+  }
+ },
+ "crystal_boss_f19": {
+  "floor": 19,
+  "name": "The Resonant Queen",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.9,
+   1.0
+  ],
+  "scale": 2.2,
+  "boss": true,
+  "hp": 10265,
+  "damage": 186,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 125914,
+  "loot": {
+   "gold": [
+    760,
+    1140
+   ],
+   "singing_crystal": [
+    3,
+    5
+   ],
+   "resonant_dust": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "crystal_animal_f19": {
+  "floor": 19,
+  "name": "Glass Moth",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.9,
+   1.0
+  ],
+  "scale": 0.8,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Chime",
+   "finds": [
+    "singing_crystal",
+    "resonant_dust",
+    "spirit_herb"
+   ],
+   "effect": {
+    "sense_radius": 3.0
+   }
+  },
+  "hp": 411,
+  "damage": 68,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 3498,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "canopy_weak_f12": {
+  "floor": 12,
+  "name": "Bloodvine Stalker",
+  "model": "orc",
+  "tint": [
+   0.75,
+   0.3,
+   0.3
+  ],
+  "scale": 0.9,
+  "hp": 504,
+  "damage": 74,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 465,
+  "loot": {
+   "gold": [
+    24,
+    48
+   ],
+   "bloodsap": [
+    0,
+    1
+   ]
+  }
+ },
+ "canopy_brute_f12": {
+  "floor": 12,
+  "name": "Thorn Behemoth",
+  "model": "orc",
+  "tint": [
+   0.55,
+   0.3,
+   0.25
+  ],
+  "scale": 1.9,
+  "hp": 1315,
+  "damage": 95,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 1162,
+  "loot": {
+   "gold": [
+    48,
+    84
+   ],
+   "crimson_bark": [
+    1,
+    2
+   ],
+   "bloodsap": [
+    0,
+    1
+   ]
+  }
+ },
+ "canopy_boss_f12": {
+  "floor": 12,
+  "name": "The Crimson Matriarch",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.35,
+   0.4
+  ],
+  "scale": 2.3,
+  "boss": true,
+  "hp": 6575,
+  "damage": 121,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 5578,
+  "loot": {
+   "gold": [
+    480,
+    720
+   ],
+   "bloodsap": [
+    3,
+    5
+   ],
+   "crimson_bark": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "canopy_animal_f12": {
+  "floor": 12,
+  "name": "Jewel Beetle",
+  "model": "beast",
+  "tint": [
+   0.3,
+   0.8,
+   0.5
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Gem",
+   "finds": [
+    "bloodsap",
+    "crimson_bark",
+    "spirit_herb"
+   ],
+   "effect": {
+    "gather_chance": 0.1
+   }
+  },
+  "hp": 263,
+  "damage": 44,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 155,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "starmine_weak_f18": {
+  "floor": 18,
+  "name": "Star-Touched Miner",
+  "model": "human",
+  "tint": [
+   0.65,
+   0.6,
+   0.95
+  ],
+  "scale": 1.0,
+  "hp": 752,
+  "damage": 109,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 6722,
+  "loot": {
+   "gold": [
+    36,
+    72
+   ],
+   "star_iron": [
+    0,
+    1
+   ]
+  }
+ },
+ "starmine_brute_f18": {
+  "floor": 18,
+  "name": "Meteor Golem",
+  "model": "orc",
+  "tint": [
+   0.45,
+   0.4,
+   0.55
+  ],
+  "scale": 1.9,
+  "hp": 1961,
+  "damage": 140,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 16806,
+  "loot": {
+   "gold": [
+    72,
+    126
+   ],
+   "meteor_glass": [
+    1,
+    2
+   ],
+   "star_iron": [
+    0,
+    1
+   ]
+  }
+ },
+ "starmine_boss_f18": {
+  "floor": 18,
+  "name": "The Heart of the Fallen Star",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.7,
+   1.0
+  ],
+  "scale": 2.4,
+  "boss": true,
+  "hp": 9805,
+  "damage": 178,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 80668,
+  "loot": {
+   "gold": [
+    720,
+    1080
+   ],
+   "star_iron": [
+    3,
+    5
+   ],
+   "meteor_glass": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "starmine_animal_f18": {
+  "floor": 18,
+  "name": "Starlight Ferret",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.85,
+   1.0
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Comet",
+   "finds": [
+    "star_iron",
+    "meteor_glass",
+    "spirit_herb"
+   ],
+   "effect": {
+    "gather_chance": 0.1
+   }
+  },
+  "hp": 392,
+  "damage": 65,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 2241,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "clockwork_weak_f21": {
+  "floor": 21,
+  "name": "Brass Sentry",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.7,
+   0.4
+  ],
+  "scale": 1.0,
+  "hp": 875,
+  "damage": 126,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 25565,
+  "loot": {
+   "gold": [
+    42,
+    84
+   ],
+   "brass_cog": [
+    0,
+    1
+   ]
+  }
+ },
+ "clockwork_brute_f21": {
+  "floor": 21,
+  "name": "Gear Juggernaut",
+  "model": "orc",
+  "tint": [
+   0.6,
+   0.5,
+   0.35
+  ],
+  "scale": 1.8,
+  "hp": 2284,
+  "damage": 162,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 63912,
+  "loot": {
+   "gold": [
+    84,
+    147
+   ],
+   "oil_of_motion": [
+    1,
+    2
+   ],
+   "brass_cog": [
+    0,
+    1
+   ]
+  }
+ },
+ "clockwork_boss_f21": {
+  "floor": 21,
+  "name": "The Clockmaster",
+  "model": "human",
+  "tint": [
+   0.95,
+   0.8,
+   0.5
+  ],
+  "scale": 2.2,
+  "boss": true,
+  "hp": 11419,
+  "damage": 207,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 306776,
+  "loot": {
+   "gold": [
+    840,
+    1260
+   ],
+   "brass_cog": [
+    3,
+    5
+   ],
+   "oil_of_motion": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "clockwork_animal_f21": {
+  "floor": 21,
+  "name": "Copper Beetle",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.5,
+   0.3
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Tick",
+   "finds": [
+    "brass_cog",
+    "oil_of_motion",
+    "spirit_herb"
+   ],
+   "effect": {
+    "attack_speed": 1.03
+   }
+  },
+  "hp": 457,
+  "damage": 76,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 8522,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "silk_weak_f22": {
+  "floor": 22,
+  "name": "Silk Spider",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.85,
+   0.8
+  ],
+  "scale": 0.8,
+  "hp": 911,
+  "damage": 131,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 39904,
+  "loot": {
+   "gold": [
+    44,
+    88
+   ],
+   "spirit_silk": [
+    0,
+    1
+   ]
+  }
+ },
+ "silk_brute_f22": {
+  "floor": 22,
+  "name": "Brood Guard",
+  "model": "orc",
+  "tint": [
+   0.4,
+   0.38,
+   0.42
+  ],
+  "scale": 1.7,
+  "hp": 2376,
+  "damage": 169,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 99760,
+  "loot": {
+   "gold": [
+    88,
+    154
+   ],
+   "venom_sac": [
+    1,
+    2
+   ],
+   "spirit_silk": [
+    0,
+    1
+   ]
+  }
+ },
+ "silk_boss_f22": {
+  "floor": 22,
+  "name": "The Weaver Queen",
+  "model": "human",
+  "tint": [
+   0.9,
+   0.85,
+   0.95
+  ],
+  "scale": 2.3,
+  "boss": true,
+  "hp": 11879,
+  "damage": 215,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 478846,
+  "loot": {
+   "gold": [
+    880,
+    1320
+   ],
+   "spirit_silk": [
+    3,
+    5
+   ],
+   "venom_sac": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "silk_animal_f22": {
+  "floor": 22,
+  "name": "Silkworm",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.95,
+   0.85
+  ],
+  "scale": 0.6,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Spool",
+   "finds": [
+    "spirit_silk",
+    "venom_sac",
+    "spirit_herb"
+   ],
+   "effect": {
+    "craft_quality_smithing": 0.04
+   }
+  },
+  "hp": 475,
+  "damage": 79,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 13301,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "ash_weak_f23": {
+  "floor": 23,
+  "name": "Ash Ghoul",
+  "model": "orc",
+  "tint": [
+   0.6,
+   0.55,
+   0.5
+  ],
+  "scale": 0.9,
+  "hp": 946,
+  "damage": 136,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 62286,
+  "loot": {
+   "gold": [
+    46,
+    92
+   ],
+   "ash_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "ash_brute_f23": {
+  "floor": 23,
+  "name": "Dune Colossus",
+  "model": "orc",
+  "tint": [
+   0.75,
+   0.62,
+   0.45
+  ],
+  "scale": 1.8,
+  "hp": 2468,
+  "damage": 175,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 155714,
+  "loot": {
+   "gold": [
+    92,
+    161
+   ],
+   "sunbaked_bone": [
+    1,
+    2
+   ],
+   "ash_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "ash_boss_f23": {
+  "floor": 23,
+  "name": "The Ash King",
+  "model": "human",
+  "tint": [
+   0.8,
+   0.7,
+   0.55
+  ],
+  "scale": 2.3,
+  "boss": true,
+  "hp": 12340,
+  "damage": 223,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 747429,
+  "loot": {
+   "gold": [
+    920,
+    1380
+   ],
+   "ash_glass": [
+    3,
+    5
+   ],
+   "sunbaked_bone": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "ash_animal_f23": {
+  "floor": 23,
+  "name": "Sand Lizard",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.7,
+   0.45
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Dune",
+   "finds": [
+    "ash_glass",
+    "sunbaked_bone",
+    "spirit_herb"
+   ],
+   "effect": {
+    "hp_mult": 1.04
+   }
+  },
+  "hp": 494,
+  "damage": 82,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 20762,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "frost_weak_f24": {
+  "floor": 24,
+  "name": "Frost-Bound Scholar",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.85,
+   1.0
+  ],
+  "scale": 1.0,
+  "hp": 999,
+  "damage": 144,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 97222,
+  "loot": {
+   "gold": [
+    48,
+    96
+   ],
+   "rime_ink": [
+    0,
+    1
+   ]
+  }
+ },
+ "frost_brute_f24": {
+  "floor": 24,
+  "name": "Rime Warden",
+  "model": "orc",
+  "tint": [
+   0.65,
+   0.75,
+   0.9
+  ],
+  "scale": 1.6,
+  "hp": 2607,
+  "damage": 185,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 243054,
+  "loot": {
+   "gold": [
+    96,
+    168
+   ],
+   "frost_vellum": [
+    1,
+    2
+   ],
+   "rime_ink": [
+    0,
+    1
+   ]
+  }
+ },
+ "frost_boss_f24": {
+  "floor": 24,
+  "name": "The Glacial Archivist",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.95,
+   1.0
+  ],
+  "scale": 2.2,
+  "boss": true,
+  "hp": 13034,
+  "damage": 235,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 1166659,
+  "loot": {
+   "gold": [
+    960,
+    1440
+   ],
+   "rime_ink": [
+    3,
+    5
+   ],
+   "frost_vellum": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "frost_animal_f24": {
+  "floor": 24,
+  "name": "Snow Hare",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.95,
+   1.0
+  ],
+  "scale": 0.8,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Flurry",
+   "finds": [
+    "rime_ink",
+    "frost_vellum",
+    "spirit_herb"
+   ],
+   "effect": {
+    "gather_chance": 0.08
+   }
+  },
+  "hp": 521,
+  "damage": 86,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 32407,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "mirror_weak_f25": {
+  "floor": 25,
+  "name": "Reflection",
+  "model": "human",
+  "tint": [
+   0.8,
+   0.8,
+   0.9
+  ],
+  "scale": 1.0,
+  "hp": 1035,
+  "damage": 149,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 151753,
+  "loot": {
+   "gold": [
+    50,
+    100
+   ],
+   "mirror_silver": [
+    0,
+    1
+   ]
+  }
+ },
+ "mirror_brute_f25": {
+  "floor": 25,
+  "name": "Shattered Self",
+  "model": "human",
+  "tint": [
+   0.65,
+   0.65,
+   0.75
+  ],
+  "scale": 1.5,
+  "hp": 2699,
+  "damage": 191,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 379382,
+  "loot": {
+   "gold": [
+    100,
+    175
+   ],
+   "true_reflection": [
+    1,
+    2
+   ],
+   "mirror_silver": [
+    0,
+    1
+   ]
+  }
+ },
+ "mirror_boss_f25": {
+  "floor": 25,
+  "name": "Your Own Reflection",
+  "model": "human",
+  "tint": [
+   0.9,
+   0.9,
+   1.0
+  ],
+  "scale": 1.8,
+  "boss": true,
+  "hp": 13494,
+  "damage": 244,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 1821033,
+  "loot": {
+   "gold": [
+    1000,
+    1500
+   ],
+   "mirror_silver": [
+    3,
+    5
+   ],
+   "true_reflection": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "mirror_animal_f25": {
+  "floor": 25,
+  "name": "Glass Cat",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.9,
+   1.0
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Glint",
+   "finds": [
+    "mirror_silver",
+    "true_reflection",
+    "spirit_herb"
+   ],
+   "effect": {
+    "sense_radius": 3.0
+   }
+  },
+  "hp": 540,
+  "damage": 89,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 50584,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "ghostmarket_weak_f26": {
+  "floor": 26,
+  "name": "Hungry Ghost",
+  "model": "human",
+  "tint": [
+   0.7,
+   0.75,
+   0.85
+  ],
+  "scale": 0.95,
+  "hp": 1070,
+  "damage": 154,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 236870,
+  "loot": {
+   "gold": [
+    52,
+    104
+   ],
+   "spirit_paper": [
+    0,
+    1
+   ]
+  }
+ },
+ "ghostmarket_brute_f26": {
+  "floor": 26,
+  "name": "Lantern-Bearer Wraith",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.6,
+   0.4
+  ],
+  "scale": 1.6,
+  "hp": 2791,
+  "damage": 198,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 592176,
+  "loot": {
+   "gold": [
+    104,
+    182
+   ],
+   "ghost_lantern_oil": [
+    1,
+    2
+   ],
+   "spirit_paper": [
+    0,
+    1
+   ]
+  }
+ },
+ "ghostmarket_boss_f26": {
+  "floor": 26,
+  "name": "The Ghost Broker",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.65,
+   0.9
+  ],
+  "scale": 2.2,
+  "boss": true,
+  "hp": 13954,
+  "damage": 252,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 2842444,
+  "loot": {
+   "gold": [
+    1040,
+    1560
+   ],
+   "spirit_paper": [
+    3,
+    5
+   ],
+   "ghost_lantern_oil": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "ghostmarket_animal_f26": {
+  "floor": 26,
+  "name": "Paper Crane",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.95,
+   0.9
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Fold",
+   "finds": [
+    "spirit_paper",
+    "ghost_lantern_oil",
+    "spirit_herb"
+   ],
+   "effect": {
+    "qi_mult": 1.04
+   }
+  },
+  "hp": 558,
+  "damage": 92,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 78957,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "drowned_weak_f27": {
+  "floor": 27,
+  "name": "Pearl Courtier",
+  "model": "human",
+  "tint": [
+   0.45,
+   0.7,
+   0.7
+  ],
+  "scale": 1.04,
+  "hp": 1123,
+  "damage": 161,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 369730,
+  "loot": {
+   "gold": [
+    54,
+    108
+   ],
+   "abyssal_pearl": [
+    0,
+    1
+   ]
+  }
+ },
+ "drowned_brute_f27": {
+  "floor": 27,
+  "name": "Reef Hulk",
+  "model": "orc",
+  "tint": [
+   0.9,
+   0.55,
+   0.5
+  ],
+  "scale": 1.768,
+  "hp": 2930,
+  "damage": 207,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 924325,
+  "loot": {
+   "gold": [
+    108,
+    189
+   ],
+   "coral_bone": [
+    1,
+    2
+   ],
+   "abyssal_pearl": [
+    0,
+    1
+   ]
+  }
+ },
+ "drowned_boss_f27": {
+  "floor": 27,
+  "name": "The Widow of the Salt Court",
+  "model": "human",
+  "tint": [
+   0.55,
+   0.8,
+   0.85
+  ],
+  "scale": 2.392,
+  "boss": true,
+  "hp": 14648,
+  "damage": 264,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 4436759,
+  "loot": {
+   "gold": [
+    1080,
+    1620
+   ],
+   "abyssal_pearl": [
+    3,
+    5
+   ],
+   "coral_bone": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "drowned_animal_f27": {
+  "floor": 27,
+  "name": "Brine Crab",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.45,
+   0.35
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Pinch",
+   "finds": [
+    "abyssal_pearl",
+    "coral_bone",
+    "spirit_herb"
+   ],
+   "effect": {
+    "damage_taken": 0.97
+   }
+  },
+  "hp": 586,
+  "damage": 97,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 123243,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "fungal_weak_f28": {
+  "floor": 28,
+  "name": "Gloomcap Sprout",
+  "model": "orc",
+  "tint": [
+   0.55,
+   0.7,
+   0.4
+  ],
+  "scale": 0.8320000000000001,
+  "hp": 1158,
+  "damage": 166,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 577110,
+  "loot": {
+   "gold": [
+    56,
+    112
+   ],
+   "glowcap_spore": [
+    0,
+    1
+   ]
+  }
+ },
+ "fungal_brute_f28": {
+  "floor": 28,
+  "name": "Rot-Belly Shambler",
+  "model": "orc",
+  "tint": [
+   0.5,
+   0.55,
+   0.35
+  ],
+  "scale": 1.768,
+  "hp": 3022,
+  "damage": 214,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 1442775,
+  "loot": {
+   "gold": [
+    112,
+    196
+   ],
+   "mycelium_thread": [
+    1,
+    2
+   ],
+   "glowcap_spore": [
+    0,
+    1
+   ]
+  }
+ },
+ "fungal_boss_f28": {
+  "floor": 28,
+  "name": "The Thread-Mother",
+  "model": "human",
+  "tint": [
+   0.65,
+   0.75,
+   0.45
+  ],
+  "scale": 2.392,
+  "boss": true,
+  "hp": 15109,
+  "damage": 272,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 6925320,
+  "loot": {
+   "gold": [
+    1120,
+    1680
+   ],
+   "glowcap_spore": [
+    3,
+    5
+   ],
+   "mycelium_thread": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "fungal_animal_f28": {
+  "floor": 28,
+  "name": "Sporecloud Toad",
+  "model": "beast",
+  "tint": [
+   0.7,
+   0.6,
+   0.45
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Puff",
+   "finds": [
+    "glowcap_spore",
+    "mycelium_thread",
+    "spirit_herb"
+   ],
+   "effect": {
+    "gather_chance": 0.1
+   }
+  },
+  "hp": 604,
+  "damage": 100,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 192370,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "clockwork_weak_f29": {
+  "floor": 29,
+  "name": "Rust-Plate Sentry",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.7,
+   0.4
+  ],
+  "scale": 1.04,
+  "hp": 1194,
+  "damage": 171,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 900809,
+  "loot": {
+   "gold": [
+    58,
+    116
+   ],
+   "brass_cog": [
+    0,
+    1
+   ]
+  }
+ },
+ "clockwork_brute_f29": {
+  "floor": 29,
+  "name": "Cog-Breaker",
+  "model": "orc",
+  "tint": [
+   0.6,
+   0.5,
+   0.35
+  ],
+  "scale": 1.872,
+  "hp": 3114,
+  "damage": 220,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 2252022,
+  "loot": {
+   "gold": [
+    116,
+    203
+   ],
+   "oil_of_motion": [
+    1,
+    2
+   ],
+   "brass_cog": [
+    0,
+    1
+   ]
+  }
+ },
+ "clockwork_boss_f29": {
+  "floor": 29,
+  "name": "The Stopped Clockmaster",
+  "model": "human",
+  "tint": [
+   0.95,
+   0.8,
+   0.5
+  ],
+  "scale": 2.2880000000000003,
+  "boss": true,
+  "hp": 15569,
+  "damage": 280,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 10809704,
+  "loot": {
+   "gold": [
+    1160,
+    1740
+   ],
+   "brass_cog": [
+    3,
+    5
+   ],
+   "oil_of_motion": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "clockwork_animal_f29": {
+  "floor": 29,
+  "name": "Verdigris Beetle",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.5,
+   0.3
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Tick",
+   "finds": [
+    "brass_cog",
+    "oil_of_motion",
+    "spirit_herb"
+   ],
+   "effect": {
+    "attack_speed": 1.03
+   }
+  },
+  "hp": 623,
+  "damage": 103,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 300270,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "dragonspine_weak_f31": {
+  "floor": 31,
+  "name": "Spine-Born Whelp",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.45,
+   0.3
+  ],
+  "scale": 0.936,
+  "hp": 1282,
+  "damage": 184,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 2194727,
+  "loot": {
+   "gold": [
+    62,
+    124
+   ],
+   "dragon_scale_shard": [
+    0,
+    1
+   ]
+  }
+ },
+ "dragonspine_brute_f31": {
+  "floor": 31,
+  "name": "Scale Warden",
+  "model": "orc",
+  "tint": [
+   0.65,
+   0.35,
+   0.25
+  ],
+  "scale": 1.976,
+  "hp": 3345,
+  "damage": 236,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 5486817,
+  "loot": {
+   "gold": [
+    124,
+    217
+   ],
+   "drake_blood": [
+    1,
+    2
+   ],
+   "dragon_scale_shard": [
+    0,
+    1
+   ]
+  }
+ },
+ "dragonspine_boss_f31": {
+  "floor": 31,
+  "name": "The Dreaming Wyrm",
+  "model": "human",
+  "tint": [
+   1.0,
+   0.55,
+   0.3
+  ],
+  "scale": 2.704,
+  "boss": true,
+  "hp": 16723,
+  "damage": 301,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 26336723,
+  "loot": {
+   "gold": [
+    1240,
+    1860
+   ],
+   "dragon_scale_shard": [
+    3,
+    5
+   ],
+   "drake_blood": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "dragonspine_animal_f31": {
+  "floor": 31,
+  "name": "Cinder Newt",
+  "model": "beast",
+  "tint": [
+   1.0,
+   0.5,
+   0.25
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Spark",
+   "finds": [
+    "dragon_scale_shard",
+    "drake_blood",
+    "spirit_herb"
+   ],
+   "effect": {
+    "damage_mult": 1.05
+   }
+  },
+  "hp": 669,
+  "damage": 110,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 731576,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "ash_weak_f32": {
+  "floor": 32,
+  "name": "Cinder Ghoul",
+  "model": "orc",
+  "tint": [
+   0.6,
+   0.55,
+   0.5
+  ],
+  "scale": 0.936,
+  "hp": 1317,
+  "damage": 189,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 3425740,
+  "loot": {
+   "gold": [
+    64,
+    128
+   ],
+   "ash_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "ash_brute_f32": {
+  "floor": 32,
+  "name": "Dune Titan",
+  "model": "orc",
+  "tint": [
+   0.75,
+   0.62,
+   0.45
+  ],
+  "scale": 1.872,
+  "hp": 3437,
+  "damage": 243,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 8564351,
+  "loot": {
+   "gold": [
+    128,
+    224
+   ],
+   "sunbaked_bone": [
+    1,
+    2
+   ],
+   "ash_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "ash_boss_f32": {
+  "floor": 32,
+  "name": "The Ember Regent",
+  "model": "human",
+  "tint": [
+   0.8,
+   0.7,
+   0.55
+  ],
+  "scale": 2.392,
+  "boss": true,
+  "hp": 17183,
+  "damage": 309,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 41108885,
+  "loot": {
+   "gold": [
+    1280,
+    1920
+   ],
+   "ash_glass": [
+    3,
+    5
+   ],
+   "sunbaked_bone": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "ash_animal_f32": {
+  "floor": 32,
+  "name": "Dust Lizard",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.7,
+   0.45
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Dune",
+   "finds": [
+    "ash_glass",
+    "sunbaked_bone",
+    "spirit_herb"
+   ],
+   "effect": {
+    "hp_mult": 1.04
+   }
+  },
+  "hp": 687,
+  "damage": 113,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 1141913,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "mirror_weak_f33": {
+  "floor": 33,
+  "name": "Cracked Reflection",
+  "model": "human",
+  "tint": [
+   0.8,
+   0.8,
+   0.9
+  ],
+  "scale": 1.04,
+  "hp": 1353,
+  "damage": 194,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 5347225,
+  "loot": {
+   "gold": [
+    66,
+    132
+   ],
+   "mirror_silver": [
+    0,
+    1
+   ]
+  }
+ },
+ "mirror_brute_f33": {
+  "floor": 33,
+  "name": "Splintered Self",
+  "model": "human",
+  "tint": [
+   0.65,
+   0.65,
+   0.75
+  ],
+  "scale": 1.56,
+  "hp": 3529,
+  "damage": 249,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 13368061,
+  "loot": {
+   "gold": [
+    132,
+    231
+   ],
+   "true_reflection": [
+    1,
+    2
+   ],
+   "mirror_silver": [
+    0,
+    1
+   ]
+  }
+ },
+ "mirror_boss_f33": {
+  "floor": 33,
+  "name": "The Self You Left Behind",
+  "model": "human",
+  "tint": [
+   0.9,
+   0.9,
+   1.0
+  ],
+  "scale": 1.872,
+  "boss": true,
+  "hp": 17644,
+  "damage": 317,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 64166694,
+  "loot": {
+   "gold": [
+    1320,
+    1980
+   ],
+   "mirror_silver": [
+    3,
+    5
+   ],
+   "true_reflection": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "mirror_animal_f33": {
+  "floor": 33,
+  "name": "Mirror Cat",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.9,
+   1.0
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Glint",
+   "finds": [
+    "mirror_silver",
+    "true_reflection",
+    "spirit_herb"
+   ],
+   "effect": {
+    "sense_radius": 3.0
+   }
+  },
+  "hp": 706,
+  "damage": 116,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 1782408,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "crystal_weak_f34": {
+  "floor": 34,
+  "name": "Prism Wisp",
+  "model": "orc",
+  "tint": [
+   0.6,
+   0.85,
+   1.0
+  ],
+  "scale": 0.8320000000000001,
+  "hp": 1406,
+  "damage": 201,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 8346461,
+  "loot": {
+   "gold": [
+    68,
+    136
+   ],
+   "singing_crystal": [
+    0,
+    1
+   ]
+  }
+ },
+ "crystal_brute_f34": {
+  "floor": 34,
+  "name": "Geode Golem",
+  "model": "orc",
+  "tint": [
+   0.7,
+   0.8,
+   0.95
+  ],
+  "scale": 1.6640000000000001,
+  "hp": 3668,
+  "damage": 259,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 20866153,
+  "loot": {
+   "gold": [
+    136,
+    238
+   ],
+   "resonant_dust": [
+    1,
+    2
+   ],
+   "singing_crystal": [
+    0,
+    1
+   ]
+  }
+ },
+ "crystal_boss_f34": {
+  "floor": 34,
+  "name": "The Chorus Queen",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.9,
+   1.0
+  ],
+  "scale": 2.2880000000000003,
+  "boss": true,
+  "hp": 18338,
+  "damage": 330,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 100157536,
+  "loot": {
+   "gold": [
+    1360,
+    2040
+   ],
+   "singing_crystal": [
+    3,
+    5
+   ],
+   "resonant_dust": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "crystal_animal_f34": {
+  "floor": 34,
+  "name": "Glasswing Moth",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.9,
+   1.0
+  ],
+  "scale": 0.8,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Chime",
+   "finds": [
+    "singing_crystal",
+    "resonant_dust",
+    "spirit_herb"
+   ],
+   "effect": {
+    "sense_radius": 3.0
+   }
+  },
+  "hp": 734,
+  "damage": 121,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 2782154,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "cloudruins_weak_f35": {
+  "floor": 35,
+  "name": "Vapour Sentinel",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.9,
+   1.0
+  ],
+  "scale": 1.04,
+  "hp": 1441,
+  "damage": 206,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 13027958,
+  "loot": {
+   "gold": [
+    70,
+    140
+   ],
+   "cloud_jade": [
+    0,
+    1
+   ]
+  }
+ },
+ "cloudruins_brute_f35": {
+  "floor": 35,
+  "name": "Sky-Gate Guardian",
+  "model": "orc",
+  "tint": [
+   0.9,
+   0.85,
+   0.6
+  ],
+  "scale": 1.976,
+  "hp": 3760,
+  "damage": 265,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 32569895,
+  "loot": {
+   "gold": [
+    140,
+    245
+   ],
+   "immortal_dust": [
+    1,
+    2
+   ],
+   "cloud_jade": [
+    0,
+    1
+   ]
+  }
+ },
+ "cloudruins_boss_f35": {
+  "floor": 35,
+  "name": "The Exiled Immortal",
+  "model": "human",
+  "tint": [
+   1.0,
+   0.95,
+   0.8
+  ],
+  "scale": 2.496,
+  "boss": true,
+  "hp": 18798,
+  "damage": 338,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 156335498,
+  "loot": {
+   "gold": [
+    1400,
+    2100
+   ],
+   "cloud_jade": [
+    3,
+    5
+   ],
+   "immortal_dust": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "cloudruins_animal_f35": {
+  "floor": 35,
+  "name": "Mist Crane",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.95,
+   1.0
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Mist",
+   "finds": [
+    "cloud_jade",
+    "immortal_dust",
+    "spirit_herb"
+   ],
+   "effect": {
+    "meditate_mult": 1.1
+   }
+  },
+  "hp": 752,
+  "damage": 124,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 4342653,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "storm_weak_f36": {
+  "floor": 36,
+  "name": "Spark Imp",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.85,
+   1.0
+  ],
+  "scale": 0.8320000000000001,
+  "hp": 1476,
+  "damage": 211,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 20335288,
+  "loot": {
+   "gold": [
+    72,
+    144
+   ],
+   "storm_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "storm_brute_f36": {
+  "floor": 36,
+  "name": "Thunderhide",
+  "model": "orc",
+  "tint": [
+   0.55,
+   0.55,
+   0.75
+  ],
+  "scale": 1.768,
+  "hp": 3852,
+  "damage": 272,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 50838219,
+  "loot": {
+   "gold": [
+    144,
+    252
+   ],
+   "thunder_iron": [
+    1,
+    2
+   ],
+   "storm_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "storm_boss_f36": {
+  "floor": 36,
+  "name": "The Tempest Tyrant",
+  "model": "human",
+  "tint": [
+   0.9,
+   0.95,
+   1.0
+  ],
+  "scale": 2.392,
+  "boss": true,
+  "hp": 19258,
+  "damage": 346,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 244023453,
+  "loot": {
+   "gold": [
+    1440,
+    2160
+   ],
+   "storm_glass": [
+    3,
+    5
+   ],
+   "thunder_iron": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "storm_animal_f36": {
+  "floor": 36,
+  "name": "Gale Goat",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.85,
+   0.85
+  ],
+  "scale": 1.2,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Bolt",
+   "finds": [
+    "storm_glass",
+    "thunder_iron",
+    "spirit_herb"
+   ],
+   "effect": {
+    "damage_mult": 1.05
+   }
+  },
+  "hp": 770,
+  "damage": 127,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 6778429,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "silk_weak_f37": {
+  "floor": 37,
+  "name": "Thread Spider",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.85,
+   0.8
+  ],
+  "scale": 0.8320000000000001,
+  "hp": 1530,
+  "damage": 219,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 31741269,
+  "loot": {
+   "gold": [
+    74,
+    148
+   ],
+   "spirit_silk": [
+    0,
+    1
+   ]
+  }
+ },
+ "silk_brute_f37": {
+  "floor": 37,
+  "name": "Nest Warden",
+  "model": "orc",
+  "tint": [
+   0.4,
+   0.38,
+   0.42
+  ],
+  "scale": 1.768,
+  "hp": 3990,
+  "damage": 281,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 79353173,
+  "loot": {
+   "gold": [
+    148,
+    259
+   ],
+   "venom_sac": [
+    1,
+    2
+   ],
+   "spirit_silk": [
+    0,
+    1
+   ]
+  }
+ },
+ "silk_boss_f37": {
+  "floor": 37,
+  "name": "The Loom-Queen",
+  "model": "human",
+  "tint": [
+   0.9,
+   0.85,
+   0.95
+  ],
+  "scale": 2.392,
+  "boss": true,
+  "hp": 19952,
+  "damage": 358,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 380895232,
+  "loot": {
+   "gold": [
+    1480,
+    2220
+   ],
+   "spirit_silk": [
+    3,
+    5
+   ],
+   "venom_sac": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "silk_animal_f37": {
+  "floor": 37,
+  "name": "Gossamer Worm",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.95,
+   0.85
+  ],
+  "scale": 0.6,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Spool",
+   "finds": [
+    "spirit_silk",
+    "venom_sac",
+    "spirit_herb"
+   ],
+   "effect": {
+    "craft_quality_smithing": 0.04
+   }
+  },
+  "hp": 798,
+  "damage": 131,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 10580423,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "starmine_weak_f38": {
+  "floor": 38,
+  "name": "Starstruck Miner",
+  "model": "human",
+  "tint": [
+   0.65,
+   0.6,
+   0.95
+  ],
+  "scale": 1.04,
+  "hp": 1565,
+  "damage": 224,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 49544820,
+  "loot": {
+   "gold": [
+    76,
+    152
+   ],
+   "star_iron": [
+    0,
+    1
+   ]
+  }
+ },
+ "starmine_brute_f38": {
+  "floor": 38,
+  "name": "Impact Golem",
+  "model": "orc",
+  "tint": [
+   0.45,
+   0.4,
+   0.55
+  ],
+  "scale": 1.976,
+  "hp": 4083,
+  "damage": 288,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 123862051,
+  "loot": {
+   "gold": [
+    152,
+    266
+   ],
+   "meteor_glass": [
+    1,
+    2
+   ],
+   "star_iron": [
+    0,
+    1
+   ]
+  }
+ },
+ "starmine_boss_f38": {
+  "floor": 38,
+  "name": "The Fallen Star's Core",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.7,
+   1.0
+  ],
+  "scale": 2.496,
+  "boss": true,
+  "hp": 20413,
+  "damage": 366,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 594537844,
+  "loot": {
+   "gold": [
+    1520,
+    2280
+   ],
+   "star_iron": [
+    3,
+    5
+   ],
+   "meteor_glass": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "starmine_animal_f38": {
+  "floor": 38,
+  "name": "Glimmer Ferret",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.85,
+   1.0
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Comet",
+   "finds": [
+    "star_iron",
+    "meteor_glass",
+    "spirit_herb"
+   ],
+   "effect": {
+    "gather_chance": 0.1
+   }
+  },
+  "hp": 817,
+  "damage": 134,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 16514940,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "ghostmarket_weak_f39": {
+  "floor": 39,
+  "name": "Famished Shade",
+  "model": "human",
+  "tint": [
+   0.7,
+   0.75,
+   0.85
+  ],
+  "scale": 0.988,
+  "hp": 1600,
+  "damage": 229,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 77334312,
+  "loot": {
+   "gold": [
+    78,
+    156
+   ],
+   "spirit_paper": [
+    0,
+    1
+   ]
+  }
+ },
+ "ghostmarket_brute_f39": {
+  "floor": 39,
+  "name": "Lamp-Bearer Wraith",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.6,
+   0.4
+  ],
+  "scale": 1.6640000000000001,
+  "hp": 4175,
+  "damage": 294,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 193335780,
+  "loot": {
+   "gold": [
+    156,
+    273
+   ],
+   "ghost_lantern_oil": [
+    1,
+    2
+   ],
+   "spirit_paper": [
+    0,
+    1
+   ]
+  }
+ },
+ "ghostmarket_boss_f39": {
+  "floor": 39,
+  "name": "The Broker of Last Words",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.65,
+   0.9
+  ],
+  "scale": 2.2880000000000003,
+  "boss": true,
+  "hp": 20873,
+  "damage": 374,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 928011743,
+  "loot": {
+   "gold": [
+    1560,
+    2340
+   ],
+   "spirit_paper": [
+    3,
+    5
+   ],
+   "ghost_lantern_oil": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "ghostmarket_animal_f39": {
+  "floor": 39,
+  "name": "Paper Heron",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.95,
+   0.9
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Fold",
+   "finds": [
+    "spirit_paper",
+    "ghost_lantern_oil",
+    "spirit_herb"
+   ],
+   "effect": {
+    "qi_mult": 1.04
+   }
+  },
+  "hp": 835,
+  "damage": 137,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 25778104,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "canopy_weak_f41": {
+  "floor": 41,
+  "name": "Redvine Stalker",
+  "model": "orc",
+  "tint": [
+   0.75,
+   0.3,
+   0.3
+  ],
+  "scale": 0.936,
+  "hp": 1689,
+  "damage": 241,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 188417033,
+  "loot": {
+   "gold": [
+    82,
+    164
+   ],
+   "bloodsap": [
+    0,
+    1
+   ]
+  }
+ },
+ "canopy_brute_f41": {
+  "floor": 41,
+  "name": "Briar Behemoth",
+  "model": "orc",
+  "tint": [
+   0.55,
+   0.3,
+   0.25
+  ],
+  "scale": 1.976,
+  "hp": 4405,
+  "damage": 310,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 471042583,
+  "loot": {
+   "gold": [
+    164,
+    287
+   ],
+   "crimson_bark": [
+    1,
+    2
+   ],
+   "bloodsap": [
+    0,
+    1
+   ]
+  }
+ },
+ "canopy_boss_f41": {
+  "floor": 41,
+  "name": "The Scarlet Matriarch",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.35,
+   0.4
+  ],
+  "scale": 2.392,
+  "boss": true,
+  "hp": 22027,
+  "damage": 395,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 2261004398,
+  "loot": {
+   "gold": [
+    1640,
+    2460
+   ],
+   "bloodsap": [
+    3,
+    5
+   ],
+   "crimson_bark": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "canopy_animal_f41": {
+  "floor": 41,
+  "name": "Gem-Shell Beetle",
+  "model": "beast",
+  "tint": [
+   0.3,
+   0.8,
+   0.5
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Gem",
+   "finds": [
+    "bloodsap",
+    "crimson_bark",
+    "spirit_herb"
+   ],
+   "effect": {
+    "gather_chance": 0.1
+   }
+  },
+  "hp": 881,
+  "damage": 145,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 62805678,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "frost_weak_f42": {
+  "floor": 42,
+  "name": "Frozen Scribe",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.85,
+   1.0
+  ],
+  "scale": 1.04,
+  "hp": 1724,
+  "damage": 234,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 294099393,
+  "loot": {
+   "gold": [
+    84,
+    168
+   ],
+   "rime_ink": [
+    0,
+    1
+   ]
+  }
+ },
+ "frost_brute_f42": {
+  "floor": 42,
+  "name": "Hoar Warden",
+  "model": "orc",
+  "tint": [
+   0.65,
+   0.75,
+   0.9
+  ],
+  "scale": 1.6640000000000001,
+  "hp": 4497,
+  "damage": 301,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 735248484,
+  "loot": {
+   "gold": [
+    168,
+    294
+   ],
+   "frost_vellum": [
+    1,
+    2
+   ],
+   "rime_ink": [
+    0,
+    1
+   ]
+  }
+ },
+ "frost_boss_f42": {
+  "floor": 42,
+  "name": "The Archivist of Ice",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.95,
+   1.0
+  ],
+  "scale": 2.2880000000000003,
+  "boss": true,
+  "hp": 22487,
+  "damage": 403,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 3529192721,
+  "loot": {
+   "gold": [
+    1680,
+    2520
+   ],
+   "rime_ink": [
+    3,
+    5
+   ],
+   "frost_vellum": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "frost_animal_f42": {
+  "floor": 42,
+  "name": "White Hare",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.95,
+   1.0
+  ],
+  "scale": 0.8,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Flurry",
+   "finds": [
+    "rime_ink",
+    "frost_vellum",
+    "spirit_herb"
+   ],
+   "effect": {
+    "gather_chance": 0.08
+   }
+  },
+  "hp": 899,
+  "damage": 141,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 98033131,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "clockwork_weak_f43": {
+  "floor": 43,
+  "name": "Tempered Sentry",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.7,
+   0.4
+  ],
+  "scale": 1.08,
+  "hp": 1759,
+  "damage": 238,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 459058567,
+  "loot": {
+   "gold": [
+    86,
+    172
+   ],
+   "brass_cog": [
+    0,
+    1
+   ]
+  }
+ },
+ "clockwork_brute_f43": {
+  "floor": 43,
+  "name": "Flywheel Juggernaut",
+  "model": "orc",
+  "tint": [
+   0.6,
+   0.5,
+   0.35
+  ],
+  "scale": 1.9440000000000002,
+  "hp": 4590,
+  "damage": 307,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 1147646417,
+  "loot": {
+   "gold": [
+    172,
+    301
+   ],
+   "oil_of_motion": [
+    1,
+    2
+   ],
+   "brass_cog": [
+    0,
+    1
+   ]
+  }
+ },
+ "clockwork_boss_f43": {
+  "floor": 43,
+  "name": "The Clockmaster's Echo",
+  "model": "human",
+  "tint": [
+   0.95,
+   0.8,
+   0.5
+  ],
+  "scale": 2.3760000000000003,
+  "boss": true,
+  "hp": 22948,
+  "damage": 411,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 5508702802,
+  "loot": {
+   "gold": [
+    1720,
+    2580
+   ],
+   "brass_cog": [
+    3,
+    5
+   ],
+   "oil_of_motion": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "clockwork_animal_f43": {
+  "floor": 43,
+  "name": "Mainspring Beetle",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.5,
+   0.3
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 8,
+  "familiar": {
+   "name": "Tick",
+   "finds": [
+    "brass_cog",
+    "oil_of_motion",
+    "spirit_herb"
+   ],
+   "effect": {
+    "attack_speed": 1.03
+   }
+  },
+  "hp": 918,
+  "damage": 143,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 153019522,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "starmine_weak_f44": {
+  "floor": 44,
+  "name": "Void-Dusted Miner",
+  "model": "human",
+  "tint": [
+   0.65,
+   0.6,
+   0.95
+  ],
+  "scale": 1.08,
+  "hp": 1813,
+  "damage": 246,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 716542681,
+  "loot": {
+   "gold": [
+    88,
+    176
+   ],
+   "star_iron": [
+    0,
+    1
+   ]
+  }
+ },
+ "starmine_brute_f44": {
+  "floor": 44,
+  "name": "Crater Golem",
+  "model": "orc",
+  "tint": [
+   0.45,
+   0.4,
+   0.55
+  ],
+  "scale": 2.052,
+  "hp": 4728,
+  "damage": 316,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 1791356702,
+  "loot": {
+   "gold": [
+    176,
+    308
+   ],
+   "meteor_glass": [
+    1,
+    2
+   ],
+   "star_iron": [
+    0,
+    1
+   ]
+  }
+ },
+ "starmine_boss_f44": {
+  "floor": 44,
+  "name": "The Star That Would Not Die",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.7,
+   1.0
+  ],
+  "scale": 2.592,
+  "boss": true,
+  "hp": 23642,
+  "damage": 424,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 8598512169,
+  "loot": {
+   "gold": [
+    1760,
+    2640
+   ],
+   "star_iron": [
+    3,
+    5
+   ],
+   "meteor_glass": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "starmine_animal_f44": {
+  "floor": 44,
+  "name": "Nova Ferret",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.85,
+   1.0
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 8,
+  "familiar": {
+   "name": "Comet",
+   "finds": [
+    "star_iron",
+    "meteor_glass",
+    "spirit_herb"
+   ],
+   "effect": {
+    "gather_chance": 0.1
+   }
+  },
+  "hp": 946,
+  "damage": 147,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 238847560,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "storm_weak_f45": {
+  "floor": 45,
+  "name": "Bolt Imp",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.85,
+   1.0
+  ],
+  "scale": 0.8640000000000001,
+  "hp": 1848,
+  "damage": 251,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 1118448604,
+  "loot": {
+   "gold": [
+    90,
+    180
+   ],
+   "storm_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "storm_brute_f45": {
+  "floor": 45,
+  "name": "Stormcaller Brute",
+  "model": "orc",
+  "tint": [
+   0.55,
+   0.55,
+   0.75
+  ],
+  "scale": 1.836,
+  "hp": 4820,
+  "damage": 322,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 2796121510,
+  "loot": {
+   "gold": [
+    180,
+    315
+   ],
+   "thunder_iron": [
+    1,
+    2
+   ],
+   "storm_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "storm_boss_f45": {
+  "floor": 45,
+  "name": "The Eye of the Storm",
+  "model": "human",
+  "tint": [
+   0.9,
+   0.95,
+   1.0
+  ],
+  "scale": 2.484,
+  "boss": true,
+  "hp": 24102,
+  "damage": 432,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 13421383250,
+  "loot": {
+   "gold": [
+    1800,
+    2700
+   ],
+   "storm_glass": [
+    3,
+    5
+   ],
+   "thunder_iron": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "storm_animal_f45": {
+  "floor": 45,
+  "name": "Cloudstep Goat",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.85,
+   0.85
+  ],
+  "scale": 1.2,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 8,
+  "familiar": {
+   "name": "Bolt",
+   "finds": [
+    "storm_glass",
+    "thunder_iron",
+    "spirit_herb"
+   ],
+   "effect": {
+    "damage_mult": 1.05
+   }
+  },
+  "hp": 964,
+  "damage": 150,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 372816201,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "ash_weak_f46": {
+  "floor": 46,
+  "name": "Pyre Ghoul",
+  "model": "orc",
+  "tint": [
+   0.6,
+   0.55,
+   0.5
+  ],
+  "scale": 0.9720000000000001,
+  "hp": 1883,
+  "damage": 256,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 1745781952,
+  "loot": {
+   "gold": [
+    92,
+    184
+   ],
+   "ash_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "ash_brute_f46": {
+  "floor": 46,
+  "name": "Dune Leviathan",
+  "model": "orc",
+  "tint": [
+   0.75,
+   0.62,
+   0.45
+  ],
+  "scale": 1.9440000000000002,
+  "hp": 4912,
+  "damage": 329,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 4364454881,
+  "loot": {
+   "gold": [
+    184,
+    322
+   ],
+   "sunbaked_bone": [
+    1,
+    2
+   ],
+   "ash_glass": [
+    0,
+    1
+   ]
+  }
+ },
+ "ash_boss_f46": {
+  "floor": 46,
+  "name": "The Ash Sovereign",
+  "model": "human",
+  "tint": [
+   0.8,
+   0.7,
+   0.55
+  ],
+  "scale": 2.484,
+  "boss": true,
+  "hp": 24562,
+  "damage": 440,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 20949383430,
+  "loot": {
+   "gold": [
+    1840,
+    2760
+   ],
+   "ash_glass": [
+    3,
+    5
+   ],
+   "sunbaked_bone": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "ash_animal_f46": {
+  "floor": 46,
+  "name": "Glass-Back Lizard",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.7,
+   0.45
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 8,
+  "familiar": {
+   "name": "Dune",
+   "finds": [
+    "ash_glass",
+    "sunbaked_bone",
+    "spirit_herb"
+   ],
+   "effect": {
+    "hp_mult": 1.04
+   }
+  },
+  "hp": 982,
+  "damage": 153,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 581927317,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "drowned_weak_f47": {
+  "floor": 47,
+  "name": "Abyssal Courtier",
+  "model": "human",
+  "tint": [
+   0.45,
+   0.7,
+   0.7
+  ],
+  "scale": 1.08,
+  "hp": 1936,
+  "damage": 262,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 2724984067,
+  "loot": {
+   "gold": [
+    94,
+    188
+   ],
+   "abyssal_pearl": [
+    0,
+    1
+   ]
+  }
+ },
+ "drowned_brute_f47": {
+  "floor": 47,
+  "name": "Trench Hulk",
+  "model": "orc",
+  "tint": [
+   0.9,
+   0.55,
+   0.5
+  ],
+  "scale": 1.836,
+  "hp": 5051,
+  "damage": 337,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 6812460166,
+  "loot": {
+   "gold": [
+    188,
+    329
+   ],
+   "coral_bone": [
+    1,
+    2
+   ],
+   "abyssal_pearl": [
+    0,
+    1
+   ]
+  }
+ },
+ "drowned_boss_f47": {
+  "floor": 47,
+  "name": "The Drowned Empress",
+  "model": "human",
+  "tint": [
+   0.55,
+   0.8,
+   0.85
+  ],
+  "scale": 2.484,
+  "boss": true,
+  "hp": 25256,
+  "damage": 452,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 32699808798,
+  "loot": {
+   "gold": [
+    1880,
+    2820
+   ],
+   "abyssal_pearl": [
+    3,
+    5
+   ],
+   "coral_bone": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "drowned_animal_f47": {
+  "floor": 47,
+  "name": "Black-Tide Crab",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.45,
+   0.35
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 8,
+  "familiar": {
+   "name": "Pinch",
+   "finds": [
+    "abyssal_pearl",
+    "coral_bone",
+    "spirit_herb"
+   ],
+   "effect": {
+    "damage_taken": 0.97
+   }
+  },
+  "hp": 1010,
+  "damage": 158,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 908328022,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "crystal_weak_f48": {
+  "floor": 48,
+  "name": "Tuning Wisp",
+  "model": "orc",
+  "tint": [
+   0.6,
+   0.85,
+   1.0
+  ],
+  "scale": 0.8640000000000001,
+  "hp": 1972,
+  "damage": 267,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 4253416729,
+  "loot": {
+   "gold": [
+    96,
+    192
+   ],
+   "singing_crystal": [
+    0,
+    1
+   ]
+  }
+ },
+ "crystal_brute_f48": {
+  "floor": 48,
+  "name": "Lattice Golem",
+  "model": "orc",
+  "tint": [
+   0.7,
+   0.8,
+   0.95
+  ],
+  "scale": 1.7280000000000002,
+  "hp": 5143,
+  "damage": 344,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 10633541824,
+  "loot": {
+   "gold": [
+    192,
+    336
+   ],
+   "resonant_dust": [
+    1,
+    2
+   ],
+   "singing_crystal": [
+    0,
+    1
+   ]
+  }
+ },
+ "crystal_boss_f48": {
+  "floor": 48,
+  "name": "The Last Resonant Queen",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.9,
+   1.0
+  ],
+  "scale": 2.3760000000000003,
+  "boss": true,
+  "hp": 25717,
+  "damage": 460,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 51041000754,
+  "loot": {
+   "gold": [
+    1920,
+    2880
+   ],
+   "singing_crystal": [
+    3,
+    5
+   ],
+   "resonant_dust": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "crystal_animal_f48": {
+  "floor": 48,
+  "name": "Choir Moth",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.9,
+   1.0
+  ],
+  "scale": 0.8,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 8,
+  "familiar": {
+   "name": "Chime",
+   "finds": [
+    "singing_crystal",
+    "resonant_dust",
+    "spirit_herb"
+   ],
+   "effect": {
+    "sense_radius": 3.0
+   }
+  },
+  "hp": 1029,
+  "damage": 161,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 1417805576,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "cloudruins_weak_f49": {
+  "floor": 49,
+  "name": "High Sentinel",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.9,
+   1.0
+  ],
+  "scale": 1.08,
+  "hp": 2007,
+  "damage": 272,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 6639141159,
+  "loot": {
+   "gold": [
+    98,
+    196
+   ],
+   "cloud_jade": [
+    0,
+    1
+   ]
+  }
+ },
+ "cloudruins_brute_f49": {
+  "floor": 49,
+  "name": "Throne Guardian",
+  "model": "orc",
+  "tint": [
+   0.9,
+   0.85,
+   0.6
+  ],
+  "scale": 2.052,
+  "hp": 5235,
+  "damage": 350,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 16597852898,
+  "loot": {
+   "gold": [
+    196,
+    343
+   ],
+   "immortal_dust": [
+    1,
+    2
+   ],
+   "cloud_jade": [
+    0,
+    1
+   ]
+  }
+ },
+ "cloudruins_boss_f49": {
+  "floor": 49,
+  "name": "The Immortal, Unbowed",
+  "model": "human",
+  "tint": [
+   1.0,
+   0.95,
+   0.8
+  ],
+  "scale": 2.592,
+  "boss": true,
+  "hp": 26177,
+  "damage": 469,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 79669693913,
+  "loot": {
+   "gold": [
+    1960,
+    2940
+   ],
+   "cloud_jade": [
+    3,
+    5
+   ],
+   "immortal_dust": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ]
+  }
+ },
+ "cloudruins_animal_f49": {
+  "floor": 49,
+  "name": "Ivory Crane",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.95,
+   1.0
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 8,
+  "familiar": {
+   "name": "Mist",
+   "finds": [
+    "cloud_jade",
+    "immortal_dust",
+    "spirit_herb"
+   ],
+   "effect": {
+    "meditate_mult": 1.1
+   }
+  },
+  "hp": 1047,
+  "damage": 163,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 2213047053,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "cloudruins_weak_f50": {
+  "floor": 50,
+  "name": "Heartward Sentinel",
+  "model": "human",
+  "tint": [
+   0.85,
+   0.9,
+   1.0
+  ],
+  "scale": 1.08,
+  "hp": 2060,
+  "damage": 262,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.9,
+  "cooldown": 1.1,
+  "qi": 10363008879,
+  "loot": {
+   "gold": [
+    100,
+    200
+   ],
+   "cloud_jade": [
+    0,
+    1
+   ]
+  }
+ },
+ "cloudruins_brute_f50": {
+  "floor": 50,
+  "name": "Heartward Guardian",
+  "model": "orc",
+  "tint": [
+   0.9,
+   0.85,
+   0.6
+  ],
+  "scale": 2.052,
+  "hp": 5374,
+  "damage": 337,
+  "speed": 2.6,
+  "aggro": 9,
+  "range": 2.4,
+  "cooldown": 1.7,
+  "qi": 25907522198,
+  "loot": {
+   "gold": [
+    200,
+    350
+   ],
+   "immortal_dust": [
+    1,
+    2
+   ],
+   "cloud_jade": [
+    0,
+    1
+   ]
+  }
+ },
+ "cloudruins_boss_f50": {
+  "floor": 50,
+  "name": "The Immortal at the Heart of the Deep",
+  "model": "human",
+  "tint": [
+   1.0,
+   0.95,
+   0.8
+  ],
+  "scale": 3.2,
+  "boss": true,
+  "hp": 42994,
+  "damage": 553,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 124356106550,
+  "loot": {
+   "gold": [
+    6000,
+    8000
+   ],
+   "cloud_jade": [
+    3,
+    5
+   ],
+   "immortal_dust": [
+    2,
+    4
+   ],
+   "breakthrough_pill": [
+    1,
+    1
+   ],
+   "random_gear": [
+    2,
+    2
+   ]
+  },
+  "final": true
+ },
+ "cloudruins_animal_f50": {
+  "floor": 50,
+  "name": "Heartward Crane",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.95,
+   1.0
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "retaliates": true,
+  "tameable": 8,
+  "familiar": {
+   "name": "Mist",
+   "finds": [
+    "cloud_jade",
+    "immortal_dust",
+    "spirit_herb"
+   ],
+   "effect": {
+    "meditate_mult": 1.1
+   }
+  },
+  "hp": 1075,
+  "damage": 157,
+  "speed": 4.2,
+  "aggro": 7,
+  "range": 1.7,
+  "cooldown": 1.5,
+  "qi": 3454336293,
+  "loot": {
+   "raw_meat": [
+    1,
+    2
+   ],
+   "beast_hide": [
+    1,
+    2
+   ]
+  }
+ },
+ "scrap_hound": {
+  "floor": 11,
+  "name": "Scrap Hound",
+  "model": "beast",
+  "tint": [
+   0.62,
+   0.5,
+   0.42
+  ],
+  "scale": 0.95,
+  "hp": 469,
+  "damage": 69,
+  "speed": 4.8,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 164,
+  "loot": {
+   "gold": [
+    20,
+    40
+   ],
+   "scrap_alloy": [
+    0,
+    2
+   ]
+  },
+  "frontier": true
+ },
+ "sentry_drone": {
+  "floor": 12,
+  "name": "Sentry Drone",
+  "model": "orc",
+  "tint": [
+   0.55,
+   0.7,
+   0.9
+  ],
+  "scale": 0.75,
+  "hp": 504,
+  "damage": 74,
+  "speed": 4.4,
+  "aggro": 10,
+  "range": 5.5,
+  "cooldown": 1.2,
+  "qi": 176,
+  "loot": {
+   "gold": [
+    25,
+    45
+   ],
+   "beacon_glass": [
+    0,
+    1
+   ],
+   "ion_crystal": [
+    0,
+    1
+   ]
+  },
+  "frontier": true
+ },
+ "wreck_walker": {
+  "floor": 12,
+  "name": "Wreck Walker",
+  "model": "orc",
+  "tint": [
+   0.62,
+   0.45,
+   0.35
+  ],
+  "scale": 1.35,
+  "hp": 1314,
+  "damage": 95,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 459,
+  "loot": {
+   "gold": [
+    60,
+    110
+   ],
+   "scrap_alloy": [
+    1,
+    3
+   ],
+   "ion_crystal": [
+    0,
+    1
+   ]
+  },
+  "frontier": true
+ },
+ "beacon_warden": {
+  "floor": 12,
+  "name": "The Beacon Warden",
+  "model": "human",
+  "tint": [
+   0.55,
+   0.85,
+   1.0
+  ],
+  "scale": 2.3,
+  "hp": 6573,
+  "damage": 121,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 5258,
+  "loot": {
+   "gold": [
+    900,
+    1200
+   ],
+   "skyhook_keycard": [
+    1,
+    1
+   ],
+   "ion_crystal": [
+    3,
+    5
+   ],
+   "beacon_glass": [
+    2,
+    3
+   ]
+  },
+  "frontier": true,
+  "boss": true
+ },
+ "yard_loader": {
+  "floor": 11,
+  "name": "Runaway Loader",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.7,
+   0.3
+  ],
+  "scale": 1.1,
+  "hp": 469,
+  "damage": 69,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 164,
+  "loot": {
+   "gold": [
+    20,
+    40
+   ],
+   "gantry_steel": [
+    0,
+    2
+   ]
+  },
+  "frontier": true
+ },
+ "maintenance_bot": {
+  "floor": 13,
+  "name": "Maintenance Bot",
+  "model": "orc",
+  "tint": [
+   0.82,
+   0.88,
+   0.92
+  ],
+  "scale": 0.8,
+  "hp": 539,
+  "damage": 79,
+  "speed": 3.6,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 188,
+  "loot": {
+   "gold": [
+    30,
+    55
+   ],
+   "station_titanium": [
+    0,
+    1
+   ]
+  },
+  "frontier": true
+ },
+ "overgrowth": {
+  "floor": 13,
+  "name": "Overgrowth",
+  "model": "beast",
+  "tint": [
+   0.4,
+   0.75,
+   0.45
+  ],
+  "scale": 1.0,
+  "hp": 281,
+  "damage": 47,
+  "speed": 3.4,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 98,
+  "loot": {
+   "gold": [
+    15,
+    30
+   ],
+   "halcyon_basil": [
+    0,
+    2
+   ]
+  },
+  "frontier": true
+ },
+ "gardener_prime": {
+  "floor": 14,
+  "name": "Gardener Prime",
+  "model": "human",
+  "tint": [
+   0.6,
+   1.0,
+   0.7
+  ],
+  "scale": 2.2,
+  "hp": 7490,
+  "damage": 138,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 5992,
+  "loot": {
+   "gold": [
+    1100,
+    1500
+   ],
+   "cryo_lotus": [
+    3,
+    5
+   ],
+   "quantum_quartz": [
+    1,
+    2
+   ],
+   "lumen_fern": [
+    3,
+    5
+   ]
+  },
+  "frontier": true,
+  "boss": true
+ },
+ "regolith_crawler": {
+  "floor": 16,
+  "name": "Regolith Crawler",
+  "model": "beast",
+  "tint": [
+   0.55,
+   0.55,
+   0.6
+  ],
+  "scale": 1.1,
+  "hp": 644,
+  "damage": 94,
+  "speed": 4.0,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 225,
+  "loot": {
+   "gold": [
+    45,
+    80
+   ],
+   "lunar_iron": [
+    0,
+    2
+   ]
+  },
+  "frontier": true
+ },
+ "dust_stalker": {
+  "floor": 16,
+  "name": "Dust Stalker",
+  "model": "human",
+  "tint": [
+   0.6,
+   0.62,
+   0.7
+  ],
+  "scale": 1.05,
+  "hp": 644,
+  "damage": 94,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 225,
+  "loot": {
+   "gold": [
+    50,
+    85
+   ],
+   "moon_dust_glass": [
+    0,
+    2
+   ]
+  },
+  "frontier": true
+ },
+ "crater_titan": {
+  "floor": 17,
+  "name": "Crater Titan",
+  "model": "orc",
+  "tint": [
+   0.5,
+   0.5,
+   0.58
+  ],
+  "scale": 1.6,
+  "hp": 1773,
+  "damage": 129,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 620,
+  "loot": {
+   "gold": [
+    120,
+    190
+   ],
+   "lunar_iron": [
+    1,
+    3
+   ],
+   "helium_ice": [
+    0,
+    1
+   ]
+  },
+  "frontier": true
+ },
+ "lunar_sentinel": {
+  "floor": 17,
+  "name": "The Lunar Sentinel",
+  "model": "human",
+  "tint": [
+   0.75,
+   0.8,
+   0.95
+  ],
+  "scale": 2.4,
+  "hp": 8866,
+  "damage": 163,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 7092,
+  "loot": {
+   "gold": [
+    1600,
+    2100
+   ],
+   "helium_ice": [
+    3,
+    5
+   ],
+   "lunar_iron": [
+    4,
+    6
+   ]
+  },
+  "frontier": true,
+  "boss": true
+ },
+ "glass_scorpion": {
+  "floor": 18,
+  "name": "Glass Scorpion",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.75,
+   0.4
+  ],
+  "scale": 1.15,
+  "hp": 715,
+  "damage": 105,
+  "speed": 4.4,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 250,
+  "loot": {
+   "gold": [
+    60,
+    100
+   ],
+   "sun_glass": [
+    0,
+    1
+   ],
+   "fulgurite": [
+    0,
+    1
+   ]
+  },
+  "frontier": true
+ },
+ "mirage_wraith": {
+  "floor": 18,
+  "name": "Mirage Wraith",
+  "model": "human",
+  "tint": [
+   0.8,
+   0.6,
+   0.95
+  ],
+  "scale": 1.05,
+  "hp": 715,
+  "damage": 105,
+  "speed": 4.5,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 250,
+  "loot": {
+   "gold": [
+    65,
+    105
+   ],
+   "mirage_bloom": [
+    0,
+    2
+   ]
+  },
+  "frontier": true
+ },
+ "dune_colossus": {
+  "floor": 19,
+  "name": "Dune Colossus",
+  "model": "orc",
+  "tint": [
+   0.9,
+   0.72,
+   0.45
+  ],
+  "scale": 1.75,
+  "hp": 1956,
+  "damage": 142,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 684,
+  "loot": {
+   "gold": [
+    150,
+    230
+   ],
+   "fulgurite": [
+    1,
+    3
+   ],
+   "sun_glass": [
+    0,
+    2
+   ]
+  },
+  "frontier": true
+ },
+ "glass_sovereign": {
+  "floor": 19,
+  "name": "The Glass Sovereign",
+  "model": "human",
+  "tint": [
+   1.0,
+   0.85,
+   0.5
+  ],
+  "scale": 2.5,
+  "hp": 9784,
+  "damage": 180,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 7827,
+  "loot": {
+   "gold": [
+    2100,
+    2700
+   ],
+   "sun_glass": [
+    3,
+    5
+   ],
+   "fulgurite": [
+    4,
+    6
+   ]
+  },
+  "frontier": true,
+  "boss": true
+ },
+ "forge_drone": {
+  "floor": 20,
+  "name": "Forge Drone",
+  "model": "orc",
+  "tint": [
+   1.0,
+   0.55,
+   0.3
+  ],
+  "scale": 0.85,
+  "hp": 785,
+  "damage": 115,
+  "speed": 4.3,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 274,
+  "loot": {
+   "gold": [
+    80,
+    125
+   ],
+   "nanite_ingot": [
+    0,
+    1
+   ]
+  },
+  "frontier": true
+ },
+ "slag_crawler": {
+  "floor": 20,
+  "name": "Slag Crawler",
+  "model": "beast",
+  "tint": [
+   0.9,
+   0.4,
+   0.2
+  ],
+  "scale": 1.1,
+  "hp": 410,
+  "damage": 68,
+  "speed": 3.8,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 143,
+  "loot": {
+   "gold": [
+    35,
+    60
+   ],
+   "slag_orchid": [
+    0,
+    1
+   ]
+  },
+  "frontier": true
+ },
+ "smelter_golem": {
+  "floor": 21,
+  "name": "Smelter Golem",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.5,
+   0.35
+  ],
+  "scale": 1.8,
+  "hp": 2140,
+  "damage": 155,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 749,
+  "loot": {
+   "gold": [
+    190,
+    280
+   ],
+   "nanite_ingot": [
+    1,
+    3
+   ],
+   "reactor_ember": [
+    0,
+    1
+   ]
+  },
+  "frontier": true
+ },
+ "foundry_overseer": {
+  "floor": 21,
+  "name": "The Foundry Overseer",
+  "model": "human",
+  "tint": [
+   1.0,
+   0.6,
+   0.35
+  ],
+  "scale": 2.6,
+  "hp": 10701,
+  "damage": 197,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 8560,
+  "loot": {
+   "gold": [
+    2800,
+    3500
+   ],
+   "nanite_ingot": [
+    4,
+    6
+   ],
+   "reactor_ember": [
+    2,
+    3
+   ],
+   "coolant_core": [
+    2,
+    3
+   ]
+  },
+  "frontier": true,
+  "boss": true
+ },
+ "lantern_newt": {
+  "floor": 2,
+  "name": "Lantern Newt",
+  "model": "beast",
+  "tint": [
+   0.55,
+   0.8,
+   0.5
+  ],
+  "scale": 0.8,
+  "passive": true,
+  "tameable": 5,
+  "familiar": {
+   "name": "Wick",
+   "finds": [
+    "moonpetal",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 70,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 14,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "rock_badger": {
+  "floor": 3,
+  "name": "Rock Badger",
+  "model": "beast",
+  "tint": [
+   0.5,
+   0.48,
+   0.45
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 5,
+  "familiar": {
+   "name": "Bulwark",
+   "finds": [
+    "iron_ore",
+    "beast_hide"
+   ],
+   "effect": {}
+  },
+  "hp": 80,
+  "damage": 13,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 17,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "retaliates": true
+ },
+ "tomb_owl": {
+  "floor": 3,
+  "name": "Tomb Owl",
+  "model": "beast",
+  "tint": [
+   0.78,
+   0.74,
+   0.66
+  ],
+  "scale": 0.85,
+  "passive": true,
+  "tameable": 5,
+  "familiar": {
+   "name": "Hush",
+   "finds": [
+    "spirit_herb",
+    "spirit_resin"
+   ],
+   "effect": {}
+  },
+  "hp": 80,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 17,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "cinder_fox": {
+  "floor": 4,
+  "name": "Cinder Fox",
+  "model": "beast",
+  "tint": [
+   0.9,
+   0.5,
+   0.25
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "tameable": 5,
+  "familiar": {
+   "name": "Dart",
+   "finds": [
+    "ember_root",
+    "firestone"
+   ],
+   "effect": {}
+  },
+  "hp": 92,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 20,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "ridge_goat": {
+  "floor": 4,
+  "name": "Ridge Goat",
+  "model": "beast",
+  "tint": [
+   0.82,
+   0.8,
+   0.76
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 5,
+  "familiar": {
+   "name": "Clamber",
+   "finds": [
+    "spirit_herb",
+    "raw_meat"
+   ],
+   "effect": {}
+  },
+  "hp": 92,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 20,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "dune_hound": {
+  "floor": 5,
+  "name": "Dune Hound",
+  "model": "beast",
+  "tint": [
+   0.78,
+   0.62,
+   0.4
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Nose",
+   "finds": [
+    "raw_meat",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 105,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 25,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "spirit_toad": {
+  "floor": 5,
+  "name": "Spirit Toad",
+  "model": "beast",
+  "tint": [
+   0.45,
+   0.7,
+   0.6
+  ],
+  "scale": 0.85,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Mend",
+   "finds": [
+    "spirit_herb",
+    "moonpetal"
+   ],
+   "effect": {}
+  },
+  "hp": 105,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 25,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "iron_beetle": {
+  "floor": 6,
+  "name": "Iron Beetle",
+  "model": "beast",
+  "tint": [
+   0.35,
+   0.4,
+   0.5
+  ],
+  "scale": 0.8,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Burrower",
+   "finds": [
+    "iron_ore",
+    "silver_ore"
+   ],
+   "effect": {}
+  },
+  "hp": 120,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 30,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "thorn_boar": {
+  "floor": 6,
+  "name": "Thorn Boar",
+  "model": "beast",
+  "tint": [
+   0.5,
+   0.32,
+   0.28
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Briar",
+   "finds": [
+    "raw_meat",
+    "beast_hide"
+   ],
+   "effect": {}
+  },
+  "hp": 120,
+  "damage": 16,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 30,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "retaliates": true
+ },
+ "moon_lynx": {
+  "floor": 7,
+  "name": "Moon Lynx",
+  "model": "beast",
+  "tint": [
+   0.72,
+   0.74,
+   0.9
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Fortune",
+   "finds": [
+    "moonpetal",
+    "gold_nugget"
+   ],
+   "effect": {}
+  },
+  "hp": 140,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 34,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "river_otter": {
+  "floor": 7,
+  "name": "River Otter",
+  "model": "beast",
+  "tint": [
+   0.5,
+   0.4,
+   0.3
+  ],
+  "scale": 0.85,
+  "passive": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Lark",
+   "finds": [
+    "spirit_herb",
+    "rough_jade"
+   ],
+   "effect": {}
+  },
+  "hp": 140,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 34,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "glass_stag": {
+  "floor": 8,
+  "name": "Glass Stag",
+  "model": "beast",
+  "tint": [
+   0.7,
+   0.85,
+   0.9
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Prism",
+   "finds": [
+    "sapphire_shard",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 110,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 32,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "mist_heron": {
+  "floor": 8,
+  "name": "Mist Heron",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.88,
+   0.92
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Reed",
+   "finds": [
+    "spirit_resin",
+    "moonpetal"
+   ],
+   "effect": {}
+  },
+  "hp": 110,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 32,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "vine_ape": {
+  "floor": 9,
+  "name": "Vine Ape",
+  "model": "beast",
+  "tint": [
+   0.4,
+   0.6,
+   0.35
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Tendril",
+   "finds": [
+    "spirit_herb",
+    "bloodsap"
+   ],
+   "effect": {}
+  },
+  "hp": 90,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 36,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "grey_wolf": {
+  "floor": 10,
+  "name": "Grey Wolf",
+  "model": "beast",
+  "tint": [
+   0.6,
+   0.6,
+   0.62
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Fang",
+   "finds": [
+    "raw_meat",
+    "beast_hide"
+   ],
+   "effect": {}
+  },
+  "hp": 148,
+  "damage": 27,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 60,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "retaliates": true
+ },
+ "sun_hawk": {
+  "floor": 10,
+  "name": "Sun Hawk",
+  "model": "beast",
+  "tint": [
+   0.9,
+   0.75,
+   0.35
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Talon",
+   "finds": [
+    "raw_meat",
+    "gold_nugget"
+   ],
+   "effect": {}
+  },
+  "hp": 148,
+  "damage": 27,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 60,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "retaliates": true
+ },
+ "canopy_sloth": {
+  "floor": 12,
+  "name": "Canopy Sloth",
+  "model": "beast",
+  "tint": [
+   0.55,
+   0.6,
+   0.4
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Drowse",
+   "finds": [
+    "bloodsap",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 263,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 155,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "iron_ram": {
+  "floor": 15,
+  "name": "Iron Ram",
+  "model": "beast",
+  "tint": [
+   0.55,
+   0.55,
+   0.6
+  ],
+  "scale": 1.2,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Anvil",
+   "finds": [
+    "iron_ore",
+    "silver_ore"
+   ],
+   "effect": {}
+  },
+  "hp": 327,
+  "damage": 55,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 589,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "retaliates": true
+ },
+ "star_moth": {
+  "floor": 18,
+  "name": "Star Moth",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.8,
+   1.0
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Gleam",
+   "finds": [
+    "star_iron",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 392,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 2241,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "cog_hound": {
+  "floor": 21,
+  "name": "Cog Hound",
+  "model": "beast",
+  "tint": [
+   0.7,
+   0.6,
+   0.4
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Cog",
+   "finds": [
+    "brass_cog",
+    "oil_of_motion"
+   ],
+   "effect": {}
+  },
+  "hp": 457,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 8522,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "frost_hare": {
+  "floor": 24,
+  "name": "Frost Hare",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.92,
+   1.0
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Rime",
+   "finds": [
+    "rime_ink",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 521,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 32407,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "ghost_cat": {
+  "floor": 27,
+  "name": "Ghost Cat",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.85,
+   0.9
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Wisp",
+   "finds": [
+    "spirit_paper",
+    "ghost_lantern_oil"
+   ],
+   "effect": {}
+  },
+  "hp": 586,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 123243,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "dragon_whelp": {
+  "floor": 31,
+  "name": "Dragon Whelp",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.35,
+   0.25
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Ember",
+   "finds": [
+    "dragon_scale_shard",
+    "drake_blood"
+   ],
+   "effect": {}
+  },
+  "hp": 669,
+  "damage": 110,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 731576,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "retaliates": true
+ },
+ "storm_crane": {
+  "floor": 36,
+  "name": "Storm Crane",
+  "model": "beast",
+  "tint": [
+   0.7,
+   0.78,
+   0.95
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Gale",
+   "finds": [
+    "storm_glass",
+    "thunder_iron"
+   ],
+   "effect": {}
+  },
+  "hp": 770,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 6778429,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "jade_tortoise": {
+  "floor": 42,
+  "name": "Jade Tortoise",
+  "model": "beast",
+  "tint": [
+   0.45,
+   0.7,
+   0.55
+  ],
+  "scale": 1.3,
+  "passive": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Shell",
+   "finds": [
+    "cloud_jade",
+    "immortal_dust"
+   ],
+   "effect": {}
+  },
+  "hp": 899,
+  "damage": 141,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 98033131,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "retaliates": true
+ },
+ "void_fox": {
+  "floor": 47,
+  "name": "Void Fox",
+  "model": "beast",
+  "tint": [
+   0.55,
+   0.4,
+   0.75
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 8,
+  "familiar": {
+   "name": "Hollow",
+   "finds": [
+    "singing_crystal",
+    "resonant_dust"
+   ],
+   "effect": {}
+  },
+  "hp": 1010,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 908328022,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "field_mouse": {
+  "floor": 2,
+  "name": "Field Mouse",
+  "model": "beast",
+  "tint": [
+   0.7,
+   0.62,
+   0.5
+  ],
+  "scale": 0.5,
+  "passive": true,
+  "tameable": 5,
+  "familiar": {
+   "name": "Crumb",
+   "finds": [
+    "bone_shard",
+    "beast_hide"
+   ],
+   "effect": {}
+  },
+  "hp": 88,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 17,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "marsh_frog": {
+  "floor": 2,
+  "name": "Marsh Frog",
+  "model": "beast",
+  "tint": [
+   0.4,
+   0.65,
+   0.35
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "tameable": 5,
+  "familiar": {
+   "name": "Bog",
+   "finds": [
+    "spirit_herb",
+    "moonpetal"
+   ],
+   "effect": {}
+  },
+  "hp": 106,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 20,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "cave_bat": {
+  "floor": 3,
+  "name": "Cave Bat",
+  "model": "beast",
+  "tint": [
+   0.3,
+   0.28,
+   0.35
+  ],
+  "scale": 0.6,
+  "passive": true,
+  "tameable": 6,
+  "familiar": {
+   "name": "Flit",
+   "finds": [
+    "bone_shard",
+    "beast_hide"
+   ],
+   "effect": {}
+  },
+  "hp": 124,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 23,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "ember_wren": {
+  "floor": 4,
+  "name": "Ember Wren",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.5,
+   0.2
+  ],
+  "scale": 0.5,
+  "passive": true,
+  "tameable": 7,
+  "familiar": {
+   "name": "Spark",
+   "finds": [
+    "iron_ore",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 142,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 26,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "hollow_stag": {
+  "floor": 5,
+  "name": "Hollow Stag",
+  "model": "beast",
+  "tint": [
+   0.55,
+   0.5,
+   0.4
+  ],
+  "scale": 1.2,
+  "passive": true,
+  "tameable": 8,
+  "familiar": {
+   "name": "Antler",
+   "finds": [
+    "beast_hide",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 160,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 29,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "bark_marten": {
+  "floor": 6,
+  "name": "Bark Marten",
+  "model": "beast",
+  "tint": [
+   0.5,
+   0.38,
+   0.25
+  ],
+  "scale": 0.8,
+  "passive": true,
+  "tameable": 9,
+  "familiar": {
+   "name": "Quill",
+   "finds": [
+    "beast_hide",
+    "raw_meat"
+   ],
+   "effect": {}
+  },
+  "hp": 178,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 32,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "salt_crab": {
+  "floor": 7,
+  "name": "Salt Crab",
+  "model": "beast",
+  "tint": [
+   0.9,
+   0.85,
+   0.8
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "tameable": 10,
+  "familiar": {
+   "name": "Pincer",
+   "finds": [
+    "silver_ore",
+    "bone_shard"
+   ],
+   "effect": {}
+  },
+  "hp": 196,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 35,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "dusk_moth": {
+  "floor": 8,
+  "name": "Dusk Moth",
+  "model": "beast",
+  "tint": [
+   0.6,
+   0.5,
+   0.8
+  ],
+  "scale": 0.6,
+  "passive": true,
+  "tameable": 11,
+  "familiar": {
+   "name": "Hush",
+   "finds": [
+    "moonpetal",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 214,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 38,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "brass_magpie": {
+  "floor": 9,
+  "name": "Brass Magpie",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.7,
+   0.3
+  ],
+  "scale": 0.6,
+  "passive": true,
+  "tameable": 12,
+  "familiar": {
+   "name": "Glint",
+   "finds": [
+    "silver_ore",
+    "iron_ore"
+   ],
+   "effect": {}
+  },
+  "hp": 232,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 41,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "stone_tortoise": {
+  "floor": 11,
+  "name": "Stone Tortoise",
+  "model": "beast",
+  "tint": [
+   0.5,
+   0.55,
+   0.5
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 14,
+  "familiar": {
+   "name": "Patience",
+   "finds": [
+    "tortoise_scale",
+    "iron_ore"
+   ],
+   "effect": {}
+  },
+  "hp": 268,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 47,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "fen_crane": {
+  "floor": 12,
+  "name": "Fen Crane",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.85,
+   0.9
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "tameable": 15,
+  "familiar": {
+   "name": "Reed",
+   "finds": [
+    "spirit_herb",
+    "beast_hide"
+   ],
+   "effect": {}
+  },
+  "hp": 286,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 50,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "ash_ferret": {
+  "floor": 13,
+  "name": "Ash Ferret",
+  "model": "beast",
+  "tint": [
+   0.45,
+   0.42,
+   0.4
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "tameable": 16,
+  "familiar": {
+   "name": "Soot",
+   "finds": [
+    "bone_shard",
+    "beast_hide"
+   ],
+   "effect": {}
+  },
+  "hp": 304,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 53,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "coral_seal": {
+  "floor": 14,
+  "name": "Coral Seal",
+  "model": "beast",
+  "tint": [
+   0.55,
+   0.7,
+   0.8
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 17,
+  "familiar": {
+   "name": "Tide",
+   "finds": [
+    "coral_bone",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 322,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 56,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "tallow_owl": {
+  "floor": 16,
+  "name": "Tallow Owl",
+  "model": "beast",
+  "tint": [
+   0.9,
+   0.85,
+   0.7
+  ],
+  "scale": 0.8,
+  "passive": true,
+  "tameable": 19,
+  "familiar": {
+   "name": "Candle",
+   "finds": [
+    "moonpetal",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 358,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 62,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "rust_mastiff": {
+  "floor": 17,
+  "name": "Rust Mastiff",
+  "model": "beast",
+  "tint": [
+   0.6,
+   0.35,
+   0.25
+  ],
+  "scale": 1.2,
+  "passive": true,
+  "tameable": 20,
+  "familiar": {
+   "name": "Rivet",
+   "finds": [
+    "iron_ore",
+    "beast_hide"
+   ],
+   "effect": {}
+  },
+  "hp": 376,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 65,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "pearl_swan": {
+  "floor": 19,
+  "name": "Pearl Swan",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.95,
+   0.98
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "tameable": 22,
+  "familiar": {
+   "name": "Lull",
+   "finds": [
+    "spirit_silk",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 412,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 71,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "glow_gecko": {
+  "floor": 20,
+  "name": "Glow Gecko",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.9,
+   0.3
+  ],
+  "scale": 0.6,
+  "passive": true,
+  "tameable": 23,
+  "familiar": {
+   "name": "Ember-eye",
+   "finds": [
+    "glowcap_spore",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 430,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 74,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "cinder_bull": {
+  "floor": 22,
+  "name": "Cinder Bull",
+  "model": "beast",
+  "tint": [
+   0.7,
+   0.25,
+   0.15
+  ],
+  "scale": 1.4,
+  "passive": true,
+  "tameable": 25,
+  "familiar": {
+   "name": "Kiln",
+   "finds": [
+    "iron_ore",
+    "beast_hide"
+   ],
+   "effect": {}
+  },
+  "hp": 466,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 80,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "bell_deer": {
+  "floor": 23,
+  "name": "Bell Deer",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.8,
+   0.6
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "tameable": 26,
+  "familiar": {
+   "name": "Toll",
+   "finds": [
+    "moonpetal",
+    "spirit_silk"
+   ],
+   "effect": {}
+  },
+  "hp": 484,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 83,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "quartz_porcupine": {
+  "floor": 25,
+  "name": "Quartz Porcupine",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.8,
+   0.9
+  ],
+  "scale": 0.9,
+  "passive": true,
+  "tameable": 28,
+  "familiar": {
+   "name": "Facet",
+   "finds": [
+    "singing_crystal",
+    "bone_shard"
+   ],
+   "effect": {}
+  },
+  "hp": 520,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 89,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "night_heron": {
+  "floor": 26,
+  "name": "Night Heron",
+  "model": "beast",
+  "tint": [
+   0.3,
+   0.35,
+   0.5
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 29,
+  "familiar": {
+   "name": "Dagger-bill",
+   "finds": [
+    "beast_hide",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 538,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 92,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "lode_badger": {
+  "floor": 28,
+  "name": "Lode Badger",
+  "model": "beast",
+  "tint": [
+   0.4,
+   0.38,
+   0.36
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 31,
+  "familiar": {
+   "name": "Seam",
+   "finds": [
+    "silver_ore",
+    "iron_ore"
+   ],
+   "effect": {}
+  },
+  "hp": 574,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 98,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "mirror_carp": {
+  "floor": 30,
+  "name": "Mirror Carp",
+  "model": "beast",
+  "tint": [
+   0.75,
+   0.8,
+   0.9
+  ],
+  "scale": 0.8,
+  "passive": true,
+  "tameable": 33,
+  "familiar": {
+   "name": "Ripple",
+   "finds": [
+    "spirit_herb",
+    "moonpetal"
+   ],
+   "effect": {}
+  },
+  "hp": 610,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 104,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "thunder_ibex": {
+  "floor": 32,
+  "name": "Thunder Ibex",
+  "model": "beast",
+  "tint": [
+   0.6,
+   0.6,
+   0.7
+  ],
+  "scale": 1.2,
+  "passive": true,
+  "tameable": 35,
+  "familiar": {
+   "name": "Crag",
+   "finds": [
+    "beast_hide",
+    "ion_crystal"
+   ],
+   "effect": {}
+  },
+  "hp": 646,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 110,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "lotus_panda": {
+  "floor": 34,
+  "name": "Lotus Panda",
+  "model": "beast",
+  "tint": [
+   0.92,
+   0.9,
+   0.88
+  ],
+  "scale": 1.3,
+  "passive": true,
+  "tameable": 37,
+  "familiar": {
+   "name": "Petal",
+   "finds": [
+    "spirit_herb",
+    "moonpetal"
+   ],
+   "effect": {}
+  },
+  "hp": 682,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 116,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "sky_manta": {
+  "floor": 38,
+  "name": "Sky Manta",
+  "model": "beast",
+  "tint": [
+   0.4,
+   0.55,
+   0.8
+  ],
+  "scale": 1.5,
+  "passive": true,
+  "tameable": 41,
+  "familiar": {
+   "name": "Drift",
+   "finds": [
+    "spirit_silk",
+    "ion_crystal"
+   ],
+   "effect": {}
+  },
+  "hp": 754,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 128,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "gilded_lion": {
+  "floor": 40,
+  "name": "Gilded Lion",
+  "model": "beast",
+  "tint": [
+   0.9,
+   0.75,
+   0.3
+  ],
+  "scale": 1.4,
+  "passive": true,
+  "tameable": 43,
+  "familiar": {
+   "name": "Mane",
+   "finds": [
+    "dragon_scale_shard",
+    "beast_hide"
+   ],
+   "effect": {}
+  },
+  "hp": 790,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 134,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "coolant_wyrm": {
+  "floor": 43,
+  "name": "Coolant Wyrm",
+  "model": "beast",
+  "tint": [
+   0.5,
+   0.8,
+   0.85
+  ],
+  "scale": 1.3,
+  "passive": true,
+  "tameable": 46,
+  "familiar": {
+   "name": "Chill",
+   "finds": [
+    "coolant_core",
+    "ion_crystal"
+   ],
+   "effect": {}
+  },
+  "hp": 844,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 143,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "phoenix_chick": {
+  "floor": 45,
+  "name": "Phoenix Chick",
+  "model": "beast",
+  "tint": [
+   1,
+   0.55,
+   0.2
+  ],
+  "scale": 0.7,
+  "passive": true,
+  "tameable": 48,
+  "familiar": {
+   "name": "Cinder",
+   "finds": [
+    "dragon_scale_shard",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 880,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 149,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "star_whale": {
+  "floor": 48,
+  "name": "Star Whale",
+  "model": "beast",
+  "tint": [
+   0.35,
+   0.4,
+   0.8
+  ],
+  "scale": 1.8,
+  "passive": true,
+  "tameable": 50,
+  "familiar": {
+   "name": "Hymn",
+   "finds": [
+    "singing_crystal",
+    "spirit_silk"
+   ],
+   "effect": {}
+  },
+  "hp": 934,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 158,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "heaven_qilin": {
+  "floor": 50,
+  "name": "Heaven Qilin",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.9,
+   0.6
+  ],
+  "scale": 1.5,
+  "passive": true,
+  "tameable": 50,
+  "familiar": {
+   "name": "Dawn",
+   "finds": [
+    "dragon_scale_shard",
+    "spirit_herb"
+   ],
+   "effect": {}
+  },
+  "hp": 970,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 164,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "abyss_koi": {
+  "floor": 49,
+  "name": "Abyss Koi",
+  "model": "beast",
+  "tint": [
+   0.2,
+   0.2,
+   0.35
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "tameable": 50,
+  "familiar": {
+   "name": "Maw",
+   "finds": [
+    "coral_bone",
+    "ion_crystal"
+   ],
+   "effect": {}
+  },
+  "hp": 952,
+  "damage": 0,
+  "speed": 5.0,
+  "aggro": 7,
+  "range": 1.4,
+  "cooldown": 1.4,
+  "qi": 161,
+  "loot": {
+   "raw_meat": [
+    0,
+    1
+   ],
+   "beast_hide": [
+    0,
+    1
+   ]
+  },
+  "flees": true
+ },
+ "golem_clay": {
+  "floor": 99,
+  "name": "Clay Golem",
+  "model": "beast",
+  "tint": [
+   0.72,
+   0.5,
+   0.35
+  ],
+  "scale": 1.0,
+  "passive": true,
+  "flees": false,
+  "familiar": {
+   "name": "Lump",
+   "finds": [
+    "ancient_clay",
+    "iron_ore"
+   ],
+   "effect": {
+    "damage_taken": 0.96,
+    "regen": 0.2
+   }
+  },
+  "hp": 60,
+  "damage": 0,
+  "speed": 3.2,
+  "aggro": 7,
+  "range": 1.0,
+  "cooldown": 2.0,
+  "qi": 3,
+  "loot": {},
+  "construct": true
+ },
+ "golem_stone": {
+  "floor": 99,
+  "name": "Stone Golem",
+  "model": "beast",
+  "tint": [
+   0.55,
+   0.55,
+   0.58
+  ],
+  "scale": 1.1,
+  "passive": true,
+  "flees": false,
+  "familiar": {
+   "name": "Boulder",
+   "finds": [
+    "iron_ore",
+    "firestone"
+   ],
+   "effect": {
+    "damage_taken": 0.93,
+    "hp_mult": 1.04
+   }
+  },
+  "hp": 60,
+  "damage": 0,
+  "speed": 3.2,
+  "aggro": 7,
+  "range": 1.0,
+  "cooldown": 2.0,
+  "qi": 3,
+  "loot": {},
+  "construct": true
+ },
+ "golem_iron": {
+  "floor": 99,
+  "name": "Iron Golem",
+  "model": "beast",
+  "tint": [
+   0.45,
+   0.48,
+   0.55
+  ],
+  "scale": 1.15,
+  "passive": true,
+  "flees": false,
+  "familiar": {
+   "name": "Anvil",
+   "finds": [
+    "star_iron",
+    "brass_cog"
+   ],
+   "effect": {
+    "damage_mult": 1.05,
+    "damage_taken": 0.93
+   }
+  },
+  "hp": 60,
+  "damage": 0,
+  "speed": 3.2,
+  "aggro": 7,
+  "range": 1.0,
+  "cooldown": 2.0,
+  "qi": 3,
+  "loot": {},
+  "construct": true
+ },
+ "golem_jade": {
+  "floor": 99,
+  "name": "Jade Golem",
+  "model": "beast",
+  "tint": [
+   0.35,
+   0.75,
+   0.55
+  ],
+  "scale": 1.15,
+  "passive": true,
+  "flees": false,
+  "familiar": {
+   "name": "Verdant",
+   "finds": [
+    "rough_jade",
+    "spirit_herb",
+    "moonpetal"
+   ],
+   "effect": {
+    "qi_mult": 1.05,
+    "regen": 0.4
+   }
+  },
+  "hp": 60,
+  "damage": 0,
+  "speed": 3.2,
+  "aggro": 7,
+  "range": 1.0,
+  "cooldown": 2.0,
+  "qi": 3,
+  "loot": {},
+  "construct": true
+ },
+ "golem_crystal": {
+  "floor": 99,
+  "name": "Crystal Golem",
+  "model": "beast",
+  "tint": [
+   0.6,
+   0.8,
+   0.95
+  ],
+  "scale": 1.2,
+  "passive": true,
+  "flees": false,
+  "familiar": {
+   "name": "Prism",
+   "finds": [
+    "singing_crystal",
+    "mirror_silver"
+   ],
+   "effect": {
+    "qi_mult": 1.08,
+    "sight": 1.0
+   }
+  },
+  "hp": 60,
+  "damage": 0,
+  "speed": 3.2,
+  "aggro": 7,
+  "range": 1.0,
+  "cooldown": 2.0,
+  "qi": 3,
+  "loot": {},
+  "construct": true
+ },
+ "golem_meteor": {
+  "floor": 99,
+  "name": "Meteor Golem",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.5,
+   0.3
+  ],
+  "scale": 1.3,
+  "passive": true,
+  "flees": false,
+  "familiar": {
+   "name": "Comet",
+   "finds": [
+    "meteor_glass",
+    "star_iron",
+    "nanite_shard"
+   ],
+   "effect": {
+    "damage_mult": 1.1,
+    "hp_mult": 1.06,
+    "damage_taken": 0.92
+   }
+  },
+  "hp": 60,
+  "damage": 0,
+  "speed": 3.2,
+  "aggro": 7,
+  "range": 1.0,
+  "cooldown": 2.0,
+  "qi": 3,
+  "loot": {},
+  "construct": true
+ }
+}

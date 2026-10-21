@@ -1,0 +1,42 @@
+{
+ "_about": "Round 161: animal breeding. Two bonded beasts in a town can be paired in the stable; after a while a young one hatches carrying a role from one parent, a body from one, sometimes a trait and sometimes a rare mutation. Each generation is a little stronger. (scripts/systems/Breeding.gd)",
+ "hours": 4.0,
+ "visit_cut_secs": 1200,
+ "min_hours": 0.5,
+ "min_bond": 25,
+ "rest_hours": 6.0,
+ "gen_bonus": 0.03,
+ "gen_cap": 8,
+ "surprise_role": 0.08,
+ "trait_inherit": 0.55,
+ "trait_new": 0.35,
+ "mutation": 0.08,
+ "mutation_per_gen": 0.02,
+ "mutation_cap": 0.2,
+ "variant_inherit": 0.25,
+ "variant_mult": 1.25,
+ "start_bond": 10,
+ "start_bond_strong": 15,
+ "strong_bond": 100,
+ "second_stable_taming": 8,
+ "names": ["Ash", "Briar", "Cinder", "Dawn", "Ember", "Fern", "Gale", "Hazel", "Ivy", "Juniper", "Kestrel", "Lark", "Moss", "Nettle", "Onyx", "Pip", "Quill", "Rook", "Sorrel", "Thistle", "Umber", "Vale", "Wren", "Yarrow", "Zephyr"],
+ "traits": {
+  "swift": {"name": "Swift", "desc": "light on its feet", "effect": {"move_mult": 1.01}},
+  "hardy": {"name": "Hardy", "desc": "thick-skinned", "effect": {"damage_taken": 0.99}},
+  "keen": {"name": "Keen-nosed", "desc": "smells trouble early", "effect": {"sense_radius": 0.5}},
+  "lucky": {"name": "Lucky", "desc": "things fall its way", "effect": {"loot_luck": 0.01}},
+  "gentle": {"name": "Gentle", "desc": "easy to love", "effect": {"bond_mult": 1.03}},
+  "bold": {"name": "Bold", "desc": "never backs down", "effect": {"damage_mult": 1.01}},
+  "bright": {"name": "Bright-eyed", "desc": "sees a little farther", "effect": {"sight": 0.3}},
+  "thrifty": {"name": "Thrifty", "desc": "a good scavenger", "effect": {"gather_chance": 0.02}},
+  "wise": {"name": "Old-souled", "desc": "oddly thoughtful", "effect": {"insight_mult": 1.01}},
+  "warding": {"name": "Warding", "desc": "stands between you and harm", "effect": {"ward": 0.5}}
+ },
+ "variants": {
+  "gilded": {"name": "Gilded", "color": [1.0, 0.85, 0.3]},
+  "shadow": {"name": "Shadow", "color": [0.18, 0.15, 0.3]},
+  "frost": {"name": "Frost", "color": [0.7, 0.9, 1.0]},
+  "ember": {"name": "Ember", "color": [1.0, 0.45, 0.2]},
+  "jade": {"name": "Jade", "color": [0.35, 0.9, 0.6]}
+ }
+}

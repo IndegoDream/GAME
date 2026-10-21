@@ -1,0 +1,30 @@
+{
+  "brief": "heavenly_inheritances",
+  "title": "Heavenly inheritances: the greatest masters' last words",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "jade_sky",
+      "text": "A figure in white jade robes sits on a lotus of stone, untouched by a single grain of dust. \"Ten thousand years I ruled a heaven that is gone. All I kept was the body that ruled it. Take it -- and stand where nothing can move you.\""
+    },
+    {
+      "id": "jade_sky",
+      "text": "A figure in white jade robes sits on a lotus of stone, untouched by a single grain of dust. \"Ten thousand years I ruled a heaven that is gone. All I kept was the body that ruled it. Take it -- and stand where nothing can move you.\""
+    },
+    {
+      "id": "void_sage",
+      "text": "There is a seated sage here, and also there isn't: the outline flickers like heat over stone. \"I breathed in the void and it did not end me. Breathe as I did, and the heavens will pour into you.\""
+    },
+    {
+      "id": "void_sage",
+      "text": "There is a seated sage here, and also there isn't: the outline flickers like heat over stone.\n\"I breathed in the void and it did not end me. Breathe as I did, and the heavens will pour into you.\""
+    },
+    {},
+    {
+      "id": "first_seed",
+      "text": "Not bones -- a figure of grey metal and jade, seated, its chest open on a single dark seed that still pulses.\n\n\"We made the swarm to carry people up the road. Then we forgot why. You remember. Take the seed.\""
+    }
+  ],
+  "helped": []
+}

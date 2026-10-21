@@ -1,0 +1,431 @@
+{
+  "brief": "side_quests",
+  "title": "Quests: what each person says when they ask for help",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "gath_7",
+      "text": "\"The Ironroot smelters need heat to work the slag. Find me three coils of heating wire and a block of star-iron from the Fallen Star Mine, and I'll get the fires roaring again before winter freezes us all in place.\""
+    },
+    {
+      "id": "smith_6",
+      "text": "The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use."
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "elder_moon_doubt",
+      "text": "\"The Archive's index keys are lost, Elder Bai said. But the Hollow Moon hangs wrong over Eliet now. Someone in the Deep Frozen Archive stole a key and broke the seal. Find me one ice-sealed codex key to start."
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "elder_mo_doubt",
+      "text": "\"Elder Mo has kept our house for forty years and never looked at the sky. He says the stars are a lie told by the Deep. Bring me proof from the High Observatory on Floor 12 that he was wrong, or I will pack his things himself.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition forty years ago. He promised to leave a little fox mark on a wall if he survived the goblins. I'd just like to find that scratch, even if it's just his name in the dust.\""
+    },
+    {
+      "id": "10",
+      "text": "\"The valley's first expedition went down forty years ago. Nine people reached the stairs, but only one came back to speak. Captain Rhee says that survivor is still in the Lodge, telling stories no one remembers. Find him, and ask why he stayed behind while his friends died.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "gath_6",
+      "text": "\"My mother's eyes are failing. The healers say we need moonpetal tea. I cannot go down to the Crimson Canopy myself, but please? Bring me six flowers, and she might see one more spring.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?"
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down with the first expedition. He promised to scratch a fox sign on the goblin wall if he survived. Please, find that mark for us.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down with the first expedition forty years ago. He promised to leave a fox-scratch on a wall if he made past the goblins. Will you look for it?\""
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down with the first expedition forty years ago. Everyone says he's dead, but he promised to scratch our sign on a wall if he passed the goblins. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?"
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down with the first expedition forty years ago. He promised to leave his mark on the wall past the goblins if he survived, and I never found it. Will you look for his sign?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "moon_3",
+      "text": "Abbot Lune asks (Moon Over the Abyss, a sect quest); ours: \"The pages say the first abbot carried a mirror that showed the moon even underground -- and that something below ate the moon out of it. It's in the Ancient Fallen Star Mine. Bring it back, and the monastery will have its moon again.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "tortoise_shell",
+      "text": "\"The tortoise sleeps in Shellhaven, but his shell rattles when the deep wakes. I carry a bell to quiet it. Bring me the brass clapper from Floor 40, and we'll make him sleep again.\""
+    },
+    {
+      "item_id": 32,
+      "text": "The goblin sign Tam scratched is faint, half-swallowed by moss and a small fox's claw-mark. Find the fox at Floor 12 near the rusted gate where the first expedition stopped. Bring it to Little Rin in Eliet."
+    },
+    {
+      "id": "lodge_logs",
+      "text": "Captain Rhee says the Lodge books are full of ink that won't wash out. Bring me three pages torn from the warrens' logs, and I'll write down what your brother really found before we send him up the stair."
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?"
+    },
+    {
+      "item": 39,
+      "id": "lost_sister_note",
+      "text": "\"I fell in the Spore-Choked Deeps and lost my sister, Kael. She has a mark on her wrist where she touched the nanites first. Find her before the vines take her.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "elder_moon_truth",
+      "text": "\"The mirror in my cell shows no face, only the hollow mouth of the Deep. Bring it back to the Ninth Tier at the Pagoda's edge so Elder Bai can read what the reflection wrote.\""
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down with the first expedition forty years ago. He promised to scratch a fox sign on the goblin wall before he died. Will you find that mark for me?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "moon_3",
+      "text": "\"The pages say the first abbot carried a mirror that showed the moon even underground -- and that something below ate the moon out of it. It's in the Ancient Fallen Star Mine. Bring it back, and the monastery will have its moon again.\""
+    },
+    {
+      "id": "smith_6",
+      "text": "The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use."
+    },
+    {},
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "smith_7",
+      "text": "\"Elder Mo's forge breaks when star iron runs out. Bring me three rods from the Fallen Star Mine, and we'll make a new anvil before winter hits.\""
+    },
+    {
+      "quest_id": "smith_7",
+      "text": "\"The deep's metal changes when it touches the sky. Bring me ore from the Fallen Star Mine, then fold it with the air from the Thunderhead Spire. Make a blade that sings in the wind, and I'll teach you the secret of star-steel."
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition forty years ago, and everyone says he's dead. He promised to scratch our sign on a wall before those goblins with little foxes get him. Will you look for it?\""
+    },
+    {
+      "id": "cave_echo",
+      "text": "\"The echo in the Drowned Palace isn't a sound; it's a memory trapped in the water. Find three stones that still hum the old songs. Place them in the basin, and the water will stop weeping for its dead.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "tortoise_sign",
+      "text": "\"The tortoise sleeps beneath Eliet, and his shell hums with the heat of sleeping cities. A traveler once left a carving on the outer ridge, half-swallowed by moss. Find where his skin meets the stone, and tell me if he dreams."
+    },
+    {
+      "id": "smith_7",
+      "text": "\"The deep gives us star iron that sings when cooled. Old Marn found the seam, but he's gone now. Bring me a block of his ore, and I'll beat the song back into a blade before it fades.\""
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "moon_3",
+      "text": "\"The old pages say the first abbot carried a mirror that showed the moon even underground -- and that something below ate the moon out of it. It's in the Ancient Fallen Star Mine. Bring it back, and the monastery will have its moon again.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition forty years ago. Everyone says he's dead, but he promised to scratch our sign if he beat the goblins -- little foxes. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "smith_7",
+      "text": "\"The Hollow Clans live in the ash dunes where no metal can grow. You need a sword that won't rust, forged from bone and iron together. Make me one using the deep's own marrow, and I'll trade it for passage to the surface."
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {},
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition forty years ago. Everyone says he's dead below, but he promised to leave a scratch on a goblin wall if he made it past them. I can't go down yet, but will you look for that mark?\""
+    },
+    {
+      "quest": "smith_1",
+      "text": "\"You want to swing a sword, you ought to know what's in one. Grind me three whetstones and beat out an iron sword. Not a good one. Just one that holds.\""
+    },
+    {
+      "query": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "tame_dragon",
+      "text": "\"Captain Rhee says the Spine of the Sleeping Dragon is a mountain. I say it's a beast. Bring me a scale from its back and I'll show you where the dragon sleeps.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition forty years ago, but no one knows if he lives or died in the dark. He promised to scratch a little fox sign on a wall before we lost track of him. Will you look for that mark?\""
+    },
+    {
+      "task": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition forty years ago. Everyone says he's dead, but he promised to scratch our sign if he passed the goblins. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "tamsin_light",
+      "text": "\"The stairs to Floor 28 are dark, but the lanterns there burn on star iron that sings when touched. Bring a shard of singing ore from the Fallen Star Mine, and I'll show you where the real secret doors hide behind the shadow-walls.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "exp_5",
+      "text": "\"The first expedition forty years ago sent nine down and only one back. The stairs are unstable now, and the mirrors on the wall shift before you turn a corner. If you find a way down, bring me the scarred boot of Captain Rhee; he left it in the Lodge when he went to meet his end.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?"
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?"
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "exp_1",
+      "text": "\"Every secret door you find, I mark on my map so the next walker doesn't miss it. Find me five -- and open ten chests while you're at it, so I know what's worth the trip.\""
+    },
+    {
+      "id": "gath_7",
+      "text": "The Spine of the Sleeping Dragon has a pulse, and it hurts when we dig near it. Bring me three vials of dragon-blood serum from the deep, or we must stop before the beast wakes fully."
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "dungeon_guide",
+      "text": "\"Forty years ago nine people went down Eliet's stair; only one came back. The first floor is cold stone, the ninth has goblins with fox masks. Don't climb the center shaft on Floor 25 where the Mirror waits—it shows you a ghost of your own death. If you see red dust, turn back before it chokes your nanites. Keep moving."
+    },
+    {
+      "id": "smith_7",
+      "text": "\"Smith Hale's hammer has a head made of dragon bone. He says it hums when the deep is restless. Bring me a shard of star iron from the Fallen Seam, and I'll forge you a hammer that sings back."
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "96",
+      "text": "\"The Pagoda's bell has nine notes that hold the valley safe. Thieves stole three striking-stones to tick their vault-machines. Bring them back without waking the deep's sleep, or the bell will never ring again.\""
+    },
+    {
+      "id": "smith_6",
+      "text": "The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use."
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": "smith_6",
+      "text": "\"The Nest's forge burns on a firebird's breath. Only a grandmaster may work it. Make eight pieces at the grandmaster's pace and one Masterwork from the deep's own metal, and the flame is yours to use.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    },
+    {
+      "id": null
+    },
+    {
+      "id": "smith_3",
+      "text": "\"Lanternmere steel is folded with pearl-grit from the lake. Bring me ore, make five pieces at my anvil to get the feel of it, then fold me spirit steel.\""
+    },
+    {
+      "id": "lost_brother",
+      "text": "\"My brother Tam went down the stair with the first expedition. Everyone says he's dead. He promised he'd scratch our sign on a wall if he got past the goblins -- a little fox. Will you look for it?\""
+    }
+  ],
+  "helped": []
+}

@@ -1,0 +1,79 @@
+{
+  "brief": "bloodlines",
+  "title": "The great bloodlines",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "line": "azure_dragon",
+      "name": "Azure Bloodline",
+      "desc": "Qi gathers in this blood like rain, granting unmatched agility and lightning-fast strikes.",
+      "stir": "A tingling sensation in the veins, like sudden cold wind.",
+      "power50": "With half its power, one feels the wind move at their will, strikes becoming swift and relentless."
+    },
+    {
+      "line": "vermilion_phoenix",
+      "name": "Phoenix Blood",
+      "desc": "A rare bloodline that confers near-immortality, each generation reborn from the ashes of the last. Originating from the ancient southern kingdom of Elysium, its carriers are known for their resilience and phoenix-like resurgence after catastrophic injuries.",
+      "stir": "A sudden, inexplicable warmth in the chest, as if a small flame flickers to life within.",
+      "power50": "The power feels like a blazing sun, radiating intense heat and an aura of rebirth, ready to rise again from any grave."
+    },
+    {
+      "line": "white_tiger",
+      "name": "Tigerblood",
+      "desc": "The bloodline of the White Tiger, an ancient clan known for their martial prowess and strategic acumen, hailing from the western hills where they honed their skills against the relentless winds and steep crags.",
+      "stir": "A sudden, inexplicable chill in the air around the carrier, even on the warmest days.",
+      "power50": "The power of Tigerblood feels like a cold, precise wind that finds every weakness and exploits it with surgical precision."
+    },
+    {
+      "line": "black_tortoise",
+      "name": "Shellsong Bloodline",
+      "desc": "Carried by the old families of the Blackpeak mountains, this bloodline brings patience and resilience, like the north wind against the stones.",
+      "stir": "A faint, cold hum in the chest when under duress.",
+      "power50": "A half-awake Shellsong senses the wind shift, predicting the next strike."
+    },
+    {
+      "line": "qilin",
+      "name": "Fortune's Heir",
+      "desc": "Benevolent and rare, the Qilin bloodline brings good fortune and prosperity to those who bear it. The old families of the Silk River Valley claim this legacy.",
+      "stir": "A sudden feeling of fullness and warmth in the stomach, as if a small sun has nestled there.",
+      "power50": "As the Qilin power awakens, a sense of unshakeable luck envelops the bearer, drawing fortune and wealth to them like a magnet."
+    },
+    {
+      "line": "nine_tailed_fox",
+      "name": "Ninefold Shadow",
+      "desc": "The bloodline of the nine-tailed fox, a lineage steeped in cunning and evasion, hailing from the mist-shrouded forests where the foxes' whispers shaped the ancient paths of the valley.",
+      "stir": "A fleeting shadow dances just beyond the corner of one's eye, disappearing when one turns to look, leaving a whisper of cold air in its wake.",
+      "power50": "The world warps around the carrier, making paths that should be clear seem impossibly complex, while the carrier moves with uncanny ease, evading even the most determined pursuers."
+    },
+    {
+      "line": "golden_crow",
+      "name": "Blazing Line",
+      "desc": "An ancient bloodline said to be blessed by the golden crow, a three-legged bird that carries the sun; those with this blood are known to channel immense heat and light, often seen as guardians of the sun's fire.",
+      "stir": "A sudden, inexplicable warmth spreads through the body, often accompanied by the smell of ozone and a slight reddening of the skin in sunlight.",
+      "power50": "The power of the Blazing Line manifests as a burning touch, capable of melting stone and igniting flammable materials merely by proximity, while the body itself becomes immune to the heat and flames."
+    },
+    {
+      "line": "kunpeng",
+      "name": "Great Wanderer's Legacy",
+      "desc": "A lineage that whispers of distant lands and untold speeds, carried by the family of Longshan, ancient mariners and pathfinders of the eastern coast.",
+      "stir": "A sudden, inexplicable need to travel far and fast, as if the wind itself is calling from across the horizon.",
+      "power50": "The power feels like an unstoppable wind at one's back, pushing one forward with the speed and strength of a soaring eagle."
+    },
+    {
+      "line": "asura",
+      "name": "Warrior's Blood",
+      "desc": "An ancient bloodline born from countless battles, those who carry it fight harder as they fall. The families of this line trace back to the great fortress of Ironroot Hold, where they defended the valley for generations.",
+      "stir": "A sudden, inexplicable surge of adrenaline and reflexes, making the carrier feel invulnerable for moments.",
+      "power50": "The carrier's strikes grow sharper and more relentless as their life force wanes, each hit fueled by the brink of death itself."
+    },
+    {
+      "line": "starborn_lattice",
+      "name": "Celestial Weave",
+      "desc": "Descended from the ancients who first harnessed the nanites, the Celestial Weave bloodline is marked by an innate understanding of the microscopic forces that shape reality.",
+      "stir": "A sudden, inexplicable itch in the back of the neck, as if tiny gears are turning beneath the skin.",
+      "power50": "As the Celestial Weave awakens, the cultivator's body becomes a living lattice, their movements fluid and precise, each step a calculation, each strike a weave of nanite energy."
+    }
+  ],
+  "helped": []
+}

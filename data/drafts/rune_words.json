@@ -1,0 +1,59 @@
+{
+  "brief": "rune_words",
+  "title": "Rune words",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "keen_flame",
+      "name": "Keen Flame",
+      "hint": "Edge, then Ember, on a blade."
+    },
+    {
+      "id": "gale_edge",
+      "name": "Gale Edge",
+      "hint": "The wind first, and the cut it carries."
+    },
+    {
+      "id": "rooted_oak",
+      "name": "Rooted Oak",
+      "hint": "Root into stone, on something you wear."
+    },
+    {
+      "id": "stillwater",
+      "name": "Stillwater",
+      "hint": "The tide that meets a stone and stops."
+    },
+    {
+      "id": "seers_mark",
+      "name": "Seer's Mark",
+      "hint": "An eye for fortune, anywhere you carry it."
+    },
+    {
+      "id": "heartfire",
+      "name": "Heartfire",
+      "hint": "A root between two embers."
+    },
+    {
+      "id": "singing_blade",
+      "name": "Singing Blade",
+      "hint": "Two songs with the wind between them."
+    },
+    {
+      "id": "thunderclap",
+      "name": "Thunderclap",
+      "hint": "Storm, storm, and then the edge comes down."
+    },
+    {
+      "id": "fallen_star",
+      "name": "Fallen Star",
+      "hint": "The star falls, burns, and splits the sky."
+    },
+    {
+      "id": "mirror_of_nothing",
+      "name": "Mirror of Nothing",
+      "hint": "Nothing, held still by stone."
+    }
+  ],
+  "helped": []
+}

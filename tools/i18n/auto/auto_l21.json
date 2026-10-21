@@ -1,0 +1,222 @@
+{
+"Herbs, blooms and moss.": [
+"草药、花朵与苔藓。",
+"Hierbas, flores y musgo.",
+"Ervas, flores e musgo.",
+"Травы, цветы и мох.",
+"Kräuter, Blüten und Moos.",
+"Herbes, fleurs et mousse.",
+"薬草、花、苔。",
+"약초, 꽃, 이끼.",
+"Otlar, çiçekler ve yosun."
+],
+"Jade, gems and bright metal.": [
+"玉石、宝石与亮金属。",
+"Jade, gemas y metal brillante.",
+"Jade, gemas e metal brilhante.",
+"Нефрит, самоцветы и блестящий металл.",
+"Jade, Edelsteine und glänzendes Metall.",
+"Jade, gemmes et métal brillant.",
+"翡翠、宝石、輝く金属。",
+"옥, 보석, 빛나는 금속.",
+"Yeşim, değerli taşlar ve parlak maden."
+],
+"Jewels": [
+"宝石",
+"Joyas",
+"Joias",
+"Драгоценности",
+"Juwelen",
+"Joyaux",
+"宝飾",
+"보석",
+"Mücevherler"
+],
+"Plants": [
+"植物",
+"Plantas",
+"Plantas",
+"Растения",
+"Pflanzen",
+"Plantes",
+"植物",
+"식물",
+"Bitkiler"
+],
+"Resins, dusts, oils and bone.": [
+"树脂、粉尘、油脂与骨料。",
+"Resinas, polvos, aceites y hueso.",
+"Resinas, pós, óleos e osso.",
+"Смолы, пыль, масла и кость.",
+"Harze, Stäube, Öle und Knochen.",
+"Résines, poudres, huiles et os.",
+"樹脂、粉、油、骨。",
+"수지, 가루, 기름, 뼈.",
+"Reçineler, tozlar, yağlar ve kemik."
+],
+"Shards": [
+"碎片",
+"Fragmentos",
+"Fragmentos",
+"Осколки",
+"Splitter",
+"Éclats",
+"欠片",
+"파편",
+"Parçalar"
+],
+"%s is already out searching.": [
+"%s已经外出搜寻了。",
+"%s ya salió a buscar.",
+"%s já saiu para procurar.",
+"%s уже отправился на поиски.",
+"%s ist bereits auf Suche.",
+"%s est déjà parti en quête.",
+"%sはすでに探索に出ています。",
+"%s은(는) 이미 탐색을 나갔습니다.",
+"%s zaten arama yapıyor."
+],
+"%s is away on an expedition.": [
+"%s正在远征途中。",
+"%s está de expedición.",
+"%s está em expedição.",
+"%s в экспедиции.",
+"%s ist auf Expedition.",
+"%s est en expédition.",
+"%sは遠征中です。",
+"%s은(는) 원정 중입니다.",
+"%s keşif seferinde."
+],
+"%s is back from searching for %s with %s.": [
+"%s搜寻%s归来，带回了%s。",
+"%s volvió de buscar %s con %s.",
+"%s voltou de procurar %s com %s.",
+"%s вернулся с поисков (%s): %s.",
+"%s ist von der Suche nach %s zurück, mit %s.",
+"%s est de retour de sa quête de %s avec %s.",
+"%sが%sの探索から%sを持って戻りました。",
+"%s이(가) %s 탐색을 마치고 %s을(를) 가지고 돌아왔습니다.",
+"%s, %s aramasından %s ile döndü."
+],
+"%s is out searching -- wait until they are back.": [
+"%s正在外出搜寻——请等其归来。",
+"%s está buscando fuera; espera a que vuelva.",
+"%s está procurando fora; espere até que volte.",
+"%s на поисках — подождите, пока вернётся.",
+"%s ist auf Suche – warte, bis er zurück ist.",
+"%s est parti en quête ; attendez son retour.",
+"%sは探索中です。戻るまでお待ちください。",
+"%s은(는) 탐색 중입니다. 돌아올 때까지 기다리세요.",
+"%s arama yapıyor; dönene kadar bekle."
+],
+"%s is out searching.": [
+"%s正在外出搜寻。",
+"%s está buscando fuera.",
+"%s está procurando fora.",
+"%s на поисках.",
+"%s ist auf Suche.",
+"%s est parti en quête.",
+"%sは探索中です。",
+"%s은(는) 탐색 중입니다.",
+"%s arama yapıyor."
+],
+"%s sets out to search for %s. Back in %s.": [
+"%s出发搜寻%s，%s后返回。",
+"%s sale a buscar %s. Vuelve en %s.",
+"%s parte para procurar %s. Volta em %s.",
+"%s отправляется искать: %s. Вернётся через %s.",
+"%s macht sich auf die Suche nach %s. Zurück in %s.",
+"%s part chercher %s. Retour dans %s.",
+"%sが%sの探索に出発しました。%s後に戻ります。",
+"%s이(가) %s 탐색을 떠납니다. %s 후 귀환합니다.",
+"%s, %s aramak için yola çıktı. %s sonra dönecek."
+],
+"No such search.": [
+"没有这种搜寻。",
+"No existe esa búsqueda.",
+"Essa busca não existe.",
+"Такого поиска нет.",
+"Diese Suche gibt es nicht.",
+"Cette quête n'existe pas.",
+"そのような探索はありません。",
+"그런 탐색은 없습니다.",
+"Böyle bir arama yok."
+],
+"Nobody is in that place.": [
+"那里没有人。",
+"No hay nadie en ese lugar.",
+"Não há ninguém nesse lugar.",
+"Там никого нет.",
+"An diesem Ort ist niemand.",
+"Il n'y a personne à cet endroit.",
+"その場所には誰もいません。",
+"그곳에는 아무도 없습니다.",
+"O yerde kimse yok."
+],
+"Search for": [
+"搜寻",
+"Buscar",
+"Procurar",
+"Искать",
+"Suchen nach",
+"Chercher",
+"探すもの",
+"찾을 것",
+"Aranacak şey"
+],
+"Searching for %s -- back in %s.": [
+"正在搜寻%s——%s后返回。",
+"Buscando %s; vuelve en %s.",
+"Procurando %s; volta em %s.",
+"Ищет: %s — вернётся через %s.",
+"Sucht nach %s – zurück in %s.",
+"Cherche %s – retour dans %s.",
+"%sを探索中。%s後に戻ります。",
+"%s 탐색 중 -- %s 후 귀환.",
+"%s aranıyor -- %s sonra dönecek."
+],
+"Waits at camp -- only one human companion walks with you. Either of your two can be sent searching.": [
+"留在营地——只有一名人类同伴与你同行。你的两名同伴都可以派去搜寻。",
+"Espera en el campamento: solo un compañero humano te acompaña. Cualquiera de los dos puede ir a buscar.",
+"Espera no acampamento: só um companheiro humano caminha com você. Qualquer um dos dois pode ser enviado para procurar.",
+"Ждёт в лагере — с вами идёт только один спутник-человек. Любого из двоих можно отправить на поиски.",
+"Wartet im Lager – nur ein menschlicher Gefährte begleitet dich. Beide können auf Suche geschickt werden.",
+"Attend au camp : un seul compagnon humain vous accompagne. L'un ou l'autre peut être envoyé en quête.",
+"野営地で待機します。同行できる人間の仲間は1人だけ。2人のどちらも探索に送り出せます。",
+"야영지에서 대기합니다 -- 인간 동료는 한 명만 함께 걸을 수 있습니다. 두 동료 모두 탐색을 보낼 수 있습니다.",
+"Kampta bekler -- seninle yalnızca bir insan yoldaş yürür. İkisinden biri aramaya gönderilebilir."
+],
+"Walk with you instead": [
+"改为与你同行",
+"Que te acompañe",
+"Que ande com você",
+"Пусть идёт с вами",
+"Stattdessen mitnehmen",
+"Qu'il vous accompagne",
+"代わりに同行させる",
+"대신 함께 걷기",
+"Onun yerine seninle yürüsün"
+],
+"nothing this time": [
+"这次一无所获",
+"nada esta vez",
+"nada desta vez",
+"на этот раз ничего",
+"diesmal nichts",
+"rien cette fois",
+"今回は何もなし",
+"이번에는 없음",
+"bu sefer hiçbir şey"
+],
+"Nanite shards, glass and edged fragments.": [
+"纳米碎片、玻璃与锋利残片。",
+"Fragmentos de nanitas, vidrio y esquirlas afiladas.",
+"Fragmentos de nanites, vidro e estilhaços afiados.",
+"Осколки нанитов, стекло и острые обломки.",
+"Nanitensplitter, Glas und scharfkantige Bruchstücke.",
+"Éclats de nanites, verre et fragments tranchants.",
+"ナナイトの欠片、ガラス、鋭い破片。",
+"나나이트 파편, 유리, 날카로운 조각.",
+"Nanit parçaları, cam ve keskin kırıntılar."
+]
+}

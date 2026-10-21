@@ -1,0 +1,34 @@
+{
+ "_note": "Round 52: how the game FEELS -- Robert, 2026-10-04: 'more detail, more contrast, action special effects that make sense ... I want the character movement to be smooth ... as close to a good mainstream game.' Movement (how fast you get up to speed and stop, how fast you turn), the camera (how softly it follows, how it shakes and punches on a big hit), what a blow throws off (each creature its own: blood, bone chips, sparks, sap, embers, shards, wisps), damage numbers, the qi a kill gives flowing into you, the edges of the screen (a soft vignette, red when you're hurt, a pulse when you're close to falling), the look (contrast, shadow in the corners, bloom), and the ground's small detail (puddles, moss and dirt, pebbles, cobwebs).",
+ "move": {"accel_time": 0.12, "stop_time": 0.1, "air_accel": 5.0, "air_stop": 8.0, "turn_rate": 13.0, "lean_rate": 7.0},
+ "camera": {"follow": 16.0, "follow_y": 9.0, "snap_distance": 4.0, "shake_max": 0.35, "shake_roll": 0.025, "shake_decay": 1.8, "shake_freq": 24.0, "punch_fov": 4.0, "punch_secs": 0.22},
+ "numbers": {"on": true, "rise": 1.0, "secs": 0.85, "size": 40, "crit_size": 58, "colors": {"normal": [1.0, 0.95, 0.86], "crit": [1.0, 0.8, 0.25], "art": [0.6, 0.88, 1.0], "burn": [1.0, 0.55, 0.2], "you": [1.0, 0.38, 0.32]}},
+ "matter": {
+  "flesh":    {"color": [0.42, 0.03, 0.04], "add": false, "gravity": -11.0, "speed": [2.0, 4.6], "size": 0.06, "count": 16},
+  "bone":     {"color": [0.88, 0.84, 0.72], "add": false, "gravity": -14.0, "speed": [2.0, 5.0], "size": 0.07, "count": 12},
+  "spectral": {"color": [0.55, 0.85, 1.0], "add": true, "gravity": 1.5, "speed": [1.0, 2.6], "size": 0.12, "count": 14},
+  "crystal":  {"color": [0.6, 0.92, 1.0], "add": true, "gravity": -12.0, "speed": [2.5, 5.5], "size": 0.06, "count": 14},
+  "metal":    {"color": [1.0, 0.72, 0.32], "add": true, "gravity": -16.0, "speed": [3.5, 7.5], "size": 0.045, "count": 18},
+  "clay":     {"color": [0.6, 0.38, 0.26], "add": false, "gravity": -13.0, "speed": [1.5, 4.0], "size": 0.08, "count": 12},
+  "stone":    {"color": [0.55, 0.53, 0.5], "add": false, "gravity": -14.0, "speed": [1.5, 4.0], "size": 0.08, "count": 12},
+  "bark":     {"color": [0.32, 0.46, 0.14], "add": false, "gravity": -10.0, "speed": [1.5, 4.0], "size": 0.07, "count": 12},
+  "ember":    {"color": [1.0, 0.5, 0.15], "add": true, "gravity": 2.0, "speed": [1.5, 3.5], "size": 0.07, "count": 16}
+ },
+ "qi_stream": {"count": 7, "secs": [0.45, 0.8], "color": [0.55, 0.85, 1.0], "size": 0.13},
+ "screen": {"vignette": 0.32, "hurt_peak": 0.55, "hurt_decay": 2.2, "low_hp": 0.3, "low_pulse": 2.4},
+ "look": {"contrast": 1.13, "saturation_under": 0.97, "saturation_sky": 1.0, "ssao_intensity": 2.3, "bloom": 0.12, "glow": 0.8},
+ "detail": {
+  "default":  {"puddles": 0.012, "moss": 0.0, "dirt": 0.03, "pebbles": 0.06, "webs": 0.35},
+  "drowned":  {"puddles": 0.05, "moss": 0.025, "dirt": 0.01, "pebbles": 0.04, "webs": 0.2},
+  "grove":    {"puddles": 0.01, "moss": 0.06, "dirt": 0.03, "pebbles": 0.03, "webs": 0.15},
+  "canopy":   {"puddles": 0.015, "moss": 0.06, "dirt": 0.03, "pebbles": 0.03, "webs": 0.2},
+  "fungal":   {"puddles": 0.02, "moss": 0.05, "dirt": 0.02, "pebbles": 0.03, "webs": 0.3},
+  "crypt":    {"puddles": 0.01, "moss": 0.01, "dirt": 0.04, "pebbles": 0.05, "webs": 0.6},
+  "barrows":  {"puddles": 0.01, "moss": 0.015, "dirt": 0.05, "pebbles": 0.05, "webs": 0.55},
+  "forge":    {"puddles": 0.0, "moss": 0.0, "dirt": 0.05, "pebbles": 0.08, "webs": 0.05},
+  "ash":      {"puddles": 0.0, "moss": 0.0, "dirt": 0.06, "pebbles": 0.08, "webs": 0.05},
+  "frost":    {"puddles": 0.03, "moss": 0.0, "dirt": 0.01, "pebbles": 0.04, "webs": 0.1},
+  "warrens":  {"puddles": 0.02, "moss": 0.01, "dirt": 0.05, "pebbles": 0.07, "webs": 0.45},
+  "crystal":  {"puddles": 0.015, "moss": 0.0, "dirt": 0.01, "pebbles": 0.06, "webs": 0.1}
+ }
+}

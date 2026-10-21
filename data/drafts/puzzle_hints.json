@@ -1,0 +1,27 @@
+{
+  "brief": "puzzle_hints",
+  "title": "The lever tablets",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "text": "Beneath the bones of earth's breath, three hands turned the stone. Red first, who summoned the fire's touch. Blue then, who cooled the heart of the mountain. Green last, who wrapped it in life's embrace."
+    },
+    {
+      "text": "In the dark we toil and delve, the miners' song doth tell. Pull %s for the earth's embrace, then %s for the flame's swell. %s to bind the secrets deep, lest shadows break the spell."
+    },
+    {
+      "text": "Three hands turned the stone. Red first, who dug it deep. Green then, who held it high. Blue last, who made it whole."
+    },
+    {
+      "text": "Three hands turned the stone. Red first, who dug it. Green then, who shored it. Blue last, who sealed it."
+    },
+    {
+      "text": "Three hands turned the stone. Crimson first, who sang it. Azure then, who bound it. Ivory last, who dreamt it."
+    },
+    {
+      "text": "Three hands turned the stone. Red first, who dug it. Then blue, who shored it. Green last, who sealed it."
+    }
+  ],
+  "helped": []
+}

@@ -1,0 +1,485 @@
+{
+ "_about": "Bloodlines (round 30, Robert 2026-10-03): 'introduced around floor 20 ... percentage based with milestones ... only one dominant and one secondary ... found through legacy inheritances or a natural bloodline that shines through ... percentages decide if a player starts with one or has a hidden one.' Engine: Game.gd 'bloodlines'. A line's 'words' (stir, desc, power) may be rewritten by Dev in data/bloodline_words.json, which wins over these.",
+ "awaken_floor": [
+  18,
+  22
+ ],
+ "start": {
+  "visible_chance": 0.08,
+  "hidden_chance": 0.25,
+  "visible_purity": [
+   8,
+   16
+  ],
+  "hidden_purity": [
+   4,
+   12
+  ]
+ },
+ "natural_chance": 0.3,
+ "natural_purity": [
+  3,
+  8
+ ],
+ "milestones": [
+  {
+   "at": 10,
+   "name": "Stirring"
+  },
+  {
+   "at": 25,
+   "name": "Awakened"
+  },
+  {
+   "at": 50,
+   "name": "Manifest"
+  },
+  {
+   "at": 75,
+   "name": "Ascendant"
+  },
+  {
+   "at": 100,
+   "name": "Pure"
+  }
+ ],
+ "secondary_share": 0.5,
+ "gain": {
+  "essence": [
+   3,
+   7
+  ],
+  "inheritance": [
+   6,
+   12
+  ],
+  "kin_kill": 0.12,
+  "kin_boss": 1.5,
+  "breakthrough": 2.0,
+  "shrine_hour": 0.6,
+  "hidden_per_floor": 0.4
+ },
+ "essence": {
+  "from_depth": 20,
+  "boss": 0.35,
+  "elite": 0.05,
+  "event_mult": 3.0
+ },
+ "inheritance_chance": 0.4,
+ "swap_cooldown_hours": 20,
+ "rebirth_heal": 0.4,
+ "fury_below": 0.4,
+ "crit_mult": 1.8,
+ "lines": {
+  "azure_dragon": {
+   "name": "Azure Dragon",
+   "element": "wood",
+   "color": [
+    0.3,
+    0.75,
+    0.95
+   ],
+   "kin": [
+    "dragon",
+    "drake",
+    "serpent",
+    "storm",
+    "crane",
+    "cloud"
+   ],
+   "desc": "The east wind's lord. Qi pools in your blood the way rain gathers in a dragon's coils.",
+   "stir": "Something long and patient uncoils behind your breastbone. The air tastes of coming rain.",
+   "milestones": {
+    "10": {
+     "qi_mult": 1.04
+    },
+    "25": {
+     "meditate_mult": 1.15
+    },
+    "50": {
+     "qi_mult": 1.08,
+     "damage_mult": 1.04
+    },
+    "75": {
+     "hp_mult": 1.06,
+     "meditate_mult": 1.15
+    },
+    "100": {
+     "qi_mult": 1.12,
+     "damage_mult": 1.06
+    }
+   },
+   "power50": "Dragon's Patience: qi gathers faster in everything you do."
+  },
+  "vermilion_phoenix": {
+   "name": "Vermilion Phoenix",
+   "element": "fire",
+   "color": [
+    1.0,
+    0.45,
+    0.15
+   ],
+   "kin": [
+    "phoenix",
+    "ember",
+    "cinder",
+    "furnace",
+    "flame",
+    "ash",
+    "salamander"
+   ],
+   "desc": "The south's undying bird. Your blood refuses endings.",
+   "stir": "A warmth moves under your skin that no fire lit -- as if you'd been burned once, long ago, and come back.",
+   "milestones": {
+    "10": {
+     "regen": 0.15
+    },
+    "25": {
+     "heal_on_kill": 4
+    },
+    "50": {
+     "rebirth": 1,
+     "regen": 0.2
+    },
+    "75": {
+     "hp_mult": 1.08,
+     "heal_on_kill": 4
+    },
+    "100": {
+     "rebirth": 1,
+     "regen": 0.35
+    }
+   },
+   "power50": "Rebirth from Ashes: once a day, a blow that would kill you leaves you standing at 40% health."
+  },
+  "white_tiger": {
+   "name": "White Tiger",
+   "element": "metal",
+   "color": [
+    0.92,
+    0.92,
+    0.98
+   ],
+   "kin": [
+    "tiger",
+    "steel",
+    "sword",
+    "blade",
+    "iron",
+    "brass",
+    "clock"
+   ],
+   "desc": "The west's killing star. Your blood knows where the gap in the armour is.",
+   "stir": "Your eyes find the seams in things -- the gap in a door, the weak link in a chain -- without your asking.",
+   "milestones": {
+    "10": {
+     "crit_chance": 0.04
+    },
+    "25": {
+     "attack_speed": 1.05
+    },
+    "50": {
+     "crit_chance": 0.06,
+     "damage_mult": 1.05
+    },
+    "75": {
+     "attack_speed": 1.06,
+     "crit_chance": 0.04
+    },
+    "100": {
+     "damage_mult": 1.1,
+     "crit_chance": 0.05
+    }
+   },
+   "power50": "Tiger's Eye: your blows find the gap -- some land for nearly double."
+  },
+  "black_tortoise": {
+   "name": "Black Tortoise",
+   "element": "water",
+   "color": [
+    0.2,
+    0.32,
+    0.38
+   ],
+   "kin": [
+    "tortoise",
+    "turtle",
+    "crab",
+    "golem",
+    "guardian",
+    "sentinel",
+    "warden"
+   ],
+   "desc": "The north's patient shell. Your blood was made to outlast.",
+   "stir": "Blows land on you like rain on old stone. You hadn't noticed how long you can stand.",
+   "milestones": {
+    "10": {
+     "ward": 4.0
+    },
+    "25": {
+     "hp_mult": 1.06
+    },
+    "50": {
+     "damage_taken": 0.92,
+     "ward": 6.0
+    },
+    "75": {
+     "hp_mult": 1.08,
+     "ward": 6.0
+    },
+    "100": {
+     "damage_taken": 0.9,
+     "hp_mult": 1.06
+    }
+   },
+   "power50": "The Shell Remembers: every blow lands lighter."
+  },
+  "qilin": {
+   "name": "Qilin",
+   "element": "earth",
+   "color": [
+    0.95,
+    0.8,
+    0.35
+   ],
+   "kin": [
+    "qilin",
+    "stag",
+    "deer",
+    "goat",
+    "jewel",
+    "star",
+    "meteor"
+   ],
+   "desc": "The benevolent beast that walks without bending grass. Fortune follows your blood.",
+   "stir": "Coins turn up where you put your feet. Strangers smile at you and don't know why.",
+   "milestones": {
+    "10": {
+     "loot_luck": 0.05
+    },
+    "25": {
+     "gather_chance": 0.1,
+     "keep_gold": 0.1
+    },
+    "50": {
+     "loot_luck": 0.1,
+     "qi_mult": 1.04
+    },
+    "75": {
+     "gather_bonus": 1,
+     "loot_luck": 0.05
+    },
+    "100": {
+     "loot_luck": 0.1,
+     "keep_gold": 0.15
+    }
+   },
+   "power50": "Qilin's Blessing: the fallen leave more behind -- sometimes twice."
+  },
+  "nine_tailed_fox": {
+   "name": "Nine-Tailed Fox",
+   "element": "fire",
+   "color": [
+    0.95,
+    0.55,
+    0.75
+   ],
+   "kin": [
+    "fox",
+    "wisp",
+    "spirit",
+    "reflection",
+    "mirror",
+    "moth",
+    "shade"
+   ],
+   "desc": "A trickster's blood, thin as smoke and twice as hard to catch.",
+   "stir": "People look at where you were a heartbeat ago. Your shadow seems to have more tails than it should.",
+   "milestones": {
+    "10": {
+     "dodge_chance": 0.04
+    },
+    "25": {
+     "move_mult": 1.05
+    },
+    "50": {
+     "dodge_chance": 0.06,
+     "dash": 1.5
+    },
+    "75": {
+     "move_mult": 1.05,
+     "dodge_chance": 0.04
+    },
+    "100": {
+     "dodge_chance": 0.05,
+     "damage_mult": 1.06
+    }
+   },
+   "power50": "Foxfire Step: some blows meet only the place you were."
+  },
+  "golden_crow": {
+   "name": "Golden Crow",
+   "element": "fire",
+   "color": [
+    1.0,
+    0.82,
+    0.25
+   ],
+   "kin": [
+    "crow",
+    "raven",
+    "sun",
+    "furnace",
+    "slag",
+    "burning"
+   ],
+   "desc": "The three-legged bird that carries the sun. Your blood runs hot enough to scorch.",
+   "stir": "Your palms are warm in the coldest room. Water steams where your hand rests on it.",
+   "milestones": {
+    "10": {
+     "burn_on_hit": 2
+    },
+    "25": {
+     "damage_mult": 1.04
+    },
+    "50": {
+     "burn_on_hit": 4,
+     "damage_mult": 1.04
+    },
+    "75": {
+     "burn_on_hit": 3,
+     "attack_speed": 1.04
+    },
+    "100": {
+     "burn_on_hit": 5,
+     "damage_mult": 1.06
+    }
+   },
+   "power50": "Sunfire Blood: your blows set what they strike burning."
+  },
+  "kunpeng": {
+   "name": "Kunpeng",
+   "element": "water",
+   "color": [
+    0.4,
+    0.6,
+    0.95
+   ],
+   "kin": [
+    "kun",
+    "peng",
+    "fish",
+    "drowned",
+    "sea",
+    "coral",
+    "eel",
+    "sky"
+   ],
+   "desc": "The great fish that became the great bird. Your blood wants distance.",
+   "stir": "Doors feel close; horizons feel near. Your legs want to keep going after the road ends.",
+   "milestones": {
+    "10": {
+     "move_mult": 1.04
+    },
+    "25": {
+     "sense_radius": 3.0
+    },
+    "50": {
+     "move_mult": 1.06,
+     "dash": 2.0
+    },
+    "75": {
+     "sense_radius": 4.0,
+     "attack_speed": 1.04
+    },
+    "100": {
+     "move_mult": 1.06,
+     "qi_mult": 1.05
+    }
+   },
+   "power50": "Ten Thousand Li: you run and step further than the body should."
+  },
+  "asura": {
+   "name": "Asura",
+   "element": "earth",
+   "color": [
+    0.85,
+    0.18,
+    0.15
+   ],
+   "kin": [
+    "asura",
+    "brute",
+    "berserk",
+    "war",
+    "blood",
+    "colossus",
+    "juggernaut"
+   ],
+   "desc": "War-blood. The nearer you are to falling, the harder you hit.",
+   "stir": "When you're hurt, the hurt goes somewhere useful. You notice you're smiling in fights.",
+   "milestones": {
+    "10": {
+     "low_hp_fury": 0.1
+    },
+    "25": {
+     "heal_on_kill": 3
+    },
+    "50": {
+     "low_hp_fury": 0.2,
+     "damage_mult": 1.04
+    },
+    "75": {
+     "hp_mult": 1.05,
+     "heal_on_kill": 3
+    },
+    "100": {
+     "low_hp_fury": 0.2,
+     "damage_mult": 1.06
+    }
+   },
+   "power50": "Asura's Wrath: below 40% health your blows strike far harder."
+  },
+  "starborn_lattice": {
+   "name": "Starborn Lattice",
+   "element": "metal",
+   "color": [
+    0.45,
+    0.95,
+    0.85
+   ],
+   "kin": [
+    "nanite",
+    "lattice",
+    "crystal",
+    "shard",
+    "clockwork",
+    "gear",
+    "construct"
+   ],
+   "desc": "Not a beast's blood at all: the nanites themselves, folded into your line generations ago and remembering.",
+   "stir": "The swarm in your veins hums a tune you never taught it -- older than you, and pleased to be heard.",
+   "milestones": {
+    "10": {
+     "swarm_mult": 1.06
+    },
+    "25": {
+     "craft_success": 0.05
+    },
+    "50": {
+     "swarm_mult": 1.1,
+     "qi_mult": 1.04
+    },
+    "75": {
+     "craft_quality": 0.06,
+     "regen": 0.15
+    },
+    "100": {
+     "swarm_mult": 1.12,
+     "qi_mult": 1.05
+    }
+   },
+   "power50": "Ancestral Swarm: your nanites grow as though they'd done this before."
+  }
+ }
+}

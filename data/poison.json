@@ -1,0 +1,29 @@
+{
+ "_note": "Round 138 (Robert, 2026-10-17: 'Yes add that'): poison as a thing you can use and suffer. scripts/systems/Poison.gd reads this.",
+ "coat": {
+  "venom": {
+   "name": "Venom",
+   "hit_share": 0.45,
+   "secs": 5.0
+  },
+  "numb": {
+   "name": "Numbing",
+   "slow_secs": 1.2,
+   "hit_share": 0.12,
+   "secs": 3.0
+  }
+ },
+ "foe_cap_per_sec": {
+  "normal": 0.025,
+  "elite": 0.015,
+  "boss": 0.006
+ },
+ "boss_dur_mult": 0.5,
+ "boss_slow_mult": 0.3,
+ "player": {
+  "max_secs": 12.0,
+  "antidote_ward_secs": 240.0,
+  "tick_cap_share": 0.04
+ },
+ "ward_buff": "antidote_ward"
+}

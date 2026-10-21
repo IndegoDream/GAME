@@ -1,0 +1,136 @@
+{
+  "brief": "runes",
+  "title": "Runes and talismans",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "edge_rune",
+      "name": "Rune of the Edge",
+      "desc": "A single straight cut, as sharp as the blade that first carved the mountains. Steel that carries it remembers it was made to cut."
+    },
+    {
+      "id": "edge_rune",
+      "name": "Rune of the Razor's Edge",
+      "desc": "A mark that whispers of the blade's kiss. Steel that bears it feels the cold of unseen cuts."
+    },
+    {
+      "id": "root_rune",
+      "name": "Rune of the Root",
+      "desc": "A mark that branches downward, like the roots of an old tree seeking water. It drinks in the life around it, healing the wielder with each kill and strengthening their resolve in battle."
+    },
+    {
+      "id": "root_rune",
+      "name": "Rune of the Deep Branch",
+      "desc": "A gnarled mark that twists and turns like ancient roots, drinking life from the ground and the wielder alike."
+    },
+    {
+      "id": "tide_rune",
+      "name": "Rune of the Tide",
+      "desc": "Two curves, one returning. It never stops moving, mirroring the ebb and flow of the sea and life itself."
+    },
+    {
+      "id": "stone_rune",
+      "name": "Rune of the Stone",
+      "desc": "A square inside a square. Heavy to carry, hard to move. This rune offers a shield of stone around its bearer, absorbing blows and cutting through with a weight that leaves the earth trembling."
+    },
+    {
+      "id": "edge_rune",
+      "name": "Rune of the Cutting Line",
+      "desc": "A single straight cut. Steel that carries it remembers it was made to cut."
+    },
+    {
+      "id": "wind_rune",
+      "name": "Rune of the Zephyr",
+      "desc": "Three strokes that never quite meet, like the wind that dances around a corner. It whispers to the swift of foot, granting them the grace of the breeze."
+    },
+    {
+      "id": "eye_rune",
+      "name": "Rune of the Watchful Eye",
+      "desc": "An open eye, carved shut at the corners. It sees the soft places and whispers secrets to those who wear it."
+    },
+    {
+      "id": "storm_rune",
+      "name": "Rune of the Storm",
+      "desc": "A broken line that stings the hand that carves it. It brings a sudden gale with every strike, and a flash of lightning to the heart of any who cross its path."
+    },
+    {
+      "id": "song_rune",
+      "name": "Rune of the Resonant Spirit",
+      "desc": "A delicate mark that hums with an ancient tune. This rune, when infused into a weapon, stirs the qi to strike true and with power, while in armor, it whispers secrets of the deep to those who meditate."
+    },
+    {
+      "id": "star_rune",
+      "name": "Rune of the Fallen Star",
+      "desc": "Five points and a tail. Heavier than the stone it's cut in. This rune is said to be a fragment of the celestial bodies that fell to earth ages ago, imbued with the essence of the cosmos."
+    },
+    {
+      "id": "void_rune",
+      "name": "Rune of the Abyss",
+      "desc": "Cut into the blank rune as if nothingness itself had carved it. It hums with an absence so profound it feels like it could swallow the world whole."
+    },
+    {
+      "id": "spirit_paper",
+      "name": "Spirit Paper",
+      "desc": "A thin sheet of pressed herb pulp and resin, imbued with the essence of qi. It carries the weight of unseen spirits and whispers of the past."
+    },
+    {
+      "id": "ember_rune",
+      "name": "Rune of the Ember",
+      "desc": "A mark like a coal's crack. Warm to hold. It whispers of the heat that once burned within it."
+    },
+    {
+      "id": "heavenfire_talisman",
+      "name": "Heavenfire Talisman",
+      "desc": "Written on frozen vellum in ink that never thawed, so the fire has something to fight. It burns down the sky."
+    },
+    {
+      "id": "frost_talisman",
+      "name": "Frost Talisman",
+      "desc": "A sheet of paper painted with the frost of dawn, capturing the chill of the deep valley. When lit, it cools the air around you, slowing and numbing nearby foes."
+    },
+    {
+      "id": "storm_rune",
+      "name": "Rune of the Tempest",
+      "desc": "A jagged line that breaks the stillness. It whispers of thunder and lightning, cutting and chaos."
+    },
+    {
+      "id": "binding_talisman",
+      "name": "Binding Talisman",
+      "desc": "Threads of qi that hold everything near you where it stands. Ancient warriors used it to ensnare foes, binding them for the briefest of moments."
+    },
+    {
+      "id": "swift_talisman",
+      "name": "Swift Talisman",
+      "desc": "A flicker of wind captured on paper. For thirty breaths, it makes you quick as the morning breeze."
+    },
+    {
+      "id": "root_rune",
+      "name": "Ironroot Rune",
+      "desc": "A mark that branches downward like the deep wood of Ironroot Hold. It drinks life from what you defeat to mend your flesh."
+    },
+    {
+      "id": "edge_rune",
+      "name": "Rune of the Blade",
+      "desc": "A single straight cut. Steel that carries it remembers it was made to cut."
+    },
+    {
+      "id": "clear_sight_talisman",
+      "name": "Talisman of the Revealed Path",
+      "desc": "A sheet of thin spirit paper marked with the arcane symbols of a distant view. Burn it and the veil of the unseen lifts for a time, revealing the map of the floor for all to see."
+    },
+    {
+      "id": "star_rune",
+      "name": "Rune of the Celestial Star",
+      "desc": "A mark resembling a shooting star, with five points and a tail. It is said to bring good fortune and strength to those who carry it."
+    },
+    {
+      "id": "mirror_seal_talisman",
+      "name": "Seal of the Hidden Gate",
+      "desc": "A parchment with ancient sigils, it glows faintly when the path is uncharted and unseen. For those who dare to pass beyond the known, it whispers secrets of the sealed."
+    }
+  ],
+  "helped": [
+    20
+  ]
+}

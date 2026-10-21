@@ -1,0 +1,27 @@
+{
+ "_note": "Round 75: the Atlas (scripts/systems/Atlas.gd) remembers where you've been; the Map page (scripts/MapScreen.gd) draws it. tile_px: pixels a map cell takes at zoom 1. max_levels: how many places the atlas remembers (the oldest are forgotten first). refresh_s: how often it looks for landmarks you've come across. sight_cells: how near you must be to notice a landmark where there is no fog. floors_total: the floors drawn in the world view's column.",
+ "tile_px": 6,
+ "max_levels": 120,
+ "refresh_s": 1.5,
+ "sight_cells": 10,
+ "floors_total": 50,
+ "zoom_min": 0.4,
+ "zoom_max": 5.0,
+ "tints": {
+  "floor": [0.36, 0.34, 0.30],
+  "road": [0.55, 0.47, 0.34],
+  "wall": [0.16, 0.16, 0.2],
+  "water": [0.18, 0.34, 0.55],
+  "house": [0.45, 0.28, 0.22],
+  "tree": [0.18, 0.38, 0.2],
+  "solid": [0.24, 0.24, 0.26],
+  "unknown": [0.015, 0.015, 0.025]
+ },
+ "marks": {
+  "exit": [0.95, 0.85, 0.35],
+  "shrine": [0.55, 0.85, 1.0],
+  "waystone": [0.7, 0.95, 1.0],
+  "boss": [1.0, 0.35, 0.3],
+  "npc": [0.7, 1.0, 0.7]
+ }
+}

@@ -1,0 +1,200 @@
+{
+  "generated_at": "2026-09-26T19:42:51+00:00",
+  "purpose": "A starter library of real, license-clear 3D assets for building a visually complex fantasy world in Godot Studio / Game Forge 3D / the Realm -- gathered per Robert's 2026-09-26 ask, while Seele (the paid bespoke-model service) is between refreshes. Everything here is CC0 (public domain) -- free to use, modify, and redistribute with no attribution required, though crediting the artists is appreciated and noted below.",
+  "kenney": {
+    "license": "CC0 1.0 Universal (public domain)",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "artist": "Kenney (www.kenney.nl)",
+    "format": "GLB (binary glTF) -- loads natively in both Godot 4.x and three.js, no conversion needed",
+    "packs": {
+      "castle-kit": {
+        "title": "Castle Kit",
+        "source": "https://kenney.nl/assets/castle-kit",
+        "download_url": "https://kenney.nl/media/pages/assets/castle-kit/a395102d20-1711543616/kenney_castle-kit.zip",
+        "note": "Medieval castle/fortification pieces: walls, towers, gates, bridges, banners.",
+        "files": 78,
+        "bytes": 2089114
+      },
+      "fantasy-town-kit": {
+        "title": "Fantasy Town Kit",
+        "source": "https://kenney.nl/assets/fantasy-town-kit",
+        "download_url": "https://kenney.nl/media/pages/assets/fantasy-town-kit/efe948d309-1754222374/kenney_fantasy-town-kit_2.0.zip",
+        "note": "Medieval town/village buildings, houses, carts, fences, chimneys, banners.",
+        "files": 169,
+        "bytes": 2509248
+      },
+      "mini-dungeon": {
+        "title": "Mini Dungeon",
+        "source": "https://kenney.nl/assets/mini-dungeon",
+        "download_url": "https://kenney.nl/media/pages/assets/mini-dungeon/6cd72dc849-1785314274/kenney_mini-dungeon.zip",
+        "note": "Dungeon interior pieces: columns, chests, barrels, gates, floors -- plus two basic character models (human, orc).",
+        "files": 32,
+        "bytes": 909107
+      },
+      "nature-kit": {
+        "title": "Nature Kit",
+        "source": "https://kenney.nl/assets/nature-kit",
+        "download_url": "https://kenney.nl/media/pages/assets/nature-kit/37ac38a37b-1677698939/kenney_nature-kit.zip",
+        "note": "Outdoor terrain and foliage: trees, rocks, bridges, fences, plants.",
+        "files": 330,
+        "bytes": 3034991
+      }
+    }
+  },
+  "polyhaven": {
+    "license": "CC0 1.0 Universal (public domain)",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://polyhaven.com/ (fetched via the public API, https://api.polyhaven.com)",
+    "textures": {
+      "forest_floor": {
+        "source": "https://polyhaven.com/a/forest_floor",
+        "note": "leaf-litter forest ground",
+        "resolution": "2k",
+        "maps": [
+          "Diffuse.jpg",
+          "arm.jpg",
+          "nor_gl.jpg"
+        ],
+        "bytes": 14747329
+      },
+      "grass_ground": {
+        "source": "https://polyhaven.com/a/grass_ground",
+        "note": "open grass/meadow ground",
+        "resolution": "2k",
+        "maps": [
+          "Diffuse.jpg",
+          "arm.jpg",
+          "nor_gl.jpg"
+        ],
+        "bytes": 13605640
+      },
+      "mossy_cobblestone": {
+        "source": "https://polyhaven.com/a/mossy_cobblestone",
+        "note": "old mossy cobblestone path",
+        "resolution": "2k",
+        "maps": [
+          "Diffuse.jpg",
+          "arm.jpg",
+          "nor_gl.jpg"
+        ],
+        "bytes": 11878065
+      },
+      "old_stone_wall": {
+        "source": "https://polyhaven.com/a/old_stone_wall",
+        "note": "weathered stone wall/fortification surface",
+        "resolution": "2k",
+        "maps": [
+          "Diffuse.jpg",
+          "arm.jpg",
+          "nor_gl.jpg"
+        ],
+        "bytes": 9869910
+      },
+      "castle_brick_01": {
+        "source": "https://polyhaven.com/a/castle_brick_01",
+        "note": "castle brickwork wall",
+        "resolution": "2k",
+        "maps": [
+          "Diffuse.jpg",
+          "arm.jpg",
+          "nor_gl.jpg"
+        ],
+        "bytes": 7544204
+      },
+      "rock_face": {
+        "source": "https://polyhaven.com/a/rock_face",
+        "note": "natural rock/cliff face",
+        "resolution": "2k",
+        "maps": [
+          "Diffuse.jpg",
+          "arm.jpg",
+          "nor_gl.jpg"
+        ],
+        "bytes": 8726103
+      },
+      "stony_dirt_path": {
+        "source": "https://polyhaven.com/a/stony_dirt_path",
+        "note": "worn dirt path with embedded stones",
+        "resolution": "2k",
+        "maps": [
+          "Diffuse.jpg",
+          "arm.jpg",
+          "nor_gl.jpg"
+        ],
+        "bytes": 14049474
+      },
+      "mossy_stone_wall": {
+        "source": "https://polyhaven.com/a/mossy_stone_wall",
+        "note": "moss-covered stone wall",
+        "resolution": "2k",
+        "maps": [
+          "Diffuse.jpg",
+          "arm.jpg",
+          "nor_gl.jpg"
+        ],
+        "bytes": 11724588
+      },
+      "old_wood_floor": {
+        "source": "https://polyhaven.com/a/old_wood_floor",
+        "note": "worn wooden interior floor (tavern/cottage)",
+        "resolution": "2k",
+        "maps": [
+          "Diffuse.jpg",
+          "arm.jpg",
+          "nor_gl.jpg"
+        ],
+        "bytes": 8809656
+      }
+    },
+    "hdris": {
+      "epping_forest_01": {
+        "source": "https://polyhaven.com/a/epping_forest_01",
+        "note": "daytime forest canopy sky",
+        "resolution": "2k",
+        "file": "epping_forest_01.hdr",
+        "bytes": 7611980
+      },
+      "misty_pines": {
+        "source": "https://polyhaven.com/a/misty_pines",
+        "note": "misty pine forest morning",
+        "resolution": "2k",
+        "file": "misty_pines.hdr",
+        "bytes": 7050893
+      },
+      "evening_meadow": {
+        "source": "https://polyhaven.com/a/evening_meadow",
+        "note": "golden-hour meadow sky",
+        "resolution": "2k",
+        "file": "evening_meadow.hdr",
+        "bytes": 6670341
+      },
+      "sunset_meadow_path": {
+        "source": "https://polyhaven.com/a/sunset_meadow_path",
+        "note": "dramatic sunset over a meadow path",
+        "resolution": "2k",
+        "file": "sunset_meadow_path.hdr",
+        "bytes": 6686330
+      },
+      "blaubeuren_night": {
+        "source": "https://polyhaven.com/a/blaubeuren_night",
+        "note": "clear night sky",
+        "resolution": "2k",
+        "file": "blaubeuren_night.hdr",
+        "bytes": 7296212
+      },
+      "kloofendal_28d_misty": {
+        "source": "https://polyhaven.com/a/kloofendal_28d_misty",
+        "note": "overcast, misty general-purpose sky",
+        "resolution": "2k",
+        "file": "kloofendal_28d_misty.hdr",
+        "bytes": 6161738
+      }
+    }
+  },
+  "totals": {
+    "kenney_files": 609,
+    "texture_sets": 9,
+    "hdris": 6,
+    "total_bytes": 150974923
+  }
+}

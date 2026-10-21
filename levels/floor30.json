@@ -1,0 +1,611 @@
+{
+  "id": "floor30",
+  "name": "Floor 30, The Ember Nest",
+  "theme": "settlement",
+  "depth": 30,
+  "ground": "moss",
+  "breathing": true,
+  "ambient": [
+    0.7,
+    0.48,
+    0.35
+  ],
+  "forged": {
+    "settlement": "embernest",
+    "cycle": 0,
+    "size": 1.5
+  },
+  "layout": {
+    "seed": 30,
+    "secret_passages": 0,
+    "rooms": [
+      {
+        "name": "The Feather Gate",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "R"
+        ]
+      },
+      {
+        "name": "The Cinder Market",
+        "size": [
+          16,
+          9
+        ],
+        "has": [
+          "L*3",
+          "b*3",
+          "M",
+          "G",
+          "m"
+        ]
+      },
+      {
+        "name": "The Square of Warm Stones",
+        "size": [
+          14,
+          11
+        ],
+        "has": [
+          "f",
+          "P",
+          "L*4",
+          "E"
+        ]
+      },
+      {
+        "name": "The Hearth Inn",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "H",
+          "b*2",
+          "N",
+          "D"
+        ]
+      },
+      {
+        "name": "The Phoenix Forge",
+        "size": [
+          14,
+          6
+        ],
+        "has": [
+          "L*2",
+          "H*2",
+          "O",
+          "U",
+          "p"
+        ]
+      },
+      {
+        "name": "The Ash-Herb Hall",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "h*3",
+          "Q",
+          "W"
+        ]
+      },
+      {
+        "name": "The Guild Perches",
+        "size": [
+          14,
+          7
+        ],
+        "has": [
+          "L*2",
+          "=*2",
+          "X"
+        ]
+      },
+      {
+        "name": "The Ember Ring",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*3",
+          "=*4",
+          "Y",
+          "q"
+        ]
+      },
+      {
+        "name": "The Academy Roost",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "=*2",
+          "J"
+        ]
+      },
+      {
+        "name": "The Shrine of the Egg",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "Z",
+          "L*3",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Nest Homes",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h",
+          "B",
+          "u"
+        ]
+      },
+      {
+        "name": "The Ash Gardens",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "h*6",
+          "L*2"
+        ]
+      },
+      {
+        "name": "The Lower Nest Homes",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h"
+        ]
+      },
+      {
+        "name": "The Far Ash Gardens",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "h*6",
+          "L*2",
+          "j"
+        ]
+      },
+      {
+        "name": "The Broken Cinder Market",
+        "size": [
+          16,
+          9
+        ],
+        "has": [
+          "L*3",
+          "b*3"
+        ]
+      },
+      {
+        "name": "The Inner Nest Homes",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h"
+        ]
+      },
+      {
+        "name": "The Old Ash Gardens",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "h*6",
+          "L*2",
+          "n"
+        ]
+      },
+      {
+        "name": "The Sunken Cinder Market",
+        "size": [
+          16,
+          9
+        ],
+        "has": [
+          "L*3",
+          "b*3"
+        ]
+      },
+      {
+        "name": "The High Nest Homes",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h"
+        ]
+      },
+      {
+        "name": "The Cold Cellar",
+        "size": [
+          6,
+          5
+        ],
+        "has": [
+          "L",
+          "K"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Downward Ember",
+        "size": [
+          10,
+          6
+        ],
+        "has": [
+          ">",
+          "L*2",
+          "V"
+        ]
+      }
+    ],
+    "roads": true
+  },
+  "npcs": {
+    "M": {
+      "role": "merchant",
+      "name": "Mother Sorrel",
+      "stock": [
+        "embernest_restorative_f30",
+        "embernest_elixir_f30",
+        "breakthrough_pill",
+        "ash_pill_f23",
+        "clockwork_pill_f21",
+        "clockwork_pill_f29",
+        "drowned_pill_f27",
+        "frost_pill_f24",
+        "fungal_pill_f28",
+        "ghostmarket_pill_f26",
+        "mirror_pill_f25",
+        "silk_pill_f22"
+      ],
+      "line": "Welcome, traveler, to the finest wares in the Ember Nest!",
+      "lines": [
+        "I heard the third floor holds secrets of the phoenix's past.",
+        "The alchemist says he can craft potions that protect against the heat down here."
+      ],
+      "persona": "Merchant Sorrel, known for her extensive collection of rare items."
+    },
+    "N": {
+      "role": "innkeeper",
+      "name": "Ashla Firewing",
+      "price": 120,
+      "line": "Warming up for a night of stories and laughter!",
+      "lines": [
+        "The guild members whisper about challenges in the deeper floors.",
+        "They say the phoenix's ashes have healing properties."
+      ],
+      "persona": "Ashla Firewing, the hospitable innkeeper with a knack for brewing."
+    },
+    "O": {
+      "role": "smith",
+      "name": "Bryn Feather",
+      "line": "A weapon should be as strong as the wielder's heart.",
+      "lines": [
+        "Rumors of a legendary blacksmith's forge in the depths.",
+        "The deeper you go, the more dangerous the materials become."
+      ],
+      "persona": "Bryn Feather, the master blacksmith who forges with the phoenix's fire."
+    },
+    "Q": {
+      "role": "alchemist",
+      "name": "Ruan Cinderfall",
+      "line": "Experimenting with the arcane and the elemental.",
+      "lines": [
+        "The alchemist's notes hint at a way to control the phoenix's flames.",
+        "A mysterious visitor from the surface seeks a rare ingredient."
+      ],
+      "persona": "Ruan Cinderfall, an alchemist with a fascination for the phoenix's powers."
+    },
+    "U": {
+      "role": "guild",
+      "name": "Old Kael",
+      "guild": "blacksmiths",
+      "line": "Honor and strength guide the path of the warrior.",
+      "lines": [
+        "Guild members speak of the trials on the deeper floors.",
+        "Whispers of ancient warriors who served the phoenix."
+      ],
+      "persona": "Old Kael, the grizzled veteran who leads the local guild."
+    },
+    "W": {
+      "role": "guild",
+      "name": "Ves Flame-Tongue",
+      "guild": "alchemists",
+      "line": "Fighting the fires within and without.",
+      "lines": [
+        "Ves has heard tales of fiery beasts guarding the deeper floors.",
+        "The academy is recruiting brave souls for the deeper trials."
+      ],
+      "persona": "Ves Flame-Tongue, a warrior with a reputation for bravery."
+    },
+    "X": {
+      "role": "guild",
+      "name": "Corrin Hearth",
+      "guild": "gatherers",
+      "line": "The hearth is the heart of the home, and of the guild.",
+      "lines": [
+        "Corrin speaks of a secret meeting about a dangerous floor ahead.",
+        "The guild has a secret cellar, rumored to hold ancient relics."
+      ],
+      "persona": "Corrin Hearth, the guild's warm and welcoming heart."
+    },
+    "Y": {
+      "role": "tournament",
+      "name": "Fiora Glow",
+      "tier": 30,
+      "line": "Proving your worth in the arena of flames.",
+      "lines": [
+        "Fiora knows of a champion who mastered the phoenix's trials.",
+        "The deeper floors are said to hold the phoenix's lost treasures."
+      ],
+      "persona": "Fiora Glow, the tournament champion with a fiery spirit."
+    },
+    "J": {
+      "role": "academy",
+      "name": "Marro Coal",
+      "line": "The knowledge of the academy burns bright and true.",
+      "lines": [
+        "Marro talks of a secret text on the phoenix's lore.",
+        "Academy students whisper of a perilous floor ahead."
+      ],
+      "persona": "Marro Coal, the scholarly guardian of ancient knowledge."
+    },
+    "G": {
+      "role": "villager",
+      "name": "Tamas Emberly",
+      "line": "A humble villager with a warm heart.",
+      "lines": [
+        "Gossip about a mysterious visitor searching the town.",
+        "Tamas has heard rumors of a hidden path in the deeper floors."
+      ],
+      "persona": "Tamas Emberly, a simple villager with a knack for gossip."
+    },
+    "E": {
+      "role": "villager",
+      "name": "Ottilie Warm",
+      "line": "Ottilie enjoys the warmth of the town's hearth.",
+      "lines": [
+        "Rumors of a hidden cellar beneath the guild.",
+        "She heard of a rare gemstone found deep within the nest."
+      ],
+      "persona": "Ottilie Warm, a friendly villager who loves her town."
+    },
+    "D": {
+      "role": "villager",
+      "name": "Ilka the Kindler",
+      "line": "Ilka tends to the flames with a gentle touch.",
+      "lines": [
+        "Whispers of a secret chamber in the guild's cellar.",
+        "Ilka heard of a legendary weapon said to be in the depths."
+      ],
+      "persona": "Ilka the Kindler, a villager with a talent for tending fires."
+    },
+    "B": {
+      "role": "villager",
+      "name": "Dov Ashstep",
+      "line": "Dov Ashstep, a villager with a wanderlust heart.",
+      "lines": [
+        "He has heard tales of a lost city beneath the phoenix's nest.",
+        "Dov whispers of a hidden treasure in the deeper floors."
+      ],
+      "persona": "Dov Ashstep, a villager with a thirst for adventure."
+    },
+    "V": {
+      "role": "villager",
+      "name": "Sena Brightly",
+      "stays": true,
+      "line": "Sena Brightly, a villager with a curious mind.",
+      "lines": [
+        "She knows of a hidden chamber in the guild's cellar.",
+        "Sena has heard whispers of a mystical artifact in the depths."
+      ],
+      "persona": "Sena Brightly, a villager known for her bright ideas."
+    },
+    "j": {
+      "role": "villager",
+      "name": "Embera",
+      "line": "Welcome to the Ember Nest, where the warmth never fades and the phoenixes soar.",
+      "lines": [
+        "Please, take a moment to visit the Shrine of the Egg, it's a sight to behold.",
+        "The Ash-Herb Hall is where you'll find the finest remedies and potions."
+      ],
+      "persona": "a local who has lived in the Ember Nest for over fifty years and is a wealth of knowledge about the area.",
+      "added": "refine"
+    },
+    "n": {
+      "role": "villager",
+      "name": "Mina Emberwing",
+      "line": "Welcome to the Ember Nest, where the flames of progress never die!",
+      "lines": [
+        "The Ash-Herb Hall is where you'll find the finest remedies for your ailments.",
+        "Don't forget to visit the Phoenix Forge for a new weapon or two."
+      ],
+      "persona": "A hospitable and energetic guide, always ready to assist newcomers to the Ember Nest.",
+      "added": "refine"
+    },
+    "m": {
+      "role": "villager",
+      "name": "Pim the Elder",
+      "line": "Don't forget to visit the Phoenix Forge for a new weapon or two.",
+      "lines": [
+        "Tamas has heard rumors of a hidden path in the deeper floors.",
+        "She knows of a hidden chamber in the guild's cellar."
+      ],
+      "persona": "Pim the Elder, who lives in The Ember Nest: quick to laugh and slow to trust.",
+      "added": "refine"
+    },
+    "p": {
+      "role": "villager",
+      "name": "Marina",
+      "line": "Welcome to the Ember Nest, where the warmth of the Phoenix's fire never fades!",
+      "lines": [
+        "The Ash-Herb Hall is the best place to find your healing remedies.",
+        "Be sure to visit the Phoenix Forge for the finest weapons and armor."
+      ],
+      "persona": "A friendly shopkeeper who loves the bustling energy of the Cinder Market.",
+      "added": "refine"
+    },
+    "q": {
+      "role": "villager",
+      "name": "Ilse Brightwater",
+      "line": "Gossip about a mysterious visitor searching the town.",
+      "lines": [
+        "Dov whispers of a hidden treasure in the deeper floors.",
+        "She knows of a hidden chamber in the guild's cellar."
+      ],
+      "persona": "Ilse Brightwater, who lives in The Ember Nest: proud of the town and suspicious of strangers.",
+      "added": "refine"
+    },
+    "u": {
+      "role": "villager",
+      "name": "Tobin Moss",
+      "line": "Dov whispers of a hidden treasure in the deeper floors.",
+      "lines": [
+        "The Ash-Herb Hall is where you'll find the finest remedies for your ailments.",
+        "Ilka heard of a legendary weapon said to be in the depths."
+      ],
+      "persona": "Tobin Moss, who lives in The Ember Nest: curious about everything above.",
+      "added": "refine"
+    }
+  },
+  "chests": {
+    "K": {
+      "loot": {
+        "random_gear": [
+          1,
+          1
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "gold": [
+          600,
+          900
+        ]
+      },
+      "note": "a sealed chest someone in The Ember Nest hoped nobody would find"
+    }
+  },
+  "lore": {
+    "R": {
+      "title": "The Nest Charter",
+      "text": "We live in her nest because it is warm, and because she has never minded. If she wakes, we leave. That is the whole of the law here."
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor29",
+      "arrive": ">",
+      "label": "Up to floor 29",
+      "down": false
+    },
+    ">": {
+      "to": "floor31",
+      "arrive": "<",
+      "label": "Down to floor 31"
+    }
+  },
+  "refined": {
+    "passes": 6,
+    "rooms_added": 0,
+    "people_added": 6,
+    "reworded": 0,
+    "last": "2026-10-05T04:18:31"
+  },
+  "map": [
+    "",
+    "     <......R.         ..........    .U............",
+    "     L........         L.N.H..b..    .p..H.........",
+    "     .........         ..D.......    ..............",
+    "     .........         ..........,,,,.............L",
+    "     ........L         .b........    .......H......",
+    "     .........         ..........    ...O........L.",
+    "         ,             .......L..           ,",
+    "         ,                  ,               ,",
+    "         ,                  ,               ,",
+    "         ,                  ,               ,",
+    "         ,           ....LL.....E..         ,",
+    " L...........L...    ..............         ,                                       ..Bu..........",
+    " .......b........    L............L    ..........    ..=.=...L..L..      L.....L.   LH.....H......",
+    " ...M............    ..............    Q.........    ..............      ........   .......h......",
+    " ................    ..............    hh........    ..............      ........   ..............",
+    " .b........m.....,,,,..............    ..W.......,,,,..............      ........,,,.H........H...",
+    " ................    ..............    ..........    ..............      Z.h.....   ..............",
+    " ................    ..........f..P    .........L    ..............      L.......   .............L",
+    " .............b..    ..............    .....Lh...    ..........X...      .h......   ..............",
+    " .......G.....L..    ..............                         ,                ,             ,",
+    "                     ..............                         ,                ,             ,                                              ............",
+    "                                                            ,                ,             ,                           .............L     ............",
+    "                                                            ,                ,             ,                           ..........H...     .h..........",
+    "                                                      ....=.......           ,       ..h.........     ....L.........   ..............     ........h...",
+    "                                                      ............      .LL.......   ..h.......h.     LH.....H..H...   ..............,,,,,............",
+    "                                                      ...........=      ......J...   L...........     ..............   .H..H.....H...,    ............",
+    "                                                      L...........      ..........   ............     ..............   .........h....     .....n.h....",
+    "                                                      ....Y.......,,,,,,..........   ............,,,,,.......H......   ..............     L.....h.....",
+    "                                                      .q..........      ..........   ............     ..............   ..L...........     h.h.......L.",
+    "                                                      ............      ..........   .h..........     ......h.......          ,                 ,",
+    "                                                      =...........      .......==.   .....h..h...     ..............          ,                 ,",
+    "                                                      .=L.L.......                   .........L..            ,                ,                 ,",
+    "                                                                                                             ,                ,                 ,",
+    "                                                                                                             ,                ,                 ,",
+    "                                                                                                       .L..h......L   ................  ..L.......L.....    ..............",
+    "                                                                                                       .....h......   L...............  .b..............    .H..H..H......     .........>",
+    "                                                                                                       ............   ................  ................    ..............     ..........",
+    "                                                                                                       .........h..   ................  ................    ..............     ..........",
+    "                                                                                                       ............,,,.......b.....b..  .b..............,,,,.H............,,,,,..........",
+    "                                                                                                       ............   ................  ................    ............h.     ..........",
+    "                                                                                                       ....h..j....   ................  ................    L.............     VL.....L..",
+    "                                                                                                       ...........h   ....b..........L  ....b...........    ........L.....",
+    "                                                                                                       ...........h   .........L......  ......L.........          S",
+    "                                                                                                                                                                ....K.",
+    "                                                                                                                                                                .....L",
+    "                                                                                                                                                                ......",
+    "                                                                                                                                                                ......",
+    "                                                                                                                                                                ......",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

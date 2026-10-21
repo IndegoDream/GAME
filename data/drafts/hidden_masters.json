@@ -1,0 +1,205 @@
+{
+  "brief": "hidden_masters",
+  "title": "The hidden masters",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "sweeper",
+      "name": "Grandmother Su",
+      "disguise": "an old sweeper",
+      "lines": [
+        "Keep it clean, keep it quiet.",
+        "Don't waste time.",
+        "The ground is always moving."
+      ],
+      "reveal_text": "You watch her sweep, seeing the steady rhythm, the way each stroke seems to be part of a greater pattern. She looks up, smiles, and asks, 'Sit here and do nothing for ten minutes; what do you see?'",
+      "done_text": "The ground beneath you shifts, and you feel the pulse of the earth itself. 'The Broom Saint’s Stance is not about sweeping. It’s about becoming one with your surroundings.'",
+      "after": "The stone is cleaner under your feet.",
+      "hint": "It's said an old sweeper in Eliet can see the past and future in the dust."
+    },
+    {
+      "id": "fisher",
+      "name": "Old Bao",
+      "disguise": "a fisherman",
+      "lines": [
+        "Still water runs deep.",
+        "Every fish has a story.",
+        "The river knows your name."
+      ],
+      "reveal_text": "Old Bao smiles, 'I am just a simple fisherman, but you, my dear, are no ordinary soul. To learn the Still Water Breath, you must bring me three fish of your own catching.', and he vanishes into the mist.",
+      "done_text": "You feel the air in your lungs change, growing calm and clear, and you understand the Still Water Breath.",
+      "after": "The river seems to whisper to you each time you return.",
+      "hint": "They say Old Bao catches no fish, but he knows every soul that comes to the river."
+    },
+    {
+      "id": "fisher",
+      "name": "Old Bao of the Still Water",
+      "disguise": "a fisherman who never catches anything",
+      "lines": [
+        "No fish today.",
+        "Weather's not right.",
+        "Better luck next time."
+      ],
+      "reveal_text": "Old Bao looks at you with a calm, knowing gaze. 'The fish you bring must come from your own toil and trial. This is the test of the Still Water.'",
+      "done_text": "Old Bao smiles faintly, handing you a scroll. 'Still Water Breath. It teaches the way of patience and purity.'",
+      "after": "A nod of respect.",
+      "hint": "They say Old Bao's line goes back a thousand years, but he's never caught a fish."
+    },
+    {
+      "id": "cook",
+      "name": "Ma Lian",
+      "disguise": "the inn's cook",
+      "lines": [
+        "Welcome, stranger.",
+        "Another day, another hungry mouth.",
+        "The broth is warm, the world is cold."
+      ],
+      "reveal_text": "She looks up from her work, her eyes locking onto yours with a knowing smile. 'A cook must know the ingredients of the world,' she says, setting a bowl of soup in front of you. 'Prove yourself with your hands, not just your tongue.'",
+      "done_text": "Ma Lian nods, her eyes twinkling with approval. 'Your soul has the fire to forge new paths,' she says, handing you a strange alchemical tool. 'The Cauldron Heart.'",
+      "after": "She seems to know everything about you, from your dreams to your next meal.",
+      "hint": "Whispers speak of the inn's cook who can turn any ingredient into the key to power."
+    },
+    {
+      "id": "bonepicker",
+      "name": "Sister Ivory of the Ossuary",
+      "disguise": "a bone-picker",
+      "lines": [
+        "These bones have stories.",
+        "Sometimes silence is the best answer.",
+        "The wind carries many secrets, none of them my own."
+      ],
+      "reveal_text": "Sister Ivory suddenly stops and looks deeply into your eyes, her voice a whisper, 'If you wish to learn the ways of the Ossuary, return to me after you have walked for twelve hours. That is the test of patience and reflection.'",
+      "done_text": "Sister Ivory hands you a small, intricately carved bone, 'This is the Ossuary Rise, a stance that teaches you to find strength and calm in the silent places of the world.'",
+      "after": "Sister Ivory smiles and nods, acknowledging your presence.",
+      "hint": "Travelers speak of a mysterious bone-picker in the deep dungeon who can teach one to find peace and power in silence and solitude."
+    },
+    {
+      "id": "blind_smith",
+      "name": "Tie the Unseeing Hammer",
+      "disguise": "a blind tinker",
+      "lines": [
+        "Foolish youth, what brings you here?",
+        "I hear the clang of your footsteps, the sound of your effort.",
+        "Strange, you smell of thunder iron, though I see no metal."
+      ],
+      "reveal_text": "With a sudden clarity, you sense that this blind tinker has eyes within his mind, and the true sight of the inner world. He looks at you, 'You seek mastery? Bring me four thunder iron and two storm glass, and I shall teach you the way of the hammer.'",
+      "done_text": "The Unseeing Hammer smiles and whispers, 'Now, I shall teach you the essence of forging within the void, where light is but an illusion and the hammer strikes true by the touch of your spirit.'",
+      "after": "He guides you through the crafting, speaking in riddles and parables.",
+      "hint": "They say that Tie the Unseeing Hammer can forge weapons with sound and feel alone."
+    },
+    {
+      "id": "fisher",
+      "name": "Old Wei of the Still Current",
+      "disguise": "a fisherman who never catches anything",
+      "lines": [
+        "The river is full of fish, yet so empty.",
+        "Every day is the same, yet every day is different.",
+        "Fish are like people, you see them and never know them."
+      ],
+      "reveal_text": "Old Wei stands, his eyes piercing through the fog of the valley. 'To pass my test, bring me three fish you catch yourself.'",
+      "done_text": "Old Wei nods. 'The Still Water Breath is not about catching fish, but about understanding the flow of life.'",
+      "after": "Old Wei smiles, his face weathered by the constant pull of the fishing line.",
+      "hint": "They say the fisherman who catches nothing is the one who truly understands the river."
+    },
+    {
+      "id": "child",
+      "name": "Little Hu, Who Is Older Than the Mountain",
+      "disguise": "a lost child",
+      "lines": [
+        "I'm lost, can you help me find my home?",
+        "I saw a big monster here, do you know where it went?",
+        "This place is so big, I can't find my way home!"
+      ],
+      "reveal_text": "The child suddenly stops crying and looks at you with ancient eyes, saying, 'I've been waiting for someone like you to come this way. If you want to learn, you must pass my test.'",
+      "done_text": "You feel an overwhelming sense of history and wisdom as Little Hu smiles and whispers, 'The Older Than the Mountain is yours to wield.'",
+      "after": "The child gives you a warm smile every time you visit, offering you a piece of advice that feels both simple and profound.",
+      "hint": "Travelers say the lost child in the dungeon's depths is an enigma, capable of offering profound wisdom to those who can see past their innocent facade."
+    },
+    {
+      "id": "hermit",
+      "name": "Master Wu of No Sect",
+      "disguise": "a hermit in a cave",
+      "lines": [
+        "The wind speaks louder here than in the world.",
+        "The cave listens better than the ear.",
+        "No one comes to visit, yet I am not alone."
+      ],
+      "reveal_text": "As you sit and listen, the hermit's eyes seem to pierce through you. 'Cultivation is silence,' they say, 'and your task is to sit here and cultivate for half an hour.'",
+      "done_text": "Master Wu nods approvingly. 'The Way of No Sect teaches the stillness that is beyond words.'",
+      "after": "You find the hermit has left a small, ancient tome beside the entrance, with no title.",
+      "hint": "It is said that one can hear the whispers of the mountain itself if they sit long enough in the hermit's cave."
+    },
+    {
+      "id": "widow",
+      "name": "Lady Rui, the Last of the First Expedition",
+      "disguise": "a widow tending a grave",
+      "lines": [
+        "May I sit with you?",
+        "Another day alone...",
+        "Do you remember the faces of those you lost?"
+      ],
+      "reveal_text": "She looks up with a sorrowful smile, 'I lost my whole world here, but I still have my blade. Bring it to me, and I'll share what I have.', and places a weathered sword at your feet.",
+      "done_text": "She nods gravely, 'A warrior's path is never easy, but you have the heart of a true disciple.'",
+      "after": "You find her grave tended and flowers fresh.",
+      "hint": "They say the first to delve the dungeon's darkest depths still waits for a worthy successor."
+    },
+    {
+      "id": "clockmaker",
+      "name": "Ticktock Fen, the Engine Immortal",
+      "disguise": "a clockmaker who talks to cogs",
+      "lines": [
+        "Time ticks on, doesn't it?",
+        "Every gear has its place.",
+        "Cogs turn, and so do we."
+      ],
+      "reveal_text": "The clockmaker smiles wistfully, \"All clocks wind down eventually, but some find a way to keep the gears turning. I need you to forge a Star Iron Key for me.\"",
+      "done_text": "Ticktock Fen looks at the key with a serene smile, \"The winding of the engine has begun.\"",
+      "after": "Ticktock Fen nods at you and continues winding gears.",
+      "hint": "Travelers say the clockmaker speaks in riddles, but those who listen can hear the secrets of time itself."
+    },
+    {
+      "id": "mirror",
+      "name": "The One Who Went Down Before You",
+      "disguise": "your own reflection",
+      "lines": [
+        "You look so much like me.",
+        "Are you sure you're not me?",
+        "We're closer than you think."
+      ],
+      "reveal_text": "The reflection blinks and speaks with your own voice: 'You've grown close to me. Now, show me what you're made of.', setting the test of weapon skill 18 and bloodline purity.",
+      "done_text": "The reflection smiles, 'Now, walk the path as I did.' The teaching is 'The One Before', a profound lesson on following in the footsteps of those who came before.",
+      "after": "You notice the reflection is always one step ahead of you, anticipating your moves.",
+      "hint": "Travelers whisper of a mirror that shows not your reflection, but your true self, deep within the dungeon."
+    },
+    {
+      "id": "rune_carver",
+      "name": "Old Oda, Who Cuts the Names",
+      "disguise": "a grave-cutter",
+      "lines": [
+        "Careful with the chisel, young one.",
+        "The names tell the story of the land.",
+        "Silent work, silent workers."
+      ],
+      "reveal_text": "Old Oda suddenly looks up, eyes piercing through you. 'The names are never cut in silence, but in the heart of the stone.', they say, setting the test.",
+      "done_text": "Old Oda nods solemnly, 'To craft a rune is to bind a name to the stone. You are ready to cut the names.'",
+      "after": "Oda smiles, 'The stone remembers all.', 'Names are stories, stories are truths.', 'Carve deep, carve true.'",
+      "hint": "Travelers speak of a grave-cutter who can make stones speak with the power of names."
+    },
+    {
+      "id": "talisman_scribe",
+      "name": "Sister Hwa of the Red Brush",
+      "disguise": "a letter-writer",
+      "lines": [
+        "Your letters are quite the conversation starter.",
+        "Have you seen that old shrine beyond the village?",
+        "The letters you bring are full of your heart's concerns."
+      ],
+      "reveal_text": "As you hand over the spirit silk and herbs, Sister Hwa's eyes sparkle with ancient knowledge. 'You have prepared well, and now it is time to learn the true art of the scribe.'",
+      "done_text": "Sister Hwa smiles as she teaches you the art of crafting talismans, each imbued with the essence of your cultivation and the will of the spirits.",
+      "after": "Sister Hwa guides your hand as you learn the delicate art of rune placement, each mark a step towards mastery.",
+      "hint": "Whispers of a sage who writes not just letters, but binds the will of the ancients in talismans."
+    }
+  ],
+  "helped": []
+}

@@ -1,0 +1,403 @@
+{
+  "brief": "floor_verdicts",
+  "title": "What the deep says when you clear a floor (by how well you did)",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "s_1": {
+        "id": "card_s_01",
+        "text": "Nine souls descended. One returned with maps of the dark. This map shows where the first floor begins."
+      },
+      "a_1": {
+        "id": "card_a_01",
+        "text": "Nanites sleep in your blood until you bleed them awake. Cut a finger and breathe hard to start the bloom."
+      },
+      "b_1": {
+        "id": "card_b_01",
+        "text": "The Lodge at Eliet holds supplies for traders. Ask Smith Hale for iron rods to anchor against the void wind."
+      },
+      "c_1": {
+        "id": "card_c_01",
+        "text": "Apothecary Lin warns that water element nanites turn cold in winter. They freeze in your veins if you stop moving."
+      },
+      "d_1": {
+        "id": "card_d_01",
+        "text": "Do not chase the light at Floor Fourteen. The Mirror there shows only what you fear. Turn back to the stairs."
+      }
+    },
+    {
+      "s_1": "Title -- The Unseen Path",
+      "text": "Push east on floor ten to find a door that no map ever shows.",
+      "a_1": "Title -- Stone Whisperer",
+      "a_2": "Title -- Breath and Blood",
+      "a_3": "Title -- The First Return",
+      "b_1": "Title -- Valley Wind",
+      "b_2": "Title -- Turtle Shell",
+      "b_3": "Title -- Nanite Seed",
+      "c_1": "Title -- The Deep Gate",
+      "c_2": "Title -- Forgotten Lore",
+      "c_3": "Title -- Tower Shadow",
+      "title": "The Old Stair",
+      "d_1": "Title -- Cold Stone",
+      "d_2": "Title -- Quiet Heart",
+      "d_3": "Title -- Hidden Door"
+    },
+    {
+      "s_1": "Grindstone's Touch — You cleared the room without a scratch, your nanites humming in perfect rhythm.",
+      "a_2": "Stone-Still Heart — The boss fell fast; you found a hidden passage and kept your breathing steady.",
+      "a_3": "Iron-Bound Will — Nine lives lost, one heart remains: you reached the next door with a treasure in hand.",
+      "b_1": "Rusty Blade's Work — You survived the drop, but left half the loot behind; the dungeon still has teeth.",
+      "b_2": "Clumsy Climber — The floor is safer now; your qi stabilizes, yet you missed a key lever nearby.",
+      "b_3": "Weary Traveler — You pushed through fatigue and reached the exit, but the nanites in your blood flickered once.",
+      "c_1": "Fragile Vessel — You barely escaped the trap; check your foundation, or the next fall breaks you.",
+      "c_2": "Lost Compass — The map shows a dead end; retrace your steps to the Jade Pagoda's light.",
+      "c_3": "Cold Sweat — You found the key, but the door is locked; Elder Mo says it needs a blood sacrifice.",
+      "d_1": "Falling Star — You nearly slipped into the dark; stabilize your nanites before descending deeper.",
+      "d_2": "Hollow Core — Time ran out; return to Eliet and rest, or the cold valley takes you.",
+      "d_3": "Broken Step — You missed the exit by inches; the dungeon watches those who rush like a hungry fox."
+    },
+    {
+      "id": "s_1",
+      "text": "Master Elder Mo nods at your return. The nine who left did not come back, but you have the Mirror from floor twenty-five. Keep it dry. It holds the path to Shellhaven."
+    },
+    {
+      "s_1": "Flawless -- Swift and thorough, every corner turned.",
+      "s_2": "Flawless -- Masterful efficiency, unseen paths revealed.",
+      "s_3": "Flawless -- Untroubled, untouched, a perfect sweep.",
+      "a_1": "Very Good -- Careful and complete, no detail missed.",
+      "a_2": "Very Good -- Time well spent, the unseen seen.",
+      "a_3": "Very Good -- Diligent, every clue found, every secret uncovered.",
+      "b_1": "Solid -- Methodical, thorough work, missed little.",
+      "b_2": "Solid -- A balanced approach, seen all that mattered.",
+      "b_3": "Solid -- No great rush, every room explored, every encounter faced.",
+      "c_1": "Got Through -- Quick, missed much, danger ignored.",
+      "c_2": "Got Through -- Rushed, missed secrets, saw little.",
+      "c_3": "Got Through -- A few missed corners, some danger skirted.",
+      "d_1": "Barely Made It -- Nearly fell, saw little, much missed.",
+      "d_2": "Barely Made It -- Danger lurked, missed much, barely left standing.",
+      "d_3": "Barely Made It -- Haste and worry, missed most, nearly lost."
+    },
+    {
+      "s_1": "Title -- flawless: fast, thorough, untouched",
+      "s_2": "Title -- perfect: saw all, took none",
+      "s_3": "Title -- impeccable: swift, precise, untouched",
+      "a_1": "Title -- very good: saw much, took few",
+      "a_2": "Title -- commendable: thorough, timely, untainted",
+      "a_3": "Title -- excellent: quick, observant, untouched",
+      "b_1": "Title -- solid: saw some, missed much",
+      "b_2": "Title -- good: thorough, timely, some spoil",
+      "b_3": "Title -- satisfactory: saw much, some spoil",
+      "c_1": "Title -- got through: saw little, missed much",
+      "c_2": "Title -- barely made it: slow, missed much",
+      "c_3": "Title -- missed much: slow, some spoil",
+      "d_1": "Title -- nearly fell: saw little, missed much",
+      "d_2": "Title -- nearly failed: slow, missed much",
+      "d_3": "Title -- barely passed: saw little, much spoil"
+    },
+    {
+      "s_1": {
+        "text": "Flawless -- Fast, thorough, untouched."
+      },
+      "s_2": {
+        "text": "Flawless -- Swift and complete."
+      },
+      "s_3": {
+        "text": "Flawless -- No trace, no time lost."
+      },
+      "a_1": {
+        "text": "Very Good -- Found most, few mistakes."
+      },
+      "a_2": {
+        "text": "Very Good -- Efficient, saw well."
+      },
+      "a_3": {
+        "text": "Very Good -- Quick, thorough."
+      },
+      "b_1": {
+        "text": "Solid -- Found much, missed some."
+      },
+      "b_2": {
+        "text": "Solid -- Took time, saw well."
+      },
+      "b_3": {
+        "text": "Solid -- Found enough."
+      },
+      "c_1": {
+        "text": "Got Through -- Found little, missed much."
+      },
+      "c_2": {
+        "text": "Got Through -- Saw few, missed much."
+      },
+      "c_3": {
+        "text": "Got Through -- Found little."
+      },
+      "d_1": {
+        "text": "Barely Made It -- Saw little, missed much."
+      },
+      "d_2": {
+        "text": "Barely Made It -- Saw few, nearly fell."
+      },
+      "d_3": {
+        "text": "Barely Made It -- Nearly fell, missed much."
+      }
+    },
+    {
+      "s_1": "Title -- line",
+      "s_2": "Title -- line",
+      "s_3": "Title -- line",
+      "a_1": "Title -- line",
+      "a_2": "Title -- line",
+      "a_3": "Title -- line",
+      "b_1": "Title -- line",
+      "b_2": "Title -- line",
+      "b_3": "Title -- line",
+      "c_1": "Title -- line",
+      "c_2": "Title -- line",
+      "c_3": "Title -- line",
+      "d_1": "Title -- line",
+      "d_2": "Title -- line",
+      "d_3": "Title -- line"
+    },
+    {
+      "s_1": {
+        "title": "Flawless",
+        "text": "You moved swiftly, thoroughly, and left no stone unturned."
+      },
+      "s_2": {
+        "title": "Flawless",
+        "text": "Fast, thorough, and untouched by the dungeon's dangers."
+      },
+      "s_3": {
+        "title": "Flawless",
+        "text": "Your efficiency and caution were impeccable."
+      },
+      "a_1": {
+        "title": "Very Good",
+        "text": "Quick work and thorough investigation."
+      },
+      "a_2": {
+        "title": "Very Good",
+        "text": "You explored well and avoided most perils."
+      },
+      "a_3": {
+        "title": "Very Good",
+        "text": "Efficient without rushing, thorough without delay."
+      },
+      "b_1": {
+        "title": "Solid",
+        "text": "You made your way through, saw what needed seeing."
+      },
+      "b_2": {
+        "title": "Solid",
+        "text": "Adequate time was spent, thorough enough."
+      },
+      "b_3": {
+        "title": "Solid",
+        "text": "No major omissions, but some areas left unexplored."
+      },
+      "c_1": {
+        "title": "Got Through",
+        "text": "You saw most, but missed many details."
+      },
+      "c_2": {
+        "title": "Got Through",
+        "text": "Saw enough to survive, missed much more."
+      },
+      "c_3": {
+        "title": "Got Through",
+        "text": "A rushed job, but you made it out."
+      },
+      "d_1": {
+        "title": "Barely Made It",
+        "text": "Avoided falling, but saw little of the floor."
+      },
+      "d_2": {
+        "title": "Barely Made It",
+        "text": "Almost fell, but saw little more than the path."
+      },
+      "d_3": {
+        "title": "Barely Made It",
+        "text": "Narrowly avoided disaster, saw little of the floor."
+      }
+    },
+    {
+      "s_1": {
+        "id": 101,
+        "text": "Flawless -- Swift, thorough, untouched"
+      },
+      "s_2": {
+        "id": 102,
+        "text": "Flawless -- Fast work, no stone unturned"
+      },
+      "s_3": {
+        "id": 103,
+        "text": "Flawless -- Quick, complete, pristine"
+      },
+      "a_1": {
+        "id": 104,
+        "text": "Very Good -- Neat, efficient, thorough"
+      },
+      "a_2": {
+        "id": 105,
+        "text": "Very Good -- Quick, thorough, untouched"
+      },
+      "a_3": {
+        "id": 106,
+        "text": "Very Good -- Efficient, thorough"
+      },
+      "b_1": {
+        "id": 107,
+        "text": "Solid -- Thorough, quick"
+      },
+      "b_2": {
+        "id": 108,
+        "text": "Solid -- Decent, thorough"
+      },
+      "b_3": {
+        "id": 109,
+        "text": "Solid -- Quick, thorough"
+      },
+      "c_1": {
+        "id": 110,
+        "text": "Got Through -- Quick, missed a lot"
+      },
+      "c_2": {
+        "id": 111,
+        "text": "Got Through -- Missed a lot, thorough"
+      },
+      "c_3": {
+        "id": 112,
+        "text": "Got Through -- Missed a lot, thorough"
+      },
+      "d_1": {
+        "id": 113,
+        "text": "Barely Made It -- Nearly fell, saw little"
+      },
+      "d_2": {
+        "id": 114,
+        "text": "Barely Made It -- Nearly fell, missed a lot"
+      },
+      "d_3": {
+        "id": 115,
+        "text": "Barely Made It -- Missed a lot, thorough"
+      }
+    },
+    {
+      "s_1": {
+        "text": "Flawless -- fast and thorough, yet untouched."
+      },
+      "s_2": {
+        "text": "Flawless -- swift, yet keen."
+      },
+      "s_3": {
+        "text": "Flawless -- quick, yet cautious."
+      },
+      "a_1": {
+        "text": "Very Good -- quick and observant."
+      },
+      "a_2": {
+        "text": "Very Good -- thorough and timely."
+      },
+      "a_3": {
+        "text": "Very Good -- observant and prompt."
+      },
+      "b_1": {
+        "text": "Solid -- steady progress, no regrets."
+      },
+      "b_2": {
+        "text": "Solid -- methodical, no missteps."
+      },
+      "b_3": {
+        "text": "Solid -- steady, no mistakes."
+      },
+      "c_1": {
+        "text": "Got Through -- rushed, missed much."
+      },
+      "c_2": {
+        "text": "Got Through -- hasty, missed much."
+      },
+      "c_3": {
+        "text": "Got Through -- hurried, missed much."
+      },
+      "d_1": {
+        "text": "Barely Made It -- nearly fell, saw little."
+      },
+      "d_2": {
+        "text": "Barely Made It -- almost fell, saw little."
+      },
+      "d_3": {
+        "text": "Barely Made It -- close to falling, saw little."
+      }
+    },
+    {
+      "s_1": "Flawless -- Fast and thorough, left nothing untouched.",
+      "s_2": "Flawless -- Explored every corner, time well spent.",
+      "s_3": "Flawless -- Mastered the floor, showed true prowess.",
+      "a_1": "Very Good -- Efficient and thorough, few missed spots.",
+      "a_2": "Very Good -- Found most, took time for details.",
+      "a_3": "Very Good -- Cleared swiftly, left little behind.",
+      "b_1": "Solid -- Managed time well, missed some spots.",
+      "b_2": "Solid -- Kept moving, found most but not all.",
+      "b_3": "Solid -- Searched thoroughly, could have gone deeper.",
+      "c_1": "Got Through -- Found some, missed much, rushed.",
+      "c_2": "Got Through -- Took longer than needed, missed spots.",
+      "c_3": "Got Through -- Found enough, but could have explored more.",
+      "d_1": "Barely Made It -- Nearly fell, saw little.",
+      "d_2": "Barely Made It -- Survived, but rushed and missed much.",
+      "d_3": "Barely Made It -- Survived, saw little, missed opportunities."
+    },
+    {
+      "s_1": "Flawless -- You moved with the grace of a seasoned veteran, leaving no stone unturned.",
+      "s_2": "Flawless -- Your efficiency and thoroughness are a testament to your skill and experience.",
+      "s_3": "Flawless -- The treasures and secrets you uncovered were plentiful, untouched by prior hands.",
+      "a_1": "Very Good -- You navigated the dangers with poise, completing your task with minimal fuss.",
+      "a_2": "Very Good -- Your keen eye and steady hand ensured you missed little of what was there.",
+      "a_3": "Very Good -- The floor was well-trodden, with your mark left in every corner, clean and tidy.",
+      "b_1": "Solid -- You faced the challenges head-on, showing a solid understanding of the dungeon's layout.",
+      "b_2": "Solid -- Though not perfect, you managed to uncover a significant amount of what was present.",
+      "b_3": "Solid -- You stayed on track, taking care to observe the surroundings and the hazards.",
+      "c_1": "Got Through -- The pace was slow, but you managed to complete your journey, leaving much behind.",
+      "c_2": "Got Through -- A few treasures and secrets were overlooked, but you did not falter entirely.",
+      "c_3": "Got Through -- You missed some corners and dangers, but completed your task nonetheless.",
+      "d_1": "Barely Made It -- The path was fraught with peril, but your resilience saw you through.",
+      "d_2": "Barely Made It -- Your journey was rough, with close calls but no serious falls.",
+      "d_3": "Barely Made It -- The floor was barely explored, with little uncovered beyond the immediate path."
+    },
+    {
+      "s_1": "Title -- line",
+      "s_2": "Title -- line",
+      "s_3": "Title -- line",
+      "a_1": "Title -- line",
+      "a_2": "Title -- line",
+      "a_3": "Title -- line",
+      "b_1": "Title -- line",
+      "b_2": "Title -- line",
+      "b_3": "Title -- line",
+      "c_1": "Title -- line",
+      "c_2": "Title -- line",
+      "c_3": "Title -- line",
+      "d_1": "Title -- line",
+      "d_2": "Title -- line",
+      "d_3": "Title -- line"
+    },
+    {
+      "s_1": "Title -- Flawless: Fast, thorough, untouched.",
+      "s_2": "Title -- Masterful: Explored every nook, found every secret.",
+      "s_3": "Title -- Precise: Efficient, thorough, no waste.",
+      "a_1": "Title -- Skilled: Quick, thorough, no misses.",
+      "a_2": "Title -- Resourceful: Found most, missed little.",
+      "a_3": "Title -- Diligent: Thorough, missed a few.",
+      "b_1": "Title -- Strong: Good speed, missed some.",
+      "b_2": "Title -- Practical: Explored well, saw much.",
+      "b_3": "Title -- Steady: Decent time, missed some.",
+      "c_1": "Title -- Tough: Missed a lot, but got out.",
+      "c_2": "Title -- Persistent: Slogged through, missed much.",
+      "c_3": "Title -- Focused: Found some, missed much.",
+      "d_1": "Title -- Fortunate: Barely made it, missed much.",
+      "d_2": "Title -- Resilient: Survived, saw little.",
+      "d_3": "Title -- Lucky: Just made it, saw little."
+    }
+  ],
+  "helped": []
+}

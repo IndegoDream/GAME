@@ -1,0 +1,3502 @@
+{
+ "gold": {
+  "name": "Gold",
+  "type": "currency",
+  "value": 1,
+  "desc": "Coin of the realm."
+ },
+ "iron_ore": {
+  "name": "Iron Ore",
+  "type": "material",
+  "value": 4,
+  "desc": "Raw ore chipped from a dungeon vein. The smith turns it into gear.",
+  "lore": [
+   {
+    "skill": "mining",
+    "level": 2,
+    "text": "Rust-red streaks mean it's rich; grey means mostly rock. Three good lumps make a blade."
+   },
+   {
+    "skill": "smithing",
+    "level": 4,
+    "text": "Quench it in oil, not water, and the edge holds longer."
+   }
+  ]
+ },
+ "spirit_herb": {
+  "name": "Spirit Herb",
+  "type": "material",
+  "value": 5,
+  "desc": "A pale herb that drinks ambient qi. Brewed into salves and pills.",
+  "lore": [
+   {
+    "skill": "herbalism",
+    "level": 1,
+    "text": "The pale ones growing in shadow are the potent ones."
+   },
+   {
+    "skill": "medicine",
+    "level": 3,
+    "text": "Crushed with clean water it closes wounds -- the base of every salve."
+   },
+   {
+    "skill": "alchemy",
+    "level": 5,
+    "text": "Dried slowly over a low fire, its qi stays bound instead of bleeding away -- pills made from it come out stronger."
+   }
+  ]
+ },
+ "goblin_tooth": {
+  "name": "Goblin Tooth",
+  "type": "material",
+  "value": 3,
+  "desc": "Proof of a goblin killed. The merchant buys them by the handful.",
+  "lore": [
+   {
+    "skill": "alchemy",
+    "level": 2,
+    "text": "Goblins chew qi-stained roots all their lives. The tooth keeps some of it -- a catalyst, not a meal."
+   }
+  ]
+ },
+ "bone_shard": {
+  "name": "Bone Shard",
+  "type": "material",
+  "value": 6,
+  "desc": "Dense, qi-stained bone from the crypt dead.",
+  "lore": [
+   {
+    "skill": "smithing",
+    "level": 3,
+    "text": "Crypt bone is denser than it should be. Lacquered, it turns a blade like plate."
+   },
+   {
+    "skill": "alchemy",
+    "level": 6,
+    "text": "Ground fine, it steadies a volatile pill."
+   }
+  ]
+ },
+ "silver_ore": {
+  "name": "Silver Ore",
+  "type": "material",
+  "value": 12,
+  "desc": "Bright ore from the deep mine. Holds a spirit edge.",
+  "lore": [
+   {
+    "skill": "mining",
+    "level": 5,
+    "text": "Silver drinks qi the way water drinks heat. Deep veins are purer."
+   },
+   {
+    "skill": "jewelcrafting",
+    "level": 2,
+    "text": "Soft enough to set a stone in; worth more as a ring than as a sword."
+   }
+  ]
+ },
+ "nanite_shard": {
+  "name": "Nanite Shard",
+  "type": "material",
+  "value": 30,
+  "desc": "A sliver of the old machines. The nanites inside still hum when qi passes through them.",
+  "lore": [
+   {
+    "skill": "smithing",
+    "level": 8,
+    "text": "Folded into steel, the nanites keep rebuilding the edge between swings."
+   },
+   {
+    "skill": "alchemy",
+    "level": 8,
+    "text": "Dissolved in a pill, they carry qi straight into the meridians. Dangerous. Effective."
+   }
+  ]
+ },
+ "warden_core": {
+  "name": "Warden Core",
+  "type": "material",
+  "value": 200,
+  "desc": "The heart of the Corrupted Warden. Something inside it is still thinking.",
+  "lore": [
+   {
+    "skill": "smithing",
+    "level": 12,
+    "text": "It still thinks. A blade built around it would think too."
+   }
+  ]
+ },
+ "iron_sword": {
+  "name": "Iron Sword",
+  "type": "weapon",
+  "damage": 6,
+  "value": 30,
+  "desc": "Plain, heavy, honest. +6 damage.",
+  "kind": "sword"
+ },
+ "bone_blade": {
+  "name": "Bone Blade",
+  "type": "weapon",
+  "damage": 10,
+  "value": 60,
+  "desc": "Carved from crypt bone, light and cruel. +10 damage.",
+  "kind": "saber"
+ },
+ "spirit_steel_sword": {
+  "name": "Spirit Steel Sword",
+  "type": "weapon",
+  "damage": 16,
+  "value": 140,
+  "desc": "Silver folded with nanite shards; it channels qi into the cut. +16 damage.",
+  "kind": "sword"
+ },
+ "nanite_edge": {
+  "name": "Nanite Edge",
+  "type": "weapon",
+  "damage": 28,
+  "value": 400,
+  "desc": "A blade the nanites rebuild between every swing. +28 damage.",
+  "kind": "sword",
+  "speed": 1.1
+ },
+ "padded_vest": {
+  "name": "Padded Vest",
+  "type": "armor",
+  "hp": 25,
+  "value": 20,
+  "desc": "Better than nothing. +25 max HP."
+ },
+ "iron_armor": {
+  "name": "Iron Armor",
+  "type": "armor",
+  "hp": 50,
+  "value": 50,
+  "desc": "Riveted iron plates. +50 max HP."
+ },
+ "bone_mail": {
+  "name": "Bone Mail",
+  "type": "armor",
+  "hp": 90,
+  "value": 110,
+  "desc": "Lacquered crypt bone, lighter than iron. +90 max HP."
+ },
+ "nanite_weave": {
+  "name": "Nanite Weave",
+  "type": "armor",
+  "hp": 160,
+  "value": 380,
+  "desc": "A living mesh that knits itself shut. +160 max HP."
+ },
+ "healing_salve": {
+  "name": "Healing Salve",
+  "type": "consumable",
+  "heal": 60,
+  "value": 12,
+  "desc": "Restores 60 HP. (Key 1)",
+  "lore": [
+   {
+    "skill": "medicine",
+    "level": 2,
+    "text": "Apply to the wound, not the skin around it. Made with care it heals more."
+   }
+  ]
+ },
+ "qi_pill": {
+  "name": "Qi Gathering Pill",
+  "type": "consumable",
+  "qi": 80,
+  "value": 35,
+  "desc": "Floods the meridians with refined qi. +80 qi. (Key 2)",
+  "lore": [
+   {
+    "skill": "alchemy",
+    "level": 3,
+    "text": "Taken while meditating, none of its qi is wasted."
+   }
+  ]
+ },
+ "breakthrough_pill": {
+  "name": "Breakthrough Pill",
+  "type": "consumable",
+  "qi": 400,
+  "value": 160,
+  "desc": "A pill for the moment a realm wall cracks. +400 qi."
+ },
+ "storage_ring": {
+  "name": "Qiankun Ring",
+  "type": "treasure",
+  "value": 300,
+  "where": "Trader Wen sells it; the fountain gives it for the 33rd coin",
+  "effect": {
+   "pouch_cap": 99,
+   "keep_gold": 1
+  },
+  "desc": "A plain iron ring, bigger inside than out. Your pouch holds 99 of each material instead of 20, and the gold inside it isn't lost when you fall."
+ },
+ "spirit_gourd": {
+  "name": "Spirit Gourd",
+  "type": "treasure",
+  "value": 250,
+  "active": true,
+  "key": "3",
+  "sips": 3,
+  "heal_frac": 0.4,
+  "desc": "A gourd of spring water that never quite runs dry. Key 3: drink (heals 40% of your HP). Holds 3 sips; it refills when you sit at a shrine."
+ },
+ "flying_sword": {
+  "name": "Azure Flying Sword",
+  "type": "treasure",
+  "value": 900,
+  "active": true,
+  "key": "G",
+  "strike_mult": 1.4,
+  "range": 14.0,
+  "cooldown": 2.5,
+  "desc": "A sword that answers the mind instead of the hand. Key G: it leaves your side, strikes the nearest enemy within 14 m, and comes home."
+ },
+ "jade_pendant": {
+  "name": "Pendant of Nine Breaths",
+  "type": "treasure",
+  "value": 700,
+  "effect": {
+   "qi_mult": 1.25,
+   "meditate_mult": 1.5
+  },
+  "desc": "Green jade, warm as skin. Qi gathers to it: +25% qi from everything, and sitting to cultivate is half again as fast."
+ },
+ "lotus_seat": {
+  "name": "Nanite Lotus Seat",
+  "type": "treasure",
+  "value": 1500,
+  "effect": {
+   "meditate_mult": 4.0
+  },
+  "desc": "A folding seat of living metal petals. Wherever you sit on it, you cultivate as if at a shrine."
+ },
+ "rough_jade": {
+  "name": "Rough Jade",
+  "type": "material",
+  "value": 25,
+  "element": "earth",
+  "desc": "A green stone that feels warmer than the rock around it.",
+  "lore": [
+   {
+    "skill": "jewelcrafting",
+    "level": 1,
+    "text": "Jade holds Earth qi; set in silver it steadies the body that wears it."
+   },
+   {
+    "skill": "mining",
+    "level": 6,
+    "text": "It grows where old roots pressed on stone for a thousand years."
+   }
+  ]
+ },
+ "rough_ruby": {
+  "name": "Rough Ruby",
+  "type": "material",
+  "value": 40,
+  "element": "fire",
+  "desc": "A red crystal with a spark caught somewhere inside.",
+  "lore": [
+   {
+    "skill": "jewelcrafting",
+    "level": 2,
+    "text": "Fire qi, barely held. In gold it sharpens a strike."
+   }
+  ]
+ },
+ "sapphire_shard": {
+  "name": "Sapphire Shard",
+  "type": "material",
+  "value": 45,
+  "element": "water",
+  "desc": "Blue, cold, and very still.",
+  "lore": [
+   {
+    "skill": "jewelcrafting",
+    "level": 3,
+    "text": "Water qi. Worn close to the heart it slows the breath and deepens meditation."
+   }
+  ]
+ },
+ "gold_nugget": {
+  "name": "Gold Nugget",
+  "type": "material",
+  "value": 30,
+  "element": "metal",
+  "desc": "Soft, heavy, and everyone wants it.",
+  "lore": [
+   {
+    "skill": "jewelcrafting",
+    "level": 1,
+    "text": "Too soft for a blade; perfect for holding a stone."
+   }
+  ]
+ },
+ "ember_root": {
+  "name": "Ember Root",
+  "type": "material",
+  "value": 9,
+  "element": "fire",
+  "desc": "A twisted red root, warm to the touch even underground.",
+  "lore": [
+   {
+    "skill": "herbalism",
+    "level": 2,
+    "text": "Grows where the earth runs hot. Never eat it raw."
+   },
+   {
+    "skill": "alchemy",
+    "level": 3,
+    "text": "Refined with a spirit herb, its heat becomes Fire qi you can hold."
+   }
+  ]
+ },
+ "moonpetal": {
+  "name": "Moonpetal",
+  "type": "material",
+  "value": 11,
+  "element": "water",
+  "desc": "A pale flower that only opens away from light.",
+  "lore": [
+   {
+    "skill": "herbalism",
+    "level": 3,
+    "text": "It drinks damp air; flooded places grow the best of it."
+   },
+   {
+    "skill": "medicine",
+    "level": 3,
+    "text": "Steeped, it cools a fever and knits flesh faster than any salve."
+   }
+  ]
+ },
+ "iron_thistle": {
+  "name": "Iron Thistle",
+  "type": "material",
+  "value": 8,
+  "element": "metal",
+  "desc": "A grey thistle whose spines ring faintly when you flick them.",
+  "lore": [
+   {
+    "skill": "herbalism",
+    "level": 2,
+    "text": "It pulls iron out of the soil into its spines."
+   },
+   {
+    "skill": "alchemy",
+    "level": 4,
+    "text": "Its spines, ground, make a pill that hardens the body like tempered steel."
+   }
+  ]
+ },
+ "cave_carp": {
+  "name": "Cave Carp",
+  "type": "material",
+  "value": 6,
+  "element": "water",
+  "desc": "Pale, blind, and better eating than it looks.",
+  "lore": [
+   {
+    "skill": "fishing",
+    "level": 1,
+    "text": "They feed at the bottom; let the line sink."
+   },
+   {
+    "skill": "medicine",
+    "level": 2,
+    "text": "The oil of its liver closes wounds."
+   }
+  ]
+ },
+ "glowfin_eel": {
+  "name": "Glowfin Eel",
+  "type": "material",
+  "value": 22,
+  "element": "water",
+  "desc": "A slippery eel with faint blue light along its fins.",
+  "lore": [
+   {
+    "skill": "fishing",
+    "level": 4,
+    "text": "Only bites in deep, still water -- and only for the patient."
+   },
+   {
+    "skill": "alchemy",
+    "level": 5,
+    "text": "The glow is qi. Dried and powdered, it carries into a pill."
+   }
+  ]
+ },
+ "jade_ring": {
+  "name": "Jade Ring",
+  "type": "ring",
+  "value": 90,
+  "effect": {
+   "hp_mult": 1.06
+  },
+  "desc": "Silver around a jade stone. The wearer stands steadier. (+6% HP)"
+ },
+ "ruby_ring": {
+  "name": "Ruby Ring",
+  "type": "ring",
+  "value": 140,
+  "effect": {
+   "damage_mult": 1.07
+  },
+  "desc": "Gold around a ruby. Strikes land a little hotter. (+7% damage)"
+ },
+ "sapphire_amulet": {
+  "name": "Sapphire Amulet",
+  "type": "amulet",
+  "value": 160,
+  "effect": {
+   "meditate_mult": 1.2
+  },
+  "desc": "Cold against the skin. Cultivation comes easier. (+20% meditation)"
+ },
+ "gold_amulet": {
+  "name": "Gold Amulet",
+  "type": "amulet",
+  "value": 110,
+  "effect": {
+   "qi_mult": 1.05
+  },
+  "desc": "Plain gold, heavy, warm. Qi gathers to it. (+5% qi)"
+ },
+ "ember_pill": {
+  "name": "Ember Pill",
+  "type": "consumable",
+  "value": 45,
+  "qi": 60,
+  "attune": {
+   "fire": 3
+  },
+  "desc": "Burns going down. +60 qi, and a little Fire settles in you."
+ },
+ "moonpetal_tonic": {
+  "name": "Moonpetal Tonic",
+  "type": "consumable",
+  "value": 40,
+  "heal": 120,
+  "attune": {
+   "water": 2
+  },
+  "desc": "Cool and bitter. Heals 120 HP; a little Water settles in you."
+ },
+ "thistle_pill": {
+  "name": "Iron Thistle Pill",
+  "type": "consumable",
+  "value": 45,
+  "qi": 40,
+  "attune": {
+   "metal": 2,
+   "earth": 2
+  },
+  "desc": "Like swallowing a nail. +40 qi; Metal and Earth settle in you."
+ },
+ "carp_oil_salve": {
+  "name": "Carp-Oil Salve",
+  "type": "consumable",
+  "value": 18,
+  "heal": 90,
+  "desc": "Smells of the river. Heals 90 HP."
+ },
+ "beast_hide": {
+  "name": "Beast Hide",
+  "type": "material",
+  "value": 8,
+  "desc": "A rough hide, still smelling of the tunnels.",
+  "lore": [
+   {
+    "skill": "hunting",
+    "level": 2,
+    "text": "Skinned cleanly, a hide is worth twice as much."
+   },
+   {
+    "skill": "smithing",
+    "level": 2,
+    "text": "Stitched in layers it turns a blade almost as well as iron, and weighs nothing."
+   }
+  ]
+ },
+ "raw_meat": {
+  "name": "Raw Meat",
+  "type": "consumable",
+  "value": 4,
+  "heal": 20,
+  "desc": "Edible, barely. Heals 20 HP.",
+  "lore": [
+   {
+    "skill": "medicine",
+    "level": 1,
+    "text": "Boiled down with a herb it makes a broth that mends far better than it tastes."
+   }
+  ]
+ },
+ "hide_vest": {
+  "name": "Hide Vest",
+  "type": "armor",
+  "hp": 40,
+  "value": 45,
+  "desc": "Layered hides, stitched tight. +40 max HP."
+ },
+ "bone_broth": {
+  "name": "Hunter's Broth",
+  "type": "consumable",
+  "value": 20,
+  "heal": 80,
+  "attune": {
+   "earth": 1
+  },
+  "desc": "Thick and warming. Heals 80 HP; a little Earth settles in you."
+ },
+ "spirit_resin": {
+  "name": "Spirit Resin",
+  "type": "material",
+  "value": 14,
+  "element": "wood",
+  "desc": "Amber sap that bled from a tree with a cultivator's roots.",
+  "lore": [
+   {
+    "skill": "medicine",
+    "level": 4,
+    "text": "Spread thin over a wound, it seals and breathes at the same time."
+   },
+   {
+    "skill": "alchemy",
+    "level": 6,
+    "text": "It carries Wood qi without spoiling. Pills built on it keep for years."
+   }
+  ]
+ },
+ "heartwood": {
+  "name": "Spirit Heartwood",
+  "type": "material",
+  "value": 40,
+  "element": "wood",
+  "desc": "The dense, warm core of a grove tree. It is faintly alive.",
+  "lore": [
+   {
+    "skill": "smithing",
+    "level": 10,
+    "text": "Hard as iron along the grain. A spear shaft of it never splinters."
+   }
+  ]
+ },
+ "verdant_heart": {
+  "name": "Verdant Heart",
+  "type": "material",
+  "value": 300,
+  "element": "wood",
+  "desc": "The Grove Mother's seed. It beats, slowly, like a sleeping thing.",
+  "lore": [
+   {
+    "skill": "alchemy",
+    "level": 12,
+    "text": "One heart, ground fine, could feed a whole sect's pills for a year -- or one person's breakthrough."
+   }
+  ]
+ },
+ "firestone": {
+  "name": "Firestone",
+  "type": "material",
+  "value": 35,
+  "element": "fire",
+  "desc": "A red stone, warm to hold, warmer the longer you hold it.",
+  "lore": [
+   {
+    "skill": "jewelcrafting",
+    "level": 6,
+    "text": "Set in silver it burns steady; set in gold it burns bright."
+   },
+   {
+    "skill": "alchemy",
+    "level": 7,
+    "text": "A pinch of it in a pill makes the qi go down like a swallowed coal."
+   }
+  ]
+ },
+ "slag_iron": {
+  "name": "Slag Iron",
+  "type": "material",
+  "value": 30,
+  "element": "metal",
+  "desc": "Iron that has been through the Ember Forges too many times. Black, heavy, stubborn.",
+  "lore": [
+   {
+    "skill": "smithing",
+    "level": 9,
+    "text": "Fold it with firestone and it forgets it was ever brittle."
+   }
+  ]
+ },
+ "sovereign_ember": {
+  "name": "Sovereign Ember",
+  "type": "material",
+  "value": 350,
+  "element": "fire",
+  "desc": "A coal that has never gone out. Something in it remembers being a king.",
+  "lore": [
+   {
+    "skill": "smithing",
+    "level": 14,
+    "text": "A furnace fed with it can melt what no other fire can."
+   }
+  ]
+ },
+ "ancient_clay": {
+  "name": "Ancient Clay",
+  "type": "material",
+  "value": 25,
+  "element": "earth",
+  "desc": "Fired clay from the buried army, still holding the shape of a soldier's hand.",
+  "lore": [
+   {
+    "skill": "smithing",
+    "level": 8,
+    "text": "Crushed and bound, it makes scale armour lighter than iron and almost as hard."
+   }
+  ]
+ },
+ "emperor_jade": {
+  "name": "Emperor's Jade",
+  "type": "material",
+  "value": 60,
+  "element": "earth",
+  "desc": "Deep green jade from the barrows. The carvings on it are orders.",
+  "lore": [
+   {
+    "skill": "jewelcrafting",
+    "level": 9,
+    "text": "Jade that has given orders still wants to. Worn, it steadies the wearer."
+   }
+  ]
+ },
+ "imperial_seal": {
+  "name": "Imperial Seal",
+  "type": "material",
+  "value": 400,
+  "element": "earth",
+  "desc": "The Buried Emperor's seal. Press it to clay and the clay stands up.",
+  "lore": [
+   {
+    "skill": "smithing",
+    "level": 16,
+    "text": "Set in a halberd's head, it makes the weapon an order no one can refuse."
+   }
+  ]
+ },
+ "grave_steel": {
+  "name": "Grave Steel",
+  "type": "material",
+  "value": 55,
+  "element": "metal",
+  "desc": "Steel from a sword that was buried with its master. It still has an edge.",
+  "lore": [
+   {
+    "skill": "smithing",
+    "level": 12,
+    "text": "Every piece remembers a different sword. Fold enough of them together and they argue -- then agree."
+   }
+  ]
+ },
+ "sword_intent_shard": {
+  "name": "Sword Intent Shard",
+  "type": "material",
+  "value": 500,
+  "element": "metal",
+  "desc": "A splinter of pure intent, cold and bright. It cuts the hand that doubts it.",
+  "lore": [
+   {
+    "skill": "smithing",
+    "level": 18,
+    "text": "Forge it into a blade only when you know exactly what the blade is for."
+   }
+  ]
+ },
+ "thornwood_spear": {
+  "name": "Thornwood Spear",
+  "type": "weapon",
+  "damage": 32,
+  "value": 460,
+  "desc": "A heartwood shaft bound with resin, its tip a living thorn. +32 damage.",
+  "kind": "spear"
+ },
+ "firestone_saber": {
+  "name": "Firestone Saber",
+  "type": "weapon",
+  "damage": 38,
+  "value": 560,
+  "desc": "Slag iron folded around a vein of firestone. It glows when it swings. +38 damage.",
+  "kind": "saber"
+ },
+ "emperors_halberd": {
+  "name": "Emperor's Halberd",
+  "type": "weapon",
+  "damage": 44,
+  "value": 700,
+  "desc": "A clay-army halberd reforged with jade. Soldiers would kneel to it. +44 damage.",
+  "kind": "halberd"
+ },
+ "grave_sword": {
+  "name": "Sword of the Grave",
+  "type": "weapon",
+  "damage": 52,
+  "value": 900,
+  "desc": "Five buried swords become one, and the one has made up its mind. +52 damage.",
+  "kind": "sword"
+ },
+ "barkskin_mail": {
+  "name": "Barkskin Mail",
+  "type": "armor",
+  "hp": 200,
+  "value": 420,
+  "desc": "Plates of heartwood sealed in resin. It grows back where it's cut. +200 max HP."
+ },
+ "slag_plate": {
+  "name": "Slag Plate",
+  "type": "armor",
+  "hp": 250,
+  "value": 520,
+  "desc": "Black, heavy, ugly, and it has never once broken. +250 max HP."
+ },
+ "terracotta_scale": {
+  "name": "Terracotta Scale",
+  "type": "armor",
+  "hp": 320,
+  "value": 680,
+  "desc": "Clay scales from the buried army, jade-bound. +320 max HP."
+ },
+ "resin_salve": {
+  "name": "Resin Salve",
+  "type": "consumable",
+  "heal": 160,
+  "value": 50,
+  "attune": {
+   "wood": 1
+  },
+  "desc": "Seals a wound and lets it breathe. Heals 160 HP; a little Wood settles in you."
+ },
+ "verdant_pill": {
+  "name": "Verdant Pill",
+  "type": "consumable",
+  "qi": 120,
+  "value": 70,
+  "attune": {
+   "wood": 3
+  },
+  "desc": "Tastes of green things growing. +120 qi, and Wood settles in you."
+ },
+ "magma_pill": {
+  "name": "Magma Pill",
+  "type": "consumable",
+  "qi": 160,
+  "value": 90,
+  "attune": {
+   "fire": 4
+  },
+  "desc": "Goes down like a swallowed coal. +160 qi, and Fire settles in you."
+ },
+ "earthmarrow_pill": {
+  "name": "Earthmarrow Pill",
+  "type": "consumable",
+  "qi": 200,
+  "value": 110,
+  "attune": {
+   "earth": 4
+  },
+  "desc": "Heavy as a stone in the belly. +200 qi, and Earth settles in you."
+ },
+ "sword_qi_pill": {
+  "name": "Sword Qi Pill",
+  "type": "consumable",
+  "qi": 260,
+  "value": 140,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "It cuts on the way down. +260 qi, and Metal settles in you."
+ },
+ "shell_tea": {
+  "name": "Shellhaven Tea",
+  "type": "consumable",
+  "heal": 90,
+  "value": 18,
+  "attune": {
+   "water": 1
+  },
+  "desc": "Brewed from the moss that grows on the tortoise's shell. Heals 90 HP; a little Water settles in you."
+ },
+ "firestone_ring": {
+  "name": "Firestone Ring",
+  "type": "ring",
+  "value": 180,
+  "effect": {
+   "damage_mult": 1.06
+  },
+  "desc": "A firestone in a silver band. Your strikes land hotter. (+6% damage)"
+ },
+ "emperor_jade_pendant": {
+  "name": "Emperor's Jade Pendant",
+  "type": "amulet",
+  "value": 240,
+  "effect": {
+   "hp_mult": 1.1
+  },
+  "desc": "A carved order hung at the throat: STAND. (+10% HP)"
+ },
+ "tortoise_scale": {
+  "name": "Scale of the Sleeping Tortoise",
+  "type": "treasure",
+  "value": 1200,
+  "effect": {
+   "damage_taken": 0.9,
+   "meditate_mult": 1.25
+  },
+  "desc": "A scale the old tortoise shed a thousand years ago, still warm with its slow breath. You take less damage, and cultivate a little deeper."
+ },
+ "saints_sheath": {
+  "name": "The Sword Saint's Sheath",
+  "type": "treasure",
+  "value": 2000,
+  "effect": {
+   "attack_speed": 1.15,
+   "damage_mult": 1.08
+  },
+  "desc": "An empty sheath that still knows the shape of the greatest sword ever drawn. Whatever you carry, it draws faster and cuts deeper."
+ },
+ "goblin_shiv": {
+  "name": "Goblin Shiv",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 5,
+  "tier": 1,
+  "drop": true,
+  "value": 25,
+  "desc": "A notched blade a goblin kept very, very sharp."
+ },
+ "chipped_hatchet": {
+  "name": "Chipped Hatchet",
+  "type": "weapon",
+  "kind": "axe",
+  "damage": 9,
+  "tier": 1,
+  "drop": true,
+  "value": 30,
+  "desc": "A woodcutter's hatchet. The goblins found other uses for it."
+ },
+ "goblin_leathers": {
+  "name": "Goblin Leathers",
+  "type": "armor",
+  "hp": 30,
+  "tier": 1,
+  "drop": true,
+  "value": 25,
+  "desc": "Stitched hides, stiff with old sweat. Better than nothing. +30 max HP."
+ },
+ "bone_spear": {
+  "name": "Bone Spear",
+  "type": "weapon",
+  "kind": "spear",
+  "damage": 12,
+  "tier": 2,
+  "drop": true,
+  "value": 60,
+  "desc": "A thighbone shaft with a sharpened shoulder blade bound to the tip."
+ },
+ "knight_longsword": {
+  "name": "Knight's Longsword",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 14,
+  "tier": 2,
+  "drop": true,
+  "value": 80,
+  "desc": "Carried by a skeleton knight for longer than you have been alive."
+ },
+ "shroud_mail": {
+  "name": "Shroud Mail",
+  "type": "armor",
+  "hp": 70,
+  "tier": 2,
+  "drop": true,
+  "value": 70,
+  "desc": "Mail links woven through a burial shroud. Cold. +70 max HP."
+ },
+ "miners_pick": {
+  "name": "Miner's Pick",
+  "type": "weapon",
+  "kind": "hammer",
+  "damage": 20,
+  "tier": 3,
+  "drop": true,
+  "value": 90,
+  "desc": "A heavy pick that broke stone for twenty years and bones for a few more."
+ },
+ "drowned_hook": {
+  "name": "Drowned Man's Hook",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 16,
+  "tier": 3,
+  "drop": true,
+  "value": 85,
+  "desc": "A curved hook-blade, still dripping no matter how long it dries."
+ },
+ "miner_leathers": {
+  "name": "Miner's Leathers",
+  "type": "armor",
+  "hp": 100,
+  "tier": 3,
+  "drop": true,
+  "value": 90,
+  "desc": "Thick apron and cap, studded at the shoulders. +100 max HP."
+ },
+ "warden_staff": {
+  "name": "Warden's Staff",
+  "type": "weapon",
+  "kind": "staff",
+  "damage": 22,
+  "tier": 4,
+  "drop": true,
+  "value": 220,
+  "desc": "A rod of living metal; the nanites in it lean toward your qi. (+8% qi)",
+  "effect": {
+   "qi_mult": 1.08
+  }
+ },
+ "sentinel_halberd": {
+  "name": "Sentinel Halberd",
+  "type": "weapon",
+  "kind": "halberd",
+  "damage": 30,
+  "tier": 4,
+  "drop": true,
+  "value": 260,
+  "desc": "Too heavy for a person. The sentinels weren't people."
+ },
+ "sentinel_plate": {
+  "name": "Sentinel Plate",
+  "type": "armor",
+  "hp": 150,
+  "tier": 4,
+  "drop": true,
+  "value": 260,
+  "desc": "A plate shed by a sanctum sentinel, refitted for something smaller. +150 max HP."
+ },
+ "rootwood_staff": {
+  "name": "Rootwood Staff",
+  "type": "weapon",
+  "kind": "staff",
+  "damage": 30,
+  "tier": 6,
+  "drop": true,
+  "value": 330,
+  "desc": "A grove root that kept growing after it was cut. Kills feed it -- and you. (+4 HP per kill)",
+  "effect": {
+   "heal_on_kill": 4
+  }
+ },
+ "thorn_knuckles": {
+  "name": "Thorn Knuckles",
+  "type": "weapon",
+  "kind": "fists",
+  "damage": 22,
+  "tier": 6,
+  "drop": true,
+  "value": 300,
+  "desc": "Wraps studded with living thorns. Fast, and they bite."
+ },
+ "thornweave_vest": {
+  "name": "Thornweave Vest",
+  "type": "armor",
+  "hp": 190,
+  "tier": 6,
+  "drop": true,
+  "value": 340,
+  "desc": "A vest of woven vines that tightens when you're struck. +190 max HP."
+ },
+ "imp_fang_daggers": {
+  "name": "Imp-Fang Daggers",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 30,
+  "tier": 7,
+  "drop": true,
+  "value": 400,
+  "desc": "A pair of blades cut from cinder imps' fangs. Still warm."
+ },
+ "slag_maul": {
+  "name": "Slag Maul",
+  "type": "weapon",
+  "kind": "hammer",
+  "damage": 54,
+  "tier": 7,
+  "drop": true,
+  "value": 480,
+  "desc": "A lump of slag iron on a beam. Subtle it is not."
+ },
+ "forgeguard_mail": {
+  "name": "Forgeguard Mail",
+  "type": "armor",
+  "hp": 240,
+  "tier": 7,
+  "drop": true,
+  "value": 480,
+  "desc": "Smith's mail, scorched and riveted twice over. +240 max HP."
+ },
+ "clay_general_glaive": {
+  "name": "Clay General's Glaive",
+  "type": "weapon",
+  "kind": "halberd",
+  "damage": 52,
+  "tier": 8,
+  "drop": true,
+  "value": 620,
+  "desc": "The general's own glaive, fired in the kiln with him."
+ },
+ "jade_guard_sabre": {
+  "name": "Jade-Guard Sabre",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 42,
+  "tier": 8,
+  "drop": true,
+  "value": 560,
+  "desc": "A sabre with a jade guard carved with an order: ADVANCE."
+ },
+ "clay_lamellar": {
+  "name": "Clay Lamellar",
+  "type": "armor",
+  "hp": 300,
+  "tier": 8,
+  "drop": true,
+  "value": 620,
+  "desc": "Hundreds of fired-clay plates on silk cords. +300 max HP."
+ },
+ "wraith_blade": {
+  "name": "Wraith Blade",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 52,
+  "tier": 9,
+  "drop": true,
+  "value": 820,
+  "desc": "A sword a wraith would not let go of. It is light, and it is eager.",
+  "speed": 1.15
+ },
+ "keeper_greataxe": {
+  "name": "Keeper's Greataxe",
+  "type": "weapon",
+  "kind": "axe",
+  "damage": 66,
+  "tier": 9,
+  "drop": true,
+  "value": 860,
+  "desc": "A grave keeper's axe for digging -- and for the ones who dig."
+ },
+ "grave_wardens_coat": {
+  "name": "Grave-Warden's Coat",
+  "type": "armor",
+  "hp": 340,
+  "tier": 9,
+  "drop": true,
+  "value": 860,
+  "desc": "A long coat of grave-steel scales. +340 max HP."
+ },
+ "lotus_disciple_robe": {
+  "name": "Lotus Disciple's Robe",
+  "type": "armor",
+  "hp": 120,
+  "value": 200,
+  "effect": {
+   "meditate_mult": 1.1
+  },
+  "desc": "White silk with a lotus at the breast. Every disciple gets one; nobody sells one. +120 max HP, cultivate 10% faster."
+ },
+ "abyssal_pearl": {
+  "name": "Abyssal Pearl",
+  "type": "material",
+  "value": 41,
+  "element": "water",
+  "desc": "A black pearl with a faint light inside."
+ },
+ "coral_bone": {
+  "name": "Coral Bone",
+  "type": "material",
+  "value": 41,
+  "element": "earth",
+  "desc": "Bone the coral grew through and replaced."
+ },
+ "coral_trident_f11": {
+  "name": "Coral Trident",
+  "type": "weapon",
+  "kind": "spear",
+  "damage": 61,
+  "tier": 11,
+  "drop": true,
+  "value": 990,
+  "desc": "A three-pronged spear grown, not forged."
+ },
+ "pearl_saber_f11": {
+  "name": "Pearl Saber",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 57,
+  "tier": 11,
+  "drop": true,
+  "value": 990,
+  "desc": "A court blade with a pearl in the pommel."
+ },
+ "nacre_scale_f11": {
+  "name": "Nacre Scale",
+  "type": "armor",
+  "hp": 396,
+  "tier": 11,
+  "drop": true,
+  "value": 990,
+  "desc": "Mother-of-pearl scales, iridescent and hard. +396 max HP."
+ },
+ "drowned_pill_f11": {
+  "name": "Tidal Pill",
+  "type": "consumable",
+  "qi": 893,
+  "value": 132,
+  "attune": {
+   "water": 4
+  },
+  "desc": "Salty, deep, calming. +893 qi, and Water settles in you."
+ },
+ "cloud_jade": {
+  "name": "Cloud Jade",
+  "type": "material",
+  "value": 47,
+  "element": "metal",
+  "desc": "Jade so light it floats if you let go."
+ },
+ "immortal_dust": {
+  "name": "Immortal Dust",
+  "type": "material",
+  "value": 47,
+  "element": "earth",
+  "desc": "Dust from a palace that fell out of heaven."
+ },
+ "celestial_sword_f13": {
+  "name": "Celestial Sword",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 75,
+  "tier": 13,
+  "drop": true,
+  "value": 1170,
+  "desc": "A sword from the palace armoury. It remembers flying."
+ },
+ "cloudbreaker_halberd_f13": {
+  "name": "Cloudbreaker Halberd",
+  "type": "weapon",
+  "kind": "halberd",
+  "damage": 94,
+  "tier": 13,
+  "drop": true,
+  "value": 1170,
+  "desc": "A guardian's halberd, made to split storms."
+ },
+ "immortal_s_vestment_f13": {
+  "name": "Immortal's Vestment",
+  "type": "armor",
+  "hp": 468,
+  "tier": 13,
+  "drop": true,
+  "value": 1170,
+  "desc": "Robes that once walked in heaven. +468 max HP."
+ },
+ "cloudruins_pill_f13": {
+  "name": "Heaven-Dew Pill",
+  "type": "consumable",
+  "qi": 2176,
+  "value": 156,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "Light as cloud, sweet as rain. +2176 qi, and Metal settles in you."
+ },
+ "glowcap_spore": {
+  "name": "Glowcap Spore",
+  "type": "material",
+  "value": 50,
+  "element": "wood",
+  "desc": "A pinch of glowing spores. Don't breathe them."
+ },
+ "mycelium_thread": {
+  "name": "Mycelium Thread",
+  "type": "material",
+  "value": 50,
+  "element": "earth",
+  "desc": "White threads stronger than they look."
+ },
+ "sporecap_staff_f14": {
+  "name": "Sporecap Staff",
+  "type": "weapon",
+  "kind": "staff",
+  "damage": 69,
+  "tier": 14,
+  "drop": true,
+  "value": 1260,
+  "desc": "A staff that grows a fresh cap every morning."
+ },
+ "chitin_saber_f14": {
+  "name": "Chitin Saber",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 73,
+  "tier": 14,
+  "drop": true,
+  "value": 1260,
+  "desc": "A curved blade of beetle chitin, light and keen."
+ },
+ "fungal_hide_f14": {
+  "name": "Fungal Hide",
+  "type": "armor",
+  "hp": 504,
+  "tier": 14,
+  "drop": true,
+  "value": 1260,
+  "desc": "Treated mushroom leather. It smells. It holds. +504 max HP."
+ },
+ "fungal_pill_f14": {
+  "name": "Spore Tonic",
+  "type": "consumable",
+  "qi": 3397,
+  "value": 168,
+  "attune": {
+   "wood": 4
+  },
+  "desc": "Earthy, bitter, alive. +3397 qi, and Wood settles in you."
+ },
+ "storm_glass": {
+  "name": "Storm Glass",
+  "type": "material",
+  "value": 56,
+  "element": "metal",
+  "desc": "Sand where lightning struck, fused into a twisted root."
+ },
+ "thunder_iron": {
+  "name": "Thunder Iron",
+  "type": "material",
+  "value": 56,
+  "element": "metal",
+  "desc": "Iron that jolts your hand when you pick it up."
+ },
+ "thunder_halberd_f16": {
+  "name": "Thunder Halberd",
+  "type": "weapon",
+  "kind": "halberd",
+  "damage": 116,
+  "tier": 16,
+  "drop": true,
+  "value": 1440,
+  "desc": "A halberd that crackles with a stored storm."
+ },
+ "stormfang_dagger_f16": {
+  "name": "Stormfang Dagger",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 65,
+  "tier": 16,
+  "drop": true,
+  "value": 1440,
+  "desc": "A jagged blade like a frozen bolt."
+ },
+ "lightning_rod_plate_f16": {
+  "name": "Lightning-Rod Plate",
+  "type": "armor",
+  "hp": 576,
+  "tier": 16,
+  "drop": true,
+  "value": 1440,
+  "desc": "Plate armour that drinks lightning and sends it into the floor. +576 max HP."
+ },
+ "storm_pill_f16": {
+  "name": "Thunder Pill",
+  "type": "consumable",
+  "qi": 8277,
+  "value": 192,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "It makes your hair stand on end. +8277 qi, and Metal settles in you."
+ },
+ "dragon_scale_shard": {
+  "name": "Dragon-Scale Shard",
+  "type": "material",
+  "value": 59,
+  "element": "fire",
+  "desc": "A chip of a scale bigger than a door."
+ },
+ "drake_blood": {
+  "name": "Drake Blood",
+  "type": "material",
+  "value": 59,
+  "element": "fire",
+  "desc": "It burns the jar a little."
+ },
+ "dragon_bone_halberd_f17": {
+  "name": "Dragon-Bone Halberd",
+  "type": "weapon",
+  "kind": "halberd",
+  "damage": 123,
+  "tier": 17,
+  "drop": true,
+  "value": 1530,
+  "desc": "A halberd carved from a shed dragon's rib."
+ },
+ "fang_saber_f17": {
+  "name": "Fang Saber",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 89,
+  "tier": 17,
+  "drop": true,
+  "value": 1530,
+  "desc": "A saber made from a single drakeling fang."
+ },
+ "drake_scale_mail_f17": {
+  "name": "Drake Scale Mail",
+  "type": "armor",
+  "hp": 612,
+  "tier": 17,
+  "drop": true,
+  "value": 1530,
+  "desc": "Mail of drake scales. Fire slides off it. +612 max HP."
+ },
+ "dragonspine_pill_f17": {
+  "name": "Dragon-Blood Pill",
+  "type": "consumable",
+  "qi": 12920,
+  "value": 204,
+  "attune": {
+   "fire": 4
+  },
+  "desc": "Hot enough to make your eyes water. +12920 qi, and Fire settles in you."
+ },
+ "singing_crystal": {
+  "name": "Singing Crystal",
+  "type": "material",
+  "value": 65,
+  "element": "water",
+  "desc": "A crystal that hums when your qi brushes it."
+ },
+ "resonant_dust": {
+  "name": "Resonant Dust",
+  "type": "material",
+  "value": 65,
+  "element": "metal",
+  "desc": "Fine glittering dust that rings faintly when shaken."
+ },
+ "crystal_spear_f19": {
+  "name": "Crystal Spear",
+  "type": "weapon",
+  "kind": "spear",
+  "damage": 105,
+  "tier": 19,
+  "drop": true,
+  "value": 1710,
+  "desc": "A spear of grown crystal; it sings when it strikes."
+ },
+ "shardglass_dagger_f19": {
+  "name": "Shardglass Dagger",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 77,
+  "tier": 19,
+  "drop": true,
+  "value": 1710,
+  "desc": "A sliver of crystal sharpened to nothing at the edge."
+ },
+ "prism_mail_f19": {
+  "name": "Prism Mail",
+  "type": "armor",
+  "hp": 684,
+  "tier": 19,
+  "drop": true,
+  "value": 1710,
+  "desc": "Crystal scales that scatter a blow like light. +684 max HP."
+ },
+ "crystal_pill_f19": {
+  "name": "Resonance Pill",
+  "type": "consumable",
+  "qi": 31478,
+  "value": 228,
+  "attune": {
+   "water": 4
+  },
+  "desc": "It hums all the way down. +31478 qi, and Water settles in you."
+ },
+ "bloodsap": {
+  "name": "Bloodsap",
+  "type": "material",
+  "value": 44,
+  "element": "wood",
+  "desc": "Red sap that clots like blood."
+ },
+ "crimson_bark": {
+  "name": "Crimson Bark",
+  "type": "material",
+  "value": 44,
+  "element": "fire",
+  "desc": "Bark as hard as leather and as red as rust."
+ },
+ "vinelash_spear_f12": {
+  "name": "Vinelash Spear",
+  "type": "weapon",
+  "kind": "spear",
+  "damage": 66,
+  "tier": 12,
+  "drop": true,
+  "value": 1080,
+  "desc": "A spear wrapped in a living vine that grips your hand."
+ },
+ "bloodbark_axe_f12": {
+  "name": "Bloodbark Axe",
+  "type": "weapon",
+  "kind": "axe",
+  "damage": 90,
+  "tier": 12,
+  "drop": true,
+  "value": 1080,
+  "desc": "An axe with a red-bark haft that drinks what it cuts."
+ },
+ "bark_leather_f12": {
+  "name": "Bark-Leather",
+  "type": "armor",
+  "hp": 432,
+  "tier": 12,
+  "drop": true,
+  "value": 1080,
+  "desc": "Crimson bark cured into leather. +432 max HP."
+ },
+ "canopy_pill_f12": {
+  "name": "Bloodsap Pill",
+  "type": "consumable",
+  "qi": 1394,
+  "value": 144,
+  "attune": {
+   "wood": 4
+  },
+  "desc": "Sweet, then iron. +1394 qi, and Wood settles in you."
+ },
+ "ironroot_restorative_f15": {
+  "name": "Ironroot Hold Restorative",
+  "type": "consumable",
+  "heal": 657,
+  "value": 90,
+  "desc": "A town remedy, made for the floors below. Heals 657 HP."
+ },
+ "ironroot_elixir_f15": {
+  "name": "Ironroot Hold Qi Elixir",
+  "type": "consumable",
+  "qi": 6363,
+  "value": 210,
+  "desc": "Brewed for delvers going deeper. +6363 qi."
+ },
+ "star_iron": {
+  "name": "Star Iron",
+  "type": "material",
+  "value": 62,
+  "element": "metal",
+  "desc": "Iron that fell from the sky. It is heavier than it should be."
+ },
+ "meteor_glass": {
+  "name": "Meteor Glass",
+  "type": "material",
+  "value": 62,
+  "element": "fire",
+  "desc": "Green glass from the impact, full of tiny stars."
+ },
+ "star_iron_sword_f18": {
+  "name": "Star-Iron Sword",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 104,
+  "tier": 18,
+  "drop": true,
+  "value": 1620,
+  "desc": "A blade forged from a fallen star. It glows faintly at night."
+ },
+ "meteor_hammer_f18": {
+  "name": "Meteor Hammer",
+  "type": "weapon",
+  "kind": "hammer",
+  "damage": 151,
+  "tier": 18,
+  "drop": true,
+  "value": 1620,
+  "desc": "A chunk of meteorite on a chain-wrapped haft."
+ },
+ "star_iron_plate_f18": {
+  "name": "Star-Iron Plate",
+  "type": "armor",
+  "hp": 648,
+  "tier": 18,
+  "drop": true,
+  "value": 1620,
+  "desc": "Plate of sky-metal. It turns more than blades. +648 max HP."
+ },
+ "starmine_pill_f18": {
+  "name": "Starlight Pill",
+  "type": "consumable",
+  "qi": 20166,
+  "value": 216,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "It glitters on the tongue. +20166 qi, and Metal settles in you."
+ },
+ "pagoda_restorative_f20": {
+  "name": "The Jade Pagoda Restorative",
+  "type": "consumable",
+  "heal": 874,
+  "value": 120,
+  "desc": "A town remedy, made for the floors below. Heals 874 HP."
+ },
+ "pagoda_elixir_f20": {
+  "name": "The Jade Pagoda Qi Elixir",
+  "type": "consumable",
+  "qi": 58961,
+  "value": 280,
+  "desc": "Brewed for delvers going deeper. +58961 qi."
+ },
+ "practice_spear": {
+  "name": "Practice Spear",
+  "type": "weapon",
+  "kind": "spear",
+  "damage": 6,
+  "value": 25,
+  "desc": "Ash shaft, iron tip, a militia stamp on the butt. +6 damage, long reach."
+ },
+ "hunting_knife": {
+  "name": "Hunting Knife",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 4,
+  "value": 20,
+  "desc": "For skinning more than fighting -- in the right hands, both. +4 damage, fast."
+ },
+ "woodcutters_axe": {
+  "name": "Woodcutter's Axe",
+  "type": "weapon",
+  "kind": "axe",
+  "damage": 7,
+  "value": 22,
+  "desc": "Your father's, or someone's. +7 damage, heavy."
+ },
+ "quarterstaff": {
+  "name": "Quarterstaff",
+  "type": "weapon",
+  "kind": "staff",
+  "damage": 5,
+  "value": 18,
+  "desc": "A straight length of hardwood. +5 damage, good reach."
+ },
+ "lodge_field_ration": {
+  "name": "Lodge Field Ration",
+  "type": "consumable",
+  "heal": 70,
+  "value": 14,
+  "desc": "Hard bread, harder cheese, a sip of something strong. Heals 70 HP. Lodge issue."
+ },
+ "vanguard_token": {
+  "name": "Vanguard's Token",
+  "type": "treasure",
+  "value": 220,
+  "special": true,
+  "effect": {
+   "damage_taken": 0.95
+  },
+  "desc": "A dented bronze disc the Lodge gives those who walk in front. You take 5% less damage."
+ },
+ "pathfinder_compass": {
+  "name": "Pathfinder's Compass",
+  "type": "treasure",
+  "value": 420,
+  "special": true,
+  "effect": {
+   "sense_radius": 4.0,
+   "gather_chance": 0.05
+  },
+  "desc": "Its needle points at whatever's hidden nearest. Spirit sense reaches 4m further; a little more from every gather."
+ },
+ "champions_brand": {
+  "name": "Champion's Brand",
+  "type": "treasure",
+  "value": 900,
+  "special": true,
+  "effect": {
+   "damage_mult": 1.06,
+   "attack_speed": 1.03
+  },
+  "desc": "The Lodge's mark, burned into a leather cuff. +6% damage, 3% faster strikes."
+ },
+ "wild_tonic": {
+  "name": "Wild Tonic",
+  "type": "consumable",
+  "heal": 40,
+  "qi": 40,
+  "value": 16,
+  "desc": "Seven roots and a secret. Heals 40 HP and gives 40 qi."
+ },
+ "forager_gloves": {
+  "name": "Forager's Gloves",
+  "type": "treasure",
+  "value": 240,
+  "special": true,
+  "effect": {
+   "gather_chance": 0.15
+  },
+  "desc": "Soft leather, worn through at the fingertips by someone else first. More from every gather."
+ },
+ "warden_satchel": {
+  "name": "Warden's Satchel",
+  "type": "treasure",
+  "value": 480,
+  "special": true,
+  "effect": {
+   "gather_bonus": 1
+  },
+  "desc": "A Warden of the Wild's own bag. One more of everything you gather."
+ },
+ "guild_whetstone": {
+  "name": "Guild Whetstone",
+  "type": "treasure",
+  "value": 260,
+  "special": true,
+  "effect": {
+   "damage_mult": 1.04
+  },
+  "desc": "Fine-grit, guild-cut. Your edge stays keener: +4% damage."
+ },
+ "master_tongs": {
+  "name": "Master's Tongs",
+  "type": "treasure",
+  "value": 500,
+  "special": true,
+  "effect": {
+   "craft_quality_smithing": 0.06,
+   "craft_success_smithing": 0.04
+  },
+  "desc": "Black iron, perfectly balanced. Finer and surer smithing."
+ },
+ "circle_qi_draught": {
+  "name": "Circle Qi Draught",
+  "type": "consumable",
+  "qi": 120,
+  "value": 30,
+  "desc": "Cloudy, bitter, effective. +120 qi."
+ },
+ "furnace_charm": {
+  "name": "Furnace Charm",
+  "type": "treasure",
+  "value": 260,
+  "special": true,
+  "effect": {
+   "craft_success_alchemy": 0.08
+  },
+  "desc": "A clay token that keeps a furnace's heat honest. Surer alchemy."
+ },
+ "refiners_lens": {
+  "name": "Refiner's Lens",
+  "type": "treasure",
+  "value": 520,
+  "special": true,
+  "effect": {
+   "craft_quality_alchemy": 0.06,
+   "qi_mult": 1.03
+  },
+  "desc": "See the impurity before it ruins the batch. Finer pills, and a little more qi from everything."
+ },
+ "house_salve": {
+  "name": "House Salve",
+  "type": "consumable",
+  "heal": 110,
+  "value": 22,
+  "desc": "The Healers' own recipe. Heals 110 HP."
+ },
+ "ward_charm": {
+  "name": "Ward Charm",
+  "type": "treasure",
+  "value": 260,
+  "special": true,
+  "effect": {
+   "heal_on_kill": 4
+  },
+  "desc": "A knot of red thread blessed in the wards. Each foe you fell mends you a little."
+ },
+ "saints_rosary": {
+  "name": "Saint's Rosary",
+  "type": "treasure",
+  "value": 540,
+  "special": true,
+  "effect": {
+   "damage_taken": 0.94,
+   "hp_mult": 1.04
+  },
+  "desc": "Smooth beads, worn by a hundred prayers. Less damage taken, more life to take it."
+ },
+ "lotus_seal": {
+  "name": "Lotus Seal",
+  "type": "treasure",
+  "value": 400,
+  "special": true,
+  "effect": {
+   "qi_mult": 1.06
+  },
+  "desc": "An Inner Disciple's seal. Your cultivation runs 6% richer."
+ },
+ "sparring_manual": {
+  "name": "Sparring Manual",
+  "type": "treasure",
+  "value": 600,
+  "special": true,
+  "effect": {
+   "attack_speed": 1.04,
+   "damage_mult": 1.03
+  },
+  "desc": "Margins full of a Core Disciple's notes. Quicker, harder strikes."
+ },
+ "elders_jade_slip": {
+  "name": "Elder's Jade Slip",
+  "type": "treasure",
+  "value": 1200,
+  "special": true,
+  "effect": {
+   "meditate_mult": 1.25,
+   "qi_mult": 1.05
+  },
+  "desc": "A True Disciple's privilege: an elder's own cultivation notes. Meditation and qi both run richer."
+ },
+ "brass_cog": {
+  "name": "Brass Cog",
+  "type": "material",
+  "value": 71,
+  "element": "metal",
+  "desc": "A perfect little cog that still turns on its own."
+ },
+ "oil_of_motion": {
+  "name": "Oil of Motion",
+  "type": "material",
+  "value": 71,
+  "element": "water",
+  "desc": "Oil that makes anything it touches want to move."
+ },
+ "piston_hammer_f21": {
+  "name": "Piston Hammer",
+  "type": "weapon",
+  "kind": "hammer",
+  "damage": 177,
+  "tier": 21,
+  "drop": true,
+  "value": 1890,
+  "desc": "A hammer with a piston in the head. It hits twice."
+ },
+ "spring_blade_f21": {
+  "name": "Spring-Blade",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 85,
+  "tier": 21,
+  "drop": true,
+  "value": 1890,
+  "desc": "A blade on a spring that leaps out of your hand -- and back."
+ },
+ "gearplate_f21": {
+  "name": "Gearplate",
+  "type": "armor",
+  "hp": 756,
+  "tier": 21,
+  "drop": true,
+  "value": 1890,
+  "desc": "Interlocking plates that shift to meet a blow. +756 max HP."
+ },
+ "clockwork_pill_f21": {
+  "name": "Escapement Pill",
+  "type": "consumable",
+  "qi": 76694,
+  "value": 252,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "Tick, tick, tick, all the way down. +76694 qi, and Metal settles in you."
+ },
+ "spirit_silk": {
+  "name": "Spirit Silk",
+  "type": "material",
+  "value": 74,
+  "element": "wood",
+  "desc": "Silk that holds qi like a cup holds water."
+ },
+ "venom_sac": {
+  "name": "Venom Sac",
+  "type": "material",
+  "value": 74,
+  "element": "water",
+  "desc": "Handle carefully. Handle very carefully."
+ },
+ "silk_wrapped_fists_f22": {
+  "name": "Silk-Wrapped Fists",
+  "type": "weapon",
+  "kind": "fists",
+  "damage": 77,
+  "tier": 22,
+  "drop": true,
+  "value": 1980,
+  "desc": "Wraps of spirit silk that never fray."
+ },
+ "needle_rapier_f22": {
+  "name": "Needle Rapier",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 89,
+  "tier": 22,
+  "drop": true,
+  "value": 1980,
+  "desc": "A weaver's needle the length of your arm."
+ },
+ "spidersilk_vest_f22": {
+  "name": "Spidersilk Vest",
+  "type": "armor",
+  "hp": 792,
+  "tier": 22,
+  "drop": true,
+  "value": 1980,
+  "desc": "A vest of silk stronger than steel. +792 max HP."
+ },
+ "silk_pill_f22": {
+  "name": "Silk Pill",
+  "type": "consumable",
+  "qi": 119711,
+  "value": 264,
+  "attune": {
+   "wood": 4
+  },
+  "desc": "Smooth going down. +119711 qi, and Wood settles in you."
+ },
+ "ash_glass": {
+  "name": "Ash Glass",
+  "type": "material",
+  "value": 77,
+  "element": "fire",
+  "desc": "Black glass from the dunes, still warm."
+ },
+ "sunbaked_bone": {
+  "name": "Sunbaked Bone",
+  "type": "material",
+  "value": 77,
+  "element": "earth",
+  "desc": "Bone bleached and hardened by a sun that isn't there."
+ },
+ "dune_scimitar_f23": {
+  "name": "Dune Scimitar",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 120,
+  "tier": 23,
+  "drop": true,
+  "value": 2070,
+  "desc": "A wide curved blade made for long, sweeping cuts."
+ },
+ "ashwood_staff_f23": {
+  "name": "Ashwood Staff",
+  "type": "weapon",
+  "kind": "staff",
+  "damage": 113,
+  "tier": 23,
+  "drop": true,
+  "value": 2070,
+  "desc": "A staff of petrified wood that smoulders at the tip."
+ },
+ "sand_wrap_robes_f23": {
+  "name": "Sand-Wrap Robes",
+  "type": "armor",
+  "hp": 828,
+  "tier": 23,
+  "drop": true,
+  "value": 2070,
+  "desc": "Layered wraps that turn blades like sand turns a spade. +828 max HP."
+ },
+ "ash_pill_f23": {
+  "name": "Cinder Pill",
+  "type": "consumable",
+  "qi": 186857,
+  "value": 276,
+  "attune": {
+   "fire": 4
+  },
+  "desc": "Dry as the dunes, hot as the ash. +186857 qi, and Fire settles in you."
+ },
+ "rime_ink": {
+  "name": "Rime Ink",
+  "type": "material",
+  "value": 80,
+  "element": "water",
+  "desc": "Ink that froze mid-sentence and never thawed."
+ },
+ "frost_vellum": {
+  "name": "Frost Vellum",
+  "type": "material",
+  "value": 80,
+  "element": "metal",
+  "desc": "Pages so cold they burn the fingers."
+ },
+ "icicle_rapier_f24": {
+  "name": "Icicle Rapier",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 139,
+  "tier": 24,
+  "drop": true,
+  "value": 2160,
+  "desc": "A thin blade of ice that never melts.",
+  "speed": 1.15
+ },
+ "glacier_hammer_f24": {
+  "name": "Glacier Hammer",
+  "type": "weapon",
+  "kind": "hammer",
+  "damage": 202,
+  "tier": 24,
+  "drop": true,
+  "value": 2160,
+  "desc": "A block of ancient ice on a haft."
+ },
+ "frostweave_robe_f24": {
+  "name": "Frostweave Robe",
+  "type": "armor",
+  "hp": 864,
+  "tier": 24,
+  "drop": true,
+  "value": 2160,
+  "desc": "Scholar's robes woven with frost-thread. +864 max HP."
+ },
+ "frost_pill_f24": {
+  "name": "Frost Clarity Pill",
+  "type": "consumable",
+  "qi": 291664,
+  "value": 288,
+  "attune": {
+   "water": 4
+  },
+  "desc": "Cold, clean, clarifying. +291664 qi, and Water settles in you."
+ },
+ "mirror_silver": {
+  "name": "Mirror Silver",
+  "type": "material",
+  "value": 83,
+  "element": "metal",
+  "desc": "Silver backing scraped from a mirror that showed something else."
+ },
+ "true_reflection": {
+  "name": "True Reflection",
+  "type": "material",
+  "value": 83,
+  "element": "water",
+  "desc": "A shard that shows you as you really are. Hard to look at."
+ },
+ "mirror_blade_f25": {
+  "name": "Mirror Blade",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 145,
+  "tier": 25,
+  "drop": true,
+  "value": 2250,
+  "desc": "A sword that shows your face in its edge -- tired, and determined."
+ },
+ "reflected_wraps_f25": {
+  "name": "Reflected Wraps",
+  "type": "weapon",
+  "kind": "fists",
+  "damage": 87,
+  "tier": 25,
+  "drop": true,
+  "value": 2250,
+  "desc": "Wraps that strike once for you and once for your reflection."
+ },
+ "silvered_coat_f25": {
+  "name": "Silvered Coat",
+  "type": "armor",
+  "hp": 900,
+  "tier": 25,
+  "drop": true,
+  "value": 2250,
+  "desc": "A coat of tiny mirrors. Blows see themselves and hesitate. +900 max HP."
+ },
+ "mirror_pill_f25": {
+  "name": "Clear Sight Pill",
+  "type": "consumable",
+  "qi": 455258,
+  "value": 300,
+  "attune": {
+   "water": 4
+  },
+  "desc": "For a moment, everything is exactly what it is. +455258 qi, and Water settles in you."
+ },
+ "spirit_paper": {
+  "name": "Spirit Paper",
+  "type": "material",
+  "value": 86,
+  "element": "wood",
+  "desc": "Paper burned for the dead. It didn't burn."
+ },
+ "ghost_lantern_oil": {
+  "name": "Ghost-Lantern Oil",
+  "type": "material",
+  "value": 86,
+  "element": "fire",
+  "desc": "Oil that burns with a cold blue flame."
+ },
+ "lantern_staff_f26": {
+  "name": "Lantern Staff",
+  "type": "weapon",
+  "kind": "staff",
+  "damage": 128,
+  "tier": 26,
+  "drop": true,
+  "value": 2340,
+  "desc": "A staff hung with a lantern that lights the way for ghosts -- and away from you."
+ },
+ "paper_fold_dagger_f26": {
+  "name": "Paper-Fold Dagger",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 106,
+  "tier": 26,
+  "drop": true,
+  "value": 2340,
+  "desc": "Folded spirit paper, sharper than steel."
+ },
+ "mourning_silk_f26": {
+  "name": "Mourning Silk",
+  "type": "armor",
+  "hp": 936,
+  "tier": 26,
+  "drop": true,
+  "value": 2340,
+  "desc": "White mourning silk. Ghosts look away from it. +936 max HP."
+ },
+ "ghostmarket_pill_f26": {
+  "name": "Ghost-Lamp Pill",
+  "type": "consumable",
+  "qi": 710610,
+  "value": 312,
+  "attune": {
+   "fire": 4
+  },
+  "desc": "Cold fire in the belly. +710610 qi, and Fire settles in you."
+ },
+ "coral_trident_f27": {
+  "name": "Deep Coral Trident",
+  "type": "weapon",
+  "kind": "spear",
+  "damage": 149,
+  "tier": 27,
+  "drop": true,
+  "value": 2430,
+  "desc": "A three-pronged spear grown, not forged."
+ },
+ "pearl_saber_f27": {
+  "name": "Deep Pearl Saber",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 141,
+  "tier": 27,
+  "drop": true,
+  "value": 2430,
+  "desc": "A court blade with a pearl in the pommel."
+ },
+ "nacre_scale_f27": {
+  "name": "Deep Nacre Scale",
+  "type": "armor",
+  "hp": 972,
+  "tier": 27,
+  "drop": true,
+  "value": 2430,
+  "desc": "Mother-of-pearl scales, iridescent and hard. +972 max HP."
+ },
+ "drowned_pill_f27": {
+  "name": "Deep Tidal Pill",
+  "type": "consumable",
+  "qi": 1109189,
+  "value": 324,
+  "attune": {
+   "water": 4
+  },
+  "desc": "Salty, deep, calming. +1109189 qi, and Water settles in you."
+ },
+ "sporecap_staff_f28": {
+  "name": "Deep Sporecap Staff",
+  "type": "weapon",
+  "kind": "staff",
+  "damage": 138,
+  "tier": 28,
+  "drop": true,
+  "value": 2520,
+  "desc": "A staff that grows a fresh cap every morning."
+ },
+ "chitin_saber_f28": {
+  "name": "Deep Chitin Saber",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 146,
+  "tier": 28,
+  "drop": true,
+  "value": 2520,
+  "desc": "A curved blade of beetle chitin, light and keen."
+ },
+ "fungal_hide_f28": {
+  "name": "Deep Fungal Hide",
+  "type": "armor",
+  "hp": 1008,
+  "tier": 28,
+  "drop": true,
+  "value": 2520,
+  "desc": "Treated mushroom leather. It smells. It holds. +1008 max HP."
+ },
+ "fungal_pill_f28": {
+  "name": "Deep Spore Tonic",
+  "type": "consumable",
+  "qi": 1731329,
+  "value": 336,
+  "attune": {
+   "wood": 4
+  },
+  "desc": "Earthy, bitter, alive. +1731329 qi, and Wood settles in you."
+ },
+ "piston_hammer_f29": {
+  "name": "Deep Piston Hammer",
+  "type": "weapon",
+  "kind": "hammer",
+  "damage": 244,
+  "tier": 29,
+  "drop": true,
+  "value": 2610,
+  "desc": "A hammer with a piston in the head. It hits twice."
+ },
+ "spring_blade_f29": {
+  "name": "Deep Spring-Blade",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 118,
+  "tier": 29,
+  "drop": true,
+  "value": 2610,
+  "desc": "A blade on a spring that leaps out of your hand -- and back."
+ },
+ "gearplate_f29": {
+  "name": "Deep Gearplate",
+  "type": "armor",
+  "hp": 1044,
+  "tier": 29,
+  "drop": true,
+  "value": 2610,
+  "desc": "Interlocking plates that shift to meet a blow. +1044 max HP."
+ },
+ "clockwork_pill_f29": {
+  "name": "Deep Escapement Pill",
+  "type": "consumable",
+  "qi": 2702425,
+  "value": 348,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "Tick, tick, tick, all the way down. +2702425 qi, and Metal settles in you."
+ },
+ "embernest_restorative_f30": {
+  "name": "The Ember Nest Restorative",
+  "type": "consumable",
+  "heal": 1288,
+  "value": 180,
+  "desc": "A town remedy, made for the floors below. Heals 1288 HP."
+ },
+ "embernest_elixir_f30": {
+  "name": "The Ember Nest Qi Elixir",
+  "type": "consumable",
+  "qi": 5061847,
+  "value": 420,
+  "desc": "Brewed for delvers going deeper. +5061847 qi."
+ },
+ "dragon_bone_halberd_f31": {
+  "name": "Deep Dragon-Bone Halberd",
+  "type": "weapon",
+  "kind": "halberd",
+  "damage": 225,
+  "tier": 31,
+  "drop": true,
+  "value": 2790,
+  "desc": "A halberd carved from a shed dragon's rib."
+ },
+ "fang_saber_f31": {
+  "name": "Deep Fang Saber",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 162,
+  "tier": 31,
+  "drop": true,
+  "value": 2790,
+  "desc": "A saber made from a single drakeling fang."
+ },
+ "drake_scale_mail_f31": {
+  "name": "Deep Drake Scale Mail",
+  "type": "armor",
+  "hp": 1116,
+  "tier": 31,
+  "drop": true,
+  "value": 2790,
+  "desc": "Mail of drake scales. Fire slides off it. +1116 max HP."
+ },
+ "dragonspine_pill_f31": {
+  "name": "Deep Dragon-Blood Pill",
+  "type": "consumable",
+  "qi": 6584180,
+  "value": 372,
+  "attune": {
+   "fire": 4
+  },
+  "desc": "Hot enough to make your eyes water. +6584180 qi, and Fire settles in you."
+ },
+ "dune_scimitar_f32": {
+  "name": "Deep Dune Scimitar",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 167,
+  "tier": 32,
+  "drop": true,
+  "value": 2880,
+  "desc": "A wide curved blade made for long, sweeping cuts."
+ },
+ "ashwood_staff_f32": {
+  "name": "Deep Ashwood Staff",
+  "type": "weapon",
+  "kind": "staff",
+  "damage": 158,
+  "tier": 32,
+  "drop": true,
+  "value": 2880,
+  "desc": "A staff of petrified wood that smoulders at the tip."
+ },
+ "sand_wrap_robes_f32": {
+  "name": "Deep Sand-Wrap Robes",
+  "type": "armor",
+  "hp": 1152,
+  "tier": 32,
+  "drop": true,
+  "value": 2880,
+  "desc": "Layered wraps that turn blades like sand turns a spade. +1152 max HP."
+ },
+ "ash_pill_f32": {
+  "name": "Deep Cinder Pill",
+  "type": "consumable",
+  "qi": 10277221,
+  "value": 384,
+  "attune": {
+   "fire": 4
+  },
+  "desc": "Dry as the dunes, hot as the ash. +10277221 qi, and Fire settles in you."
+ },
+ "mirror_blade_f33": {
+  "name": "Deep Mirror Blade",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 191,
+  "tier": 33,
+  "drop": true,
+  "value": 2970,
+  "desc": "A sword that shows your face in its edge -- tired, and determined."
+ },
+ "reflected_wraps_f33": {
+  "name": "Deep Reflected Wraps",
+  "type": "weapon",
+  "kind": "fists",
+  "damage": 115,
+  "tier": 33,
+  "drop": true,
+  "value": 2970,
+  "desc": "Wraps that strike once for you and once for your reflection."
+ },
+ "silvered_coat_f33": {
+  "name": "Deep Silvered Coat",
+  "type": "armor",
+  "hp": 1188,
+  "tier": 33,
+  "drop": true,
+  "value": 2970,
+  "desc": "A coat of tiny mirrors. Blows see themselves and hesitate. +1188 max HP."
+ },
+ "mirror_pill_f33": {
+  "name": "Deep Clear Sight Pill",
+  "type": "consumable",
+  "qi": 16041673,
+  "value": 396,
+  "attune": {
+   "water": 4
+  },
+  "desc": "For a moment, everything is exactly what it is. +16041673 qi, and Water settles in you."
+ },
+ "crystal_spear_f34": {
+  "name": "Deep Crystal Spear",
+  "type": "weapon",
+  "kind": "spear",
+  "damage": 187,
+  "tier": 34,
+  "drop": true,
+  "value": 3060,
+  "desc": "A spear of grown crystal; it sings when it strikes."
+ },
+ "shardglass_dagger_f34": {
+  "name": "Deep Shardglass Dagger",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 138,
+  "tier": 34,
+  "drop": true,
+  "value": 3060,
+  "desc": "A sliver of crystal sharpened to nothing at the edge."
+ },
+ "prism_mail_f34": {
+  "name": "Deep Prism Mail",
+  "type": "armor",
+  "hp": 1224,
+  "tier": 34,
+  "drop": true,
+  "value": 3060,
+  "desc": "Crystal scales that scatter a blow like light. +1224 max HP."
+ },
+ "crystal_pill_f34": {
+  "name": "Deep Resonance Pill",
+  "type": "consumable",
+  "qi": 25039384,
+  "value": 408,
+  "attune": {
+   "water": 4
+  },
+  "desc": "It hums all the way down. +25039384 qi, and Water settles in you."
+ },
+ "celestial_sword_f35": {
+  "name": "Deep Celestial Sword",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 203,
+  "tier": 35,
+  "drop": true,
+  "value": 3150,
+  "desc": "A sword from the palace armoury. It remembers flying."
+ },
+ "cloudbreaker_halberd_f35": {
+  "name": "Deep Cloudbreaker Halberd",
+  "type": "weapon",
+  "kind": "halberd",
+  "damage": 254,
+  "tier": 35,
+  "drop": true,
+  "value": 3150,
+  "desc": "A guardian's halberd, made to split storms."
+ },
+ "immortal_s_vestment_f35": {
+  "name": "Deep Immortal's Vestment",
+  "type": "armor",
+  "hp": 1260,
+  "tier": 35,
+  "drop": true,
+  "value": 3150,
+  "desc": "Robes that once walked in heaven. +1260 max HP."
+ },
+ "cloudruins_pill_f35": {
+  "name": "Deep Heaven-Dew Pill",
+  "type": "consumable",
+  "qi": 39083874,
+  "value": 420,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "Light as cloud, sweet as rain. +39083874 qi, and Metal settles in you."
+ },
+ "thunder_halberd_f36": {
+  "name": "Deep Thunder Halberd",
+  "type": "weapon",
+  "kind": "halberd",
+  "damage": 261,
+  "tier": 36,
+  "drop": true,
+  "value": 3240,
+  "desc": "A halberd that crackles with a stored storm."
+ },
+ "stormfang_dagger_f36": {
+  "name": "Deep Stormfang Dagger",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 146,
+  "tier": 36,
+  "drop": true,
+  "value": 3240,
+  "desc": "A jagged blade like a frozen bolt."
+ },
+ "lightning_rod_plate_f36": {
+  "name": "Deep Lightning-Rod Plate",
+  "type": "armor",
+  "hp": 1296,
+  "tier": 36,
+  "drop": true,
+  "value": 3240,
+  "desc": "Plate armour that drinks lightning and sends it into the floor. +1296 max HP."
+ },
+ "storm_pill_f36": {
+  "name": "Deep Thunder Pill",
+  "type": "consumable",
+  "qi": 61005863,
+  "value": 432,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "It makes your hair stand on end. +61005863 qi, and Metal settles in you."
+ },
+ "silk_wrapped_fists_f37": {
+  "name": "Deep Silk-Wrapped Fists",
+  "type": "weapon",
+  "kind": "fists",
+  "damage": 129,
+  "tier": 37,
+  "drop": true,
+  "value": 3330,
+  "desc": "Wraps of spirit silk that never fray."
+ },
+ "needle_rapier_f37": {
+  "name": "Deep Needle Rapier",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 150,
+  "tier": 37,
+  "drop": true,
+  "value": 3330,
+  "desc": "A weaver's needle the length of your arm."
+ },
+ "spidersilk_vest_f37": {
+  "name": "Deep Spidersilk Vest",
+  "type": "armor",
+  "hp": 1332,
+  "tier": 37,
+  "drop": true,
+  "value": 3330,
+  "desc": "A vest of silk stronger than steel. +1332 max HP."
+ },
+ "silk_pill_f37": {
+  "name": "Deep Silk Pill",
+  "type": "consumable",
+  "qi": 95223808,
+  "value": 444,
+  "attune": {
+   "wood": 4
+  },
+  "desc": "Smooth going down. +95223808 qi, and Wood settles in you."
+ },
+ "star_iron_sword_f38": {
+  "name": "Deep Star-Iron Sword",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 220,
+  "tier": 38,
+  "drop": true,
+  "value": 3420,
+  "desc": "A blade forged from a fallen star. It glows faintly at night."
+ },
+ "meteor_hammer_f38": {
+  "name": "Deep Meteor Hammer",
+  "type": "weapon",
+  "kind": "hammer",
+  "damage": 320,
+  "tier": 38,
+  "drop": true,
+  "value": 3420,
+  "desc": "A chunk of meteorite on a chain-wrapped haft."
+ },
+ "star_iron_plate_f38": {
+  "name": "Deep Star-Iron Plate",
+  "type": "armor",
+  "hp": 1368,
+  "tier": 38,
+  "drop": true,
+  "value": 3420,
+  "desc": "Plate of sky-metal. It turns more than blades. +1368 max HP."
+ },
+ "starmine_pill_f38": {
+  "name": "Deep Starlight Pill",
+  "type": "consumable",
+  "qi": 148634461,
+  "value": 456,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "It glitters on the tongue. +148634461 qi, and Metal settles in you."
+ },
+ "lantern_staff_f39": {
+  "name": "Deep Lantern Staff",
+  "type": "weapon",
+  "kind": "staff",
+  "damage": 192,
+  "tier": 39,
+  "drop": true,
+  "value": 3510,
+  "desc": "A staff hung with a lantern that lights the way for ghosts -- and away from you."
+ },
+ "paper_fold_dagger_f39": {
+  "name": "Deep Paper-Fold Dagger",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 158,
+  "tier": 39,
+  "drop": true,
+  "value": 3510,
+  "desc": "Folded spirit paper, sharper than steel."
+ },
+ "mourning_silk_f39": {
+  "name": "Deep Mourning Silk",
+  "type": "armor",
+  "hp": 1404,
+  "tier": 39,
+  "drop": true,
+  "value": 3510,
+  "desc": "White mourning silk. Ghosts look away from it. +1404 max HP."
+ },
+ "ghostmarket_pill_f39": {
+  "name": "Deep Ghost-Lamp Pill",
+  "type": "consumable",
+  "qi": 232002935,
+  "value": 468,
+  "attune": {
+   "fire": 4
+  },
+  "desc": "Cold fire in the belly. +232002935 qi, and Fire settles in you."
+ },
+ "moonmonastery_restorative_f40": {
+  "name": "The Hollow Moon Monastery Restorative",
+  "type": "consumable",
+  "heal": 1702,
+  "value": 240,
+  "desc": "A town remedy, made for the floors below. Heals 1702 HP."
+ },
+ "moonmonastery_elixir_f40": {
+  "name": "The Hollow Moon Monastery Qi Elixir",
+  "type": "consumable",
+  "qi": 434558945,
+  "value": 560,
+  "desc": "Brewed for delvers going deeper. +434558945 qi."
+ },
+ "vinelash_spear_f41": {
+  "name": "Deep Vinelash Spear",
+  "type": "weapon",
+  "kind": "spear",
+  "damage": 226,
+  "tier": 41,
+  "drop": true,
+  "value": 3690,
+  "desc": "A spear wrapped in a living vine that grips your hand."
+ },
+ "bloodbark_axe_f41": {
+  "name": "Deep Bloodbark Axe",
+  "type": "weapon",
+  "kind": "axe",
+  "damage": 309,
+  "tier": 41,
+  "drop": true,
+  "value": 3690,
+  "desc": "An axe with a red-bark haft that drinks what it cuts."
+ },
+ "bark_leather_f41": {
+  "name": "Deep Bark-Leather",
+  "type": "armor",
+  "hp": 1476,
+  "tier": 41,
+  "drop": true,
+  "value": 3690,
+  "desc": "Crimson bark cured into leather. +1476 max HP."
+ },
+ "canopy_pill_f41": {
+  "name": "Deep Bloodsap Pill",
+  "type": "consumable",
+  "qi": 565251099,
+  "value": 492,
+  "attune": {
+   "wood": 4
+  },
+  "desc": "Sweet, then iron. +565251099 qi, and Wood settles in you."
+ },
+ "icicle_rapier_f42": {
+  "name": "Deep Icicle Rapier",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 244,
+  "tier": 42,
+  "drop": true,
+  "value": 3780,
+  "desc": "A thin blade of ice that never melts.",
+  "speed": 1.15
+ },
+ "glacier_hammer_f42": {
+  "name": "Deep Glacier Hammer",
+  "type": "weapon",
+  "kind": "hammer",
+  "damage": 353,
+  "tier": 42,
+  "drop": true,
+  "value": 3780,
+  "desc": "A block of ancient ice on a haft."
+ },
+ "frostweave_robe_f42": {
+  "name": "Deep Frostweave Robe",
+  "type": "armor",
+  "hp": 1512,
+  "tier": 42,
+  "drop": true,
+  "value": 3780,
+  "desc": "Scholar's robes woven with frost-thread. +1512 max HP."
+ },
+ "frost_pill_f42": {
+  "name": "Deep Frost Clarity Pill",
+  "type": "consumable",
+  "qi": 882298180,
+  "value": 504,
+  "attune": {
+   "water": 4
+  },
+  "desc": "Cold, clean, clarifying. +882298180 qi, and Water settles in you."
+ },
+ "piston_hammer_f43": {
+  "name": "Ancient Piston Hammer",
+  "type": "weapon",
+  "kind": "hammer",
+  "damage": 362,
+  "tier": 43,
+  "drop": true,
+  "value": 3870,
+  "desc": "A hammer with a piston in the head. It hits twice."
+ },
+ "spring_blade_f43": {
+  "name": "Ancient Spring-Blade",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 175,
+  "tier": 43,
+  "drop": true,
+  "value": 3870,
+  "desc": "A blade on a spring that leaps out of your hand -- and back."
+ },
+ "gearplate_f43": {
+  "name": "Ancient Gearplate",
+  "type": "armor",
+  "hp": 1548,
+  "tier": 43,
+  "drop": true,
+  "value": 3870,
+  "desc": "Interlocking plates that shift to meet a blow. +1548 max HP."
+ },
+ "clockwork_pill_f43": {
+  "name": "Ancient Escapement Pill",
+  "type": "consumable",
+  "qi": 1377175700,
+  "value": 516,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "Tick, tick, tick, all the way down. +1377175700 qi, and Metal settles in you."
+ },
+ "deep_breath_pill": {
+  "name": "Deep Breath Pill",
+  "type": "consumable",
+  "value": 120,
+  "gate": 11,
+  "desc": "Heartwood and moonpetal pressed with spirit herb, a sapphire chip to hold the qi. Under the tongue it makes the thick air below floor 10 breathable -- once."
+ },
+ "warding_talisman": {
+  "name": "Warding Talisman",
+  "type": "consumable",
+  "value": 260,
+  "gate": 16,
+  "desc": "Jade and silver on a resin cord, a nanite shard set in the knot. It burns out passing the fifteenth floor's ward."
+ },
+ "stormglass_lantern": {
+  "name": "Stormglass Lantern",
+  "type": "consumable",
+  "value": 420,
+  "gate": 21,
+  "desc": "Thunder iron caging a shard of stormglass. The only light that holds below twenty; it goes dark at the bottom of the stair."
+ },
+ "voidsalt_draught": {
+  "name": "Voidsalt Draught",
+  "type": "consumable",
+  "value": 900,
+  "gate": 31,
+  "desc": "Mirror silver dissolved in salt and herb, with a true reflection stirred in. Lets ordinary blood live in the thin qi below thirty."
+ },
+ "heartfire_elixir": {
+  "name": "Heartfire Elixir",
+  "type": "consumable",
+  "value": 1400,
+  "gate": 36,
+  "desc": "Ash glass, rime ink and drake blood: a fire that sits in the chest for the cold below thirty-six."
+ },
+ "star_iron_key": {
+  "name": "Star Iron Key",
+  "type": "consumable",
+  "value": 1800,
+  "gate": 41,
+  "desc": "Forged to the old expedition's lock on forty-one. Star iron doesn't take a second cut: the key stays in the door."
+ },
+ "mirrorheart_ward": {
+  "name": "Mirrorheart Ward",
+  "type": "consumable",
+  "value": 2600,
+  "gate": 46,
+  "desc": "Mirror silver and singing crystal bound in spirit silk. A ward against the Heart's own voice."
+ },
+ "whetstone": {
+  "name": "Whetstone",
+  "type": "consumable",
+  "value": 40,
+  "buff": {
+   "effect": {
+    "damage_mult": 1.2
+   },
+   "seconds": 600
+  },
+  "desc": "Ten minutes of a sharper edge: +20% damage."
+ },
+ "qi_incense": {
+  "name": "Qi Incense",
+  "type": "consumable",
+  "value": 60,
+  "buff": {
+   "effect": {
+    "meditate_mult": 1.5
+   },
+   "seconds": 600
+  },
+  "desc": "Resin and herb. For ten minutes, sitting gathers half again as much."
+ },
+ "ironskin_salve": {
+  "name": "Ironskin Salve",
+  "type": "consumable",
+  "value": 70,
+  "buff": {
+   "effect": {
+    "damage_taken": 0.85
+   },
+   "seconds": 600
+  },
+  "desc": "Thistle and resin worked into the skin: blows land 15% softer for ten minutes."
+ },
+ "swift_tonic": {
+  "name": "Swift Tonic",
+  "type": "consumable",
+  "value": 80,
+  "buff": {
+   "effect": {
+    "attack_speed": 1.15
+   },
+   "seconds": 600
+  },
+  "desc": "Ember root and moonpetal. Hands quicker by 15% for ten minutes."
+ },
+ "lucky_charm": {
+  "name": "Finder's Charm",
+  "type": "consumable",
+  "value": 90,
+  "buff": {
+   "effect": {
+    "gather_chance": 0.15
+   },
+   "seconds": 900
+  },
+  "desc": "A jade bead on a thistle cord. For fifteen minutes, ore and herb give up more."
+ },
+ "hunters_oil": {
+  "name": "Hunter's Oil",
+  "type": "consumable",
+  "value": 100,
+  "buff": {
+   "effect": {
+    "crit_chance": 0.1
+   },
+   "seconds": 600
+  },
+  "desc": "Beast fat and spirit resin: for ten minutes, one blow in ten more finds the gap."
+ },
+ "star_iron_sword_f44": {
+  "name": "Ancient Star-Iron Sword",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 255,
+  "tier": 44,
+  "drop": true,
+  "value": 3960,
+  "desc": "A blade forged from a fallen star. It glows faintly at night."
+ },
+ "meteor_hammer_f44": {
+  "name": "Ancient Meteor Hammer",
+  "type": "weapon",
+  "kind": "hammer",
+  "damage": 370,
+  "tier": 44,
+  "drop": true,
+  "value": 3960,
+  "desc": "A chunk of meteorite on a chain-wrapped haft."
+ },
+ "star_iron_plate_f44": {
+  "name": "Ancient Star-Iron Plate",
+  "type": "armor",
+  "hp": 1584,
+  "tier": 44,
+  "drop": true,
+  "value": 3960,
+  "desc": "Plate of sky-metal. It turns more than blades. +1584 max HP."
+ },
+ "starmine_pill_f44": {
+  "name": "Ancient Starlight Pill",
+  "type": "consumable",
+  "qi": 2149628042,
+  "value": 528,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "It glitters on the tongue. +2149628042 qi, and Metal settles in you."
+ },
+ "thunder_halberd_f45": {
+  "name": "Ancient Thunder Halberd",
+  "type": "weapon",
+  "kind": "halberd",
+  "damage": 326,
+  "tier": 45,
+  "drop": true,
+  "value": 4050,
+  "desc": "A halberd that crackles with a stored storm."
+ },
+ "stormfang_dagger_f45": {
+  "name": "Ancient Stormfang Dagger",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 183,
+  "tier": 45,
+  "drop": true,
+  "value": 4050,
+  "desc": "A jagged blade like a frozen bolt."
+ },
+ "lightning_rod_plate_f45": {
+  "name": "Ancient Lightning-Rod Plate",
+  "type": "armor",
+  "hp": 1620,
+  "tier": 45,
+  "drop": true,
+  "value": 4050,
+  "desc": "Plate armour that drinks lightning and sends it into the floor. +1620 max HP."
+ },
+ "storm_pill_f45": {
+  "name": "Ancient Thunder Pill",
+  "type": "consumable",
+  "qi": 3355345812,
+  "value": 540,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "It makes your hair stand on end. +3355345812 qi, and Metal settles in you."
+ },
+ "dune_scimitar_f46": {
+  "name": "Ancient Dune Scimitar",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 240,
+  "tier": 46,
+  "drop": true,
+  "value": 4140,
+  "desc": "A wide curved blade made for long, sweeping cuts."
+ },
+ "ashwood_staff_f46": {
+  "name": "Ancient Ashwood Staff",
+  "type": "weapon",
+  "kind": "staff",
+  "damage": 227,
+  "tier": 46,
+  "drop": true,
+  "value": 4140,
+  "desc": "A staff of petrified wood that smoulders at the tip."
+ },
+ "sand_wrap_robes_f46": {
+  "name": "Ancient Sand-Wrap Robes",
+  "type": "armor",
+  "hp": 1656,
+  "tier": 46,
+  "drop": true,
+  "value": 4140,
+  "desc": "Layered wraps that turn blades like sand turns a spade. +1656 max HP."
+ },
+ "ash_pill_f46": {
+  "name": "Ancient Cinder Pill",
+  "type": "consumable",
+  "qi": 5237345857,
+  "value": 552,
+  "attune": {
+   "fire": 4
+  },
+  "desc": "Dry as the dunes, hot as the ash. +5237345857 qi, and Fire settles in you."
+ },
+ "coral_trident_f47": {
+  "name": "Ancient Coral Trident",
+  "type": "weapon",
+  "kind": "spear",
+  "damage": 259,
+  "tier": 47,
+  "drop": true,
+  "value": 4230,
+  "desc": "A three-pronged spear grown, not forged."
+ },
+ "pearl_saber_f47": {
+  "name": "Ancient Pearl Saber",
+  "type": "weapon",
+  "kind": "saber",
+  "damage": 245,
+  "tier": 47,
+  "drop": true,
+  "value": 4230,
+  "desc": "A court blade with a pearl in the pommel."
+ },
+ "nacre_scale_f47": {
+  "name": "Ancient Nacre Scale",
+  "type": "armor",
+  "hp": 1692,
+  "tier": 47,
+  "drop": true,
+  "value": 4230,
+  "desc": "Mother-of-pearl scales, iridescent and hard. +1692 max HP."
+ },
+ "drowned_pill_f47": {
+  "name": "Ancient Tidal Pill",
+  "type": "consumable",
+  "qi": 8174952199,
+  "value": 564,
+  "attune": {
+   "water": 4
+  },
+  "desc": "Salty, deep, calming. +8174952199 qi, and Water settles in you."
+ },
+ "crystal_spear_f48": {
+  "name": "Ancient Crystal Spear",
+  "type": "weapon",
+  "kind": "spear",
+  "damage": 264,
+  "tier": 48,
+  "drop": true,
+  "value": 4320,
+  "desc": "A spear of grown crystal; it sings when it strikes."
+ },
+ "shardglass_dagger_f48": {
+  "name": "Ancient Shardglass Dagger",
+  "type": "weapon",
+  "kind": "dagger",
+  "damage": 195,
+  "tier": 48,
+  "drop": true,
+  "value": 4320,
+  "desc": "A sliver of crystal sharpened to nothing at the edge."
+ },
+ "prism_mail_f48": {
+  "name": "Ancient Prism Mail",
+  "type": "armor",
+  "hp": 1728,
+  "tier": 48,
+  "drop": true,
+  "value": 4320,
+  "desc": "Crystal scales that scatter a blow like light. +1728 max HP."
+ },
+ "crystal_pill_f48": {
+  "name": "Ancient Resonance Pill",
+  "type": "consumable",
+  "qi": 12760250188,
+  "value": 576,
+  "attune": {
+   "water": 4
+  },
+  "desc": "It hums all the way down. +12760250188 qi, and Water settles in you."
+ },
+ "celestial_sword_f49": {
+  "name": "Ancient Celestial Sword",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 284,
+  "tier": 49,
+  "drop": true,
+  "value": 4410,
+  "desc": "A sword from the palace armoury. It remembers flying."
+ },
+ "cloudbreaker_halberd_f49": {
+  "name": "Ancient Cloudbreaker Halberd",
+  "type": "weapon",
+  "kind": "halberd",
+  "damage": 355,
+  "tier": 49,
+  "drop": true,
+  "value": 4410,
+  "desc": "A guardian's halberd, made to split storms."
+ },
+ "immortal_s_vestment_f49": {
+  "name": "Ancient Immortal's Vestment",
+  "type": "armor",
+  "hp": 1764,
+  "tier": 49,
+  "drop": true,
+  "value": 4410,
+  "desc": "Robes that once walked in heaven. +1764 max HP."
+ },
+ "cloudruins_pill_f49": {
+  "name": "Ancient Heaven-Dew Pill",
+  "type": "consumable",
+  "qi": 19917423478,
+  "value": 588,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "Light as cloud, sweet as rain. +19917423478 qi, and Metal settles in you."
+ },
+ "spirit_lantern": {
+  "name": "Spirit Lantern",
+  "type": "consumable",
+  "value": 60,
+  "buff": {
+   "effect": {
+    "sight": 3
+   },
+   "seconds": 900
+  },
+  "desc": "Resin burning behind a jade pane: for fifteen minutes you see three paces further into the dark."
+ },
+ "celestial_sword_f50": {
+  "name": "Ancient Celestial Sword",
+  "type": "weapon",
+  "kind": "sword",
+  "damage": 290,
+  "tier": 50,
+  "drop": true,
+  "value": 4500,
+  "desc": "A sword from the palace armoury. It remembers flying."
+ },
+ "cloudbreaker_halberd_f50": {
+  "name": "Ancient Cloudbreaker Halberd",
+  "type": "weapon",
+  "kind": "halberd",
+  "damage": 362,
+  "tier": 50,
+  "drop": true,
+  "value": 4500,
+  "desc": "A guardian's halberd, made to split storms."
+ },
+ "immortal_s_vestment_f50": {
+  "name": "Ancient Immortal's Vestment",
+  "type": "armor",
+  "hp": 1800,
+  "tier": 50,
+  "drop": true,
+  "value": 4500,
+  "desc": "Robes that once walked in heaven. +1800 max HP."
+ },
+ "cloudruins_pill_f50": {
+  "name": "Ancient Heaven-Dew Pill",
+  "type": "consumable",
+  "qi": 31089026637,
+  "value": 600,
+  "attune": {
+   "metal": 4
+  },
+  "desc": "Light as cloud, sweet as rain. +31089026637 qi, and Metal settles in you."
+ },
+ "hunter_shortbow": {
+  "name": "Hunter's Shortbow",
+  "type": "weapon",
+  "kind": "bow",
+  "damage": 20,
+  "tier": 5,
+  "drop": true,
+  "value": 450,
+  "desc": "A hunter's stave of ash, strung tight. Click to loose, hold to draw -- a full draw hits harder and pierces."
+ },
+ "ashwood_longbow": {
+  "name": "Ashwood Longbow",
+  "type": "weapon",
+  "kind": "bow",
+  "damage": 34,
+  "tier": 8,
+  "drop": true,
+  "value": 720,
+  "desc": "Taller than you are and twice as patient. Foes far away feel it more."
+ },
+ "falcon_recurve_f11": {
+  "name": "Falcon Recurve",
+  "type": "weapon",
+  "kind": "bow",
+  "damage": 52,
+  "tier": 11,
+  "drop": true,
+  "value": 990,
+  "desc": "Horn and sinew, built to throw an arrow across a cavern."
+ },
+ "stormwind_bow_f14": {
+  "name": "Stormwind Bow",
+  "type": "weapon",
+  "kind": "bow",
+  "damage": 72,
+  "tier": 14,
+  "drop": true,
+  "value": 1260,
+  "desc": "The string hums before the shot. A hard draw pierces three foes."
+ },
+ "moonlit_bow_f17": {
+  "name": "Moonlit Bow",
+  "type": "weapon",
+  "kind": "bow",
+  "damage": 92,
+  "tier": 17,
+  "drop": true,
+  "value": 1530,
+  "desc": "Pale wood that never warps. Its arrows seem to find the gap."
+ },
+ "celestial_bow_f20": {
+  "name": "Celestial Bow",
+  "type": "weapon",
+  "kind": "bow",
+  "damage": 112,
+  "tier": 20,
+  "drop": true,
+  "value": 1800,
+  "desc": "A bow for those who have stopped counting floors."
+ },
+ "garrison_crossbow": {
+  "name": "Garrison Crossbow",
+  "type": "weapon",
+  "kind": "crossbow",
+  "damage": 28,
+  "tier": 7,
+  "drop": true,
+  "value": 630,
+  "desc": "Cranked, not drawn: slow to reload, and the bolt goes through two foes."
+ },
+ "ironbound_crossbow_f10": {
+  "name": "Ironbound Crossbow",
+  "type": "weapon",
+  "kind": "crossbow",
+  "damage": 46,
+  "tier": 10,
+  "drop": true,
+  "value": 900,
+  "desc": "A steel prod and a stock like a plank. Every bolt is a verdict."
+ },
+ "siege_arbalest_f13": {
+  "name": "Siege Arbalest",
+  "type": "weapon",
+  "kind": "crossbow",
+  "damage": 66,
+  "tier": 13,
+  "drop": true,
+  "value": 1170,
+  "desc": "Built for walls. It will do for monsters."
+ },
+ "thunder_crossbow_f16": {
+  "name": "Thunder Crossbow",
+  "type": "weapon",
+  "kind": "crossbow",
+  "damage": 88,
+  "tier": 16,
+  "drop": true,
+  "value": 1440,
+  "desc": "The release cracks like a whip. Bolts go clean through a line of foes."
+ },
+ "dragonbone_crossbow_f19": {
+  "name": "Dragonbone Crossbow",
+  "type": "weapon",
+  "kind": "crossbow",
+  "damage": 108,
+  "tier": 19,
+  "drop": true,
+  "value": 1710,
+  "desc": "Bone limbs, black string. Nothing stands in a straight line near it for long."
+ },
+ "jade_bead_wraps": {
+  "name": "Jade-Bead Wraps",
+  "type": "weapon",
+  "kind": "ki",
+  "damage": 24,
+  "tier": 6,
+  "drop": true,
+  "value": 540,
+  "desc": "Wraps strung with jade beads that hold a little of your qi. Click for a bolt of it; hold to gather a burst."
+ },
+ "monk_prayer_wraps_f9": {
+  "name": "Monk's Prayer Wraps",
+  "type": "weapon",
+  "kind": "ki",
+  "damage": 40,
+  "tier": 9,
+  "drop": true,
+  "value": 810,
+  "desc": "A hundred small bolts of qi, a breath at a time."
+ },
+ "spirit_gauntlet_f12": {
+  "name": "Spirit Gauntlet",
+  "type": "weapon",
+  "kind": "ki",
+  "damage": 58,
+  "tier": 12,
+  "drop": true,
+  "value": 1080,
+  "desc": "A gauntlet that opens like a flower; the qi leaves in a ring."
+ },
+ "thunder_palm_wraps_f15": {
+  "name": "Thunder-Palm Wraps",
+  "type": "weapon",
+  "kind": "ki",
+  "damage": 80,
+  "tier": 15,
+  "drop": true,
+  "value": 1350,
+  "desc": "Qi that cracks before it lands."
+ },
+ "heaven_seal_gauntlet_f18": {
+  "name": "Heaven-Seal Gauntlet",
+  "type": "weapon",
+  "kind": "ki",
+  "damage": 100,
+  "tier": 18,
+  "drop": true,
+  "value": 1620,
+  "desc": "A seal worn on the palm. Burst shots break a foe's stance outright."
+ },
+ "wire_thistle": {
+  "name": "Wire Thistle",
+  "type": "material",
+  "value": 58,
+  "element": "metal",
+  "desc": "A thistle that grew up through a fallen mast. Its stems hum faintly and carry a charge."
+ },
+ "static_moss": {
+  "name": "Static Moss",
+  "type": "material",
+  "value": 52,
+  "element": "wood",
+  "desc": "Moss that feeds on stray current. It crackles when you rub it."
+ },
+ "scrap_alloy": {
+  "name": "Scrap Alloy",
+  "type": "material",
+  "value": 70,
+  "element": "metal",
+  "desc": "Hull plating, old but sound. Whatever it was made for, it kept a long time."
+ },
+ "ion_crystal": {
+  "name": "Ion Crystal",
+  "type": "material",
+  "value": 96,
+  "element": "metal",
+  "desc": "A crystal grown in the beacon's old signal core. It tingles against your teeth."
+ },
+ "beacon_glass": {
+  "name": "Beacon Glass",
+  "type": "material",
+  "value": 64,
+  "element": "fire",
+  "desc": "A lens from the beacon, still bending light toward a place you can't see."
+ },
+ "gantry_steel": {
+  "name": "Gantry Steel",
+  "type": "material",
+  "value": 88,
+  "element": "metal",
+  "desc": "Girder steel from the launch gantries. Built to carry ships, so it carries you."
+ },
+ "vent_lichen": {
+  "name": "Vent Lichen",
+  "type": "material",
+  "value": 46,
+  "element": "wood",
+  "desc": "Lichen that grows on the cooling vents. It likes the warmth and shrugs off the burn."
+ },
+ "halcyon_basil": {
+  "name": "Halcyon Basil",
+  "type": "material",
+  "value": 80,
+  "element": "wood",
+  "desc": "Grown under lamps, tended by machines. Greener than any herb on the ground."
+ },
+ "lumen_fern": {
+  "name": "Lumen Fern",
+  "type": "material",
+  "value": 90,
+  "element": "wood",
+  "desc": "A fern that shines with the light it was raised under."
+ },
+ "cryo_lotus": {
+  "name": "Cryo Lotus",
+  "type": "material",
+  "value": 110,
+  "element": "water",
+  "desc": "A lotus kept cold in the ring's deep tanks. It stays closed until you hold it."
+ },
+ "station_titanium": {
+  "name": "Station Titanium",
+  "type": "material",
+  "value": 105,
+  "element": "metal",
+  "desc": "Light and very strong. The ring's ribs are made of it."
+ },
+ "quantum_quartz": {
+  "name": "Quantum Quartz",
+  "type": "material",
+  "value": 140,
+  "element": "water",
+  "desc": "A quartz that is in two places at once and doesn't mind."
+ },
+ "lunar_lichen": {
+  "name": "Lunar Lichen",
+  "type": "material",
+  "value": 72,
+  "element": "wood",
+  "desc": "A grey lichen that lives on almost nothing. It is hard to hurt."
+ },
+ "lunar_iron": {
+  "name": "Lunar Iron",
+  "type": "material",
+  "value": 98,
+  "element": "metal",
+  "desc": "Iron from a world with no rust. It is bright where it's broken."
+ },
+ "helium_ice": {
+  "name": "Helium Ice",
+  "type": "material",
+  "value": 130,
+  "element": "water",
+  "desc": "Ice that should not exist at this heat. Don't hold it too long."
+ },
+ "moon_dust_glass": {
+  "name": "Moon-Dust Glass",
+  "type": "material",
+  "value": 84,
+  "element": "earth",
+  "desc": "Dust fused to glass by old impacts. The edges are finer than steel."
+ },
+ "mirage_bloom": {
+  "name": "Mirage Bloom",
+  "type": "material",
+  "value": 94,
+  "element": "fire",
+  "desc": "A flower that is only there when you aren't looking straight at it."
+ },
+ "sunreed": {
+  "name": "Sunreed",
+  "type": "material",
+  "value": 66,
+  "element": "wood",
+  "desc": "A tall reed that bends with the wind and never breaks."
+ },
+ "fulgurite": {
+  "name": "Fulgurite",
+  "type": "material",
+  "value": 112,
+  "element": "fire",
+  "desc": "Sand melted into a branching rod by lightning. Still warm somehow."
+ },
+ "sun_glass": {
+  "name": "Sun Glass",
+  "type": "material",
+  "value": 150,
+  "element": "fire",
+  "desc": "A clear gold glass the desert made from the sun's own heat."
+ },
+ "nanite_ingot": {
+  "name": "Nanite Ingot",
+  "type": "material",
+  "value": 160,
+  "element": "metal",
+  "desc": "Cast with the swarm still in it. The metal will arrange itself if asked."
+ },
+ "coolant_core": {
+  "name": "Coolant Core",
+  "type": "material",
+  "value": 135,
+  "element": "water",
+  "desc": "A sealed core of frozen coolant. It holds the cold in a hot place."
+ },
+ "reactor_ember": {
+  "name": "Reactor Ember",
+  "type": "material",
+  "value": 170,
+  "element": "fire",
+  "desc": "A coal from the foundry's heart, still burning without air."
+ },
+ "slag_orchid": {
+  "name": "Slag Orchid",
+  "type": "material",
+  "value": 100,
+  "element": "fire",
+  "desc": "An orchid that grows on cooling slag. It drinks the heat."
+ },
+ "skyhook_keycard": {
+  "name": "Skyhook Keycard",
+  "type": "quest",
+  "value": 0,
+  "element": "metal",
+  "desc": "A scuffed card that wakes the launch pads at the Skyhook Yard."
+ },
+ "venom_coating": {
+  "name": "Venom Coating",
+  "type": "consumable",
+  "value": 60,
+  "coat": {
+   "kind": "venom",
+   "hits": 20
+  },
+  "desc": "Smear it on your weapon: your next 20 hits poison what they cut (a little at a time; masters shrug most of it off).",
+  "lore": [
+   {
+    "skill": "medicine",
+    "level": 4,
+    "text": "Venom alone runs off the blade. Bind it with resin and it clings to the edge."
+   }
+  ]
+ },
+ "numbing_coating": {
+  "name": "Numbing Coating",
+  "type": "consumable",
+  "value": 70,
+  "coat": {
+   "kind": "numb",
+   "hits": 20
+  },
+  "desc": "Your next 20 hits leave the foe slow and clumsy for a moment. Masters barely feel it.",
+  "lore": [
+   {
+    "skill": "medicine",
+    "level": 5,
+    "text": "The same sac, cut with thistle, numbs instead of burns."
+   }
+  ]
+ },
+ "antidote": {
+  "name": "Antidote",
+  "type": "consumable",
+  "value": 35,
+  "heal": 20,
+  "antidote": 1,
+  "desc": "Draws a poison out and keeps you clean of new ones for four minutes. Heals 20 HP.",
+  "lore": [
+   {
+    "skill": "medicine",
+    "level": 2,
+    "text": "Charred bone drinks poison; the herb mends what it touched."
+   }
+  ]
+ }
+}

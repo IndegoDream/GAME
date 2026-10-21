@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "Ash Slope Marker",
+  "text": "A post at the foot of the slope with a rag tied to it. Go up the shaded side. The sunward ash is still hot a hand's width down."
+ },
+ "Y": {
+  "title": "A Caravan, Buried",
+  "text": "Wagon ribs, an iron strongbox, a trader's scale. The strongbox is empty. The owner scratched his tally on the wagon wall until the sand covered it."
+ },
+ "R": {
+  "title": "The Shield Stone",
+  "text": "A flat stone with a hand pressed into it. Lay your own hand there and the heat of the dunes eases. The caravan masters did this daily."
+ },
+ "G": {
+  "title": "Trader's Rhyme",
+  "text": "Walk by night and rest by day. Keep the dune-crest on your right. If the wind goes still, then say your name. If it answers, run."
+ },
+ "M": {
+  "title": "Cold Ground",
+  "text": "The dunes are cooler than they were. My grandfather says the war was fought here and the sand is its ash. Cooling, he says, not cold."
+ },
+ "O": {
+  "title": "Watch Post",
+  "text": "An old sentry post on the high ridge. From here you can see three miles of dune and anything that moves on it. Wait for a clear hour."
+ },
+ "U": {
+  "title": "Water Count",
+  "text": "Ledger line: eight skins out, six left. Day four. The well on the map is dry. Mark it so the next man does not walk to it."
+ },
+ "X": {
+  "title": "Wind Mark",
+  "text": "The wind wipes the dunes clean every night. Cut your mark deep or it is gone by morning. Mine says only: I was alive until day nine."
+ }
+}

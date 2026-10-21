@@ -1,0 +1,24 @@
+{
+ "_note": "Round 47: more Poly Haven (CC0) assets -- photo textures for props, armour and weapons, real flowers, and leaf/needle cards cut from Poly Haven's tree atlases (tree_small_02 leaves, fir_tree_01 twigs) for Tree.gd.",
+ "license": "CC0 1.0 (public domain) -- https://polyhaven.com/license",
+ "models": {
+  "flower_empodium": "https://polyhaven.com/a/flower_empodium",
+  "flower_gazania": "https://polyhaven.com/a/flower_gazania"
+ },
+ "textures": {
+  "rough_linen": "https://polyhaven.com/a/rough_linen",
+  "weathered_planks": "https://polyhaven.com/a/weathered_planks",
+  "metal_plate_02": "https://polyhaven.com/a/metal_plate_02",
+  "marble_01": "https://polyhaven.com/a/marble_01",
+  "thatch_roof_angled": "https://polyhaven.com/a/thatch_roof_angled",
+  "bark_brown_02": "https://polyhaven.com/a/bark_brown_02",
+  "pine_bark": "https://polyhaven.com/a/pine_bark",
+  "fine_grained_wood": "https://polyhaven.com/a/fine_grained_wood",
+  "fabric_leather_02": "https://polyhaven.com/a/fabric_leather_02"
+ },
+ "foliage": {
+  "broadleaf_card.png": "https://polyhaven.com/a/tree_small_02 (leaves diff + alpha, recomposed)",
+  "fir_card.png": "https://polyhaven.com/a/fir_tree_01 (twig diff + alpha, recomposed)"
+ },
+ "edits": "rough_linen, fabric_leather_02 and metal_plate_02 albedos were turned to neutral grey so the game's colours tint them"
+}

@@ -1,0 +1,523 @@
+{
+  "id": "floor20",
+  "name": "Floor 20, The Jade Pagoda",
+  "theme": "settlement",
+  "depth": 20,
+  "ground": "moss",
+  "breathing": false,
+  "ambient": [
+    0.45,
+    0.6,
+    0.5
+  ],
+  "forged": {
+    "settlement": "pagoda",
+    "cycle": 0,
+    "size": 1.0
+  },
+  "layout": {
+    "seed": 20,
+    "secret_passages": 0,
+    "rooms": [
+      {
+        "name": "The Ninth Tier Gate",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "R"
+        ]
+      },
+      {
+        "name": "The Jade Market",
+        "size": [
+          16,
+          9
+        ],
+        "has": [
+          "L*3",
+          "b*3",
+          "M",
+          "G"
+        ]
+      },
+      {
+        "name": "The Courtyard of Falling Water",
+        "size": [
+          14,
+          11
+        ],
+        "has": [
+          "f",
+          "P",
+          "L*4",
+          "E",
+          "n"
+        ]
+      },
+      {
+        "name": "The Pavilion of Rest",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "H",
+          "b*2",
+          "N",
+          "D"
+        ]
+      },
+      {
+        "name": "The Tier of Hammers",
+        "size": [
+          14,
+          6
+        ],
+        "has": [
+          "L*2",
+          "H*2",
+          "O",
+          "U"
+        ]
+      },
+      {
+        "name": "The Tier of Pills",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "h*3",
+          "Q",
+          "W",
+          "m"
+        ]
+      },
+      {
+        "name": "The Guild Terraces",
+        "size": [
+          14,
+          7
+        ],
+        "has": [
+          "L*2",
+          "=*2",
+          "X"
+        ]
+      },
+      {
+        "name": "The Sparring Platform",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*3",
+          "=*4",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Academy Pavilion",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "=*2",
+          "J",
+          "p"
+        ]
+      },
+      {
+        "name": "The Lotus Shrine",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "Z",
+          "L*3",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Disciples' Quarters",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h",
+          "B",
+          "j"
+        ]
+      },
+      {
+        "name": "The Hanging Gardens",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "h*6",
+          "L*2",
+          "q"
+        ]
+      },
+      {
+        "name": "The Sealed Scripture Room",
+        "size": [
+          6,
+          5
+        ],
+        "has": [
+          "L",
+          "K"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The First Tier Gate",
+        "size": [
+          10,
+          6
+        ],
+        "has": [
+          ">",
+          "L*2",
+          "V"
+        ]
+      }
+    ],
+    "roads": true
+  },
+  "npcs": {
+    "M": {
+      "role": "merchant",
+      "name": "Zhen Clearwater",
+      "stock": [
+        "pagoda_restorative_f20",
+        "pagoda_elixir_f20",
+        "breakthrough_pill",
+        "crystal_pill_f19",
+        "dragonspine_pill_f17",
+        "starmine_pill_f18",
+        "storm_pill_f16",
+        "crystal_spear_f19",
+        "prism_mail_f19",
+        "shardglass_dagger_f19"
+      ],
+      "line": "Supplies for the floors below. Pay up front.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Zhen Clearwater, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: curious about everything above."
+    },
+    "N": {
+      "role": "innkeeper",
+      "name": "Old Sun",
+      "price": 80,
+      "line": "A bed, a bowl, a locked door. You'll want all three before you go down.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Old Sun, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: gruff, honest, and soft-hearted underneath."
+    },
+    "O": {
+      "role": "smith",
+      "name": "Yao the Bellringer",
+      "line": "Bring me what you find down there and I'll make you something that keeps you alive.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Yao the Bellringer, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: curious about everything above."
+    },
+    "Q": {
+      "role": "alchemist",
+      "name": "Sister Qing",
+      "line": "Pills and remedies, made for the deep. Don't ask what's in them.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Sister Qing, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: dreamy, distracted, and braver than they look."
+    },
+    "U": {
+      "role": "guild",
+      "name": "Ming of the Second Tier",
+      "guild": "blacksmiths",
+      "line": "The guild keeps a hall here. We have work for anyone willing.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Ming of the Second Tier, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: gruff, honest, and soft-hearted underneath."
+    },
+    "W": {
+      "role": "guild",
+      "name": "Brother Lan",
+      "guild": "healers",
+      "line": "The guild keeps a hall here. We have work for anyone willing.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Brother Lan, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: curious about everything above."
+    },
+    "X": {
+      "role": "guild",
+      "name": "Master Ou",
+      "guild": "gatherers",
+      "line": "The guild keeps a hall here. We have work for anyone willing.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Master Ou, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: careful with words and careless with coin."
+    },
+    "Y": {
+      "role": "tournament",
+      "name": "Lady Xiu",
+      "tier": 20,
+      "line": "Three bouts, one champion. The rivals who come through here are the best below the Lantern Water.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Lady Xiu, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: careful with words and careless with coin."
+    },
+    "J": {
+      "role": "academy",
+      "name": "Hu the Sweeper",
+      "line": "The Lotus Ascent Academy keeps a lodge here. Rank trials, the library, field tasks.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Hu the Sweeper, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: proud of the town and suspicious of strangers."
+    },
+    "G": {
+      "role": "villager",
+      "name": "Feng Ninefold",
+      "line": "The scripture room was sealed from the inside. The seal is still warm.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Feng Ninefold, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: sharp-tongued and generous."
+    },
+    "E": {
+      "role": "villager",
+      "name": "Disciple Rou",
+      "line": "Something climbs the shaft wall at night. The ninth tier hears it first.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Disciple Rou, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: sharp-tongued and generous."
+    },
+    "D": {
+      "role": "villager",
+      "name": "Lin Jade-Hand",
+      "line": "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Lin Jade-Hand, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: dreamy, distracted, and braver than they look."
+    },
+    "B": {
+      "role": "villager",
+      "name": "Elder Bai",
+      "line": "Something climbs the shaft wall at night. The ninth tier hears it first.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Elder Bai, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: careful with words and careless with coin."
+    },
+    "V": {
+      "role": "villager",
+      "name": "Little Bo",
+      "stays": true,
+      "line": "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes.",
+      "lines": [
+        "The scripture room was sealed from the inside. The seal is still warm.",
+        "They say the shaft has a bottom, and that the first abbot jumped to find it. He sends letters sometimes."
+      ],
+      "persona": "Little Bo, who lives in The Jade Pagoda, a nine-tiered sect pagoda built down the wall of a bottomless shaft: gruff, honest, and soft-hearted underneath."
+    },
+    "j": {
+      "role": "villager",
+      "name": "Li Mei",
+      "line": "Welcome to the Jade Market! We have everything from the finest jade to rare cultivation scrolls.",
+      "lines": [
+        "Make sure to visit the Pavilion of Rest for some refreshments.",
+        "The Sparring Platform is the best place to test your skills against other disciples."
+      ],
+      "persona": "Li Mei is a friendly merchant who runs a jade shop in the Jade Market.",
+      "added": "refine"
+    },
+    "n": {
+      "role": "villager",
+      "name": "Jade Merchant Ling",
+      "line": "Welcome to the Jade Market, where the finest treasures of the Nine Heavens are exchanged.",
+      "lines": [
+        "Please, take your time to browse through our offerings and find what your heart desires.",
+        "Remember, a wise buyer is one who knows the value of a true gem."
+      ],
+      "persona": "A seasoned merchant at the Jade Market, known for her keen eye for rare artifacts.",
+      "added": "refine"
+    },
+    "m": {
+      "role": "villager",
+      "name": "Zhen",
+      "line": "Greetings, traveler. Welcome to the Jade Pagoda, a place of learning and spiritual growth.",
+      "lines": [
+        "May I ask what brings you to our hallowed halls?",
+        "The Sparring Platform is the best place to test your skills against others."
+      ],
+      "persona": "A resident of the Jade Pagoda, Zhen is a dedicated martial artist who spends most of his time in the Pavilion of Rest and the Sparring Platform.",
+      "added": "refine"
+    },
+    "p": {
+      "role": "villager",
+      "name": "Master Yun",
+      "line": "Welcome to the Jade Pagoda, seeker of truth and power. May your steps be light and your heart pure.",
+      "lines": [
+        "The Courtyard of Falling Water is where many find peace and clarity, do not miss it.",
+        "The Sealed Scripture Room holds ancient knowledge, but be wary of the guards."
+      ],
+      "persona": "A sage and guardian of the Jade Pagoda, known for his wisdom and guidance to those who seek enlightenment.",
+      "added": "refine"
+    },
+    "q": {
+      "role": "villager",
+      "name": "Lan Feng",
+      "line": "Welcome to the Jade Market, dear traveler. What brings you to our bustling heart?",
+      "lines": [
+        "Looking for jade? Our market has the finest stones from the Nine Provinces.",
+        "May the fortune of the Jade Pagoda bless your journey."
+      ],
+      "persona": "A cheerful merchant in the Jade Market, known for her knowledge of jade and its properties.",
+      "added": "refine"
+    }
+  },
+  "chests": {
+    "K": {
+      "loot": {
+        "random_gear": [
+          1,
+          1
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "gold": [
+          400,
+          600
+        ]
+      },
+      "note": "a sealed chest someone in The Jade Pagoda hoped nobody would find"
+    }
+  },
+  "lore": {
+    "R": {
+      "title": "The Pagoda's Foundation Stone",
+      "text": "Nine tiers for nine virtues, built downward, because the first abbot said a sect should grow toward its trials, not away from them."
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor19",
+      "arrive": ">",
+      "label": "Up to floor 19",
+      "down": false
+    },
+    ">": {
+      "to": "floor21",
+      "arrive": "<",
+      "label": "Down to floor 21"
+    }
+  },
+  "refined": {
+    "passes": 5,
+    "rooms_added": 0,
+    "people_added": 5,
+    "reworded": 0,
+    "last": "2026-10-04T08:36:38"
+  },
+  "map": [
+    "",
+    "                    ......L.....L.",
+    " L......G........   ....f........L",
+    " ..........b.....   ........E.....",
+    " ..........M.....   ..............",
+    " ................   .......P......",
+    " ....b..b........,,,..............",
+    " ................   .............L",
+    " ................   ...........n..",
+    " ................   ..............",
+    " .....LL.........   ..............                       =.....L...Y.",
+    "         ,          ..............                       ............    =.........",
+    "         ,                 ,                             ............    =..J......",
+    "         ,                 ,                             ............    .p........",
+    "         ,                 ,                             ............,,,,..........",
+    "     R........             ,                             =...........    ..........",
+    "     .........        ........L.      U...L........O     ............    ..........",
+    "     .........        L......H..      ..............     ............    L..L......",
+    "     L........        ..........      ..............     .=.=......LL         ,",
+    "     .........        ..........,,,,,,..............           ,              ,",
+    "     <...L....        ....b..b..      ....H.....H...           ,              ,",
+    "                      .D........      ...L..........           ,              ,",
+    "                      ...N......             ,                 ,              ,      ......h.......",
+    "                                             ,                 ,          L.....Lh   .H..H.jH......",
+    "                                             ,                 ,          ........   ..............",
+    "                                        .L........      ..==..........    ...h.Z..   .............L",
+    "                                        .........L      ..............    ........,,,....H.........",
+    "                                        ...W....h.      ..............    ........   ..............",
+    "                                        h...m.....,,,,,,..............    ........   ........B.....",
+    "                                        ..........      ..............    .......L   .........L....",
+    "                                        .......Q..      ...........X..                      ,",
+    "                                        ....h.....      .......L...L..                      ,",
+    "                                                                                            ,",
+    "                                                                                            ,",
+    "                                                                                            ,",
+    "                                                                                            ,",
+    "                                                                                      L...........",
+    "                                                                                      ............",
+    "                                                                                      ...........h .L....",
+    "                                                                                      ............ ......",
+    "                                                                                      ....h..hh...S......",
+    "                                                                                      ........q... ......",
+    "                                                                                      ......h..... .K....",
+    "                                                                                      .h..........",
+    "                                                                                      ..........L.",
+    "                                                                                            ,",
+    "                                                                                            ,",
+    "                                                                                            ,",
+    "                                                                                            ,",
+    "                                                                                       ..........",
+    "                                                                                       .......V..",
+    "                                                                                       .........L",
+    "                                                                                       ..........",
+    "                                                                                       ..........",
+    "                                                                                       >L........",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

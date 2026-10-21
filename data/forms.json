@@ -1,0 +1,285 @@
+{
+ "_about": "Round 153: beast forms. At the 'fierce' stage a beast takes a role title and a ring of its role's colour; at 'spirit beast' it AWAKENS: a second, role-flavoured gift switches on and orbs circle it. (scripts/systems/Menagerie.gd form_of)",
+ "roles": {
+  "tracker": {
+   "title2": "Trail-sworn",
+   "title3": "Wind-reader",
+   "color": [
+    0.6,
+    0.9,
+    0.5
+   ],
+   "awaken": {
+    "sense_radius": 2.0,
+    "sight": 0.5
+   },
+   "desc": "it reads the wind for you"
+  },
+  "forager": {
+   "title2": "Root-wise",
+   "title3": "Greenmother's pick",
+   "color": [
+    0.5,
+    0.95,
+    0.4
+   ],
+   "awaken": {
+    "gather_chance": 0.05,
+    "gather_bonus": 0.15
+   },
+   "desc": "plants offer themselves"
+  },
+  "digger": {
+   "title2": "Stone-sniffer",
+   "title3": "Vein-sage",
+   "color": [
+    0.75,
+    0.65,
+    0.45
+   ],
+   "awaken": {
+    "gather_chance": 0.03,
+    "gather_bonus": 0.3
+   },
+   "desc": "it hears ore humming"
+  },
+  "hunter": {
+   "title2": "Quiet Fang",
+   "title3": "Deep-stalker",
+   "color": [
+    0.9,
+    0.5,
+    0.3
+   ],
+   "awaken": {
+    "loot_luck": 0.03,
+    "damage_mult": 1.03
+   },
+   "desc": "it marks the weak spot"
+  },
+  "healer": {
+   "title2": "Soft-handed",
+   "title3": "Springwarden",
+   "color": [
+    0.5,
+    1.0,
+    0.7
+   ],
+   "awaken": {
+    "heal_on_kill": 2.0,
+    "regen": 0.5
+   },
+   "desc": "its warmth lingers"
+  },
+  "guardian": {
+   "title2": "Wall-hearted",
+   "title3": "Bastion",
+   "color": [
+    0.7,
+    0.75,
+    0.9
+   ],
+   "awaken": {
+    "ward": 2.0,
+    "damage_taken": 0.97
+   },
+   "desc": "it stands in the door of every danger"
+  },
+  "striker": {
+   "title2": "Red-clawed",
+   "title3": "Warbringer",
+   "color": [
+    1.0,
+    0.4,
+    0.35
+   ],
+   "awaken": {
+    "damage_mult": 1.04,
+    "crit_chance": 0.02
+   },
+   "desc": "every blow rides with yours"
+  },
+  "lantern": {
+   "title2": "Lamp-bearer",
+   "title3": "Starlit",
+   "color": [
+    1.0,
+    0.95,
+    0.6
+   ],
+   "awaken": {
+    "sight": 1.5,
+    "sense_radius": 2.0
+   },
+   "desc": "it lights the dark ahead"
+  },
+  "scholar": {
+   "title2": "Quiet-eyed",
+   "title3": "Lorekeeper",
+   "color": [
+    0.7,
+    0.7,
+    1.0
+   ],
+   "awaken": {
+    "insight_mult": 1.05,
+    "meditate_mult": 1.05
+   },
+   "desc": "it sits when you sit"
+  },
+  "courier": {
+   "title2": "Swift-footed",
+   "title3": "Windrunner",
+   "color": [
+    0.6,
+    0.95,
+    1.0
+   ],
+   "awaken": {
+    "move_mult": 1.03,
+    "dodge_chance": 0.02
+   },
+   "desc": "it clears a path ahead"
+  },
+  "charmer": {
+   "title2": "Gentle",
+   "title3": "Heart-binder",
+   "color": [
+    1.0,
+    0.7,
+    0.85
+   ],
+   "awaken": {
+    "bond_mult": 1.1,
+    "loot_luck": 0.01
+   },
+   "desc": "others warm to it, and to you"
+  },
+  "lucky": {
+   "title2": "Fortune-nosed",
+   "title3": "Luck-bringer",
+   "color": [
+    1.0,
+    0.85,
+    0.3
+   ],
+   "awaken": {
+    "loot_luck": 0.04,
+    "crit_chance": 0.01
+   },
+   "desc": "the day tilts your way"
+  },
+  "warden": {
+   "title2": "Steady",
+   "title3": "Oath-keeper",
+   "color": [
+    0.6,
+    0.8,
+    0.9
+   ],
+   "awaken": {
+    "regen": 1.0,
+    "ward": 1.5
+   },
+   "desc": "it holds the line with you"
+  },
+  "ember": {
+   "title2": "Ember-touched",
+   "title3": "Flame-crowned",
+   "color": [
+    1.0,
+    0.55,
+    0.2
+   ],
+   "awaken": {
+    "burn_on_hit": 0.06,
+    "damage_mult": 1.03
+   },
+   "desc": "fire follows its steps"
+  },
+  "hoarder": {
+   "title2": "Magpie-minded",
+   "title3": "Vault-keeper",
+   "color": [
+    0.95,
+    0.8,
+    0.4
+   ],
+   "awaken": {
+    "keep_gold": 0.03,
+    "loot_luck": 0.02
+   },
+   "desc": "nothing of yours is lost"
+  },
+  "brewer": {
+   "title2": "Steep-nosed",
+   "title3": "Draught-sage",
+   "color": [
+    0.6,
+    0.95,
+    0.55
+   ],
+   "awaken": {
+    "heal_on_kill": 1.5,
+    "gather_chance": 0.03
+   },
+   "desc": "every root is a remedy"
+  },
+  "fury": {
+   "title2": "Wild-eyed",
+   "title3": "Storm-hearted",
+   "color": [
+    0.95,
+    0.3,
+    0.4
+   ],
+   "awaken": {
+    "low_hp_fury": 0.1,
+    "crit_chance": 0.02
+   },
+   "desc": "your wounds make you both fiercer"
+  },
+  "mystic": {
+   "title2": "Hum-keeper",
+   "title3": "Void-singer",
+   "color": [
+    0.75,
+    0.55,
+    1.0
+   ],
+   "awaken": {
+    "qi_mult": 1.05,
+    "meditate_mult": 1.05
+   },
+   "desc": "it hums your qi deeper"
+  },
+  "sentinel": {
+   "title2": "Beat-counter",
+   "title3": "Time-warden",
+   "color": [
+    0.6,
+    0.7,
+    0.8
+   ],
+   "awaken": {
+    "timing": 0.015,
+    "dodge_chance": 0.02
+   },
+   "desc": "it counts your openings"
+  },
+  "marksman": {
+   "title2": "Far-sighted",
+   "title3": "Hawk-eyed",
+   "color": [
+    0.9,
+    0.9,
+    0.5
+   ],
+   "awaken": {
+    "ranged_mult": 1.05,
+    "crit_chance": 0.02
+   },
+   "desc": "your shots find their mark"
+  }
+ }
+}

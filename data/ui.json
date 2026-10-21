@@ -1,0 +1,262 @@
+{
+  "_note": "Round 49: how every window, button, bar and line of text looks and moves (scripts/UiStyle.gd). Robert: 'make the gui and hud and menus more smooth and modern but keeping to the aesthetic' -- the same dark lacquer and warm gold, softer and rounder, with depth (shadows), real fonts, and motion that eases instead of popping.",
+  "fonts": {
+    "body": [
+      "inter-latin-400.woff2",
+      "inter-latin-ext-400.woff2"
+    ],
+    "bold": [
+      "inter-latin-600.woff2",
+      "inter-latin-ext-600.woff2"
+    ],
+    "heavy": [
+      "inter-latin-700.woff2",
+      "inter-latin-ext-700.woff2"
+    ],
+    "title": [
+      "cinzel-latin-700.woff2",
+      "cinzel-latin-ext-700.woff2"
+    ],
+    "title_from_size": 24,
+    "size": 15
+  },
+  "color": {
+    "ink": [
+      0.059,
+      0.063,
+      0.078,
+      0.95
+    ],
+    "ink_soft": [
+      0.075,
+      0.08,
+      0.105,
+      0.92
+    ],
+    "glass": [
+      0.09,
+      0.098,
+      0.133,
+      0.82
+    ],
+    "raised": [
+      0.09,
+      0.098,
+      0.133,
+      0.96
+    ],
+    "raised_hover": [
+      0.13,
+      0.14,
+      0.185,
+      0.98
+    ],
+    "sunk": [
+      0.047,
+      0.051,
+      0.07,
+      0.97
+    ],
+    "edge": [
+      0.149,
+      0.165,
+      0.212,
+      1.0
+    ],
+    "gold": [
+      0.95,
+      0.78,
+      0.45,
+      1.0
+    ],
+    "text": [
+      0.925,
+      0.933,
+      0.96,
+      1.0
+    ],
+    "text_dim": [
+      0.545,
+      0.569,
+      0.651,
+      1.0
+    ],
+    "shadow": [
+      0.0,
+      0.0,
+      0.0,
+      0.45
+    ],
+    "track": [
+      0.133,
+      0.145,
+      0.184,
+      0.95
+    ],
+    "chip": [
+      0.133,
+      0.145,
+      0.184,
+      0.9
+    ]
+  },
+  "radius": {
+    "panel": 16,
+    "button": 12,
+    "bar": 7,
+    "card": 14,
+    "chip": 999
+  },
+  "shadow": {
+    "panel": 18,
+    "button": 0,
+    "card": 6
+  },
+  "motion": {
+    "open": 0.18,
+    "open_rise": 14,
+    "open_scale": 0.975,
+    "page": 0.16,
+    "page_slide": 18,
+    "hover": 0.12,
+    "hover_glow": 1.12,
+    "press_scale": 0.97,
+    "bar_trail_wait": 0.35,
+    "bar_trail": 0.45,
+    "log_in": 0.22,
+    "stagger": 0.06
+  },
+  "foe_bar": {
+    "width_m": 1.0,
+    "track": [
+      0.05,
+      0.05,
+      0.07,
+      0.8
+    ],
+    "trail": [
+      1.0,
+      0.92,
+      0.8,
+      0.7
+    ],
+    "trail_wait": 0.35,
+    "trail_speed": 1.2
+  },
+  "boss_bar": {
+    "range": 24.0
+  },
+  "_note63": "Round 63: the same look as the rest of Robert's HomeAI apps -- slate cards (#171922) on near-black (#0f1014), a hairline edge (#262a36), soft white text (#eceef5) with grey-blue secondary (#8b91a6), rounder corners (14), pill-shaped bars and chips; gold stays as the game's one accent, and the carved Cinzel capitals only for big window titles.",
+  "color_blind_palettes": {
+    "default": {
+      "name": "Default",
+      "gold": [
+        0.95,
+        0.78,
+        0.45,
+        1.0
+      ],
+      "text": [
+        0.925,
+        0.933,
+        0.96,
+        1.0
+      ],
+      "text_dim": [
+        0.545,
+        0.569,
+        0.651,
+        1.0
+      ]
+    },
+    "protanopia": {
+      "name": "Protanopia (Red-Blind)",
+      "gold": [
+        0.9,
+        0.8,
+        0.3,
+        1.0
+      ],
+      "text": [
+        0.95,
+        0.95,
+        1.0,
+        1.0
+      ],
+      "text_dim": [
+        0.6,
+        0.65,
+        0.75,
+        1.0
+      ]
+    },
+    "deuteranopia": {
+      "name": "Deuteranopia (Green-Blind)",
+      "gold": [
+        0.95,
+        0.75,
+        0.5,
+        1.0
+      ],
+      "text": [
+        0.92,
+        0.93,
+        0.98,
+        1.0
+      ],
+      "text_dim": [
+        0.55,
+        0.6,
+        0.7,
+        1.0
+      ]
+    },
+    "tritanopia": {
+      "name": "Tritanopia (Blue-Blind)",
+      "gold": [
+        0.95,
+        0.7,
+        0.7,
+        1.0
+      ],
+      "text": [
+        0.95,
+        0.9,
+        0.9,
+        1.0
+      ],
+      "text_dim": [
+        0.65,
+        0.55,
+        0.6,
+        1.0
+      ]
+    },
+    "monochromacy": {
+      "name": "Monochromacy",
+      "gold": [
+        0.85,
+        0.85,
+        0.85,
+        1.0
+      ],
+      "text": [
+        0.95,
+        0.95,
+        0.95,
+        1.0
+      ],
+      "text_dim": [
+        0.6,
+        0.6,
+        0.6,
+        1.0
+      ]
+    }
+  },
+  "battery_saver_mode": {
+    "enabled": false,
+    "frame_cap": 30,
+    "effect_intensity": 0.5
+  }
+}

@@ -1,0 +1,494 @@
+{
+  "id": "floor2",
+  "name": "Floor 2, The Bone Crypt",
+  "theme": "dungeon",
+  "depth": 2,
+  "layout": {
+    "seed": 7,
+    "rooms": [
+      {
+        "name": "Entry Hall",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "<",
+          "L",
+          "s*2",
+          "h",
+          "o",
+          "G",
+          "R"
+        ]
+      },
+      {
+        "name": "Long Hall",
+        "size": [
+          16,
+          7
+        ],
+        "has": [
+          "L*2",
+          "c*6",
+          "s*2",
+          "k",
+          "o*2",
+          "h",
+          "b*2"
+        ]
+      },
+      {
+        "name": "Flooded Chapel",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L",
+          "~*6",
+          "h",
+          "x*2",
+          "o",
+          "V",
+          "s"
+        ]
+      },
+      {
+        "name": "Ossuary Gallery",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L*2",
+          "s*4",
+          "k",
+          "o*2",
+          "h",
+          "b*2",
+          "Y"
+        ]
+      },
+      {
+        "name": "Collapsed Chapel",
+        "size": [
+          7,
+          9
+        ],
+        "has": [
+          "L",
+          "x*3",
+          "o",
+          "h",
+          "s*2",
+          "C",
+          "I"
+        ]
+      },
+      {
+        "name": "Mourners' Hall",
+        "size": [
+          12,
+          10
+        ],
+        "has": [
+          "L*2",
+          "s*4",
+          "k",
+          "o*2",
+          "h",
+          "b*2"
+        ]
+      },
+      {
+        "name": "Bone Pit",
+        "size": [
+          6,
+          5
+        ],
+        "has": [
+          "L",
+          "s*2",
+          "k",
+          "o",
+          "h",
+          "a"
+        ]
+      },
+      {
+        "name": "Embalmer's Workroom",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "L",
+          "s*2",
+          "k",
+          "o",
+          "h",
+          "V"
+        ]
+      },
+      {
+        "name": "Hall of Hanging Lanterns",
+        "size": [
+          16,
+          5
+        ],
+        "has": [
+          "L*3",
+          "s*2",
+          "k",
+          "c*4",
+          "h",
+          "=*2"
+        ]
+      },
+      {
+        "name": "The Listening Face",
+        "size": [
+          6,
+          6
+        ],
+        "has": [
+          "L",
+          "?",
+          "h*2",
+          "x"
+        ]
+      },
+      {
+        "name": "Boar Warren",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L",
+          "a*2",
+          "h*2",
+          "o",
+          "^",
+          "x*2"
+        ]
+      },
+      {
+        "name": "Sealed Reliquary",
+        "size": [
+          6,
+          5
+        ],
+        "secret": true,
+        "has": [
+          "L",
+          "K",
+          "^",
+          "h"
+        ]
+      },
+      {
+        "name": "Wailing Passage",
+        "size": [
+          9,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "s*2",
+          "E",
+          "F"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Gloomshade Niche",
+        "size": [
+          11,
+          6
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "s*2",
+          "k",
+          "J",
+          "M"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Flooded Watch-Post",
+        "size": [
+          11,
+          7
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "s*2",
+          "k",
+          "N",
+          "O"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Bone Lord's Tomb",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*2",
+          "B",
+          "D",
+          "=*2",
+          "h",
+          "o",
+          "s",
+          "^",
+          ">"
+        ]
+      }
+    ],
+    "corridor_traps": 3,
+    "secret_passages": 1
+  },
+  "enemies": {
+    "s": "skeleton",
+    "k": "skeleton_knight",
+    "B": "bone_lord",
+    "a": "tunnel_boar"
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "bone_shard": [
+          2,
+          4
+        ],
+        "gold": [
+          10,
+          20
+        ]
+      },
+      "note": "a chest of bones and gold"
+    },
+    "K": {
+      "loot": {
+        "gold": [
+          30,
+          50
+        ],
+        "qi_pill": [
+          1,
+          1
+        ],
+        "random_gear": [
+          1,
+          1
+        ]
+      },
+      "note": "a reliquary the crypt-keepers sealed and forgot",
+      "hidden": true
+    },
+    "D": {
+      "loot": {
+        "gold": [
+          40,
+          70
+        ],
+        "healing_salve": [
+          1,
+          2
+        ]
+      },
+      "note": "the tomb's hidden treasure"
+    },
+    "V": {
+      "loot": {
+        "qi_pill": [
+          1,
+          2
+        ]
+      },
+      "hidden": true,
+      "note": "a spirit's gift"
+    },
+    "E": {
+      "loot": {
+        "gold": [
+          16,
+          30
+        ],
+        "bone_shard": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Wailing Passage"
+    },
+    "J": {
+      "loot": {
+        "gold": [
+          16,
+          30
+        ],
+        "qi_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Gloomshade Niche"
+    },
+    "N": {
+      "loot": {
+        "gold": [
+          16,
+          30
+        ],
+        "healing_salve": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in the Flooded Watch-Post"
+    }
+  },
+  "inheritances": {
+    "I": {
+      "master": "the Bone Sage",
+      "hidden": true,
+      "needs_realm": 1,
+      "text": "The seated bones speak without a jaw: \"I read the dead for sixty years. Every bone remembers how it broke. Take my eyes, and learn what they remember.\"",
+      "grants": {
+        "items": {
+          "breakthrough_pill": 1
+        },
+        "techniques": [
+          "bone_reading"
+        ],
+        "qi": 200
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor1",
+      "arrive": ">",
+      "label": "Up to Floor 1",
+      "down": false
+    },
+    ">": {
+      "to": "floor3",
+      "arrive": "<",
+      "label": "Down to Floor 3"
+    }
+  },
+  "lore": {
+    "G": {
+      "title": "The Crypt's Inscription",
+      "text": "Cut deep by an unsteady hand: THE BONE LORD KEEPS HIS COURT BELOW. DO NOT WAKE THE KNIGHTS. DO NOT LISTEN TO THE WALL."
+    },
+    "R": {
+      "title": "The Breathing Wall",
+      "text": "Press your ear to it and the wall breathes: in, for a count of twelve; out, for a count of twelve. Someone cut grooves into the stone to match that breath, one for every count. Breathe with it long enough and your own breath stops hurrying.",
+      "teaches": "mountain_breath"
+    },
+    "Y": {
+      "title": "The Crypt's Story",
+      "text": "Here lies the remains of the Bone Lord, a guardian of the crypt's secrets."
+    },
+    "F": {
+      "title": "The Echo of Lost Souls",
+      "text": "Voices whisper and weep in the narrow corridor, carrying tales of forgotten sorrow. Each step resonates with the cries of those who never found peace. The walls, lined with ancient runes, seem to pulse with the weight of unspoken grief."
+    },
+    "M": {
+      "title": "Gloomshade Niche",
+      "text": "Here, the shadows stretch like vines, wrapping around the walls and stealing the light. A single, flickering lantern hangs from the ceiling, its flame a beacon to those lost in the darkness. The niche whispers secrets of the past, but only to those who dare to listen."
+    },
+    "O": {
+      "title": "The Echoes Within",
+      "text": "Here, the walls hum with the faint whispers of those who mourned the dead. Bones and trinkets of the departed litter the floor, their stories hidden in the echoes of sorrow that linger in the air."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Crypt's Riddle",
+      "question": "What walks in the dark, yet leaves no footprints?",
+      "options": [
+        "A shadow",
+        "A ghost",
+        "A whisper"
+      ],
+      "answer": 1,
+      "reward": {
+        "items": {
+          "bone_shard": 1,
+          "gold": 10
+        },
+        "qi": 50
+      }
+    }
+  },
+  "refined": {
+    "passes": 3,
+    "rooms_added": 3,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-03T02:10:54"
+  },
+  "map": [
+    "",
+    "                             ...Y......",
+    "                 ....L....   .b..k.....",
+    "                 .~..~..~.   .......h..",
+    "                 .........   .........L",
+    "                 .V..h........b....o...",
+    "                 .~..~..~.   ......ssss",
+    "                 o......s.   ..........",
+    "                 .........   ..oL......",
+    "                     ..           ..",
+    "                      .            .",
+    "                      .            .      ............",
+    "                      .         C.....L   ..ss........",
+    "                      .         s...s..   ............",
+    "                      .         .......   .....h......                       ......",
+    "              .o...L.........L  ....o..   ............ .....L..=.......      ....x.",
+    " <.....s.     .c..c.....cs.b..  .x..x.......s.k..soo.. .c..c..c.kc.....      ......",
+    " ....s...     ........so......  .......   ............ .......s...................L",
+    " .....R....T..................  ......h   .......b..bL ......sh........      .....h",
+    " ......o..    .b.....c..c..c..  .xI....   ...........L ....L.....=..L..      ?h....",
+    " ..h.....     ..h.............  .......   ............         .                .",
+    " ....LG..     ......k.........                  .              .                .",
+    "                      S                         .              .               .T                          ...........>",
+    "                      .                         .            ...           .o^......        ^..........    o..........L",
+    "                      .                         .        .s......          .x......L ....K. s.....k....    B...........",
+    "                      .                      .L....      .......V          ......... ....h. ...........    ..........h.",
+    "                      .                      ..ss..      ....k..L          ..h......S...... ...........T............^..",
+    "                      ......................S....................          ...ax.a.. .^.... L...s......    .D..........",
+    "                                             .o.k..      ..h.....          ......... ...L.. ..N.O......    ............",
+    "                                             ...a.h      ..s..o..          ........h        h.L........    ............",
+    "                                                                               .                 .         =....=.s.L..",
+    "                                                                               .                 .",
+    "                                                                               .                 .",
+    "                                                                           .........           ...",
+    "                                                                           L........      ..L........",
+    "                                                                           ........F      .o......ko.",
+    "                                                                           .....h...      .sM.......J",
+    "                                                                           .......................s..",
+    "                                                                           .....h...      ...........",
+    "                                                                           .E....s..      L..........",
+    "                                                                           ......s.L",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

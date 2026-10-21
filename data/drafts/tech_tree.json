@@ -1,0 +1,244 @@
+{
+  "brief": "tech_tree",
+  "title": "The swarm's research tree",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "clotting_swarm",
+      "name": "Blood Weavers",
+      "desc": "These nanites gather at wounds, knitting flesh and sealing cuts with a web of fibers."
+    },
+    {
+      "id": "edge_swarm",
+      "name": "Bladebind",
+      "desc": "A thin layer of nanites sharpens edges and clings to them in battle, ensuring your strikes hit true."
+    },
+    {
+      "id": "edge_swarm",
+      "name": "Cutting Edge",
+      "desc": "A thin layer of nanites coats your blades, making every swing sharper and deadlier."
+    },
+    {
+      "id": "edge_swarm",
+      "name": "Blade Swarm",
+      "desc": "A cloud of nanites sharpens your weapon's edge, making every strike leave a mark."
+    },
+    {
+      "id": "edge_swarm",
+      "name": "Edge Swarm",
+      "desc": "A thin film of nanites along your weapon's edge. They sharpen every swing, making even a dull blade feel new."
+    },
+    {
+      "id": "hardening_film",
+      "name": "Crusader's Skin",
+      "desc": "A hidden layer of nanites that stiffens to guard against blows, worn by those who face the harshest battles. It was said to be perfected in Shellhaven by a knight who never knew a serious wound."
+    },
+    {
+      "id": "reflex_weave",
+      "name": "Nerve Fingers",
+      "desc": "The weave anticipates blows, pulling you away from danger. Like a spider sensing the slightest vibration."
+    },
+    {
+      "id": "edge_swarm",
+      "name": "Sharp Edge",
+      "desc": "A thin layer of nanites that coats your weapons, sharpening edges and ensuring every strike is lethal."
+    },
+    {
+      "id": "edge_swarm",
+      "name": "Whetstone Veil",
+      "desc": "A thin film of nanites along your blades that sharpens them with every strike."
+    },
+    {
+      "id": "edge_swarm",
+      "name": "Edge Eels",
+      "desc": "A slick of nanites that coat your blade like eels, sharpening and honing it with each swing."
+    },
+    {
+      "id": "ember_mites",
+      "name": "Firebeetles",
+      "desc": "These tiny mites hitch a ride on your blade, setting foes ablaze with each strike. They're drawn to the heat of battle."
+    },
+    {
+      "id": "overclock_swarm",
+      "name": "Boosters",
+      "desc": "A cluster of nanites that pushes your muscles beyond their limits. They burn through qi faster than you, but it lets you strike harder and faster."
+    },
+    {
+      "id": "lantern_motes",
+      "name": "Glowing Guides",
+      "desc": "A few motes drift ahead, lighting the way through the dark with a soft glow. They show the path, but cannot fight."
+    },
+    {
+      "id": "whisper_net",
+      "name": "Echo Web",
+      "desc": "Threads of silence that hum with life's secrets, guiding you through the unseen."
+    },
+    {
+      "id": "prospector_swarm",
+      "name": "Rock Tasters",
+      "desc": "They crawl through stone and soil, tasting for ores and veins, guiding your picks to the richest seams."
+    },
+    {
+      "id": "fortune_seekers",
+      "name": "Dead Men's Gold",
+      "desc": "They whisper tales of lost graves and hoarded treasures, guiding you to the bones that gleam with forgotten riches."
+    },
+    {
+      "id": "steady_hands",
+      "name": "Steady Hands",
+      "desc": "They smooth your tremors, letting you shape the finest metal or weave the finest thread. Masters of delicate crafts can now pass their prime without losing a touch."
+    },
+    {
+      "id": "micro_tooling",
+      "name": "Nanite Fingers",
+      "desc": "Each finger wields tools too small to see, crafting with a precision that no human hand could match."
+    },
+    {
+      "id": "runic_etchers",
+      "name": "Runescarvers",
+      "desc": "These tiny workers cut runes and draw lines with uncanny precision, turning your fingers into master artisans."
+    },
+    {
+      "id": "assembler_swarm",
+      "name": "Nano Forge",
+      "desc": "A pocket factory that builds anything from the smallest part to the largest structure, crafting wonders with molecules and minerals alike."
+    },
+    {
+      "id": "qi_siphons",
+      "name": "Breath Takers",
+      "desc": "Tiny machines that siphon thin qi from the air, feeding it directly to the cultivator's body. They make it easier to sustain meditation in sparse environments."
+    },
+    {
+      "id": "scrubber_swarm",
+      "name": "Clean Sweep",
+      "desc": "Tiny workers that scrub your qi pathways clean, making your meditations and cleansings faster and more efficient."
+    },
+    {
+      "id": "thought_relays",
+      "name": "Mind Relay",
+      "desc": "These tiny machines carry thoughts farther than your mind alone. During meditation, your research progresses as if you were focused for twice the time."
+    },
+    {
+      "id": "upkeep_governor",
+      "name": "Economy Swarm",
+      "desc": "They learn to run on less: everything that uses qi costs less to keep running."
+    },
+    {
+      "id": "heaven_bridge",
+      "name": "Celestial Bridge",
+      "desc": "A design meant to connect the mortal to the divine, though it remains a bridge stillborn. It promises a step closer to the heavens, but the gap remains vast."
+    },
+    {
+      "id": "second_thread",
+      "name": "Mind Splitter",
+      "desc": "This design allows a cultivator to meditate while still engaging in other tasks. It's like having an assistant in your mind that can focus on qi refinement while you attend to the world."
+    },
+    {
+      "id": "third_thread",
+      "name": "Triple Mind",
+      "desc": "Three thoughts at once. Meditation can split three ways."
+    },
+    {
+      "id": "swarm_parallelism_2",
+      "name": "Parallel Sprint",
+      "desc": "The swarm hums even when you rest, working at half speed to never let your research or cleansing lag behind."
+    },
+    {
+      "id": "swarm_parallelism",
+      "name": "Parallel Thread",
+      "desc": "The swarm learns to work on its own, keeping up research and cleansing at a quarter pace while you focus elsewhere."
+    },
+    {
+      "id": "swarm_parallelism_2",
+      "name": "Half Pace",
+      "desc": "The swarm hums in the background, running at half-speed even when you're not meditating. Research and cleansing progress constantly, like a stream that never stops flowing."
+    },
+    {
+      "id": "neural_lace",
+      "name": "Mental Web",
+      "desc": "A delicate mesh woven into the brain's own pathways. It sharpens reflexes and steadies the hand, like an invisible guide."
+    },
+    {
+      "id": "synaptic_accelerator",
+      "name": "Faster Thoughts",
+      "desc": "These implants let your nerves fire ahead of your thoughts, making your movements quicker and reflexes sharper."
+    },
+    {
+      "id": "glial_reservoir",
+      "name": "Qi Cache",
+      "desc": "Cells that hoard qi like a camel hoards water, keeping you steady in lean times."
+    },
+    {
+      "id": "memory_weave",
+      "name": "Echo Weave",
+      "desc": "A fabric of qi threads spun deep in the mind, ensuring every skill and every lesson is remembered and retained without fail."
+    },
+    {
+      "id": "subdermal_mesh",
+      "name": "Meshweave",
+      "desc": "Woven into the flesh, the mesh holds armor in place and absorbs blows, a silent guard under the skin."
+    },
+    {
+      "id": "carbon_tendons",
+      "name": "Steel Tendons",
+      "desc": "Carbon wires replace your weakest tendons, holding your muscles tighter and tougher. They never break, no matter how hard you fight."
+    },
+    {
+      "id": "edge_swarm",
+      "name": "Edge Mites",
+      "desc": "These tiny creatures form a nearly invisible film along the edges of your weapons, sharpening and hardening them each time you swing."
+    },
+    {
+      "id": "ward_lattice",
+      "name": "Heart Cage",
+      "desc": "A lattice of fine wires encases the heart, deflecting blows that would otherwise be fatal. It's a second line of defense, letting even the most battered of warriors continue fighting."
+    },
+    {
+      "id": "ward_lattice",
+      "name": "Guardian Cage",
+      "desc": "A lattice of fine wire encircles the heart, deflecting blows before they strike. It hums softly when danger is near."
+    },
+    {
+      "id": "overclock_swarm",
+      "name": "Muscle Pushers",
+      "desc": "These nanites push your muscles past their limits, but it costs them more than it costs you."
+    },
+    {
+      "id": "spinal_reflex_core",
+      "name": "Second Spine",
+      "desc": "Wires that fire before your mind does, letting you dodge before danger comes. A master's reflexes in the body of a novice."
+    },
+    {
+      "id": "cortex_coprocessor",
+      "name": "Mind Engine",
+      "desc": "A silicon brain behind the eyes, it thinks faster than you can: research and cleansing fly past."
+    },
+    {
+      "id": "power_frame",
+      "name": "Iron Shell",
+      "desc": "A metal frame that wraps around your bones. It moves with you but drains qi."
+    },
+    {
+      "id": "servo_limbs",
+      "name": "Joint Servos",
+      "desc": "Servos at each joint make your limbs stronger and faster, but they hum like a mill when you move."
+    },
+    {
+      "id": "composite_plating",
+      "name": "Mirrored Plates",
+      "desc": "A suit of armor woven from star iron and mirror silver, deflecting and absorbing blows. Each plate is imbued with light, reflecting enemies' attacks back at them."
+    },
+    {
+      "id": "qi_reactor",
+      "name": "Life Heart",
+      "desc": "A reactor that burns qi to power the frame, turning every cell into a lantern. It keeps you going when you're spent, and heals you faster than any apothecary."
+    },
+    {
+      "id": "qi_reactor",
+      "name": "Life Core",
+      "desc": "A heart of nanites that burns qi to mend and shield, reducing the cost of all qi-based abilities. It's the heart of power armour, a living machine that serves and sustains its wearer."
+    }
+  ],
+  "helped": []
+}

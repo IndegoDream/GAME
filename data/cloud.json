@@ -1,0 +1,7 @@
+{
+ "url": "",
+ "anon_key": "",
+ "game": "dungeon-crawl-elite",
+ "verify_purchases": false,
+ "_note": "Round 129. The cloud layer is dormant: with no url / anon_key the game never contacts Supabase. To turn it on, follow supabase/README.md (the ENABLE PLAN), then fill url and anon_key here (the public anon key only) and, once the verify-purchase function is deployed, set verify_purchases to true."
+}

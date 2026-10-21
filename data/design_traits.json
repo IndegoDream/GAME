@@ -1,0 +1,509 @@
+{
+ "_note": "Round 119 (Robert, 2026-10-13): 'During blacksmithing allow for player to design the look of the gear and it can potentially increase or decrease the items bonuses or attributes in unique ways. Same for all crafting.' Each craft has a design section; a choice has a name, a skill needed, an item it costs, what it does to the numbers (ward_mult, hp_mult, weight_mult, value_mult and 'effect' like a technique's), and what it looks like (color, glow). Pluses always come with minuses. scripts/systems/Design.gd reads this. Dev writes the words.",
+ "forge": {
+  "motifs": {
+   "plain": {
+    "name": "Plain",
+    "desc": "No ornament. Nothing gained, nothing lost.",
+    "min_skill": 0
+   },
+   "studded": {
+    "name": "Studded",
+    "desc": "Rows of studs. More ward, heavier.",
+    "min_skill": 1,
+    "ward_mult": 1.1,
+    "weight_mult": 1.12,
+    "look": "studs"
+   },
+   "filigree": {
+    "name": "Filigree",
+    "desc": "Fine wirework. A little less ward, a little more qi, worth more.",
+    "min_skill": 2,
+    "ward_mult": 0.92,
+    "value_mult": 1.15,
+    "effect": {
+     "qi_mult": 1.03
+    },
+    "look": "filigree"
+   },
+   "flared": {
+    "name": "Flared plates",
+    "desc": "Wide, stout plates. Strong ward, heavy, less to wear it on.",
+    "min_skill": 3,
+    "ward_mult": 1.15,
+    "hp_mult": 0.95,
+    "weight_mult": 1.2,
+    "look": "flare"
+   },
+   "runic": {
+    "name": "Runic lines",
+    "desc": "Glowing cut lines. Harder strikes, a touch more fragile.",
+    "min_skill": 4,
+    "value_mult": 1.3,
+    "effect": {
+     "damage_mult": 1.03,
+     "damage_taken": 1.02
+    },
+    "look": "runic",
+    "glow": [
+     0.5,
+     0.95,
+     1.0
+    ]
+   }
+  },
+  "trims": {
+   "none": {
+    "name": "No trim",
+    "desc": "Bare edges.",
+    "min_skill": 0
+   },
+   "silver": {
+    "name": "Silver trim",
+    "desc": "Costs a silver ore. A little qi and a little worth.",
+    "min_skill": 2,
+    "cost": {
+     "silver_ore": 1
+    },
+    "value_mult": 1.15,
+    "effect": {
+     "qi_mult": 1.01
+    },
+    "color": [
+     0.84,
+     0.87,
+     0.93
+    ]
+   },
+   "gold": {
+    "name": "Gold trim",
+    "desc": "Costs a gold nugget. Better finds, heavier purse to lose.",
+    "min_skill": 3,
+    "cost": {
+     "gold_nugget": 1
+    },
+    "value_mult": 1.4,
+    "effect": {
+     "loot_luck": 0.02
+    },
+    "weight_mult": 1.03,
+    "color": [
+     0.98,
+     0.8,
+     0.3
+    ]
+   },
+   "jade": {
+    "name": "Jade inlay",
+    "desc": "Costs a rough jade. Calmer qi, softer plates (a little less ward).",
+    "min_skill": 3,
+    "cost": {
+     "rough_jade": 1
+    },
+    "ward_mult": 0.96,
+    "effect": {
+     "meditate_mult": 1.04
+    },
+    "color": [
+     0.45,
+     0.8,
+     0.58
+    ]
+   }
+  },
+  "dyes": {
+   "natural": {
+    "name": "Natural",
+    "desc": "The material's own colour.",
+    "min_skill": 0
+   },
+   "midnight": {
+    "name": "Midnight",
+    "desc": "Blued dark. Harder to spot (a touch more dodge), dull to sell.",
+    "min_skill": 1,
+    "value_mult": 0.95,
+    "effect": {
+     "dodge_chance": 0.01
+    },
+    "color": [
+     0.12,
+     0.14,
+     0.24
+    ]
+   },
+   "crimson": {
+    "name": "Crimson",
+    "desc": "Blood red. Fiercer, a little more taken.",
+    "min_skill": 1,
+    "effect": {
+     "damage_mult": 1.02,
+     "damage_taken": 1.01
+    },
+    "color": [
+     0.62,
+     0.1,
+     0.12
+    ]
+   },
+   "jade": {
+    "name": "Jade green",
+    "desc": "Cool green. A steadier sitting.",
+    "min_skill": 1,
+    "effect": {
+     "meditate_mult": 1.02
+    },
+    "color": [
+     0.2,
+     0.52,
+     0.38
+    ]
+   },
+   "bone": {
+    "name": "Bone white",
+    "desc": "Pale. Plain to look at, kind to the purse.",
+    "min_skill": 0,
+    "value_mult": 1.05,
+    "color": [
+     0.9,
+     0.88,
+     0.8
+    ]
+   }
+  },
+  "_groups": [
+   [
+    "motifs",
+    "motif",
+    "Motif"
+   ],
+   [
+    "trims",
+    "trim",
+    "Trim"
+   ],
+   [
+    "dyes",
+    "dye",
+    "Dye"
+   ]
+  ]
+ },
+ "alchemy": {
+  "_groups": [
+   [
+    "vials",
+    "vial",
+    "Vial"
+   ],
+   [
+    "tinctures",
+    "tincture",
+    "Tincture"
+   ],
+   [
+    "seals",
+    "seal",
+    "Seal"
+   ]
+  ],
+  "vials": {
+   "standard": {
+    "name": "Standard vial",
+    "desc": "Nothing changed.",
+    "min_skill": 0
+   },
+   "slender": {
+    "name": "Slender vial",
+    "desc": "Concentrated: stronger, a little less to sell.",
+    "min_skill": 1,
+    "heal_mult": 1.12,
+    "item_qi_mult": 1.12,
+    "value_mult": 0.9
+   },
+   "wide": {
+    "name": "Wide flask",
+    "desc": "Makes two, each a little weaker.",
+    "min_skill": 3,
+    "heal_mult": 0.85,
+    "item_qi_mult": 0.85,
+    "dose_add": 1
+   },
+   "twin": {
+    "name": "Twin-chambered",
+    "desc": "Two doses, almost full strength. Costs a silver ore.",
+    "min_skill": 5,
+    "heal_mult": 0.95,
+    "item_qi_mult": 0.95,
+    "dose_add": 1,
+    "cost": {
+     "silver_ore": 1
+    }
+   }
+  },
+  "tinctures": {
+   "none": {
+    "name": "No tincture",
+    "desc": "Nothing added.",
+    "min_skill": 0
+   },
+   "spirit": {
+    "name": "Spirit-herb tincture",
+    "desc": "Costs a spirit herb. More qi, a touch less healing. Herbalism 1.",
+    "min_skill": 1,
+    "skill": "herbalism",
+    "cost": {
+     "spirit_herb": 1
+    },
+    "item_qi_mult": 1.15,
+    "heal_mult": 0.95,
+    "value_mult": 1.1
+   },
+   "ember": {
+    "name": "Ember-root tincture",
+    "desc": "Costs an ember root. Stronger healing, a bit less qi. Herbalism 2.",
+    "min_skill": 2,
+    "skill": "herbalism",
+    "cost": {
+     "ember_root": 1
+    },
+    "heal_mult": 1.15,
+    "item_qi_mult": 0.95,
+    "value_mult": 1.1
+   },
+   "moon": {
+    "name": "Moonpetal tincture",
+    "desc": "Costs a moonpetal. A fine, balanced lift. Herbalism 4.",
+    "min_skill": 4,
+    "skill": "herbalism",
+    "cost": {
+     "moonpetal": 1
+    },
+    "heal_mult": 1.1,
+    "item_qi_mult": 1.1,
+    "value_mult": 1.25
+   }
+  },
+  "seals": {
+   "plain": {
+    "name": "Plain stopper",
+    "desc": "Nothing changed.",
+    "min_skill": 0
+   },
+   "wax": {
+    "name": "Wax seal",
+    "desc": "Keeps well and sells better.",
+    "min_skill": 1,
+    "value_mult": 1.1
+   },
+   "jade": {
+    "name": "Jade stopper",
+    "desc": "Costs a rough jade. A little stronger, worth more.",
+    "min_skill": 3,
+    "cost": {
+     "rough_jade": 1
+    },
+    "heal_mult": 1.06,
+    "item_qi_mult": 1.06,
+    "value_mult": 1.3
+   },
+   "gold": {
+    "name": "Gold-sealed",
+    "desc": "Costs a gold nugget. Prized, hardly stronger.",
+    "min_skill": 3,
+    "cost": {
+     "gold_nugget": 1
+    },
+    "heal_mult": 1.03,
+    "item_qi_mult": 1.03,
+    "value_mult": 1.6
+   }
+  }
+ },
+ "medicine": {
+  "_groups": [
+   [
+    "preps",
+    "prep",
+    "Preparation"
+   ],
+   [
+    "tinctures",
+    "tincture",
+    "Tincture"
+   ]
+  ],
+  "preps": {
+   "standard": {
+    "name": "Standard preparation",
+    "desc": "Nothing changed.",
+    "min_skill": 0
+   },
+   "poultice": {
+    "name": "Poultice",
+    "desc": "Heals a little more, a little less to sell.",
+    "min_skill": 1,
+    "heal_mult": 1.15,
+    "value_mult": 0.95
+   },
+   "tonic": {
+    "name": "Gentle tonic",
+    "desc": "Makes two, each a little weaker.",
+    "min_skill": 2,
+    "heal_mult": 0.88,
+    "item_qi_mult": 0.88,
+    "dose_add": 1
+   },
+   "draught": {
+    "name": "Strong draught",
+    "desc": "Much stronger, but the body pays: less qi.",
+    "min_skill": 3,
+    "heal_mult": 1.3,
+    "item_qi_mult": 0.85
+   }
+  },
+  "tinctures": {
+   "none": {
+    "name": "No tincture",
+    "desc": "Nothing added.",
+    "min_skill": 0
+   },
+   "spirit": {
+    "name": "Spirit-herb tincture",
+    "desc": "Costs a spirit herb. More qi, a touch less healing. Herbalism 1.",
+    "min_skill": 1,
+    "skill": "herbalism",
+    "cost": {
+     "spirit_herb": 1
+    },
+    "item_qi_mult": 1.15,
+    "heal_mult": 0.95,
+    "value_mult": 1.1
+   },
+   "ember": {
+    "name": "Ember-root tincture",
+    "desc": "Costs an ember root. Stronger healing, a bit less qi. Herbalism 2.",
+    "min_skill": 2,
+    "skill": "herbalism",
+    "cost": {
+     "ember_root": 1
+    },
+    "heal_mult": 1.15,
+    "item_qi_mult": 0.95,
+    "value_mult": 1.1
+   },
+   "moon": {
+    "name": "Moonpetal tincture",
+    "desc": "Costs a moonpetal. A fine, balanced lift. Herbalism 4.",
+    "min_skill": 4,
+    "skill": "herbalism",
+    "cost": {
+     "moonpetal": 1
+    },
+    "heal_mult": 1.1,
+    "item_qi_mult": 1.1,
+    "value_mult": 1.25
+   }
+  }
+ },
+ "jewel": {
+  "_groups": [
+   [
+    "cuts",
+    "cut",
+    "Cut"
+   ],
+   [
+    "settings",
+    "setting",
+    "Setting"
+   ],
+   [
+    "polishes",
+    "polish",
+    "Finish"
+   ]
+  ],
+  "cuts": {
+   "round": {
+    "name": "Round cut",
+    "desc": "Nothing changed.",
+    "min_skill": 0
+   },
+   "faceted": {
+    "name": "Faceted",
+    "desc": "Catches the qi. Worth more.",
+    "min_skill": 1,
+    "effect": {
+     "qi_mult": 1.02
+    },
+    "value_mult": 1.2
+   },
+   "cabochon": {
+    "name": "Cabochon",
+    "desc": "Smooth and calming. Worth a little less.",
+    "min_skill": 2,
+    "effect": {
+     "meditate_mult": 1.03
+    },
+    "value_mult": 0.95
+   },
+   "brilliant": {
+    "name": "Brilliant cut",
+    "desc": "Sharpens the eye for the killing blow, and the thief's eye too.",
+    "min_skill": 4,
+    "effect": {
+     "crit_chance": 0.02,
+     "damage_taken": 1.01
+    },
+    "value_mult": 1.4
+   }
+  },
+  "settings": {
+   "plain": {
+    "name": "Plain setting",
+    "desc": "Nothing changed.",
+    "min_skill": 0
+   },
+   "claw": {
+    "name": "Claw setting",
+    "desc": "Bites into the wearer's strikes; a touch more taken.",
+    "min_skill": 1,
+    "effect": {
+     "damage_mult": 1.02,
+     "damage_taken": 1.01
+    }
+   },
+   "bezel": {
+    "name": "Bezel setting",
+    "desc": "Snug and safe: a little dodge, a little less strike.",
+    "min_skill": 2,
+    "effect": {
+     "dodge_chance": 0.01,
+     "damage_mult": 0.99
+    }
+   }
+  },
+  "polishes": {
+   "natural": {
+    "name": "Natural",
+    "desc": "Left as made.",
+    "min_skill": 0
+   },
+   "mirror": {
+    "name": "Mirror polish",
+    "desc": "Gleams. Worth much more.",
+    "min_skill": 2,
+    "value_mult": 1.25
+   },
+   "blackened": {
+    "name": "Blackened",
+    "desc": "Dull and hard to see. A little less taken, worth less.",
+    "min_skill": 2,
+    "effect": {
+     "damage_taken": 0.99
+    },
+    "value_mult": 0.9
+   }
+  }
+ }
+}

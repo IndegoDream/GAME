@@ -1,0 +1,234 @@
+{
+  "mining": {
+    "name": "Mining",
+    "kind": "gathering",
+    "elements": {
+      "metal": 0.7,
+      "earth": 0.3
+    },
+    "desc": "Reading stone: where a vein runs, where it's rich, where it's about to give. Higher skill means more ore per vein and, in time, the rarer things stone hides."
+  },
+  "herbalism": {
+    "name": "Herbalism",
+    "kind": "gathering",
+    "elements": {
+      "wood": 1.0
+    },
+    "desc": "Knowing a plant by its leaf, its smell and what it drinks. Higher skill means more from every plant -- and knowing which ones are worth the trouble."
+  },
+  "fishing": {
+    "name": "Fishing",
+    "kind": "gathering",
+    "elements": {
+      "water": 1.0
+    },
+    "desc": "Patience, mostly. Still water hides more than fish."
+  },
+  "hunting": {
+    "name": "Hunting",
+    "kind": "gathering",
+    "elements": {
+      "wood": 0.5,
+      "metal": 0.5
+    },
+    "desc": "Tracking, waiting, and a clean kill. What a creature leaves behind is worth more in skilled hands."
+  },
+  "smithing": {
+    "name": "Smithing",
+    "kind": "crafting",
+    "elements": {
+      "metal": 0.6,
+      "fire": 0.4
+    },
+    "desc": "Ore, heat and patience into weapons and armor. Skill raises the chance of success and of a finer piece."
+  },
+  "alchemy": {
+    "name": "Alchemy",
+    "kind": "crafting",
+    "elements": {
+      "wood": 0.5,
+      "fire": 0.5
+    },
+    "desc": "Pills and elixirs: refining what plants and monsters hold into qi you can swallow."
+  },
+  "medicine": {
+    "name": "Medicine",
+    "kind": "crafting",
+    "elements": {
+      "water": 0.6,
+      "wood": 0.4
+    },
+    "desc": "Salves, poultices and the knowledge of what a body needs. Healers are welcome everywhere."
+  },
+  "jewelcrafting": {
+    "name": "Jewelcrafting",
+    "kind": "crafting",
+    "elements": {
+      "earth": 0.6,
+      "metal": 0.4
+    },
+    "desc": "Setting stones and shaping precious metal into things that hold qi. Rare work, rare materials."
+  },
+  "sword": {
+    "name": "Swordplay",
+    "kind": "weapon",
+    "elements": {
+      "metal": 0.7,
+      "fire": 0.3
+    },
+    "desc": "The straight blade: cut, guard, thrust. Untrained hands swing it like a stick."
+  },
+  "dagger": {
+    "name": "Knife-work",
+    "kind": "weapon",
+    "elements": {
+      "metal": 0.5,
+      "water": 0.5
+    },
+    "desc": "Close, quick, and quiet. A dagger in a novice's hand is mostly a way to get cut."
+  },
+  "saber": {
+    "name": "Saber",
+    "kind": "weapon",
+    "elements": {
+      "metal": 0.6,
+      "wood": 0.4
+    },
+    "desc": "The curved blade that wants to keep moving."
+  },
+  "spear": {
+    "name": "Spear",
+    "kind": "weapon",
+    "elements": {
+      "wood": 0.6,
+      "metal": 0.4
+    },
+    "desc": "Distance is the whole art. Lose it and the spear is a long stick."
+  },
+  "axe": {
+    "name": "Axe",
+    "kind": "weapon",
+    "elements": {
+      "wood": 0.5,
+      "fire": 0.5
+    },
+    "desc": "Weight and commitment. Miss and you're open."
+  },
+  "hammer": {
+    "name": "Hammer",
+    "kind": "weapon",
+    "elements": {
+      "earth": 0.7,
+      "metal": 0.3
+    },
+    "desc": "Slow, crushing, and tiring -- until your body learns where the weight wants to go."
+  },
+  "halberd": {
+    "name": "Polearm",
+    "kind": "weapon",
+    "elements": {
+      "metal": 0.5,
+      "earth": 0.5
+    },
+    "desc": "Halberds and glaives: reach and weight together, and the hardest to learn."
+  },
+  "staff": {
+    "name": "Staff",
+    "kind": "weapon",
+    "elements": {
+      "wood": 0.6,
+      "water": 0.4
+    },
+    "desc": "The oldest weapon, and the one qi flows through most easily."
+  },
+  "unarmed": {
+    "name": "Unarmed",
+    "kind": "weapon",
+    "elements": {
+      "earth": 0.5,
+      "fire": 0.5
+    },
+    "desc": "Fists, elbows, knees, and fist wraps. Everyone starts here -- everyone who lives has some."
+  },
+  "survival": {
+    "name": "Survival",
+    "kind": "path",
+    "elements": {
+      "wood": 0.5,
+      "earth": 0.5
+    },
+    "desc": "Staying alive where the world doesn't care if you do: spotting a trap's tell, dressing a wound in the field, getting more from a kill, knowing when to rest. Higher skill means traps bite less, healing goes further, your wounds close on their own between fights, and hunts give more."
+  },
+  "taming": {
+    "name": "Taming",
+    "kind": "gathering",
+    "elements": {
+      "wood": 0.6,
+      "water": 0.4
+    },
+    "desc": "Patience with animals: feeding, calming, teaching. A tamer's familiar grows into something more, and the tamer learns to ask more of it (the taming tree, at your familiar's side)."
+  },
+  "tailored_paths": {
+    "warden": {
+      "name": "Path of the Warden",
+      "description": "Defensive focus, tailored for steady progression.",
+      "base_cost": 100,
+      "extra_milestones": [
+        {
+          "cost": 50,
+          "bonus": "shield_regen",
+          "desc": "Extra Shielding"
+        },
+        {
+          "cost": 100,
+          "bonus": "fortitude",
+          "desc": "Unstoppable Will"
+        }
+      ]
+    },
+    "seeker": {
+      "name": "Path of the Seeker",
+      "description": "Exploration focus, tailored for active players.",
+      "base_cost": 100,
+      "extra_milestones": [
+        {
+          "cost": 50,
+          "bonus": "move_speed",
+          "desc": "Swift Step"
+        },
+        {
+          "cost": 100,
+          "bonus": "item_find",
+          "desc": "Keen Eye"
+        }
+      ]
+    }
+  },
+  "bow": {
+    "name": "Archery",
+    "kind": "weapon",
+    "elements": {
+      "wood": 0.6,
+      "metal": 0.4
+    },
+    "desc": "Draw, aim, loose. Distance is the whole art -- and so is not getting caught."
+  },
+  "crossbow": {
+    "name": "Crossbow",
+    "kind": "weapon",
+    "elements": {
+      "metal": 0.7,
+      "earth": 0.3
+    },
+    "desc": "A machine's patience in your hands: slow to ready, certain to land."
+  },
+  "ki": {
+    "name": "Ki Projection",
+    "kind": "weapon",
+    "elements": {
+      "fire": 0.5,
+      "water": 0.5
+    },
+    "desc": "Qi sent out of the palm. The cultivator's oldest long-range art."
+  }
+}

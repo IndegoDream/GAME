@@ -1,0 +1,12 @@
+{
+ "note": "Round 145: a small herb garden at your lodging. Plant one herb, come back later, and pick two. Slow, quiet, real time (it grows while you are away). A cap on how much you can pick in a day keeps it a pastime, not a business.",
+ "plots": 3,
+ "daily_pick_cap": 6,
+ "herbs": [
+  {"id": "spirit_herb", "minutes": 180},
+  {"id": "iron_thistle", "minutes": 240},
+  {"id": "ember_root", "minutes": 240},
+  {"id": "moonpetal", "minutes": 300}
+ ],
+ "yield": 2
+}

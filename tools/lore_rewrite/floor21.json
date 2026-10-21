@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "Scratched on the Stair",
+  "text": "Count the steps and they come out even. Count again after a rest and they do not. Do not rest on this stair. The floor keeps its own time."
+ },
+ "Y": {
+  "title": "The Mainspring Ledger",
+  "text": "Mainspring wound at dawn and at dusk. Wound by whom, no entry. The beat has never missed."
+ },
+ "R": {
+  "title": "Pinned Under a Gear",
+  "text": "Learn the order of the strikes and keep it. The machines here never hurry and never lose count. The one who breaks the pattern first is the one who loses. Strike in sequence, and the sequence becomes yours."
+ },
+ "G": {
+  "title": "The Week-Long Day",
+  "text": "The old record says one gear slipped and a day lasted a week. The clockmaker sealed it behind this wall. The gear is rusted and still. I would not oil it."
+ },
+ "M": {
+  "title": "Winding Rule",
+  "text": "Whoever winds the key must say how many turns. Never more than twelve. Eleven is safe. The sentries here count your turns for you, and they count out loud."
+ },
+ "O": {
+  "title": "The Unfinished Clock",
+  "text": "A watchmaker's bench, tools laid out as if he stepped away. His note says the clock would tell the day a man dies. He left before it told his. Nobody has touched it."
+ },
+ "U": {
+  "title": "Whittled Into a Beam",
+  "text": "Smooth teeth mean a gear has run a long time. Chipped teeth mean it met something. Check the teeth before you cross a floor of them."
+ },
+ "X": {
+  "title": "Last Entry, Night Shift",
+  "text": "Gears stop at the end of the hall and do not start again. Beyond is plain dark. We call it the rest. Nobody who went to rest came back to say."
+ }
+}

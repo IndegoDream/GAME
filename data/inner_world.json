@@ -1,0 +1,171 @@
+{
+ "note": "Round 147: the inner world. A pocket of your own that opens with the swarm and grows with sitting, tending and use. Nothing here is for sale; every gain is time-gated and capped per day so it stays a pastime.",
+ "min_tier": 2,
+ "levels": [
+  {
+   "at": 0,
+   "name": "A Seed of Space",
+   "text": "A breath-wide room behind the eyes. A little earth, a little light."
+  },
+  {
+   "at": 40,
+   "name": "A Courtyard",
+   "text": "Walls of mist, a floor of packed earth. The beasts at rest have somewhere to lie."
+  },
+  {
+   "at": 120,
+   "name": "A Valley",
+   "text": "A bowl of green with a practice ring at its heart."
+  },
+  {
+   "at": 280,
+   "name": "A Vale of Streams",
+   "text": "Water finds its own way here. A still pool reflects more than the sky."
+  },
+  {
+   "at": 520,
+   "name": "A Small Heaven",
+   "text": "Weather of your own. The air tastes of qi."
+  },
+  {
+   "at": 900,
+   "name": "A Living Realm",
+   "text": "Things grow here that you did not plant."
+  },
+  {
+   "at": 1500,
+   "name": "A Realm of Seasons",
+   "text": "It keeps its own year, and keeps it well."
+  },
+  {
+   "at": 2400,
+   "name": "A Hidden World",
+   "text": "A horizon you have never walked to."
+  },
+  {
+   "at": 3700,
+   "name": "A Sovereign Realm",
+   "text": "It answers before you ask."
+  },
+  {
+   "at": 5500,
+   "name": "A Whole Heaven",
+   "text": "Every room is alive."
+  }
+ ],
+ "rooms": {
+  "garden": 1,
+  "habitat": 2,
+  "ground": 3,
+  "pool": 4
+ },
+ "xp": {
+  "sit_per_min": 1.0,
+  "sit_day_cap": 60,
+  "harvest": 3.0,
+  "forage": 1.0,
+  "drill_per_min": 0.6,
+  "pool_per_min": 0.8,
+  "beast_hour": 0.4,
+  "day_cap_other": 60
+ },
+ "meters": {
+  "qi_per_min": 0.5,
+  "flora_per_pick": 2.5,
+  "fauna_per_beast_hour": 0.35,
+  "need_mult": 2.0
+ },
+ "gifts": {
+  "qi_mult": 0.06,
+  "gather_chance": 0.04,
+  "bond_mult": 0.05
+ },
+ "garden": {
+  "base_plots": 2,
+  "level_per_plot": 2,
+  "max_plots": 6,
+  "time_mult": 0.5,
+  "flora_speed": 0.4,
+  "yield": 2,
+  "bonus_yield_level": 6,
+  "day_cap": 10
+ },
+ "habitat": {
+  "base_cap": 1,
+  "bond_per_min": 0.08,
+  "level_bond": 0.12,
+  "forage_minutes": 60,
+  "stock_cap": 8,
+  "day_cap": 12,
+  "away_cap_minutes": 480
+ },
+ "ground": {
+  "day_cap": 45,
+  "xp_per_min": 4.0,
+  "level_gain": 0.1,
+  "skills": [
+   "unarmed",
+   "sword",
+   "dagger",
+   "saber",
+   "spear",
+   "axe",
+   "hammer",
+   "halberd",
+   "staff",
+   "bow",
+   "crossbow",
+   "ki"
+  ]
+ },
+ "pool": {
+  "pts_per_min": 1.2,
+  "level_gain": 0.1
+ },
+ "forage": {
+  "forager": [
+   "spirit_herb",
+   "moonpetal"
+  ],
+  "digger": [
+   "iron_ore"
+  ],
+  "hunter": [
+   "beast_hide",
+   "raw_meat"
+  ],
+  "default": [
+   "spirit_herb",
+   "iron_thistle",
+   "ember_root"
+  ]
+ },
+ "needs": [
+  "qi",
+  "flora",
+  "fauna"
+ ],
+ "cap": {
+  "base": 4,
+  "unlock": {
+   "seed": 2,
+   "breath": 1,
+   "eye": 1,
+   "hands": 1,
+   "step": 0,
+   "heaven": 1
+  },
+  "text": {
+   "seed": "The Reliable Seed: two more levels, a plot, two more beasts housed.",
+   "breath": "The Hearth-Fire Breath: one more level, and the dao pool runs a quarter faster.",
+   "eye": "The Gatherer's Eye: one more level, and every plot yields one more.",
+   "hands": "The Steady Hands Method: one more level, and the practice ground takes 25 more minutes a day.",
+   "step": "The Wayfinder's Step: one more beast can be housed.",
+   "heaven": "The World-Seed: the last level, and every gift half again stronger."
+  },
+  "hands_drill_bonus": 25,
+  "breath_pool_mult": 1.25,
+  "eye_yield": 1,
+  "step_housed": 1
+ }
+}

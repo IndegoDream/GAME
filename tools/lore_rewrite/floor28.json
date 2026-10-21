@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "Mouldering Stair",
+  "text": "The stair is slick with growth and the rail will not hold you. Test each step with the butt of your spear. A hunter's notch says: green is rot, white is rotten through."
+ },
+ "Y": {
+  "title": "The Ring of Caps",
+  "text": "The caps sway though there is no wind. Their undersides glow, and the glow is brightest where something died. Do not stand in the ring at night."
+ },
+ "R": {
+  "title": "The Herbalist's Diary",
+  "text": "Entry forty: a poultice of bark and ash turns the flesh against rot. The skin hardens and spores slide off. I tried it and I am still here."
+ },
+ "G": {
+  "title": "Vault of the Spores",
+  "text": "Seal and guardians, all grown over. The herbalist who built it called the spores by name. I do not know the names. I know the vault is full."
+ },
+ "M": {
+  "title": "The Quiet Web",
+  "text": "White threads under the floor, running everywhere. Step on one and the floor remembers you. Move lightly and it forgets faster."
+ },
+ "O": {
+  "title": "An Old Sigh",
+  "text": "The air in this room leaves the wall in slow breaths. A hunter wrote: the wall is alive. I put my hand to it and it was warm."
+ },
+ "U": {
+  "title": "Muttering in the Spores",
+  "text": "The spores make a sound like talk if you stay too long. Wear a cloth over your face. The ones who did not are the ones who mutter now."
+ },
+ "X": {
+  "title": "Pages of Toadstool",
+  "text": "A book grown from toadstool flesh, the words pressed in by the spores themselves. It tells how the bloom began: something fell here, and it did not die."
+ }
+}

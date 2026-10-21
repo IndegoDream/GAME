@@ -1,0 +1,522 @@
+{
+  "id": "floor3",
+  "name": "Floor 3, The Drowned Seam",
+  "theme": "dungeon",
+  "depth": 3,
+  "layout": {
+    "seed": 3,
+    "corridor_traps": 3,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "Collapsed Entrance",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "x*2",
+          "g",
+          "h"
+        ]
+      },
+      {
+        "name": "Ore Cart Line",
+        "size": [
+          18,
+          5
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "o*2",
+          "b*2"
+        ]
+      },
+      {
+        "name": "Lamp Room",
+        "size": [
+          7,
+          6
+        ],
+        "has": [
+          "L*4",
+          "A",
+          "h",
+          "w"
+        ]
+      },
+      {
+        "name": "Flooded Gallery",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "L",
+          "~*10",
+          "&",
+          "w*2",
+          "h"
+        ]
+      },
+      {
+        "name": "Silver Vein Chamber",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*2",
+          "o*6",
+          "^",
+          "g*3",
+          "x",
+          "D"
+        ]
+      },
+      {
+        "name": "Pump House",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L",
+          "c*2",
+          "b*3",
+          "w",
+          "g",
+          "K"
+        ]
+      },
+      {
+        "name": "Miners' Chapel",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L*2",
+          "=*2",
+          "?",
+          "h*2"
+        ]
+      },
+      {
+        "name": "Secret Prayer Niche",
+        "size": [
+          6,
+          5
+        ],
+        "secret": true,
+        "has": [
+          "L",
+          "R",
+          "C",
+          "h"
+        ]
+      },
+      {
+        "name": "Drowned Shaft",
+        "size": [
+          8,
+          8
+        ],
+        "has": [
+          "~*8",
+          "&",
+          "L",
+          "w*2",
+          "o"
+        ]
+      },
+      {
+        "name": "Collapsed Staircase",
+        "size": [
+          7,
+          9
+        ],
+        "has": [
+          "L",
+          "x*3",
+          "g*2",
+          "^",
+          "o*2"
+        ]
+      },
+      {
+        "name": "Flooded Storehouse",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L",
+          "b*3",
+          "w*2",
+          "V",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Alchemist's Cell",
+        "size": [
+          6,
+          5
+        ],
+        "secret": true,
+        "has": [
+          "L",
+          "I",
+          "h*2"
+        ]
+      },
+      {
+        "name": "Hare Warren",
+        "size": [
+          8,
+          5
+        ],
+        "has": [
+          "L",
+          "m*2",
+          "h*3",
+          "o"
+        ]
+      },
+      {
+        "name": "Sorting Floor",
+        "size": [
+          16,
+          8
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "w*2",
+          "o*2",
+          "c*2",
+          "h"
+        ]
+      },
+      {
+        "name": "Wet Provisions",
+        "size": [
+          11,
+          6
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "E",
+          "F"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Overflow Cellar",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "w",
+          "G",
+          "J"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Sunken Annex",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "w",
+          "M",
+          "N"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Foreman's Pit",
+        "size": [
+          14,
+          10
+        ],
+        "has": [
+          "L*3",
+          "W",
+          ">",
+          "g*2",
+          "w",
+          "x*2",
+          "o*2"
+        ]
+      }
+    ]
+  },
+  "enemies": {
+    "g": "mine_crawler",
+    "w": "drowned_miner",
+    "W": "foreman_golem",
+    "m": "cave_hare"
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "silver_ore": [
+          2,
+          4
+        ],
+        "iron_ore": [
+          1,
+          3
+        ],
+        "gold": [
+          10,
+          20
+        ],
+        "random_gear": [
+          1,
+          1
+        ]
+      },
+      "note": "a miner's strongbox, wedged behind the prayer stone",
+      "hidden": true
+    },
+    "K": {
+      "loot": {
+        "silver_ore": [
+          1,
+          2
+        ],
+        "iron_ore": [
+          1,
+          2
+        ],
+        "gold": [
+          5,
+          10
+        ]
+      },
+      "note": "the pump-master's lockbox"
+    },
+    "V": {
+      "loot": {
+        "silver_ore": [
+          1,
+          2
+        ],
+        "iron_ore": [
+          1,
+          2
+        ],
+        "gold": [
+          5,
+          10
+        ]
+      },
+      "hidden": true,
+      "note": "a sealed crate, still dry inside"
+    },
+    "D": {
+      "loot": {
+        "silver_ore": [
+          2,
+          3
+        ],
+        "rough_jade": [
+          0,
+          1
+        ],
+        "gold": [
+          15,
+          30
+        ]
+      },
+      "note": "a prospector's pack, dropped and never fetched"
+    },
+    "E": {
+      "loot": {
+        "gold": [
+          24,
+          45
+        ],
+        "silver_ore": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Wet Provisions"
+    },
+    "G": {
+      "loot": {
+        "gold": [
+          24,
+          45
+        ],
+        "iron_ore": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Overflow Cellar"
+    },
+    "M": {
+      "loot": {
+        "gold": [
+          24,
+          45
+        ],
+        "rough_jade": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in the Sunken Annex"
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor2",
+      "arrive": ">",
+      "label": "Up to Floor 2",
+      "down": false
+    },
+    ">": {
+      "to": "floor4",
+      "arrive": "<",
+      "label": "Down to Floor 4"
+    }
+  },
+  "lore": {
+    "R": {
+      "title": "A Miner's Prayer",
+      "text": "'Mother Earth, keep the roof above us and the water below us, and show your silver to honest hands.' Someone has scratched beneath it: the water did not stay below. Read it slowly, and the veins in the rock seem to lean toward you.",
+      "teaches": "silver_vein"
+    },
+    "A": {
+      "title": "Chalk on the Lamp-Room Wall",
+      "text": "In a steady hand: SEAM CLOSED BY ORDER OF THE FOREMAN. WATER IN THE LOWER GALLERIES. Below it, in a hand that was not steady at all: he would not let us leave."
+    },
+    "F": {
+      "title": "The Relic of Preservation",
+      "text": "Here, the ancient fisherman's lantern still casts flickering light over the waterlogged barrels and crates. A corroded silver key hangs by a frayed string, said to unlock the storeroom's secret of eternal freshness."
+    },
+    "J": {
+      "title": "The Forgotten Floodwaters",
+      "text": "Once a place to store dry goods, the cellar now holds the briny waters that seep in through the cracked walls. A single candle flickers, its light barely reaching the soaked barrels and crates that line the walls."
+    },
+    "N": {
+      "title": "The Lost Records",
+      "text": "Ancient scrolls and parchments, now waterlogged and illegible, once held the secrets of the mine's deepest mysteries. Miners whispered that these records could reveal the location of untapped veins of precious metals, but the water has claimed the knowledge."
+    }
+  },
+  "inheritances": {
+    "I": {
+      "master": "The Drowned Alchemist",
+      "text": "A drowned figure sits cross-legged in a dry corner the water never reached. \"I brewed pills against the damp for three hundred miners, and none against my own foolishness. Take my pendant. Jade remembers water, and will not let it have you.\"",
+      "grants": {
+        "items": {
+          "jade_pendant": 1
+        }
+      },
+      "hidden": true,
+      "needs_realm": 1
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Drowned Bell",
+      "question": "I have a tongue but cannot taste. I called the faithful but cannot walk. The water took my voice. What am I?",
+      "options": [
+        "A miner",
+        "A bell",
+        "A river"
+      ],
+      "answer": 1,
+      "reward": {
+        "items": {
+          "silver_ore": 3,
+          "qi_pill": 1
+        },
+        "qi": 150
+      }
+    }
+  },
+  "refined": {
+    "passes": 4,
+    "rooms_added": 3,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-03T02:19:51"
+  },
+  "map": [
+    "",
+    "      <...LghL",
+    "      ....x...",
+    "      ........",
+    "      ........",
+    "      .x......                                                       ..L.....",
+    "      ........                            ..........   .....L...     .~..~...",
+    "          .                               .b..bw.c..   ........=     ....w...",
+    "          T                               ..........   .....h...     ........",
+    "          .                               L.................h.........~..~&..",
+    "          .              ...L.L.          .b..c.....   .........     ........",
+    " ....o.............      .w.....          ..........   L....?...     ..w..o..",
+    " ..........b.....b.      ......L          ..K.....g.   ........=     ........     ...h..",
+    " .g..........o...............h..               .          S              .        ..I...",
+    " ..................      ....A..               .        ......           .        ..h..L",
+    " ..........g..L..L.      .....L.               .        ...R..           .        ......",
+    "                            .                  .        ......          ..        ......",
+    "                            .                  .        .....L       .......        S",
+    "                            .            .........o..   .C.h..       g......     wh.......   .o.....h",
+    "                     ..............      ......^..o..                .^.....     .b..b..b.   .....h..",
+    "                     .~..~..~..~...      ............                .......     .h.w.V............h.S.............",
+    "                     ..........w...      .o.........L                Lx....................  .....m..             .",
+    "                     L....................oo........L                .......     .........   m......L             .",
+    "                     .~..~..~..~&...     .....g......                .......     .....L...       .                .",
+    "                     ..w...........      ............                .x.gxo.                     .                .",
+    "                     ..............      .xo.g.......                ..o....                     .                .       ..........L.L>",
+    "                     ...h..........      .....gD.....                                            T                .       ..............",
+    "                                                                                                 .                .       ........o....W",
+    "                                                                                         ..L........L....         S       .....o........",
+    "                                                                                         ....c..h........    gL.......h.  ...........g..",
+    "                                                                                         ......w.........    ...........  ..............",
+    "                                                                                         ................    ....E...F..  L...g.........",
+    "                                                                                         .....g....c................g...  ....x..x......",
+    "                                                                                         .g.......o......    ..........L  .......w......",
+    "                                                                                         ................    ...h.......  ..............",
+    "                                                                                         .o........w.....         .            ...",
+    "                                                                                                                  T            .",
+    "                                                                                                                  .            .",
+    "                                                                                                                  .            .",
+    "                                                                                                                  .            .",
+    "                                                                                                              ..L...L.     .......h.",
+    "                                                                                                              ........     ^..g.....",
+    "                                                                                                              ..g.J...     .........",
+    "                                                                                                              ..w...g..........w....",
+    "                                                                                                              ..G.o...     .N....M..",
+    "                                                                                                              ..o.....     .L..Lg...",
+    "                                                                                                              ........",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

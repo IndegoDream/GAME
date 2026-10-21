@@ -1,0 +1,502 @@
+{
+  "id": "floor15",
+  "name": "Floor 15, Ironroot Hold",
+  "theme": "settlement",
+  "depth": 15,
+  "ground": "moss",
+  "breathing": false,
+  "ambient": [
+    0.55,
+    0.47,
+    0.4
+  ],
+  "forged": {
+    "settlement": "ironroot",
+    "cycle": 0,
+    "size": 1.0
+  },
+  "layout": {
+    "seed": 15,
+    "secret_passages": 0,
+    "rooms": [
+      {
+        "name": "The Root Gate",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "R"
+        ]
+      },
+      {
+        "name": "The Delvers' Market",
+        "size": [
+          16,
+          9
+        ],
+        "has": [
+          "L*3",
+          "b*3",
+          "M",
+          "G"
+        ]
+      },
+      {
+        "name": "The Hearthstone Square",
+        "size": [
+          14,
+          11
+        ],
+        "has": [
+          "f",
+          "P",
+          "L*4",
+          "E"
+        ]
+      },
+      {
+        "name": "The Sap-Lamp Inn",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "H",
+          "b*2",
+          "N",
+          "D",
+          "p"
+        ]
+      },
+      {
+        "name": "The Deep Forge",
+        "size": [
+          14,
+          6
+        ],
+        "has": [
+          "L*2",
+          "H*2",
+          "O",
+          "U"
+        ]
+      },
+      {
+        "name": "The Tincture Hall",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "h*3",
+          "Q",
+          "W",
+          "j"
+        ]
+      },
+      {
+        "name": "The Guild Galleries",
+        "size": [
+          14,
+          7
+        ],
+        "has": [
+          "L*2",
+          "=*2",
+          "X"
+        ]
+      },
+      {
+        "name": "The Proving Pit",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*3",
+          "=*4",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Academy Lodge",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "=*2",
+          "J",
+          "n"
+        ]
+      },
+      {
+        "name": "The Root Shrine",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "Z",
+          "L*3",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Burrow Homes",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h",
+          "B"
+        ]
+      },
+      {
+        "name": "The Fungus Terraces",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "h*6",
+          "L*2",
+          "m"
+        ]
+      },
+      {
+        "name": "The Old Sap Cellar",
+        "size": [
+          6,
+          5
+        ],
+        "has": [
+          "L",
+          "K"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Downward Root",
+        "size": [
+          10,
+          6
+        ],
+        "has": [
+          ">",
+          "L*2",
+          "V"
+        ]
+      }
+    ],
+    "roads": true
+  },
+  "npcs": {
+    "M": {
+      "role": "merchant",
+      "name": "Sigrid Lamplow",
+      "stock": [
+        "ironroot_restorative_f15",
+        "ironroot_elixir_f15",
+        "breakthrough_pill",
+        "canopy_pill_f12",
+        "cloudruins_pill_f13",
+        "drowned_pill_f11",
+        "fungal_pill_f14",
+        "chitin_saber_f14",
+        "fungal_hide_f14",
+        "sporecap_staff_f14"
+      ],
+      "line": "Supplies for the floors below. Pay up front.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Sigrid Lamplow, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: proud of the town and suspicious of strangers."
+    },
+    "N": {
+      "role": "innkeeper",
+      "name": "Ulla Rootsong",
+      "price": 60,
+      "line": "A bed, a bowl, a locked door. You'll want all three before you go down.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Ulla Rootsong, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: quick to laugh and slow to trust."
+    },
+    "O": {
+      "role": "smith",
+      "name": "Ada Holloway",
+      "line": "Bring me what you find down there and I'll make you something that keeps you alive.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Ada Holloway, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: proud of the town and suspicious of strangers."
+    },
+    "Q": {
+      "role": "alchemist",
+      "name": "Pell Ironroot",
+      "line": "Pills and remedies, made for the deep. Don't ask what's in them.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Pell Ironroot, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: quick to laugh and slow to trust."
+    },
+    "U": {
+      "role": "guild",
+      "name": "Dagny Stone",
+      "guild": "blacksmiths",
+      "line": "The guild keeps a hall here. We have work for anyone willing.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Dagny Stone, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: curious about everything above."
+    },
+    "W": {
+      "role": "guild",
+      "name": "Kettil Moss",
+      "guild": "alchemists",
+      "line": "The guild keeps a hall here. We have work for anyone willing.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Kettil Moss, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: sharp-tongued and generous."
+    },
+    "X": {
+      "role": "guild",
+      "name": "Wren Saplight",
+      "guild": "adventurers",
+      "line": "The guild keeps a hall here. We have work for anyone willing.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Wren Saplight, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: gruff, honest, and soft-hearted underneath."
+    },
+    "Y": {
+      "role": "tournament",
+      "name": "Inge Copperhand",
+      "tier": 15,
+      "line": "Three bouts, one champion. The rivals who come through here are the best below the Lantern Water.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Inge Copperhand, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: careful with words and careless with coin."
+    },
+    "J": {
+      "role": "academy",
+      "name": "Halla Vein-Eye",
+      "line": "The Lotus Ascent Academy keeps a lodge here. Rank trials, the library, field tasks.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Halla Vein-Eye, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: sharp-tongued and generous."
+    },
+    "G": {
+      "role": "villager",
+      "name": "Gorm the Quiet",
+      "line": "Sap still moves in the deep root. Very slowly. Like something drinking.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Gorm the Quiet, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: dreamy, distracted, and braver than they look."
+    },
+    "E": {
+      "role": "villager",
+      "name": "Marn Two-Picks",
+      "line": "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Marn Two-Picks, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: sharp-tongued and generous."
+    },
+    "D": {
+      "role": "villager",
+      "name": "Brokk Ashenbeard",
+      "line": "Sap still moves in the deep root. Very slowly. Like something drinking.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Brokk Ashenbeard, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: proud of the town and suspicious of strangers."
+    },
+    "B": {
+      "role": "villager",
+      "name": "Tomas Deepwell",
+      "line": "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Tomas Deepwell, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: sharp-tongued and generous."
+    },
+    "V": {
+      "role": "villager",
+      "name": "Old Fenn",
+      "stays": true,
+      "line": "The last delvers came back from below with frost on their boots. In a hold this warm.",
+      "lines": [
+        "The root goes down further than the hold. Nobody who followed it to the bottom came back to say how far.",
+        "Sap still moves in the deep root. Very slowly. Like something drinking."
+      ],
+      "persona": "Old Fenn, who lives in Ironroot Hold, a mining hold carved inside a petrified root bigger than a mountain: tired, kind, and stubborn."
+    },
+    "j": {
+      "role": "villager",
+      "name": "Thorn Ironfoot",
+      "line": "Welcome to Ironroot Hold, where the earth itself hums with the magic of the roots.",
+      "lines": [
+        "The Delvers' Market is bustling today, plenty of new arrivals from deeper down.",
+        "You'll find the best ale at the Sap-Lamp Inn tonight, they've got a new batch of root honey mead."
+      ],
+      "persona": "A seasoned miner and local guide, always ready to share the latest news and tips for newcomers.",
+      "added": "refine"
+    },
+    "n": {
+      "role": "villager",
+      "name": "Morga Thorne",
+      "line": "Welcome to Ironroot Hold, the heart of our mining community. May the roots guide you as they do us.",
+      "lines": [
+        "The Deep Forge is bustling with activity this morning, with new iron shipments arriving from the lower levels.",
+        "Be sure to visit The Sap-Lamp Inn for a pint of ale after your hard day's work."
+      ],
+      "persona": "A burly miner known for his knowledge of Ironroot Hold's layout and history.",
+      "added": "refine"
+    },
+    "m": {
+      "role": "villager",
+      "name": "Morgath the Smith",
+      "line": "Welcome to the Deep Forge, where the iron speaks to those who know how to listen.",
+      "lines": [
+        "The fires here never go out, and neither do we.",
+        "Every tool you see was once a piece of raw iron, until it found a home in a miner's hand."
+      ],
+      "persona": "Morgath the Smith is the head blacksmith and a respected figure in Ironroot Hold, known for his craftsmanship and knowledge of metals.",
+      "added": "refine"
+    },
+    "p": {
+      "role": "villager",
+      "name": "Elara Thistle",
+      "line": "Welcome to Ironroot Hold, the heart of our deep-rooted community.",
+      "lines": [
+        "You'll find everything you need for your journey here, from potions to sturdy boots.",
+        "Don't forget to visit The Proving Pit for a chance to test your skills against others."
+      ],
+      "persona": "A warm and welcoming resident of Ironroot Hold, known for her knowledge of the town's offerings.",
+      "added": "refine"
+    }
+  },
+  "chests": {
+    "K": {
+      "loot": {
+        "random_gear": [
+          1,
+          1
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "gold": [
+          300,
+          450
+        ]
+      },
+      "note": "a sealed chest someone in Ironroot Hold hoped nobody would find"
+    }
+  },
+  "lore": {
+    "R": {
+      "title": "The Root Oath",
+      "text": "We did not dig this hold. We found it -- a root of a tree that died before the world was young -- and we promised it we would only take what it was willing to give. It has been very generous. Remember to thank it."
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor14",
+      "arrive": ">",
+      "label": "Up to floor 14",
+      "down": false
+    },
+    ">": {
+      "to": "floor16",
+      "arrive": "<",
+      "label": "Down to floor 16"
+    }
+  },
+  "refined": {
+    "passes": 4,
+    "rooms_added": 0,
+    "people_added": 4,
+    "reworded": 0,
+    "last": "2026-10-04T01:22:40"
+  },
+  "map": [
+    "",
+    "              ..............L.",
+    "              ....b..G........",
+    " <..L..R..    ................",
+    " .........    ................",
+    " L........   ,.b....M.........",
+    " .........,,,,................",
+    " .........    ................",
+    " .........    .b..............",
+    "              ...L...........L",
+    "                      ,",
+    "                      ,",
+    "                      ,                                            ...==......=",
+    "               .L..E.........                   ......L.......     ............",
+    "               ..............                   ..............     ............",
+    "               ..............    ....L....L     ..............     ........Y...",
+    "               ..............    .b..H....N     ...........X..,,,,,............",
+    "               .f............    ..........     ..............     ............",
+    "               ..............,,,,........D.     =.............     ............",
+    "               .P............    .p..b.....     ...=.....L....     L...........",
+    "               ..............    ..........            ,           ........L=L.",
+    "               ..............    ..........            ,                 ,",
+    "               .............L         ,                ,                 ,",
+    "               ..L......L....         ,                ,                 ,",
+    "                                      ,                ,                 ,",
+    "                                      ,           .L........             ,",
+    "                               L.............     .....h....        ..........    L..L....",
+    "                               .H........H...     ..........        ..........    h...h...",
+    "                               ......U.......    ,.........L        ..........    ........",
+    "                               ..........O...,,,,,.W........        L....n....,,,,........",
+    "                               ..............     .h......j.        .....J....    .......Z",
+    "                               ....L.........     ...h...Q..        ..........    .......L            ......",
+    "                                                                    .L...=.=..    ........            K.....",
+    "                                                                                      ,               ......",
+    "                                                                                      ,               L.....",
+    "                                                                                      ,               ......",
+    "                                                                                      ,                 S",
+    "                                                                                      ,            ............",
+    "                                                                               ..........L...      ...........h      L........>",
+    "                                                                               .H.....H..H...      ............      L.........",
+    "                                                                               .............L      ............      .....V....",
+    "                                                                               ..............     ,..h.........,,,,,,..........",
+    "                                                                               .H............,,,,,,.......h....      ..........",
+    "                                                                               ........h.....      ............      ..........",
+    "                                                                               ..............      .mh........L",
+    "                                                                               .......B......      ....h.Lh....",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

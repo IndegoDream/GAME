@@ -1,0 +1,5 @@
+{
+ "_note": "Round 46: traps and secrets you have to notice. Robert, 2026-10-04: 'Be more subtle with traps and secrets.' Noticing builds up while you're near one: rate per second, faster standing still, slower sprinting, faster with Survival. Spirit Sense notices anything hidden within its reach. A trap on these first floors is shown openly so new players learn the rhythm.",
+ "secret": {"reach": 2.6, "base": 0.16, "per_survival": 0.02, "still_mult": 3.0, "sprint_mult": 0.25, "draft": true},
+ "trap": {"reach": 3.2, "base": 0.22, "per_survival": 0.04, "still_mult": 2.5, "sprint_mult": 0.2, "shown_until_depth": 1, "spring_delay": 0.4, "damage_per_depth": 0.15}
+}

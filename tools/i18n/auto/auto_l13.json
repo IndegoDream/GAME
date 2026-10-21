@@ -1,0 +1,4 @@
+{
+"Training Dummy": ["训练木人", "Muñeco de entrenamiento", "Boneco de treino", "Тренировочный манекен", "Trainingspuppe", "Mannequin d'entraînement", "訓練用の木人", "훈련용 허수아비", "Antrenman mankeni"],
+"%d hits   total %d   best %d   DPS %.0f": ["%d 击   总计 %d   最高 %d   每秒 %.0f", "%d golpes   total %d   mejor %d   DPS %.0f", "%d golpes   total %d   melhor %d   DPS %.0f", "%d ударов   всего %d   лучший %d   DPS %.0f", "%d Treffer   gesamt %d   Bestwert %d   DPS %.0f", "%d coups   total %d   meilleur %d   DPS %.0f", "%d 回   合計 %d   最大 %d   DPS %.0f", "%d회   총 %d   최고 %d   DPS %.0f", "%d vuruş   toplam %d   en iyi %d   DPS %.0f"]
+}

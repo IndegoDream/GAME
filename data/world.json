@@ -1,0 +1,67 @@
+{
+ "_note": "Round 44: time and seasons. The calendar runs on the real date, so the world keeps going while you're away: a season is season_days real days, a year is four seasons. The hour is your own clock (Game.hour). Weather is rolled for each quarter of a day, per place (the surface, or a floor's kind of deep). Every effect uses the same keys as techniques; foe_* keys go to the monsters (Game.level_mod). Words here are Dev's to rewrite (briefs world_seasons, world_weather, festivals).",
+ "season_days": 5,
+ "epoch": "2026-01-01",
+ "seasons": [
+  {"id": "thaw", "name": "Thaw", "desc": "Spring in the valley. Meltwater runs down into the deep, and everything that grows grows faster.",
+   "effect": {"gather_chance": 0.08, "meditate_mult": 1.04}, "foes": {},
+   "look": {"tint": [0.92, 1.0, 0.9], "trees": "", "flowers": true},
+   "tip": "Herbs come up thick in the Thaw. It's the season to stock the pouch."},
+  {"id": "blaze", "name": "Blaze", "desc": "High summer. The forges of the deep run hot and so does your blood.",
+   "effect": {"damage_mult": 1.03, "attack_speed": 1.02}, "foes": {"foe_damage": 1.04},
+   "look": {"tint": [1.0, 0.96, 0.86], "trees": "", "flowers": false},
+   "tip": "In the Blaze you hit harder, and so does everything down there."},
+  {"id": "harvest", "name": "Harvest", "desc": "Autumn. Traders come down with full carts and the leaves come down with them.",
+   "effect": {"loot_luck": 0.05, "craft_success": 0.03}, "foes": {"loot_mult": 1.1},
+   "look": {"tint": [1.0, 0.9, 0.78], "trees": "fall", "flowers": false},
+   "tip": "Harvest is the season for crafting and for selling: luck runs your way."},
+  {"id": "frost", "name": "Frost", "desc": "Winter. The valley goes quiet under snow. Quiet is good for sitting.",
+   "effect": {"meditate_mult": 1.08, "damage_taken": 0.97, "gather_chance": -0.05}, "foes": {"foe_speed": 0.96},
+   "look": {"tint": [0.86, 0.92, 1.05], "trees": "dark", "flowers": false, "snow_ground": true},
+   "tip": "Frost slows the beasts and steadies the mind. Sit through the winter and you'll feel it."}
+ ],
+ "phases": {
+  "night": {"name": "Night", "from": 21, "to": 5, "desc": "The deep is hungrier at night. More of them, and worse -- but they carry more.",
+   "effect": {"qi_mult": 1.05}, "foes": {"foe_damage": 1.1, "elite_mult": 1.4, "loot_mult": 1.15}},
+  "dawn": {"name": "Dawn", "from": 5, "to": 7, "desc": "The first breath of the day. Qi comes easiest at dawn.",
+   "effect": {"meditate_mult": 1.15}, "foes": {}},
+  "day": {"name": "Day", "from": 7, "to": 18, "desc": "Ordinary daylight, above and below.", "effect": {}, "foes": {}},
+  "dusk": {"name": "Dusk", "from": 18, "to": 21, "desc": "The light turns. Things become clear at dusk: insight comes easier.",
+   "effect": {"insight_mult": 1.1}, "foes": {}}
+ },
+ "deep_dim": {"night": 0.82, "dawn": 0.92, "day": 1.0, "dusk": 0.9},
+ "surface_weather": {
+  "clear": {"name": "Clear", "weight": {"thaw": 3, "blaze": 5, "harvest": 4, "frost": 3}, "desc": "Clear skies.", "effect": {}, "fx": "", "fog": 1.0, "cloud": 0.15},
+  "rain": {"name": "Rain", "weight": {"thaw": 4, "blaze": 1, "harvest": 3, "frost": 0}, "desc": "Steady rain. The herbs drink it up.",
+   "effect": {"gather_chance": 0.05, "move_mult": 0.97}, "fx": "rain", "fog": 1.6, "cloud": 0.85, "dim": 0.75},
+  "storm": {"name": "Thunderstorm", "weight": {"thaw": 1, "blaze": 2, "harvest": 1, "frost": 0}, "desc": "Thunder over the valley. Lightning in the blood: telling blows land more often.",
+   "effect": {"crit_chance": 0.02}, "foes": {"foe_speed": 1.04}, "fx": "rain", "fog": 1.9, "cloud": 0.95, "dim": 0.6, "flash": true},
+  "fog": {"name": "Fog", "weight": {"thaw": 2, "blaze": 0, "harvest": 2, "frost": 1}, "desc": "Thick fog. Your spirit sense reaches further when your eyes can't.",
+   "effect": {"sense_radius": 2.0}, "fx": "mist", "fog": 3.2, "cloud": 0.7, "dim": 0.85},
+  "heat": {"name": "Heat haze", "weight": {"thaw": 0, "blaze": 3, "harvest": 0, "frost": 0}, "desc": "Shimmering heat. Fire qi is thick in the air.",
+   "effect": {"qi_mult": 1.04}, "fx": "", "fog": 1.2, "cloud": 0.05, "warm": true},
+  "snow": {"name": "Snow", "weight": {"thaw": 0, "blaze": 0, "harvest": 0, "frost": 6}, "desc": "Snow falls on Eliet. Everything is muffled and still.",
+   "effect": {"meditate_mult": 1.05}, "fx": "snow", "fog": 1.5, "cloud": 0.8, "dim": 0.9},
+  "leaves": {"name": "Leaf-fall wind", "weight": {"thaw": 0, "blaze": 0, "harvest": 3, "frost": 0}, "desc": "A cold wind brings the leaves down.",
+   "effect": {}, "fx": "leaves", "fog": 1.0, "cloud": 0.5}
+ },
+ "deep_currents": {
+  "still": {"name": "Still air", "weight": 6, "desc": "The deep is quiet.", "effect": {}, "fx": "", "fog": 1.0},
+  "qi_mist": {"name": "Qi mist", "weight": 2, "desc": "A cool mist of loose qi drifts through the halls. Breathe deep.", "effect": {"qi_mult": 1.12}, "fx": "glints", "fog": 1.7, "tint": [0.6, 0.9, 1.0]},
+  "spore_drift": {"name": "Spore drift", "weight": 2, "tags": ["fungal", "grove", "canopy", "silk"], "desc": "Spores on the air. They close small wounds -- and feed the things that live here.", "effect": {"regen": 0.25}, "foes": {"foe_hp": 1.05}, "fx": "spores", "fog": 1.5, "tint": [0.75, 1.0, 0.6]},
+  "ash_fall": {"name": "Ash fall", "weight": 2, "tags": ["forge", "ash", "dragonspine", "starmine"], "desc": "Ash sifts down from somewhere above. It stings the eyes and dulls the beasts' noses.", "effect": {"dodge_chance": 0.03}, "fx": "ash", "fog": 1.8, "tint": [0.85, 0.7, 0.6]},
+  "cold_seep": {"name": "Cold seep", "weight": 2, "tags": ["frost", "drowned", "crystal", "mirror"], "desc": "Cold creeps up through the stone. The beasts move slower; so do you.", "effect": {"move_mult": 0.97}, "foes": {"foe_speed": 0.93}, "fx": "snow", "fog": 1.4, "tint": [0.7, 0.85, 1.0]},
+  "tremor": {"name": "Deep tremor", "weight": 1, "desc": "The rock shivers now and then. Loose stone means loose ore: gathering pays more.", "effect": {"gather_bonus": 1.0}, "fx": "dust", "fog": 1.3},
+  "drip": {"name": "Dripping dark", "weight": 2, "tags": ["drowned", "crypt", "barrows", "warrens"], "desc": "Water drips everywhere. The damp hides your footsteps.", "effect": {"dodge_chance": 0.02}, "fx": "drips", "fog": 1.3}
+ },
+ "festivals": {
+  "thaw": {"id": "lantern", "day": 3, "name": "Festival of First Lanterns", "desc": "Eliet hangs paper lanterns for everyone who went down and came back. The traders give a little off, and the elder has a gift for those who walk the deep.",
+   "discount": 0.15, "gift": {"qi_pill": 2, "healing_salve": 3}, "colors": [[1.0, 0.8, 0.4], [1.0, 0.55, 0.35], [0.95, 0.9, 0.6]], "effect": {"insight_mult": 1.1}},
+  "blaze": {"id": "ember", "day": 3, "name": "Ember Night", "desc": "Bonfires in the square, and the smiths show off. A night for blades and bragging.",
+   "discount": 0.1, "gift": {"whetstone": 2, "ember_pill": 1}, "colors": [[1.0, 0.45, 0.2], [1.0, 0.7, 0.3], [0.9, 0.3, 0.15]], "effect": {"damage_mult": 1.05}},
+  "harvest": {"id": "harvest_moon", "day": 3, "name": "Harvest Moon", "desc": "The whole village eats together under the big moon. The traders' carts are full and the prices are kind.",
+   "discount": 0.2, "gift": {"bone_broth": 3, "lucky_charm": 1}, "colors": [[1.0, 0.75, 0.35], [0.9, 0.55, 0.25], [1.0, 0.9, 0.5]], "effect": {"loot_luck": 0.05}},
+  "frost": {"id": "long_night", "day": 3, "name": "The Longest Night", "desc": "Candles in every window until dawn, for the ones who didn't come back. A night to sit and remember.",
+   "discount": 0.1, "gift": {"qi_incense": 2, "calming_incense": 1}, "colors": [[0.7, 0.8, 1.0], [0.95, 0.95, 1.0], [0.6, 0.7, 1.0]], "effect": {"meditate_mult": 1.12}}
+ }
+}

@@ -1,0 +1,78 @@
+{
+  "brief": "creation",
+  "title": "Who are you? (character creation)",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "born",
+      "ask": "Where did you first see the light of day?",
+      "answers": [
+        "In Eliet, in sight of the shaft.",
+        "In the hills, among the herders.",
+        "Under a sect's roof, a servant's child.",
+        "On the road -- never two nights in the same place."
+      ]
+    },
+    {
+      "id": "trouble",
+      "ask": "When trouble came to your door, what did you do?",
+      "answers": [
+        "Stood in front of the others.",
+        "Hit first, and hardest.",
+        "I was already round the back.",
+        "Talked until it went away."
+      ]
+    },
+    {
+      "id": "hands",
+      "ask": "What did your hands do most, growing up?",
+      "answers": [
+        "Carried, dug and hauled.",
+        "Quick work: knots, locks, other people's pockets.",
+        "Very little. I sat, and listened, and breathed.",
+        "A bit of everything, none of it well."
+      ]
+    },
+    {
+      "id": "fear",
+      "ask": "What keeps you from sleeping at night?",
+      "answers": [
+        "Being weak when it matters.",
+        "Being caught.",
+        "Being forgotten.",
+        "Being alone."
+      ]
+    },
+    {
+      "id": "why",
+      "ask": "Why do you seek to delve into the depths below Eliet?",
+      "answers": [
+        "For Eliet. Someone has to.",
+        "For power. I'm tired of being small.",
+        "For the truth of what's down there.",
+        "Someone I loved went down and didn't come back."
+      ]
+    },
+    {
+      "id": "temper",
+      "ask": "Which trait best describes your nature?",
+      "answers": [
+        "Patient. I can wait out anything.",
+        "Fierce. I don't back down.",
+        "Careful. I check twice.",
+        "Restless. I'm already moving."
+      ]
+    },
+    {
+      "id": "road",
+      "ask": "What parts of yourself do you think the road will change?",
+      "answers": [
+        "Nothing. I know exactly who I am.",
+        "A little. I know mostly.",
+        "All of it. The road will tell me."
+      ]
+    }
+  ],
+  "helped": []
+}

@@ -1,0 +1,85 @@
+A way of your own||你自己的道||Un camino propio||Um caminho só seu||Свой собственный путь||Ein eigener Weg||Une voie bien à vous||自分だけの道||나만의 길||Kendi yolun
+Absorb||吸收||Absorber||Absorver||Поглотить||Aufnehmen||Absorber||吸収する||흡수||Özümse
+Adds to a craft: ||对制作的加成：||Aporta a una fabricación: ||Acrescenta ao ofício: ||Даёт при создании: ||Bringt beim Herstellen: ||Apporte à la fabrication : ||クラフトへの効果：||제작에 더하는 것: ||Zanaata katkısı: 
+Also carries: ||还带有：||También lleva: ||Também traz: ||Также несёт: ||Trägt außerdem: ||Porte aussi : ||他の特性：||그 밖의 성질: ||Ayrıca taşır: 
+At the table||在桌边||En la mesa||À mesa||За столом||Am Tisch||À table||テーブルにて||식탁에서||Masada
+Back||返回||Atrás||Voltar||Назад||Zurück||Retour||戻る||뒤로||Geri
+Back to Eliet||回到艾利特||Volver a Eliet||Voltar a Eliet||Назад в Элиет||Zurück nach Eliet||Retour à Eliet||エリエットへ戻る||엘리엇으로 돌아가기||Eliet'e dön
+Back to the pack||回到背包||Volver a la mochila||Voltar à mochila||Назад к рюкзаку||Zurück zum Rucksack||Retour au sac||バッグへ戻る||가방으로 돌아가기||Çantaya dön
+Begin a new character here||在此创建新角色||Empezar un personaje nuevo aquí||Começar um novo personagem aqui||Начать нового персонажа здесь||Hier einen neuen Charakter beginnen||Commencer un nouveau personnage ici||ここで新しいキャラクターを始める||여기서 새 캐릭터 시작||Burada yeni bir karakter başlat
+Bench||工作台||Banco||Bancada||Верстак||Werkbank||Établi||作業台||작업대||Tezgâh
+Bestiary||图鉴||Bestiario||Bestiário||Бестиарий||Bestiarium||Bestiaire||魔物図鑑||도감||Canavar Kitabı
+Bond||羁绊||Vínculo||Vínculo||Связь||Bindung||Lien||絆||유대||Bağ
+Bonds||羁绊||Vínculos||Vínculos||Связи||Bindungen||Liens||絆||유대||Bağlar
+Call||召唤||Llamar||Chamar||Позвать||Rufen||Appeler||呼ぶ||부르기||Çağır
+Call to your side||召至身旁||Llamar a tu lado||Chamar para perto||Позвать к себе||An deine Seite rufen||Appeler à tes côtés||そばに呼ぶ||곁으로 부르기||Yanına çağır
+Camps in the deep||深处的营地||Campamentos en lo profundo||Acampamentos nas profundezas||Лагеря в глубине||Lager in der Tiefe||Camps dans les profondeurs||深層の野営地||심층의 야영지||Derinlerdeki kamplar
+Characters||角色||Personajes||Personagens||Персонажи||Charaktere||Personnages||キャラクター||캐릭터||Karakterler
+Cleanse this||净化此处||Purificar esto||Purificar isto||Очистить это||Dies reinigen||Purifier ceci||これを浄化する||이것을 정화||Bunu arındır
+Clear the bench||清空工作台||Vaciar el banco||Limpar a bancada||Очистить верстак||Werkbank leeren||Vider l'établi||作業台を空にする||작업대 비우기||Tezgâhı boşalt
+Close (P)||关闭 (P)||Cerrar (P)||Fechar (P)||Закрыть (P)||Schließen (P)||Fermer (P)||閉じる (P)||닫기 (P)||Kapat (P)
+Cloud save...||云存档...||Guardado en la nube...||Salvamento na nuvem...||Облачное сохранение...||Cloud-Speicherstand...||Sauvegarde cloud...||クラウドセーブ...||클라우드 저장...||Bulut kaydı...
+Collections: ||收藏：||Colecciones: ||Coleções: ||Коллекции: ||Sammlungen: ||Collections : ||コレクション：||수집품: ||Koleksiyonlar: 
+Comforts & Style||便利与外观||Comodidades y estilo||Conforto e estilo||Удобства и стиль||Komfort & Stil||Confort et style||快適さとスタイル||편의와 스타일||Kolaylık ve stil
+Companions||同伴||Compañeros||Companheiros||Спутники||Gefährten||Compagnons||仲間||동료||Yoldaşlar
+Connect||连接||Conectar||Conectar||Подключиться||Verbinden||Se connecter||接続||연결||Bağlan
+Contemplate this place||感悟此地||Contemplar este lugar||Contemplar este lugar||Созерцать это место||Diesen Ort ergründen||Contempler ce lieu||この場所を感じ取る||이곳을 헤아리기||Bu yeri düşün
+Continue||继续||Continuar||Continuar||Продолжить||Weiter||Continuer||続ける||계속||Devam
+Contract beasts||契约灵兽||Bestias contratadas||Feras contratadas||Договорные звери||Vertragstiere||Bêtes liées||契約獣||계약 야수||Sözleşmeli canavarlar
+DUNGEON CRAWL ELITE||地下城爬行者·精英||DUNGEON CRAWL ELITE||DUNGEON CRAWL ELITE||DUNGEON CRAWL ELITE||DUNGEON CRAWL ELITE||DUNGEON CRAWL ELITE||DUNGEON CRAWL ELITE||DUNGEON CRAWL ELITE||DUNGEON CRAWL ELITE
+Dao||道||Dao||Dao||Дао||Dao||Dao||道||도||Dao
+Dao sense||道感||Sentido del Dao||Senso do Dao||Чувство Дао||Dao-Sinn||Sens du Dao||道感||도감||Dao sezgisi
+Design -- changes how it looks and what it gives (every gain has a cost).||设计——改变外观与效果（每一份增益都有代价）。||Diseño: cambia cómo se ve y qué da (cada ganancia tiene un coste).||Design: muda o aspecto e o que dá (todo ganho tem um custo).||Дизайн — меняет вид и свойства (у каждой выгоды своя цена).||Design – ändert Aussehen und Wirkung (jeder Gewinn hat seinen Preis).||Design : change l'apparence et l'effet (chaque gain a un coût).||デザイン——見た目と効果が変わる（得には代償がある）。||디자인 — 겉모습과 효과가 바뀝니다(모든 이득에는 대가가 있음).||Tasarım -- görünümü ve verdiğini değiştirir (her kazancın bir bedeli var).
+Design: ||设计：||Diseño: ||Design: ||Дизайн: ||Design: ||Design : ||デザイン：||디자인: ||Tasarım: 
+Difficulty||难度||Dificultad||Dificuldade||Сложность||Schwierigkeit||Difficulté||難易度||난이도||Zorluk
+Disconnect||断开||Desconectar||Desconectar||Отключиться||Trennen||Se déconnecter||切断||연결 해제||Bağlantıyı kes
+Done||完成||Hecho||Pronto||Готово||Fertig||Terminé||完了||완료||Tamam
+Drop||丢弃||Soltar||Largar||Бросить||Fallen lassen||Lâcher||捨てる||버리기||Bırak
+Dropped by: ||掉落自：||Lo sueltan: ||Largado por: ||Выпадает у: ||Fällt von: ||Lâché par : ||ドロップ元：||드롭: ||Düşüren: 
+Dropped for you: ||为你掉落：||Soltado para ti: ||Largado para você: ||Выпало для вас: ||Für dich gefallen: ||Lâché pour toi : ||あなたへのドロップ：||당신에게 떨어짐: ||Senin için düştü: 
+Elder Mo's errands||莫长老的差事||Los recados del anciano Mo||Os recados do ancião Mo||Поручения старейшины Мо||Älteste Mos Besorgungen||Les courses de l'ancien Mo||モー長老の頼まれごと||모 장로의 심부름||Yaşlı Mo'nun işleri
+End guide||结束引导||Terminar guía||Encerrar guia||Закончить обучение||Anleitung beenden||Terminer le guide||ガイドを終える||안내 종료||Rehberi bitir
+End the guide now||立即结束引导||Terminar la guía ya||Encerrar o guia agora||Закончить обучение сейчас||Anleitung jetzt beenden||Terminer le guide maintenant||今すぐガイドを終える||지금 안내 종료||Rehberi şimdi bitir
+Erase||删除||Borrar||Apagar||Стереть||Löschen||Effacer||消去||지우기||Sil
+Every branch||所有分支||Cada rama||Cada ramo||Каждая ветвь||Jeder Zweig||Chaque branche||すべての枝||모든 갈래||Her dal
+Expansions to come||即将推出的扩展||Expansiones por venir||Expansões a caminho||Грядущие дополнения||Kommende Erweiterungen||Extensions à venir||今後の拡張||출시 예정 확장||Gelecek eklentiler
+Fights as||战斗方式||Pelea como||Luta como||Стиль боя||Kämpft als||Combat comme||戦い方||전투 방식||Dövüş tarzı
+Focus||专注||Enfoque||Foco||Фокус||Fokus||Focalisation||集中||집중||Odak
+Follow this one||追踪此任务||Seguir esta||Seguir esta||Следовать этому||Dieser folgen||Suivre celle-ci||これを追う||이것을 따르기||Bunu takip et
+Follow this way||追随此道||Seguir este camino||Seguir este caminho||Идти этим путём||Diesem Weg folgen||Suivre cette voie||この道を歩む||이 길을 따르기||Bu yolu izle
+For sale||出售||En venta||À venda||В продаже||Zu verkaufen||En vente||販売中||판매 중||Satılık
+Forge||锻造||Forja||Forja||Кузница||Schmiede||Forge||鍛冶||대장간||Demirhane
+Formulas||配方||Fórmulas||Fórmulas||Формулы||Formeln||Formules||調合法||제조법||Formüller
+Found: ||发现：||Encontrado: ||Encontrado: ||Найдено: ||Gefunden: ||Trouvé : ||発見：||발견: ||Bulundu: 
+Give||给予||Dar||Dar||Отдать||Geben||Donner||渡す||주기||Ver
+Gives now: ||当前提供：||Da ahora: ||Dá agora: ||Сейчас даёт: ||Gibt jetzt: ||Donne maintenant : ||現在の効果：||현재 효과: ||Şimdi verdiği: 
+Goes into: ||用于：||Se usa en: ||Vai para: ||Идёт в: ||Wird verwendet für: ||Sert à : ||用途：||쓰임: ||Şuna girer: 
+Goodbye||再见||Adiós||Adeus||До свидания||Auf Wiedersehen||Au revoir||さようなら||안녕히||Hoşça kal
+Graphics fine-tune...||画面微调...||Ajuste fino de gráficos...||Ajuste fino de gráficos...||Тонкая настройка графики...||Grafik-Feintuning...||Réglages graphiques...||グラフィック詳細設定...||그래픽 세부 설정...||Grafik ince ayarı...
+Graphics: ||画面：||Gráficos: ||Gráficos: ||Графика: ||Grafik: ||Graphismes : ||グラフィック：||그래픽: ||Grafik: 
+Grows with: ||随之成长：||Crece con: ||Cresce com: ||Растёт от: ||Wächst mit: ||Grandit avec : ||成長要因：||성장 요소: ||Şununla gelişir: 
+Guide -- short lessons, only if you want them||引导——简短教程，随你需要||Guía: lecciones cortas, solo si quieres||Guia: lições curtas, só se quiser||Обучение — короткие уроки, только если хочется||Anleitung – kurze Lektionen, nur wenn du willst||Guide : courtes leçons, seulement si tu veux||ガイド——短いレッスン（好きな時だけ）||안내 — 원할 때만 보는 짧은 강의||Rehber -- kısa dersler, yalnızca istersen
+H: keys||H：按键||H: teclas||H: teclas||H: клавиши||H: Tasten||H : touches||H：キー||H: 키||H: tuşlar
+Handicaps (you give yourself these):||自我设限（由你自己选择）：||Desventajas (te las pones tú):||Desvantagens (você as escolhe):||Самоограничения (накладываете сами):||Handicaps (du legst sie dir selbst auf):||Handicaps (que tu t'imposes) :||ハンデ（自分で課すもの）：||핸디캡(스스로 거는 제약):||Dezavantajlar (kendine sen koyarsın):
+Herbology||草药学||Herbología||Herbologia||Травоведение||Kräuterkunde||Herboristerie||薬草学||약초학||Bitki bilgisi
+Home||家||Hogar||Lar||Дом||Zuhause||Maison||ホーム||집||Ev
+How far you've come||你已走了多远||Cuánto has avanzado||O quanto você avançou||Как далеко вы зашли||Wie weit du gekommen bist||Le chemin parcouru||ここまでの歩み||지금까지의 여정||Ne kadar yol aldın
+How they sit together||它们如何相配||Cómo encajan entre sí||Como combinam entre si||Как они сочетаются||Wie sie zusammenpassen||Comment ils s'accordent||組み合わせの相性||서로 어울리는 방식||Birbirine nasıl oturur
+In effect: ||当前生效：||En efecto: ||Em vigor: ||Действует: ||Aktiv: ||En vigueur : ||発動中：||적용 중: ||Etkin: 
+Inheritances||传承||Herencias||Heranças||Наследия||Erbschaften||Héritages||継承||유산||Miraslar
+Inscribe...||铭刻...||Inscribir...||Inscrever...||Вырезать...||Einritzen...||Inscrire...||刻む...||새기기...||Kazı...
+Install||安装||Instalar||Instalar||Установить||Installieren||Installer||インストール||설치||Kur
+Journal||日志||Diario||Diário||Журнал||Tagebuch||Journal||日誌||일지||Günlük
+Keep it||保留||Conservarlo||Guardar||Оставить||Behalten||Le garder||とっておく||간직하기||Sakla
+Key Remapping:||按键映射：||Reasignar teclas:||Remapear teclas:||Переназначение клавиш:||Tasten belegen:||Réassigner les touches :||キー割り当て：||키 설정:||Tuş atama:
+Keys||按键||Teclas||Teclas||Клавиши||Tasten||Touches||キー||키||Tuşlar
+Last played ||上次游玩 ||Última partida ||Última partida ||Последняя игра ||Zuletzt gespielt ||Dernière partie ||最終プレイ ||마지막 플레이 ||Son oynanan 
+Leave||离开||Salir||Sair||Уйти||Verlassen||Partir||離れる||떠나기||Ayrıl
+Life||生命||Vida||Vida||Жизнь||Leben||Vie||生命||생명||Can
+Main -- ||主线——||Principal -- ||Principal -- ||Основное — ||Haupt -- ||Principale -- ||メイン——||메인 -- ||Ana -- 
+Major nodes||主要穴位||Nodos mayores||Nós maiores||Главные узлы||Hauptknoten||Nœuds majeurs||主要な節||주요 혈||Ana düğümler
+Make||制作||Hacer||Fazer||Создать||Herstellen||Fabriquer||作る||만들기||Yap
+Make Research my focus||将研究设为我的专注||Hacer de la investigación mi enfoque||Fazer da pesquisa meu foco||Сделать исследования главным||Forschung zu meinem Fokus machen||Faire de la recherche ma priorité||研究を集中対象にする||연구를 내 집중으로||Araştırmayı odağım yap
+Make again||再次制作||Hacer de nuevo||Fazer de novo||Создать снова||Nochmal herstellen||Refabriquer||もう一度作る||다시 만들기||Tekrar yap
+Make it||制作它||Hazlo||Faça||Создать||Herstellen||Le fabriquer||作る||만들기||Yap
+Make lead||设为领队||Hacer líder||Tornar líder||Сделать ведущим||Zum Anführer machen||Mettre en tête||先頭にする||선두로||Lider yap

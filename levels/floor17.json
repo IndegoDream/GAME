@@ -1,0 +1,573 @@
+{
+  "id": "floor17",
+  "name": "Floor 17, The Spine of the Sleeping Dragon",
+  "theme": "dungeon",
+  "depth": 17,
+  "ambient": [
+    0.62,
+    0.4,
+    0.3
+  ],
+  "forged": {
+    "region": "dragonspine",
+    "cycle": 0,
+    "size": 1.0
+  },
+  "enemies": {
+    "g": "dragonspine_weak_f17",
+    "k": "dragonspine_brute_f17",
+    "B": "dragonspine_boss_f17",
+    "a": "dragonspine_animal_f17"
+  },
+  "layout": {
+    "seed": 17,
+    "corridor_traps": 3,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Scale Stair",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "c*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Vertebra Hall",
+        "size": [
+          17,
+          5
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "c*4"
+        ]
+      },
+      {
+        "name": "The Loose Scale",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "L",
+          "g",
+          "E"
+        ]
+      },
+      {
+        "name": "The Rib Gallery",
+        "size": [
+          13,
+          8
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "x*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Newt Pools",
+        "size": [
+          11,
+          7
+        ],
+        "has": [
+          "L",
+          "a*2",
+          "h*3"
+        ]
+      },
+      {
+        "name": "The Drakeling Hatchery",
+        "size": [
+          9,
+          8
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Scale Seam",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L",
+          "^*2",
+          "o*3",
+          "g"
+        ]
+      },
+      {
+        "name": "The Dragon's Ribcage",
+        "size": [
+          17,
+          12
+        ],
+        "has": [
+          "L*4",
+          "g*2",
+          "k",
+          "c*4",
+          "h*2",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Riddle of Scales",
+        "size": [
+          7,
+          6
+        ],
+        "has": [
+          "L*2",
+          "?",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Hoard Annex",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L",
+          "b*3",
+          "C",
+          "g"
+        ]
+      },
+      {
+        "name": "The Dragon-Priest's Warning",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L*2",
+          "A",
+          "x*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Heartbeat Chamber",
+        "size": [
+          6,
+          5
+        ],
+        "has": [
+          "L",
+          "R",
+          "V"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Ember Shrine",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "Z",
+          "L*2",
+          "h*2"
+        ]
+      },
+      {
+        "name": "Dragon's Breath",
+        "size": [
+          12,
+          6
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "F",
+          "G"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Breathless Silence",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "J",
+          "M"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Scale Vault",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k",
+          "N",
+          "O"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Lantern-lit Annex",
+        "size": [
+          9,
+          9
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k",
+          "Q",
+          "U"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Hollow Watch-Post",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "W",
+          "X"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Collapsed Watch-Post",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Dragon's Dream",
+        "size": [
+          17,
+          14
+        ],
+        "has": [
+          "L*4",
+          "B",
+          ">",
+          "k",
+          "c*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "dragon_scale_shard": [
+          2,
+          3
+        ],
+        "gold": [
+          102,
+          170
+        ]
+      },
+      "note": "a priest's offering box"
+    },
+    "D": {
+      "loot": {
+        "drake_blood": [
+          1,
+          2
+        ],
+        "dragonspine_pill_f17": [
+          0,
+          1
+        ],
+        "gold": [
+          85,
+          153
+        ]
+      },
+      "note": "a piece of the hoard, carried off and dropped"
+    },
+    "E": {
+      "loot": {
+        "dragon_scale_shard": [
+          1,
+          2
+        ],
+        "dragonspine_pill_f17": [
+          1,
+          1
+        ],
+        "random_weapon": [
+          0,
+          1
+        ]
+      },
+      "note": "a scale-covered chest",
+      "hidden": true
+    },
+    "V": {
+      "loot": {
+        "dragon_scale_shard": [
+          3,
+          4
+        ],
+        "drake_blood": [
+          2,
+          3
+        ],
+        "dragonspine_pill_f17": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "random_gear": [
+          1,
+          1
+        ],
+        "gold": [
+          255,
+          425
+        ]
+      },
+      "note": "the hoard's own strongbox"
+    },
+    "F": {
+      "loot": {
+        "gold": [
+          136,
+          255
+        ],
+        "dragon_scale_shard": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Dragon's Breath"
+    },
+    "J": {
+      "loot": {
+        "gold": [
+          136,
+          255
+        ],
+        "drake_blood": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Breathless Silence"
+    },
+    "N": {
+      "loot": {
+        "gold": [
+          136,
+          255
+        ],
+        "dragonspine_pill_f17": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in the Scale Vault"
+    },
+    "Q": {
+      "loot": {
+        "gold": [
+          136,
+          255
+        ],
+        "breakthrough_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Lantern-lit Annex"
+    },
+    "W": {
+      "loot": {
+        "gold": [
+          136,
+          255
+        ],
+        "dragon_scale_shard": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Hollow Watch-Post"
+    }
+  },
+  "lore": {
+    "A": {
+      "title": "Scratched on a Rib",
+      "text": "She dreamed of me last night. I woke up with scales on my arms. Tonight I will try very hard not to sleep. I do not think it will matter."
+    },
+    "Y": {
+      "title": "The Dragon-Priest's Warning",
+      "text": "We walk on her spine. We live in her dream. Everything here -- the drakes, the guardians, the fire -- is something she is dreaming. Do not wake her. Do not let her dream of you."
+    },
+    "R": {
+      "title": "The Heartbeat Chamber",
+      "text": "Once a century her heart beats. The priests learned to breathe with it -- slow, enormous, hot -- and their strikes burned like her breath.",
+      "teaches": "dragonspine_art"
+    },
+    "G": {
+      "title": "A Mysterious Scent",
+      "text": "The air here is heavy with the scent of old moss and forgotten secrets. A single, withered scale, crusted with age and decay, hangs from the ceiling like a silent warning."
+    },
+    "M": {
+      "title": "Whispers of the Past",
+      "text": "Here, the ancient scales of the dragon speak in hushed tones, recounting tales of battles long forgotten and heroes who walked these halls. Listen closely, for the whispers hold secrets that could guide you through the dungeon's trials."
+    },
+    "O": {
+      "title": "The Vault of Scales",
+      "text": "Here, ancient scales of the Dragon's molt are stored, each one a relic of power and protection. The air hums with a whisper of past battles and the scales' magic still guards their chamber."
+    },
+    "U": {
+      "title": "The Listener's Domain",
+      "text": "Here, the scales of the dragon's vast hide whisper secrets of forgotten ages. Legend speaks of a guardian who listens to these whispers and guards the secrets with a silent vigil."
+    },
+    "X": {
+      "title": "The Scaled Sanctuary",
+      "text": "Carved scales line the walls, whispering ancient secrets of the dragon's past. A single, glowing emerald egg lies in the center, watched over by silent, hooded figures who tend to the guardian's legacy."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Riddle of Dragon's Ribcage",
+      "question": "What has scales but cannot weigh?",
+      "options": [
+        "A dragon",
+        "A merchant",
+        "A judge"
+      ],
+      "answer": 0,
+      "reward": {
+        "items": {
+          "dragonspine_pill_f17": 1
+        },
+        "qi": 25840
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor16",
+      "arrive": ">",
+      "label": "Up to floor 16",
+      "down": false
+    },
+    ">": {
+      "to": "floor18",
+      "arrive": "<",
+      "label": "Down to floor 18"
+    }
+  },
+  "refined": {
+    "passes": 18,
+    "rooms_added": 6,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-05T16:59:25"
+  },
+  "map": [
+    "",
+    "                                                   L........",
+    "                                  ........L..      ..g......",
+    " <........      .L......L.....g.. ...........      .........",
+    " .....g...      ....c..c..c..c..g ...........      .........",
+    " ...........................g.... ...a......................",
+    " L.........     ................. ....ha.....      ..g.....h",
+    " Lc..c....      ...............L. ...h.h.....      g........",
+    " .........              .         ...........      .........",
+    "                        .              .               .",
+    "                        .              .               .",
+    "                        .              .               .          .........L...L...",
+    "                        .        ...L.......g.         .          .c.....g.........",
+    "                    L.......     ....x..x.....         .          .................",
+    "                    ........     .....k.......    .L........      .................",
+    "                    ........     .............    ..........      ..........g..c...  .......L. ......",
+    "                    ..........................    ..o..og...      .................  .xgA..... ..R...",
+    "                    ...g....     .............    ...........T.........Y...........  .........S....V.",
+    "                    ..E.....     g.D..........    ......^...      .k.h...c.........  ......... ......",
+    "                                 .....L.......    ....^.....      ...........h.....  ....x.... ...L..",
+    "                                                  ....o.....      .................  ........L                           ....LL...",
+    "                                                                  ..........c.....L      .                               .........      ...L.....",
+    "                                                                  ....L............      .                               ..Q......      .....WXkg",
+    "                                                                          .              .......                         .........      .........",
+    "                                                                          .           .... ........   G......L.L..       .h.....h................",
+    "                                                                          .       ........ ......h.   ..g...h.....       ..g......      ........o",
+    "                                                                       .......    .b...... ........   ....F.......       ..g......      .........",
+    "                                                                       .......    .......L ............g..........       ..U......      o.g.....L",
+    "                                                                       .......   ......... ........   ............       ..k......          .",
+    "                                                                       ..?.........b..b... .h..Z...   ...........h           ..             .",
+    "                                                                       L..h...    .......g .L....L.         .                 .             .           ............L...>",
+    "                                                                       .....hL    ..C.....                  .                 .             .           .......c.........",
+    "                                                                          S                                 .                 .             .           .................",
+    "                                                                          .                           ...L........      ........L.L. .............g     ..........B......",
+    "                                                                          .                           .g..k.......      ..^g........ ..............     ................L",
+    "                                                                          .                           ............      ............ .........h....     .................",
+    "                                                                          .                           ............      ........hg.. ..g......^....     .................",
+    "                                                                          ...........................S.o........M..T........O.k..... ...k..............T....c........c...",
+    "                                                                                                      ......g.....      ............ ..............     .................",
+    "                                                                                                      ..o.....J...      N........... ..............     .................",
+    "                                                                                                      .....L......      ............ ...L....L.....     .......c.........",
+    "                                                                                                                                                        .................",
+    "                                                                                                                                                        ..k..............",
+    "                                                                                                                                                        .........L.L.....",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

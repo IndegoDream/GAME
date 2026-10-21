@@ -1,0 +1,46 @@
+{
+ "note": "Round 28 (Claude, 2026-10-03): how monsters fight, so no two fights are the same. Robert: 'keep working on the game, build it out, make it more diverse'. Enemy.gd reads this. A monster's STYLE comes from enemies.json \"style\" if it has one, else from words in its name, else from its id; on floor 2 and deeper a few in each pack take a VARIANT style, and from floor 3 a few are ELITE with one or two AFFIXES. Floor 1 stays plain (it teaches the basics). Bosses keep their own way of fighting and grow ENRAGED at half health.",
+ "styles": {
+  "brawler":  {"name": "", "desc": "closes in and hits"},
+  "ranged":   {"name": "Slinger", "desc": "keeps its distance and throws -- close in, or step aside from the shot", "keep": [5.0, 9.0], "fire_cd": 2.4, "bolt_speed": 13.0, "dmg": 0.75, "hp": 0.8, "color": [1.0, 0.75, 0.35]},
+  "charger":  {"name": "Charging", "desc": "lowers its head, then runs you down in a straight line -- step out of the way", "windup": 0.75, "dash_speed": 15.0, "dash_time": 0.5, "dmg": 1.6, "cd": 5.0, "min": 3.5, "max": 12.0},
+  "guardian": {"name": "Shieldbearer", "desc": "turns blows from the front -- go round it, or use your arts", "front_cut": 0.65, "speed": 0.8, "hp": 1.35},
+  "skulker":  {"name": "Lurking", "desc": "unseen until it's close; its first blow is the worst", "reveal": 4.5, "first": 1.6},
+  "swarmer":  {"name": "Brood", "desc": "never alone -- it brings its young", "minions": 2, "minion_hp": 0.35, "minion_scale": 0.6},
+  "mender":   {"name": "Mending", "desc": "heals the others -- kill it first", "heal": 0.14, "cd": 5.0, "radius": 10.0, "dmg": 0.6, "keep": [4.0, 8.0], "fire_cd": 3.0, "bolt_speed": 11.0, "color": [0.45, 1.0, 0.6]}
+ },
+ "keywords": {
+  "ranged":   ["archer", "slinger", "spitter", "caster", "wisp", "imp", "scholar", "sentry", "mage", "witch", "spore"],
+  "charger":  ["boar", "bull", "brute", "cavalier", "juggernaut", "behemoth", "colossus", "charger", "hound", "drakeling"],
+  "guardian": ["knight", "guard", "sentinel", "warden", "golem", "keeper", "soldier", "guardian", "shell"],
+  "skulker":  ["stalker", "lurker", "shade", "assassin", "reflection", "ghoul", "spider", "crawler", "thief"],
+  "swarmer":  ["rat", "swarm", "mite", "sporeling", "thornling", "brood", "spiderling"],
+  "mender":   ["monk", "priest", "shaman", "mother", "courtier", "healer"]
+ },
+ "variant": {"from_depth": 2, "chance": 0.3, "pool": ["ranged", "charger", "guardian", "skulker", "mender"]},
+ "elite": {"from_depth": 3, "base": 0.05, "per_depth": 0.005, "max": 0.2, "two_affixes_from": 8, "hp": 2.2, "damage": 1.25, "qi": 3.0, "gear_chance": 0.4},
+ "affixes": {
+  "swift":      {"name": "Swift", "desc": "faster on its feet and with its blows", "speed": 1.4, "cooldown": 0.7, "color": [0.55, 0.9, 1.0]},
+  "armoured":   {"name": "Armoured", "desc": "every blow loses 40% on it", "taken": 0.6, "color": [0.75, 0.75, 0.8]},
+  "venomous":   {"name": "Venomous", "desc": "its hits poison you for a few seconds", "poison": 0.12, "ticks": 3, "color": [0.45, 0.95, 0.35]},
+  "vampiric":   {"name": "Vampiric", "desc": "heals from the blood it draws", "drain": 0.35, "color": [0.85, 0.15, 0.25]},
+  "frenzied":   {"name": "Frenzied", "desc": "the more you hurt it, the faster it gets", "at": 0.5, "speed": 1.5, "cooldown": 0.6, "color": [1.0, 0.45, 0.2]},
+  "splitting":  {"name": "Splitting", "desc": "breaks into two lesser ones when it falls", "parts": 2, "part_hp": 0.4, "color": [0.8, 0.55, 1.0]},
+  "warding":    {"name": "Warding", "desc": "your arts' staggers, slows and burns hold on it half as long", "status": 0.5, "color": [0.5, 0.6, 1.0]},
+  "thunderous": {"name": "Thunderous", "desc": "stamps the ground every few seconds -- watch for the ring, and step out", "every": 7.0, "warn": 1.0, "radius": 4.5, "dmg": 1.2, "color": [1.0, 0.9, 0.3]},
+  "gilded":     {"name": "Gilded", "desc": "carries far more than it should", "gold": 3.0, "extra_loot": 1, "color": [1.0, 0.82, 0.3]},
+  "blinking":   {"name": "Blinking", "desc": "flickers -- then steps out of the air behind you; turn when it fades", "every": 8.0, "warn": 0.6, "behind": 1.8, "color": [0.7, 0.45, 1.0]},
+  "volatile":   {"name": "Volatile", "desc": "its last breath bursts -- get clear of the ring when it falls", "radius": 3.4, "fuse": 1.3, "dmg": 1.6, "color": [1.0, 0.5, 0.15]},
+  "commanding": {"name": "Commanding", "desc": "its shout drives the others near it to hit harder and move faster -- kill it first", "radius": 9.0, "every": 1.0, "dmg": 1.25, "speed": 1.15, "color": [1.0, 0.95, 0.6]}
+ },
+ "boss_enrage": {"at": 0.5, "speed": 1.3, "cooldown": 0.75},
+ "rivals": {
+  "count": 3,
+  "styles": {"fire": "charger", "metal": "guardian", "wood": "ranged", "water": "mender", "earth": "brawler"},
+  "given": ["Han", "Mei", "Shao", "Lin", "Qiu", "Bai", "Yun", "Zhen", "Ruo", "Feng", "Ling", "Tao", "Xue", "Jin", "Hua"],
+  "lines": ["Your stance is wrong. Let me show you.", "The elders say you're promising. I'd like to see that.", "Cross hands with me -- I'll go easy. At first.",
+            "Another wanderer with a sword. Show me it isn't for show.", "My senior says I'm not ready for the tower. I'll prove her wrong on you.",
+            "They talk about you in the hall. I'd rather find out myself."],
+  "yield": 0.15
+ }
+}

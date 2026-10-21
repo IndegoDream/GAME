@@ -1,0 +1,216 @@
+{
+  "brief": "music_titles",
+  "title": "Names for the game's music (shown for a moment when a piece starts)",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "dungeon_1",
+      "text": "Upper Dungeon Watch"
+    },
+    {
+      "village_1": {
+        "text": "Eliet Day"
+      },
+      "village_2": {
+        "text": "Eliet Twilight"
+      },
+      "village_3": {
+        "text": "Eliet Evening"
+      },
+      "village_night_1": {
+        "text": "Eliet Moonlight"
+      },
+      "village_night_2": {
+        "text": "Eliet Stars"
+      },
+      "valley_1": {
+        "text": "Sects Valley"
+      },
+      "valley_2": {
+        "text": "Valley Bells"
+      },
+      "valley_3": {
+        "text": "Valley Peace"
+      },
+      "dungeon_1": {
+        "text": "Upper Wary"
+      },
+      "dungeon_2": {
+        "text": "Upper Fiddle"
+      },
+      "dungeon_3": {
+        "text": "Upper Quiet"
+      },
+      "deep_1": {
+        "text": "Deep Dark"
+      },
+      "deep_2": {
+        "text": "Deep Flute"
+      },
+      "deep_3": {
+        "text": "Deep Zither"
+      },
+      "abyss_1": {
+        "text": "Abyss Cold"
+      },
+      "abyss_2": {
+        "text": "Abyss Gong"
+      },
+      "haven_1": {
+        "text": "Haven Warmth"
+      },
+      "haven_2": {
+        "text": "Haven Hearth"
+      },
+      "title_1": {
+        "text": "Eliet Dawn"
+      }
+    },
+    {
+      "id": "dungeon_1",
+      "text": "Upper Stairway Watch"
+    },
+    {
+      "id": "title_1",
+      "text": "Eliet Dawn"
+    },
+    {
+      "id": "dungeon_1",
+      "text": "Upper Dungeon, Wary"
+    },
+    {
+      "id": "dungeon_1",
+      "text": "Upper Dungeon Watch"
+    },
+    {
+      "id": "dungeon_1",
+      "text": "Upper Dungeon Shadows"
+    },
+    {
+      "id": "dungeon_1",
+      "text": "Upper Stairway Watch"
+    },
+    {
+      "id": "village_1",
+      "text": "The sun climbs over Eliet. A farmer waters his roots while a child plays with glowing dust. The air smells of pine and cold stone. Elder Mo stands at the gate, watching the wind."
+    },
+    {
+      "village_1": "Sun rises over Eliet. Elder Mo tends his fields. Smith Hale fixes hoes. Children play near the well. Nanites hum in their blood.",
+      "village_2": "Zither plays outside the temple. No one rushes now. The air smells of rain and roasted grain. A cat sleeps on the fence.",
+      "village_3": "The fiddle sings low. Trader Wen sells dried fish near the market square. People laugh without looking at the mountain.",
+      "valley_1": "The valley stretches wide. Green hills ring the town. Sect banners float in the wind. No one dares climb the high peaks today.",
+      "dungeon_1": "Descend quickly. The air grows cold. Nanites flare blue in your veins. Watch the stone walls for cracks and leaking light.",
+      "dungeon_2": "A slow drum beats deep below. Fiddles play from hidden alcoves. Do not look at the shadows. They move when you blink.",
+      "deep_1": "Floor ten is dark. Bells toll without sound. The fiddle cries out for help. Keep your hands inside your clothes. The swarm waits in the stone.",
+      "abyss_1": "Machines click over cold water. Old instruments play a funeral song. Your blood feels heavy. Nanites fight to keep you breathing.",
+      "haven_1": "Warmth waits here under stone. A hearth burns bright. Lanterns float near the ceiling. Rest your body. Your nanites need power to repair.",
+      "title_1": "Dungeon Crawl Eliet. The world is cold. You are warm inside."
+    },
+    {
+      "id": "village_1",
+      "text": "The sun warms Eliet's stone walls."
+    },
+    {
+      "id": "village_1",
+      "text": "Sunlight warms Eliet's stone walls. Flutes play soft tunes from the square. Children laugh as they chase sparrows. Fishermen mend nets by the cold river. The air smells of damp earth and roasting nuts."
+    },
+    {
+      "id": "village_1"
+    },
+    {
+      "id": "village_1",
+      "text": "Eliet wakes to the sun. A flute plays in the square. The zither joins it later. Smith Hale fixes his forge anvil. Elder Mo checks the village well depth. Trader Wen sells dried fish by the road. Children chase paper birds near the shrine."
+    },
+    {
+      "id": "village_1",
+      "text": "The sun rises over Eliet. Flute music plays softly. The air smells of woodsmoke and damp stone. Children play near the river. Elders mend nets by the wall. Smith Hale hammers iron nearby. No one hurries today. Life is slow and warm."
+    },
+    {
+      "items": [
+        {
+          "id": "village_1",
+          "text": "Eliet wakes with smoke from chimneys. The zither plays low inside the tavern."
+        },
+        {
+          "id": "village_2",
+          "text": "Aunt Li sells fresh millet bread before midday prayers begin again."
+        },
+        {
+          "id": "village_3",
+          "text": "The fiddle on the porch sings of Smith Hale's latest forge repairs."
+        },
+        {
+          "id": "village_night_1",
+          "text": "Shadows stretch long across Eliet while the low bamboo flute calls you home."
+        },
+        {
+          "id": "village_night_2",
+          "text": "Bells ring softly as the zither weaves a tune for those who watch the gates."
+        },
+        {
+          "id": "valley_1",
+          "text": "The wide valley shows the sects in their hills, breathing cool mountain air."
+        },
+        {
+          "id": "valley_2",
+          "text": "Bright light hits the fields where bells float above the zither's steady hum."
+        },
+        {
+          "id": "valley_3",
+          "text": "Silence falls on Eliet as a low flute plays a calm warning to travelers."
+        },
+        {
+          "id": "dungeon_1",
+          "text": "The upper dungeon smells of wet stone and wary footsteps in the dark."
+        },
+        {
+          "id": "dungeon_2",
+          "text": "A slow drum beats inside the fiddle's echo near the entrance gate."
+        },
+        {
+          "id": "dungeon_3",
+          "text": "Very quiet halls wait here where only bells ring for the lost above."
+        },
+        {
+          "id": "deep_1",
+          "text": "Floors ten to twenty-nine breathe in the dark as fiddles and bells meet a gong."
+        },
+        {
+          "id": "deep_2",
+          "text": "The deep grows cold where a low flute plays over a slow drum's pulse."
+        },
+        {
+          "id": "deep_3",
+          "text": "Only the zither remains in the deepest dark, alone with its quiet song."
+        },
+        {
+          "id": "abyss_1",
+          "text": "Old instruments fight the cold machines in the abyss where swarms gather."
+        },
+        {
+          "id": "abyss_2",
+          "text": "The fiddle fights the machines here until the gong marks the end of the path."
+        },
+        {
+          "id": "haven_1",
+          "text": "A little warmth waits underground in Haven, far from the cold valley air."
+        },
+        {
+          "id": "haven_2",
+          "text": "A flute plays by the hearth while lanterns glow in the town below rock."
+        },
+        {
+          "id": "title_1",
+          "text": "Eliet awaits those brave enough to step into the story tonight."
+        }
+      ]
+    },
+    {},
+    {},
+    {
+      "title": "village_1"
+    }
+  ],
+  "helped": []
+}

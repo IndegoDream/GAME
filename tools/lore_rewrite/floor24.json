@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "The Long Stacks",
+  "text": "Rows of shelves run further than the lamplight. Each book has an ice skin you can crack with a thumbnail. Read slowly. The cold gets into your hands before the words get into your head."
+ },
+ "Y": {
+  "title": "The Founding Charter",
+  "text": "The charter is frozen in a block by the door. It says the archive keeps everything and gives nothing back to the ones who forget. The seal belongs to the first Warden."
+ },
+ "R": {
+  "title": "Marginal Note, Frozen",
+  "text": "Still your breath and your hands. The cold only bites a body that keeps moving. Calm is a weapon here."
+ },
+ "G": {
+  "title": "A Scholar's Argument",
+  "text": "Two scholars debated here until the fire went out. The ice kept their argument. One of them is wrong in a very detailed way, over four hundred pages."
+ },
+ "M": {
+  "title": "The Warden's Rule",
+  "text": "Do not read aloud in the stacks. Return what you open. The first Warden wrote these rules, and the archive still counts who broke them."
+ },
+ "O": {
+  "title": "Missing Volumes",
+  "text": "A shelf of gaps where books should be. The labels remain: the Accord, the Forgetting, the Cycle. Someone took them, or the cold did."
+ },
+ "U": {
+  "title": "Frost on the Glass",
+  "text": "Breathing on the case clears a patch for a moment. Under it, the record of a war between two ages that ended in peace. The peace is written smaller than the war."
+ },
+ "X": {
+  "title": "The Last Tome",
+  "text": "The final book on the last shelf is blank. A note tucked in it says: what you do not write down, you will not keep. Write something."
+ }
+}

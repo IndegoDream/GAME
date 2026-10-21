@@ -1,0 +1,221 @@
+{
+  "id": "testhaven",
+  "name": "Test Haven",
+  "theme": "settlement",
+  "depth": 5,
+  "breathing": true,
+  "layout": {
+    "seed": 3,
+    "rooms": [
+      {
+        "name": "Gate",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2"
+        ]
+      },
+      {
+        "name": "Plaza",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "f",
+          "L*3",
+          "M",
+          "R",
+          "P"
+        ]
+      },
+      {
+        "name": "Inn",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "I",
+          "L",
+          "H"
+        ]
+      },
+      {
+        "name": "Forge Row",
+        "size": [
+          10,
+          6
+        ],
+        "has": [
+          "W",
+          "B",
+          "L*2",
+          "H*2"
+        ]
+      },
+      {
+        "name": "Apothecary Lane",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "A",
+          "C",
+          "L"
+        ]
+      },
+      {
+        "name": "Cellar",
+        "size": [
+          6,
+          5
+        ],
+        "secret": true,
+        "has": [
+          "K",
+          "L"
+        ]
+      },
+      {
+        "name": "Shrine",
+        "size": [
+          7,
+          6
+        ],
+        "has": [
+          "Z",
+          "L",
+          "h*2"
+        ]
+      },
+      {
+        "name": "Lower Gate",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          ">",
+          "L"
+        ]
+      }
+    ],
+    "roads": true
+  },
+  "npcs": {
+    "M": {
+      "role": "merchant",
+      "name": "Test Trader",
+      "stock": [
+        "resin_salve",
+        "verdant_pill"
+      ]
+    },
+    "R": {
+      "role": "villager",
+      "name": "Test Gossip",
+      "lines": [
+        "one",
+        "two"
+      ]
+    },
+    "I": {
+      "role": "innkeeper",
+      "name": "Test Innkeeper",
+      "price": 12,
+      "lines": [
+        "rumour a",
+        "rumour b"
+      ]
+    },
+    "W": {
+      "role": "smith",
+      "name": "Test Smith"
+    },
+    "B": {
+      "role": "guild",
+      "guild": "blacksmiths",
+      "name": "Test Hall"
+    },
+    "A": {
+      "role": "alchemist",
+      "name": "Test Alchemist"
+    },
+    "C": {
+      "role": "guild",
+      "guild": "alchemists",
+      "name": "Test Circle"
+    }
+  },
+  "chests": {
+    "K": {
+      "loot": {
+        "gold": [
+          5,
+          9
+        ]
+      },
+      "note": "test cellar"
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor1",
+      "arrive": ">",
+      "down": false
+    },
+    ">": {
+      "to": "floor1",
+      "arrive": "<"
+    }
+  },
+  "map": [
+    "",
+    "             .L...LL.....",
+    "             .......f....",
+    " <.L...L.    .......R....",
+    " ........    ...P........",
+    " ........,,,,............",
+    " ........,   ..........M.",
+    " ........    ............",
+    " ........    ............",
+    "             ............",
+    "                   ,",
+    "                   ,",
+    "                   ,",
+    "                   ,",
+    "               ........      L.........",
+    "               .H......      LH..H.B...",
+    "               ........      ..........",
+    "               ........,,,,,,..........",
+    "               I.......      ..W.......",
+    "               .......L      ..........",
+    "                                  ,",
+    "                                  ,",
+    "                                 ,,",
+    "                             ......... ..L...",
+    "                             ......... ......",
+    "                             ....A....S......",
+    "                             ......... ......",
+    "                             ......... ..K...",
+    "                             LC.......",
+    "                                 ,",
+    "                                 ,",
+    "                                 ,",
+    "                                 ,",
+    "                                 ,",
+    "                              ......L    .......>",
+    "                              .......    ........",
+    "                              ...h...    .......L",
+    "                              ..hZ...,,,,........",
+    "                              .......    ........",
+    "                              .......    ........",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

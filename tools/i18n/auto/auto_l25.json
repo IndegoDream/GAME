@@ -1,0 +1,145 @@
+{
+"%d materials went into the vault.": [
+"%d 件材料已放入储物库。",
+"%d materiales fueron a la bóveda.",
+"%d materiais foram para o cofre.",
+"%d материалов перенесено в хранилище.",
+"%d Materialien wanderten in den Tresor.",
+"%d matériaux ont été déposés dans le coffre.",
+"素材%d個を金庫に入れました。",
+"재료 %d개를 보관함에 넣었습니다.",
+"%d malzeme kasaya konuldu."
+],
+"Dump all materials into the vault": [
+"将所有材料放入储物库",
+"Guardar todos los materiales en la bóveda",
+"Guardar todos os materiais no cofre",
+"Сложить все материалы в хранилище",
+"Alle Materialien in den Tresor legen",
+"Tout déposer dans le coffre",
+"素材をすべて金庫に入れる",
+"모든 재료를 보관함에 넣기",
+"Tüm malzemeleri kasaya boşalt"
+],
+"God mode: %s (tap to switch)": [
+"无敌模式:%s(点击切换)",
+"Modo dios: %s (toca para cambiar)",
+"Modo deus: %s (toque para alternar)",
+"Режим бога: %s (нажмите, чтобы переключить)",
+"Gottmodus: %s (zum Wechseln tippen)",
+"Mode dieu : %s (touchez pour changer)",
+"無敵モード: %s(タップで切替)",
+"무적 모드: %s (탭하여 전환)",
+"Tanrı modu: %s (değiştirmek için dokun)"
+],
+"God mode: %s. A portable table, forge and rune table: %s. (Neither works in the online world.)": [
+"无敌模式:%s。便携工作台、锻炉和符文台:%s。(两者在在线世界中均无效。)",
+"Modo dios: %s. Mesa, forja y mesa de runas portátiles: %s. (Ninguno funciona en el mundo en línea.)",
+"Modo deus: %s. Mesa, forja e mesa de runas portáteis: %s. (Nenhum funciona no mundo online.)",
+"Режим бога: %s. Портативный стол, кузница и стол рун: %s. (Ни то, ни другое не работает в онлайн-мире.)",
+"Gottmodus: %s. Tragbarer Tisch, Schmiede und Runentisch: %s. (Beides funktioniert nicht in der Online-Welt.)",
+"Mode dieu : %s. Table, forge et table de runes portables : %s. (Aucun ne fonctionne dans le monde en ligne.)",
+"無敵モード: %s。携帯用の作業台・鍛冶場・ルーン台: %s。(オンラインの世界ではどちらも使えません。)",
+"무적 모드: %s. 휴대용 작업대, 대장간, 룬 작업대: %s. (온라인 월드에서는 둘 다 작동하지 않습니다.)",
+"Tanrı modu: %s. Taşınabilir masa, demirci ocağı ve rün masası: %s. (İkisi de çevrimiçi dünyada çalışmaz.)"
+],
+"In the vault: ": [
+"储物库中: ",
+"En la bóveda: ",
+"No cofre: ",
+"В хранилище: ",
+"Im Tresor: ",
+"Dans le coffre : ",
+"金庫の中: ",
+"보관함: ",
+"Kasada: "
+],
+"Test kit": [
+"测试套件",
+"Kit de prueba",
+"Kit de teste",
+"Тестовый набор",
+"Testpaket",
+"Kit de test",
+"テストキット",
+"테스트 키트",
+"Test kiti"
+],
+"Test kit (every character on this install): %s.": [
+"测试套件(本安装上的所有角色):%s。",
+"Kit de prueba (todos los personajes de esta instalación): %s.",
+"Kit de teste (todos os personagens desta instalação): %s.",
+"Тестовый набор (все персонажи на этой установке): %s.",
+"Testpaket (alle Charaktere dieser Installation): %s.",
+"Kit de test (tous les personnages de cette installation) : %s.",
+"テストキット(このインストール上の全キャラクター): %s。",
+"테스트 키트 (이 설치의 모든 캐릭터): %s.",
+"Test kiti (bu kurulumdaki tüm karakterler): %s."
+],
+"Test kit (vault, god mode, portable table)": [
+"测试套件(储物库、无敌模式、便携工作台)",
+"Kit de prueba (bóveda, modo dios, mesa portátil)",
+"Kit de teste (cofre, modo deus, mesa portátil)",
+"Тестовый набор (хранилище, режим бога, портативный стол)",
+"Testpaket (Tresor, Gottmodus, tragbarer Tisch)",
+"Kit de test (coffre, mode dieu, table portable)",
+"テストキット(金庫、無敵モード、携帯用作業台)",
+"테스트 키트 (보관함, 무적 모드, 휴대용 작업대)",
+"Test kiti (kasa, tanrı modu, taşınabilir masa)"
+],
+"Test kit: %s (tap to switch)": [
+"测试套件:%s(点击切换)",
+"Kit de prueba: %s (toca para cambiar)",
+"Kit de teste: %s (toque para alternar)",
+"Тестовый набор: %s (нажмите, чтобы переключить)",
+"Testpaket: %s (zum Wechseln tippen)",
+"Kit de test : %s (touchez pour changer)",
+"テストキット: %s(タップで切替)",
+"테스트 키트: %s (탭하여 전환)",
+"Test kiti: %s (değiştirmek için dokun)"
+],
+"The test kit is off.": [
+"测试套件已关闭。",
+"El kit de prueba está desactivado.",
+"O kit de teste está desativado.",
+"Тестовый набор выключен.",
+"Das Testpaket ist aus.",
+"Le kit de test est désactivé.",
+"テストキットはオフです。",
+"테스트 키트가 꺼져 있습니다.",
+"Test kiti kapalı."
+],
+"The vault holds your materials for all characters -- dump into it from anywhere (the ' key), craft from it and your pack at any bench.": [
+"储物库为所有角色保管你的材料——可在任何地方存入(按 ' 键),并在任意工作台使用它和背包中的材料制作。",
+"La bóveda guarda tus materiales para todos los personajes: guarda desde cualquier sitio (tecla '), y fabrica con ella y tu mochila en cualquier mesa.",
+"O cofre guarda seus materiais para todos os personagens: guarde de qualquer lugar (tecla '), e fabrique com ele e sua mochila em qualquer bancada.",
+"Хранилище хранит материалы всех персонажей: складывайте откуда угодно (клавиша '), создавайте предметы из него и из рюкзака за любым верстаком.",
+"Der Tresor verwahrt deine Materialien für alle Charaktere: von überall einlagern (Taste '), an jeder Werkbank daraus und aus dem Rucksack herstellen.",
+"Le coffre garde vos matériaux pour tous les personnages : déposez-y depuis n'importe où (touche '), fabriquez avec lui et votre sac à n'importe quel établi.",
+"金庫はすべてのキャラクターの素材を保管します。どこからでも入れられ(「'」キー)、どの作業台でも金庫とバッグから制作できます。",
+"보관함은 모든 캐릭터의 재료를 보관합니다. 어디서든 넣을 수 있고(' 키), 어떤 작업대에서든 보관함과 배낭의 재료로 제작할 수 있습니다.",
+"Kasa, tüm karakterlerin malzemelerini saklar: her yerden içine boşalt (' tuşu), herhangi bir tezgâhta onunla ve çantanla üretim yap."
+],
+"The vault is empty.": [
+"储物库是空的。",
+"La bóveda está vacía.",
+"O cofre está vazio.",
+"Хранилище пусто.",
+"Der Tresor ist leer.",
+"Le coffre est vide.",
+"金庫は空です。",
+"보관함이 비어 있습니다.",
+"Kasa boş."
+],
+"You carry no materials to put in the vault.": [
+"你没有可放入储物库的材料。",
+"No llevas materiales para guardar en la bóveda.",
+"Você não carrega materiais para guardar no cofre.",
+"У вас нет материалов, чтобы положить в хранилище.",
+"Du trägst keine Materialien, die du in den Tresor legen könntest.",
+"Vous ne portez aucun matériau à déposer dans le coffre.",
+"金庫に入れる素材を持っていません。",
+"보관함에 넣을 재료가 없습니다.",
+"Kasaya koyacak malzemen yok."
+]
+}

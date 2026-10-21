@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "Frost on the Steps",
+  "text": "The stair is glazed and the glaze moves under your boot. Go down slow with a hand on the rail. The top step smells of ink."
+ },
+ "Y": {
+  "title": "The Long Stacks",
+  "text": "Shelf after shelf, every book sealed in clear ice. Whoever froze them wanted them kept, not read. The thaw has begun and the bottom shelves are ruined."
+ },
+ "R": {
+  "title": "Scholar of the Still Lake",
+  "text": "A margin note in a frozen book: the old master sat until his mind was flat as the lake. Then he moved, and nothing was wasted."
+ },
+ "G": {
+  "title": "Reading Room Rules",
+  "text": "Carved in the table edge: no flame, no wet hands, no running. The scholars who wrote it never met anything that bit. We have."
+ },
+ "M": {
+  "title": "Night Watch Log",
+  "text": "Watch kept by the archive guard, last page. Cold again tonight. The books crack when it warms. Fourth night I heard something turning pages."
+ },
+ "O": {
+  "title": "A Scholar's Last Note",
+  "text": "I came to read what the old war cost. The first pages are all numbers, killed and lost. I stopped counting. I hope you read it anyway."
+ },
+ "U": {
+  "title": "Catalog Card",
+  "text": "Card pinned to a shelf: Records of the Accord, third copy. The first two copies are gone. The shelf behind the card is empty, and cleaner than the rest."
+ },
+ "X": {
+  "title": "Frozen Open",
+  "text": "One book lies open under the ice. Two armies are drawn on the left page, one in steel and one in robes. On the right page someone drew a scale, level."
+ }
+}

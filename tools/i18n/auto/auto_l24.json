@@ -1,0 +1,24 @@
+{
+"Your pouch can't hold that many %s (%d) and you have no chest at home yet -- use some first. Nothing was spent.": [
+"你的袋子装不下这么多%s(上限%d),而且你还没有家中的箱子——先用掉一些吧。没有花费任何东西。",
+"Tu bolsa no aguanta tantos %s (%d) y aún no tienes un cofre en casa: usa algunos primero. No se gastó nada.",
+"Sua bolsa não comporta tantos %s (%d) e você ainda não tem um baú em casa — use alguns antes. Nada foi gasto.",
+"В сумке не поместится столько: %s (%d), а сундука дома у вас ещё нет — сначала потратьте часть. Ничего не списано.",
+"Dein Beutel fasst nicht so viele %s (%d), und du hast noch keine Truhe zu Hause – verbrauche erst etwas. Es wurde nichts ausgegeben.",
+"Votre bourse ne peut pas contenir autant de %s (%d) et vous n'avez pas encore de coffre chez vous : utilisez-en d'abord. Rien n'a été dépensé.",
+"袋には%s(上限%d)がそんなに入らず、家の箱もまだありません。先に使ってください。何も消費していません。",
+"주머니에 %s을(를) 그만큼 담을 수 없고(최대 %d) 집에 상자도 아직 없습니다. 먼저 사용하세요. 아무것도 소모되지 않았습니다.",
+"Kesen bu kadar %s taşıyamaz (%d) ve evde henüz sandığın yok — önce biraz kullan. Hiçbir şey harcanmadı."
+],
+"Your pouch is full of %s (%d) -- %d went to your chest at home.": [
+"你的袋子里%s已满(%d)——%d个送进了家中的箱子。",
+"Tu bolsa está llena de %s (%d): %d fueron a tu cofre en casa.",
+"Sua bolsa está cheia de %s (%d) — %d foram para o baú em casa.",
+"Сумка полна: %s (%d) — %d ушло в сундук дома.",
+"Dein Beutel ist voll mit %s (%d) – %d kamen in die Truhe zu Hause.",
+"Votre bourse est pleine de %s (%d) : %d sont allés dans votre coffre chez vous.",
+"袋が%sでいっぱいです(%d)——%d個は家の箱に入りました。",
+"주머니가 %s(으)로 가득 찼습니다(%d) — %d개는 집 상자로 갔습니다.",
+"Kesen %s ile dolu (%d) — %d tanesi evdeki sandığına gitti."
+]
+}

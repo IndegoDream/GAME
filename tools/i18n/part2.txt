@@ -1,0 +1,127 @@
+Map||地图||Mapa||Mapa||Карта||Karte||Carte||マップ||지도||Harita
+Meridian cleansing||经脉净化||Purificación de meridianos||Purificação dos meridianos||Очищение меридианов||Meridianreinigung||Purification des méridiens||経絡の浄化||경락 정화||Meridyen arınması
+Mind -- where your sitting goes||心神——你的打坐去向||Mente: adónde va tu meditación||Mente: para onde vai sua meditação||Разум — куда уходит ваша медитация||Geist – wohin deine Meditation fließt||Esprit : où va ta méditation||心——座禅の向かう先||마음 — 명상이 향하는 곳||Zihin -- oturuşun nereye gidiyor
+Needs: ||需要：||Necesita: ||Precisa: ||Нужно: ||Benötigt: ||Nécessite : ||必要：||필요: ||Gerekir: 
+Next||下一步||Siguiente||Próximo||Далее||Weiter||Suivant||次へ||다음||İleri
+Next: ||下一步：||Siguiente: ||Próximo: ||Далее: ||Als Nächstes: ||Ensuite : ||次：||다음: ||Sıradaki: 
+No great blood yet. Masters' legacies and drops of old blood can change that.||尚无强大血脉。宗师的传承与古老血滴可以改变这一点。||Aún no hay gran sangre. Los legados de maestros y las gotas de sangre antigua pueden cambiarlo.||Ainda não há grande sangue. Legados de mestres e gotas de sangue antigo podem mudar isso.||Великой крови пока нет. Наследие мастеров и капли древней крови могут это изменить.||Noch kein großes Blut. Vermächtnisse von Meistern und Tropfen alten Bluts können das ändern.||Pas encore de grand sang. Les legs des maîtres et les gouttes de sang ancien peuvent changer cela.||まだ大いなる血はない。達人の遺産や古き血の雫が、それを変えるかもしれない。||아직 위대한 혈통이 없습니다. 고수의 유산과 오래된 피 한 방울이 이를 바꿀 수 있습니다.||Henüz büyük bir kan yok. Ustaların mirası ve eski kan damlaları bunu değiştirebilir.
+No one yet. Talk to people -- in Eliet, in the towns below.||还没有人。去和人交谈——在艾利特，在下方的城镇。||Nadie todavía. Habla con la gente: en Eliet, en los pueblos de abajo.||Ninguém ainda. Converse com as pessoas: em Eliet, nas cidades abaixo.||Пока никого. Поговорите с людьми — в Элиете и в городах внизу.||Noch niemand. Sprich mit Leuten – in Eliet, in den Städten unten.||Personne pour l'instant. Parle aux gens, à Eliet, dans les villes d'en bas.||まだ誰もいない。エリエットや下の町で人々と話そう。||아직 아무도 없습니다. 엘리엇과 아래 마을 사람들과 이야기해 보세요.||Henüz kimse yok. İnsanlarla konuş -- Eliet'te, aşağıdaki kasabalarda.
+None yet. They're out there -- in old stones, in what you do, in who you listen to.||暂无。它们就在某处——在古老的石碑里，在你的所作所为里，在你倾听的人身上。||Ninguna aún. Están ahí fuera: en piedras antiguas, en lo que haces, en a quién escuchas.||Nenhuma ainda. Estão por aí: em pedras antigas, no que você faz, em quem você ouve.||Пока нет. Они где-то рядом — в древних камнях, в ваших делах, в тех, кого вы слушаете.||Noch keine. Sie sind da draußen – in alten Steinen, in dem, was du tust, in wem du zuhörst.||Aucune pour l'instant. Elles existent : dans les vieilles pierres, dans ce que tu fais, chez ceux que tu écoutes.||まだない。古い石碑に、あなたの行いに、耳を傾ける人々のもとに、それらはある。||아직 없습니다. 오래된 돌 속에, 당신의 행동 속에, 당신이 귀 기울이는 사람 속에 있습니다.||Henüz yok. Dışarıda bir yerdeler -- eski taşlarda, yaptıklarında, dinlediğin kişilerde.
+Nothing here.||这里什么也没有。||Nada aquí.||Nada aqui.||Здесь ничего нет.||Hier ist nichts.||Rien ici.||ここには何もない。||여기엔 아무것도 없습니다.||Burada hiçbir şey yok.
+Nothing yet.||暂时没有。||Nada todavía.||Nada ainda.||Пока ничего.||Noch nichts.||Rien pour l'instant.||まだ何もない。||아직 없습니다.||Henüz hiçbir şey yok.
+Nothing found here yet.||这里还没有发现。||Aún no se ha encontrado nada aquí.||Ainda nada foi encontrado aqui.||Здесь пока ничего не найдено.||Hier wurde noch nichts gefunden.||Rien trouvé ici pour l'instant.||ここではまだ何も見つかっていない。||아직 아무것도 발견되지 않았습니다.||Burada henüz bir şey bulunmadı.
+Nothing of this kind on the go.||目前没有这类事务。||Nada de este tipo en marcha.||Nada deste tipo em andamento.||Ничего подобного сейчас нет.||Nichts dergleichen im Gange.||Rien de ce genre en cours.||この種のものは進行中ではない。||진행 중인 것이 없습니다.||Bu türden devam eden bir şey yok.
+Pack||背包||Mochila||Mochila||Рюкзак||Rucksack||Sac||バッグ||가방||Çanta
+Pairs well with: ||适合搭配：||Combina bien con: ||Combina bem com: ||Хорошо сочетается с: ||Passt gut zu: ||S'associe bien à : ||相性の良い素材：||잘 어울리는 것: ||İyi uyum sağlar: 
+Path -- the road you walk||道途——你所走的路||Senda: el camino que recorres||Trilha: o caminho que você percorre||Путь — дорога, которой вы идёте||Pfad – der Weg, den du gehst||Voie : la route que tu suis||道筋——歩む道||길 — 당신이 걷는 길||Yol -- yürüdüğün yol
+Paused||已暂停||En pausa||Pausado||Пауза||Pausiert||En pause||一時停止||일시 정지||Duraklatıldı
+People asking for help||求助之人||Gente que pide ayuda||Pessoas pedindo ajuda||Люди, просящие помощи||Menschen, die um Hilfe bitten||Gens qui demandent de l'aide||助けを求める人々||도움을 청하는 사람들||Yardım isteyen insanlar
+Plan your time away||规划离线时光||Planea tu tiempo fuera||Planeje seu tempo fora||Планирование отсутствия||Plane deine Abwesenheit||Planifie ton absence||不在中の計画||자리를 비운 동안 계획||Yokluğunu planla
+Play||开始游戏||Jugar||Jogar||Играть||Spielen||Jouer||プレイ||플레이||Oyna
+Privacy choices (ads)||隐私选项（广告）||Opciones de privacidad (anuncios)||Opções de privacidade (anúncios)||Настройки приватности (реклама)||Datenschutzoptionen (Werbung)||Choix de confidentialité (publicités)||プライバシー設定（広告）||개인정보 설정(광고)||Gizlilik tercihleri (reklamlar)
+Quarters / Kennel||住所 / 兽舍||Aposentos / Perrera||Aposentos / Canil||Жильё / Псарня||Quartiere / Zwinger||Quartiers / Chenil||居室 / 獣舎||숙소 / 사육장||Odalar / Kulübe
+Quests||任务||Misiones||Missões||Задания||Aufträge||Quêtes||クエスト||퀘스트||Görevler
+Quick start -- straight to Eliet (a fighter's past, the answers chosen for you)||快速开始——直接前往艾利特（战士出身，答案已为你选好）||Inicio rápido: directo a Eliet (pasado de guerrero, respuestas elegidas por ti)||Início rápido: direto a Eliet (passado de lutador, respostas escolhidas para você)||Быстрый старт — сразу в Элиет (прошлое бойца, ответы выбраны за вас)||Schnellstart – direkt nach Eliet (Kämpfervergangenheit, Antworten für dich gewählt)||Démarrage rapide : direct à Eliet (passé de combattant, réponses choisies pour toi)||クイックスタート——すぐエリエットへ（戦士の過去、回答はおまかせ）||빠른 시작 — 곧장 엘리엇으로(전사의 과거, 답변은 자동 선택)||Hızlı başlangıç -- doğrudan Eliet'e (bir savaşçının geçmişi, cevaplar senin yerine seçildi)
+Quick travel||快速旅行||Viaje rápido||Viagem rápida||Быстрое перемещение||Schnellreise||Voyage rapide||ファストトラベル||빠른 이동||Hızlı yolculuk
+Quit||退出||Salir||Sair||Выйти||Beenden||Quitter||終了||종료||Çık
+Readied||已就绪||Preparado||Preparado||Готово||Bereit||Prêt||準備済み||준비됨||Hazır
+Ready [4]||就绪 [4]||Preparar [4]||Preparar [4]||Приготовить [4]||Bereitmachen [4]||Préparer [4]||準備 [4]||준비 [4]||Hazırla [4]
+Recipes||配方||Recetas||Receitas||Рецепты||Rezepte||Recettes||レシピ||제작법||Tarifler
+Release?||放生？||¿Liberar?||Libertar?||Отпустить?||Freilassen?||Libérer ?||逃がす？||풀어주기?||Salıver?
+Remove||移除||Quitar||Remover||Убрать||Entfernen||Retirer||外す||제거||Kaldır
+Rename||重命名||Renombrar||Renomear||Переименовать||Umbenennen||Renommer||名前を変える||이름 바꾸기||Yeniden adlandır
+Report a problem||报告问题||Informar de un problema||Relatar um problema||Сообщить о проблеме||Problem melden||Signaler un problème||問題を報告||문제 신고||Sorun bildir
+Research||研究||Investigación||Pesquisa||Исследования||Forschung||Recherche||研究||연구||Araştırma
+Rest||休息||Descansar||Descansar||Отдых||Ausruhen||Se reposer||休む||휴식||Dinlen
+Restore purchases||恢复购买||Restaurar compras||Restaurar compras||Восстановить покупки||Käufe wiederherstellen||Restaurer les achats||購入を復元||구매 복원||Satın alımları geri yükle
+Resume||继续游戏||Reanudar||Retomar||Продолжить||Fortsetzen||Reprendre||再開||재개||Sürdür
+Reward from kills now:||当前击杀奖励：||Recompensa por bajas ahora:||Recompensa por abates agora:||Награда за убийства сейчас:||Belohnung für Kills jetzt:||Récompense des victoires maintenant :||現在の撃破報酬：||현재 처치 보상:||Şu anki öldürme ödülü:
+Rune craft||符文制作||Arte rúnico||Ofício rúnico||Рунное ремесло||Runenhandwerk||Art runique||ルーン工芸||룬 제작||Rün zanaatı
+Runes||符文||Runas||Runas||Руны||Runen||Runes||ルーン||룬||Rünler
+Runes you carry: ||你携带的符文：||Runas que llevas: ||Runas que você carrega: ||Руны при вас: ||Runen im Gepäck: ||Runes que tu portes : ||所持しているルーン：||가진 룬: ||Taşıdığın rünler: 
+Save||保存||Guardar||Salvar||Сохранить||Speichern||Sauvegarder||セーブ||저장||Kaydet
+Save now||立即保存||Guardar ahora||Salvar agora||Сохранить сейчас||Jetzt speichern||Sauvegarder maintenant||今すぐセーブ||지금 저장||Şimdi kaydet
+Say||说||Decir||Dizer||Сказать||Sagen||Dire||話す||말하기||De
+Say something...||说点什么...||Di algo...||Diga algo...||Скажите что-нибудь...||Sag etwas...||Dis quelque chose...||何か言う...||뭐라고 말하기...||Bir şey söyle...
+Sell all materials||出售全部材料||Vender todos los materiales||Vender todos os materiais||Продать все материалы||Alle Materialien verkaufen||Vendre tous les matériaux||素材をすべて売る||재료 모두 팔기||Tüm malzemeleri sat
+Send home||送回家||Enviar a casa||Mandar para casa||Отправить домой||Nach Hause schicken||Renvoyer chez soi||家に帰す||집으로 보내기||Eve gönder
+Sense sets how deep any one dao can go: you cannot understand what you cannot yet see.||道感决定任何一道所能达到的深度：看不见的，你无法领悟。||El sentido fija hasta dónde llega cada dao: no puedes comprender lo que aún no ves.||O senso define até onde cada dao pode ir: não se compreende o que ainda não se vê.||Чувство задаёт глубину любого Дао: нельзя понять то, чего ещё не видишь.||Der Sinn bestimmt, wie tief ein Dao reichen kann: Was du noch nicht siehst, kannst du nicht verstehen.||Le sens fixe jusqu'où chaque dao peut aller : on ne comprend pas ce qu'on ne voit pas encore.||道感は各道がどこまで深まるかを決める。まだ見えないものは理解できない。||도감은 각 도가 얼마나 깊어질 수 있는지 정합니다. 아직 보이지 않는 것은 이해할 수 없습니다.||Sezgi, her bir dao'nun ne kadar derine inebileceğini belirler: henüz göremediğini anlayamazsın.
+Set aside||搁置||Dejar de lado||Deixar de lado||Отложить||Beiseitelegen||Mettre de côté||脇に置く||제쳐두기||Kenara bırak
+Set up||设置||Configurar||Configurar||Настроить||Einrichten||Configurer||設定||설정||Kur
+Settings||设置||Ajustes||Configurações||Настройки||Einstellungen||Paramètres||設定||설정||Ayarlar
+Settings: graphics, sound, camera, fog...||设置：画面、声音、镜头、迷雾...||Ajustes: gráficos, sonido, cámara, niebla...||Configurações: gráficos, som, câmera, névoa...||Настройки: графика, звук, камера, туман...||Einstellungen: Grafik, Ton, Kamera, Nebel...||Paramètres : graphismes, son, caméra, brouillard...||設定：グラフィック、サウンド、カメラ、霧...||설정: 그래픽, 소리, 카메라, 안개...||Ayarlar: grafik, ses, kamera, sis...
+Show me||演示给我看||Muéstramelo||Mostre-me||Покажи мне||Zeig es mir||Montre-moi||見せて||보여 주세요||Göster
+Slots||格子||Casillas||Espaços||Ячейки||Felder||Cases||スロット||칸||Gözler
+Sound...||声音...||Sonido...||Som...||Звук...||Ton...||Son...||サウンド...||소리...||Ses...
+Spirit -- your elements||灵——你的元素||Espíritu: tus elementos||Espírito: seus elementos||Дух — ваши стихии||Geist – deine Elemente||Esprit : tes éléments||霊——あなたの元素||영 — 당신의 원소||Ruh -- elementlerin
+Stand still and feel which way the place leans. A few times a day.||静立片刻，感受此地倾向何方。每天数次。||Quédate quieto y siente hacia dónde se inclina el lugar. Unas pocas veces al día.||Fique parado e sinta para onde o lugar pende. Algumas vezes por dia.||Замрите и почувствуйте, куда клонится это место. Несколько раз в день.||Steh still und spüre, wohin der Ort sich neigt. Ein paar Mal am Tag.||Reste immobile et sens vers quoi penche le lieu. Quelques fois par jour.||じっと立ち、この場所がどちらへ傾くかを感じ取る。1日に数回。||가만히 서서 이곳이 어느 쪽으로 기우는지 느껴 보세요. 하루에 몇 번.||Dur ve burasının hangi yöne eğildiğini hisset. Günde birkaç kez.
+Standing -- ||声望——||Reputación -- ||Reputação -- ||Положение — ||Ansehen -- ||Réputation -- ||立場——||평판 -- ||Konum -- 
+Start the questions again||重新回答问题||Empezar las preguntas de nuevo||Recomeçar as perguntas||Начать вопросы заново||Fragen neu beginnen||Recommencer les questions||質問をやり直す||질문 다시 시작||Soruları yeniden başlat
+Start this lesson||开始本课||Empezar esta lección||Começar esta lição||Начать этот урок||Diese Lektion starten||Commencer cette leçon||このレッスンを始める||이 강의 시작||Bu dersi başlat
+Stats (pick one to see where it comes from)||属性（选择一项查看来源）||Estadísticas (elige una para ver de dónde viene)||Atributos (escolha um para ver a origem)||Характеристики (выберите одну, чтобы увидеть источник)||Werte (wähle einen, um die Herkunft zu sehen)||Statistiques (choisis-en une pour voir son origine)||ステータス（選ぶと由来が見られる）||능력치(하나를 골라 출처 보기)||İstatistikler (kaynağını görmek için birini seç)
+Steps: ||步骤：||Pasos: ||Passos: ||Шаги: ||Schritte: ||Étapes : ||手順：||단계: ||Adımlar: 
+Streak, dailies & luck||连续登录、每日任务与运气||Racha, diarias y suerte||Sequência, diárias e sorte||Серия, ежедневные задания и удача||Serie, Tägliches & Glück||Série, quotidiennes et chance||連続記録・デイリー・運||연속 출석, 일일 과제, 행운||Seri, günlükler ve şans
+Study||研习||Estudiar||Estudar||Изучить||Studieren||Étudier||学ぶ||연구하기||İncele
+Supplies||补给||Suministros||Suprimentos||Припасы||Vorräte||Fournitures||補給品||보급품||Malzemeler
+Synergy -- the swarm and your qi||协同——蜂群与你的真气||Sinergia: el enjambre y tu qi||Sinergia: o enxame e seu qi||Синергия — рой и ваша ци||Synergie – der Schwarm und dein Qi||Synergie : l'essaim et ton qi||シナジー——群体とあなたの気||시너지 — 군체와 당신의 기||Sinerji -- sürü ve qi'n
+System||系统||Sistema||Sistema||Система||System||Système||システム||시스템||Sistem
+THE HEART OF THE DEEP||深渊之心||EL CORAZÓN DE LO PROFUNDO||O CORAÇÃO DAS PROFUNDEZAS||СЕРДЦЕ ГЛУБИНЫ||DAS HERZ DER TIEFE||LE CŒUR DES PROFONDEURS||深淵の心臓||심연의 심장||DERİNLİĞİN KALBİ
+TRIAL BOARD||试炼榜||TABLÓN DE PRUEBAS||QUADRO DE PROVAS||ДОСКА ИСПЫТАНИЙ||PRÜFUNGSTAFEL||TABLEAU DES ÉPREUVES||試練の掲示板||시련 게시판||SINAV PANOSU
+Take as second||设为第二道途||Tomar como segundo||Tomar como segundo||Взять вторым||Als zweiten nehmen||Prendre comme second||第二の道にする||두 번째로 선택||İkinci olarak seç
+Take off||脱下||Quitar||Tirar||Снять||Ablegen||Retirer||外す||벗기||Çıkar
+Talismans||符箓||Talismanes||Talismãs||Талисманы||Talismane||Talismans||護符||부적||Tılsımlar
+Talk||交谈||Hablar||Conversar||Говорить||Sprechen||Parler||話す||대화||Konuş
+Techniques||功法||Técnicas||Técnicas||Техники||Techniken||Techniques||技||기술||Teknikler
+Text Size Scale:||文字大小：||Escala del texto:||Escala do texto:||Размер текста:||Textgröße:||Taille du texte :||文字サイズ：||글자 크기:||Metin boyutu:
+The Heirloom||传家宝||La reliquia familiar||A Herança||Фамильная реликвия||Das Erbstück||L'héritage||家宝||가보||Yadigâr
+The Meridian Lattice||经脉格||La red de meridianos||A rede de meridianos||Решётка меридианов||Das Meridiangitter||Le réseau des méridiens||経絡の格子||경락 격자||Meridyen kafesi
+The Old Age||旧纪元||La Edad Antigua||A Era Antiga||Древний век||Das Alte Zeitalter||L'Ancien Âge||旧き時代||옛 시대||Eski Çağ
+The World||世界||El mundo||O mundo||Мир||Die Welt||Le monde||世界||세계||Dünya
+The deep's blessing||深渊的祝福||La bendición de lo profundo||A bênção das profundezas||Благословение глубины||Der Segen der Tiefe||La bénédiction des profondeurs||深淵の祝福||심연의 축복||Derinliğin lütfu
+The eight ways||八道||Los ocho caminos||Os oito caminhos||Восемь путей||Die acht Wege||Les huit voies||八つの道||여덟 가지 길||Sekiz yol
+The nine roads||九路||Los nueve caminos||Os nove caminhos||Девять дорог||Die neun Straßen||Les neuf routes||九つの道||아홉 갈래 길||Dokuz yol
+The peoples||诸族||Los pueblos||Os povos||Народы||Die Völker||Les peuples||諸族||종족들||Halklar
+The rest of your spirit||你灵的其余部分||El resto de tu espíritu||O resto do seu espírito||Остальное в вашем духе||Der Rest deines Geistes||Le reste de ton esprit||あなたの霊の残り||나머지 영||Ruhunun geri kalanı
+The road down||下行之路||El camino hacia abajo||O caminho para baixo||Дорога вниз||Der Weg nach unten||La route vers le bas||降りる道||내려가는 길||Aşağıya giden yol
+The story||故事||La historia||A história||История||Die Geschichte||L'histoire||物語||이야기||Hikâye
+The swarm||蜂群||El enjambre||O enxame||Рой||Der Schwarm||L'essaim||群体||군체||Sürü
+The two roads||两条道路||Los dos caminos||Os dois caminhos||Две дороги||Die zwei Wege||Les deux routes||二つの道||두 갈래 길||İki yol
+They remember: ||他们记得：||Recuerdan: ||Eles lembram: ||Они помнят: ||Sie erinnern sich: ||Ils se souviennent : ||彼らは覚えている：||그들은 기억합니다: ||Hatırlıyorlar: 
+This is who I am||这就是我||Esto es lo que soy||É quem eu sou||Это я||So bin ich||Voilà qui je suis||これが私だ||이게 저예요||İşte ben buyum
+This is who you are||这就是你||Esto es lo que eres||É quem você é||Это вы||So bist du||Voilà qui tu es||これがあなただ||이게 당신입니다||İşte sen busun
+Touch controls: ||触控操作：||Controles táctiles: ||Controles de toque: ||Сенсорное управление: ||Touch-Steuerung: ||Commandes tactiles : ||タッチ操作：||터치 조작: ||Dokunmatik kontroller: 
+Treasures||宝物||Tesoros||Tesouros||Сокровища||Schätze||Trésors||宝物||보물||Hazineler
+Tune||调整||Ajustar||Ajustar||Настроить||Anpassen||Régler||調整||조정||Ayarla
+Turn your phone or tablet sideways to play.||请将手机或平板横过来玩。||Gira el móvil o la tablet de lado para jugar.||Gire o celular ou tablet de lado para jogar.||Для игры переверните телефон или планшет набок.||Dreh dein Handy oder Tablet zum Spielen quer.||Tourne ton téléphone ou ta tablette à l'horizontale pour jouer.||プレイするにはスマホやタブレットを横向きにしてください。||플레이하려면 휴대폰이나 태블릿을 가로로 돌리세요.||Oynamak için telefonunu veya tabletini yan çevir.
+Unlock the full game||解锁完整游戏||Desbloquear el juego completo||Desbloquear o jogo completo||Открыть полную игру||Vollversion freischalten||Débloquer le jeu complet||完全版を解放||전체 게임 잠금 해제||Oyunun tamamını aç
+Use||使用||Usar||Usar||Использовать||Benutzen||Utiliser||使う||사용||Kullan
+Use the split||使用分配||Usar la división||Usar a divisão||Использовать разделение||Aufteilung nutzen||Utiliser la répartition||配分を使う||분배 사용||Bölüşümü kullan
+Uses the same materials and design.||使用相同的材料与设计。||Usa los mismos materiales y diseño.||Usa os mesmos materiais e design.||Те же материалы и дизайн.||Gleiche Materialien und gleiches Design.||Mêmes matériaux et même design.||同じ素材とデザインを使う。||같은 재료와 디자인을 씁니다.||Aynı malzemeleri ve tasarımı kullanır.
+VR: ||VR：||RV: ||RV: ||VR: ||VR: ||RV : ||VR：||VR: ||VR: 
+Walk first||先行一步||Caminar primero||Andar primeiro||Идти первым||Zuerst gehen||Marcher en premier||先に歩く||먼저 걷기||Önce yürü
+Wear||穿戴||Equipar||Vestir||Надеть||Anlegen||Porter||装備||착용||Giy
+Wear here||穿在此处||Equipar aquí||Vestir aqui||Надеть сюда||Hier anlegen||Porter ici||ここに装備||여기에 착용||Buraya giy
+What are you called?||你叫什么名字？||¿Cómo te llamas?||Qual é o seu nome?||Как вас зовут?||Wie heißt du?||Comment t'appelles-tu ?||あなたの名前は？||이름이 무엇입니까?||Adın ne?
+What do people see?||人们看到的是什么？||¿Qué ve la gente?||O que as pessoas veem?||Что видят люди?||Was sehen die Leute?||Que voient les gens ?||人々には何が見える？||사람들에게는 무엇이 보일까요?||İnsanlar ne görüyor?
+What you wear||你的穿戴||Lo que llevas||O que você veste||Что на вас надето||Was du trägst||Ce que tu portes||身につけているもの||입고 있는 것||Giydiklerin
+Who are you?||你是谁？||¿Quién eres?||Quem é você?||Кто вы?||Wer bist du?||Qui es-tu ?||あなたは誰？||당신은 누구입니까?||Sen kimsin?
+Who were you, before the road?||上路之前，你是谁？||¿Quién eras antes del camino?||Quem era você antes da estrada?||Кем вы были до дороги?||Wer warst du vor dem Weg?||Qui étais-tu avant la route ?||旅に出る前、あなたは何者だった？||길에 오르기 전, 당신은 누구였습니까?||Yoldan önce kimdin?
+Work it||加工||Trabajarlo||Trabalhar||Обработать||Bearbeiten||Le travailler||加工する||가공하기||İşle
+Yes, erase it||是的，删除||Sí, borrarlo||Sim, apagar||Да, стереть||Ja, löschen||Oui, l'effacer||はい、消去する||예, 지우기||Evet, sil
+You have reached the top of this road.||你已到达这条路的尽头。||Has llegado al final de este camino.||Você chegou ao fim deste caminho.||Вы дошли до конца этой дороги.||Du hast das Ende dieses Weges erreicht.||Tu es arrivé au bout de cette route.||この道の頂に達した。||이 길의 끝에 도달했습니다.||Bu yolun sonuna ulaştın.
+Your blood: ||你的血脉：||Tu sangre: ||Seu sangue: ||Ваша кровь: ||Dein Blut: ||Ton sang : ||あなたの血：||당신의 혈통: ||Kanın: 
+Your pursuit (time away)||你的追寻（离线时）||Tu empeño (tiempo fuera)||Sua busca (tempo fora)||Ваше занятие (пока вас нет)||Dein Streben (während der Abwesenheit)||Ta quête (pendant l'absence)||あなたの探求（不在中）||당신의 추구(자리 비운 동안)||Arayışın (yokken)
+Your roster -- everyone who has travelled with you||你的名册——所有与你同行过的人||Tu lista: todos los que han viajado contigo||Seu rol: todos que viajaram com você||Ваш список — все, кто путешествовал с вами||Dein Verzeichnis – alle, die mit dir gereist sind||Ton registre : tous ceux qui ont voyagé avec toi||名簿——あなたと旅をした全員||명단 — 당신과 함께 여행한 모든 이||Listen -- seninle yolculuk eden herkes
+a cultivation dungeon crawl||一款修仙地下城冒险||un dungeon crawl de cultivación||um dungeon crawl de cultivo||данжен-кроулер о культивации||ein Kultivierungs-Dungeon-Crawler||un dungeon crawler de cultivation||修仙ダンジョンクロウル||수련 던전 크롤||bir gelişim zindan macerası
+change it in the village||请在村中更改||cámbialo en el pueblo||mude na vila||измените в деревне||ändere es im Dorf||change-le au village||村で変更してください||마을에서 바꾸세요||köyde değiştir
+fifty floors under Eliet -- the end of this road||艾利特之下五十层——这条路的尽头||cincuenta pisos bajo Eliet: el final de este camino||cinquenta andares sob Eliet: o fim deste caminho||пятьдесят этажей под Элиетом — конец этой дороги||fünfzig Ebenen unter Eliet – das Ende dieses Weges||cinquante étages sous Eliet : le bout de cette route||エリエットの下、五十層——この道の終わり||엘리엇 아래 쉰 개 층 — 이 길의 끝||Eliet'in altında elli kat -- bu yolun sonu
+following||追随中||siguiendo||seguindo||следую||folgend||suivi||歩み中||따르는 중||izleniyor
+new name||新名字||nuevo nombre||novo nome||новое имя||neuer Name||nouveau nom||新しい名前||새 이름||yeni ad
+the name of your dao||你的道之名||el nombre de tu dao||o nome do seu dao||название вашего Дао||der Name deines Dao||le nom de ton dao||あなたの道の名||당신의 도 이름||dao'nun adı
+to the next stage. Sitting and doing both grow it.||到下一阶段。打坐与行动都能使其增长。||para la siguiente etapa. Meditar y actuar lo hacen crecer.||para a próxima etapa. Meditar e agir o fazem crescer.||до следующей стадии. Растёт от медитации и от дел.||bis zur nächsten Stufe. Sitzen und Tun lassen ihn wachsen.||jusqu'à l'étape suivante. Méditer et agir le font croître.||次の段階まで。座禅も行動も道感を育てる。||다음 단계까지. 명상과 행동 모두 키워 줍니다.||sonraki aşamaya. Oturmak da yapmak da onu büyütür.
+worn||已穿戴||equipado||vestido||надето||getragen||porté||装備中||착용 중||giyili
+your name||你的名字||tu nombre||seu nome||ваше имя||dein Name||ton nom||あなたの名前||당신의 이름||adın
+(empty)||（空）||(vacío)||(vazio)||(пусто)||(leer)||(vide)||（空）||(비어 있음)||(boş)
+? Help||? 帮助||? Ayuda||? Ajuda||? Справка||? Hilfe||? Aide||? ヘルプ||? 도움말||? Yardım
+Close   Tab||关闭   Tab||Cerrar   Tab||Fechar   Tab||Закрыть   Tab||Schließen   Tab||Fermer   Tab||閉じる   Tab||닫기   Tab||Kapat   Tab
+Q / E switch   ·   Tab or Esc close||Q / E 切换   ·   Tab 或 Esc 关闭||Q / E cambiar   ·   Tab o Esc cerrar||Q / E trocar   ·   Tab ou Esc fechar||Q / E переключение   ·   Tab или Esc — закрыть||Q / E wechseln   ·   Tab oder Esc schließen||Q / E changer   ·   Tab ou Échap fermer||Q / E 切替   ·   Tab か Esc で閉じる||Q / E 전환   ·   Tab 또는 Esc 닫기||Q / E geçiş   ·   Tab veya Esc kapat

@@ -1,0 +1,185 @@
+{
+ "note": "The nanite swarm (Robert, 2026-10-02: nanites and cultivation 'separate and synergistic ... they should rise separately through their own unique uses'). Cultivation (qi, realms, the lattice) rises by meditation and kills; the swarm rises by being USED: heat you run through it, blows it hardens against, shards it absorbs, nanite work at the bench, overruns it survives. Game.gd round-21 block.",
+ "tiers": [
+  {
+   "name": "Nanite Seeding",
+   "need": 0
+  },
+  {
+   "name": "Nanite Bloom",
+   "need": 150
+  },
+  {
+   "name": "Nanite Lattice",
+   "need": 600
+  },
+  {
+   "name": "Nanite Core",
+   "need": 1800
+  },
+  {
+   "name": "Nanite Ascendance",
+   "need": 4500
+  },
+  {
+   "name": "Nanite Transcendence",
+   "need": 10000
+  },
+  {
+   "name": "Nanite Void",
+   "need": 20000
+  },
+  {
+   "name": "Nanite Union",
+   "need": 36000
+  },
+  {
+   "name": "Nanite Sea",
+   "need": 60000
+  },
+  {
+   "name": "Nanite Storm",
+   "need": 95000
+  },
+  {
+   "name": "Nanite Heaven",
+   "need": 140000
+  }
+ ],
+ "gain": {
+  "heat": 0.25,
+  "hot_mult": 2.0,
+  "block": 1.0,
+  "parry": 3.0,
+  "backlash": 15.0,
+  "craft_per_shard": 10.0,
+  "experiment": 10.0,
+  "absorb": {
+   "nanite_shard": 40,
+   "warden_core": 400
+  },
+  "per_point": 0.015
+ },
+ "per_tier": {
+  "heat_cap": 12,
+  "vent": 0.08,
+  "open_speed": 0.04,
+  "hp_mult": 0.015,
+  "damage_mult": 0.012,
+  "regen": 0.1,
+  "_note": "round 36: the swarm strengthens the body (health), the hand (damage) and mends (regen) a little more each tier"
+ },
+ "harmony": {
+  "band": 1,
+  "mult": 1.1,
+  "strain": 3,
+  "swarm_heat": 1.2,
+  "qi_cap": 0.85
+ },
+ "slots": [
+  [
+   1,
+   1
+  ],
+  [
+   3,
+   2
+  ],
+  [
+   5,
+   3
+  ],
+  [
+   8,
+   4
+  ]
+ ],
+ "augments": {
+  "coolant_weave": {
+   "name": "Coolant Weave",
+   "reagent": "moonpetal",
+   "desc": "Your nanites shed heat 30% faster.",
+   "hint": "Something cold and flowering, the old tinkers said, to teach the swarm to breathe out."
+  },
+  "kinetic_capacitor": {
+   "name": "Kinetic Capacitor",
+   "reagent": "ember_root",
+   "desc": "You run HOT from 60% heat, not 70%, and hot arts hit 5% harder still.",
+   "hint": "A root that holds a fire in it. The swarm learns to hold one too."
+  },
+  "dermal_plating": {
+   "name": "Dermal Plating",
+   "reagent": "iron_ore",
+   "desc": "Your guard lets 5% less through, and blocked blows heat you half as much.",
+   "hint": "Plain iron. The swarm has always wanted to be armour."
+  },
+  "reflex_mesh": {
+   "name": "Reflex Mesh",
+   "reagent": "goblin_tooth",
+   "desc": "Your parry window is 0.06 s wider.",
+   "hint": "Goblins are never where you swing. Something in them knows when to flinch."
+  },
+  "sensor_bloom": {
+   "name": "Sensor Bloom",
+   "reagent": "rough_jade",
+   "desc": "Hidden things glow for you within 8 m more -- even without Spirit Sense.",
+   "hint": "Jade listens. Teach the swarm to listen with it."
+  },
+  "qi_transducer": {
+   "name": "Qi Transducer",
+   "reagent": "spirit_resin",
+   "desc": "Heat you vent while meditating becomes qi (one for every five).",
+   "hint": "Resin is a tree's qi, set hard. The swarm could learn to set its own."
+  },
+  "marrow_forge": {
+   "name": "Marrow Forge",
+   "reagent": "bone_shard",
+   "desc": "In a fight, every 10 heat you vent mends 1% of your life.",
+   "hint": "The crypt dead are qi-stained to the bone. The swarm could live in yours."
+  },
+  "meridian_lance": {
+   "name": "Meridian Lance",
+   "reagent": "silver_ore",
+   "desc": "Each art you use pulls twice as hard at the next sealed point on its meridian.",
+   "hint": "Silver drinks qi. A swarm threaded with it would go where qi goes -- into the meridians."
+  }
+ },
+ "discoveries": {
+  "furnace_sitting": {
+   "name": "Furnace Sitting",
+   "how": "Sit to meditate while running hot.",
+   "desc": "Sitting while HOT, your focus point opens three times as fast and the swarm grows -- but the heat bleeds off slowly.",
+   "rumour": "The forge-monks never let their bodies cool before sitting. They said a hot vessel opens."
+  },
+  "moonwater_breath": {
+   "name": "Moonwater Breath",
+   "how": "Meditate near water at night.",
+   "desc": "At night, within a few steps of water, qi comes 30% faster as you sit.",
+   "rumour": "Fishermen who meditate do it after dark, by the water. Ask one why and they just smile."
+  },
+  "edge_running": {
+   "name": "Edge Running",
+   "how": "Hold above 85% heat in a fight for 15 seconds without a backlash.",
+   "desc": "Above 85% heat, in a fight, your swarm grows three times as fast.",
+   "rumour": "The bravest wardens ran their nanites at the edge of breaking. The ones who lived grew strange and strong."
+  },
+  "perfect_rhythm": {
+   "name": "Perfect Rhythm",
+   "how": "Parry three blows within six seconds.",
+   "desc": "Every third parry in a row vents all your heat and teaches the swarm (+20).",
+   "rumour": "A guard that never breaks becomes a kind of music. Three beats, they say, and then silence."
+  },
+  "shard_communion": {
+   "name": "Shard Communion",
+   "how": "Absorb a nanite shard while meditating.",
+   "desc": "Shards absorbed while you sit give twice as much.",
+   "rumour": "Don't just swallow the old machines' dust. Sit with it. Let it introduce itself."
+  },
+  "still_mind": {
+   "name": "Still Mind",
+   "how": "Sit unmoving for ten minutes in one sitting.",
+   "desc": "A long sitting no longer flows at half -- three quarters now.",
+   "rumour": "Everyone gets restless after a few minutes on the mat. The ones who don't get up find the second wind."
+  }
+ }
+}

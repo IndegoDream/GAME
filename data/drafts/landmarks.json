@@ -1,0 +1,92 @@
+{
+  "brief": "landmarks",
+  "title": "Landmarks of the valley",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "name": "Whispering Forge",
+      "kind": "workshop",
+      "where": "a windswept hilltop just north of Eliet, overlooking the valley",
+      "sight": "The Whispering Forge is an old, rusted workshop with twisted iron and strange symbols carved into the walls. Smoke curls from the stone chimneys, and the air is thick with the scent of burning metal and scorched earth.",
+      "secret": "Hidden in the forge's heart, ancient nanites whisper secrets of elemental transmutation to those who can hear."
+    },
+    {
+      "name": "Ironbellows Hollow",
+      "kind": "ruin",
+      "where": "east of Eliet, in a narrow gulch where the hills meet",
+      "sight": "Ancient ironwork lies rusted and twisted, once powerful machinery now stilled. The air is thick with the scent of earth and metal, a whisper of old industry.",
+      "secret": "Hidden beneath an iron boulder, a scroll detailing lost nanite patterns for Body Tempering"
+    },
+    {
+      "name": "Eldertree Hollow",
+      "kind": "grove",
+      "where": "southwest of Eliet, in a small dell",
+      "sight": "Ancient, gnarled trees form a dense canopy over a hidden clearing. A stone altar and crumbling totems hint at long-forgotten rituals.",
+      "secret": "Nanites in the soil mimic ancient cultivation techniques, granting a brief surge of qi to those who meditate here."
+    },
+    {
+      "name": "Silverstone Hollow",
+      "kind": "cave",
+      "where": "northwest of Eliet, near the forest's edge",
+      "sight": "The cave mouth is framed by a silver waterfall that pours into a shallow, reflective pool. A thin layer of ice clings to the cave's entrance, even in summer.",
+      "secret": "Inside, a glowing crystal core hums with the harmonics of qi and nanites, powering ancient automata."
+    },
+    {
+      "name": "Misty Cauldron",
+      "kind": "shrine",
+      "where": "on the eastern slope of the valley, hidden among the tall grasses and fog",
+      "sight": "The Misty Cauldron is a small shrine barely visible through the mist. It is marked by an old, rusted cauldron sitting atop a short stone pillar, encircled by a ring of jagged stones.",
+      "secret": "Hidden beneath the cauldron is a small compartment that opens with a specific phrase spoken in the ancient tongue. Inside, a vial containing a glowing green liquid, rumored to be the essence of a long-forgotten elemental spirit, is kept."
+    },
+    {
+      "name": "Ethereal Whisper",
+      "kind": "shrine",
+      "where": "on a windswept ridge east of Eliet",
+      "sight": "The Ethereal Whisper is a small shrine barely visible from the ground, surrounded by wind-bent trees and ancient stones. It seems to be the focus of whispers that echo through the valley, hinting at secrets long forgotten.",
+      "secret": "A hidden compartment in the shrine holds a jade amulet with the symbol of the Five Elements, said to aid in nanite tuning."
+    },
+    {
+      "name": "Moonwhisper Grove",
+      "kind": "grove",
+      "where": "north of Eliet, by the river bend",
+      "sight": "A quiet grove of old willows, their leaves shimmering silver in the moonlight, and a bubbling spring at the heart of the trees.",
+      "secret": "A hidden well in the grove's center, said to heal any wound with a sip of its water, but only visible at night under a full moon."
+    },
+    {
+      "name": "Sunken Relic",
+      "kind": "ruin",
+      "where": "at the base of a sunken lake in the eastern foothills",
+      "sight": "A partially submerged stone archway marks the entrance to an ancient ruin, its walls cracked but standing, surrounded by eerie, luminescent algae that glow with an otherworldly light.",
+      "secret": "Inside, nanites in the walls whisper forgotten knowledge to the initiated, offering a glimpse into the elemental balance and the lost art of alchemy."
+    },
+    {
+      "name": "Glimmering Pillar",
+      "kind": "ruin",
+      "where": "northwest of Eliet, near the border of the hills",
+      "sight": "A towering pillar of luminescent stone, partially submerged in a small lake. Ancient carvings cover its surface, depicting a dance of elemental symbols and strange, microscopic machines.",
+      "secret": "The pillar hides a secret chamber where nanites from ancient times can still be harvested, granting immense power to any cultivator who knows how to tap into them."
+    },
+    {
+      "name": "Tumbledown Tower",
+      "kind": "ruin",
+      "where": "on a windswept ridge to the northwest of Eliet",
+      "sight": "The Tumbledown Tower, a relic of an ancient era, stands solitary and broken on a ridge overlooking the valley. Wind whispers through its shattered walls and broken windows, carrying stories of its past.",
+      "secret": "Hidden within the base of the tower lies a chamber filled with dormant nanite cores, waiting for the right cultivator to awaken them."
+    },
+    {
+      "name": "Crystal Spring",
+      "kind": "cave",
+      "where": "north of Eliet, at the base of a steep hill",
+      "sight": "A sparkling pool fed by a small underground stream. The water shines with a faint, iridescent glow.",
+      "secret": "A hidden alcove houses a cluster of nanites in crystalline form, pulsing with elemental energies."
+    },
+    {
+      "name": "Gale's Rest",
+      "kind": "tomb",
+      "where": "near the base of the eastern hills, slightly uphill from the valley floor",
+      "sight": "A small, weathered stone structure overlooks the valley. It is covered in moss and lichen, and the entrance is sealed with a heavy stone slab.",
+      "secret": "Under the slab lies a nanite-seeded gem, glowing faintly with elemental energy."
+    }
+  ]
+}

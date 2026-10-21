@@ -1,0 +1,78 @@
+{
+  "brief": "pursuit_moments",
+  "title": "Little moments while the character works alone (meditating, training, gathering, crafting)",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "c_1": {
+        "text": "You find a perfect shard of mithril, its blue glint catching the torchlight."
+      }
+    },
+    {
+      "c_2": {
+        "text": "You find the right combination of minerals to temper the blade, sparks flying in a cold dawn."
+      }
+    },
+    {
+      "c_3": {
+        "text": "You smooth the last edge of the jade pendant, feeling the coolness of your work."
+      }
+    },
+    {
+      "id": "g_2",
+      "text": "You find a glowing emerald embedded in the wall, its light dancing with the flicker of your torch."
+    },
+    {
+      "c_2": {
+        "text": "You hammer out a chime, its tone resonant with inner peace."
+      }
+    },
+    {
+      "c_3": {
+        "text": "You smooth the final edges on a set of iron armor, feeling the cold metal warm under your practiced hands."
+      }
+    },
+    {
+      "c_2": {
+        "text": "You hammer out a sturdy blade, the heat from the forge seeping into your bones."
+      }
+    },
+    {},
+    {
+      "id": "m_3",
+      "text": "Your breath mists in the cold as you sit beneath the stone arch, feeling the nanites hum quietly inside your blood."
+    },
+    {
+      "id": "m_1",
+      "text": "The cold wind bites your cheeks as you meditate by the fire."
+    },
+    {
+      "id": null,
+      "text": "Mist rolls thick over Eliet valley, hiding the path to the sleeping tortoise beneath Shellhaven."
+    },
+    {
+      "id": "m_2",
+      "text": "You sit with Elder Mo, breathing slow while nanites in your blood warm your skin."
+    },
+    {
+      "id": "m_1",
+      "text": "You sit in silence while your blood hums quietly."
+    },
+    {
+      "id": "m_1",
+      "text": "The frost on your eyelashes melts as you hold still, feeling the nanites in your blood settle into a quiet rhythm."
+    },
+    {
+      "id": "m_1",
+      "text": "You sit in the cold dark and tune your nanites to feel the sleeping tortoise's heartbeat."
+    },
+    {
+      "m_1": "The cold wind bites Eliet's cheeks as you finish your morning meditation.",
+      "t_1": "Your sword feels heavier today, the steel humming faintly with nanite heat.",
+      "g_1": "You found three water lilies near the stream where the elders say they grow.",
+      "c_1": "Smith Hale hammered the iron ring until it matched the shape of your palm."
+    }
+  ],
+  "helped": []
+}

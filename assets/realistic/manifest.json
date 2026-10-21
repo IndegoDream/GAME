@@ -1,0 +1,470 @@
+{
+ "Lantern_01": {
+  "authors": [
+   "Rajil Jose Macatangay"
+  ],
+  "bytes": 1420416,
+  "license": "CC0",
+  "name": "Lantern 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/Lantern_01"
+ },
+ "WoodenChair_01": {
+  "authors": [
+   "Jake Mobley"
+  ],
+  "bytes": 1079531,
+  "license": "CC0",
+  "name": "Wooden Chair 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/WoodenChair_01"
+ },
+ "WoodenTable_01": {
+  "authors": [
+   "Ethan Place"
+  ],
+  "bytes": 554348,
+  "license": "CC0",
+  "name": "Wooden Table 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/WoodenTable_01"
+ },
+ "antique_ceramic_vase_01": {
+  "authors": [
+   "James Ray Cock"
+  ],
+  "bytes": 525941,
+  "license": "CC0",
+  "name": "Antique Ceramic Vase 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/antique_ceramic_vase_01"
+ },
+ "antique_katana_01": {
+  "authors": [
+   "Tal Swicegood"
+  ],
+  "bytes": 647055,
+  "license": "CC0",
+  "name": "Antique Katana 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/antique_katana_01"
+ },
+ "boulder_01": {
+  "authors": [
+   "Rico Cilliers"
+  ],
+  "bytes": 5771986,
+  "license": "CC0",
+  "name": "Boulder 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/boulder_01"
+ },
+ "brass_pot_01": {
+  "authors": [
+   "Rico Cilliers"
+  ],
+  "bytes": 1523474,
+  "license": "CC0",
+  "name": "Brass Pot 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/brass_pot_01"
+ },
+ "ceramic_pot": {
+  "authors": [
+   "Aron \u0141yczek"
+  ],
+  "bytes": 1641542,
+  "license": "CC0",
+  "name": "Ceramic Pot",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/ceramic_pot"
+ },
+ "ceramic_vase_01": {
+  "authors": [
+   "James Ray Cock"
+  ],
+  "bytes": 418457,
+  "license": "CC0",
+  "name": "Ceramic Vase 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/ceramic_vase_01"
+ },
+ "chinese_stool": {
+  "authors": [
+   "Kirill Sannikov"
+  ],
+  "bytes": 1793116,
+  "license": "CC0",
+  "name": "Chinese Stool",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/chinese_stool"
+ },
+ "chinese_tea_table": {
+  "authors": [
+   "Kirill Sannikov"
+  ],
+  "bytes": 1581290,
+  "license": "CC0",
+  "name": "Chinese Tea Table",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/chinese_tea_table"
+ },
+ "dead_tree_trunk": {
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "bytes": 4787539,
+  "license": "CC0",
+  "name": "Dead Tree Trunk",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/dead_tree_trunk"
+ },
+ "dead_tree_trunk_02": {
+  "authors": [
+   "Jenelle van Heerden",
+   "Rico Cilliers"
+  ],
+  "bytes": 4906925,
+  "license": "CC0",
+  "name": "Dead Tree Trunk 02",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/dead_tree_trunk_02"
+ },
+ "fern_02": {
+  "authors": [
+   "Rob Tuytel",
+   "Rico Cilliers"
+  ],
+  "bytes": 1146361,
+  "license": "CC0",
+  "name": "Fern 02",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/fern_02"
+ },
+ "gothic_statue": {
+  "authors": [
+   "Benny Weimer"
+  ],
+  "bytes": 3978633,
+  "license": "CC0",
+  "name": "Gothic Statue",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/gothic_statue"
+ },
+ "grass_medium_01": {
+  "authors": [
+   "Rob Tuytel",
+   "Rico Cilliers"
+  ],
+  "bytes": 3065099,
+  "license": "CC0",
+  "name": "Grass Medium 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/grass_medium_01"
+ },
+ "jug_01": {
+  "authors": [
+   "Kuutti Siitonen"
+  ],
+  "bytes": 1227735,
+  "license": "CC0",
+  "name": "Jug 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/jug_01"
+ },
+ "kite_shield": {
+  "authors": [
+   "Ulan Cabanilla"
+  ],
+  "bytes": 3817680,
+  "license": "CC0",
+  "name": "Kite Shield",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/kite_shield"
+ },
+ "marble_bust_01": {
+  "authors": [
+   "Rico Cilliers"
+  ],
+  "bytes": 898283,
+  "license": "CC0",
+  "name": "Marble Bust 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/marble_bust_01"
+ },
+ "moss_01": {
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "bytes": 921103,
+  "license": "CC0",
+  "name": "Moss 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/moss_01"
+ },
+ "namaqualand_boulder_02": {
+  "authors": [
+   "Greg Zaal",
+   "Rico Cilliers"
+  ],
+  "bytes": 5139304,
+  "license": "CC0",
+  "name": "Namaqualand Boulder 02",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/namaqualand_boulder_02"
+ },
+ "namaqualand_stones_01": {
+  "authors": [
+   "Greg Zaal",
+   "Jenelle van Heerden"
+  ],
+  "bytes": 4154858,
+  "license": "CC0",
+  "name": "Namaqualand Stones 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/namaqualand_stones_01"
+ },
+ "nettle_plant": {
+  "authors": [
+   "Rob Tuytel",
+   "Rico Cilliers"
+  ],
+  "bytes": 2477565,
+  "license": "CC0",
+  "name": "Nettle Plant",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/nettle_plant"
+ },
+ "old_bed_frame": {
+  "authors": [
+   "Luca B"
+  ],
+  "bytes": 4041628,
+  "license": "CC0",
+  "name": "Old Bed Frame",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/old_bed_frame"
+ },
+ "rock_07": {
+  "authors": [
+   "Jenelle van Heerden"
+  ],
+  "bytes": 2184088,
+  "license": "CC0",
+  "name": "Rock 07",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/rock_07"
+ },
+ "rock_09": {
+  "authors": [
+   "Jenelle van Heerden"
+  ],
+  "bytes": 1964421,
+  "license": "CC0",
+  "name": "Rock 09",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/rock_09"
+ },
+ "rock_moss_set_01": {
+  "authors": [
+   "Kless Gyzen"
+  ],
+  "bytes": 1937065,
+  "license": "CC0",
+  "name": "Rock Moss Set 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/rock_moss_set_01"
+ },
+ "rock_moss_set_02": {
+  "authors": [
+   "Kless Gyzen"
+  ],
+  "bytes": 1942240,
+  "license": "CC0",
+  "name": "Rock Moss Set 02",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/rock_moss_set_02"
+ },
+ "shrub_01": {
+  "authors": [
+   "Rico Cilliers"
+  ],
+  "bytes": 6877527,
+  "license": "CC0",
+  "name": "Shrub 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/shrub_01"
+ },
+ "shrub_02": {
+  "authors": [
+   "Rico Cilliers"
+  ],
+  "bytes": 1966425,
+  "license": "CC0",
+  "name": "Shrub 02",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/shrub_02"
+ },
+ "shrub_04": {
+  "authors": [
+   "Rico Cilliers"
+  ],
+  "bytes": 1907514,
+  "license": "CC0",
+  "name": "Shrub 04",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/shrub_04"
+ },
+ "stone_01": {
+  "authors": [
+   "Dario Barresi",
+   "Rico Cilliers"
+  ],
+  "bytes": 3724420,
+  "license": "CC0",
+  "name": "Stone 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/stone_01"
+ },
+ "stone_fire_pit": {
+  "authors": [
+   "Sebastian Platen"
+  ],
+  "bytes": 2535945,
+  "license": "CC0",
+  "name": "Stone Fire Pit",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/stone_fire_pit"
+ },
+ "treasure_chest": {
+  "authors": [
+   "Rico Cilliers"
+  ],
+  "bytes": 5483750,
+  "license": "CC0",
+  "name": "Treasure Chest",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/treasure_chest"
+ },
+ "tree_stump_01": {
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "bytes": 3939674,
+  "license": "CC0",
+  "name": "Tree Stump 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/tree_stump_01"
+ },
+ "tree_stump_02": {
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "bytes": 4469340,
+  "license": "CC0",
+  "name": "Tree Stump 02",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/tree_stump_02"
+ },
+ "vintage_oil_lamp": {
+  "authors": [
+   "Monsta3D"
+  ],
+  "bytes": 2070002,
+  "license": "CC0",
+  "name": "Vintage Oil Lamp",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/vintage_oil_lamp"
+ },
+ "weed_plant_02": {
+  "authors": [
+   "Rob Tuytel",
+   "Rico Cilliers"
+  ],
+  "bytes": 2048459,
+  "license": "CC0",
+  "name": "Weed Plant 02",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/weed_plant_02"
+ },
+ "wine_barrel_01": {
+  "authors": [
+   "James Ray Cock"
+  ],
+  "bytes": 924683,
+  "license": "CC0",
+  "name": "Wine Barrel 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/wine_barrel_01"
+ },
+ "wooden_barrels_01": {
+  "authors": [
+   "James Ray Cock"
+  ],
+  "bytes": 7490847,
+  "license": "CC0",
+  "name": "Wooden Barrels 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/wooden_barrels_01"
+ },
+ "wooden_bookshelf_worn": {
+  "authors": [
+   "Ulan Cabanilla"
+  ],
+  "bytes": 2777194,
+  "license": "CC0",
+  "name": "Wooden Bookshelf Worn",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/wooden_bookshelf_worn"
+ },
+ "wooden_bowl_01": {
+  "authors": [
+   "Oliver Harries"
+  ],
+  "bytes": 1823237,
+  "license": "CC0",
+  "name": "Wooden Bowl 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/wooden_bowl_01"
+ },
+ "wooden_bucket_01": {
+  "authors": [
+   "James Ray Cock"
+  ],
+  "bytes": 2331642,
+  "license": "CC0",
+  "name": "Wooden Bucket 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/wooden_bucket_01"
+ },
+ "wooden_crate_01": {
+  "authors": [
+   "James Ray Cock"
+  ],
+  "bytes": 2277087,
+  "license": "CC0",
+  "name": "Wooden Crate 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/wooden_crate_01"
+ },
+ "wooden_handle_saber": {
+  "authors": [
+   "Ulan Cabanilla"
+  ],
+  "bytes": 1820022,
+  "license": "CC0",
+  "name": "Wooden Handle Saber",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/wooden_handle_saber"
+ },
+ "wooden_lantern_01": {
+  "authors": [
+   "James Ray Cock"
+  ],
+  "bytes": 3768780,
+  "license": "CC0",
+  "name": "Wooden Lantern 01",
+  "res": "1k",
+  "source": "https://polyhaven.com/a/wooden_lantern_01"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "_note": "Round 57 (the loophole hunt): a trader never pays more for a made thing than the cheapest it could ever be made from bought materials -- otherwise buy materials, craft, sell is free gold forever (the audit found piston hammers and gearplate made from shop-bought brass cogs and oil selling for up to three times their cost, and iron chests forged from bought ore). cheapest_buy_factor: a shop's price is value x2, x0.85 when you're Revered, x0.85 for a story's debt repaid, x0.8 on a festival's best day = 1.156 of value at the very least. made_sell_cap: what share of that a trader will pay. Crafting and forging still add value -- for wearing; what you gather yourself still sells at its worth.",
+ "cheapest_buy_factor": 1.156,
+ "made_sell_cap": 0.9,
+ "insight_daily_caps": {
+  "elite_kill": 5,
+  "duel_won": 6
+ },
+ "_note_insight": "Round 57: insight (comprehension, for breaking through) from things that come back -- elites respawn with their floor, rivals walk the road every day -- stops after this much in a day. New things (a stele, a discovery, a first tower floor) are never capped."
+}

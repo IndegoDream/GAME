@@ -1,0 +1,868 @@
+{
+  "note": "Round 27 (Claude, 2026-10-03): what you can wear, slot by slot, and what it can be made of. Robert: 'an actual inventory with an equipment dummy ... 4 rings per hand, one bracelet on each wrist, one choker, one necklace, 2 toe rings, boots, greaves, pauldrons, gloves, vambraces, gauntlets, chest, pants, under-armour, robes that can be on the outside of armour, cape and cowl. These items can be nano tech or crafted or both.' Game.gd generates the catalogue (g_<stock>_<family>) from this; nothing here is forge-written.",
+  "slots": [
+    [
+      "weapon",
+      "Weapon",
+      "weapon",
+      "hand"
+    ],
+    [
+      "cowl",
+      "Cowl",
+      "cowl",
+      "head"
+    ],
+    [
+      "choker",
+      "Choker",
+      "choker",
+      "neck"
+    ],
+    [
+      "necklace",
+      "Necklace",
+      "necklace",
+      "neck"
+    ],
+    [
+      "cape",
+      "Cape",
+      "cape",
+      "back"
+    ],
+    [
+      "pauldrons",
+      "Pauldrons",
+      "pauldrons",
+      "shoulders"
+    ],
+    [
+      "robe",
+      "Robe (over armour)",
+      "robe",
+      "outer"
+    ],
+    [
+      "chest",
+      "Chest",
+      "armor",
+      "body"
+    ],
+    [
+      "underarmour",
+      "Under-armour",
+      "underarmour",
+      "body"
+    ],
+    [
+      "vambraces",
+      "Vambraces",
+      "vambraces",
+      "arms"
+    ],
+    [
+      "bracelet_l",
+      "Left bracelet",
+      "bracelet",
+      "arms"
+    ],
+    [
+      "bracelet_r",
+      "Right bracelet",
+      "bracelet",
+      "arms"
+    ],
+    [
+      "gloves",
+      "Gloves",
+      "gloves",
+      "hands"
+    ],
+    [
+      "gauntlets",
+      "Gauntlets",
+      "gauntlets",
+      "hands"
+    ],
+    [
+      "ring_l1",
+      "Left index ring",
+      "ring",
+      "hands"
+    ],
+    [
+      "ring_l2",
+      "Left middle ring",
+      "ring",
+      "hands"
+    ],
+    [
+      "ring_l3",
+      "Left ring-finger ring",
+      "ring",
+      "hands"
+    ],
+    [
+      "ring_l4",
+      "Left little-finger ring",
+      "ring",
+      "hands"
+    ],
+    [
+      "ring_r1",
+      "Right index ring",
+      "ring",
+      "hands"
+    ],
+    [
+      "ring_r2",
+      "Right middle ring",
+      "ring",
+      "hands"
+    ],
+    [
+      "ring_r3",
+      "Right ring-finger ring",
+      "ring",
+      "hands"
+    ],
+    [
+      "ring_r4",
+      "Right little-finger ring",
+      "ring",
+      "hands"
+    ],
+    [
+      "pants",
+      "Pants",
+      "pants",
+      "legs"
+    ],
+    [
+      "greaves",
+      "Greaves",
+      "greaves",
+      "legs"
+    ],
+    [
+      "boots",
+      "Boots",
+      "boots",
+      "feet"
+    ],
+    [
+      "toering_l",
+      "Left toe ring",
+      "toering",
+      "feet"
+    ],
+    [
+      "toering_r",
+      "Right toe ring",
+      "toering",
+      "feet"
+    ],
+    [
+      "mask",
+      "Mask",
+      "mask",
+      "face"
+    ]
+  ],
+  "families": {
+    "cowl": {
+      "name": "Cowl",
+      "kind": "wear",
+      "share": 0.08,
+      "ward": 0.6,
+      "weight": 0.8,
+      "needs": 2,
+      "classes": [
+        "cloth",
+        "leather",
+        "nanoweave"
+      ]
+    },
+    "cape": {
+      "name": "Cape",
+      "kind": "wear",
+      "share": 0.04,
+      "ward": 0.3,
+      "weight": 1.2,
+      "needs": 2,
+      "classes": [
+        "cloth",
+        "leather",
+        "nanoweave"
+      ]
+    },
+    "pauldrons": {
+      "name": "Pauldrons",
+      "kind": "wear",
+      "share": 0.15,
+      "ward": 1.6,
+      "weight": 3.5,
+      "needs": 3,
+      "classes": [
+        "leather",
+        "metal",
+        "bone",
+        "jade",
+        "lattice",
+        "shell"
+      ]
+    },
+    "robe": {
+      "name": "Robe",
+      "kind": "wear",
+      "share": 0.08,
+      "ward": 0.4,
+      "weight": 1.8,
+      "needs": 3,
+      "classes": [
+        "cloth",
+        "nanoweave"
+      ]
+    },
+    "armor": {
+      "name": "Chest",
+      "kind": "wear",
+      "share": 1.0,
+      "ward": 3.0,
+      "weight": 7.0,
+      "needs": 5,
+      "classes": [
+        "cloth",
+        "leather",
+        "metal",
+        "bone",
+        "jade",
+        "nanoweave",
+        "lattice",
+        "shell"
+      ]
+    },
+    "underarmour": {
+      "name": "Under-armour",
+      "kind": "wear",
+      "share": 0.1,
+      "ward": 0.6,
+      "weight": 1.2,
+      "needs": 2,
+      "classes": [
+        "cloth",
+        "leather",
+        "nanoweave"
+      ]
+    },
+    "vambraces": {
+      "name": "Vambraces",
+      "kind": "wear",
+      "share": 0.08,
+      "ward": 0.9,
+      "weight": 1.5,
+      "needs": 2,
+      "classes": [
+        "leather",
+        "metal",
+        "bone",
+        "jade",
+        "lattice",
+        "shell"
+      ]
+    },
+    "gloves": {
+      "name": "Gloves",
+      "kind": "wear",
+      "share": 0.05,
+      "ward": 0.3,
+      "weight": 0.4,
+      "needs": 1,
+      "classes": [
+        "cloth",
+        "leather",
+        "nanoweave"
+      ]
+    },
+    "gauntlets": {
+      "name": "Gauntlets",
+      "kind": "wear",
+      "share": 0.12,
+      "ward": 1.2,
+      "weight": 2.2,
+      "needs": 2,
+      "classes": [
+        "metal",
+        "bone",
+        "jade",
+        "lattice",
+        "shell"
+      ]
+    },
+    "pants": {
+      "name": "Pants",
+      "kind": "wear",
+      "share": 0.1,
+      "ward": 0.6,
+      "weight": 1.4,
+      "needs": 2,
+      "classes": [
+        "cloth",
+        "leather",
+        "nanoweave"
+      ]
+    },
+    "greaves": {
+      "name": "Greaves",
+      "kind": "wear",
+      "share": 0.14,
+      "ward": 1.4,
+      "weight": 3.0,
+      "needs": 3,
+      "classes": [
+        "leather",
+        "metal",
+        "bone",
+        "jade",
+        "lattice",
+        "shell"
+      ]
+    },
+    "boots": {
+      "name": "Boots",
+      "kind": "wear",
+      "share": 0.1,
+      "ward": 0.8,
+      "weight": 1.8,
+      "needs": 2,
+      "classes": [
+        "leather",
+        "metal",
+        "nanoweave",
+        "lattice"
+      ]
+    },
+    "ring": {
+      "name": "Ring",
+      "kind": "jewel",
+      "weight": 0.02,
+      "needs": 1,
+      "power": 1.0
+    },
+    "toering": {
+      "name": "Toe ring",
+      "kind": "jewel",
+      "weight": 0.02,
+      "needs": 1,
+      "power": 0.7
+    },
+    "bracelet": {
+      "name": "Bracelet",
+      "kind": "jewel",
+      "weight": 0.1,
+      "needs": 1,
+      "power": 1.2
+    },
+    "choker": {
+      "name": "Choker",
+      "kind": "jewel",
+      "weight": 0.05,
+      "needs": 1,
+      "power": 1.1
+    },
+    "necklace": {
+      "name": "Necklace",
+      "kind": "jewel",
+      "weight": 0.08,
+      "needs": 1,
+      "power": 1.4
+    },
+    "mask": {
+      "name": "Mask",
+      "kind": "wear",
+      "share": 0.05,
+      "ward": 0.4,
+      "weight": 0.3,
+      "needs": 2,
+      "classes": [
+        "bone",
+        "jade",
+        "nanoweave"
+      ]
+    }
+  },
+  "classes": {
+    "cloth": {
+      "name": "cloth",
+      "hp": 0.7,
+      "ward": 0.45,
+      "weight": 0.4,
+      "make": "crafted",
+      "skill": "jewelcrafting",
+      "look": "cloth"
+    },
+    "leather": {
+      "name": "leather",
+      "hp": 0.9,
+      "ward": 0.8,
+      "weight": 0.7,
+      "make": "crafted",
+      "skill": "smithing",
+      "look": "leather"
+    },
+    "metal": {
+      "name": "metal",
+      "hp": 1.0,
+      "ward": 1.3,
+      "weight": 1.4,
+      "make": "crafted",
+      "skill": "smithing",
+      "look": "metal"
+    },
+    "bone": {
+      "name": "bone",
+      "hp": 1.0,
+      "ward": 1.0,
+      "weight": 1.0,
+      "make": "crafted",
+      "skill": "smithing",
+      "look": "bone"
+    },
+    "jade": {
+      "name": "jade",
+      "hp": 0.9,
+      "ward": 1.05,
+      "weight": 1.1,
+      "make": "crafted",
+      "skill": "jewelcrafting",
+      "look": "jade"
+    },
+    "nanoweave": {
+      "name": "nanoweave",
+      "hp": 0.95,
+      "ward": 0.8,
+      "weight": 0.25,
+      "make": "nano",
+      "skill": "jewelcrafting",
+      "look": "nanoweave",
+      "node": "filament_spinning"
+    },
+    "lattice": {
+      "name": "lattice plate",
+      "hp": 1.1,
+      "ward": 1.35,
+      "weight": 0.5,
+      "make": "nano",
+      "skill": "smithing",
+      "look": "lattice",
+      "node": "lattice_plating"
+    },
+    "shell": {
+      "name": "swarm-shell",
+      "hp": 1.25,
+      "ward": 1.6,
+      "weight": 0.45,
+      "make": "nano",
+      "skill": "smithing",
+      "look": "shell",
+      "node": "swarm_shell"
+    }
+  },
+  "stocks": {
+    "iron_thistle": {
+      "name": "Thistle-cloth",
+      "class": "cloth",
+      "tier": 1,
+      "color": [
+        0.6,
+        0.57,
+        0.48
+      ]
+    },
+    "thistle_linen": {
+      "name": "Linen",
+      "class": "cloth",
+      "tier": 3,
+      "color": [
+        0.84,
+        0.8,
+        0.7
+      ]
+    },
+    "mycelium_thread": {
+      "name": "Mycelium-weave",
+      "class": "cloth",
+      "tier": 13,
+      "color": [
+        0.88,
+        0.86,
+        0.8
+      ]
+    },
+    "spirit_silk": {
+      "name": "Spirit Silk",
+      "class": "cloth",
+      "tier": 21,
+      "color": [
+        0.75,
+        0.82,
+        0.95
+      ]
+    },
+    "dreamsilk": {
+      "name": "Dreamsilk",
+      "class": "cloth",
+      "tier": 24,
+      "color": [
+        0.8,
+        0.7,
+        0.95
+      ]
+    },
+    "beast_hide": {
+      "name": "Hide",
+      "class": "leather",
+      "tier": 1,
+      "color": [
+        0.45,
+        0.32,
+        0.2
+      ]
+    },
+    "living_leather": {
+      "name": "Living Leather",
+      "class": "leather",
+      "tier": 8,
+      "color": [
+        0.42,
+        0.3,
+        0.18
+      ]
+    },
+    "crimson_bark": {
+      "name": "Barkleather",
+      "class": "leather",
+      "tier": 12,
+      "color": [
+        0.55,
+        0.22,
+        0.15
+      ]
+    },
+    "dragonhide": {
+      "name": "Dragonhide",
+      "class": "leather",
+      "tier": 18,
+      "color": [
+        0.35,
+        0.28,
+        0.22
+      ]
+    },
+    "iron_ore": {
+      "name": "Iron",
+      "class": "metal",
+      "tier": 1,
+      "color": [
+        0.5,
+        0.5,
+        0.52
+      ]
+    },
+    "silver_ore": {
+      "name": "Silver",
+      "class": "metal",
+      "tier": 3,
+      "color": [
+        0.78,
+        0.8,
+        0.84
+      ]
+    },
+    "slag_iron": {
+      "name": "Slag-iron",
+      "class": "metal",
+      "tier": 6,
+      "color": [
+        0.25,
+        0.24,
+        0.24
+      ]
+    },
+    "tempered_steel": {
+      "name": "Tempered Steel",
+      "class": "metal",
+      "tier": 7,
+      "color": [
+        0.62,
+        0.64,
+        0.68
+      ]
+    },
+    "grave_steel": {
+      "name": "Grave Steel",
+      "class": "metal",
+      "tier": 9,
+      "color": [
+        0.42,
+        0.44,
+        0.5
+      ]
+    },
+    "ember_alloy": {
+      "name": "Ember Alloy",
+      "class": "metal",
+      "tier": 11,
+      "color": [
+        0.5,
+        0.3,
+        0.22
+      ]
+    },
+    "thunder_iron": {
+      "name": "Thunder-iron",
+      "class": "metal",
+      "tier": 16,
+      "color": [
+        0.4,
+        0.45,
+        0.6
+      ]
+    },
+    "star_iron": {
+      "name": "Star-iron",
+      "class": "metal",
+      "tier": 18,
+      "color": [
+        0.3,
+        0.32,
+        0.4
+      ]
+    },
+    "starsteel": {
+      "name": "Starsteel",
+      "class": "metal",
+      "tier": 22,
+      "color": [
+        0.55,
+        0.58,
+        0.72
+      ]
+    },
+    "bone_shard": {
+      "name": "Bone",
+      "class": "bone",
+      "tier": 2,
+      "color": [
+        0.85,
+        0.82,
+        0.72
+      ]
+    },
+    "bone_lacquer": {
+      "name": "Lacquered Bone",
+      "class": "bone",
+      "tier": 5,
+      "color": [
+        0.7,
+        0.5,
+        0.3
+      ]
+    },
+    "coral_bone": {
+      "name": "Coral-bone",
+      "class": "bone",
+      "tier": 11,
+      "color": [
+        0.9,
+        0.62,
+        0.55
+      ]
+    },
+    "sunbaked_bone": {
+      "name": "Sunbaked Bone",
+      "class": "bone",
+      "tier": 23,
+      "color": [
+        0.95,
+        0.9,
+        0.78
+      ]
+    },
+    "rough_jade": {
+      "name": "Jade",
+      "class": "jade",
+      "tier": 4,
+      "color": [
+        0.35,
+        0.65,
+        0.45
+      ]
+    },
+    "emperor_jade": {
+      "name": "Emperor Jade",
+      "class": "jade",
+      "tier": 9,
+      "color": [
+        0.15,
+        0.45,
+        0.28
+      ]
+    },
+    "cloud_jade": {
+      "name": "Cloud Jade",
+      "class": "jade",
+      "tier": 13,
+      "color": [
+        0.75,
+        0.9,
+        0.85
+      ]
+    },
+    "nanoweave_thread": {
+      "name": "Nanoweave",
+      "class": "nanoweave",
+      "tier": 6,
+      "color": [
+        0.25,
+        0.3,
+        0.35
+      ]
+    },
+    "lattice_alloy": {
+      "name": "Lattice",
+      "class": "lattice",
+      "tier": 8,
+      "color": [
+        0.32,
+        0.36,
+        0.42
+      ]
+    },
+    "storm_filament": {
+      "name": "Storm-lattice",
+      "class": "lattice",
+      "tier": 16,
+      "color": [
+        0.3,
+        0.35,
+        0.55
+      ]
+    },
+    "swarm_core_lattice": {
+      "name": "Swarm-shell",
+      "class": "shell",
+      "tier": 14,
+      "color": [
+        0.18,
+        0.22,
+        0.26
+      ]
+    }
+  },
+  "jewel_metals": {
+    "iron_ore": {
+      "name": "Iron",
+      "potency": 0.7,
+      "color": [
+        0.5,
+        0.5,
+        0.52
+      ]
+    },
+    "silver_ore": {
+      "name": "Silver",
+      "potency": 1.0,
+      "color": [
+        0.82,
+        0.84,
+        0.88
+      ]
+    },
+    "gold_nugget": {
+      "name": "Gold",
+      "potency": 1.25,
+      "color": [
+        0.95,
+        0.78,
+        0.3
+      ]
+    },
+    "moonsilver": {
+      "name": "Moonsilver",
+      "potency": 1.45,
+      "color": [
+        0.8,
+        0.85,
+        1.0
+      ]
+    },
+    "mirror_silver": {
+      "name": "Mirror-silver",
+      "potency": 1.6,
+      "color": [
+        0.92,
+        0.94,
+        0.98
+      ]
+    },
+    "star_iron": {
+      "name": "Star-iron",
+      "potency": 1.7,
+      "color": [
+        0.3,
+        0.32,
+        0.4
+      ]
+    },
+    "nanite_shard": {
+      "name": "Circuit",
+      "potency": 1.35,
+      "color": [
+        0.3,
+        0.75,
+        0.8
+      ],
+      "nano": true,
+      "node": "micro_circuitry"
+    }
+  },
+  "jewel_gems": [
+    "rough_jade",
+    "rough_ruby",
+    "sapphire_shard",
+    "abyssal_pearl",
+    "storm_glass",
+    "singing_crystal",
+    "firestone",
+    "glowfin_eel",
+    "emperor_jade",
+    "true_reflection"
+  ],
+  "weight": {
+    "carry": 22.0,
+    "per_realm": 9.0,
+    "per_step": 0.6,
+    "slow": 0.25,
+    "note": "over what you can carry, you move and swing slower -- up to 25%; cultivation makes you stronger"
+  },
+  "ward_k": 200.0,
+  "items": {
+    "new_item_id": {
+      "name": "New Item",
+      "type": "equipment",
+      "stats": {
+        "attack": 10,
+        "defense": 5
+      }
+    }
+  },
+  "new_item": {
+    "id": "new_consumable",
+    "name": "New Consumable",
+    "type": "consumable",
+    "desc": "A newly added consumable item.",
+    "quality": 1
+  }
+}

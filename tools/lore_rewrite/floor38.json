@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "Grit on the Rails",
+  "text": "The crater stair is slick with iron dust. Wipe your hands; wipe your boots. A man named Garrett slipped here in the first year and the Lodge still says his name."
+ },
+ "Y": {
+  "title": "Foreman's Rule, Main Shaft",
+  "text": "Three whistles means leave the shaft. One means collapse; the shaft is twenty paces wide and nothing holds the roof but luck. Keep to the carts, not the wall."
+ },
+ "R": {
+  "title": "Astronomer's Note",
+  "text": "A star fell here and the iron in it was alive with weight. Eat a little of the dust, the old miners said, and the body forges itself. It is a bad idea; the right way is breath and patience."
+ },
+ "G": {
+  "title": "Ore Cart Tally",
+  "text": "Fourteen carts full on day one. Nine on day thirty. Two on day sixty; we dug right up to the shaft and found nothing after; the seam was gone; perhaps the star took it back."
+ },
+ "M": {
+  "title": "Golem Pit Warning",
+  "text": "The golems are the miners' own; they were built to carry. Something told them to stop carrying and start crushing. They do not tire; fight near the exits."
+ },
+ "O": {
+  "title": "The Miners' Chapel",
+  "text": "A small chapel with a bell, no clapper; the miners prayed here before a shift. Candle stubs by the hundred; light one if you like. It costs nothing, and the next delver will be glad of the light."
+ },
+ "U": {
+  "title": "Starlight Scriptorium",
+  "text": "The astronomers copied the sky onto the walls, each dot a star in its place. The pattern ends at the Heart. Fewer dots than there should be; they stopped counting."
+ },
+ "X": {
+  "title": "The Last Seam",
+  "text": "Strange lights hover over the true seam. I followed them, and I found it; then I ran out of breath, and the lights waited. They did not seem unkind; they seemed to be counting."
+ }
+}

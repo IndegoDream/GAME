@@ -1,0 +1,2169 @@
+[
+ {
+  "makes": "healing_salve",
+  "needs": {
+   "spirit_herb": 2
+  },
+  "gold": 0,
+  "skill": "medicine",
+  "difficulty": 0
+ },
+ {
+  "makes": "qi_pill",
+  "needs": {
+   "spirit_herb": 3,
+   "goblin_tooth": 1
+  },
+  "gold": 5,
+  "skill": "alchemy",
+  "difficulty": 2
+ },
+ {
+  "makes": "padded_vest",
+  "needs": {
+   "goblin_tooth": 3
+  },
+  "gold": 10,
+  "skill": "smithing",
+  "difficulty": 0
+ },
+ {
+  "makes": "iron_sword",
+  "needs": {
+   "iron_ore": 3
+  },
+  "gold": 10,
+  "skill": "smithing",
+  "difficulty": 1
+ },
+ {
+  "makes": "iron_armor",
+  "needs": {
+   "iron_ore": 4
+  },
+  "gold": 15,
+  "skill": "smithing",
+  "difficulty": 2
+ },
+ {
+  "makes": "bone_blade",
+  "needs": {
+   "bone_shard": 5,
+   "iron_ore": 1
+  },
+  "gold": 25,
+  "skill": "smithing",
+  "difficulty": 4
+ },
+ {
+  "makes": "bone_mail",
+  "needs": {
+   "bone_shard": 7
+  },
+  "gold": 40,
+  "skill": "smithing",
+  "difficulty": 5
+ },
+ {
+  "makes": "spirit_steel_sword",
+  "needs": {
+   "silver_ore": 4,
+   "nanite_shard": 2
+  },
+  "gold": 60,
+  "skill": "smithing",
+  "difficulty": 8
+ },
+ {
+  "makes": "breakthrough_pill",
+  "needs": {
+   "spirit_herb": 4,
+   "nanite_shard": 1
+  },
+  "gold": 30,
+  "skill": "alchemy",
+  "difficulty": 8
+ },
+ {
+  "makes": "nanite_weave",
+  "needs": {
+   "nanite_shard": 6,
+   "silver_ore": 3
+  },
+  "gold": 120,
+  "skill": "smithing",
+  "difficulty": 12
+ },
+ {
+  "makes": "nanite_edge",
+  "needs": {
+   "nanite_shard": 5,
+   "warden_core": 1
+  },
+  "gold": 150,
+  "skill": "smithing",
+  "difficulty": 15
+ },
+ {
+  "makes": "jade_ring",
+  "needs": {
+   "rough_jade": 2,
+   "silver_ore": 1
+  },
+  "gold": 20,
+  "skill": "jewelcrafting",
+  "difficulty": 2
+ },
+ {
+  "makes": "gold_amulet",
+  "needs": {
+   "gold_nugget": 3
+  },
+  "gold": 15,
+  "skill": "jewelcrafting",
+  "difficulty": 3
+ },
+ {
+  "makes": "ruby_ring",
+  "needs": {
+   "rough_ruby": 2,
+   "gold_nugget": 1
+  },
+  "gold": 30,
+  "skill": "jewelcrafting",
+  "difficulty": 5
+ },
+ {
+  "makes": "sapphire_amulet",
+  "needs": {
+   "sapphire_shard": 2,
+   "silver_ore": 2
+  },
+  "gold": 40,
+  "skill": "jewelcrafting",
+  "difficulty": 7
+ },
+ {
+  "makes": "ember_pill",
+  "needs": {
+   "ember_root": 2,
+   "spirit_herb": 1
+  },
+  "gold": 10,
+  "skill": "alchemy",
+  "difficulty": 3
+ },
+ {
+  "makes": "thistle_pill",
+  "needs": {
+   "iron_thistle": 3,
+   "spirit_herb": 1
+  },
+  "gold": 10,
+  "skill": "alchemy",
+  "difficulty": 4
+ },
+ {
+  "makes": "moonpetal_tonic",
+  "needs": {
+   "moonpetal": 2,
+   "spirit_herb": 1
+  },
+  "gold": 5,
+  "skill": "medicine",
+  "difficulty": 3
+ },
+ {
+  "makes": "carp_oil_salve",
+  "needs": {
+   "cave_carp": 2
+  },
+  "gold": 0,
+  "skill": "medicine",
+  "difficulty": 1
+ },
+ {
+  "makes": "hide_vest",
+  "needs": {
+   "beast_hide": 4
+  },
+  "gold": 10,
+  "skill": "smithing",
+  "difficulty": 1
+ },
+ {
+  "makes": "bone_broth",
+  "needs": {
+   "raw_meat": 2,
+   "spirit_herb": 1
+  },
+  "gold": 0,
+  "skill": "medicine",
+  "difficulty": 1
+ },
+ {
+  "makes": "thornwood_spear",
+  "needs": {
+   "heartwood": 3,
+   "spirit_resin": 4
+  },
+  "gold": 120,
+  "skill": "smithing",
+  "difficulty": 13
+ },
+ {
+  "makes": "barkskin_mail",
+  "needs": {
+   "heartwood": 4,
+   "spirit_resin": 3
+  },
+  "gold": 110,
+  "skill": "smithing",
+  "difficulty": 13
+ },
+ {
+  "makes": "firestone_saber",
+  "needs": {
+   "firestone": 4,
+   "slag_iron": 3
+  },
+  "gold": 160,
+  "skill": "smithing",
+  "difficulty": 16
+ },
+ {
+  "makes": "slag_plate",
+  "needs": {
+   "slag_iron": 6
+  },
+  "gold": 150,
+  "skill": "smithing",
+  "difficulty": 15
+ },
+ {
+  "makes": "emperors_halberd",
+  "needs": {
+   "emperor_jade": 3,
+   "ancient_clay": 4,
+   "slag_iron": 2
+  },
+  "gold": 220,
+  "skill": "smithing",
+  "difficulty": 18
+ },
+ {
+  "makes": "terracotta_scale",
+  "needs": {
+   "ancient_clay": 6,
+   "emperor_jade": 2
+  },
+  "gold": 200,
+  "skill": "smithing",
+  "difficulty": 18
+ },
+ {
+  "makes": "grave_sword",
+  "needs": {
+   "grave_steel": 5,
+   "sword_intent_shard": 1
+  },
+  "gold": 300,
+  "skill": "smithing",
+  "difficulty": 22
+ },
+ {
+  "makes": "resin_salve",
+  "needs": {
+   "spirit_resin": 2,
+   "spirit_herb": 1
+  },
+  "gold": 5,
+  "skill": "medicine",
+  "difficulty": 6
+ },
+ {
+  "makes": "shell_tea",
+  "needs": {
+   "spirit_herb": 2,
+   "moonpetal": 1
+  },
+  "gold": 0,
+  "skill": "medicine",
+  "difficulty": 2
+ },
+ {
+  "makes": "verdant_pill",
+  "needs": {
+   "heartwood": 1,
+   "spirit_herb": 2
+  },
+  "gold": 15,
+  "skill": "alchemy",
+  "difficulty": 9
+ },
+ {
+  "makes": "magma_pill",
+  "needs": {
+   "firestone": 1,
+   "ember_root": 2
+  },
+  "gold": 20,
+  "skill": "alchemy",
+  "difficulty": 11
+ },
+ {
+  "makes": "earthmarrow_pill",
+  "needs": {
+   "ancient_clay": 2,
+   "moonpetal": 1
+  },
+  "gold": 25,
+  "skill": "alchemy",
+  "difficulty": 13
+ },
+ {
+  "makes": "sword_qi_pill",
+  "needs": {
+   "grave_steel": 1,
+   "iron_thistle": 2
+  },
+  "gold": 30,
+  "skill": "alchemy",
+  "difficulty": 15
+ },
+ {
+  "makes": "firestone_ring",
+  "needs": {
+   "firestone": 2,
+   "silver_ore": 1
+  },
+  "gold": 40,
+  "skill": "jewelcrafting",
+  "difficulty": 8
+ },
+ {
+  "makes": "emperor_jade_pendant",
+  "needs": {
+   "emperor_jade": 2,
+   "gold_nugget": 2
+  },
+  "gold": 60,
+  "skill": "jewelcrafting",
+  "difficulty": 10
+ },
+ {
+  "makes": "goblin_shiv",
+  "needs": {
+   "goblin_tooth": 3,
+   "iron_ore": 1
+  },
+  "gold": 5,
+  "skill": "smithing",
+  "difficulty": 0
+ },
+ {
+  "makes": "miners_pick",
+  "needs": {
+   "iron_ore": 4,
+   "silver_ore": 1
+  },
+  "gold": 20,
+  "skill": "smithing",
+  "difficulty": 4
+ },
+ {
+  "makes": "warden_staff",
+  "needs": {
+   "nanite_shard": 3,
+   "silver_ore": 2
+  },
+  "gold": 60,
+  "skill": "smithing",
+  "difficulty": 9
+ },
+ {
+  "makes": "rootwood_staff",
+  "needs": {
+   "heartwood": 2,
+   "spirit_resin": 3
+  },
+  "gold": 80,
+  "skill": "smithing",
+  "difficulty": 12
+ },
+ {
+  "makes": "thorn_knuckles",
+  "needs": {
+   "heartwood": 1,
+   "spirit_resin": 2,
+   "beast_hide": 2
+  },
+  "gold": 60,
+  "skill": "smithing",
+  "difficulty": 11
+ },
+ {
+  "makes": "imp_fang_daggers",
+  "needs": {
+   "firestone": 2,
+   "slag_iron": 2
+  },
+  "gold": 110,
+  "skill": "smithing",
+  "difficulty": 14
+ },
+ {
+  "makes": "slag_maul",
+  "needs": {
+   "slag_iron": 7
+  },
+  "gold": 140,
+  "skill": "smithing",
+  "difficulty": 15
+ },
+ {
+  "makes": "jade_guard_sabre",
+  "needs": {
+   "emperor_jade": 2,
+   "slag_iron": 3
+  },
+  "gold": 180,
+  "skill": "smithing",
+  "difficulty": 17
+ },
+ {
+  "makes": "keeper_greataxe",
+  "needs": {
+   "grave_steel": 6
+  },
+  "gold": 240,
+  "skill": "smithing",
+  "difficulty": 20
+ },
+ {
+  "makes": "coral_trident_f11",
+  "needs": {
+   "abyssal_pearl": 3,
+   "coral_bone": 2
+  },
+  "gold": 275,
+  "skill": "smithing",
+  "difficulty": 24
+ },
+ {
+  "makes": "pearl_saber_f11",
+  "needs": {
+   "abyssal_pearl": 3,
+   "coral_bone": 2
+  },
+  "gold": 275,
+  "skill": "smithing",
+  "difficulty": 24
+ },
+ {
+  "makes": "nacre_scale_f11",
+  "needs": {
+   "abyssal_pearl": 4,
+   "coral_bone": 2
+  },
+  "gold": 275,
+  "skill": "smithing",
+  "difficulty": 24
+ },
+ {
+  "makes": "drowned_pill_f11",
+  "needs": {
+   "abyssal_pearl": 1,
+   "coral_bone": 1,
+   "spirit_herb": 2
+  },
+  "gold": 33,
+  "skill": "alchemy",
+  "difficulty": 19
+ },
+ {
+  "makes": "celestial_sword_f13",
+  "needs": {
+   "cloud_jade": 3,
+   "immortal_dust": 2
+  },
+  "gold": 325,
+  "skill": "smithing",
+  "difficulty": 29
+ },
+ {
+  "makes": "cloudbreaker_halberd_f13",
+  "needs": {
+   "cloud_jade": 3,
+   "immortal_dust": 2
+  },
+  "gold": 325,
+  "skill": "smithing",
+  "difficulty": 29
+ },
+ {
+  "makes": "immortal_s_vestment_f13",
+  "needs": {
+   "cloud_jade": 4,
+   "immortal_dust": 2
+  },
+  "gold": 325,
+  "skill": "smithing",
+  "difficulty": 29
+ },
+ {
+  "makes": "cloudruins_pill_f13",
+  "needs": {
+   "cloud_jade": 1,
+   "immortal_dust": 1,
+   "spirit_herb": 2
+  },
+  "gold": 39,
+  "skill": "alchemy",
+  "difficulty": 22
+ },
+ {
+  "makes": "sporecap_staff_f14",
+  "needs": {
+   "glowcap_spore": 3,
+   "mycelium_thread": 2
+  },
+  "gold": 350,
+  "skill": "smithing",
+  "difficulty": 31
+ },
+ {
+  "makes": "chitin_saber_f14",
+  "needs": {
+   "glowcap_spore": 3,
+   "mycelium_thread": 2
+  },
+  "gold": 350,
+  "skill": "smithing",
+  "difficulty": 31
+ },
+ {
+  "makes": "fungal_hide_f14",
+  "needs": {
+   "glowcap_spore": 4,
+   "mycelium_thread": 2
+  },
+  "gold": 350,
+  "skill": "smithing",
+  "difficulty": 31
+ },
+ {
+  "makes": "fungal_pill_f14",
+  "needs": {
+   "glowcap_spore": 1,
+   "mycelium_thread": 1,
+   "spirit_herb": 2
+  },
+  "gold": 42,
+  "skill": "alchemy",
+  "difficulty": 24
+ },
+ {
+  "makes": "thunder_halberd_f16",
+  "needs": {
+   "storm_glass": 3,
+   "thunder_iron": 2
+  },
+  "gold": 400,
+  "skill": "smithing",
+  "difficulty": 35
+ },
+ {
+  "makes": "stormfang_dagger_f16",
+  "needs": {
+   "storm_glass": 3,
+   "thunder_iron": 2
+  },
+  "gold": 400,
+  "skill": "smithing",
+  "difficulty": 35
+ },
+ {
+  "makes": "lightning_rod_plate_f16",
+  "needs": {
+   "storm_glass": 4,
+   "thunder_iron": 2
+  },
+  "gold": 400,
+  "skill": "smithing",
+  "difficulty": 35
+ },
+ {
+  "makes": "storm_pill_f16",
+  "needs": {
+   "storm_glass": 1,
+   "thunder_iron": 1,
+   "spirit_herb": 2
+  },
+  "gold": 48,
+  "skill": "alchemy",
+  "difficulty": 27
+ },
+ {
+  "makes": "dragon_bone_halberd_f17",
+  "needs": {
+   "dragon_scale_shard": 3,
+   "drake_blood": 2
+  },
+  "gold": 425,
+  "skill": "smithing",
+  "difficulty": 37
+ },
+ {
+  "makes": "fang_saber_f17",
+  "needs": {
+   "dragon_scale_shard": 3,
+   "drake_blood": 2
+  },
+  "gold": 425,
+  "skill": "smithing",
+  "difficulty": 37
+ },
+ {
+  "makes": "drake_scale_mail_f17",
+  "needs": {
+   "dragon_scale_shard": 4,
+   "drake_blood": 2
+  },
+  "gold": 425,
+  "skill": "smithing",
+  "difficulty": 37
+ },
+ {
+  "makes": "dragonspine_pill_f17",
+  "needs": {
+   "dragon_scale_shard": 1,
+   "drake_blood": 1,
+   "spirit_herb": 2
+  },
+  "gold": 51,
+  "skill": "alchemy",
+  "difficulty": 29
+ },
+ {
+  "makes": "crystal_spear_f19",
+  "needs": {
+   "singing_crystal": 3,
+   "resonant_dust": 2
+  },
+  "gold": 475,
+  "skill": "smithing",
+  "difficulty": 42
+ },
+ {
+  "makes": "shardglass_dagger_f19",
+  "needs": {
+   "singing_crystal": 3,
+   "resonant_dust": 2
+  },
+  "gold": 475,
+  "skill": "smithing",
+  "difficulty": 42
+ },
+ {
+  "makes": "prism_mail_f19",
+  "needs": {
+   "singing_crystal": 4,
+   "resonant_dust": 2
+  },
+  "gold": 475,
+  "skill": "smithing",
+  "difficulty": 42
+ },
+ {
+  "makes": "crystal_pill_f19",
+  "needs": {
+   "singing_crystal": 1,
+   "resonant_dust": 1,
+   "spirit_herb": 2
+  },
+  "gold": 57,
+  "skill": "alchemy",
+  "difficulty": 32
+ },
+ {
+  "makes": "vinelash_spear_f12",
+  "needs": {
+   "bloodsap": 3,
+   "crimson_bark": 2
+  },
+  "gold": 300,
+  "skill": "smithing",
+  "difficulty": 26
+ },
+ {
+  "makes": "bloodbark_axe_f12",
+  "needs": {
+   "bloodsap": 3,
+   "crimson_bark": 2
+  },
+  "gold": 300,
+  "skill": "smithing",
+  "difficulty": 26
+ },
+ {
+  "makes": "bark_leather_f12",
+  "needs": {
+   "bloodsap": 4,
+   "crimson_bark": 2
+  },
+  "gold": 300,
+  "skill": "smithing",
+  "difficulty": 26
+ },
+ {
+  "makes": "canopy_pill_f12",
+  "needs": {
+   "bloodsap": 1,
+   "crimson_bark": 1,
+   "spirit_herb": 2
+  },
+  "gold": 36,
+  "skill": "alchemy",
+  "difficulty": 20
+ },
+ {
+  "makes": "star_iron_sword_f18",
+  "needs": {
+   "star_iron": 3,
+   "meteor_glass": 2
+  },
+  "gold": 450,
+  "skill": "smithing",
+  "difficulty": 40
+ },
+ {
+  "makes": "meteor_hammer_f18",
+  "needs": {
+   "star_iron": 3,
+   "meteor_glass": 2
+  },
+  "gold": 450,
+  "skill": "smithing",
+  "difficulty": 40
+ },
+ {
+  "makes": "star_iron_plate_f18",
+  "needs": {
+   "star_iron": 4,
+   "meteor_glass": 2
+  },
+  "gold": 450,
+  "skill": "smithing",
+  "difficulty": 40
+ },
+ {
+  "makes": "starmine_pill_f18",
+  "needs": {
+   "star_iron": 1,
+   "meteor_glass": 1,
+   "spirit_herb": 2
+  },
+  "gold": 54,
+  "skill": "alchemy",
+  "difficulty": 31
+ },
+ {
+  "makes": "piston_hammer_f21",
+  "needs": {
+   "brass_cog": 3,
+   "oil_of_motion": 2
+  },
+  "gold": 525,
+  "skill": "smithing",
+  "difficulty": 46
+ },
+ {
+  "makes": "spring_blade_f21",
+  "needs": {
+   "brass_cog": 3,
+   "oil_of_motion": 2
+  },
+  "gold": 525,
+  "skill": "smithing",
+  "difficulty": 46
+ },
+ {
+  "makes": "gearplate_f21",
+  "needs": {
+   "brass_cog": 4,
+   "oil_of_motion": 2
+  },
+  "gold": 525,
+  "skill": "smithing",
+  "difficulty": 46
+ },
+ {
+  "makes": "clockwork_pill_f21",
+  "needs": {
+   "brass_cog": 1,
+   "oil_of_motion": 1,
+   "spirit_herb": 2
+  },
+  "gold": 63,
+  "skill": "alchemy",
+  "difficulty": 36
+ },
+ {
+  "makes": "silk_wrapped_fists_f22",
+  "needs": {
+   "spirit_silk": 3,
+   "venom_sac": 2
+  },
+  "gold": 550,
+  "skill": "smithing",
+  "difficulty": 48
+ },
+ {
+  "makes": "needle_rapier_f22",
+  "needs": {
+   "spirit_silk": 3,
+   "venom_sac": 2
+  },
+  "gold": 550,
+  "skill": "smithing",
+  "difficulty": 48
+ },
+ {
+  "makes": "spidersilk_vest_f22",
+  "needs": {
+   "spirit_silk": 4,
+   "venom_sac": 2
+  },
+  "gold": 550,
+  "skill": "smithing",
+  "difficulty": 48
+ },
+ {
+  "makes": "silk_pill_f22",
+  "needs": {
+   "spirit_silk": 1,
+   "venom_sac": 1,
+   "spirit_herb": 2
+  },
+  "gold": 66,
+  "skill": "alchemy",
+  "difficulty": 37
+ },
+ {
+  "makes": "dune_scimitar_f23",
+  "needs": {
+   "ash_glass": 3,
+   "sunbaked_bone": 2
+  },
+  "gold": 575,
+  "skill": "smithing",
+  "difficulty": 51
+ },
+ {
+  "makes": "ashwood_staff_f23",
+  "needs": {
+   "ash_glass": 3,
+   "sunbaked_bone": 2
+  },
+  "gold": 575,
+  "skill": "smithing",
+  "difficulty": 51
+ },
+ {
+  "makes": "sand_wrap_robes_f23",
+  "needs": {
+   "ash_glass": 4,
+   "sunbaked_bone": 2
+  },
+  "gold": 575,
+  "skill": "smithing",
+  "difficulty": 51
+ },
+ {
+  "makes": "ash_pill_f23",
+  "needs": {
+   "ash_glass": 1,
+   "sunbaked_bone": 1,
+   "spirit_herb": 2
+  },
+  "gold": 69,
+  "skill": "alchemy",
+  "difficulty": 39
+ },
+ {
+  "makes": "icicle_rapier_f24",
+  "needs": {
+   "rime_ink": 3,
+   "frost_vellum": 2
+  },
+  "gold": 600,
+  "skill": "smithing",
+  "difficulty": 53
+ },
+ {
+  "makes": "glacier_hammer_f24",
+  "needs": {
+   "rime_ink": 3,
+   "frost_vellum": 2
+  },
+  "gold": 600,
+  "skill": "smithing",
+  "difficulty": 53
+ },
+ {
+  "makes": "frostweave_robe_f24",
+  "needs": {
+   "rime_ink": 4,
+   "frost_vellum": 2
+  },
+  "gold": 600,
+  "skill": "smithing",
+  "difficulty": 53
+ },
+ {
+  "makes": "frost_pill_f24",
+  "needs": {
+   "rime_ink": 1,
+   "frost_vellum": 1,
+   "spirit_herb": 2
+  },
+  "gold": 72,
+  "skill": "alchemy",
+  "difficulty": 41
+ },
+ {
+  "makes": "mirror_blade_f25",
+  "needs": {
+   "mirror_silver": 3,
+   "true_reflection": 2
+  },
+  "gold": 625,
+  "skill": "smithing",
+  "difficulty": 55
+ },
+ {
+  "makes": "reflected_wraps_f25",
+  "needs": {
+   "mirror_silver": 3,
+   "true_reflection": 2
+  },
+  "gold": 625,
+  "skill": "smithing",
+  "difficulty": 55
+ },
+ {
+  "makes": "silvered_coat_f25",
+  "needs": {
+   "mirror_silver": 4,
+   "true_reflection": 2
+  },
+  "gold": 625,
+  "skill": "smithing",
+  "difficulty": 55
+ },
+ {
+  "makes": "mirror_pill_f25",
+  "needs": {
+   "mirror_silver": 1,
+   "true_reflection": 1,
+   "spirit_herb": 2
+  },
+  "gold": 75,
+  "skill": "alchemy",
+  "difficulty": 42
+ },
+ {
+  "makes": "lantern_staff_f26",
+  "needs": {
+   "spirit_paper": 3,
+   "ghost_lantern_oil": 2
+  },
+  "gold": 650,
+  "skill": "smithing",
+  "difficulty": 57
+ },
+ {
+  "makes": "paper_fold_dagger_f26",
+  "needs": {
+   "spirit_paper": 3,
+   "ghost_lantern_oil": 2
+  },
+  "gold": 650,
+  "skill": "smithing",
+  "difficulty": 57
+ },
+ {
+  "makes": "mourning_silk_f26",
+  "needs": {
+   "spirit_paper": 4,
+   "ghost_lantern_oil": 2
+  },
+  "gold": 650,
+  "skill": "smithing",
+  "difficulty": 57
+ },
+ {
+  "makes": "ghostmarket_pill_f26",
+  "needs": {
+   "spirit_paper": 1,
+   "ghost_lantern_oil": 1,
+   "spirit_herb": 2
+  },
+  "gold": 78,
+  "skill": "alchemy",
+  "difficulty": 44
+ },
+ {
+  "makes": "coral_trident_f27",
+  "needs": {
+   "abyssal_pearl": 3,
+   "coral_bone": 2
+  },
+  "gold": 675,
+  "skill": "smithing",
+  "difficulty": 59
+ },
+ {
+  "makes": "pearl_saber_f27",
+  "needs": {
+   "abyssal_pearl": 3,
+   "coral_bone": 2
+  },
+  "gold": 675,
+  "skill": "smithing",
+  "difficulty": 59
+ },
+ {
+  "makes": "nacre_scale_f27",
+  "needs": {
+   "abyssal_pearl": 4,
+   "coral_bone": 2
+  },
+  "gold": 675,
+  "skill": "smithing",
+  "difficulty": 59
+ },
+ {
+  "makes": "drowned_pill_f27",
+  "needs": {
+   "abyssal_pearl": 1,
+   "coral_bone": 1,
+   "spirit_herb": 2
+  },
+  "gold": 81,
+  "skill": "alchemy",
+  "difficulty": 46
+ },
+ {
+  "makes": "sporecap_staff_f28",
+  "needs": {
+   "glowcap_spore": 3,
+   "mycelium_thread": 2
+  },
+  "gold": 700,
+  "skill": "smithing",
+  "difficulty": 62
+ },
+ {
+  "makes": "chitin_saber_f28",
+  "needs": {
+   "glowcap_spore": 3,
+   "mycelium_thread": 2
+  },
+  "gold": 700,
+  "skill": "smithing",
+  "difficulty": 62
+ },
+ {
+  "makes": "fungal_hide_f28",
+  "needs": {
+   "glowcap_spore": 4,
+   "mycelium_thread": 2
+  },
+  "gold": 700,
+  "skill": "smithing",
+  "difficulty": 62
+ },
+ {
+  "makes": "fungal_pill_f28",
+  "needs": {
+   "glowcap_spore": 1,
+   "mycelium_thread": 1,
+   "spirit_herb": 2
+  },
+  "gold": 84,
+  "skill": "alchemy",
+  "difficulty": 48
+ },
+ {
+  "makes": "piston_hammer_f29",
+  "needs": {
+   "brass_cog": 3,
+   "oil_of_motion": 2
+  },
+  "gold": 725,
+  "skill": "smithing",
+  "difficulty": 64
+ },
+ {
+  "makes": "spring_blade_f29",
+  "needs": {
+   "brass_cog": 3,
+   "oil_of_motion": 2
+  },
+  "gold": 725,
+  "skill": "smithing",
+  "difficulty": 64
+ },
+ {
+  "makes": "gearplate_f29",
+  "needs": {
+   "brass_cog": 4,
+   "oil_of_motion": 2
+  },
+  "gold": 725,
+  "skill": "smithing",
+  "difficulty": 64
+ },
+ {
+  "makes": "clockwork_pill_f29",
+  "needs": {
+   "brass_cog": 1,
+   "oil_of_motion": 1,
+   "spirit_herb": 2
+  },
+  "gold": 87,
+  "skill": "alchemy",
+  "difficulty": 49
+ },
+ {
+  "makes": "dragon_bone_halberd_f31",
+  "needs": {
+   "dragon_scale_shard": 3,
+   "drake_blood": 2
+  },
+  "gold": 775,
+  "skill": "smithing",
+  "difficulty": 68
+ },
+ {
+  "makes": "fang_saber_f31",
+  "needs": {
+   "dragon_scale_shard": 3,
+   "drake_blood": 2
+  },
+  "gold": 775,
+  "skill": "smithing",
+  "difficulty": 68
+ },
+ {
+  "makes": "drake_scale_mail_f31",
+  "needs": {
+   "dragon_scale_shard": 4,
+   "drake_blood": 2
+  },
+  "gold": 775,
+  "skill": "smithing",
+  "difficulty": 68
+ },
+ {
+  "makes": "dragonspine_pill_f31",
+  "needs": {
+   "dragon_scale_shard": 1,
+   "drake_blood": 1,
+   "spirit_herb": 2
+  },
+  "gold": 93,
+  "skill": "alchemy",
+  "difficulty": 53
+ },
+ {
+  "makes": "dune_scimitar_f32",
+  "needs": {
+   "ash_glass": 3,
+   "sunbaked_bone": 2
+  },
+  "gold": 800,
+  "skill": "smithing",
+  "difficulty": 70
+ },
+ {
+  "makes": "ashwood_staff_f32",
+  "needs": {
+   "ash_glass": 3,
+   "sunbaked_bone": 2
+  },
+  "gold": 800,
+  "skill": "smithing",
+  "difficulty": 70
+ },
+ {
+  "makes": "sand_wrap_robes_f32",
+  "needs": {
+   "ash_glass": 4,
+   "sunbaked_bone": 2
+  },
+  "gold": 800,
+  "skill": "smithing",
+  "difficulty": 70
+ },
+ {
+  "makes": "ash_pill_f32",
+  "needs": {
+   "ash_glass": 1,
+   "sunbaked_bone": 1,
+   "spirit_herb": 2
+  },
+  "gold": 96,
+  "skill": "alchemy",
+  "difficulty": 54
+ },
+ {
+  "makes": "mirror_blade_f33",
+  "needs": {
+   "mirror_silver": 3,
+   "true_reflection": 2
+  },
+  "gold": 825,
+  "skill": "smithing",
+  "difficulty": 73
+ },
+ {
+  "makes": "reflected_wraps_f33",
+  "needs": {
+   "mirror_silver": 3,
+   "true_reflection": 2
+  },
+  "gold": 825,
+  "skill": "smithing",
+  "difficulty": 73
+ },
+ {
+  "makes": "silvered_coat_f33",
+  "needs": {
+   "mirror_silver": 4,
+   "true_reflection": 2
+  },
+  "gold": 825,
+  "skill": "smithing",
+  "difficulty": 73
+ },
+ {
+  "makes": "mirror_pill_f33",
+  "needs": {
+   "mirror_silver": 1,
+   "true_reflection": 1,
+   "spirit_herb": 2
+  },
+  "gold": 99,
+  "skill": "alchemy",
+  "difficulty": 56
+ },
+ {
+  "makes": "crystal_spear_f34",
+  "needs": {
+   "singing_crystal": 3,
+   "resonant_dust": 2
+  },
+  "gold": 850,
+  "skill": "smithing",
+  "difficulty": 75
+ },
+ {
+  "makes": "shardglass_dagger_f34",
+  "needs": {
+   "singing_crystal": 3,
+   "resonant_dust": 2
+  },
+  "gold": 850,
+  "skill": "smithing",
+  "difficulty": 75
+ },
+ {
+  "makes": "prism_mail_f34",
+  "needs": {
+   "singing_crystal": 4,
+   "resonant_dust": 2
+  },
+  "gold": 850,
+  "skill": "smithing",
+  "difficulty": 75
+ },
+ {
+  "makes": "crystal_pill_f34",
+  "needs": {
+   "singing_crystal": 1,
+   "resonant_dust": 1,
+   "spirit_herb": 2
+  },
+  "gold": 102,
+  "skill": "alchemy",
+  "difficulty": 58
+ },
+ {
+  "makes": "celestial_sword_f35",
+  "needs": {
+   "cloud_jade": 3,
+   "immortal_dust": 2
+  },
+  "gold": 875,
+  "skill": "smithing",
+  "difficulty": 77
+ },
+ {
+  "makes": "cloudbreaker_halberd_f35",
+  "needs": {
+   "cloud_jade": 3,
+   "immortal_dust": 2
+  },
+  "gold": 875,
+  "skill": "smithing",
+  "difficulty": 77
+ },
+ {
+  "makes": "immortal_s_vestment_f35",
+  "needs": {
+   "cloud_jade": 4,
+   "immortal_dust": 2
+  },
+  "gold": 875,
+  "skill": "smithing",
+  "difficulty": 77
+ },
+ {
+  "makes": "cloudruins_pill_f35",
+  "needs": {
+   "cloud_jade": 1,
+   "immortal_dust": 1,
+   "spirit_herb": 2
+  },
+  "gold": 105,
+  "skill": "alchemy",
+  "difficulty": 60
+ },
+ {
+  "makes": "thunder_halberd_f36",
+  "needs": {
+   "storm_glass": 3,
+   "thunder_iron": 2
+  },
+  "gold": 900,
+  "skill": "smithing",
+  "difficulty": 79
+ },
+ {
+  "makes": "stormfang_dagger_f36",
+  "needs": {
+   "storm_glass": 3,
+   "thunder_iron": 2
+  },
+  "gold": 900,
+  "skill": "smithing",
+  "difficulty": 79
+ },
+ {
+  "makes": "lightning_rod_plate_f36",
+  "needs": {
+   "storm_glass": 4,
+   "thunder_iron": 2
+  },
+  "gold": 900,
+  "skill": "smithing",
+  "difficulty": 79
+ },
+ {
+  "makes": "storm_pill_f36",
+  "needs": {
+   "storm_glass": 1,
+   "thunder_iron": 1,
+   "spirit_herb": 2
+  },
+  "gold": 108,
+  "skill": "alchemy",
+  "difficulty": 61
+ },
+ {
+  "makes": "silk_wrapped_fists_f37",
+  "needs": {
+   "spirit_silk": 3,
+   "venom_sac": 2
+  },
+  "gold": 925,
+  "skill": "smithing",
+  "difficulty": 81
+ },
+ {
+  "makes": "needle_rapier_f37",
+  "needs": {
+   "spirit_silk": 3,
+   "venom_sac": 2
+  },
+  "gold": 925,
+  "skill": "smithing",
+  "difficulty": 81
+ },
+ {
+  "makes": "spidersilk_vest_f37",
+  "needs": {
+   "spirit_silk": 4,
+   "venom_sac": 2
+  },
+  "gold": 925,
+  "skill": "smithing",
+  "difficulty": 81
+ },
+ {
+  "makes": "silk_pill_f37",
+  "needs": {
+   "spirit_silk": 1,
+   "venom_sac": 1,
+   "spirit_herb": 2
+  },
+  "gold": 111,
+  "skill": "alchemy",
+  "difficulty": 63
+ },
+ {
+  "makes": "star_iron_sword_f38",
+  "needs": {
+   "star_iron": 3,
+   "meteor_glass": 2
+  },
+  "gold": 950,
+  "skill": "smithing",
+  "difficulty": 84
+ },
+ {
+  "makes": "meteor_hammer_f38",
+  "needs": {
+   "star_iron": 3,
+   "meteor_glass": 2
+  },
+  "gold": 950,
+  "skill": "smithing",
+  "difficulty": 84
+ },
+ {
+  "makes": "star_iron_plate_f38",
+  "needs": {
+   "star_iron": 4,
+   "meteor_glass": 2
+  },
+  "gold": 950,
+  "skill": "smithing",
+  "difficulty": 84
+ },
+ {
+  "makes": "starmine_pill_f38",
+  "needs": {
+   "star_iron": 1,
+   "meteor_glass": 1,
+   "spirit_herb": 2
+  },
+  "gold": 114,
+  "skill": "alchemy",
+  "difficulty": 65
+ },
+ {
+  "makes": "lantern_staff_f39",
+  "needs": {
+   "spirit_paper": 3,
+   "ghost_lantern_oil": 2
+  },
+  "gold": 975,
+  "skill": "smithing",
+  "difficulty": 86
+ },
+ {
+  "makes": "paper_fold_dagger_f39",
+  "needs": {
+   "spirit_paper": 3,
+   "ghost_lantern_oil": 2
+  },
+  "gold": 975,
+  "skill": "smithing",
+  "difficulty": 86
+ },
+ {
+  "makes": "mourning_silk_f39",
+  "needs": {
+   "spirit_paper": 4,
+   "ghost_lantern_oil": 2
+  },
+  "gold": 975,
+  "skill": "smithing",
+  "difficulty": 86
+ },
+ {
+  "makes": "ghostmarket_pill_f39",
+  "needs": {
+   "spirit_paper": 1,
+   "ghost_lantern_oil": 1,
+   "spirit_herb": 2
+  },
+  "gold": 117,
+  "skill": "alchemy",
+  "difficulty": 66
+ },
+ {
+  "makes": "vinelash_spear_f41",
+  "needs": {
+   "bloodsap": 3,
+   "crimson_bark": 2
+  },
+  "gold": 1025,
+  "skill": "smithing",
+  "difficulty": 90
+ },
+ {
+  "makes": "bloodbark_axe_f41",
+  "needs": {
+   "bloodsap": 3,
+   "crimson_bark": 2
+  },
+  "gold": 1025,
+  "skill": "smithing",
+  "difficulty": 90
+ },
+ {
+  "makes": "bark_leather_f41",
+  "needs": {
+   "bloodsap": 4,
+   "crimson_bark": 2
+  },
+  "gold": 1025,
+  "skill": "smithing",
+  "difficulty": 90
+ },
+ {
+  "makes": "canopy_pill_f41",
+  "needs": {
+   "bloodsap": 1,
+   "crimson_bark": 1,
+   "spirit_herb": 2
+  },
+  "gold": 123,
+  "skill": "alchemy",
+  "difficulty": 70
+ },
+ {
+  "makes": "icicle_rapier_f42",
+  "needs": {
+   "rime_ink": 3,
+   "frost_vellum": 2
+  },
+  "gold": 1050,
+  "skill": "smithing",
+  "difficulty": 92
+ },
+ {
+  "makes": "glacier_hammer_f42",
+  "needs": {
+   "rime_ink": 3,
+   "frost_vellum": 2
+  },
+  "gold": 1050,
+  "skill": "smithing",
+  "difficulty": 92
+ },
+ {
+  "makes": "frostweave_robe_f42",
+  "needs": {
+   "rime_ink": 4,
+   "frost_vellum": 2
+  },
+  "gold": 1050,
+  "skill": "smithing",
+  "difficulty": 92
+ },
+ {
+  "makes": "frost_pill_f42",
+  "needs": {
+   "rime_ink": 1,
+   "frost_vellum": 1,
+   "spirit_herb": 2
+  },
+  "gold": 126,
+  "skill": "alchemy",
+  "difficulty": 71
+ },
+ {
+  "makes": "piston_hammer_f43",
+  "needs": {
+   "brass_cog": 3,
+   "oil_of_motion": 2
+  },
+  "gold": 1075,
+  "skill": "smithing",
+  "difficulty": 95
+ },
+ {
+  "makes": "spring_blade_f43",
+  "needs": {
+   "brass_cog": 3,
+   "oil_of_motion": 2
+  },
+  "gold": 1075,
+  "skill": "smithing",
+  "difficulty": 95
+ },
+ {
+  "makes": "gearplate_f43",
+  "needs": {
+   "brass_cog": 4,
+   "oil_of_motion": 2
+  },
+  "gold": 1075,
+  "skill": "smithing",
+  "difficulty": 95
+ },
+ {
+  "makes": "clockwork_pill_f43",
+  "needs": {
+   "brass_cog": 1,
+   "oil_of_motion": 1,
+   "spirit_herb": 2
+  },
+  "gold": 129,
+  "skill": "alchemy",
+  "difficulty": 73
+ },
+ {
+  "makes": "deep_breath_pill",
+  "needs": {
+   "spirit_herb": 6,
+   "heartwood": 2,
+   "moonpetal": 2,
+   "sapphire_shard": 1
+  },
+  "gold": 20,
+  "skill": "alchemy",
+  "difficulty": 3
+ },
+ {
+  "makes": "warding_talisman",
+  "needs": {
+   "rough_jade": 2,
+   "silver_ore": 2,
+   "spirit_resin": 2,
+   "nanite_shard": 2
+  },
+  "gold": 40,
+  "skill": "jewelcrafting",
+  "difficulty": 4
+ },
+ {
+  "makes": "stormglass_lantern",
+  "needs": {
+   "storm_glass": 3,
+   "thunder_iron": 2,
+   "iron_ore": 4
+  },
+  "gold": 60,
+  "skill": "smithing",
+  "difficulty": 5
+ },
+ {
+  "makes": "voidsalt_draught",
+  "needs": {
+   "mirror_silver": 2,
+   "true_reflection": 1,
+   "spirit_herb": 8,
+   "nanite_shard": 4
+  },
+  "gold": 120,
+  "skill": "alchemy",
+  "difficulty": 6
+ },
+ {
+  "makes": "heartfire_elixir",
+  "needs": {
+   "ash_glass": 3,
+   "rime_ink": 2,
+   "drake_blood": 2,
+   "spirit_herb": 10
+  },
+  "gold": 160,
+  "skill": "alchemy",
+  "difficulty": 7
+ },
+ {
+  "makes": "star_iron_key",
+  "needs": {
+   "star_iron": 4,
+   "meteor_glass": 3,
+   "brass_cog": 2
+  },
+  "gold": 200,
+  "skill": "smithing",
+  "difficulty": 8
+ },
+ {
+  "makes": "mirrorheart_ward",
+  "needs": {
+   "mirror_silver": 4,
+   "singing_crystal": 3,
+   "spirit_silk": 3,
+   "nanite_shard": 8
+  },
+  "gold": 260,
+  "skill": "jewelcrafting",
+  "difficulty": 9
+ },
+ {
+  "makes": "whetstone",
+  "needs": {
+   "iron_ore": 1,
+   "rough_jade": 1
+  },
+  "gold": 5,
+  "skill": "smithing",
+  "difficulty": 1
+ },
+ {
+  "makes": "qi_incense",
+  "needs": {
+   "spirit_resin": 1,
+   "spirit_herb": 2
+  },
+  "gold": 5,
+  "skill": "alchemy",
+  "difficulty": 1
+ },
+ {
+  "makes": "ironskin_salve",
+  "needs": {
+   "iron_thistle": 2,
+   "spirit_resin": 1
+  },
+  "gold": 5,
+  "skill": "medicine",
+  "difficulty": 2
+ },
+ {
+  "makes": "swift_tonic",
+  "needs": {
+   "ember_root": 2,
+   "moonpetal": 1
+  },
+  "gold": 8,
+  "skill": "alchemy",
+  "difficulty": 2
+ },
+ {
+  "makes": "lucky_charm",
+  "needs": {
+   "rough_jade": 1,
+   "iron_thistle": 2
+  },
+  "gold": 8,
+  "skill": "jewelcrafting",
+  "difficulty": 2
+ },
+ {
+  "makes": "hunters_oil",
+  "needs": {
+   "beast_hide": 1,
+   "spirit_resin": 1,
+   "raw_meat": 1
+  },
+  "gold": 8,
+  "skill": "medicine",
+  "difficulty": 3
+ },
+ {
+  "makes": "star_iron_sword_f44",
+  "needs": {
+   "star_iron": 3,
+   "meteor_glass": 2
+  },
+  "gold": 1100,
+  "skill": "smithing",
+  "difficulty": 97
+ },
+ {
+  "makes": "meteor_hammer_f44",
+  "needs": {
+   "star_iron": 3,
+   "meteor_glass": 2
+  },
+  "gold": 1100,
+  "skill": "smithing",
+  "difficulty": 97
+ },
+ {
+  "makes": "star_iron_plate_f44",
+  "needs": {
+   "star_iron": 4,
+   "meteor_glass": 2
+  },
+  "gold": 1100,
+  "skill": "smithing",
+  "difficulty": 97
+ },
+ {
+  "makes": "starmine_pill_f44",
+  "needs": {
+   "star_iron": 1,
+   "meteor_glass": 1,
+   "spirit_herb": 2
+  },
+  "gold": 132,
+  "skill": "alchemy",
+  "difficulty": 75
+ },
+ {
+  "makes": "thunder_halberd_f45",
+  "needs": {
+   "storm_glass": 3,
+   "thunder_iron": 2
+  },
+  "gold": 1125,
+  "skill": "smithing",
+  "difficulty": 99
+ },
+ {
+  "makes": "stormfang_dagger_f45",
+  "needs": {
+   "storm_glass": 3,
+   "thunder_iron": 2
+  },
+  "gold": 1125,
+  "skill": "smithing",
+  "difficulty": 99
+ },
+ {
+  "makes": "lightning_rod_plate_f45",
+  "needs": {
+   "storm_glass": 4,
+   "thunder_iron": 2
+  },
+  "gold": 1125,
+  "skill": "smithing",
+  "difficulty": 99
+ },
+ {
+  "makes": "storm_pill_f45",
+  "needs": {
+   "storm_glass": 1,
+   "thunder_iron": 1,
+   "spirit_herb": 2
+  },
+  "gold": 135,
+  "skill": "alchemy",
+  "difficulty": 76
+ },
+ {
+  "makes": "dune_scimitar_f46",
+  "needs": {
+   "ash_glass": 3,
+   "sunbaked_bone": 2
+  },
+  "gold": 1150,
+  "skill": "smithing",
+  "difficulty": 101
+ },
+ {
+  "makes": "ashwood_staff_f46",
+  "needs": {
+   "ash_glass": 3,
+   "sunbaked_bone": 2
+  },
+  "gold": 1150,
+  "skill": "smithing",
+  "difficulty": 101
+ },
+ {
+  "makes": "sand_wrap_robes_f46",
+  "needs": {
+   "ash_glass": 4,
+   "sunbaked_bone": 2
+  },
+  "gold": 1150,
+  "skill": "smithing",
+  "difficulty": 101
+ },
+ {
+  "makes": "ash_pill_f46",
+  "needs": {
+   "ash_glass": 1,
+   "sunbaked_bone": 1,
+   "spirit_herb": 2
+  },
+  "gold": 138,
+  "skill": "alchemy",
+  "difficulty": 78
+ },
+ {
+  "makes": "coral_trident_f47",
+  "needs": {
+   "abyssal_pearl": 3,
+   "coral_bone": 2
+  },
+  "gold": 1175,
+  "skill": "smithing",
+  "difficulty": 103
+ },
+ {
+  "makes": "pearl_saber_f47",
+  "needs": {
+   "abyssal_pearl": 3,
+   "coral_bone": 2
+  },
+  "gold": 1175,
+  "skill": "smithing",
+  "difficulty": 103
+ },
+ {
+  "makes": "nacre_scale_f47",
+  "needs": {
+   "abyssal_pearl": 4,
+   "coral_bone": 2
+  },
+  "gold": 1175,
+  "skill": "smithing",
+  "difficulty": 103
+ },
+ {
+  "makes": "drowned_pill_f47",
+  "needs": {
+   "abyssal_pearl": 1,
+   "coral_bone": 1,
+   "spirit_herb": 2
+  },
+  "gold": 141,
+  "skill": "alchemy",
+  "difficulty": 80
+ },
+ {
+  "makes": "crystal_spear_f48",
+  "needs": {
+   "singing_crystal": 3,
+   "resonant_dust": 2
+  },
+  "gold": 1200,
+  "skill": "smithing",
+  "difficulty": 106
+ },
+ {
+  "makes": "shardglass_dagger_f48",
+  "needs": {
+   "singing_crystal": 3,
+   "resonant_dust": 2
+  },
+  "gold": 1200,
+  "skill": "smithing",
+  "difficulty": 106
+ },
+ {
+  "makes": "prism_mail_f48",
+  "needs": {
+   "singing_crystal": 4,
+   "resonant_dust": 2
+  },
+  "gold": 1200,
+  "skill": "smithing",
+  "difficulty": 106
+ },
+ {
+  "makes": "crystal_pill_f48",
+  "needs": {
+   "singing_crystal": 1,
+   "resonant_dust": 1,
+   "spirit_herb": 2
+  },
+  "gold": 144,
+  "skill": "alchemy",
+  "difficulty": 82
+ },
+ {
+  "makes": "celestial_sword_f49",
+  "needs": {
+   "cloud_jade": 3,
+   "immortal_dust": 2
+  },
+  "gold": 1225,
+  "skill": "smithing",
+  "difficulty": 108
+ },
+ {
+  "makes": "cloudbreaker_halberd_f49",
+  "needs": {
+   "cloud_jade": 3,
+   "immortal_dust": 2
+  },
+  "gold": 1225,
+  "skill": "smithing",
+  "difficulty": 108
+ },
+ {
+  "makes": "immortal_s_vestment_f49",
+  "needs": {
+   "cloud_jade": 4,
+   "immortal_dust": 2
+  },
+  "gold": 1225,
+  "skill": "smithing",
+  "difficulty": 108
+ },
+ {
+  "makes": "cloudruins_pill_f49",
+  "needs": {
+   "cloud_jade": 1,
+   "immortal_dust": 1,
+   "spirit_herb": 2
+  },
+  "gold": 147,
+  "skill": "alchemy",
+  "difficulty": 83
+ },
+ {
+  "makes": "spirit_lantern",
+  "needs": {
+   "spirit_resin": 1,
+   "rough_jade": 1,
+   "iron_ore": 1
+  },
+  "gold": 5,
+  "skill": "smithing",
+  "difficulty": 1
+ },
+ {
+  "makes": "celestial_sword_f50",
+  "needs": {
+   "cloud_jade": 3,
+   "immortal_dust": 2
+  },
+  "gold": 1250,
+  "skill": "smithing",
+  "difficulty": 110
+ },
+ {
+  "makes": "cloudbreaker_halberd_f50",
+  "needs": {
+   "cloud_jade": 3,
+   "immortal_dust": 2
+  },
+  "gold": 1250,
+  "skill": "smithing",
+  "difficulty": 110
+ },
+ {
+  "makes": "immortal_s_vestment_f50",
+  "needs": {
+   "cloud_jade": 4,
+   "immortal_dust": 2
+  },
+  "gold": 1250,
+  "skill": "smithing",
+  "difficulty": 110
+ },
+ {
+  "makes": "cloudruins_pill_f50",
+  "needs": {
+   "cloud_jade": 1,
+   "immortal_dust": 1,
+   "spirit_herb": 2
+  },
+  "gold": 150,
+  "skill": "alchemy",
+  "difficulty": 85
+ },
+ {
+  "makes": "hunter_shortbow",
+  "needs": {
+   "bone_shard": 4,
+   "beast_hide": 3,
+   "iron_ore": 1
+  },
+  "gold": 40,
+  "skill": "smithing",
+  "difficulty": 6
+ },
+ {
+  "makes": "garrison_crossbow",
+  "needs": {
+   "iron_ore": 4,
+   "silver_ore": 2,
+   "heartwood": 2
+  },
+  "gold": 90,
+  "skill": "smithing",
+  "difficulty": 10
+ },
+ {
+  "makes": "jade_bead_wraps",
+  "needs": {
+   "spirit_herb": 3,
+   "silver_ore": 2,
+   "nanite_shard": 1
+  },
+  "gold": 70,
+  "skill": "jewelcrafting",
+  "difficulty": 8
+ },
+ {
+  "makes": "ashwood_longbow",
+  "needs": {
+   "heartwood": 3,
+   "spirit_resin": 2,
+   "beast_hide": 2
+  },
+  "gold": 110,
+  "skill": "smithing",
+  "difficulty": 12
+ },
+ {
+  "makes": "monk_prayer_wraps_f9",
+  "needs": {
+   "emperor_jade": 2,
+   "silver_ore": 3,
+   "spirit_herb": 2
+  },
+  "gold": 130,
+  "skill": "jewelcrafting",
+  "difficulty": 16
+ },
+ {
+  "makes": "ironbound_crossbow_f10",
+  "needs": {
+   "grave_steel": 3,
+   "heartwood": 2,
+   "spirit_resin": 2
+  },
+  "gold": 160,
+  "skill": "smithing",
+  "difficulty": 20
+ },
+ {
+  "makes": "venom_coating",
+  "needs": {
+   "venom_sac": 1,
+   "spirit_resin": 1
+  },
+  "gold": 0,
+  "skill": "medicine",
+  "difficulty": 4
+ },
+ {
+  "makes": "numbing_coating",
+  "needs": {
+   "venom_sac": 1,
+   "iron_thistle": 2
+  },
+  "gold": 0,
+  "skill": "medicine",
+  "difficulty": 5
+ },
+ {
+  "makes": "antidote",
+  "needs": {
+   "spirit_herb": 2,
+   "bone_shard": 1
+  },
+  "gold": 0,
+  "skill": "medicine",
+  "difficulty": 2
+ }
+]

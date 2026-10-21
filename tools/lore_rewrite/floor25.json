@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "The Looking Stair",
+  "text": "Each landing shows you a step ahead of where you are. Trust the stair, not the glass. A hunter's mark says: the reflection moves first on the third landing."
+ },
+ "Y": {
+  "title": "Hall of Many",
+  "text": "A row of mirrors, each a little older than the last. The oldest shows a child. Do not ask it anything."
+ },
+ "R": {
+  "title": "Scratched Into a Silvering",
+  "text": "The one who faces its own reflection and does not flinch has already won half the fight. Mirror things copy what you show them. Show them stillness, then strike where they cannot copy."
+ },
+ "G": {
+  "title": "Veiled Portrait",
+  "text": "A portrait under a cloth, kept by someone who could not stand the face. Written below: it looks like you after the next ten years. I did not lift the cloth."
+ },
+ "M": {
+  "title": "A Lost Delver's Rule",
+  "text": "Mark every turn with chalk. The mirrors do not copy chalk. The dark paths loop and the lit ones loop slower."
+ },
+ "O": {
+  "title": "The Quiet Room",
+  "text": "No sound carries here. A delver wrote: I shouted an hour and heard only myself. Then I sat down and the way out became plain."
+ },
+ "U": {
+  "title": "What the Walls Know",
+  "text": "The labyrinth was built by people who feared being forgotten. They set a mirror in every wall so each one would see themselves a little longer. It did not work."
+ },
+ "X": {
+  "title": "The Mirror's Edge",
+  "text": "Past this passage lies the Mirror itself, the one the delvers talk of. Everyone who has crossed it came out the same, only more so. Whatever you are, bring it all."
+ }
+}

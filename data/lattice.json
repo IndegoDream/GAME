@@ -1,0 +1,622 @@
+{
+ "note": "The Meridian Lattice (Robert, 2026-10-02: 'your body is the skill tree'). 36 acupoints, 6 rings (ring n opens at realm n-1), 3 meridians. Opened by meditating with a point as your focus (Game.lattice_*). Real acupoint names. Round 20: nanite heat, guard/parry, glimpsed arts, branches at Fluent, nanite bridges, meditation aids (see DEV_GUIDE).",
+ "open_seconds": [
+  150,
+  360,
+  900,
+  1800,
+  3600,
+  7200
+ ],
+ "bonus": {
+  "strike": {
+   "damage_mult": [
+    1.02,
+    1.04
+   ]
+  },
+  "guard": {
+   "damage_taken": [
+    0.97,
+    0.95
+   ]
+  },
+  "step": {
+   "move_mult": [
+    1.02,
+    1.04
+   ]
+  }
+ },
+ "arts": {
+  "qi_burst": {
+   "family": "strike",
+   "route": [
+    "laogong"
+   ],
+   "heat": 30,
+   "branches": [
+    "fire",
+    "earth"
+   ]
+  },
+  "wind_step": {
+   "family": "step",
+   "route": [
+    "yongquan"
+   ],
+   "heat": 18,
+   "branches": [
+    "water",
+    "wood"
+   ]
+  },
+  "severing_finger": {
+   "family": "strike",
+   "route": [
+    "laogong",
+    "hegu"
+   ],
+   "heat": 22,
+   "branches": [
+    "metal",
+    "water"
+   ],
+   "requires": {
+    "art": "qi_burst",
+    "stage": 1
+   },
+   "glimpse": {
+    "from": "art_kill",
+    "need": 20,
+    "text": "Every time your qi takes a life it narrows, as if it wants to be a needle, not a ring."
+   },
+   "def": {
+    "name": "Severing Finger",
+    "kind": "active",
+    "key": "F",
+    "cooldown": 3.5,
+    "realm": 0,
+    "desc": "A thread of qi from one fingertip: strikes the nearest foe in front of you, up to fourteen metres away, for 2.2x damage.",
+    "effect": {
+     "finger_range": 14.0,
+     "finger_mult": 2.2
+    },
+    "hint": "Grow fluent in Qi Burst, then keep killing with your qi until it learns to narrow."
+   }
+  },
+  "collapsing_palm": {
+   "family": "strike",
+   "route": [
+    "hegu",
+    "quchi",
+    "neiguan"
+   ],
+   "heat": 38,
+   "branches": [
+    "earth",
+    "fire"
+   ],
+   "requires": {
+    "art": "severing_finger",
+    "stage": 1
+   },
+   "glimpse": {
+    "from": "boss",
+    "need": 2,
+    "text": "The great ones hit you with their whole body. You felt where the weight came from."
+   },
+   "def": {
+    "name": "Collapsing Palm",
+    "kind": "active",
+    "key": "F",
+    "cooldown": 9.0,
+    "realm": 1,
+    "desc": "Your whole weight through one palm: everything in a cone five metres ahead takes 3.2x damage and staggers.",
+    "effect": {
+     "palm_range": 5.0,
+     "palm_mult": 3.2
+    },
+    "hint": "Fluent in Severing Finger, and two great foes fallen -- their blows teach this one."
+   }
+  },
+  "hollow_step": {
+   "family": "step",
+   "route": [
+    "yongquan",
+    "zusanli"
+   ],
+   "heat": 20,
+   "branches": [
+    "metal",
+    "fire"
+   ],
+   "requires": {
+    "art": "wind_step",
+    "stage": 1
+   },
+   "glimpse": {
+    "from": "dodge",
+    "need": 12,
+    "text": "You stepped through a blow and for a heartbeat stood where your enemy couldn't see you."
+   },
+   "def": {
+    "name": "Hollow Step",
+    "kind": "active",
+    "key": "V",
+    "cooldown": 5.0,
+    "realm": 0,
+    "desc": "Vanish and stand behind the nearest foe (nine metres). Your next strike within two seconds lands for 1.6x.",
+    "effect": {
+     "hollow_range": 9.0,
+     "ambush_mult": 1.6
+    },
+    "hint": "Grow fluent in Wind Step, then step through a dozen blows that should have hit you."
+   }
+  },
+  "cloud_ladder": {
+   "family": "step",
+   "route": [
+    "zusanli",
+    "huantiao",
+    "yanglingquan"
+   ],
+   "heat": 14,
+   "branches": [
+    "earth",
+    "wood"
+   ],
+   "requires": {
+    "art": "wind_step",
+    "stage": 0
+   },
+   "glimpse": {
+    "from": "air_hit",
+    "need": 12,
+    "text": "You struck from the air and, for once, the ground was the thing that waited for you."
+   },
+   "def": {
+    "name": "Cloud Ladder",
+    "kind": "active",
+    "key": "V",
+    "cooldown": 3.0,
+    "realm": 1,
+    "desc": "Kick off the air itself: a high leap, even mid-jump. For walls, towers and anything that thought it was out of reach.",
+    "effect": {
+     "ladder_lift": 1.7
+    },
+    "hint": "Know Wind Step, and land a dozen blows from the air."
+   }
+  },
+  "iron_shell": {
+   "family": "guard",
+   "route": [
+    "qihai",
+    "guanyuan"
+   ],
+   "heat": 0,
+   "branches": [
+    "earth",
+    "wood"
+   ],
+   "glimpse": {
+    "from": "block",
+    "need": 30,
+    "text": "Thirty blows on your guard, and your nanites have started hardening before they land."
+   },
+   "def": {
+    "name": "Iron Shell",
+    "kind": "active",
+    "key": "Right mouse",
+    "cooldown": 0.0,
+    "realm": 0,
+    "desc": "Your guard (hold right mouse) lets through 30% instead of half, and blocked blows heat you less.",
+    "effect": {
+     "guard_take": 0.3,
+     "block_heat_mult": 0.5
+    },
+    "hint": "Hold right mouse to guard. Take thirty blows on it."
+   }
+  },
+  "returning_tide": {
+   "family": "guard",
+   "route": [
+    "qihai",
+    "shanzhong",
+    "jiuwei"
+   ],
+   "heat": 0,
+   "branches": [
+    "water",
+    "metal"
+   ],
+   "requires": {
+    "art": "iron_shell",
+    "stage": 1
+   },
+   "glimpse": {
+    "from": "parry",
+    "need": 25,
+    "text": "A perfect parry leaves the blow's force hanging in your arms. You could give it back."
+   },
+   "def": {
+    "name": "Returning Tide",
+    "kind": "active",
+    "key": "Right mouse",
+    "cooldown": 0.0,
+    "realm": 1,
+    "desc": "A wider parry window, and a parried blow goes back to whoever threw it at 1.5x, venting more of your heat.",
+    "effect": {
+     "parry_bonus": 0.1,
+     "reflect_mult": 1.5,
+     "parry_vent": 40.0
+    },
+    "hint": "Fluent in Iron Shell, then parry twenty-five blows (tap right mouse just as they land)."
+   }
+  }
+ },
+ "points": [
+  {
+   "id": "laogong",
+   "name": "Laogong",
+   "meaning": "Palace of Toil",
+   "meridian": "strike",
+   "ring": 1,
+   "element": "fire"
+  },
+  {
+   "id": "hegu",
+   "name": "Hegu",
+   "meaning": "Joining Valley",
+   "meridian": "strike",
+   "ring": 1,
+   "element": "metal"
+  },
+  {
+   "id": "quchi",
+   "name": "Quchi",
+   "meaning": "Pool at the Bend",
+   "meridian": "strike",
+   "ring": 2,
+   "element": "metal"
+  },
+  {
+   "id": "neiguan",
+   "name": "Neiguan",
+   "meaning": "Inner Pass",
+   "meridian": "strike",
+   "ring": 2,
+   "element": "water"
+  },
+  {
+   "id": "shousanli",
+   "name": "Shousanli",
+   "meaning": "Arm Three Miles",
+   "meridian": "strike",
+   "ring": 3,
+   "element": "earth"
+  },
+  {
+   "id": "waiguan",
+   "name": "Waiguan",
+   "meaning": "Outer Pass",
+   "meridian": "strike",
+   "ring": 3,
+   "element": "fire"
+  },
+  {
+   "id": "jianyu",
+   "name": "Jianyu",
+   "meaning": "Shoulder Bone",
+   "meridian": "strike",
+   "ring": 4,
+   "element": "metal"
+  },
+  {
+   "id": "binao",
+   "name": "Binao",
+   "meaning": "Upper Arm",
+   "meridian": "strike",
+   "ring": 4,
+   "element": "wood"
+  },
+  {
+   "id": "shenmen",
+   "name": "Shenmen",
+   "meaning": "Spirit Gate",
+   "meridian": "strike",
+   "ring": 5,
+   "element": "fire"
+  },
+  {
+   "id": "shaohai",
+   "name": "Shaohai",
+   "meaning": "Lesser Sea",
+   "meridian": "strike",
+   "ring": 5,
+   "element": "water"
+  },
+  {
+   "id": "zhongchong",
+   "name": "Zhongchong",
+   "meaning": "Rushing Centre",
+   "meridian": "strike",
+   "ring": 6,
+   "element": "fire"
+  },
+  {
+   "id": "shaoshang",
+   "name": "Shaoshang",
+   "meaning": "Lesser Merchant",
+   "meridian": "strike",
+   "ring": 6,
+   "element": "metal"
+  },
+  {
+   "id": "qihai",
+   "name": "Qihai",
+   "meaning": "Sea of Qi",
+   "meridian": "guard",
+   "ring": 1,
+   "element": "water"
+  },
+  {
+   "id": "guanyuan",
+   "name": "Guanyuan",
+   "meaning": "Gate of Origin",
+   "meridian": "guard",
+   "ring": 1,
+   "element": "earth"
+  },
+  {
+   "id": "shanzhong",
+   "name": "Shanzhong",
+   "meaning": "Chest Centre",
+   "meridian": "guard",
+   "ring": 2,
+   "element": "wood"
+  },
+  {
+   "id": "jiuwei",
+   "name": "Jiuwei",
+   "meaning": "Dove Tail",
+   "meridian": "guard",
+   "ring": 2,
+   "element": "earth"
+  },
+  {
+   "id": "mingmen",
+   "name": "Mingmen",
+   "meaning": "Gate of Life",
+   "meridian": "guard",
+   "ring": 3,
+   "element": "fire"
+  },
+  {
+   "id": "shenshu",
+   "name": "Shenshu",
+   "meaning": "Kidney Shu",
+   "meridian": "guard",
+   "ring": 3,
+   "element": "water"
+  },
+  {
+   "id": "dazhui",
+   "name": "Dazhui",
+   "meaning": "Great Vertebra",
+   "meridian": "guard",
+   "ring": 4,
+   "element": "metal"
+  },
+  {
+   "id": "lingtai",
+   "name": "Lingtai",
+   "meaning": "Spirit Tower",
+   "meridian": "guard",
+   "ring": 4,
+   "element": "wood"
+  },
+  {
+   "id": "fengfu",
+   "name": "Fengfu",
+   "meaning": "Wind Palace",
+   "meridian": "guard",
+   "ring": 5,
+   "element": "wood"
+  },
+  {
+   "id": "yuzhen",
+   "name": "Yuzhen",
+   "meaning": "Jade Pillow",
+   "meridian": "guard",
+   "ring": 5,
+   "element": "metal"
+  },
+  {
+   "id": "baihui",
+   "name": "Baihui",
+   "meaning": "Hundred Meetings",
+   "meridian": "guard",
+   "ring": 6,
+   "element": "earth"
+  },
+  {
+   "id": "yintang",
+   "name": "Yintang",
+   "meaning": "Hall of Impression",
+   "meridian": "guard",
+   "ring": 6,
+   "element": "water"
+  },
+  {
+   "id": "yongquan",
+   "name": "Yongquan",
+   "meaning": "Bubbling Spring",
+   "meridian": "step",
+   "ring": 1,
+   "element": "water"
+  },
+  {
+   "id": "zusanli",
+   "name": "Zusanli",
+   "meaning": "Leg Three Miles",
+   "meridian": "step",
+   "ring": 1,
+   "element": "earth"
+  },
+  {
+   "id": "huantiao",
+   "name": "Huantiao",
+   "meaning": "Jumping Circle",
+   "meridian": "step",
+   "ring": 2,
+   "element": "wood"
+  },
+  {
+   "id": "yanglingquan",
+   "name": "Yanglingquan",
+   "meaning": "Yang Mound Spring",
+   "meridian": "step",
+   "ring": 2,
+   "element": "wood"
+  },
+  {
+   "id": "weizhong",
+   "name": "Weizhong",
+   "meaning": "Middle of the Crook",
+   "meridian": "step",
+   "ring": 3,
+   "element": "water"
+  },
+  {
+   "id": "chengshan",
+   "name": "Chengshan",
+   "meaning": "Supporting Mountain",
+   "meridian": "step",
+   "ring": 3,
+   "element": "earth"
+  },
+  {
+   "id": "sanyinjiao",
+   "name": "Sanyinjiao",
+   "meaning": "Three Yin Meeting",
+   "meridian": "step",
+   "ring": 4,
+   "element": "earth"
+  },
+  {
+   "id": "taixi",
+   "name": "Taixi",
+   "meaning": "Great Ravine",
+   "meridian": "step",
+   "ring": 4,
+   "element": "water"
+  },
+  {
+   "id": "kunlun",
+   "name": "Kunlun",
+   "meaning": "Kunlun Mountains",
+   "meridian": "step",
+   "ring": 5,
+   "element": "fire"
+  },
+  {
+   "id": "fengshi",
+   "name": "Fengshi",
+   "meaning": "Wind Market",
+   "meridian": "step",
+   "ring": 5,
+   "element": "wood"
+  },
+  {
+   "id": "taichong",
+   "name": "Taichong",
+   "meaning": "Great Rush",
+   "meridian": "step",
+   "ring": 6,
+   "element": "wood"
+  },
+  {
+   "id": "xuanzhong",
+   "name": "Xuanzhong",
+   "meaning": "Suspended Bell",
+   "meridian": "step",
+   "ring": 6,
+   "element": "metal"
+  }
+ ],
+ "heat": {
+  "cap": 100,
+  "cap_per_ring": 15,
+  "hot_frac": 0.7,
+  "hot_power": 1.15,
+  "vent_calm": 8.0,
+  "vent_fight": 2.5,
+  "vent_meditate": 20.0,
+  "vent_guard": 4.0,
+  "block_heat": 4.0,
+  "parry_vent": 25.0,
+  "backlash_hp": 0.1,
+  "backlash_reset": 0.6,
+  "injury_seconds": 90.0
+ },
+ "guard": {
+  "take": 0.5,
+  "parry_window": 0.2,
+  "behind_take": 0.75,
+  "stagger": 1.2
+ },
+ "branches": {
+  "strike": {
+   "fire": "Hits burn for 35% more over three seconds.",
+   "water": "Hits slow for three seconds; the art runs 20% cooler.",
+   "wood": "Each foe struck mends 3% of your life (up to three).",
+   "metal": "+20% damage.",
+   "earth": "Hits stagger for a moment."
+  },
+  "step": {
+   "fire": "Your next strike within two seconds deals +30%.",
+   "water": "The step runs 40% cooler.",
+   "wood": "A step through a real fight mends 4% of your life.",
+   "metal": "Ready 20% sooner.",
+   "earth": "Where you land, foes within 2.5 m stagger."
+  },
+  "guard": {
+   "fire": "A parried foe burns for half the blow.",
+   "water": "A parry vents 20 more heat.",
+   "wood": "Each blocked blow mends 2% of your life.",
+   "metal": "Blocked blows send a quarter back.",
+   "earth": "Your guard lets through 10% less."
+  }
+ },
+ "items": {
+  "calming_incense": {
+   "name": "Calming Incense",
+   "type": "consumable",
+   "value": 18,
+   "aid": {
+    "mult": 1.5,
+    "seconds": 600
+   },
+   "desc": "Sandalwood and spirit resin. Light it and sit: for ten minutes of meditation, qi and practice settle half again as fast."
+  },
+  "nanite_bridge": {
+   "name": "Nanite Bridge",
+   "type": "material",
+   "value": 400,
+   "desc": "A sliver of living lattice. Wired across a sealed meridian point (K), it lets an art's qi through before the point is open -- running hot. Great foes carry them."
+  }
+ },
+ "recipes": [
+  {
+   "makes": "calming_incense",
+   "needs": {
+    "spirit_herb": 2,
+    "spirit_resin": 1
+   },
+   "gold": 2,
+   "skill": "alchemy",
+   "difficulty": 1
+  }
+ ]
+}

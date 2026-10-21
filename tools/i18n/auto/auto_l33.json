@@ -1,0 +1,35 @@
+{
+ "The start of the floor": [
+  "楼层起点",
+  "El inicio del piso",
+  "O início do andar",
+  "Начало этажа",
+  "Der Anfang der Etage",
+  "Le début de l'étage",
+  "フロアの入口",
+  "층의 시작",
+  "Katın başlangıcı"
+ ],
+ "The way down (last room)": [
+  "通往下层的路（最后一间）",
+  "La bajada (última sala)",
+  "A descida (última sala)",
+  "Путь вниз (последняя комната)",
+  "Der Weg nach unten (letzter Raum)",
+  "La descente (dernière salle)",
+  "下り口（最後の部屋）",
+  "내려가는 길 (마지막 방)",
+  "Aşağı yol (son oda)"
+ ],
+ "Where on this floor?": [
+  "在这一层的哪里？",
+  "¿Dónde en este piso?",
+  "Onde neste andar?",
+  "Куда на этом этаже?",
+  "Wohin auf dieser Etage?",
+  "Où sur cet étage ?",
+  "このフロアのどこへ？",
+  "이 층의 어디로?",
+  "Bu katta nereye?"
+ ]
+}

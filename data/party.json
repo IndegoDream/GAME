@@ -1,0 +1,26 @@
+{
+ "_about": "Round 39 (Robert: 'can we have companion, contract beast, bonds' -- 'party of two' -- beasts: 'all of the above can be unlocked'). Companions: one walks with you from the start; a SECOND place in the party opens at Nascent Soul. Everyone who has travelled with you is on your ROSTER: from any town (or Eliet) you can call them back, if they're still close to you. Contract beasts: every animal that chooses you is a contract. Your roster of contracts grows with Taming; you can CALL one to your side at first, two at Taming 10 and Void Refinement, three at Taming 18 and Immortal Ascension. The lead gives its gifts in full, the others a share. Each contract can be DEEPENED -- blood, soul, heaven -- for bigger gifts and harder bites. Beasts resting in your spirit space still grow, slowly.",
+ "companions": {
+  "second_slot": {"realm": 4},
+  "recall_warmth": 45
+ },
+ "beasts": {
+  "roster": [[0, 2], [4, 3], [8, 4], [12, 5], [16, 6], [22, 8]],
+  "summon": [
+   {"slots": 1, "need": {}},
+   {"slots": 2, "need": {"taming": 10, "realm": 6}},
+   {"slots": 3, "need": {"taming": 18, "realm": 10}}
+  ],
+  "second_share": 0.6,
+  "rest_bond_per_minute": 0.1,
+  "tiers": [
+   {"id": "bond", "name": "Bonded", "mult": 1.0, "bite": 1.0, "scale": 1.0},
+   {"id": "blood", "name": "Blood Contract", "mult": 1.25, "bite": 1.25, "scale": 1.05, "need": {"bond": 60, "realm": 3, "items": {"bloodsap": 2, "beast_hide": 4}, "gold": 200},
+    "told": "You open your palm and it opens its mouth, and the blood runs both ways. %s is bound to you by blood now: what it gives, it gives more."},
+   {"id": "soul", "name": "Soul Contract", "mult": 1.6, "bite": 1.5, "scale": 1.1, "need": {"bond": 120, "realm": 6, "items": {"spirit_silk": 2, "singing_crystal": 1}, "gold": 800},
+    "told": "For a moment you see out of its eyes, and it out of yours. %s shares your soul's weather now -- it knows what you want before you do."},
+   {"id": "heaven", "name": "Heaven Contract", "mult": 2.0, "bite": 2.0, "scale": 1.15, "need": {"bond": 180, "realm": 10, "items": {"true_reflection": 1, "drake_blood": 2, "star_iron": 1}, "gold": 2500},
+    "told": "The sky hears it. %s is bound to you past death -- whatever you become, it becomes beside you."}
+  ]
+ }
+}

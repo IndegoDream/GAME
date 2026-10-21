@@ -1,0 +1,24 @@
+{
+  "brief": "contracts",
+  "title": "Beast contracts",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "blood",
+      "name": "Blood Contract",
+      "told": "You open your palm and it opens its mouth, and the blood runs both ways. %s is bound to you by blood now: what it gives, it gives more."
+    },
+    {
+      "id": "soul",
+      "name": "Soul Contract",
+      "told": "For a moment you see out of its eyes, and it out of yours. %s shares your soul's weather now -- it knows what you want before you do."
+    },
+    {
+      "id": "heaven",
+      "name": "Heaven Contract",
+      "told": "The sky whispers your name to it, and %s hears. Bound by the heavens, your paths will forever be entwined, beyond life's end."
+    }
+  ],
+  "helped": []
+}

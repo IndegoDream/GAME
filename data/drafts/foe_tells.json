@@ -1,0 +1,157 @@
+{
+  "brief": "foe_tells",
+  "title": "How to read a foe: the tell before each kind of attack",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "brawler",
+      "text": "Watch for his weapon to flash red before it swings. Step back hard or parry the heavy blow."
+    },
+    {
+      "id": "item_02_battle_maneuvers",
+      "text": {
+        "brawler": "Drawback, weapon flashes red, then it swings wide. Step back or parry the heavy blow.",
+        "charger": "Head lowers low, a ring appears on the ground where it starts running. Sidestep away from that ring, not straight back.",
+        "ranged": "Orb glows bright, then fires a bolt you can clearly see. Sidestep left or right; do not stand still.",
+        "guardian": "Shield blocks blades from the front, forcing you to fight empty-handed. Get behind it and strike its unarmored back.",
+        "skulker": "It stays unseen until you are very close, making the first hit hardest. Slow down near shadows so spirit sense finds you before danger.",
+        "swarmer": "Mother calls her young; if left alone she draws more weaklings toward you. Kill the mother quickly to stop the swarm.",
+        "mender": "Green glow spreads around others while it heals them in place. Kill this one first, or your allies will revive their wounds.",
+        "thunderous": "Master raises arms, a ring spreads across the floor before stomping down. Get out of that ring immediately or take full force.",
+        "venomous": "Strikes poison you slowly; it never kills but wears you down over time. Cleanse the toxin or rest to recover your strength.",
+        "vampiric": "It heals itself on every hit, trading your health for its own survival. Burst it down quickly; do not trade blows in a long fight.",
+        "splitting": "When falling, it breaks into smaller copies that multiply faster than you can cut them. Keep your back clear and run from the shards.",
+        "warding": "Shimmering ward takes first hits, protecting its weak body behind glass-like light. Use arts to break the ward before striking true.",
+        "frenzied": "It gets faster as it takes damage, charging wildly with each injury. Finish it quickly before speed turns into unstopable rage.",
+        "boss_enrage": "Master turns red and roars at half health, striking much faster now. Pull back for a breath while he resets, then press your offense hard.",
+        "boss_slam": "Shadow grows on the ground where you stand just before he leaps high. Move away from that shadow spot to dodge the landing.",
+        "boss_sweep": "Spin shows wide ring marking reach of weapon as it twirls violently. Get out of circle or guard tight against the spinning edge."
+      }
+    },
+    {
+      "id": "3",
+      "text": []
+    },
+    {
+      "id": "combat_moves",
+      "text": "Watch for the brawler's red flash on its weapon, then step back or parry to avoid the heavy blow. See the charger lower its head and the warning ring; sidestep to where you were, not where it is now. The ranged enemy will glow brighter before firing; guard your shield or move aside from the bolt. A guardian stops blades from the front; get behind it or use your arts to bypass its wall. The skulker hides in shadows until close; slow down near dark places so spirit sense finds it. If you see swarms with weak young, kill the mother first or her others will come. Kill the mender with a green glow before it heals the rest of the enemy team. When thunderous stomps raise arms and spread rings, jump out of the circle to avoid the shock. Venomous strikes poison your blood; cleanse the toxin or rest in clean earth to recover. Do not trade blows with the vampiric foe as it heals itself on every hit; burst it down quickly. If splitting breaks into small copies when falling, keep your back clear so they cannot swarm you. Wards shimmer around warding foes and take damage first; break the shield or arts will fail. A frenzied enemy speeds up when hurt; finish it quickly before it becomes uncatchable. When a boss turns red and roars at half health, pull back for a breath, then press with your strongest art. Watch the shadow grow under a boss leap to avoid being slammed from above. Spin weapons create wide rings on the ground; step out or guard firmly against the sweep."
+    },
+    {
+      "id": "eli_fight",
+      "text": "Watch for the heavy blow: weapon flashes red, then swing; step back and parry. See the ring spread on the floor under the master's feet; move away before it stomps."
+    },
+    {
+      "id": "eliets_fight_tips",
+      "text": [
+        "Brawler draws back and weapon flashes red before its heavy blow; step aside or parry.",
+        "Charger lowers head with a warning ring, then runs at where you stand; step sideways quickly.",
+        "Ranged holds still while orb glows bright before firing; sidestep or guard the bolt.",
+        "Guardian stops blades with a front shield; get behind it or use arts to break defense.",
+        "Skulker waits unseen in shadows until close range; slow your pace near dark to find it.",
+        "Swarmer brings weak young that call for more if left alone; kill the mother first.",
+        "Mender heals others with a green glow; kill it immediately before you take damage.",
+        "Thunderous raises arms and spreads a ring on the ground before stomping; get out of the ring.",
+        "Venomous strikes poison you without killing; cleanse the toxin or rest until it fades.",
+        "Vampiric heals itself on every hit you land; burst it down rather than trading blows.",
+        "Splitting breaks into smaller copies when it falls; keep your back clear of its shards.",
+        "Warding shimmers around it to take first hits; use arts to break the warding layer.",
+        "Frenzied gets faster as it takes hurt; finish it quickly before speed becomes too much.",
+        "Boss Enrage turns red and roars at half health, striking faster; pull back for a breath then press.",
+        "Boss Slam leaps and lands where you stand with shadow first; move away before impact.",
+        "Boss Sweep spins weapon in a wide ring showing reach; get out or guard the arc."
+      ]
+    },
+    {
+      "id": "combat_maneuvers",
+      "text": "A brawler draws back and his steel flashes red; step aside. A charger lowers its head and runs where you stood; move sideways. A ranged fighter holds still and fires a bright bolt; guard or sidestep. A guardian carries a shield that stops blades; get behind it. A skulker waits in shadows until close; slow down near the dark. A swarmer brings young who call their mother; kill the weak first. A mender glows green and heals others; strike it first. A thunderous master stomps inside a spreading ring; leave the circle. A venomous foe wears you down with poison; cleanse your wounds. A vampiric enemy heals itself on every hit; burst it quickly. A splitting target breaks into copies when hurt; keep your back clear. A warding entity shines with a shield; break its light. A frenzied beast speeds up when hurt; finish it fast."
+    },
+    {
+      "text": "The heavy blow draws back its arm then flashes red before swinging; step back or parry. The charger lowers its head and a ring marks the start; move sideways to safety."
+    },
+    {
+      "id": "9",
+      "text": "See the brawler pull back. Parry or step aside. A heavy blow flashes red before it falls."
+    },
+    {
+      "id": "elite_fight_tips_10",
+      "text": [
+        "Brawler draws back, weapon flashes red; step back or parry.",
+        "Charger warns with a ring then runs straight at where you were; step sideways.",
+        "Ranged holds still as orb glows bright before firing; sidestep or guard.",
+        "Guardian blocks blades from the front with a shield; get behind it.",
+        "Skulker hides in shadows until close; slow down near dark, use spirit sense.",
+        "Swarmer brings weak young ones who call more if left alone; kill the mother first.",
+        "Mender glows green to heal others; cut it down before it helps its kin.",
+        "Thunderous stomps inside a ring that spreads on the ground; leave that circle.",
+        "Venomous wears you down with poison instead of killing; cleanse or rest often.",
+        "Vampiric heals itself on every hit; burst it down, do not trade blows.",
+        "Splitting copies smaller versions when falling; keep your back clear of shards.",
+        "Warding shields shimmer to take hits first; break the ward with true arts.",
+        "Frenzied gets faster as it takes damage; finish it quickly before rage grows.",
+        "Boss_enrage roars and strikes faster at half health; pull back for a breath then press hard.",
+        "Boss_slam lands where you stand after casting a shadow; move away instantly."
+      ]
+    },
+    {
+      "id": "brawler",
+      "text": [
+        "The fighter pulls back his arm until the steel glows red in the dark. Step back or strike the weapon away.",
+        "The charger bows its head low; a faint ring marks where it started. Move sideways, not forward."
+      ]
+    },
+    {
+      "id": "brawler",
+      "text": [
+        "Watch for the flash of red on his blade before the heavy blow lands. Step back immediately to avoid the strike.",
+        "A charger lowers its head then charges in a straight line at where you stand. Move sideways to break its path.",
+        "See an enemy's orb glowing brighter before it fires a ranged bolt. Sidestep quickly or raise your guard.",
+        "A guardian carries a heavy shield that stops blades from the front. Get behind it to deal damage.",
+        "A skulker remains unseen until close range. Slow down near shadows so spirit sense can find it first.",
+        "A swarmer comes with weak young ones calling for its mother. Kill the young first so the mother does not call more.",
+        "A mender shines green to heal others. Kill it before it finishes healing anyone.",
+        "An elite raises arms and stomps inside a spreading ring of light. Get out of that ring before it strikes.",
+        "A venomous enemy poisons you on every hit but never kills you. Cleanse the poison or rest to recover.",
+        "A vampiric enemy heals itself on every hit you land. Burst it down immediately; do not trade blows.",
+        "A splitting enemy breaks into smaller copies when injured. Keep your back clear of all the new copies.",
+        "A warding enemy has a shimmer that takes the first hits. Use special arts to break its ward.",
+        "A frenzied enemy gets faster as it takes damage. Finish it quickly before it overruns you.",
+        "An enraged master turns red and roars at half health. Pull back for a breath, then press your attack."
+      ]
+    },
+    {
+      "id": "item_13",
+      "text": [
+        "Most fights end with a heavy blow. Watch for the red flash on the blade, then step back.",
+        "A charger drops its head low and runs where you stood. Sidestep to avoid the charge.",
+        "Ranged enemies glow brighter before firing. Move sideways or raise your guard.",
+        "Guardians stop blades from the front. Attack their back or use spirit arts to bypass them.",
+        "Skulkers hide in shadows until they strike. Slow your steps near dark places so spirit sense finds you first.",
+        "If swarms come alone, kill the mother quickly; leaving her alone only calls more children.",
+        "A mender glows green and heals others. Kill it immediately before it repairs its allies.",
+        "Thunderous foes create a ring on the ground before stomping. Leave that circle or die.",
+        "Venomous strikes drain your life but rarely kill. Cleanse your wounds or rest before continuing.",
+        "Vampiric enemies heal with every hit. Burst them down fast; do not trade blows.",
+        "Splitting copies appear when a foe falls. Keep your back clear so you do not trap yourself.",
+        "Warded targets shimmer to take the first hits. Use spirit arts to break their shield before striking.",
+        "Frenzied foes speed up when hurt. Finish them quickly before they become too fast to beat."
+      ]
+    },
+    {
+      "id": "brawler",
+      "text": "His arm pulls back as steel glows red for a split second before the swing; step backward or parry."
+    },
+    {
+      "id": "brawler",
+      "text": [
+        "You see his arm pull back and the steel flash red before the swing; step back or parry.",
+        "He lowers his head with a warning ring to show where he starts running; move sideways."
+      ]
+    },
+    {
+      "id": "brawler",
+      "text": "Watch for his weapon to flash red as he draws back. Step back now, or meet that blow with your shield."
+    }
+  ],
+  "helped": []
+}

@@ -1,0 +1,100 @@
+{
+  "brief": "ruins",
+  "title": "Relics of the old age",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "first_stair_stone",
+      "text": "The stair under Eliet's well was cut by the first cultivators, going down. Every step of it is older than any sect in the valley."
+    },
+    {
+      "id": "clan_tally_stick",
+      "text": "The Hollow Clans counted their beasts on sticks like this. The oldest stick has one notch. Someone came down with a single beast and built a clan."
+    },
+    {
+      "sealed_well_cap": "Someone sealed the stair under Eliet's well, from below, a long time ago. The seal held until the water dropped and the lid rusted through."
+    },
+    {
+      "id": "cracked_conduit",
+      "text": "The Lattice carried qi through conduits like this, up from the Heart. On the night of the Sundering every one of them cracked at once."
+    },
+    {
+      "id": "unsealed_chamber",
+      "text": "The first masters sealed the Heart's chamber with a spell. Centuries later, the Makers broke it to build the swarm, setting the Sundering in motion."
+    },
+    {
+      "id": "unbroken_seal",
+      "text": "The first masters sealed the Heart's chamber when they died, to keep it pure. The Makers broke that seal. Everything after began there."
+    },
+    {
+      "id": "cracked_conduit",
+      "text": "The Lattice carried qi through conduits like this, up from the Heart. On the night of the Sundering every one of them cracked at once."
+    },
+    {
+      "text": "The old map shows a line of towers rising from the Heart. They fell in the Sundering, leaving only a rusted bell as proof of their height."
+    },
+    {
+      "id": "first_masters_words",
+      "text": "The first masters carved their wisdom on the walls of the Heart chamber: 'Heaven is not up. It is in. The breath goes all the way down.'"
+    },
+    {
+      "text": "The Makers' first scouts climbed a tower and saw a world of stone and light, but no sky. They came back down and wrote the Lattice's first line."
+    },
+    {
+      "id": "crevice_note",
+      "text": "The deep crevices hold notes from those who fell: 'The Heart is not the goal. The journey is the climb.'"
+    },
+    {
+      "id": "sealed_well_cap",
+      "text": "Someone sealed the stair under Eliet's well, from below, a long time ago. The seal held until the water dropped and the lid rusted through."
+    },
+    {
+      "id": "clan_tally_stick",
+      "text": "The Hollow Clans counted their beasts on sticks like this. The oldest stick has one notch. Someone came down with a single beast and built a clan."
+    },
+    {
+      "id": "sealed_gate_key",
+      "text": "The sealed gate below Eliet kept something dangerous at bay. The key was lost, but the gate is still locked tight."
+    },
+    {
+      "text": "The Heart was the original source of qi. The Makers thought it was a door to heaven. They were wrong."
+    },
+    {
+      "id": "first_stair_stone",
+      "text": "The stair under Eliet's well was cut by the first cultivators, going down. Every step of it is older than any sect in the valley."
+    },
+    {
+      "id": "sealed_stair_pillar",
+      "text": "A pillar marks the spot where the sealed stair under Eliet's well begins. It was carved long before anyone knows, by the first masters who built a stair to the Heart. The seal was laid to hide it, but the reason why is lost."
+    },
+    {
+      "id": "first_masters_words",
+      "text": "'Heaven is not up. It is in. The breath goes all the way down.' The Makers built a ladder to the sky because they never read this."
+    },
+    {
+      "id": "first_master_writing",
+      "text": "The first masters wrote their teachings in the dust of the Heart. When the Makers came, they burned the dust and built their ladders."
+    },
+    {
+      "id": "refugee_shoe",
+      "text": "Families fled down after the Sundering, not up. The surface was worse. They made the deep a home because there was nowhere else."
+    },
+    {
+      "text": "The first masters' words carved on the Heart's stone: 'Heaven is not up. It is in. The breath goes all the way down.'"
+    },
+    {
+      "id": "sealed_well_cap",
+      "text": "Someone sealed the stair under Eliet's well, from below, a long time ago. The seal held until the water dropped and the lid rusted through."
+    },
+    {
+      "id": "ancient_chalk_board",
+      "text": "The Makers used chalk on stone to work out their plans. This board shows numbers and symbols, but no words. They knew more than they could say."
+    },
+    {
+      "id": "unbroken_seal",
+      "text": "The first masters sealed the Heart's chamber when they died, to keep it pure. The Makers broke that seal. Everything after began there."
+    }
+  ],
+  "helped": []
+}

@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "Hair on End",
+  "text": "The steps hum. Your hair will stand up on your arms; that is the stair warning you. Move on before the next strike; the strikes come in threes."
+ },
+ "Y": {
+  "title": "Stormwarden's Warning",
+  "text": "A stormcaller made this floor, and she is still angry. When the sky goes white, get off the iron. Lightning loves metal; drop your sword if you must; a sword can be bought."
+ },
+ "R": {
+  "title": "Between Two Thunderclaps",
+  "text": "There is a space after the flash and before the sound. A heartbeat long; the wardens learned to live in it. Slow your breath until you can feel it; then step."
+ },
+ "G": {
+  "title": "Rod-Maker's Account",
+  "text": "Forty rods sold. Nine for the tower, six for the barracks, the rest to miners who lost their nerve. The grounding chamber at the base is where the rods meet earth; stand there in a bad storm."
+ },
+ "M": {
+  "title": "Stormwatch Post, Log",
+  "text": "Day 14. Lightning at dusk, twice; imps nesting on the east ledge. Day 15. No log keeper. Day 16, in another hand: the calm room is safe."
+ },
+ "O": {
+  "title": "Calm Room Notice",
+  "text": "Between the storms there is a quiet room; no wind and no strikes; rest here. Heal here. It has never been touched by lightning, and I do not know why."
+ },
+ "U": {
+  "title": "Goat Ledge Rule",
+  "text": "The ledges are narrow and the goats are mean. Do not fight on a ledge; lure them to flat ground. A man fell off the east ledge; we counted to nine before he stopped falling."
+ },
+ "X": {
+  "title": "The Tyrant's Crown",
+  "text": "At the top of the spire sits the Tyrant. It wears a crown of rods that draws every strike. Cut the rods and he is just a big man; let them hit him and he laughs."
+ }
+}

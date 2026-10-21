@@ -1,0 +1,865 @@
+{
+  "iron_skin": {
+    "name": "Iron Skin Sutra",
+    "kind": "passive",
+    "realm": 0,
+    "desc": "Qi packed under the skin turns blows aside. You take 15% less damage.",
+    "effect": {
+      "damage_taken": 0.85
+    },
+    "hint": "Some say the old warrens were dug by monks before the goblins came.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "wind_step": {
+    "name": "Wind Step",
+    "kind": "active",
+    "key": "V",
+    "cooldown": 2.5,
+    "realm": 0,
+    "desc": "Press V to burst forward six metres, through any attack. The nanites in your legs fire all at once.",
+    "effect": {
+      "dash": 7.0
+    },
+    "hint": "Goblins are clumsy, but they never stand still. Watch enough of them and you learn how they move.",
+    "unlock": {
+      "kills": {
+        "goblin": 15
+      }
+    }
+  },
+  "qi_burst": {
+    "name": "Qi Burst",
+    "kind": "active",
+    "key": "F",
+    "cooldown": 7.0,
+    "realm": 0,
+    "desc": "Press F to release a ring of qi that strikes everything around you for double damage.",
+    "effect": {
+      "burst_radius": 4.5,
+      "burst_mult": 2.0
+    },
+    "hint": "The shrine in the village is older than the village. Sit with it long enough.",
+    "unlock": {
+      "shrine_seconds": 120
+    }
+  },
+  "spirit_sense": {
+    "name": "Spirit Sense",
+    "kind": "passive",
+    "realm": 0,
+    "desc": "Hidden things hum. Secret walls, unopened chests and lore stones near you glow faintly.",
+    "effect": {
+      "sense_radius": 12.0
+    },
+    "hint": "Little Rin finds everything. Ask her how.",
+    "unlock": {
+      "talk": {
+        "Little Rin": 3
+      }
+    }
+  },
+  "mountain_breath": {
+    "name": "Breath of the Mountain",
+    "kind": "passive",
+    "realm": 1,
+    "desc": "Meditation draws twice as much qi, anywhere.",
+    "effect": {
+      "meditate_mult": 2.0
+    },
+    "hint": "Written in the crypt, where the dead have nothing to do but breathe.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "bone_reading": {
+    "name": "Bone Reading",
+    "kind": "passive",
+    "realm": 1,
+    "desc": "You read the qi left in bone: crypt dead drop half again as many bone shards, and you heal a little from each kill.",
+    "effect": {
+      "loot_mult": {
+        "bone_shard": 1.5
+      },
+      "heal_on_kill": 6
+    },
+    "hint": "Kill enough of the crypt's dead and their bones start to speak.",
+    "unlock": {
+      "kills": {
+        "skeleton": 20
+      }
+    }
+  },
+  "silver_vein": {
+    "name": "Silver Vein Insight",
+    "kind": "passive",
+    "realm": 1,
+    "desc": "You feel ore through stone: every vein you mine gives one more.",
+    "effect": {
+      "gather_bonus": 1
+    },
+    "hint": "A miner's prayer is carved somewhere in the flooded seam.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "thousand_cuts": {
+    "name": "Thousand Cuts",
+    "kind": "passive",
+    "realm": 2,
+    "desc": "Your blade moves before you think. Attacks come 30% faster.",
+    "effect": {
+      "attack_speed": 1.3
+    },
+    "hint": "The Foreman never stopped working. Neither should you.",
+    "unlock": {
+      "kills": {
+        "foreman_golem": 1
+      }
+    }
+  },
+  "nanite_resonance": {
+    "name": "Nanite Resonance",
+    "kind": "passive",
+    "realm": 2,
+    "desc": "Your nanites sing with the Sanctum's. All qi you gain is increased by 25%.",
+    "effect": {
+      "qi_mult": 1.25
+    },
+    "hint": "In the Sanctum, the walls remember what the nanites were for.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "sword_heart": {
+    "name": "Sword Heart",
+    "kind": "passive",
+    "realm": 1,
+    "desc": "A master's understanding of the blade, passed on whole. Every strike you make deals 15% more damage.",
+    "effect": {
+      "damage_mult": 1.15
+    },
+    "hint": "A sword sage died somewhere under Eliet, and his bones were never found.",
+    "unlock": {
+      "inheritance": true
+    }
+  },
+  "forge_sense": {
+    "name": "Forge Sense",
+    "kind": "passive",
+    "realm": 0,
+    "desc": "You hear a blade's flaws before it's finished. Smithing success +8%, and finer work more often.",
+    "effect": {
+      "craft_success_smithing": 0.08,
+      "craft_quality_smithing": 0.06
+    },
+    "hint": "Ten levels of honest work at the anvil changes how you listen.",
+    "unlock": {
+      "skill": {
+        "smithing": 10
+      }
+    }
+  },
+  "furnace_heart": {
+    "name": "Furnace Heart",
+    "kind": "passive",
+    "realm": 0,
+    "desc": "Your own qi steadies the furnace. Alchemy success +8%, and every pill you swallow gives 10% more qi.",
+    "effect": {
+      "craft_success_alchemy": 0.08,
+      "qi_mult": 1.1
+    },
+    "hint": "An alchemist who has burned enough pills learns to burn steadier.",
+    "unlock": {
+      "skill": {
+        "alchemy": 10
+      }
+    }
+  },
+  "healers_touch": {
+    "name": "Healer's Touch",
+    "kind": "passive",
+    "realm": 0,
+    "desc": "You know where a wound wants to close. Medicine success +8%; you heal 4 HP whenever you defeat something.",
+    "effect": {
+      "craft_success_medicine": 0.08,
+      "heal_on_kill": 4
+    },
+    "hint": "Mend enough wounds and your own start mending themselves.",
+    "unlock": {
+      "skill": {
+        "medicine": 10
+      }
+    }
+  },
+  "stone_whisper": {
+    "name": "Stone Whisper",
+    "kind": "passive",
+    "realm": 0,
+    "desc": "Stone tells you where it's rich. One more from every vein, and glittering veins give up more gems.",
+    "effect": {
+      "gather_bonus": 1
+    },
+    "hint": "Miners who've broken enough rock say it starts talking back.",
+    "unlock": {
+      "skill": {
+        "mining": 10
+      }
+    }
+  },
+  "verdant_eye": {
+    "name": "Verdant Eye",
+    "kind": "passive",
+    "realm": 0,
+    "desc": "Plants show you what they're good for. Much more chance of extra herbs.",
+    "effect": {
+      "gather_chance": 0.25
+    },
+    "hint": "Pick enough herbs and you start seeing them before you look.",
+    "unlock": {
+      "skill": {
+        "herbalism": 10
+      }
+    }
+  },
+  "still_water": {
+    "name": "Still Water",
+    "kind": "passive",
+    "realm": 0,
+    "desc": "An angler's patience, carried into cultivation. Meditation is 25% faster.",
+    "effect": {
+      "meditate_mult": 1.25
+    },
+    "hint": "The water teaches the patient something it never tells the hungry.",
+    "unlock": {
+      "skill": {
+        "fishing": 10
+      }
+    }
+  },
+  "hunters_step": {
+    "name": "Hunter's Step",
+    "kind": "passive",
+    "realm": 0,
+    "desc": "You move like something that doesn't want to be seen. You take 8% less damage, and animals don't flee as far.",
+    "effect": {
+      "damage_taken": 0.92
+    },
+    "hint": "Track enough game and you learn how not to be tracked.",
+    "unlock": {
+      "skill": {
+        "hunting": 10
+      }
+    }
+  },
+  "jewel_mind": {
+    "name": "Jeweller's Mind",
+    "kind": "passive",
+    "realm": 0,
+    "desc": "You see the flaw lines in a stone. Jewelcrafting success +10%, finer settings.",
+    "effect": {
+      "craft_success_jewelcrafting": 0.1,
+      "craft_quality_jewelcrafting": 0.08
+    },
+    "hint": "Cut enough stones and the next one shows you where to cut.",
+    "unlock": {
+      "skill": {
+        "jewelcrafting": 10
+      }
+    }
+  },
+  "evergreen_body": {
+    "name": "Evergreen Body",
+    "kind": "passive",
+    "realm": 2,
+    "desc": "Like the grove, you grow back. Every kill mends 10 HP, and your body holds 8% more life.",
+    "effect": {
+      "heal_on_kill": 10,
+      "hp_mult": 1.08
+    },
+    "hint": "Somewhere in the Grove, the trees tell how they outlived the sect that planted them.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "ember_meridians": {
+    "name": "Ember Meridians",
+    "kind": "passive",
+    "realm": 2,
+    "desc": "Qi runs through you like fire through a bellows. +12% damage.",
+    "effect": {
+      "damage_mult": 1.12
+    },
+    "hint": "The forge-masters cut their method into the anvils.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "slag_breaker": {
+    "name": "Slag Breaker",
+    "kind": "passive",
+    "realm": 2,
+    "desc": "You've learned where brutes break. You take 10% less damage.",
+    "effect": {
+      "damage_taken": 0.9
+    },
+    "hint": "Break enough of the Forge's brutes and you'll learn where they crack.",
+    "unlock": {
+      "kills": {
+        "slag_brute": 15
+      }
+    }
+  },
+  "terracotta_stance": {
+    "name": "Terracotta Stance",
+    "kind": "passive",
+    "realm": 3,
+    "desc": "Stand like the buried army stood for a thousand years. You take 12% less damage.",
+    "effect": {
+      "damage_taken": 0.88
+    },
+    "hint": "The general who drilled the clay army left his drill book behind.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "sword_intent": {
+    "name": "Sword Intent",
+    "kind": "passive",
+    "realm": 3,
+    "desc": "Not a technique -- a decision. +20% damage, and you strike 10% faster.",
+    "effect": {
+      "damage_mult": 1.2,
+      "attack_speed": 1.1
+    },
+    "hint": "The Sword Saint left one disciple. The disciple is still waiting.",
+    "unlock": {
+      "inheritance": true
+    }
+  },
+  "lotus_breathing": {
+    "name": "Lotus Breathing",
+    "kind": "passive",
+    "realm": 1,
+    "desc": "The Academy's first lesson: breathe like a lotus opening. You cultivate 30% faster.",
+    "effect": {
+      "meditate_mult": 1.3
+    },
+    "hint": "Taught in the Lotus Ascent Academy's library.",
+    "unlock": {
+      "academy": true
+    }
+  },
+  "flowing_strikes": {
+    "name": "Flowing Strikes",
+    "kind": "passive",
+    "realm": 2,
+    "desc": "Each strike flows into the next. You attack 10% faster.",
+    "effect": {
+      "attack_speed": 1.1
+    },
+    "hint": "Taught in the Lotus Ascent Academy's library.",
+    "unlock": {
+      "academy": true
+    }
+  },
+  "lotus_body": {
+    "name": "Lotus Body",
+    "kind": "passive",
+    "realm": 3,
+    "desc": "A body that closes its wounds like petals at dusk. +12% HP.",
+    "effect": {
+      "hp_mult": 1.12
+    },
+    "hint": "Taught in the Lotus Ascent Academy's library.",
+    "unlock": {
+      "academy": true
+    }
+  },
+  "heart_of_the_lotus": {
+    "name": "Heart of the Lotus",
+    "kind": "passive",
+    "realm": 4,
+    "desc": "Qi gathers to you as water gathers to a pond. +20% qi.",
+    "effect": {
+      "qi_mult": 1.2
+    },
+    "hint": "Taught in the Lotus Ascent Academy's library.",
+    "unlock": {
+      "academy": true
+    }
+  },
+  "thousand_petal_guard": {
+    "name": "Thousand-Petal Guard",
+    "kind": "passive",
+    "realm": 6,
+    "desc": "Blows slide off a thousand layered petals of qi. 12% less damage taken.",
+    "effect": {
+      "damage_taken": 0.88
+    },
+    "hint": "Taught in the Lotus Ascent Academy's library.",
+    "unlock": {
+      "academy": true
+    }
+  },
+  "drowned_art": {
+    "name": "Tidal Breath",
+    "kind": "passive",
+    "realm": 3,
+    "desc": "Breathe like the tide: slow in, slow out.",
+    "effect": {
+      "meditate_mult": 1.2
+    },
+    "hint": "Hidden somewhere in The Drowned Palace.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "cloudruins_art": {
+    "name": "Ascending Breath",
+    "kind": "passive",
+    "realm": 3,
+    "desc": "Breathe as the immortals breathed, and rise.",
+    "effect": {
+      "meditate_mult": 1.2
+    },
+    "hint": "Hidden somewhere in The Fallen Cloud Palace.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "fungal_art": {
+    "name": "Rot-Ward Body",
+    "kind": "passive",
+    "realm": 4,
+    "desc": "Your flesh learns to refuse what rots it.",
+    "effect": {
+      "damage_taken": 0.93
+    },
+    "hint": "Hidden somewhere in The Spore-Choked Deeps.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "storm_art": {
+    "name": "Lightning Step",
+    "kind": "passive",
+    "realm": 4,
+    "desc": "Strike between one heartbeat and the next.",
+    "effect": {
+      "attack_speed": 1.08
+    },
+    "hint": "Hidden somewhere in The Thunderhead Spire.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "dragonspine_art": {
+    "name": "Dragon's Breath Meridian",
+    "kind": "passive",
+    "realm": 5,
+    "desc": "Breathe fire through your meridians.",
+    "effect": {
+      "damage_mult": 1.06,
+      "qi_mult": 1.05
+    },
+    "hint": "Hidden somewhere in The Spine of the Sleeping Dragon.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "crystal_art": {
+    "name": "Echoing Meridians",
+    "kind": "passive",
+    "realm": 5,
+    "desc": "Your qi rings back through you on every strike.",
+    "effect": {
+      "damage_mult": 1.08
+    },
+    "hint": "Hidden somewhere in The Singing Crystal Caverns.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "canopy_art": {
+    "name": "Predator's Patience",
+    "kind": "passive",
+    "realm": 3,
+    "desc": "Wait for the moment; strike once, and mean it.",
+    "effect": {
+      "damage_mult": 1.08
+    },
+    "hint": "Hidden somewhere in The Crimson Canopy.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "starmine_art": {
+    "name": "Starfall Body",
+    "kind": "passive",
+    "realm": 5,
+    "desc": "A body as dense as fallen star-iron.",
+    "effect": {
+      "hp_mult": 1.08
+    },
+    "hint": "Hidden somewhere in The Fallen Star Mine.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "clockwork_art": {
+    "name": "Perfect Timing",
+    "kind": "passive",
+    "realm": 6,
+    "desc": "Your strikes fall on the beat.",
+    "effect": {
+      "attack_speed": 1.08
+    },
+    "hint": "Hidden somewhere in The Clockwork Vaults.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "silk_art": {
+    "name": "Web-Sense",
+    "kind": "passive",
+    "realm": 6,
+    "desc": "Feel every tremor in the threads of the world.",
+    "effect": {
+      "sense_radius": 6.0
+    },
+    "hint": "Hidden somewhere in The Weaver's Halls.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "ash_art": {
+    "name": "Ember-Skin",
+    "kind": "passive",
+    "realm": 6,
+    "desc": "Your skin hardens like fired clay.",
+    "effect": {
+      "damage_taken": 0.93
+    },
+    "hint": "Hidden somewhere in The Ash Dunes.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "frost_art": {
+    "name": "Still-Mind Frost",
+    "kind": "passive",
+    "realm": 7,
+    "desc": "A mind as still as ice gathers qi without spilling it.",
+    "effect": {
+      "qi_mult": 1.1
+    },
+    "hint": "Hidden somewhere in The Frozen Archive.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "mirror_art": {
+    "name": "Know Thyself",
+    "kind": "passive",
+    "realm": 7,
+    "desc": "You have faced yourself and won. Stronger, steadier, whole.",
+    "effect": {
+      "hp_mult": 1.06,
+      "damage_mult": 1.06
+    },
+    "hint": "Hidden somewhere in The Mirror Labyrinth.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "ghostmarket_art": {
+    "name": "Ghost-Walking",
+    "kind": "passive",
+    "realm": 7,
+    "desc": "Half here, half not -- blows pass through the half that isn't.",
+    "effect": {
+      "damage_taken": 0.92
+    },
+    "hint": "Hidden somewhere in The Night Market of the Dead.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "drowned_art_2": {
+    "name": "Tidal Breath II",
+    "kind": "passive",
+    "realm": 8,
+    "desc": "Breathe like the tide: slow in, slow out.",
+    "effect": {
+      "meditate_mult": 1.3
+    },
+    "hint": "Hidden somewhere in The Tidewrecked Court.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "fungal_art_2": {
+    "name": "Rot-Ward Body II",
+    "kind": "passive",
+    "realm": 8,
+    "desc": "Your flesh learns to refuse what rots it.",
+    "effect": {
+      "damage_taken": 0.895
+    },
+    "hint": "Hidden somewhere in The Rotting Bloom.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "clockwork_art_2": {
+    "name": "Perfect Timing II",
+    "kind": "passive",
+    "realm": 8,
+    "desc": "Your strikes fall on the beat.",
+    "effect": {
+      "attack_speed": 1.12
+    },
+    "hint": "Hidden somewhere in The Idle Engines.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "dragonspine_art_2": {
+    "name": "Dragon's Breath Meridian II",
+    "kind": "passive",
+    "realm": 9,
+    "desc": "Breathe fire through your meridians.",
+    "effect": {
+      "damage_mult": 1.09,
+      "qi_mult": 1.075
+    },
+    "hint": "Hidden somewhere in The Dragon's Ribs.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "ash_art_2": {
+    "name": "Ember-Skin II",
+    "kind": "passive",
+    "realm": 9,
+    "desc": "Your skin hardens like fired clay.",
+    "effect": {
+      "damage_taken": 0.895
+    },
+    "hint": "Hidden somewhere in The Glass Dunes.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "mirror_art_2": {
+    "name": "Know Thyself II",
+    "kind": "passive",
+    "realm": 9,
+    "desc": "You have faced yourself and won. Stronger, steadier, whole.",
+    "effect": {
+      "hp_mult": 1.09,
+      "damage_mult": 1.09
+    },
+    "hint": "Hidden somewhere in The Cracked Gallery.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "crystal_art_2": {
+    "name": "Echoing Meridians II",
+    "kind": "passive",
+    "realm": 10,
+    "desc": "Your qi rings back through you on every strike.",
+    "effect": {
+      "damage_mult": 1.12
+    },
+    "hint": "Hidden somewhere in The Silent Chime Caves.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "cloudruins_art_2": {
+    "name": "Ascending Breath II",
+    "kind": "passive",
+    "realm": 10,
+    "desc": "Breathe as the immortals breathed, and rise.",
+    "effect": {
+      "meditate_mult": 1.3
+    },
+    "hint": "Hidden somewhere in The Fallen Terraces.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "storm_art_2": {
+    "name": "Lightning Step II",
+    "kind": "passive",
+    "realm": 10,
+    "desc": "Strike between one heartbeat and the next.",
+    "effect": {
+      "attack_speed": 1.12
+    },
+    "hint": "Hidden somewhere in The Stormbreak Stair.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "silk_art_2": {
+    "name": "Web-Sense II",
+    "kind": "passive",
+    "realm": 11,
+    "desc": "Feel every tremor in the threads of the world.",
+    "effect": {
+      "sense_radius": 9.0
+    },
+    "hint": "Hidden somewhere in The Loom Below.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "starmine_art_2": {
+    "name": "Starfall Body II",
+    "kind": "passive",
+    "realm": 11,
+    "desc": "A body as dense as fallen star-iron.",
+    "effect": {
+      "hp_mult": 1.12
+    },
+    "hint": "Hidden somewhere in The Last Seam.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "ghostmarket_art_2": {
+    "name": "Ghost-Walking II",
+    "kind": "passive",
+    "realm": 11,
+    "desc": "Half here, half not -- blows pass through the half that isn't.",
+    "effect": {
+      "damage_taken": 0.88
+    },
+    "hint": "Hidden somewhere in The Closing Bazaar.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "canopy_art_2": {
+    "name": "Predator's Patience II",
+    "kind": "passive",
+    "realm": 12,
+    "desc": "Wait for the moment; strike once, and mean it.",
+    "effect": {
+      "damage_mult": 1.12
+    },
+    "hint": "Hidden somewhere in The Black Canopy.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "frost_art_2": {
+    "name": "Still-Mind Frost II",
+    "kind": "passive",
+    "realm": 12,
+    "desc": "A mind as still as ice gathers qi without spilling it.",
+    "effect": {
+      "qi_mult": 1.15
+    },
+    "hint": "Hidden somewhere in The Thawed Archive.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "clockwork_art_3": {
+    "name": "Perfect Timing III",
+    "kind": "passive",
+    "realm": 12,
+    "desc": "Your strikes fall on the beat.",
+    "effect": {
+      "attack_speed": 1.16
+    },
+    "hint": "Hidden somewhere in The First Machine.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "starmine_art_3": {
+    "name": "Starfall Body III",
+    "kind": "passive",
+    "realm": 13,
+    "desc": "A body as dense as fallen star-iron.",
+    "effect": {
+      "hp_mult": 1.16
+    },
+    "hint": "Hidden somewhere in The Starless Pit.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "storm_art_3": {
+    "name": "Lightning Step III",
+    "kind": "passive",
+    "realm": 13,
+    "desc": "Strike between one heartbeat and the next.",
+    "effect": {
+      "attack_speed": 1.16
+    },
+    "hint": "Hidden somewhere in The Still Spire.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "ash_art_3": {
+    "name": "Ember-Skin III",
+    "kind": "passive",
+    "realm": 13,
+    "desc": "Your skin hardens like fired clay.",
+    "effect": {
+      "damage_taken": 0.86
+    },
+    "hint": "Hidden somewhere in The Cooling Dunes.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "drowned_art_3": {
+    "name": "Tidal Breath III",
+    "kind": "passive",
+    "realm": 14,
+    "desc": "Breathe like the tide: slow in, slow out.",
+    "effect": {
+      "meditate_mult": 1.4
+    },
+    "hint": "Hidden somewhere in The Still Water Court.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "crystal_art_3": {
+    "name": "Echoing Meridians III",
+    "kind": "passive",
+    "realm": 14,
+    "desc": "Your qi rings back through you on every strike.",
+    "effect": {
+      "damage_mult": 1.16
+    },
+    "hint": "Hidden somewhere in The Choir Stones.",
+    "unlock": {
+      "lore": true
+    }
+  },
+  "cloudruins_art_3": {
+    "name": "Ascending Breath III",
+    "kind": "passive",
+    "realm": 14,
+    "desc": "Breathe as the immortals breathed, and rise.",
+    "effect": {
+      "meditate_mult": 1.4
+    },
+    "hint": "Hidden somewhere in The Last Terrace.",
+    "unlock": {
+      "lore": true
+    }
+  }
+}

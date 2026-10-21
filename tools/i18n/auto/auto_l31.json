@@ -1,0 +1,145 @@
+{
+"Endless meditation: %s (tap to switch)": [
+"无尽冥想:%s(点按切换)",
+"Meditación sin fin: %s (toca para cambiar)",
+"Meditação sem fim: %s (toca para alternar)",
+"Бесконечная медитация: %s (нажмите для переключения)",
+"Endlose Meditation: %s (zum Umschalten tippen)",
+"Méditation sans fin : %s (touche pour changer)",
+"無限の瞑想:%s(タップで切替)",
+"끝없는 명상: %s (눌러서 전환)",
+"Sonsuz meditasyon: %s (değiştirmek için dokun)"
+],
+"Every lock open: %s (tap to switch)": [
+"所有锁已开:%s(点按切换)",
+"Todas las cerraduras abiertas: %s (toca para cambiar)",
+"Todas as fechaduras abertas: %s (toca para alternar)",
+"Все замки открыты: %s (нажмите для переключения)",
+"Alle Schlösser offen: %s (zum Umschalten tippen)",
+"Toutes les serrures ouvertes : %s (touche pour changer)",
+"すべての鍵が開く:%s(タップで切替)",
+"모든 잠금 해제: %s (눌러서 전환)",
+"Tüm kilitler açık: %s (değiştirmek için dokun)"
+],
+"Floors %d to %d": [
+"第%d至%d层",
+"Pisos %d a %d",
+"Andares %d a %d",
+"Этажи с %d по %d",
+"Ebenen %d bis %d",
+"Étages %d à %d",
+"%d〜%d階",
+"%d~%d층",
+"%d ile %d arası katlar"
+],
+"Pick a floor.": [
+"选择一层。",
+"Elige un piso.",
+"Escolhe um andar.",
+"Выберите этаж.",
+"Wähle eine Ebene.",
+"Choisis un étage.",
+"階を選んでください。",
+"층을 고르세요.",
+"Bir kat seç."
+],
+"Teleport needs the test kit's open locks.": [
+"传送需要开启测试工具的“所有锁已开”。",
+"El teletransporte necesita las cerraduras abiertas del kit de pruebas.",
+"O teletransporte precisa das fechaduras abertas do kit de testes.",
+"Для телепортации нужны открытые замки тестового набора.",
+"Teleportieren braucht die offenen Schlösser des Testkits.",
+"La téléportation exige les serrures ouvertes du kit de test.",
+"テレポートにはテストキットの「鍵を開ける」が必要です。",
+"순간이동에는 테스트 키트의 '모든 잠금 해제'가 필요합니다.",
+"Işınlanma için test kitinin açık kilitleri gerekir."
+],
+"Teleport to any floor": [
+"传送到任意楼层",
+"Teletransportarse a cualquier piso",
+"Teletransportar para qualquer andar",
+"Телепорт на любой этаж",
+"Zu jeder Ebene teleportieren",
+"Se téléporter à n'importe quel étage",
+"好きな階へテレポート",
+"원하는 층으로 순간이동",
+"Herhangi bir kata ışınlan"
+],
+"The hearth in your home keeps a chest; the test kit's vault reaches you anywhere.": [
+"家中的炉边有一口箱子;测试工具的宝库则随处可达。",
+"El hogar de tu casa guarda un cofre; la bóveda del kit de pruebas te alcanza donde estés.",
+"A lareira da tua casa guarda um baú; o cofre-forte do kit de testes chega-te em qualquer lugar.",
+"У очага в вашем доме стоит сундук; хранилище тестового набора доступно где угодно.",
+"Der Herd in deinem Heim hütet eine Truhe; der Tresor des Testkits erreicht dich überall.",
+"Le foyer de ta maison garde un coffre ; le coffre-fort du kit de test t'atteint partout.",
+"家の暖炉のそばには箱があります。テストキットの金庫はどこからでも使えます。",
+"집의 화덕 곁에는 상자가 있고, 테스트 키트의 금고는 어디서든 닿습니다.",
+"Evindeki ocak bir sandık tutar; test kitinin kasası sana her yerden ulaşır."
+],
+"The map (F2) remembers where you have been. Stairs and waystones are marked.": [
+"地图(F2)会记住你去过的地方,楼梯和路标石都有标记。",
+"El mapa (F2) recuerda dónde has estado. Las escaleras y las piedras de camino están marcadas.",
+"O mapa (F2) lembra onde já estiveste. As escadas e as pedras de caminho estão marcadas.",
+"Карта (F2) помнит, где вы побывали. Лестницы и путевые камни отмечены.",
+"Die Karte (F2) merkt sich, wo du warst. Treppen und Wegsteine sind markiert.",
+"La carte (F2) se souvient d'où tu es passé. Escaliers et pierres-relais sont marqués.",
+"マップ(F2)は行った場所を覚えています。階段と道標石に印が付きます。",
+"지도(F2)는 지나온 곳을 기억합니다. 계단과 이정표 돌이 표시됩니다.",
+"Harita (F2) nerelerde bulunduğunu hatırlar. Merdivenler ve yol taşları işaretlidir."
+],
+"The valley": [
+"山谷",
+"El valle",
+"O vale",
+"Долина",
+"Das Tal",
+"La vallée",
+"谷",
+"계곡",
+"Vadi"
+],
+"The village": [
+"村庄",
+"La aldea",
+"A aldeia",
+"Деревня",
+"Das Dorf",
+"Le village",
+"村",
+"마을",
+"Köy"
+],
+"The village sells almost nothing you cannot make. The craft books are in the market.": [
+"村里卖的东西几乎都能自己做。制作书在集市里。",
+"La aldea casi no vende nada que no puedas fabricar. Los libros de oficio están en el mercado.",
+"A aldeia quase não vende nada que não possas fabricar. Os livros de ofício estão no mercado.",
+"В деревне почти нет ничего, чего вы не смогли бы сделать сами. Книги ремёсел — на рынке.",
+"Das Dorf verkauft kaum etwas, das du nicht selbst herstellen kannst. Die Handwerksbücher gibt es auf dem Markt.",
+"Le village ne vend presque rien que tu ne saches fabriquer. Les livres d'artisanat sont au marché.",
+"村で売っているものは、ほとんど自分で作れます。製作書は市場にあります。",
+"마을에서 파는 것은 대부분 직접 만들 수 있습니다. 제작서는 시장에 있습니다.",
+"Köyde sattığı şeylerin neredeyse hepsini kendin yapabilirsin. Zanaat kitapları pazarda."
+],
+"Where to? Locks are open while the test kit's switch is on. You are standing on floor: %s.": [
+"去哪里?测试工具开关打开时,所有锁都是开的。你现在所在:%s。",
+"¿A dónde? Las cerraduras están abiertas mientras el interruptor del kit de pruebas esté activo. Estás en: %s.",
+"Para onde? As fechaduras ficam abertas enquanto o interruptor do kit de testes estiver ligado. Estás em: %s.",
+"Куда? Пока включён тестовый набор, все замки открыты. Вы сейчас на: %s.",
+"Wohin? Die Schlösser sind offen, solange der Schalter des Testkits an ist. Du stehst auf: %s.",
+"Où aller ? Les serrures sont ouvertes tant que l'interrupteur du kit de test est activé. Tu es à : %s.",
+"どこへ行きますか?テストキットのスイッチがオンの間、鍵はすべて開いています。現在地:%s。",
+"어디로 갈까요? 테스트 키트 스위치가 켜져 있는 동안 모든 잠금이 열려 있습니다. 현재 위치: %s.",
+"Nereye? Test kiti anahtarı açıkken tüm kilitler açıktır. Şu an buradasın: %s."
+],
+"You step through to %s.": [
+"你穿越到了%s。",
+"Cruzas hasta %s.",
+"Atravessas até %s.",
+"Вы переходите в: %s.",
+"Du trittst hindurch nach %s.",
+"Tu passes jusqu'à %s.",
+"%sへ踏み入ります。",
+"%s(으)로 넘어갑니다.",
+"%s alanına geçiyorsun."
+]
+}

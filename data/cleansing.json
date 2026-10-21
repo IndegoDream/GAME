@@ -1,0 +1,261 @@
+{
+ "_about": "Round 40 (Robert: 'meridian cleansing that needs to be done both for major and minor nodes; this amplifies the base stats of the player, a percentage boost -- figure out a fair metric'). MINOR NODES are the 36 points of the Meridian Lattice (open one first, K). MAJOR NODES are twelve great points that open with your realm. Every node is cleansed through five grades -- murky, clouded, clear, pure, radiant -- by meditating with Cleanse as your focus (or a share of it). THE METRIC: each stat has a ceiling (health +30%, damage +30%, speed +15%, strike speed +15%, defense 20% less damage, qi +30%, recovery +30%). The ceiling is shared among the nodes that feed that stat by weight (a minor node 1, a major node 4, the two crown nodes 2 to every stat); a node gives its share times its grade (0, 20%, 45%, 70%, 100%). So every node matters, the big ones matter more, and everything clean is exactly the ceiling -- never more.",
+ "grades": [
+  {
+   "name": "Murky",
+   "frac": 0.0,
+   "realm": 0,
+   "mult": 0
+  },
+  {
+   "name": "Clouded",
+   "frac": 0.2,
+   "realm": 0,
+   "mult": 1
+  },
+  {
+   "name": "Clear",
+   "frac": 0.45,
+   "realm": 2,
+   "mult": 2
+  },
+  {
+   "name": "Pure",
+   "frac": 0.7,
+   "realm": 5,
+   "mult": 4
+  },
+  {
+   "name": "Radiant",
+   "frac": 1.0,
+   "realm": 9,
+   "mult": 8
+  }
+ ],
+ "minor_seconds_per_ring": 240,
+ "major_seconds_base": 1200,
+ "major_seconds_per_realm": 240,
+ "weights": {
+  "minor": 1,
+  "major": 4,
+  "all": 2
+ },
+ "stats": {
+  "health": {
+   "name": "Health",
+   "key": "hp_mult",
+   "cap": 0.3
+  },
+  "damage": {
+   "name": "Damage",
+   "key": "damage_mult",
+   "cap": 0.3
+  },
+  "speed": {
+   "name": "Speed",
+   "key": "move_mult",
+   "cap": 0.15
+  },
+  "attack": {
+   "name": "Strike speed",
+   "key": "attack_speed",
+   "cap": 0.15
+  },
+  "defense": {
+   "name": "Defense",
+   "key": "damage_taken",
+   "cap": 0.2,
+   "inverse": true
+  },
+  "qi": {
+   "name": "Qi",
+   "key": "qi_mult",
+   "cap": 0.3
+  },
+  "recovery": {
+   "name": "Recovery",
+   "key": "meditate_mult",
+   "cap": 0.3
+  }
+ },
+ "minor_map": {
+  "strike": [
+   "damage",
+   "damage",
+   "damage",
+   "attack",
+   "attack",
+   "attack"
+  ],
+  "guard": [
+   "health",
+   "health",
+   "health",
+   "defense",
+   "defense",
+   "defense"
+  ],
+  "step": [
+   "speed",
+   "speed",
+   "speed",
+   "recovery",
+   "recovery",
+   "recovery"
+  ]
+ },
+ "majors": [
+  {
+   "id": "qihai",
+   "name": "Qihai",
+   "meaning": "Sea of Qi",
+   "where": "the lower dantian",
+   "realm": 1,
+   "stats": [
+    "qi"
+   ]
+  },
+  {
+   "id": "guanyuan",
+   "name": "Guanyuan",
+   "meaning": "Gate of Origin",
+   "where": "below the navel",
+   "realm": 2,
+   "stats": [
+    "health"
+   ]
+  },
+  {
+   "id": "mingmen",
+   "name": "Mingmen",
+   "meaning": "Gate of Life",
+   "where": "between the kidneys",
+   "realm": 3,
+   "stats": [
+    "recovery"
+   ]
+  },
+  {
+   "id": "shanzhong",
+   "name": "Shanzhong",
+   "meaning": "Centre of the Chest",
+   "where": "the middle dantian",
+   "realm": 4,
+   "stats": [
+    "health",
+    "defense"
+   ]
+  },
+  {
+   "id": "dazhui",
+   "name": "Dazhui",
+   "meaning": "Great Vertebra",
+   "where": "the base of the neck",
+   "realm": 5,
+   "stats": [
+    "damage"
+   ]
+  },
+  {
+   "id": "yongquan",
+   "name": "Yongquan",
+   "meaning": "Bubbling Spring",
+   "where": "the soles",
+   "realm": 5,
+   "stats": [
+    "speed"
+   ]
+  },
+  {
+   "id": "jianjing",
+   "name": "Jianjing",
+   "meaning": "Shoulder Well",
+   "where": "the shoulders",
+   "realm": 6,
+   "stats": [
+    "attack"
+   ]
+  },
+  {
+   "id": "yintang",
+   "name": "Yintang",
+   "meaning": "Hall of Impression",
+   "where": "the upper dantian",
+   "realm": 7,
+   "stats": [
+    "qi",
+    "recovery"
+   ]
+  },
+  {
+   "id": "fengfu",
+   "name": "Fengfu",
+   "meaning": "Wind Mansion",
+   "where": "the skull's base",
+   "realm": 8,
+   "stats": [
+    "defense"
+   ]
+  },
+  {
+   "id": "huiyin",
+   "name": "Huiyin",
+   "meaning": "Meeting of Yin",
+   "where": "the root",
+   "realm": 9,
+   "stats": [
+    "recovery",
+    "speed"
+   ]
+  },
+  {
+   "id": "shenque",
+   "name": "Shenque",
+   "meaning": "Spirit Gate",
+   "where": "the navel",
+   "realm": 10,
+   "stats": [
+    "all"
+   ]
+  },
+  {
+   "id": "baihui",
+   "name": "Baihui",
+   "meaning": "Hundred Meetings",
+   "where": "the crown",
+   "realm": 12,
+   "stats": [
+    "all"
+   ]
+  }
+ ],
+ "pills": {
+  "marrow_washing_pill": {
+   "name": "Marrow Washing Pill",
+   "seconds": 900,
+   "value": 90,
+   "needs": {
+    "spirit_herb": 3,
+    "bloodsap": 1,
+    "moonpetal": 1
+   },
+   "skill": "alchemy",
+   "difficulty": 3,
+   "desc": "It burns going down and then everywhere at once. Fifteen minutes of cleansing, all at once, for the node you're working on."
+  },
+  "heaven_washing_pill": {
+   "name": "Heaven Washing Pill",
+   "seconds": 5400,
+   "value": 420,
+   "needs": {
+    "true_reflection": 1,
+    "spirit_silk": 1,
+    "drake_blood": 1,
+    "moonpetal": 2
+   },
+   "skill": "alchemy",
+   "difficulty": 8,
+   "desc": "Made from things that show you as you are. An hour and a half of cleansing in one swallow."
+  }
+ }
+}

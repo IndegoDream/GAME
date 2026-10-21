@@ -1,0 +1,22 @@
+{
+  "brief": "world_seasons",
+  "title": "The four seasons",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "text": "Spring in the valley. Meltwater runs down into the deep, and everything that grows grows faster. High summer. The forges of the deep run hot and so does your blood. Autumn. Traders come down with full carts and the leaves come down with them. Winter. The valley goes quiet under snow. Quiet is good for sitting."
+    },
+    {
+      "text": "blaze -- ours: \"High summer. The forges of the deep run hot and so does your blood.\""
+    },
+    {
+      "text": "harvest -- ours: \"Autumn. Traders come down with full carts and the leaves come down with them.\""
+    },
+    {
+      "id": "thaw",
+      "text": "Spring in the valley. Meltwater runs down into the deep, and everything that grows grows faster."
+    }
+  ],
+  "helped": []
+}

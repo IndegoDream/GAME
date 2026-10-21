@@ -1,0 +1,105 @@
+{
+  "id": "village",
+  "name": "Eliet Village",
+  "theme": "village",
+  "depth": 0,
+  "notes": "The safe hub. Merchant (sell materials, buy salves/pills), smith (craft gear), Elder Mo (quests), a cultivation shrine (fast qi, AFK qi if you quit sitting there). The dungeon entrance is the stairs on the north plaza.",
+  "map": [
+    "",
+    "  .     ....   .. . .. ...   ....",
+    " ........t...L,,D,,,L...t........",
+    " ..h........t,,,,,,,,.t.........",
+    "  ..HHHH.....,,,,,,,,...HHHH..h..",
+    "  ..HHHH.....,,,,,,,,...HHHH.....",
+    "  ..HHHH........,,......HHHH....",
+    "  .......HHH....,,....HH.........",
+    "  .......HHH....,,....HH........",
+    "  .t.........Q..,,....HH......t..",
+    "  ...t........LR,,YL............",
+    " .......h...M.,,,,,,.F....A.t....",
+    " ...,,,,,,,,,,,,f,,,,,,,,,,,,,...",
+    "  ..,,,,,,,,,,,,,,,,,,,,,,,,,,..",
+    "  t...........,,,,E,...........t.",
+    " .....W..V....L,,,,L....N..h....",
+    "  ..............P,..............",
+    "  ..HHHH........,,......HHHH.....",
+    " ...HHHH........,,......HHHH..t.",
+    "  ..HHHH........,,..t...HHHH....",
+    "  ..............,,...............",
+    " ..t.......t....,,.......t...t.h.",
+    " .......t............t.....Z.....",
+    " ..h.........h...........t...t..",
+    "   .  . .    ..    . ...  .... ..",
+    ""
+  ],
+  "npcs": {
+    "M": {
+      "role": "merchant",
+      "name": "Trader Wen",
+      "line": "Teeth, ore, bones -- I buy it all. Goblin teeth especially; the alchemists can't get enough."
+    },
+    "F": {
+      "role": "smith",
+      "name": "Smith Hale",
+      "line": "Ore makes iron, bone makes edges, and those nanite shards... those make miracles."
+    },
+    "A": {
+      "role": "guild",
+      "guild": "adventurers",
+      "name": "Captain Rhee",
+      "line": "The Lodge pays for what you clear and what you find. Sign the book and the work comes to you."
+    },
+    "W": {
+      "role": "guild",
+      "guild": "gatherers",
+      "name": "Old Pell",
+      "line": "Everything anyone in Eliet makes starts in someone's basket. Might as well be yours."
+    },
+    "N": {
+      "role": "alchemist",
+      "name": "Apothecary Lin",
+      "line": "Herbs into salves, salves into lives. Bring me what grows and I'll show you what it's for -- and what it could be, in better hands."
+    },
+    "E": {
+      "role": "elder",
+      "name": "Elder Mo",
+      "line": "Your nanites are seeded, child. Cultivate them. The dungeon below will test what they become."
+    },
+    "V": {
+      "role": "villager",
+      "name": "Little Rin",
+      "line": "If you sit at the shrine and fall asleep, the qi keeps coming. That's what Grandpa says!",
+      "lines": [
+        "If you sit at the shrine and fall asleep, the qi keeps coming. That's what Grandpa says!",
+        "Want to know a secret? Stones that look loose usually ARE loose. Press on them!",
+        "Okay okay. The real secret is you have to LISTEN. Close your eyes... hidden things hum. Can you hear it now?",
+        "Did you throw a coin in the fountain yet? Grandpa says the seventh one is special.",
+        "There's a stone on the plaza nobody can read. Grandpa says it only talks to people who've grown enough.",
+        "Grandpa says a sword sage went down into the warrens a hundred years ago and never came out. Nobody ever found his bones. You'd have to see what isn't there!",
+        "The goblins' big hall has a cold spot by the south wall. Cold spots mean wind. Wind means a hole. That's science."
+      ]
+    }
+  },
+  "exits": {
+    "D": {
+      "to": "floor1",
+      "arrive": "<",
+      "label": "Dungeon -- Floor 1"
+    }
+  },
+  "lore": {
+    "R": {
+      "title": "The Founders' Stone",
+      "text": "ELIET -- raised where the old machines slept.\nCarved by Robert, who dreamed it; shaped by Dev, who builds it still; and Claude, who handed over the chisel.\n\nWhoever reads this: the fountain is listening."
+    },
+    "Y": {
+      "title": "The Unreadable Stone",
+      "needs_realm": 1,
+      "text": "The letters swim into focus at last.\n\n'The nanites were not made to fight. They were made to grow -- to learn the shape of the one who carries them. Cultivation is only the word our grandparents had for it. Go down past the dead, past the drowned, to where the Warden keeps the first seed. It has been waiting a long time for someone to grow enough.'"
+    },
+    "Q": {
+      "title": "A Notice Nailed to a Post",
+      "text": "THE LOTUS ASCENT ACADEMY seeks disciples. Applicants of Qi Condensation or higher will be examined at Shellhaven, the town on the Sleeping Tortoise, below the Nanite Sanctum: Strength, Knowledge, Craft. Under it, in charcoal: 'Tournament at the Ring of Moss too. Lu Feng says he'll win it again.'"
+    }
+  }
+}

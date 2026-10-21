@@ -1,0 +1,787 @@
+{
+ "textures": {
+  "own_castle_brick": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.377,
+    "contrast": 0.11,
+    "sat90": 0.109,
+    "entropy": 4.37,
+    "seam": 1.001,
+    "normal_relief": 0.384
+   },
+   "seed": 11,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 11,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [
+    "castle_brick_01"
+   ],
+   "size": 512
+  },
+  "own_old_wall": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.356,
+    "contrast": 0.116,
+    "sat90": 0.109,
+    "entropy": 4.43,
+    "seam": 1.051,
+    "normal_relief": 0.348
+   },
+   "seed": 12,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 12,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [
+    "old_stone_wall"
+   ],
+   "size": 512
+  },
+  "own_cobble": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.357,
+    "contrast": 0.108,
+    "sat90": 0.108,
+    "entropy": 4.61,
+    "seam": 0.721,
+    "normal_relief": 0.42
+   },
+   "seed": 13,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 13,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [
+    "mossy_cobblestone"
+   ],
+   "size": 512
+  },
+  "own_mossy_wall": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.326,
+    "contrast": 0.107,
+    "sat90": 0.362,
+    "entropy": 4.62,
+    "seam": 0.605,
+    "normal_relief": 0.405
+   },
+   "seed": 14,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 14,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [
+    "mossy_stone_wall"
+   ],
+   "size": 512
+  },
+  "own_dirt_path": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.239,
+    "contrast": 0.082,
+    "sat90": 0.42,
+    "entropy": 4.2,
+    "seam": 0.434,
+    "normal_relief": 0.293
+   },
+   "seed": 15,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 15,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [
+    "stony_dirt_path"
+   ],
+   "size": 512
+  },
+  "own_forest_floor": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.279,
+    "contrast": 0.097,
+    "sat90": 0.444,
+    "entropy": 4.36,
+    "seam": 0.412,
+    "normal_relief": 0.271
+   },
+   "seed": 16,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 16,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [
+    "forest_floor",
+    "grass_ground"
+   ],
+   "size": 512
+  },
+  "own_wood_floor": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.27,
+    "contrast": 0.089,
+    "sat90": 0.62,
+    "entropy": 4.4,
+    "seam": 1.46,
+    "normal_relief": 0.605
+   },
+   "seed": 17,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 17,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [
+    "old_wood_floor",
+    "weathered_planks"
+   ],
+   "size": 512
+  },
+  "own_rock_face": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.389,
+    "contrast": 0.105,
+    "sat90": 0.109,
+    "entropy": 4.54,
+    "seam": 0.459,
+    "normal_relief": 0.296
+   },
+   "seed": 18,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 18,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [
+    "rock_face"
+   ],
+   "size": 512
+  },
+  "own_jade_marble": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.336,
+    "contrast": 0.141,
+    "sat90": 0.609,
+    "entropy": 4.9,
+    "seam": 0.147,
+    "normal_relief": 0.182
+   },
+   "seed": 19,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 19,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [
+    "marble_01"
+   ],
+   "size": 512
+  },
+  "own_ember_rock": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.308,
+    "contrast": 0.22,
+    "sat90": 0.831,
+    "entropy": 4.92,
+    "seam": 0.552,
+    "normal_relief": 0.405
+   },
+   "seed": 20,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 20,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [],
+   "size": 512
+  },
+  "own_frost_stone": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.434,
+    "contrast": 0.208,
+    "sat90": 0.475,
+    "entropy": 5.4,
+    "seam": 0.54,
+    "normal_relief": 0.23
+   },
+   "seed": 21,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 21,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [],
+   "size": 512
+  },
+  "own_desert_sand": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.259,
+    "contrast": 0.09,
+    "sat90": 0.419,
+    "entropy": 4.37,
+    "seam": 0.5,
+    "normal_relief": 0.611
+   },
+   "seed": 22,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 22,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [],
+   "size": 512
+  },
+  "own_bone_floor": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.584,
+    "contrast": 0.16,
+    "sat90": 0.265,
+    "entropy": 5.21,
+    "seam": 0.304,
+    "normal_relief": 0.348
+   },
+   "seed": 23,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 23,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [],
+   "size": 512
+  },
+  "own_blood_stone": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "lum": 0.186,
+    "contrast": 0.095,
+    "sat90": 0.84,
+    "entropy": 4.32,
+    "seam": 0.401,
+    "normal_relief": 0.395
+   },
+   "seed": 24,
+   "tries": [
+    {
+     "attempt": 1,
+     "seed": 24,
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "replaces": [],
+   "size": 512
+  }
+ },
+ "sprites": {
+  "fx_glow_ember": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.434,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 31
+  },
+  "fx_glow_jade": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.434,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 32
+  },
+  "fx_glow_ice": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.434,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 33
+  },
+  "fx_ember": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.18,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 34
+  },
+  "fx_spark_gold": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.18,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 35
+  },
+  "fx_spark_ice": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.18,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 36
+  },
+  "fx_ring_jade": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.513,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 37
+  },
+  "fx_ring_ember": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.513,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 38
+  },
+  "fx_slash_bone": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.085,
+    "edge_alpha": 0.0,
+    "cx": 0.54,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 39
+  },
+  "fx_slash_blood": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.085,
+    "edge_alpha": 0.0,
+    "cx": 0.54,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 40
+  },
+  "fx_smoke": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.644,
+    "edge_alpha": 0.0,
+    "cx": 0.48,
+    "cy": 0.51
+   },
+   "group": "effects",
+   "seed": 41
+  },
+  "fx_lightning": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.08,
+    "edge_alpha": 0.0,
+    "cx": 0.56,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 42
+  },
+  "fx_aura_jade": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.447,
+    "edge_alpha": 0.0,
+    "cx": 0.53,
+    "cy": 0.5
+   },
+   "group": "effects",
+   "seed": 43
+  },
+  "fx_aura_ember": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.433,
+    "edge_alpha": 0.0,
+    "cx": 0.53,
+    "cy": 0.47
+   },
+   "group": "effects",
+   "seed": 44
+  },
+  "env_rune_jade": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.211,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "environment",
+   "seed": 45
+  },
+  "env_rune_ember": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.208,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "environment",
+   "seed": 46
+  },
+  "env_crack_a": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.136,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "environment",
+   "seed": 47
+  },
+  "env_crack_b": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.13,
+    "edge_alpha": 0.0,
+    "cx": 0.48,
+    "cy": 0.48
+   },
+   "group": "environment",
+   "seed": 48
+  },
+  "env_moss_patch": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.513,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.49
+   },
+   "group": "environment",
+   "seed": 49
+  },
+  "env_blood_splat": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.314,
+    "edge_alpha": 0.0,
+    "cx": 0.49,
+    "cy": 0.52
+   },
+   "group": "environment",
+   "seed": 50
+  },
+  "env_cobweb": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.114,
+    "edge_alpha": 0.0,
+    "cx": 0.32,
+    "cy": 0.32
+   },
+   "group": "environment",
+   "seed": 51
+  },
+  "env_grass_card": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.352,
+    "edge_alpha": 1.0,
+    "cx": 0.48,
+    "cy": 0.49
+   },
+   "group": "environment",
+   "seed": 52
+  },
+  "env_fern_card": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.19,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.57
+   },
+   "group": "environment",
+   "seed": 53
+  },
+  "ui_panel_stone": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 1.0,
+    "edge_alpha": 1.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "ui",
+   "seed": 54
+  },
+  "ui_bar_health": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.353,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "ui",
+   "seed": 55
+  },
+  "ui_bar_qi": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.353,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "ui",
+   "seed": 56
+  },
+  "ui_bar_stamina": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "coverage": 0.353,
+    "edge_alpha": 0.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "group": "ui",
+   "seed": 57
+  }
+ },
+ "props": {
+  "pillar": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "triangles": 56,
+    "height_m": 3.0,
+    "footprint_m": 1.1,
+    "degenerate": 0
+   },
+   "seed": 1
+  },
+  "crate": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "triangles": 48,
+    "height_m": 0.98,
+    "footprint_m": 0.96,
+    "degenerate": 0
+   },
+   "seed": 1
+  },
+  "barrel": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "triangles": 120,
+    "height_m": 0.92,
+    "footprint_m": 0.84,
+    "degenerate": 0
+   },
+   "seed": 1
+  },
+  "brazier": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "triangles": 98,
+    "height_m": 1.6,
+    "footprint_m": 0.9,
+    "degenerate": 0
+   },
+   "seed": 1
+  },
+  "altar": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "triangles": 60,
+    "height_m": 1.13,
+    "footprint_m": 2.0,
+    "degenerate": 0
+   },
+   "seed": 1
+  },
+  "crystal_cluster": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "triangles": 70,
+    "height_m": 1.8,
+    "footprint_m": 0.75,
+    "degenerate": 0
+   },
+   "seed": 1
+  },
+  "stalagmite": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "triangles": 26,
+    "height_m": 1.6,
+    "footprint_m": 0.99,
+    "degenerate": 0
+   },
+   "seed": 1
+  },
+  "sarcophagus": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "triangles": 24,
+    "height_m": 0.73,
+    "footprint_m": 2.2,
+    "degenerate": 0
+   },
+   "seed": 1
+  },
+  "lantern_post": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "triangles": 48,
+    "height_m": 2.3,
+    "footprint_m": 0.57,
+    "degenerate": 0
+   },
+   "seed": 1
+  },
+  "gravestone": {
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "triangles": 24,
+    "height_m": 1.1,
+    "footprint_m": 0.7,
+    "degenerate": 0
+   },
+   "seed": 1
+  }
+ },
+ "made": "2026-10-10 12:35:40",
+ "style": "Ember and Jade",
+ "failed": []
+}

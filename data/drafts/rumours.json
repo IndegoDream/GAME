@@ -1,0 +1,58 @@
+{
+  "brief": "rumours",
+  "title": "What townsfolk say about the world outside",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "name": "the sects",
+      "lines": [
+        "Them sects, they say, are where folks go to seek the impossible. A fool's errand if you ask me.",
+        "I heard the sects in the hills are like secret gardens, full of mysteries and teachings that bend reality itself.",
+        "Some folks leave to join sects and never come back, not even to say goodbye. It's like the hills themselves take them in.",
+        "Sects are the place where the old gods and the new meet, where the paths of the old war still echo.",
+        "You can see the towers from a distance, like the fingers of giants pointing to the sky, beckoning the brave and the curious."
+      ]
+    },
+    {
+      "name": "the towers",
+      "lines": [
+        "Them towers been standing since before the war, and they'll be here when we're long gone.",
+        "Said I seen lights, dancing high up in them towers at night, but no one believes me, leastwise not those that don't know their ghosts from a flicker of flame.",
+        "They say the sects are full of secrets, but the towers, they're something else. They whisper in the wind and the stones weep to them.",
+        "Old folk say the towers hold the secrets to bending qi to our wills, but others, they think it's just wind and echo, stories and shadow.",
+        "Travelers come and go, but the towers stay, watching over us with eyes older than memory."
+      ]
+    },
+    {
+      "name": "strange lights",
+      "lines": [
+        "Seen them floatin' over the hills at night. Strange, ain't it?",
+        "They say the towers power them, but who knows what else might be out there?",
+        "I heard the lights are the souls of fallen warriors, comin' back to haunt the battlefield.",
+        "Old folk say it's the gods watchin' over us, but I reckon it's just the old Nanite stuff in the stone.",
+        "Them lights move like they know what's in your heart, and that's the spookiest part."
+      ]
+    },
+    {
+      "name": "travellers",
+      "lines": [
+        "They come from far, these travellers, carrying tales of lands beyond the mountains.",
+        "Mighty warriors and clever thieves, all with something to hide behind their smiles.",
+        "The old man at the inn says they're all looking for the same thing: power, glory, or just a warm bed for the night.",
+        "A young girl whispered to me that they brought strange lights with them, not from this world.",
+        "We in Eliet don't travel much, so we look at them with half-awe, half-suspicion."
+      ]
+    },
+    {
+      "name": "the old war",
+      "lines": [
+        "They say the war was worse than the coldest winter, with spirits and shadows warring on the mountain.",
+        "Back then, the towers were still new and the sects were like families, not fortresses.",
+        "I heard the old war was fought with magic and fire, but also with whispers and cold iron.",
+        "Those who lived through it won't talk about it unless they've had too much to drink.",
+        "The war brought the first refugees to Eliet; they say it was a time when the valley was haunted by the dead."
+      ]
+    }
+  ]
+}

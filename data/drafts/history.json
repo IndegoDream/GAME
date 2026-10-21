@@ -1,0 +1,109 @@
+{
+  "brief": "history",
+  "title": "The history of Eliet, in pieces",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "title": "The Lost Explorer",
+      "floor": 5,
+      "text": "Elder Mo found a lantern with the name 'Jin' etched inside forty years ago. Jin was one of the nine explorers, and his lantern still glows faintly with an ancient light. Mo never talked about Jin, but he always kept the lantern close to him."
+    },
+    {
+      "title": "The Miner's Ledger",
+      "floor": 5,
+      "text": "Smith Hale found a ledger in the shaft, forty years old, filled with numbers and strange symbols. He says it tracks the ore from floor six, but not for mining -- for something the traders sought in the deep. The numbers stop at floor ten, the day the expedition left. Hale keeps it locked, afraid of what it means."
+    },
+    {
+      "title": "The Old Well",
+      "floor": 5,
+      "text": "The old well in Eliet was dug before the village. It was deeper than anyone knew. After it went dry, miners found the shaft below, but the well itself was sealed with stones no one could move. Some say the well was dug to find something, not water. People talk of a whispering in the well at night, though no one dares to listen."
+    },
+    {
+      "title": "The Hidden Well",
+      "floor": 5,
+      "text": "Before the shaft was found, Eliet's well was deeper than anyone knew. Apothecary Lin says the water tasted different in those days, cooler and sweeter. The old well was sealed after the first expedition, but some say the hidden well still flows, deep beneath the village."
+    },
+    {
+      "title": "The Lost Expedition",
+      "floor": 5,
+      "text": "The nine who went down forty years ago were the first. They passed the sleeping tortoise and found a path of light leading deeper. They never returned, and only one made it back to tell the tale of the Jade Pagoda."
+    },
+    {
+      "title": "The First Lodge",
+      "floor": 5,
+      "text": "Forty years ago, Captain Rhee built the first Lodge in Eliet. He offered safety and a place to rest for anyone who would share what they found in the deep. The Lodge became a hub for those who dared to delve deeper, and Rhee's book grew as more names were added to the list of records."
+    },
+    {
+      "title": "The First Village Council",
+      "floor": 5,
+      "text": "Eliet had no council until the first expedition left. Nine people vanished, and fear made the village meet. Elder Mo proposed rules to keep everyone safe, and the council voted to dig no deeper than ten floors without permission."
+    },
+    {
+      "title": "The Silent Watcher",
+      "floor": 13,
+      "text": "On the thirteenth floor, a carved stone eye watches from the wall. It is said the eye sees all who pass and whispers to the deep. Elder Mo warns that the deep listens and remembers, and those it marks may find themselves lost forever."
+    },
+    {
+      "title": "The Forgotten Miners",
+      "floor": 5,
+      "text": "Forty years ago, before the expedition, a dozen miners went down to dig for silver. They never came back. Trader Wen's grandfather sold them supplies, but their names are lost. Only one thing remains: a rusted pickaxe found near the mineshaft on floor six."
+    },
+    {
+      "title": "The First Child",
+      "floor": 13,
+      "text": "Elder Mo says the first child born after the expedition was Lin's daughter. She had more nanites in her blood than anyone. She died before her tenth year. Lin says the deep wanted her back."
+    },
+    {
+      "title": "The Abandoned Mine",
+      "floor": 7,
+      "text": "Six years after the first expedition, a mine collapsed on floor six. No one survived. The shaft is now sealed with stone and warnings. The jade traders stopped coming to Eliet after that."
+    },
+    {
+      "title": "The First Miner",
+      "floor": 5,
+      "text": "Old miner Tung found the first jade vein forty years ago. He dug it and sold it to Trader Wen. The jade was the best in Eliet, but Tung never came back from his next dig. Wen bought his tools but never sold another piece of that jade."
+    },
+    {
+      "title": "The Silent Watchers",
+      "floor": 13,
+      "text": "On the thirteenth floor, shadows move like breath. Cultivators say the deep watches them, learning their every step. The watchers are not spirits but echoes of the deep, imitating the living to draw them in. Elder Mo warns travellers to act as if unseen, for the watchers copy all they see."
+    },
+    {
+      "title": "The Watcher's Mark",
+      "floor": 13,
+      "text": "Elder Mo's mark is on the wall near the Jade Pagoda. It warns of a curse on anyone who takes jade from the pagoda. Mo says the jade lives, and taking it without paying respects is like stealing from a living thing."
+    },
+    {
+      "title": "The Ironroot Hold",
+      "floor": 18,
+      "text": "On the eighteenth floor, miners found Ironroot Hold, a settlement carved from ironstone. They say it was built by cultivators who mastered earth qi and used it to shape the iron around them. The hold's walls are thick, and the doors are made of star iron like the one sealed by the expedition."
+    },
+    {
+      "title": "The Forgotten Cultivator",
+      "floor": 13,
+      "text": "Elder Mo found a letter on floor thirteen from a cultivator named Xi who claimed to have unlocked the deep's secrets. Xi vanished, and Mo took Xi's teachings, never speaking of them again. Mo's success hints at something Xi knew, now lost to time."
+    },
+    {
+      "title": "The First Explorer's Mark",
+      "floor": 13,
+      "text": "Elder Mo bears a mark on his arm, a faded symbol of a tortoise and a pagoda. He got it from the first expedition leader, who took it from Shellhaven. It means he's been beyond the tortoise and knows the deep's truth."
+    },
+    {
+      "title": "The Forgotten Tower",
+      "floor": 13,
+      "text": "Forty years ago, as the first expedition went deep, a tower in the hills crumbled. Its fall shook the earth, and a day later, the shaft opened to a wider cavern. Some say the tower held a secret that the deep wanted, and others whisper it was the deep's way to silence the tower's masters."
+    },
+    {
+      "title": "The Forgotten Miner",
+      "floor": 5,
+      "text": "Five years ago, miner Old Han vanished while working on floor five. His body was found a week later, frozen in place. He had a strange smile and his eyes glowed with an unnatural light. Lin's herbs couldn't calm the strange fever in his blood. He had been down there too long."
+    },
+    {
+      "title": "The Forgotten Pact",
+      "floor": 14,
+      "text": "Fifty years ago, Eliet and Shellhaven shared a secret pact. The tortoise's shell hid a passage between the villages, letting miners and scholars move between them unseen. The passage closed when the tortoise fell asleep, sealing the pact."
+    }
+  ],
+  "helped": []
+}

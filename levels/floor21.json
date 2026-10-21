@@ -1,0 +1,659 @@
+{
+  "id": "floor21",
+  "name": "Floor 21, The Clockwork Vaults",
+  "theme": "dungeon",
+  "depth": 21,
+  "ambient": [
+    0.55,
+    0.5,
+    0.42
+  ],
+  "forged": {
+    "region": "clockwork",
+    "cycle": 0,
+    "size": 1.25
+  },
+  "enemies": {
+    "g": "clockwork_weak_f21",
+    "k": "clockwork_brute_f21",
+    "B": "clockwork_boss_f21",
+    "a": "clockwork_animal_f21"
+  },
+  "layout": {
+    "seed": 21,
+    "corridor_traps": 4,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Escapement Stair",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "c*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Gear Hall",
+        "size": [
+          17,
+          6
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "c*4"
+        ]
+      },
+      {
+        "name": "The Brass Seam",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L",
+          "^*2",
+          "o*3",
+          "g"
+        ]
+      },
+      {
+        "name": "The Pendulum Gallery",
+        "size": [
+          13,
+          8
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "b*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Loose Panel",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L",
+          "g",
+          "E"
+        ]
+      },
+      {
+        "name": "The Beetle Works",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Beetle Nest",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L",
+          "a*2",
+          "h*3"
+        ]
+      },
+      {
+        "name": "The Great Mainspring",
+        "size": [
+          18,
+          11
+        ],
+        "has": [
+          "L*4",
+          "g*2",
+          "k",
+          "c*4",
+          "h*2",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Lock of Hours",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L*2",
+          "?",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Sentry Racks",
+        "size": [
+          12,
+          7
+        ],
+        "has": [
+          "L*2",
+          "k*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Parts Store",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L",
+          "b*3",
+          "C",
+          "g"
+        ]
+      },
+      {
+        "name": "The Moving Bridge",
+        "size": [
+          14,
+          5
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "x*2"
+        ]
+      },
+      {
+        "name": "The Clockmaker's Notes",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L*2",
+          "A",
+          "b*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Lower Gear Hall",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*2",
+          "h*6",
+          "g"
+        ]
+      },
+      {
+        "name": "The Master Mechanism",
+        "size": [
+          6,
+          6
+        ],
+        "has": [
+          "L",
+          "R",
+          "V",
+          "I"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Ticking Hall",
+        "size": [
+          19,
+          5
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "c*4"
+        ]
+      },
+      {
+        "name": "The Stopped Room",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "Z",
+          "L*2",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Rusty Gear",
+        "size": [
+          11,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "F",
+          "G"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Winding Key",
+        "size": [
+          9,
+          8
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "J",
+          "M"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Time's Pivot",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k",
+          "N",
+          "O"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Hollow Alcove",
+        "size": [
+          13,
+          7
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k",
+          "Q",
+          "U"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Root-choked Cistern",
+        "size": [
+          13,
+          7
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "W",
+          "X"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Sunken Grotto",
+        "size": [
+          12,
+          7
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Sealed Cell",
+        "size": [
+          13,
+          9
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Clockmaster's Dial",
+        "size": [
+          16,
+          12
+        ],
+        "has": [
+          "L*4",
+          "B",
+          ">",
+          "k",
+          "c*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "brass_cog": [
+          2,
+          3
+        ],
+        "gold": [
+          126,
+          210
+        ]
+      },
+      "note": "A miner's strongbox, filled with the remains of a long-forgotten expedition."
+    },
+    "D": {
+      "loot": {
+        "oil_of_motion": [
+          1,
+          2
+        ],
+        "clockwork_pill_f21": [
+          0,
+          1
+        ],
+        "gold": [
+          105,
+          189
+        ]
+      },
+      "note": "a sentry's maintenance kit"
+    },
+    "E": {
+      "loot": {
+        "brass_cog": [
+          1,
+          2
+        ],
+        "clockwork_pill_f21": [
+          1,
+          1
+        ],
+        "random_weapon": [
+          0,
+          1
+        ]
+      },
+      "note": "a locked drawer that ticks",
+      "hidden": true
+    },
+    "V": {
+      "loot": {
+        "brass_cog": [
+          3,
+          4
+        ],
+        "oil_of_motion": [
+          2,
+          3
+        ],
+        "clockwork_pill_f21": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "random_gear": [
+          1,
+          1
+        ],
+        "gold": [
+          315,
+          525
+        ]
+      },
+      "note": "the Clockmaster's own case"
+    },
+    "F": {
+      "loot": {
+        "gold": [
+          168,
+          315
+        ],
+        "brass_cog": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Rusty Gear"
+    },
+    "J": {
+      "loot": {
+        "gold": [
+          168,
+          315
+        ],
+        "oil_of_motion": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Winding Key"
+    },
+    "N": {
+      "loot": {
+        "gold": [
+          168,
+          315
+        ],
+        "clockwork_pill_f21": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in Time's Pivot"
+    },
+    "Q": {
+      "loot": {
+        "gold": [
+          168,
+          315
+        ],
+        "breakthrough_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Hollow Alcove"
+    },
+    "W": {
+      "loot": {
+        "gold": [
+          168,
+          315
+        ],
+        "brass_cog": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Root-choked Cistern"
+    }
+  },
+  "lore": {
+    "A": {
+      "title": "Scratched on the Stair",
+      "text": "Count the steps and they come out even. Count again after a rest and they do not. Do not rest on this stair. The floor keeps its own time."
+    },
+    "Y": {
+      "title": "The Mainspring Ledger",
+      "text": "Mainspring wound at dawn and at dusk. Wound by whom, no entry. The beat has never missed."
+    },
+    "R": {
+      "title": "Pinned Under a Gear",
+      "text": "Learn the order of the strikes and keep it. The machines here never hurry and never lose count. The one who breaks the pattern first is the one who loses. Strike in sequence, and the sequence becomes yours.",
+      "teaches": "clockwork_art"
+    },
+    "G": {
+      "title": "The Week-Long Day",
+      "text": "The old record says one gear slipped and a day lasted a week. The clockmaker sealed it behind this wall. The gear is rusted and still. I would not oil it."
+    },
+    "M": {
+      "title": "Winding Rule",
+      "text": "Whoever winds the key must say how many turns. Never more than twelve. Eleven is safe. The sentries here count your turns for you, and they count out loud."
+    },
+    "O": {
+      "title": "The Unfinished Clock",
+      "text": "A watchmaker's bench, tools laid out as if he stepped away. His note says the clock would tell the day a man dies. He left before it told his. Nobody has touched it."
+    },
+    "U": {
+      "title": "Whittled Into a Beam",
+      "text": "Smooth teeth mean a gear has run a long time. Chipped teeth mean it met something. Check the teeth before you cross a floor of them."
+    },
+    "X": {
+      "title": "Last Entry, Night Shift",
+      "text": "Gears stop at the end of the hall and do not start again. Beyond is plain dark. We call it the rest. Nobody who went to rest came back to say."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Winder's Question",
+      "question": "I have a face and two hands, but no arms or legs. I never speak, yet I tell you the hour.",
+      "options": [
+        "A scarecrow",
+        "A clock",
+        "A puppet"
+      ],
+      "answer": 1,
+      "reward": {
+        "items": {
+          "clockwork_pill_f21": 1
+        },
+        "qi": 153388
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor20",
+      "arrive": ">",
+      "label": "Up to floor 20",
+      "down": false
+    },
+    ">": {
+      "to": "floor22",
+      "arrive": "<",
+      "label": "Down to floor 22"
+    }
+  },
+  "inheritances": {
+    "I": {
+      "master": "the Clockmaker's Apprentice",
+      "hidden": true,
+      "needs_realm": 6,
+      "text": "I was the apprentice, tasked with the care of the great clock. I failed to understand the true nature of time. Now, I pass on my legacy to you.",
+      "grants": {
+        "items": {
+          "piston_hammer_f21@masterwork": 1
+        },
+        "qi": 230082
+      }
+    }
+  },
+  "refined": {
+    "passes": 12,
+    "rooms_added": 7,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-05T17:58:52"
+  },
+  "map": [
+    "",
+    " <.......    .....L...........",
+    " .c......    .............c...",
+    " ........    .................",
+    " ..........T..g...........g..L",
+    " .c....g.    ....c..c.....c...",
+    " L......L    ...g...........L.",
+    "                     .",
+    "                     .",
+    "                     .",
+    "                     .",
+    "                     .                                     h.....L..L........",
+    "                     .         .........L...               .......c..........",
+    "                 ......L.      ....b........  ..........   ..........Y....g.L",
+    "                 ......^.      .k.....D.....  ..........   ..................",
+    "                 ..o.....      .............  ..h......L   ....c..c........c.",
+    "                 ....o..........b...........  ......ah..  ...............k.h.",
+    "                 o.^.....      .....g.......  ...............................",
+    "                 ........      .............  ....h.....   ..g...............",
+    "                 .g......      ..g.......L..  ..a.......   ..................",
+    "                     S               .        ..........   ..................",
+    "                     .               .             .       ..L...............",
+    "                     .               .             .                .",
+    "                     .               .             .                .",
+    "                     .               .             .                .                                                                              .....oLL.",
+    "                     .               .        ........L.            .                                                                              .........    L.O..L...",
+    "                     .           .........    ..........            .                                                                              .......g.    ...k.....                     .......L...L...>",
+    "                     .           .........    ..........            .                                                                              .........    ........h                     ..........c.....",
+    "                     .           ..............gh...g...        ......hL    ......L..L..                     .h.......LLh                          ...k...g...T........Ng                     ...............L",
+    "                     .           L..E......   ..........        ........    ............       ....L...      h...........                          ...JM.o..    .g.......                     ................",
+    "                     .           .........    ..........        ........    ............       .b.A...L      ....g.......     ..L.......L........  .........    ........^                     ..B.............",
+    "                     .           ........g    .......g..        ........................       ........      ............     .c...g....c..c..c..  .........        .                         ................",
+    "                     .                                          .?......    ........k.k.       ...g........................T.......g.............      .            .                         ................",
+    "                     .                                          .h......    ............       .b......      ............     ....g..............      .            .                         ................",
+    "                     .                                          .......L    .........g..       ........      ............     ..............L....      .      ..........hL.    .g..X.L.....L  ................",
+    "                     .                                                           ..            ........      ....hh......              .               .      ......Q......    ............k  ...............L",
+    "                     .                                                           .                 .         .h..........              .           .....      ......h......    ............W  ....c..c.....c..",
+    "                     .                                                           .                 .              S                    .      ...........     ........U...................og  ...k............",
+    "                     .                                                       ..L......             .            ......             ..Z....L   ......F....     .............    ............o        ...",
+    "                     .                                                       .b.....b.      ..............      ...R..             ........   .........hh     ............g    .............        .",
+    "                     .                                                       .........      .......x..x...      ......             ........   ..........L     .........gk.L    .............        .",
+    "                     .                                                       .......C.....T.............g.      ......             ....h................G                            .              .",
+    "                     .                                                       ....b....      .....g........      .V....             L.......   ...........                            .              .",
+    "                     .                                                       .........      .L...........L      .I...L             ....h...   .g.........                            .              .",
+    "                     .                                                       ....g....                                             ........   .L..g......                            .        .............",
+    "                     .                                                                                                                                                         ............   .............",
+    "                     .                                                                                                                                                         ...........^   ............L",
+    "                     .                                                                                                                                                         ....h.......   ..g..........",
+    "                     .........................................................................................................................................................S...........................L",
+    "                                                                                                                                                                               ............   .k......h....",
+    "                                                                                                                                                                               ...k.......L   ..h..........",
+    "                                                                                                                                                                               ....g...g..L   .............",
+    "                                                                                                                                                                                              ......g......",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

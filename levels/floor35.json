@@ -1,0 +1,727 @@
+{
+  "id": "floor35",
+  "name": "Floor 35, The Fallen Terraces",
+  "theme": "dungeon",
+  "depth": 35,
+  "ambient": [
+    0.6,
+    0.62,
+    0.7
+  ],
+  "forged": {
+    "region": "cloudruins",
+    "cycle": 1,
+    "size": 1.75
+  },
+  "enemies": {
+    "g": "cloudruins_weak_f35",
+    "k": "cloudruins_brute_f35",
+    "B": "cloudruins_boss_f35",
+    "a": "cloudruins_animal_f35"
+  },
+  "layout": {
+    "seed": 35,
+    "corridor_traps": 5,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Broken Sky-Stair",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "c*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Hall of Winds",
+        "size": [
+          16,
+          6
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "c*4"
+        ]
+      },
+      {
+        "name": "The Collapsed Pavilion",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L",
+          "g",
+          "E"
+        ]
+      },
+      {
+        "name": "The Immortals' Gallery",
+        "size": [
+          13,
+          7
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "x*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Immortal's Riddle",
+        "size": [
+          7,
+          6
+        ],
+        "has": [
+          "L*2",
+          "?",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Wisp Nests",
+        "size": [
+          11,
+          7
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Cloud-Jade Vein",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L",
+          "^*2",
+          "o*3",
+          "g"
+        ]
+      },
+      {
+        "name": "The Fallen Courtyard",
+        "size": [
+          20,
+          12
+        ],
+        "has": [
+          "L*4",
+          "g*2",
+          "k",
+          "c*4",
+          "h*2",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Pill Pavilion",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L",
+          "b*3",
+          "C",
+          "g"
+        ]
+      },
+      {
+        "name": "The Celestial Barracks",
+        "size": [
+          13,
+          8
+        ],
+        "has": [
+          "L*2",
+          "k*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Crane Terrace",
+        "size": [
+          9,
+          8
+        ],
+        "has": [
+          "L",
+          "a*2",
+          "h*3"
+        ]
+      },
+      {
+        "name": "The Rainbow Bridge",
+        "size": [
+          16,
+          5
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "x*2"
+        ]
+      },
+      {
+        "name": "The Edict of Heaven",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L*2",
+          "A",
+          "x*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Lower Hall of Winds",
+        "size": [
+          11,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*6",
+          "g"
+        ]
+      },
+      {
+        "name": "The Heaven-Gate Fragment",
+        "size": [
+          7,
+          5
+        ],
+        "has": [
+          "L",
+          "R",
+          "V"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Hall of Banners",
+        "size": [
+          19,
+          5
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "c*4"
+        ]
+      },
+      {
+        "name": "The Wind Gallery",
+        "size": [
+          14,
+          9
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "x*2"
+        ]
+      },
+      {
+        "name": "The Lower Wisp Nests",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Lower Fallen Courtyard",
+        "size": [
+          16,
+          11
+        ],
+        "has": [
+          "L*4",
+          "g*2",
+          "k",
+          "c*4",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Lower Celestial Barracks",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "k*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Lower Rainbow Bridge",
+        "size": [
+          17,
+          5
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "x*2"
+        ]
+      },
+      {
+        "name": "The Far Hall of Winds",
+        "size": [
+          13,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*6",
+          "g"
+        ]
+      },
+      {
+        "name": "The Meditation Cloud",
+        "size": [
+          7,
+          6
+        ],
+        "has": [
+          "Z",
+          "L*2",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Collapsed Niche",
+        "size": [
+          15,
+          9
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "F",
+          "G"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Root-choked Alcove",
+        "size": [
+          18,
+          10
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "J",
+          "M"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Sealed Watch-Post",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k",
+          "N",
+          "O"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Sunken Niche",
+        "size": [
+          16,
+          12
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k",
+          "Q",
+          "U"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Quiet Cistern",
+        "size": [
+          16,
+          10
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "W",
+          "X"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Hollow Storeroom",
+        "size": [
+          18,
+          10
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Quiet Watch-Post",
+        "size": [
+          18,
+          9
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Fallen Immortal's Throne",
+        "size": [
+          18,
+          14
+        ],
+        "has": [
+          "L*4",
+          "B",
+          ">",
+          "k",
+          "c*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "cloud_jade": [
+          2,
+          3
+        ],
+        "gold": [
+          210,
+          350
+        ]
+      },
+      "note": "a miner's strongbox"
+    },
+    "D": {
+      "loot": {
+        "immortal_dust": [
+          1,
+          2
+        ],
+        "cloudruins_pill_f35": [
+          0,
+          1
+        ],
+        "gold": [
+          175,
+          315
+        ]
+      },
+      "note": "a shattered celestial mirror"
+    },
+    "E": {
+      "loot": {
+        "cloud_jade": [
+          1,
+          2
+        ],
+        "cloudruins_pill_f35": [
+          1,
+          1
+        ],
+        "random_weapon": [
+          0,
+          1
+        ]
+      },
+      "note": "a scroll of forgotten incantations",
+      "hidden": true
+    },
+    "V": {
+      "loot": {
+        "cloud_jade": [
+          3,
+          4
+        ],
+        "immortal_dust": [
+          2,
+          3
+        ],
+        "cloudruins_pill_f35": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "random_gear": [
+          1,
+          1
+        ],
+        "gold": [
+          525,
+          875
+        ]
+      },
+      "note": "a metal chest filled with the bones of fallen immortals"
+    },
+    "F": {
+      "loot": {
+        "gold": [
+          280,
+          525
+        ],
+        "cloud_jade": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Collapsed Niche"
+    },
+    "J": {
+      "loot": {
+        "gold": [
+          280,
+          525
+        ],
+        "immortal_dust": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Root-choked Alcove"
+    },
+    "N": {
+      "loot": {
+        "gold": [
+          280,
+          525
+        ],
+        "cloudruins_pill_f35": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in the Sealed Watch-Post"
+    },
+    "Q": {
+      "loot": {
+        "gold": [
+          280,
+          525
+        ],
+        "breakthrough_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Collapsed Niche"
+    },
+    "W": {
+      "loot": {
+        "gold": [
+          280,
+          525
+        ],
+        "cloud_jade": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Quiet Cistern"
+    }
+  },
+  "lore": {
+    "A": {
+      "title": "What Remains of the Stair",
+      "text": "A stair of metal, bent like a hair pin. Immortals once climbed it to a gate; the gate is gone. A rhyme: step on the bolts, never the plates; the plates give."
+    },
+    "Y": {
+      "title": "Hall of Winds, Plainly",
+      "text": "The wind here never stops; it pushes toward the edge. Lean into it and keep your back to a wall. A strong gust takes a person off the terrace; the Lodge lost a man that way."
+    },
+    "R": {
+      "title": "Breath of the Cloud Court",
+      "text": "They did not eat much, the immortals; they breathed. In through the nose to the count of eight, out in twelve. That is how the palace was held up; do it here and the fall slows.",
+      "teaches": "cloudruins_art_2"
+    },
+    "G": {
+      "title": "Pill Pavilion Inventory",
+      "text": "Jars labeled with a single character; most are empty. A few hold dust that was once a pill. Immortals took them to live forever; they stopped when the jars ran dry."
+    },
+    "M": {
+      "title": "The Fallen Throne",
+      "text": "A throne sits at the bottom with no one in it. The legs are cut cleanly; this was not an earthquake. Someone wanted the immortal to come down, and he did."
+    },
+    "O": {
+      "title": "Crane Terrace Marker",
+      "text": "Cranes were kept here, white ones, for riding. They are gone but their nests are not; check each nest. Some hold a feather the length of your arm; worth the climb."
+    },
+    "U": {
+      "title": "Edict of Heaven, Torn",
+      "text": "The edict reads: LET NO ONE ASCEND WITHOUT BALANCE; the rest is burned. Somebody wanted to ascend without it, and tore the edict to make a point. The terraces fell soon after."
+    },
+    "X": {
+      "title": "A Scholar's Last Page",
+      "text": "I came to read the old words. I stayed to read the wind; the jade has them in its veins if you hold it to the light. There is a lot about the Accord; mostly about how little of it was kept."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Terrace Question",
+      "question": "I have many steps but I never walk. What am I?",
+      "options": [
+        "A road",
+        "A staircase",
+        "A river"
+      ],
+      "answer": 1,
+      "reward": {
+        "items": {
+          "cloudruins_pill_f35": 1
+        },
+        "qi": 78167748
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor34",
+      "arrive": ">",
+      "label": "Up to floor 34",
+      "down": false
+    },
+    ">": {
+      "to": "floor36",
+      "arrive": "<",
+      "label": "Down to floor 36"
+    }
+  },
+  "refined": {
+    "passes": 7,
+    "rooms_added": 7,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-05T10:41:44"
+  },
+  "map": [
+    "",
+    "                                               ...gh......",
+    "                                   L......     .g.........",
+    " <........     ..........L.....    ..h....     ...........",
+    " .........     .......c..c....L    .......................S...........",
+    " L........     ................    .....h..    ...........           .",
+    " ..............................    L...?..     g..........           .",
+    " gc..c....     ..g.cg....c....g    .......     ..L........           S",
+    " ......L..     ..........L.....       .             .      ....L........L......                                                 ..........L...   .........g",
+    "                       .              .             .      .............ck.....                                                 ..............   ..........",
+    "                       .              .             .      ....................                                                 ....k.........   ......h...",
+    "                       .              .         .^g.....   .................... .........                                       ..g...........   ...g......",
+    "                       .              .         L.......   .............c.....g .........    .g.g............                   .......x..g................",
+    "                      ..        ........L....   ......o.   .................... .....a...    ....x.....x.....                   ..............   ...g......",
+    "                  .........     .....D.x.....   ....o.......................... h....a.......................                   ..............   ..........",
+    "                  .........     .......k.....   .....o..   .c.................h ..........   ................                   ....x.........   ........L.",
+    "                  ..E......    ..............   .......^   ....g............... ...h.....    L..............L                   ...L..........        .",
+    "                  .........T.....x...........   ........   L.....h......Y...... .h.......           ..                                 .              .",
+    "                  ...g.....     ...g......g..              .............c...... .L.......           T                                  .              .",
+    "                  ....L....     .........L...              ...................L     .               .        ..hh..L....               .              ....T                                              ...............",
+    "                                                                    ..              .           .......L.    ..h........      L.................. ................                                       .......G..g....",
+    "                                                                    .               .           L.g.x....    ...........      ....c.....c.gc..c.. L...c.........g.      g...........           .......   ...............",
+    "                                                                    .               .           .........    ...h................................ ................      ............           ....h..   .h.............",
+    "                                                                    .               .           .........................     ...........g....... .........g......      L...k......L           L...................h....",
+    "                                                                    .             ...           ....x....    ...........      .....L.........L.g. ....c..c.....c..      .......k....           L..h....  ...............",
+    "                                                                    .       ..L..........       .........    ..........L                          .......k..........................           Z......   ..........F....",
+    "                                                                .........   .............       ...A.....    ...g....h.h                          ........h.......      ............           .......   .......g.......",
+    "                                                                .b.....b.   ....k........                         S                               ................      ............              .      .....L...L.....",
+    "                                                                ....g....   ........k....                      .......                            L...............      ............              .             .",
+    "                                                                .........................                      .......                            .......h.......L           ..                   .             .",
+    "                                                                .b...C...   ..g.........L                      ......V                            .....L..........           .                    .             .....",
+    "                                                                .L.......   .............                      ......L                                                       .                    .        ..................      ...^..L.....",
+    "                                                                            .............                      .....R.                                                       T                    .        ..o............o..      ............",
+    "                                                                                                                                                                             .              ............h  g.............k...      h......O....",
+    "                                                                                                                                                                             .              .h....h.h.g.L  ......M...........      ..........g.     ......g...........    .L...............L",
+    "                                                                                                                                                                     .................      .............  ..................     ....k........     ..................    ...h..............",
+    "                                                                                                                                                                     ....x.g...x......      .............  ..................................g.     ..................    ..................",
+    "                                                                                                                                                                     ..............g.....................  ..................      ..........N.     ..................    ..g...............",
+    "                                                                                                                                                                     .................      ....h...h....  ........J.........      ............     ........k.........   ....g..............",
+    "                                                                                                                                                                     ..........L....L.      .............  ..................      ........L...     ........................................",
+    "                                                                                                                                                                                            ..L..........  ....g..L.....L....            .          .............g....    .k............h...",
+    "                                                                                                                                                                                                                                         .          ................^.    ..................",
+    "                                                                                                                                                                                                                                         .          L........h........    ..................",
+    "                                                                                                                                                                                                                                         .          .............L....             T",
+    "                                                                                                                                                                                                                                         .                   .                     .",
+    "                                                                                                                                                                                                                                         .                   .                     .",
+    "                                                                                                                                                                                                                                 L...............            .                     .",
+    "                                                                                                                                                                                                                                 .U..gQ..........    .L.............k     .B.........L......",
+    "                                                                                                                                                                                                                                 ................    ................     ....c........c....",
+    "                                                                                                                                                                                                                                 ................    ................     ..................",
+    "                                                                                                                                                                                                                                 ...k............    ...........g....     L.................",
+    "                                                                                                                                                                                                                                 ....h...........    ..............o.     ..................",
+    "                                                                                                                                                                                                                                 ....................................     .................L",
+    "                                                                                                                                                                                                                                 ................    ................     L.................",
+    "                                                                                                                                                                                                                                 ........g.......    ..X.....W.....o.     ................c.",
+    "                                                                                                                                                                                                                                 ..h.............    .......g........     k.................",
+    "                                                                                                                                                                                                                                 ................    ..............L.     ..................",
+    "                                                                                                                                                                                                                                 ...............L                         .............c....",
+    "                                                                                                                                                                                                                                                                          ..................",
+    "                                                                                                                                                                                                                                                                          ..................",
+    "                                                                                                                                                                                                                                                                          >.................",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

@@ -1,0 +1,336 @@
+{
+ "_about": "How a fight feels (round 32, Robert: 'the original game built out more'). Combos, the charged heavy, the dodge roll, lock-on, foes' poise and bosses' phases. Numbers are here so Dev or Robert can tune them without touching code.",
+ "combo": {
+  "window": 0.9,
+  "mults": [
+   1.0,
+   1.1,
+   1.55
+  ],
+  "finisher_arc": 0.0,
+  "finisher_reach_bonus": 0.6,
+  "finisher_stagger": 0.8,
+  "anim_speed": [
+   1.0,
+   1.2,
+   0.85
+  ],
+  "lunge": [
+   1.6,
+   2.2,
+   3.4
+  ],
+  "_lunge_about": "Round 119: metres/second a blow steps toward the foe in front of you, for 0.16 s, stopping short of it. weapon_traits may set lunge_mult and anims (the animation of each blow in the chain)."
+ },
+ "heavy": {
+  "hold": 0.4,
+  "max_charge": 1.3,
+  "mult_min": 1.6,
+  "mult_max": 2.6,
+  "poise_mult": 3.0,
+  "recovery": 0.75,
+  "stagger": 1.0,
+  "unblockable": true
+ },
+ "dodge": {
+  "time": 0.42,
+  "iframes": 0.32,
+  "distance": 4.2,
+  "cooldown": 0.65,
+  "slow_mult": 1.5
+ },
+ "lock_on": {
+  "range": 16.0,
+  "break_range": 22.0,
+  "turn_rate": 9.0
+ },
+ "poise": {
+  "base_frac": 0.55,
+  "boss_frac": 1.4,
+  "light": 1.0,
+  "regen_after": 1.8,
+  "regen_per_sec": 0.35,
+  "stagger": 1.3,
+  "boss_stagger": 0.9,
+  "stagger_damage_mult": 1.35
+ },
+ "boss_phases": [
+  {
+   "at": 0.66,
+   "name": "PHASE II",
+   "gain": [
+    "thunderous"
+   ],
+   "text": "%s roars -- the ground answers."
+  },
+  {
+   "at": 0.33,
+   "name": "PHASE III",
+   "gain": [
+    "frenzied"
+   ],
+   "brood": 2,
+   "text": "%s calls its kin, and comes apart at the seams."
+  }
+ ],
+ "hit_react": {
+  "light_chance": 0.5,
+  "stagger_anim": "hit"
+ },
+ "curve": {
+  "_about": "Round 34: each floor a little harder on top of what the floor file says -- the climb has to be earned. Round 71: eased (hp 0.03->0.02, damage 0.018->0.008 a floor): the floor forge already tunes each floor's foes to the cultivator expected there, so this stacked on top of that and by floor 20 three plain foes killed the expected player in 6 s (tools/balance_report.gd). Now a floor's pack takes ~8-13 s all the way down and bosses rise from ~18 s to ~50 s of hitting.",
+  "from_floor": 3,
+  "hp_per_floor": 0.02,
+  "damage_per_floor": 0.008,
+  "elite_per_floor": 0.004,
+  "cap_floor": 60
+ },
+ "foe_heavy": {
+  "_about": "Round 60 (Robert: 'combat depth'): every fighter now and then winds up a HEAVY blow -- it draws back, a red ring grows at its feet and the wind-up sound plays -- then strikes for more. A guard can't hold it: roll away (or through it as it lands -- a perfect dodge slows the world and leaves it wide open), parry it (a long stagger, and open), or hit it hard enough to stagger it mid-wind-up and it never comes. Missed, it's left open. An open foe takes more from every hit for a moment.",
+  "every": [
+   3,
+   5
+  ],
+  "windup": 0.75,
+  "elite_windup": 0.62,
+  "boss_windup": 0.85,
+  "mult": 1.8,
+  "reach": 0.7,
+  "lock": 0.22,
+  "from_depth": 2,
+  "opening": 1.6,
+  "opening_mult": 1.5,
+  "parry_stagger_mult": 1.6,
+  "styles": [
+   "brawler",
+   "guardian",
+   "skulker",
+   "swarmer",
+   "charger"
+  ]
+ },
+ "perfect_dodge": {
+  "slow": 0.35,
+  "secs": 0.4,
+  "opening": 1.8
+ },
+ "boss_moves": {
+  "_about": "Round 60: a floor's master has big moves of its own, each shown on the ground first. Slam: a disc grows under you, then it leaps there. Sweep: a wide disc round it, then it spins.",
+  "first": 4.0,
+  "every": [
+   7.0,
+   10.0
+  ],
+  "enraged_mult": 0.7,
+  "slam": {
+   "windup": 1.0,
+   "radius": 2.6,
+   "dmg": 2.0,
+   "min": 3.0,
+   "max": 12.0
+  },
+  "sweep": {
+   "windup": 0.85,
+   "radius": 3.6,
+   "dmg": 1.5
+  }
+ },
+ "weapon_traits": {
+  "_about": "Round 60: each kind of weapon has a way of fighting all its own, mostly in the third blow of a chain (the finisher) -- so what you carry changes how you fight, not just how hard.",
+  "sword": {
+   "name": "Finds the gap",
+   "desc": "the finisher has a 30% chance to strike true (a critical)",
+   "finisher_crit": 0.3,
+   "crit_mult": 1.6,
+   "anims": [
+    "attack-melee-right",
+    "jab",
+    "attack-melee-right"
+   ],
+   "lunge_mult": 1.0
+  },
+  "dagger": {
+   "name": "From the shadows",
+   "desc": "blows from behind land 50% harder; the finisher opens a bleeding cut",
+   "behind_mult": 1.5,
+   "bleed": 0.35,
+   "anims": [
+    "jab",
+    "jab",
+    "attack-melee-right"
+   ],
+   "lunge_mult": 1.3
+  },
+  "saber": {
+   "name": "The whirl",
+   "desc": "the finisher cuts all the way round you",
+   "finisher_arc": -1.0,
+   "anims": [
+    "attack-melee-right",
+    "attack-melee-right",
+    "jab"
+   ],
+   "lunge_mult": 1.1
+  },
+  "spear": {
+   "name": "The long thrust",
+   "desc": "the finisher reaches a body-length further and drives them back",
+   "finisher_reach": 1.2,
+   "knockback": 7.0,
+   "anims": [
+    "jab",
+    "jab",
+    "jab"
+   ],
+   "lunge_mult": 1.35
+  },
+  "axe": {
+   "name": "Sunder",
+   "desc": "the finisher splits armour: that foe takes 25% more from everything for 4 seconds",
+   "sunder": 0.25,
+   "sunder_secs": 4.0,
+   "anims": [
+    "attack-melee-right",
+    "attack-melee-right",
+    "attack-melee-right"
+   ],
+   "lunge_mult": 0.8
+  },
+  "hammer": {
+   "name": "Earth-shaker",
+   "desc": "breaks guards twice as fast; the finisher shakes the ground round you",
+   "poise_mult": 2.0,
+   "quake_radius": 2.4,
+   "quake_share": 0.4,
+   "anims": [
+    "attack-melee-right",
+    "attack-melee-right",
+    "attack-melee-right"
+   ],
+   "lunge_mult": 0.6
+  },
+  "halberd": {
+   "name": "The reaping arc",
+   "desc": "the finisher sweeps wide and throws them back",
+   "finisher_arc": -0.5,
+   "knockback": 6.0,
+   "anims": [
+    "attack-melee-right",
+    "jab",
+    "attack-melee-right"
+   ],
+   "lunge_mult": 0.9
+  },
+  "staff": {
+   "name": "Qi in the wood",
+   "desc": "every blow that lands cools your nanite heat a little",
+   "heat_per_hit": 2.5,
+   "anims": [
+    "jab",
+    "attack-melee-right",
+    "attack-melee-right"
+   ],
+   "lunge_mult": 1.0
+  },
+  "unarmed": {
+   "name": "Close hands",
+   "desc": "a longer chain window, and the finisher staggers them longer",
+   "window": 1.3,
+   "finisher_stagger": 1.6
+  },
+  "bow": {
+   "name": "Far shot",
+   "desc": "hold to draw: a full draw hits up to 2.3x and pierces; foes past 10 m take 30% more, but at point-blank the shot loses 30%"
+  },
+  "crossbow": {
+   "name": "Bolt through",
+   "desc": "slow to reload, but every bolt pierces a foe (a full cranking, two)"
+  },
+  "ki": {
+   "name": "Breath between bursts",
+   "desc": "a pool of six bursts that refills as you breathe; hold to gather one big burst that explodes"
+  }
+ },
+ "balance": {
+  "_about": "tools/balance_report.gd's thresholds: seconds three typical foes may take to kill the expected player (min_survive), the longest a plain foe may take to kill (max_foe_ttk), the boss band, the floor-to-floor jump in lethality that counts as a spike, and the swing/landing/uptime assumptions.",
+  "min_survive": 7.0,
+  "max_foe_ttk": 11.0,
+  "max_boss_ttk": 150.0,
+  "min_boss_ttk": 15.0,
+  "jump": 0.4,
+  "swing_s": 0.9,
+  "hit_rate": 0.8,
+  "uptime": 0.65
+ },
+ "ranged": {
+  "_about": "Round 119: distance weapons (Robert: 'long range weapons ... ki and energy and bow and crossbow'). Click = a quick shot; hold = draw for a harder one. speed m/s, range m, cool = seconds between shots, draw = hold time before the draw starts, full_draw = hold time for a full one. far/close: a shot past far_dist hits far_mult, inside close_dist hits close_mult (so you keep your distance). Ki shoots from a pool of bursts (pool, regen/s) instead of costing anything. Round 121: a full draw (or a ki burst) breaks the plating of an Armoured foe: for sunder_secs it takes +sunder from everything -- the counter to Armoured.",
+  "bow": {
+   "speed": 30.0,
+   "range": 26.0,
+   "cool": 0.4,
+   "draw": 0.25,
+   "full_draw": 1.0,
+   "mult_min": 0.9,
+   "mult_max": 2.3,
+   "pierce": 0,
+   "pierce_full": 1,
+   "far_dist": 10.0,
+   "far_mult": 1.3,
+   "close_dist": 2.5,
+   "close_mult": 0.7,
+   "cone": 0.78,
+   "sunder": 0.25,
+   "sunder_secs": 4.0
+  },
+  "crossbow": {
+   "speed": 40.0,
+   "range": 30.0,
+   "cool": 1.15,
+   "draw": 0.45,
+   "full_draw": 0.9,
+   "mult_min": 1.8,
+   "mult_max": 2.25,
+   "pierce": 1,
+   "pierce_full": 2,
+   "far_dist": 10.0,
+   "far_mult": 1.2,
+   "close_dist": 2.5,
+   "close_mult": 0.75,
+   "cone": 0.85,
+   "sunder": 0.25,
+   "sunder_secs": 4.0
+  },
+  "ki": {
+   "speed": 21.0,
+   "range": 20.0,
+   "cool": 0.26,
+   "draw": 0.35,
+   "full_draw": 1.1,
+   "mult_min": 0.65,
+   "mult_max": 2.4,
+   "pierce": 0,
+   "pierce_full": 0,
+   "far_dist": 99.0,
+   "far_mult": 1.0,
+   "close_dist": 0.0,
+   "close_mult": 1.0,
+   "cone": 0.78,
+   "pool": 6.0,
+   "regen": 0.9,
+   "burst_cost": 3.0,
+   "burst_radius": 2.4,
+   "burst_share": 0.6,
+   "sunder": 0.25,
+   "sunder_secs": 4.0
+  }
+ },
+ "adaptive": {
+  "_about": "Round 136 (Robert, 2026-10-17): every floor keeps its base strength; foes ramp up to `max` stronger (hp and damage) as your power runs ahead of the cultivator the floor expects (the same expected() the floor forge and tools/balance_report use). `full_at` = how far ahead (as a fraction) reaches the full ramp. Never weaker than base. The ramp is smooth and read once per foe at spawn.",
+  "enabled": true,
+  "max": 0.25,
+  "full_at": 0.6,
+  "damage_share": 0.8,
+  "hp_share": 1.0,
+  "bosses": 1.0
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "_note": "Round 63: waystones and quick travel (scripts/systems/Travel.gd, scripts/Waystone.gd). attune_radius: how close (metres) you walk to a waystone to attune it. From a waystone a trip is at once; from the menu (from_menu) only when it's safe -- not hurt for calm_s seconds, no foe within safe_radius metres -- and it takes channel_s seconds of gathering yourself (a blow breaks it).",
+ "attune_radius": 3.2,
+ "from_menu": true,
+ "calm_s": 8,
+ "safe_radius": 14,
+ "channel_s": 2.5
+}

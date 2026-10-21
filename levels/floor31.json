@@ -1,0 +1,750 @@
+{
+  "id": "floor31",
+  "name": "Floor 31, The Dragon's Ribs",
+  "theme": "dungeon",
+  "depth": 31,
+  "ambient": [
+    0.62,
+    0.4,
+    0.3
+  ],
+  "forged": {
+    "region": "dragonspine",
+    "cycle": 1,
+    "size": 1.75
+  },
+  "enemies": {
+    "g": "dragonspine_weak_f31",
+    "k": "dragonspine_brute_f31",
+    "B": "dragonspine_boss_f31",
+    "a": "dragonspine_animal_f31"
+  },
+  "layout": {
+    "seed": 31,
+    "corridor_traps": 5,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Scale Stair",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "c*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Vertebra Hall",
+        "size": [
+          17,
+          6
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "c*4"
+        ]
+      },
+      {
+        "name": "The Dragon-Priest's Warning",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L*2",
+          "A",
+          "x*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Rib Gallery",
+        "size": [
+          14,
+          9
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "x*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Loose Scale",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "L",
+          "g",
+          "E"
+        ]
+      },
+      {
+        "name": "The Drakeling Hatchery",
+        "size": [
+          9,
+          8
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Newt Pools",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L",
+          "a*2",
+          "h*3"
+        ]
+      },
+      {
+        "name": "The Dragon's Ribcage",
+        "size": [
+          17,
+          14
+        ],
+        "has": [
+          "L*4",
+          "g*2",
+          "k",
+          "c*4",
+          "h*2",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Scale Seam",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L",
+          "^*2",
+          "o*3",
+          "g"
+        ]
+      },
+      {
+        "name": "The Guardians' Hall",
+        "size": [
+          11,
+          7
+        ],
+        "has": [
+          "L*2",
+          "k*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Riddle of Scales",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L*2",
+          "?",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Spinal Bridge",
+        "size": [
+          15,
+          5
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "x*2"
+        ]
+      },
+      {
+        "name": "The Hoard Annex",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L",
+          "b*3",
+          "C",
+          "g"
+        ]
+      },
+      {
+        "name": "The Lower Vertebra Hall",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*6",
+          "g"
+        ]
+      },
+      {
+        "name": "The Heartbeat Chamber",
+        "size": [
+          6,
+          5
+        ],
+        "has": [
+          "L",
+          "R",
+          "V"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Smoke Hall",
+        "size": [
+          18,
+          5
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "c*4"
+        ]
+      },
+      {
+        "name": "The Claw Gallery",
+        "size": [
+          12,
+          7
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "x*2"
+        ]
+      },
+      {
+        "name": "The Lower Drakeling Hatchery",
+        "size": [
+          11,
+          7
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Lower Dragon's Ribcage",
+        "size": [
+          18,
+          12
+        ],
+        "has": [
+          "L*4",
+          "g*2",
+          "k",
+          "c*4",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Lower Guardians' Hall",
+        "size": [
+          12,
+          7
+        ],
+        "has": [
+          "L*2",
+          "k*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Lower Spinal Bridge",
+        "size": [
+          16,
+          5
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "x*2"
+        ]
+      },
+      {
+        "name": "The Far Vertebra Hall",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*6",
+          "g"
+        ]
+      },
+      {
+        "name": "The Ember Shrine",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "Z",
+          "L*2",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Flooded Alcove",
+        "size": [
+          13,
+          11
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "F",
+          "G"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Collapsed Undercroft",
+        "size": [
+          11,
+          9
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "J",
+          "M"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Sealed Annex",
+        "size": [
+          17,
+          11
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k",
+          "N",
+          "O"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Quiet Niche",
+        "size": [
+          14,
+          9
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k",
+          "Q",
+          "U"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Forgotten Watch-Post",
+        "size": [
+          17,
+          9
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "W",
+          "X"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Lantern-lit Side-Gallery",
+        "size": [
+          11,
+          10
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Quiet Cell",
+        "size": [
+          11,
+          9
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Dragon's Dream",
+        "size": [
+          17,
+          13
+        ],
+        "has": [
+          "L*4",
+          "B",
+          ">",
+          "k",
+          "c*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "dragon_scale_shard": [
+          2,
+          3
+        ],
+        "gold": [
+          186,
+          310
+        ]
+      },
+      "note": "A miner's strongbox, scorched and dented from dragon's fire."
+    },
+    "D": {
+      "loot": {
+        "drake_blood": [
+          1,
+          2
+        ],
+        "dragonspine_pill_f31": [
+          0,
+          1
+        ],
+        "gold": [
+          155,
+          279
+        ]
+      },
+      "note": "a piece of the hoard, carried off and dropped"
+    },
+    "E": {
+      "loot": {
+        "dragon_scale_shard": [
+          1,
+          2
+        ],
+        "dragonspine_pill_f31": [
+          1,
+          1
+        ],
+        "random_weapon": [
+          0,
+          1
+        ]
+      },
+      "note": "A chest bound with iron, holding ancient scrolls of dragon lore.",
+      "hidden": true
+    },
+    "V": {
+      "loot": {
+        "dragon_scale_shard": [
+          3,
+          4
+        ],
+        "drake_blood": [
+          2,
+          3
+        ],
+        "dragonspine_pill_f31": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "random_gear": [
+          1,
+          1
+        ],
+        "gold": [
+          465,
+          775
+        ]
+      },
+      "note": "A chest filled with embers, still warm from the dragon's breath."
+    },
+    "F": {
+      "loot": {
+        "gold": [
+          248,
+          465
+        ],
+        "dragon_scale_shard": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Flooded Alcove"
+    },
+    "J": {
+      "loot": {
+        "gold": [
+          248,
+          465
+        ],
+        "drake_blood": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Collapsed Undercroft"
+    },
+    "N": {
+      "loot": {
+        "gold": [
+          248,
+          465
+        ],
+        "dragonspine_pill_f31": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in the Sealed Annex"
+    },
+    "Q": {
+      "loot": {
+        "gold": [
+          248,
+          465
+        ],
+        "breakthrough_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Flooded Alcove"
+    },
+    "W": {
+      "loot": {
+        "gold": [
+          248,
+          465
+        ],
+        "dragon_scale_shard": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Forgotten Watch-Post"
+    }
+  },
+  "lore": {
+    "A": {
+      "title": "Heat Under the Boots",
+      "text": "The steps here are scale, not stone; they are warm. Rhee's second scout wrote on the wall: do not stand still on them; he did not say why. I stood still; I know why."
+    },
+    "Y": {
+      "title": "Priest's Tablet, Cracked",
+      "text": "BREATH COMES AFTER THE ROAR, NOT BEFORE. When you hear her gather air, you have two heartbeats. Get behind a rib; stone does not cook as fast as skin."
+    },
+    "R": {
+      "title": "Scratched Under a Rib",
+      "text": "Her breath ran along the spine, rib to rib, the way ours runs through the body. The priests learned to send theirs the same road, in order, and burned what they struck. Sit and follow it down.",
+      "teaches": "dragonspine_art_2"
+    },
+    "G": {
+      "title": "A Map Note, Pencil",
+      "text": "Spinal Bridge is narrow and the bats like it. Take the Hall of Guardians instead. It is longer, but the guardians only walk one way, and it is not toward you."
+    },
+    "M": {
+      "title": "Smith Hale's Mark",
+      "text": "Hale's old tally mark, three bars and a hook; he came this far with the first lot, forty years back. Under it: a loose scale in the wall leads toward the heart. Quiet niche, east side."
+    },
+    "O": {
+      "title": "Hunters' Count",
+      "text": "Drakelings hatch in the pools; the big ones guard the hatchery. We burned two nests and thought we were clever. The next day there were four; leave the eggs alone."
+    },
+    "U": {
+      "title": "Last Words, Vertebra Hall",
+      "text": "I counted her ribs to keep my head. Forty-one; then she breathed and the count did not matter. If you found this, tell the Lodge that the brute at the hall's end does not tire."
+    },
+    "X": {
+      "title": "A Child's Rhyme",
+      "text": "One for the scale and two for the bone, three for the flame that will take you home. Four for the dream you must not wake. Five is the heart, for goodness' sake; Scratched low, where a child could reach."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Rib's Question",
+      "question": "Many of us curve in two rows around a heart. We have no lock, yet we guard what is inside. What are we?",
+      "options": [
+        "A row of gates",
+        "A ribcage",
+        "A set of horns"
+      ],
+      "answer": 1,
+      "reward": {
+        "items": {
+          "dragonspine_pill_f31": 1
+        },
+        "qi": 13168361
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor30",
+      "arrive": ">",
+      "label": "Up to floor 30",
+      "down": false
+    },
+    ">": {
+      "to": "floor32",
+      "arrive": "<",
+      "label": "Down to floor 32"
+    }
+  },
+  "refined": {
+    "passes": 7,
+    "rooms_added": 7,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-05T10:05:33"
+  },
+  "map": [
+    "",
+    "                            ..k...........",
+    "                ...L.....   .x.....D.....L",
+    "                .......xA   .g............",
+    "                Lg.......   ..............",
+    "                .............x............",
+    "                .......x.   .........g....",
+    "                .........   ..............                               .....L.....",
+    "                .........   ..............                  .....o...    ...........",
+    "                    .       .............L                  .......g.    ...g.......",
+    "                    .              .                        o^........T...k.........",
+    "                    .              .                        .^.....o..   ..........L",
+    "                    .              .       .........        L........    .k.........",
+    "                    .          ......L.    .h.......        .........    ...........",
+    "                    .          ........    .........            .             .",
+    " <.......   ....g........L...  E....g..    ..g.g....            .             .",
+    " ........   ....c..c.........  .....................            .             .",
+    " ....g...   .................  ........    ...g....L            .         .........      .g......LL.....",
+    " .............g..............  ........    .........            .         ..?.....L      .xg.......x....",
+    " .c..c...   ....c..c........L              .........            .         .........     ................     ......",
+    " .LL.....   ..........g..L...                  .        g.........g...... ..............................     ...R..",
+    "                                               .        Y...c..c......... .........      ...............     V....L",
+    "                                               .        ................. .h..L..h.             T            ......",
+    "                                          ..........    .................                       .            ......",
+    "                                          ..........    k................                       .              S",
+    "                                          L.........    .................                       .         ............",
+    "                                          ...h......    .................                   .........     h...........    ....LL.g.......L..",
+    "                                          .h................c............                   .C..b..b.     hg..........    .c........c..c..c.",
+    "                                          ..a.h.....    ....h............                   .........     ......h.....   .............g.....",
+    "                                          ......a...    .................                   ..................h..h..h.......................",
+    "                                          ..........    ....c............                   ....bg...     ............    .g................",
+    "                                                        L...h............                   .........     ...........L             .",
+    "                                                        ................L                   .L.......     ......L.....             .",
+    "                                                        .L.L.............                                                          .",
+    "                                                                                                                                   .",
+    "                                                                                                                             .L......gg..   ....L......                           ..........L.",
+    "                                                                                                                             ..........x.   h....g.....                           ............",
+    "                                                                                                                             ........k...   ...........     ..L.............      ............",
+    "                                                                                                                             .................g........     ....x.....x.....      ...h........",
+    "                                                                                                                             .......x....   ...........     ....g...........T......g....h....L",
+    "                                                                                                                             ............   ........g..     ................      ...........h",
+    "                                                                                                                             L...........   ...........     ....Lg..........      ....h.......",
+    "                                                                                                                                                 .                  .             h........h..",
+    "                                                                                                                                                 .                  .                   .",
+    "                                                                                                                                                 .                  .                   .         L.........L..    ..............     .........g.....L.",
+    "                                                                                                                                                 .                  .                   .         .............    ....h.........     o................",
+    "                                                                                                                                        ...L..............          .                   .         .....h.....g.    L.............     .................",
+    "                                                                                                                                        ..................          .               .L......      .............    ..............     .................",
+    "                                                                                                                                        ..................    .L..L.......          .Z....h.      ....F........    ................................k...",
+    "                                                                                                                                        ......h......k....    ...........k          ................h..........    L..h..........     .............W...",
+    "                                                                                                                                        .......c........c.    ............          .........     .............    .......g......     .................",
+    "                                                                                                                                        L.................   .............          h.......      .........G...    .........Qg...     ...o.............",
+    "                                                                                                                                        ..................T...............          ...L....      .............    .U...........k     ....gX.....L.....",
+    "                                                                                                                                        .............c..g.    .......k....                        .............           .                   .",
+    "                                                                                                                                        ..................    ...........g                        ....g........           .                   .",
+    "                                                                                                                                        ...g.......h......                                              .                 .                   .",
+    "                                                                                                                                        .......c..........                                              .                 .                   .",
+    "                                                                                                                                        .....L..........L.                                              .                 .                   T",
+    "                                                                                                                                                 S                                                      .         .................           .",
+    "                                                                                                                                                 .                                                 ..g........    .........k.......      ...........     .h.........",
+    "                                                                                                                                                 .                                                 ...........    .................      ...........     ...........",
+    "                                                                                                                                                 .                                                 .....o.....    L..g..h..........      L..........     L..........",
+    "                                                                                                                                                 .                                                 ......g..k.    .................      ...hg......     ...........",
+    "                                                                                                                                                 .................................................S......o...........g............^      ........g..................",
+    "                                                                                                                                                                                                   ......M.J..    .................      ............    ...........",
+    "                                                                                                                                                                                                   ...........    .O...............      ........k..     ..........L",
+    "                                                                                                                                                                                                   ...........    .................      ...........     .k.h...g..g",
+    "                                                                                                                                                                                                   ..L.......L    .................      ...........     ...........",
+    "                                                                                                                                                                                                                  ..N..L...........      L......^...          .",
+    "                                                                                                                                                                                                                                                              .",
+    "                                                                                                                                                                                                                                                              .",
+    "                                                                                                                                                                                                                                                      .................",
+    "                                                                                                                                                                                                                                                      ....c.....c......",
+    "                                                                                                                                                                                                                                                      .................",
+    "                                                                                                                                                                                                                                                      .................",
+    "                                                                                                                                                                                                                                                      .................",
+    "                                                                                                                                                                                                                                                      ..k..............",
+    "                                                                                                                                                                                                                                                      .................",
+    "                                                                                                                                                                                                                                                      ................L",
+    "                                                                                                                                                                                                                                                      L................",
+    "                                                                                                                                                                                                                                                      ..........B.....L",
+    "                                                                                                                                                                                                                                                      .c..c............",
+    "                                                                                                                                                                                                                                                      .................",
+    "                                                                                                                                                                                                                                                      >..........L.....",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

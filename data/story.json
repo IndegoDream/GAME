@@ -1,0 +1,600 @@
+{
+ "_about": "The story (round 32, Robert: 'people and story -- a main storyline across the floors, NPC arcs that advance, choices with consequences, an ending'). Engine: Game.gd 'story'. Acts fire on a trigger (a floor reached, a floor's master killed, the blood waking); the named townsperson then has the scene waiting with two choices, each with consequences. Arcs: what each townsperson says (and gives, once) after a choice. Dev's words win: data/drafts/story.json ('act', 'told', 'say', choice texts).",
+ "acts": [
+  {
+   "id": "seeding",
+   "name": "What the Deep Put in You",
+   "trigger": {
+    "floor_reached": 2
+   },
+   "who": "Elder Mo",
+   "told": "Two floors down, your blood did something it had never done: it answered the dark. Elder Mo was waiting at the fountain when you came up, as if he'd felt it too.",
+   "say": "\"You felt it. Don't tell me you didn't -- I saw your hands. The nanites in us came from down there, child. Every one of us in Eliet carries a little of the deep. In you it has woken early.\"\n\nHe looks at the houses, the smoke, the children by the well.\n\n\"The village doesn't know how close the deep is. I have kept that from them for forty years.\"",
+   "choices": [
+    {
+     "text": "The village should know the truth.",
+     "set": "story:open",
+     "effect": {
+      "insight": 3,
+      "guild_rep": {
+       "adventurers": 10
+      }
+     },
+     "after": "Mo is quiet a long while. \"Then tell them gently. They'll be afraid -- and some of them will be braver for it.\" (The Lodge hears, and takes you seriously.)"
+    },
+    {
+     "text": "Keep it between us. People sleep better.",
+     "set": "story:quiet",
+     "effect": {
+      "gold": 40,
+      "sect_contrib": 5
+     },
+     "after": "\"Good. The deep rewards patience, not noise.\" He presses a purse into your hand. \"For your silence -- and your supper.\""
+    }
+   ]
+  },
+  {
+   "id": "first_master",
+   "name": "The Keeper's Keys",
+   "trigger": {
+    "boss_floor": 3
+   },
+   "who": "Smith Hale",
+   "told": "The third floor's master is dead, and its Keeper's vault stands open. Smith Hale has heard; he has a question about what you found.",
+   "say": "\"Iron that old, cut that clean -- it's not goblin work, and it's not ours. The deep MADE those gates.\" He turns the key over. \"Keys like this, chests like that: there's a share the village could use. Or a share you could keep. I won't judge. But I'll ask.\"",
+   "choices": [
+    {
+     "text": "The village gets its share.",
+     "set": "story:gave_share",
+     "effect": {
+      "gold_frac": -0.3,
+      "guild_rep": {
+       "gatherers": 10,
+       "adventurers": 10
+      },
+      "item": {
+       "iron_sword": 1
+      }
+     },
+     "after": "Hale nods once, the way he does at good steel. \"Then here's mine.\" A blade, free, from his own rack."
+    },
+    {
+     "text": "I earned it. I keep it.",
+     "set": "story:kept_share",
+     "effect": {
+      "insight": 2
+     },
+     "after": "\"Fair.\" He goes back to his anvil. He doesn't say anything else, and that's an answer too."
+    }
+   ]
+  },
+  {
+   "id": "wens_debt",
+   "name": "What the Mine Remembers",
+   "trigger": {
+    "floor_reached": 6
+   },
+   "who": "Trader Wen",
+   "told": "You came up from the sixth floor with ore the colour of old blood. Trader Wen went white when he saw it, and asked you to his stall after dark.",
+   "say": "\"That ore. I sold forty crates of it, years back, to men who said they were building a road. They were building the mine shaft on floor six. I knew. I needed the money.\" He can't look at you. \"There's a debt on my name in the Lodge's book that I've never been able to clear. Two hundred gold. If it were cleared... I could travel again. Bring the village things it hasn't seen.\"",
+   "choices": [
+    {
+     "text": "Clear Wen's debt (200 gold).",
+     "set": "story:wen_free",
+     "need_gold": 200,
+     "effect": {
+      "gold": -200,
+      "shop_discount": 0.15
+     },
+     "after": "He weeps, which you weren't ready for. From now on Wen's prices are better for you than for anyone -- and his stall has things from further away."
+    },
+    {
+     "text": "That's your debt, Wen.",
+     "set": "story:wen_bound",
+     "effect": {},
+     "after": "\"Yes. It is.\" He packs up his stall slowly. He'll still trade. He doesn't ask you to supper again."
+    }
+   ]
+  },
+  {
+   "id": "envoy",
+   "name": "The Sects Take Notice",
+   "trigger": {
+    "floor_reached": 10
+   },
+   "who": "Elder Mo",
+   "told": "Ten floors. Word travels up the shaft faster than you do: an envoy from the hills came to Eliet asking after you by name, and left a letter with Elder Mo.",
+   "say": "\"The sects count floors the way merchants count coin. Ten is where they start to want you.\" He hands you a letter sealed in red wax. \"It's an offer. Any sect would take you now. The hills are kinder to a cultivator with a seat than one without. They're also crueller to one who's chosen the wrong seat.\"",
+   "choices": [
+    {
+     "text": "I'll go to the hills and choose.",
+     "set": "story:envoy_yes",
+     "effect": {
+      "sect_contrib": 20,
+      "insight": 2
+     },
+     "after": "\"Then choose with your eyes open.\" (The sects will count your deeds from here: contribution waits for you in whichever hall you join.)"
+    },
+    {
+     "text": "Eliet is my sect.",
+     "set": "story:envoy_no",
+     "effect": {
+      "guild_rep": {
+       "adventurers": 15,
+       "gatherers": 15
+      },
+      "title": "Eliet's Own"
+     },
+     "after": "Mo smiles, which is rare. \"Then Eliet will be a sect, if it has to be.\" The village starts calling you something new."
+    }
+   ]
+  },
+  {
+   "id": "blood",
+   "name": "What Runs in You",
+   "trigger": {
+    "blood_awake": true
+   },
+   "who": "Apothecary Lin",
+   "told": "Your blood woke in the deep. Apothecary Lin has a way of knowing things about blood; she was waiting with a clean knife and a question.",
+   "say": "\"Let me draw a little. Not for me -- for the village. If I understand what woke in you, I can understand what sleeps in them.\" She holds the blade up to the lamp. \"I can also, I think, give some of it back to you, concentrated. But I'd be taking first.\"",
+   "choices": [
+    {
+     "text": "Draw it.",
+     "set": "story:blood_given",
+     "effect": {
+      "essence": 2,
+      "guild_rep": {
+       "gatherers": 10
+      }
+     },
+     "after": "It hurts less than you expect. Three days later she hands you two sealed vials: your own blood, distilled. \"Drink them when it matters.\""
+    },
+    {
+     "text": "No. It's mine.",
+     "set": "story:blood_kept",
+     "effect": {
+      "purity": 4
+     },
+     "after": "\"Mine too, once,\" she says, and puts the knife away. Whatever she means, she doesn't explain. Your blood thickens a little, as if in agreement."
+    }
+   ]
+  },
+  {
+   "id": "rival",
+   "name": "The One Who Counts Your Wins",
+   "trigger": {
+    "floor_reached": 15
+   },
+   "who": "Captain Rhee",
+   "told": "Fifteen floors, and the Lodge's book has your name on more pages than anyone's. Captain Rhee closed the book when you came in.",
+   "say": "\"There's a cultivator in the hills who used to hold every record in this book. Shen. He's been asking about you, and not kindly. He'll come to the valley road to put you in your place -- that's how he is.\" Rhee shrugs. \"I can send word that you'd rather not. He'd respect that less than losing.\"",
+   "choices": [
+    {
+     "text": "Let him come.",
+     "set": "story:rival_come",
+     "effect": {
+      "insight": 3,
+      "flag": "rival_shen"
+     },
+     "after": "\"Thought so.\" Out on the valley road, the rival disciples now include a name that wasn't there before."
+    },
+    {
+     "text": "Send word. I've nothing to prove.",
+     "set": "story:rival_no",
+     "effect": {
+      "guild_rep": {
+       "adventurers": 20
+      }
+     },
+     "after": "Rhee writes the letter. \"He'll hate that.\" The Lodge, though, likes a cultivator who doesn't need to be the best."
+    }
+   ]
+  },
+  {
+   "id": "pagoda",
+   "name": "The Elder's Confession",
+   "trigger": {
+    "floor_reached": 20
+   },
+   "who": "Elder Mo",
+   "told": "The Jade Pagoda, twenty floors down. When you told Elder Mo, he sat down on the fountain's edge like a much older man.",
+   "say": "\"I was on the first expedition. Forty years ago, nine of us. We reached the Pagoda. Only I came back, and I came back with the nanites in me -- and then in every child born in Eliet since.\" He doesn't look away. \"The deep doesn't take. It gives, and the gift is the hook. Below the Pagoda it stops pretending. Go down if you must. But know what I know.\"",
+   "choices": [
+    {
+     "text": "I forgive you. You brought back what saved us.",
+     "set": "story:mo_forgiven",
+     "effect": {
+      "insight": 5,
+      "dao_heart": 1
+     },
+     "after": "He weeps, finally, forty years late. Something in you settles too."
+    },
+    {
+     "text": "You should have told us.",
+     "set": "story:mo_blamed",
+     "effect": {
+      "insight": 5,
+      "guild_rep": {
+       "adventurers": 10
+      }
+     },
+     "after": "\"Yes.\" That's all. But the next day the whole village knows, and the Lodge posts the truth on its door."
+    }
+   ]
+  },
+  {
+   "id": "mirror",
+   "name": "The Mirror",
+   "trigger": {
+    "boss_floor": 25
+   },
+   "who": "Elder Mo",
+   "told": "The twenty-fifth floor's master is dead -- the thing that wore your face. You came up into daylight and the village was waiting at the shaft.",
+   "say": "\"It showed you yourself,\" Mo says, \"because that's what's down there now. The deep is a mirror of whoever goes deepest.\" The village is silent around you. \"There are two roads. Seal the shaft: Eliet lives, the deep sleeps, and what you are is enough. Or go on. Below twenty-five nothing is mapped. Whatever you find there, you'll be the first.\"",
+   "choices": [
+    {
+     "text": "Seal the shaft. Eliet comes first.",
+     "set": "story:ending_sealed",
+     "effect": {
+      "title": "The Sealer",
+      "insight": 10,
+      "guild_rep": {
+       "adventurers": 30,
+       "gatherers": 30
+      }
+     },
+     "after": "The stone goes down over the stairs with a sound the whole valley hears. It's done. (The deep can be opened again -- by ascending, at the Trial Board -- stronger, as someone new.)"
+    },
+    {
+     "text": "I go on. The deep isn't finished with me.",
+     "set": "story:ending_delver",
+     "effect": {
+      "title": "The Delver",
+      "insight": 10,
+      "purity": 10
+     },
+     "after": "Mo bows to you, which he has never done. The stairs wait. Below twenty-five, nothing is mapped. (The forge keeps building floors; and ascending, at the Trial Board, lets you begin again, stronger.)"
+    }
+   ]
+  },
+  {
+   "id": "expedition",
+   "name": "The Lodge Goes Down",
+   "trigger": {
+    "floor_reached": 30
+   },
+   "who": "Captain Rhee",
+   "told": "Thirty floors. The Lodge has never had a page for thirty. Captain Rhee has a proposal, and for once it isn't about the book.",
+   "say": "\"Below twenty-five the maps are yours and nobody else's. The Lodge wants to change that: an expedition, six of our best, following your marks down. They'd die without you. Some of them might die with you.\" He doesn't soften it. \"Lead them, and the Lodge owes you more than it can pay. Or tell me to keep them home, and I will, and they'll hate you for it, and live.\"",
+   "choices": [
+    {
+     "text": "I'll lead them. Pick your six.",
+     "set": "story:led_lodge",
+     "effect": {
+      "guild_rep": {
+       "adventurers": 40
+      },
+      "insight": 4,
+      "title": "Expedition Leader"
+     },
+     "after": "Six of them, at the shaft at dawn, every one with the Lodge's mark new on their sleeve. Two will not come back. The four who do will tell it for the rest of their lives. (The Lodge's standing rises more than it ever has.)"
+    },
+    {
+     "text": "Keep them home. The deep is mine to carry.",
+     "set": "story:spared_lodge",
+     "effect": {
+      "insight": 6,
+      "dao_heart": 1
+     },
+     "after": "\"Thought you'd say that.\" He closes the book. \"They'll hate you for it.\" They do, for a week. Then somebody's child is born and nobody is thinking about the deep. Something in you settles."
+    }
+   ]
+  },
+  {
+   "id": "last_steel",
+   "name": "The Last Steel",
+   "trigger": {
+    "floor_reached": 35
+   },
+   "who": "Smith Hale",
+   "told": "Thirty-five floors, and the ore you bring up now is nothing Hale has a name for. He has been at the forge three nights and wants you at it the fourth.",
+   "say": "\"This is the best work I will ever do, and I can't finish it alone. The metal wants qi in the quench -- yours. Stand with me through the night and it's yours, the only one there'll ever be.\" He wipes his hands. \"Or take the night to rest. I'd understand. The deep doesn't.\"",
+   "choices": [
+    {
+     "text": "Through the night, then. Let's make it.",
+     "set": "story:last_steel",
+     "effect": {
+      "gear": 2,
+      "insight": 3
+     },
+     "after": "Dawn finds you both grey with it. What came out of the quench is in your hands now. Hale won't say what he thinks of it. He doesn't have to."
+    },
+    {
+     "text": "Finish it your way. I'll rest.",
+     "set": "story:hale_alone",
+     "effect": {
+      "gold": 300,
+      "guild_rep": {
+       "gatherers": 20
+      }
+     },
+     "after": "He finishes it, and sells it to a sect for more gold than the village sees in a year, and gives you your share without being asked. \"Should've been yours,\" he says. \"It's somebody's now.\""
+    }
+   ]
+  },
+  {
+   "id": "sickness",
+   "name": "What the Deep Gives Back",
+   "trigger": {
+    "floor_reached": 40
+   },
+   "who": "Apothecary Lin",
+   "told": "Forty floors. In Eliet the children born since the nanites woke have started to dream the deep, and wake crying. Apothecary Lin has not slept.",
+   "say": "\"It's you. Not your fault -- you. Every floor you take, the deep reaches up a little further, into every one of us that carries it. The children feel it first.\" Her hands are steady; her voice isn't. \"I can make a draught that dulls it. It would dull your blood too, a little, for good. Or you go on, and the children learn to carry it, as you did.\"",
+   "choices": [
+    {
+     "text": "Make the draught. I'll drink it with them.",
+     "set": "story:draught",
+     "effect": {
+      "purity": -8,
+      "guild_rep": {
+       "gatherers": 30,
+       "adventurers": 30
+      },
+      "title": "Eliet's Keeper"
+     },
+     "after": "The children sleep. Something in your blood goes quiet that won't come back. The whole village knows what you did, and nobody says it, and everybody does."
+    },
+    {
+     "text": "No. They'll learn. I did.",
+     "set": "story:no_draught",
+     "effect": {
+      "purity": 6,
+      "insight": 5
+     },
+     "after": "\"So you did,\" Lin says, and that's all. The children learn. Years from now, some of them will go down. Your blood runs truer for the refusal."
+    }
+   ]
+  },
+  {
+   "id": "last_letter",
+   "name": "The Last Letter",
+   "trigger": {
+    "floor_reached": 45
+   },
+   "who": "Trader Wen",
+   "told": "Forty-five floors down there is a wall with a door in it, and the door has a merchant's seal on it: the same seal on Trader Wen's stall. You came up with a rubbing of it.",
+   "say": "Wen looks at the rubbing a long time. \"My grandfather's. He went down with the first expedition -- Mo never said. He was the ninth man.\" He folds the paper. \"There's a letter I was given to open if his seal was ever found. I've carried it thirty years. Open it with me, or let me open it alone.\"",
+   "choices": [
+    {
+     "text": "Open it. I'll stay.",
+     "set": "story:letter_shared",
+     "effect": {
+      "insight": 6,
+      "item": {
+       "nanite_shard": 12
+      }
+     },
+     "after": "The letter is a map -- of what's below forty-five -- and a line for whoever found the seal: 'The Heart is a door. Knock politely.' Wen gives you the map, and keeps the line."
+    },
+    {
+     "text": "It's his. It's yours. I'll go.",
+     "set": "story:letter_alone",
+     "effect": {
+      "guild_rep": {
+       "gatherers": 30
+      },
+      "gold": 400
+     },
+     "after": "Wen reads it alone. The next morning there is a purse on your doorstep and no note. Whatever the letter said, he's a different man for it: lighter, and he trades like one."
+    }
+   ]
+  },
+  {
+   "id": "after",
+   "name": "After the Heart",
+   "trigger": {
+    "finished": true
+   },
+   "who": "Elder Mo",
+   "told": "You went into the Heart of the Deep, and came out. Eliet was waiting at the shaft, all of it, and Elder Mo at the front.",
+   "say": "\"Fifty floors. Nobody has ever -- \" He stops. \"No. That's not what I want to say. What I want to say is: it's done, and you're home, and that's enough for today.\" He looks at the village behind him, and then east, at the hills. \"Tomorrow is a different question. Stay, and Eliet is yours -- it's been yours a while. Or go. There's more under the world than one shaft. The hills have been sending letters.\"",
+   "choices": [
+    {
+     "text": "I'll stay. Eliet is home.",
+     "set": "story:stayed",
+     "effect": {
+      "title": "Elder of Eliet",
+      "insight": 10,
+      "guild_rep": {
+       "adventurers": 50,
+       "gatherers": 50
+      }
+     },
+     "after": "They call you Elder before the month is out, and Mo, for the first time in forty years, sits down. (The deep is still there, and so is the Trial Board: ascend, and begin again stronger. The story continues east -- in the sequel.)"
+    },
+    {
+     "text": "I'll go east. The letters can stop.",
+     "set": "story:went_east",
+     "effect": {
+      "title": "The Wanderer",
+      "insight": 10,
+      "purity": 10
+     },
+     "after": "You leave at dawn with the village on the road behind you. Mo bows. Lin doesn't cry until you've turned the bend. East, the hills; past them, what the letters wouldn't say. (To be continued -- in the sequel. Here, the Trial Board still lets you ascend and begin again, stronger.)"
+    }
+   ]
+  }
+ ],
+ "arcs": {
+  "Elder Mo": [
+   {
+    "after": "story:seeding:done",
+    "line": "\"The deep is awake in you. Walk carefully, and come and tell me what it shows you.\""
+   },
+   {
+    "after": "story:envoy:done",
+    "line": "\"Ten floors. I remember my tenth. I thought I understood the deep. I didn't.\""
+   },
+   {
+    "after": "story:pagoda:done",
+    "line": "\"You know everything I know now. Everything after the Pagoda is yours to learn.\"",
+    "gift": {
+     "item": {
+      "qi_pill": 3
+     }
+    }
+   },
+   {
+    "after": "story:mirror:done",
+    "line": "\"Eliet remembers who you were before the road. It'll remember this longer.\""
+   },
+   {
+    "after": "story:stayed",
+    "line": "\"Elder. It suits you. It never suited me.\""
+   },
+   {
+    "after": "story:went_east",
+    "line": "\"You're still here? The hills won't wait forever. Nor will I, come to that.\""
+   }
+  ],
+  "Smith Hale": [
+   {
+    "after": "story:gave_share",
+    "line": "\"Village iron's never been better. That's your doing, whatever you say.\"",
+    "gift": {
+     "formula": true
+    }
+   },
+   {
+    "after": "story:kept_share",
+    "line": "\"Steel's steel. I'll sell you the best I've got, same as anyone.\""
+   },
+   {
+    "after": "story:mirror:done",
+    "line": "\"Whatever you faced down there, you faced it with my steel. That's enough for me.\"",
+    "gift": {
+     "gear": 1
+    }
+   },
+   {
+    "after": "story:last_steel",
+    "line": "\"Don't sell it. Don't lose it. Don't tell me if you do.\""
+   },
+   {
+    "after": "story:hale_alone",
+    "line": "\"The sect that bought it sent a letter. They want another. There isn't one.\""
+   }
+  ],
+  "Trader Wen": [
+   {
+    "after": "story:wen_free",
+    "line": "\"The road's open to me again. Look what I brought back this time.\"",
+    "gift": {
+     "item": {
+      "nanite_shard": 6
+     }
+    }
+   },
+   {
+    "after": "story:wen_bound",
+    "line": "\"Business as usual.\" He doesn't meet your eye."
+   },
+   {
+    "after": "story:letter_shared",
+    "line": "\"Knock politely. I think about that every night.\""
+   },
+   {
+    "after": "story:letter_alone",
+    "line": "\"I read it. I'm all right. Better than. Buy something.\"",
+    "gift": {
+     "gold": 200
+    }
+   }
+  ],
+  "Apothecary Lin": [
+   {
+    "after": "story:blood_given",
+    "line": "\"I've learned more from your blood than from twenty years of herbs. The village will be healthier for it.\"",
+    "gift": {
+     "item": {
+      "healing_salve": 4
+     }
+    }
+   },
+   {
+    "after": "story:blood_kept",
+    "line": "\"Some things aren't for sharing. I understand that better than you think.\""
+   },
+   {
+    "after": "story:open",
+    "line": "\"They say the deep is awake in you. Half the village is frightened. The other half is lining up to be next.\""
+   },
+   {
+    "after": "story:draught",
+    "line": "\"They slept through the night. All of them. I slept too.\"",
+    "gift": {
+     "item": {
+      "healing_salve": 6,
+      "qi_pill": 3
+     }
+    }
+   },
+   {
+    "after": "story:no_draught",
+    "line": "\"The dreams are less. Or they're used to them. I can't tell the difference any more, and I'm not sure there is one.\""
+   }
+  ],
+  "Captain Rhee": [
+   {
+    "after": "story:open",
+    "line": "\"The Lodge takes the deep seriously now. So do I. Keep clearing floors.\""
+   },
+   {
+    "after": "story:rival:done",
+    "line": "\"Shen or no Shen, the book's yours. Try to keep it that way.\""
+   },
+   {
+    "after": "story:mirror:done",
+    "line": "\"First name in the book, and the last page. There's nobody above you now.\"",
+    "gift": {
+     "gold": 500
+    }
+   },
+   {
+    "after": "story:led_lodge",
+    "line": "\"Four back of six. In the hills they'd call that a slaughter. Here we call it the best we ever did.\""
+   },
+   {
+    "after": "story:spared_lodge",
+    "line": "\"They've stopped glaring. Mostly. Give it a year.\""
+   }
+  ]
+ },
+ "epilogue": {
+  "_about": "The ending screen (round 33): one line each, by what you chose. Dev's words win: data/drafts/epilogue.json (items with 'key' and 'text').",
+  "opening": "You went into the Heart of the Deep, fifty floors under Eliet, and it let you go. This is what became of the rest.",
+  "sealed": "The shaft you sealed at twenty-five stayed sealed a year before you broke it. Eliet never held it against you.",
+  "delver": "You never once stopped going down. The village learned to stop asking when you'd be back.",
+  "mo_forgiven": "Elder Mo died an old man, forgiven, with the whole village at the fountain. He asked for you at the end.",
+  "mo_blamed": "Elder Mo's confession is carved on the Lodge door now. He had it done himself, and paid for it.",
+  "wen_free": "Trader Wen's stall became a trading house, with his grandfather's seal over the door and a road that runs to places nobody in Eliet had heard of.",
+  "wen_bound": "Trader Wen kept his stall and his debt. He got older. He traded fair.",
+  "gave_share": "Village iron is known in the hills now. Smith Hale says it's the ore. Everyone else says it's you.",
+  "led_lodge": "The four who came back from the Lodge's expedition are its captains now. They keep a page for the two who didn't.",
+  "spared_lodge": "The six you kept home are old men with grandchildren, and still, in their cups, they hate you a little. They have earned the right.",
+  "draught": "The children sleep. Your blood never quite recovered. You did not, ever, regret it.",
+  "no_draught": "The children learned. Some of them went down. One of them went further than you.",
+  "shen_beaten": "Shen never came back to the valley road. He teaches in the hills now, and tells his students about the one he couldn't beat.",
+  "envoy_no": "Eliet became a sect, in the end, because it had to. Its creed is short.",
+  "partner": "%s walked the whole road with you, and is walking it still.",
+  "companion": "%s went down with you more floors than anyone, and tells it better than you do.",
+  "familiar": "%s outlived every expectation of its kind, and sleeps by your door.",
+  "blood": "Your %s blood runs in Eliet's children now, in some small part. They will find out what that means.",
+  "home": "The compound you built at the edge of the village is a landmark now. People give directions by it.",
+  "stayed": "You stayed. Eliet is yours.",
+  "went_east": "You went east. The letters stopped. Something else began.",
+  "closing": "Dungeon Crawl Elite continues -- past the fiftieth floor and east of the hills -- in the sequel."
+ }
+}

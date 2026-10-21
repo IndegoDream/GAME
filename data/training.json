@@ -1,0 +1,101 @@
+{
+ "note": "Lessons townsfolk give when you ASK in chat (Robert, 2026-10-02: 'include training if it's available in chat, or make it discoverable through asking'). Each person teaches one thing, picked by role (and by name, so two villagers differ). Asking about training in chat (any of 'words') makes it known; from then on it's also a button in their menu. Once per person per day. Game.gd round-22 block.",
+ "words": [
+  "train",
+  "teach",
+  "lesson",
+  "learn",
+  "master",
+  "spar",
+  "drill",
+  "instruct",
+  "show me",
+  "technique",
+  "practice",
+  "practise",
+  "mentor",
+  "student",
+  "disciple"
+ ],
+ "price": {
+  "base": 15,
+  "per_realm": 20,
+  "friend_mult": 0.75
+ },
+ "lessons": {
+  "strike_drill": {
+   "name": "a striking drill",
+   "pitch": "how to put your whole weight behind your qi",
+   "desc": "Drills your wired strike art (+12 practice) and shows you a glimpse of what comes after it."
+  },
+  "step_drill": {
+   "name": "footwork",
+   "pitch": "footwork -- how to be somewhere else when the blow lands",
+   "desc": "Drills your wired step art (+12 practice) and a glimpse of the next one."
+  },
+  "guard_drill": {
+   "name": "guard work",
+   "pitch": "how to take a blow, and how to send one back",
+   "desc": "Drills your guard art (+12 practice) -- or, with none, a long look at how a guard is held (glimpses of Iron Shell)."
+  },
+  "breath": {
+   "name": "a breathing lesson",
+   "pitch": "how to breathe so the qi comes to you instead of you chasing it",
+   "desc": "Your next 15 minutes of meditation run 1.4x, and your focus point gets a push."
+  },
+  "weapon": {
+   "name": "weapon work",
+   "pitch": "how to hold what you're holding",
+   "desc": "A good deal of practice with the weapon in your hand."
+  },
+  "swarm": {
+   "name": "nanite tinkering",
+   "pitch": "how the old machines like to be handled",
+   "desc": "Your swarm grows (+30 integration), and a hint of an augment you haven't found."
+  }
+ },
+ "by_role": {
+  "smith": [
+   "weapon",
+   "guard_drill"
+  ],
+  "alchemist": [
+   "breath",
+   "swarm"
+  ],
+  "elder": [
+   "breath",
+   "step_drill"
+  ],
+  "guild": [
+   "strike_drill",
+   "guard_drill"
+  ],
+  "merchant": [
+   "swarm"
+  ],
+  "innkeeper": [
+   "step_drill",
+   "breath"
+  ],
+  "academy": [
+   "strike_drill"
+  ],
+  "tournament": [
+   "strike_drill",
+   "guard_drill"
+  ],
+  "villager": [
+   "strike_drill",
+   "step_drill",
+   "guard_drill",
+   "breath",
+   "weapon"
+  ],
+  "sect": [
+   "strike_drill",
+   "guard_drill",
+   "step_drill"
+  ]
+ }
+}

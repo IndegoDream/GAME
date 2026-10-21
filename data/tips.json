@@ -1,0 +1,200 @@
+{
+ "_about": "Round 42 (Robert, 2026-10-04: 'the story and explanations should be easy to understand and be meaningful, or give something more to the game -- either filling out its history or giving hints and tips through conversation, reading, secrets, treasure and inheritance'). The Lore system (scripts/systems/Lore.gd) hands out two kinds of words wherever the world has something to say: a TIP (true, about where you are and what you need -- a secret left on this floor, what the next gate wants, what a material in your pouch is for, how to beat this floor's master) or a piece of HISTORY (the story of Eliet and the deep, one plain fragment at a time, unlocked by how deep you've been). They're found on lore stones (scratched below the carving), in hidden walls, in chests (sometimes), from a dead master's last words, and from anyone you ask for advice. Every one you find is kept on the Road page. Dev's words: briefs `tips` (the templates, keeping every {placeholder}) and `history` (more fragments).",
+ "frames": {
+  "stele": "Scratched below the carving, in a newer hand:",
+  "secret": "Scratched on the inside of the hidden wall:",
+  "chest": "Tucked into the chest, a scrap of paper:",
+  "inheritance": "\"One more thing, before you go --\"",
+  "npc": "\"A word of advice, since you asked:\""
+ },
+ "chest_chance": 0.4,
+ "templates": {
+  "secrets": "This floor still hides {n} way through its walls -- maybe more. Stand still beside a wall and feel for a draft. Where the air moves, a stone will give.",
+  "hidden_chest": "Something on this floor only shows itself to those who can sense it. Stand still, open your senses, and look again.",
+  "gate": "The stairs down to floor {floor} won't let you pass without {needs}.",
+  "gate_item": "{item} is made from {mats}. Make it before you go down -- it's spent at the gate.",
+  "material": "That {item} you're carrying is wanted for {made}.",
+  "boss": "The master of this floor is {boss}. When it winds up a heavy blow, raise your guard just as it lands: it staggers, and it's yours for a moment.",
+  "master": "{rumour}",
+  "craft": "{rumour}",
+  "cleanse": "Sit with Cleanse as your focus and the meridians wash clean, node by node. Every clean node makes you a little stronger for good.",
+  "clash": "{a} and {b} are fighting inside you. Let one grow well past the other, or feed {c}, which sits between them.",
+  "research": "The swarm in your blood can be taught. Sit with Research as your focus, and it learns what you choose.",
+  "friend": "{name} thinks well of you. Ask, and they might travel with you.",
+  "sitting": "Qi comes twice as fast at a shrine. Sit where the old stones are, when you can.",
+  "parry": "Raise your guard at the last moment and a blow is parried, not just blocked: it hurts them, not you.",
+  "camp_unmet": "People live down on floor {floor} -- a whole camp of them. Find them. A friend that deep is worth having.",
+  "camp_need": "{camp}, on floor {floor}, needs help today: {need}",
+  "relic": "{pointer}",
+  "festival": "The {name} is in {days}. Be in Eliet for it: the traders give a little off, and the elder has a gift for anyone who walks the deep.",
+  "hunters": "The Hollow Clans have hunters out for you. Pay tribute at one of their camps -- the Gnawed Banner on floor 12 is nearest -- and they'll stop.",
+  "season": "{tip}",
+  "market": "{trader} is up in Eliet today, selling things from the deep you can't get anywhere else.",
+  "traps": "Someone set plates in the floors down here. Watch for a few loose pebbles or a darker stone, and stop to look before you cross a quiet room. If you hear a click, roll."
+ },
+ "history": [
+  {
+   "id": "two_ages",
+   "floor": 0,
+   "title": "Two ages",
+   "text": "Before Eliet, the world had two great powers. In the cities of the High Age, machines did the work of gods. In the hills of the Old Way, cultivators did it with breath and will. Each side thought the other a plague."
+  },
+  {
+   "id": "the_long_war",
+   "floor": 1,
+   "title": "The Long War",
+   "text": "They fought for three hundred years. Qi fire burned the cities. Machine plague emptied the sects. Nobody won. The hills around Eliet were one of the battlefields, and the jade the first families dug is part of what was left."
+  },
+  {
+   "id": "eliet_founding",
+   "floor": 0,
+   "title": "How Eliet began",
+   "text": "Eliet was a mining camp before it was a village. The first families came for the jade in the hills, and stayed because the valley was quiet. Nobody dug deep. Nobody needed to."
+  },
+  {
+   "id": "the_shaft",
+   "floor": 1,
+   "title": "The shaft under the well",
+   "text": "The shaft was found when the old well went dry. Someone climbed down to see why, and found stairs cut into the rock below the water line. Nobody in Eliet had cut them."
+  },
+  {
+   "id": "made_gates",
+   "floor": 3,
+   "title": "Who made the gates",
+   "text": "The iron gates and chests in the deep are older than Eliet. Smith Hale says the cut is too clean for goblins and too strange for people. The deep made them, he says -- the way a tree makes bark."
+  },
+  {
+   "id": "forty_crates",
+   "floor": 6,
+   "title": "The mine on floor six",
+   "text": "Forty years ago men came to Eliet buying ore. Trader Wen sold them forty crates. They used it to sink a mine shaft on floor six, and the village never asked what they were digging for."
+  },
+  {
+   "id": "first_expedition",
+   "floor": 8,
+   "title": "The first expedition",
+   "text": "Nine people went down the shaft forty years ago, to find where the ore came from. They were the first to pass floor ten. Only one came back, and he never said what he saw."
+  },
+  {
+   "id": "nanites_in_eliet",
+   "floor": 10,
+   "title": "What the children carry",
+   "text": "Every child born in Eliet in the last forty years carries nanites in the blood. Apothecary Lin can see them under glass. Before the expedition came back, no one in the village had them."
+  },
+  {
+   "id": "the_lodge",
+   "floor": 11,
+   "title": "Why the Lodge keeps a book",
+   "text": "Captain Rhee's Lodge writes down every floor anyone reaches, and who reached it. It began as a list of the dead from the first expedition. Now it's a list of records, and people want their names in it."
+  },
+  {
+   "id": "the_sects",
+   "floor": 12,
+   "title": "Why the sects watch Eliet",
+   "text": "The sects in the hills don't care about villages. They care about the shaft. A cultivator who comes back from floor ten carries more qi than most of their disciples, and every sect wants that cultivator in its hall."
+  },
+  {
+   "id": "shellhaven",
+   "floor": 15,
+   "title": "The town on the tortoise",
+   "text": "Shellhaven is built on the back of a tortoise that has slept for longer than anyone remembers. The people there came down from Eliet a generation ago, and never went back up. They say the tortoise keeps the deep calm."
+  },
+  {
+   "id": "the_pagoda",
+   "floor": 21,
+   "title": "The Jade Pagoda",
+   "text": "The first expedition reached a pagoda of green jade around the twentieth floor. Eight of the nine died beyond it. Elder Mo was the one who came back. He has kept that secret for forty years."
+  },
+  {
+   "id": "the_ninth_man",
+   "floor": 44,
+   "title": "The ninth man",
+   "text": "The ninth member of the first expedition was Trader Wen's grandfather. Wen never knew. His grandfather left a sealed letter, to be opened only if his seal was ever found below."
+  },
+  {
+   "id": "the_mirror",
+   "floor": 25,
+   "title": "The Mirror",
+   "text": "On the twenty-fifth floor the deep shows each traveller themselves. Mo says that's what the deep is now: a mirror of whoever goes deepest. Past the Mirror, no one had made a map until you."
+  },
+  {
+   "id": "why_nanites",
+   "floor": 27,
+   "title": "What the nanites were for",
+   "text": "The nanites were made for one thing: to bridge a cultivator to the heavens -- a ladder of machines where there should have been a path. The ladder never reached. Everything else they do, they learned while trying."
+  },
+  {
+   "id": "the_sickness",
+   "floor": 40,
+   "title": "Why the children get sick",
+   "text": "Every floor someone takes, the deep reaches a little further up into everyone who carries it. The children feel it first. Lin's draught dulls it. Nothing has cured it."
+  },
+  {
+   "id": "star_iron",
+   "floor": 38,
+   "title": "The star iron door",
+   "text": "Forty years ago someone locked a door of star iron from the far side, around the fortieth floor. Mo thinks it was one of the first expedition, sealing the deep behind them. Whoever it was never came back to open it."
+  },
+  {
+   "id": "the_heart",
+   "floor": 45,
+   "title": "The Heart of the Deep",
+   "text": "At the bottom of the shaft something beats. The old stones call it the Heart. Every nanite in Eliet came from it, and every one of them still answers to it."
+  },
+  {
+   "id": "why_it_stopped",
+   "floor": 4,
+   "title": "Why the war stopped",
+   "text": "It stopped when both sides were out of everything but each other. A machine-wright and a sect elder sat down in the ruins. Each had learned the same hard thing. Machines without qi were cold. Qi without craft was slow. Alone, neither could win. Together, they could stand."
+  },
+  {
+   "id": "the_accord",
+   "floor": 7,
+   "title": "The Accord",
+   "text": "They called the peace the Balance. A cultivator's breath would steady a machine's hand. A machine's reach would carry a cultivator's will. Both ages swore to build one thing together, so that neither could ever go to war alone again."
+  },
+  {
+   "id": "what_the_deep_is",
+   "floor": 9,
+   "title": "What the deep is",
+   "text": "The deep is the thing they built. Mo calls it the Accord's school. It is no prison and no monster. It tests whoever comes down, and it teaches by taking away whatever you lean on too hard."
+  },
+  {
+   "id": "easier_in_balance",
+   "floor": 14,
+   "title": "Why balance makes it easier",
+   "text": "The old stones say the deep is kind to anyone who holds both roads. Walk only the machine road, and your qi sours. Walk only the sitting road, and the heat finds you. Keep to the middle, and the deep gets out of your way."
+  },
+  {
+   "id": "the_forgetting",
+   "floor": 18,
+   "title": "The forgetting",
+   "text": "The peace held two thousand years. Then people forgot why. They split the Accord into parts and sold the parts. The deep was left alone, and it kept on teaching in its own way. It grew dark, because no one came down to learn."
+  },
+  {
+   "id": "the_five_and_the_cycle",
+   "floor": 23,
+   "title": "The five and the cycle",
+   "text": "The builders put the five elements into the deep as a cycle. Each one feeds the next, and each one checks another. A clash is not an enemy. If all five are strong, a clash only makes the bonds around it stronger."
+  },
+  {
+   "id": "two_halves",
+   "floor": 31,
+   "title": "The two halves",
+   "text": "The nanites are the machine half of the Accord. Qi is the other half. A child of Eliet carries one half in the blood, and the deep waits for them to find the other. The ladder to the heavens never reached because a ladder is only half a bridge."
+  },
+  {
+   "id": "the_scale",
+   "floor": 42,
+   "title": "What the Heart weighs",
+   "text": "The Heart is not a mind. It is a scale. It weighs the two roads in whoever stands before it. Once it hung level. Now it leans, and the whole deep leans with it. That is why the floors grow hard."
+  },
+  {
+   "id": "the_even_road",
+   "floor": 47,
+   "title": "The even road",
+   "text": "Those who reach the bottom in balance say the last floors were quiet. The Heart takes the one who leans, and lets the one who stands level walk through. That is the secret the builders hid in the deep, and it is the only one."
+  }
+ ],
+ "_principles": "HOW TO WRITE FOR ELIET (Robert, 2026-10-04: \"the story and explanations should be easy to understand and be meaningful, or give something more to the game -- either filling out its history or giving hints and tips through conversation, reading, secrets, treasure and inheritance\"). 1. PLAIN WORDS, SHORT SENTENCES: someone reading by torchlight should understand it the first time; most sentences under 20 words; at most one invented name per sentence. 2. EVERY PIECE EARNS ITS PLACE: it tells a real piece of the world's history (who, what happened, why it matters now) or gives a useful hint (where something is hidden, what a thing is for, how to beat or avoid a danger, what a gate or a master wants) -- the best do both. Mood alone is not enough. 3. HINTS ARE TRUE: only hint at what you've been told is there; never invent a rule of the world. 4. SAY IT AS SOMEONE IN THE WORLD WOULD: a miner's warning, a dead master's advice, a note left in a chest; concrete names, places and numbers beat moods. 5. CONNECT IT: name what the world already has -- Eliet, Elder Mo, Smith Hale, Apothecary Lin, Trader Wen, Captain Rhee and the Lodge, the first expedition forty years ago (nine went down, one came back), the Jade Pagoda, Shellhaven on the sleeping tortoise, the Mirror on floor 25, the Heart at the bottom, the nanites in every child of Eliet -- so the pieces add up to one history."
+}

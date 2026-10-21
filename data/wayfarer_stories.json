@@ -1,0 +1,1059 @@
+{
+ "_about": "Round 143: a personal story for each Wayfarer -- three chapters that open as trust grows (20, 45, 70). Each asks one thing (items, fights, a floor, crafts, sitting still, gathering) and pays a little insight, gold or pills -- and makes their gift 8% stronger while they travel with you (24% after the third). Scripts: scripts/systems/WayfarerStories.gd.",
+ "bonus_per_chapter": 0.08,
+ "stories": {
+  "Marin Ashgrove": [
+   {
+    "title": "Counting Bandages",
+    "trust": 20,
+    "ask": "\"I keep counting bandages I don't have. Bring me three healing salves and I'll stop pretending torn shirts will do.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "healing_salve": 3
+     }
+    },
+    "hint": "three healing salves",
+    "done": "She counts them twice, then laughs at herself. \"Three. Good. Now I can think about something else for a minute.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "The War Nobody Remembers",
+    "trust": 45,
+    "ask": "\"I never told anyone why I walked out. Come down with me to floor 5 -- I want to stand somewhere the dead aren't mine.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 5
+    },
+    "hint": "reach floor 5",
+    "done": "She stands very still at the bottom, and then she tells you all of it. It takes a long time. You don't interrupt. \"Thank you for the quiet,\" she says.",
+    "reward": {
+     "insight": 3,
+     "gold": 25
+    }
+   },
+   {
+    "title": "Needed for Something Else",
+    "trust": 70,
+    "ask": "\"I'd like to be needed for something that isn't a wound. Teach me. Brew five medicines with me watching -- the kind that stop things hurting before they start.\"",
+    "goal": {
+     "kind": "craft",
+     "count": 5,
+     "skill": "medicine"
+    },
+    "hint": "five medicines made",
+    "done": "She holds the last bottle to the light. \"Thirty years of bandages. Tonight I made tea for a stranger and it was the best thing I've done.\"",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "qi_pill": 2
+     }
+    }
+   }
+  ],
+  "Dorn Quill": [
+   {
+    "title": "A Quiet Pair of Eyes",
+    "trust": 20,
+    "ask": "\"I walk behind. I'd like to see how you move before I decide how to walk. Win fifteen fights while I watch.\"",
+    "goal": {
+     "kind": "kills",
+     "count": 15
+    },
+    "hint": "win fifteen fights",
+    "done": "He nods once. \"You favour your left. Fix it. Otherwise -- good. I've walked behind worse.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "What the Fire Left",
+    "trust": 45,
+    "ask": "\"The valley I came from burned. Nothing there will ever grow back the same. Bring me six spirit herbs -- I'd like to put something green in a pot.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "spirit_herb": 6
+     }
+    },
+    "hint": "six spirit herbs",
+    "done": "He plants them in an old tin cup and sets it where the sun will find it. \"It won't live,\" he says. He checks it every hour anyway.",
+    "reward": {
+     "insight": 3,
+     "gold": 30
+    }
+   },
+   {
+    "title": "Ground That Isn't Burned",
+    "trust": 70,
+    "ask": "\"Show me a place the fire hasn't touched. Floor 8. I want to read its tracks.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 8
+    },
+    "hint": "reach floor 8",
+    "done": "He kneels in the dust a long time, then looks up. \"It's still there. Under all of it, the world is still there. I forgot.\"",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "healing_salve": 2
+     }
+    }
+   }
+  ],
+  "Hesk the Younger": [
+   {
+    "title": "The Line I Practised",
+    "trust": 20,
+    "ask": "\"I need to see you fight, if I'm going to stand in front of you. Twenty fights. I'll be right here. Pretending I'm not nervous.\"",
+    "goal": {
+     "kind": "kills",
+     "count": 20
+    },
+    "hint": "win twenty fights",
+    "done": "He lets out a breath he's been holding since the village. \"You don't need protecting. That's a relief. And a little insulting.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "My Father's Shield",
+    "trust": 45,
+    "ask": "\"The rim is cracked and I can't afford to mend it. Eight iron ore, and I'll finally be able to look at it without my hands shaking.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "iron_ore": 8
+     }
+    },
+    "hint": "eight iron ore",
+    "done": "He works the rim until dark and does not speak. When he hands you the shield to hold, it is heavier than it looks. \"It's balanced now. He'd have liked that.\"",
+    "reward": {
+     "insight": 3,
+     "gold": 35
+    }
+   },
+   {
+    "title": "Someone to Stand In Front Of",
+    "trust": 70,
+    "ask": "\"I want to be at the front when it counts. Take me to floor 12. Let me find out if I'm the thing he said I'd be.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 12
+    },
+    "hint": "reach floor 12",
+    "done": "He doesn't drop the shield. Not once. At the bottom he sits down hard and laughs until he cries. \"I held the line,\" he says. \"Did you see? I held it.\"",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "qi_pill": 2
+     }
+    }
+   }
+  ],
+  "Tamsin Reed": [
+   {
+    "title": "The Crow Is Hungry",
+    "trust": 20,
+    "ask": "\"The crow isn't mine and it's decided I owe it fish. Three cave carp, and I promise it will stop looking at me like that.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "cave_carp": 3
+     }
+    },
+    "hint": "three cave carp",
+    "done": "The crow takes the fish, looks at you for a long moment, and then -- very deliberately -- sits on your shoulder instead of hers. \"Well,\" she says. \"That's a verdict.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "Sit With Me",
+    "trust": 45,
+    "ask": "\"Animals come to the ones who stay still. Sit with me five minutes. You'll feel stupid. Then you won't.\"",
+    "goal": {
+     "kind": "sit",
+     "minutes": 5
+    },
+    "hint": "sit with her for five minutes",
+    "done": "Something small and brown has curled up beside your knee. Neither of you moves for a long time. \"See?\" she whispers. \"They don't ask what you're for.\"",
+    "reward": {
+     "insight": 3,
+     "gold": 30
+    }
+   },
+   {
+    "title": "Every Beast Chose Its Person",
+    "trust": 70,
+    "ask": "\"I think the deep has more creatures like the hare than anyone knows. Take me to floor 12 and let me listen.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 12
+    },
+    "hint": "reach floor 12",
+    "done": "She stands in the dark with her eyes closed, smiling. \"They're all singing,\" she says. \"Every one. Did you hear it? They're all so glad someone came.\"",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "healing_salve": 3
+     }
+    }
+   }
+  ],
+  "Lio Verrane": [
+   {
+    "title": "Eleven Duels",
+    "trust": 20,
+    "ask": "\"Let me watch you for a bit. Twenty-five fights. I'll learn something. I always do. It's a terrible habit, being gracious.\"",
+    "goal": {
+     "kind": "kills",
+     "count": 25
+    },
+    "hint": "win twenty-five fights",
+    "done": "He applauds, once, loudly. \"The third one -- the lunge. I'm stealing it. I'll tell everyone I invented it.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "A Blade Worth Losing To",
+    "trust": 45,
+    "ask": "\"A duellist is only as good as his steel, and mine is embarrassing. Make three smithing pieces and let me hold them. I'll tell you which one would have beaten me.\"",
+    "goal": {
+     "kind": "craft",
+     "count": 3,
+     "skill": "smithing"
+    },
+    "hint": "three smithed pieces",
+    "done": "He tests each against his own, frowning. At the last one he grins. \"That one. That one would have beaten me. I'm so pleased I could cry.\"",
+    "reward": {
+     "insight": 3,
+     "gold": 40
+    }
+   },
+   {
+    "title": "The Twelfth",
+    "trust": 70,
+    "ask": "\"Take me down to floor 18. If I'm ever going to fight the twelfth, I'd rather it be somewhere worth the flourish.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 18
+    },
+    "hint": "reach floor 18",
+    "done": "He bows to the dark itself, an honest flourish this time, no pretending. \"Thank you,\" he says, to the room. \"I lost beautifully.\"",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "qi_pill": 2
+     }
+    }
+   }
+  ],
+  "Sister Wen": [
+   {
+    "title": "Sit Like Someone Listening",
+    "trust": 20,
+    "ask": "\"Sit ten minutes. Don't try to get anywhere. I'll be next to you. Pretend I'm a stone.\"",
+    "goal": {
+     "kind": "sit",
+     "minutes": 10
+    },
+    "hint": "sit for ten minutes with her",
+    "done": "\"Mm. You almost stopped, just at the end. Almost. That's the hardest part, and you reached it on the first try. I'm annoyed.\"",
+    "reward": {
+     "insight": 3
+    }
+   },
+   {
+    "title": "Tea and Argument",
+    "trust": 45,
+    "ask": "\"Three moonpetals. I'd like to make tea, and I would like you to tell me, over it, why you think the deep is the way it is. Argue with me. I mean it.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "moonpetal": 3
+     }
+    },
+    "hint": "three moonpetals",
+    "done": "The tea is bitter and the argument runs past midnight. \"You were wrong about two things and right about one,\" she says. \"I've decided the one matters.\"",
+    "reward": {
+     "insight": 4,
+     "gold": 40
+    }
+   },
+   {
+    "title": "The Long Stillness",
+    "trust": 70,
+    "ask": "\"Twenty minutes. Not trying. I want to see what happens when someone I trust stops being afraid of the quiet.\"",
+    "goal": {
+     "kind": "sit",
+     "minutes": 20
+    },
+    "hint": "sit for twenty minutes with her",
+    "done": "When you open your eyes she is crying, and smiling, and does not explain. \"Thank you,\" she says. \"My teachers never once asked me to stay.\"",
+    "reward": {
+     "insight": 6,
+     "items": {
+      "qi_pill": 2
+     }
+    }
+   }
+  ],
+  "Brask Orren": [
+   {
+    "title": "Iron Worth Hitting",
+    "trust": 20,
+    "ask": "\"I've no ore, no coal and a very bad temper. Ten iron ore, and I'll light the anvil on my back for the first time in a month.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "iron_ore": 10
+     }
+    },
+    "hint": "ten iron ore",
+    "done": "The anvil rings for an hour. \"Hear that? That's iron that wants to be something. Nothing in the world sounds better.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "Prove It on the Anvil",
+    "trust": 45,
+    "ask": "\"Words are cheap. Make five smithing pieces with me heckling you. If any of them are crooked I'll say so, loudly.\"",
+    "goal": {
+     "kind": "craft",
+     "count": 5,
+     "skill": "smithing"
+    },
+    "hint": "five smithed pieces",
+    "done": "He goes quiet over the last one -- the longest silence you've ever heard from him. \"Straight,\" he says at last. \"Straight as a rule. I haven't a single complaint. I'm furious.\"",
+    "reward": {
+     "insight": 3,
+     "gold": 45
+    }
+   },
+   {
+    "title": "Why the Anvil",
+    "trust": 70,
+    "ask": "\"I'll tell you why I carry it, if you make me eight more things worth hammering. Eight, and no shortcuts.\"",
+    "goal": {
+     "kind": "craft",
+     "count": 8,
+     "skill": "smithing"
+    },
+    "hint": "eight smithed pieces",
+    "done": "\"It was my master's. He died at the bench. I carry it so he can keep working.\" He taps the anvil. \"Yes, I know how that sounds. Hold it for a moment.\" The iron is warm.",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "qi_pill": 3
+     }
+    }
+   }
+  ],
+  "Vey Calder": [
+   {
+    "title": "A Debt, Not a Price",
+    "trust": 20,
+    "ask": "\"Sixty gold, for a debt I'm settling. I won't ask you to trust me with it. I'll just see that it comes back, in ways you won't be able to count.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "gold": 60
+     }
+    },
+    "hint": "sixty gold",
+    "done": "He folds the coins away without counting them. \"You didn't ask what it was for. Do you know how rare that is? You've just become the best-liked person in this pagoda.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "Everyone Owes Someone",
+    "trust": 45,
+    "ask": "\"Take me down to floor 20 and I'll show you how the deep keeps its books. Everything that lives down there owes something to something else.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 20
+    },
+    "hint": "reach floor 20",
+    "done": "He walks a slow circle and names, softly, every debt in the room. \"None of it is mine,\" he says, surprised. \"For the first time, none of it is mine.\"",
+    "reward": {
+     "insight": 3,
+     "gold": 50
+    }
+   },
+   {
+    "title": "Owing Someone",
+    "trust": 70,
+    "ask": "\"Sixty fights. I want to see what you're like when you're owed nothing and give it anyway.\"",
+    "goal": {
+     "kind": "kills",
+     "count": 60
+    },
+    "hint": "win sixty fights",
+    "done": "He is quiet for a long moment. \"I used to keep a ledger of favours,\" he says. \"I've stopped. I didn't see the point of keeping count of you.\"",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "qi_pill": 2
+     }
+    }
+   }
+  ],
+  "Pell Ardent": [
+   {
+    "title": "It Hums in a Lovely Key",
+    "trust": 20,
+    "ask": "\"Sit -- sorry, could you sit? Eight minutes. I just want to listen to it hum. I won't touch. I'll touch a little. Sit, please!\"",
+    "goal": {
+     "kind": "sit",
+     "minutes": 8
+    },
+    "hint": "sit eight minutes with her",
+    "done": "She is scribbling before you open your eyes. \"It's a minor sixth! A minor sixth! I'm sorry, I'm sorry, I'll explain -- no, you don't need me to -- it's so beautiful.\"",
+    "reward": {
+     "insight": 3
+    }
+   },
+   {
+    "title": "Three Little Shards",
+    "trust": 45,
+    "ask": "\"I need three nanite shards to build something. I can't explain it without finishing the sentence and I keep not finishing the sentence. Three shards?\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "nanite_shard": 3
+     }
+    },
+    "hint": "three nanite shards",
+    "done": "She builds a tiny brass bell that rings in exactly the key of your swarm, and she gives it to the air instead of you. \"Sorry,\" she says. \"It wanted to be freed. Not given. Freed.\"",
+    "reward": {
+     "insight": 4,
+     "gold": 50
+    }
+   },
+   {
+    "title": "Where It Goes",
+    "trust": 70,
+    "ask": "\"Floor 30. I'd like to see where it goes -- your swarm. I think it wants to go there. I think it's been trying to tell me.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 30
+    },
+    "hint": "reach floor 30",
+    "done": "She doesn't speak for a long time -- the longest in her life. Then: \"It's not tuning. It was never tuning. It was... saying hello.\" She is trembling, and laughing, and utterly sure.",
+    "reward": {
+     "insight": 5,
+     "items": {
+      "qi_pill": 3
+     }
+    }
+   }
+  ],
+  "Isolde Kern": [
+   {
+    "title": "Forty-One Paces",
+    "trust": 20,
+    "ask": "\"Thirty fights. I record them. Not to judge -- to learn the wind. You'd be surprised how much a person's style changes the air.\"",
+    "goal": {
+     "kind": "kills",
+     "count": 30
+    },
+    "hint": "win thirty fights",
+    "done": "She closes her notebook. \"Wind from the left, always. You turn into it. Good habit. I've written you down.\"",
+    "reward": {
+     "insight": 3
+    }
+   },
+   {
+    "title": "Fletching",
+    "trust": 45,
+    "ask": "\"Five bone shards. I make my own. It's a nervous habit and also, I promise, a precise one.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "bone_shard": 5
+     }
+    },
+    "hint": "five bone shards",
+    "done": "She fletches them in silence and hands you one, flight true as a ruler. \"For when you're alone,\" she says. \"Not that you will be.\" She does not look at you when she says it.",
+    "reward": {
+     "insight": 4,
+     "gold": 60
+    }
+   },
+   {
+    "title": "Where to Stand",
+    "trust": 70,
+    "ask": "\"Floor 40. You've never once told me where to stand. I'd like to choose to stand beside you there, if you'll have me.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 40
+    },
+    "hint": "reach floor 40",
+    "done": "She sets down the rifle -- the first time you've seen it out of her hands. \"I have never missed since the day I decided,\" she says. \"I decided something else today. Mark it.\"",
+    "reward": {
+     "insight": 6,
+     "items": {
+      "qi_pill": 3
+     }
+    }
+   }
+  ],
+  "Odalys Wren": [
+   {
+    "title": "Rue and Nettle",
+    "trust": 20,
+    "ask": "\"The nettles are restless and I'm out of leaf. Bring me four spirit herbs and I'll tell you what they were so upset about.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "spirit_herb": 4
+     }
+    },
+    "hint": "four spirit herbs",
+    "done": "She sniffs each herb, nods, and mutters to them like old friends. \"Fresh. Good. They say you have a kind face. They are not reliable.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "The Hedge Remembers",
+    "trust": 45,
+    "ask": "\"I have not been past the fifth floor since I lost my teacher. Walk me down. I want to ask the old roots a question.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 5
+    },
+    "hint": "reach floor 5",
+    "done": "She kneels at the bottom and presses her palm to the stone for a long time. \"Still there,\" she says, and does not explain.",
+    "reward": {
+     "insight": 3,
+     "gold": 25
+    }
+   },
+   {
+    "title": "Cures She Believes In",
+    "trust": 70,
+    "ask": "\"Sit with me while I brew. Five medicines, start to finish, and no charms. I want to prove I can do it without lying to anyone.\"",
+    "goal": {
+     "kind": "craft",
+     "count": 5,
+     "skill": "medicine"
+    },
+    "hint": "five medicines made",
+    "done": "She stoppers the last bottle and holds it up to the light. \"No charm in it. Just the cure.\" She is laughing, and a little tearful.",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "qi_pill": 2
+     }
+    }
+   }
+  ],
+  "Tobiah Reeve": [
+   {
+    "title": "A Quiet Road",
+    "trust": 20,
+    "ask": "\"Quiet road is a lying road. Let me watch you work. Put down fifteen of whatever's out there and I'll know if you're worth guarding.\"",
+    "goal": {
+     "kind": "kills",
+     "count": 15
+    },
+    "hint": "fifteen kills",
+    "done": "He leans on a wall, arms folded, and has not blinked once. \"Hm. You check your corners. Most never learn.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "Tea for the Door",
+    "trust": 45,
+    "ask": "\"Thirty years I sat with my back to the wall. A man needs a proper cup after that. Bring six spirit herbs and I'll steep us something fine.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "spirit_herb": 6
+     }
+    },
+    "hint": "six spirit herbs",
+    "done": "The tea is dreadful and he is delighted with it. \"Best cup I've had since the caravans. Don't tell the cook.\"",
+    "reward": {
+     "insight": 3,
+     "gold": 30
+    }
+   },
+   {
+    "title": "The Last Wagon",
+    "trust": 70,
+    "ask": "\"My last wagon went down on the eighth floor and I never went back to see. I'd like to, with someone I trust at the door.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 8
+    },
+    "hint": "reach floor 8",
+    "done": "He finds the splintered axle, and touches it once. \"Good wood. Poor luck.\" He stands a while, then turns his back to the wall for the first time and does not mind.",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "healing_salve": 2
+     }
+    }
+   }
+  ],
+  "Zhu Ling": [
+   {
+    "title": "A Steady Hand",
+    "trust": 20,
+    "ask": "\"A scribe can only copy what holds still. Sit with me five minutes, quiet, so I can sketch your stillness. It is harder than you think.\"",
+    "goal": {
+     "kind": "sit",
+     "minutes": 5
+    },
+    "hint": "sit five minutes",
+    "done": "She finishes the sketch, frowns, and shows you. It is surprisingly kind. \"You fidget with your hands. Everyone does. Everyone should.\"",
+    "reward": {
+     "insight": 3
+    }
+   },
+   {
+    "title": "Ink and Silver",
+    "trust": 45,
+    "ask": "\"My ink runs out in the damp. Bring me three moonpetals and I will make you something that does not fade.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "moonpetal": 3
+     }
+    },
+    "hint": "three moonpetals",
+    "done": "She grinds the petals into a pale ink and writes a single line on your sleeve. \"There. Read it when you need to.\" You cannot read it. It helps anyway.",
+    "reward": {
+     "insight": 4,
+     "gold": 35
+    }
+   },
+   {
+    "title": "The Wall I Want",
+    "trust": 70,
+    "ask": "\"There is a wall on the twelfth floor no scribe has copied. I would very much like to be the first, with you holding the lantern.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 12
+    },
+    "hint": "reach floor 12",
+    "done": "She copies for hours and does not say a word. At the end she signs her name in the corner. \"First,\" she whispers. \"And you were there.\"",
+    "reward": {
+     "insight": 5,
+     "items": {
+      "qi_pill": 2
+     }
+    }
+   }
+  ],
+  "Kell Varga": [
+   {
+    "title": "Opening the Ledger",
+    "trust": 20,
+    "ask": "\"Everyone owes something. Prove yours is worth collecting. Twenty kills, clean, and I'll start a line in your name.\"",
+    "goal": {
+     "kind": "kills",
+     "count": 20
+    },
+    "hint": "twenty kills",
+    "done": "He writes a number in a notebook that looks very old. \"That's the first. Don't make me regret the second.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "Debts of Iron",
+    "trust": 45,
+    "ask": "\"The guild paid in iron, once. Bring me eight iron ore and I'll settle an old account out of my own pocket.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "iron_ore": 8
+     }
+    },
+    "hint": "eight iron ore",
+    "done": "He weighs the ore in his hand and nods. \"Settled. First debt I've paid in years. Feels strange.\"",
+    "reward": {
+     "insight": 3,
+     "gold": 35
+    }
+   },
+   {
+    "title": "No Debts Between Us",
+    "trust": 70,
+    "ask": "\"I want to go where the guild's last collection was due. Floor twelve. I'd like to see it finished.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 12
+    },
+    "hint": "reach floor 12",
+    "done": "He finds the empty room, looks at it, and tears a page out of the ledger. \"Closed.\" He gives you the blank page. \"For luck.\"",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "qi_pill": 2
+     }
+    }
+   }
+  ],
+  "Neve Aldous": [
+   {
+    "title": "Patience",
+    "trust": 20,
+    "ask": "\"You can't hurry a catch. Sit with me ten minutes without speaking, and we'll see if the water likes you.\"",
+    "goal": {
+     "kind": "sit",
+     "minutes": 10
+    },
+    "hint": "sit ten minutes",
+    "done": "She says nothing for a while longer, then nods once. \"It likes you. That's unusual. I don't trust that.\"",
+    "reward": {
+     "insight": 3
+    }
+   },
+   {
+    "title": "Bait",
+    "trust": 45,
+    "ask": "\"Cave carp go for moonpetal, everyone forgets that. Bring me three and I'll catch you something worth the walk.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "moonpetal": 3
+     }
+    },
+    "hint": "three moonpetals",
+    "done": "She cuts the line with a steady hand, and an hour later holds up a silver fish no larger than her palm. \"Dinner. And a good omen.\"",
+    "reward": {
+     "insight": 4,
+     "gold": 40
+    }
+   },
+   {
+    "title": "The Deep Water",
+    "trust": 70,
+    "ask": "\"There is a lake on the eighteenth floor that doesn't freeze. I'd like to see it once before I stop being able to.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 18
+    },
+    "hint": "reach floor 18",
+    "done": "She casts a line into black water and sits for a very long time. Nothing bites. She smiles anyway. \"Perfect.\"",
+    "reward": {
+     "insight": 5,
+     "items": {
+      "qi_pill": 2
+     }
+    }
+   }
+  ],
+  "Rhosyn Dale": [
+   {
+    "title": "A Warm-Up",
+    "trust": 20,
+    "ask": "\"I need a crowd. Failing that, I need targets. Put down twenty-five of the things that don't deserve applause.\"",
+    "goal": {
+     "kind": "kills",
+     "count": 25
+    },
+    "hint": "twenty-five kills",
+    "done": "She spits a thin ribbon of flame and takes a bow to nobody. \"Not bad! You don't flinch. I like that.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "Fuel",
+    "trust": 45,
+    "ask": "\"Good fire needs good iron to hold it. Forge three things with me watching, and I'll show you a trick that isn't a trick.\"",
+    "goal": {
+     "kind": "craft",
+     "count": 3,
+     "skill": "smithing"
+    },
+    "hint": "three smithing jobs made",
+    "done": "She holds a spark in her palm and lets you feel the heat. \"That's mine. It's been mine the whole time.\"",
+    "reward": {
+     "insight": 3,
+     "gold": 40
+    }
+   },
+   {
+    "title": "The Big Finish",
+    "trust": 70,
+    "ask": "\"I'd like to do one show for people who aren't paying. Take me down to the eighteenth floor and I'll light the whole place up.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 18
+    },
+    "hint": "reach floor 18",
+    "done": "She spreads her arms and the cavern fills with warm gold light. She is crying and grinning at once. \"Best crowd I ever had. All three of you.\"",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "qi_pill": 2
+     }
+    }
+   }
+  ],
+  "Anselm Thorne": [
+   {
+    "title": "The Count",
+    "trust": 20,
+    "ask": "\"I hear the hour in everything. Let me hear yours. Sit with me eight minutes and breathe slowly.\"",
+    "goal": {
+     "kind": "sit",
+     "minutes": 8
+    },
+    "hint": "sit eight minutes",
+    "done": "He taps a very slow beat on his knee, matching your breath. \"Steady. You'll do. Not many do.\"",
+    "reward": {
+     "insight": 3
+    }
+   },
+   {
+    "title": "Bell Metal",
+    "trust": 45,
+    "ask": "\"A bell needs good iron and patience. Bring me ten iron ore and I will tell you how a town sounds when it is happy.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "iron_ore": 10
+     }
+    },
+    "hint": "ten iron ore",
+    "done": "He turns the ore over, weighs it, and hums a single low note. \"Right. That's the note. That's what I miss.\"",
+    "reward": {
+     "insight": 4,
+     "gold": 45
+    }
+   },
+   {
+    "title": "The Drowned Tower",
+    "trust": 70,
+    "ask": "\"The tower went under on floor fifteen's tide. I want to ring something there, just once, before I leave it.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 15
+    },
+    "hint": "reach floor 15",
+    "done": "He strikes a rock with an iron rod. The sound goes on and on. When it fades, he bows his head. \"Thank you for the company.\"",
+    "reward": {
+     "insight": 5,
+     "items": {
+      "qi_pill": 2
+     }
+    }
+   }
+  ],
+  "Saffi Okoro": [
+   {
+    "title": "Samples",
+    "trust": 20,
+    "ask": "\"I never trade blind. Bring me five spirit herbs so I know what grows near you, and I'll tell you what grows in my pockets.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "spirit_herb": 5
+     }
+    },
+    "hint": "five spirit herbs",
+    "done": "She tastes a leaf, nods, and hides three seeds in your pack when you aren't looking. \"Free sample. Don't tell.\"",
+    "reward": {
+     "insight": 2
+    }
+   },
+   {
+    "title": "A Fair Price",
+    "trust": 45,
+    "ask": "\"I've overcharged half the world. Make five medicines honestly and I'll sell you one thing at the true price. Once.\"",
+    "goal": {
+     "kind": "craft",
+     "count": 5,
+     "skill": "medicine"
+    },
+    "hint": "five medicines made",
+    "done": "She sets a seed on your palm and names a price. It is, shockingly, fair. \"Don't get used to it.\"",
+    "reward": {
+     "insight": 3,
+     "gold": 40
+    }
+   },
+   {
+    "title": "Banned Gardens",
+    "trust": 70,
+    "ask": "\"There's a place on floor twenty where plants grow that nobody's allowed to. Come help me plant there. Just a handful.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 20
+    },
+    "hint": "reach floor 20",
+    "done": "She plants a dozen seeds in cracked soil, watering them with her own canteen. \"Come back in a year,\" she says. \"If we're alive, they will be.\"",
+    "reward": {
+     "insight": 4,
+     "items": {
+      "qi_pill": 3
+     }
+    }
+   }
+  ],
+  "Barrow Quill": [
+   {
+    "title": "Company",
+    "trust": 20,
+    "ask": "\"The dead keep quiet and the living talk too much. Sit a while, ten minutes, and tell me nothing.\"",
+    "goal": {
+     "kind": "sit",
+     "minutes": 10
+    },
+    "hint": "sit ten minutes",
+    "done": "He lets the silence run well past ten minutes, then sighs. \"Good. Most people can't. You can.\"",
+    "reward": {
+     "insight": 3
+    }
+   },
+   {
+    "title": "Marking Stones",
+    "trust": 45,
+    "ask": "\"I mark each one with a bone. Bring me five bone shards, and I'll leave a mark for anyone who didn't get one.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "bone_shard": 5
+     }
+    },
+    "hint": "five bone shards",
+    "done": "He sets the shards one by one, whispering a name for each. \"That's them seen. That's all they wanted.\"",
+    "reward": {
+     "insight": 4,
+     "gold": 45
+    }
+   },
+   {
+    "title": "Keeping the Living",
+    "trust": 70,
+    "ask": "\"I've never gone below the twentieth floor. The dead there are lonelier. Come down with me, and keep the living company too.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 20
+    },
+    "hint": "reach floor 20",
+    "done": "He walks the corridors for an hour, nodding to the walls. At the end he laughs for the first time you have heard. \"They liked you.\"",
+    "reward": {
+     "insight": 5,
+     "items": {
+      "qi_pill": 3
+     }
+    }
+   }
+  ],
+  "Ysolde Kane": [
+   {
+    "title": "A Test Shot",
+    "trust": 20,
+    "ask": "\"I only follow what I can't out-shoot. Prove you can keep pace. Thirty kills, no dawdling.\"",
+    "goal": {
+     "kind": "kills",
+     "count": 30
+    },
+    "hint": "thirty kills",
+    "done": "She stops counting at twenty-six and pretends she meant to. \"Fine. You're quick. Not quicker than me.\"",
+    "reward": {
+     "insight": 3
+    }
+   },
+   {
+    "title": "Fletching",
+    "trust": 45,
+    "ask": "\"Good feathers are hard to come by. Bring me five bone shards for the heads, and I'll make arrows that do not miss.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "bone_shard": 5
+     }
+    },
+    "hint": "five bone shards",
+    "done": "She fletches a shaft in front of you, careful and quick. \"There. Aim true.\" She grins.",
+    "reward": {
+     "insight": 4,
+     "gold": 50
+    }
+   },
+   {
+    "title": "The Last Message",
+    "trust": 70,
+    "ask": "\"I carried one message I never delivered. It was meant for the thirtieth floor. Walk with me, and I'll finally let it go.\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 30
+    },
+    "hint": "reach floor 30",
+    "done": "She fires her last arrow into the dark and listens. \"Delivered,\" she says. For the first time, she doesn't count where it lands.",
+    "reward": {
+     "insight": 5,
+     "items": {
+      "qi_pill": 3
+     }
+    }
+   }
+  ],
+  "Momo Ha": [
+   {
+    "title": "Still Water",
+    "trust": 20,
+    "ask": "\"The tea spirit says the first cup is for listening. Sit with me five minutes and listen.\"",
+    "goal": {
+     "kind": "sit",
+     "minutes": 5
+    },
+    "hint": "sit five minutes",
+    "done": "She pours nothing into two cups and hands you one. \"See? Warm.\" You can honestly feel the warmth.",
+    "reward": {
+     "insight": 3
+    }
+   },
+   {
+    "title": "Leaves of the Moon",
+    "trust": 45,
+    "ask": "\"The best brews need moonpetal. Bring me three and I'll steep something the spirit will actually drink.\"",
+    "goal": {
+     "kind": "have",
+     "items": {
+      "moonpetal": 3
+     }
+    },
+    "hint": "three moonpetals",
+    "done": "She steeps them in silence, and the air smells faintly of rain on warm stone. \"It drank it. It never drinks.\"",
+    "reward": {
+     "insight": 4,
+     "gold": 50
+    }
+   },
+   {
+    "title": "The Spirit's Garden",
+    "trust": 70,
+    "ask": "\"The spirit says there's a garden on floor forty. It wants to go home. Walk us there?\"",
+    "goal": {
+     "kind": "depth",
+     "floor": 40
+    },
+    "hint": "reach floor 40",
+    "done": "The air shivers and a small warm presence settles briefly on your shoulder. Momo bows deeply. \"It says thank you. It says you can keep the cup.\"",
+    "reward": {
+     "insight": 6,
+     "items": {
+      "qi_pill": 3
+     }
+    }
+   }
+  ]
+ }
+}

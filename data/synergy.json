@@ -1,0 +1,39 @@
+{
+ "_about": "Round 40 (Robert: 'the swarm separate but synergistic with qi ... the nanites using qi to function, the qi needing the nanites to increase recovery, focus, adaptability, connection. This was the original focus of the nanites -- to strengthen the connection -- and while it failed at that, its multitude of other functions help ease the road to true enlightenment and ascension.'). SYNERGY: the lower of your realm and your swarm tier (half a level more in harmony) raises four channels. DESIGNS and INSTALLS run on qi: every point of upkeep draws a little of the qi you're gathering toward your next step, every minute, sitting or not. Run dry and they go quiet until there's qi again. Round 41 (Robert: 'it was designed to magnify focus and hone warriors as they grow together'): a fifth channel, HONING -- per level +1.5% damage, +1% strike speed, +0.4% telling blows, and +0.01 s to the parry window and to a roll's moment of untouchability.",
+ "per_level": {
+  "recovery": 0.025,
+  "recovery_regen": 0.05,
+  "focus": 0.04,
+  "adaptability": 0.02,
+  "connection": 0.025,
+  "honing_damage": 0.015,
+  "honing_speed": 0.01,
+  "honing_crit": 0.004,
+  "honing_timing": 0.01
+ },
+ "harmony_bonus": 0.5,
+ "upkeep_per_point": 0.00015,
+ "channels": {
+  "recovery": {
+   "name": "Recovery",
+   "desc": "the swarm carries qi where the body is torn: faster qi while you sit, and a little health back every second"
+  },
+  "focus": {
+   "name": "Focus",
+   "desc": "the swarm holds the mind still: meridians open, nodes cleanse and research goes faster"
+  },
+  "adaptability": {
+   "name": "Adaptability",
+   "desc": "the swarm remembers what your body learns: every skill grows faster"
+  },
+  "connection": {
+   "name": "Connection",
+   "desc": "what they were made for -- to bind a cultivator to the heavens. They never managed it. What's left: insight comes easier, and bonds with people and beasts grow faster"
+  },
+  "honing": {
+   "name": "Honing",
+   "desc": "what the swarm was built to do in a fight: magnify your focus and hone you as you grow together -- harder blows, quicker hands, sharper eyes for the opening, and a wider moment to parry or slip a blow"
+  }
+ },
+ "lore": "The nanites were made for one thing: to bridge the gap between a cultivator and the heavens -- a ladder of machines where there should have been a path. The ladder never reached. But everything the swarm learned while trying -- how to carry qi, how to steady a mind, how to remember -- it still does, and it does it for you."
+}

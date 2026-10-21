@@ -1,0 +1,50 @@
+{
+ "_about": "Round 141c. A mini-game for each craft (scripts/systems/CraftPlay.gd): optional, bounded and the same for everyone. 'bonus' is the most a game can move the odds: chance_hi = +12 points of success for a flawless game, chance_lo = -4 for a rough one, quality_* the same on the quality roll (lower rolls are better), xp_hi = up to +30% skill xp. Games per craft, and each game's feel.",
+ "games": {
+  "smithing": "hammer",
+  "alchemy": "simmer",
+  "medicine": "pour",
+  "jewelcrafting": "facet",
+  "runecraft": "trace",
+  "talismans": "trace"
+ },
+ "bonus": {
+  "chance_lo": -0.04,
+  "chance_hi": 0.12,
+  "quality_lo": -0.05,
+  "quality_hi": 0.15,
+  "xp_hi": 0.3
+ },
+ "hammer": {
+  "strikes": 5,
+  "speed": 0.9,
+  "speed_up": 0.12,
+  "width_base": 0.22,
+  "width_per_level": 0.02,
+  "width_min": 0.12,
+  "width_max": 0.34
+ },
+ "simmer": {
+  "seconds": 8.0,
+  "band": 0.22,
+  "rise": 0.9,
+  "fall": 0.7,
+  "drift": 0.35
+ },
+ "pour": {
+  "rounds": 3,
+  "rate": 0.55,
+  "tolerance": 0.22
+ },
+ "facet": {
+  "cuts": 6,
+  "speed": 0.7,
+  "speed_up": 0.1,
+  "arc_base": 0.18,
+  "arc_min": 0.08
+ },
+ "trace": {
+  "steps_base": 3,
+  "max": 7
+ }
+}

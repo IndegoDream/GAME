@@ -1,0 +1,23 @@
+{
+ "_about": "Round 121: the first half hour. One-time 'first times' that pay something small and say what comes next (scripts/systems/Opening.gd). A fight, a pickup, a choice and a reward all land in the first ten minutes.",
+ "milestones": [
+  {"id": "blood", "ev": "kill", "text": "FIRST BLOOD. The deep took notice, and some of what it held is yours now.",
+   "reward": {"qi": 12, "items": {"healing_salve": 1}},
+   "next": "Next: choose a Path (menu > Path) -- who you are in a fight. It is free, and any road is open."},
+  {"id": "road", "ev": "path_chosen", "text": "YOUR ROAD. Every kill, parry and shot of that kind now counts toward its first rank.",
+   "reward": {"gold": 15, "qi": 10},
+   "next": "Rank 2 teaches your path's art (key 6 / PATH). The Path page shows exactly what it asks."},
+  {"id": "chest", "ev": "chest", "text": "FIRST CHEST. Things are left in the deep for people who look.",
+   "reward": {"gold": 10}},
+  {"id": "step", "ev": "levelup", "text": "FIRST STEP UP. Your body and qi are not what they were.",
+   "reward": {"items": {"qi_pill": 1}},
+   "next": "Sit (M) and the pill and your sea of qi will do the rest; the menu's You page shows what changed."},
+  {"id": "art", "ev": "path_art", "text": "YOUR ART. A few seconds of what your path is for.",
+   "reward": {"gold": 10}},
+  {"id": "floor", "ev": "floor_cleared", "text": "A FLOOR, END TO END. Each floor is graded, and a better grade pays the difference.",
+   "reward": {"gold": 20}},
+  {"id": "master", "ev": "boss_kill", "text": "A GREAT FOE FALLS. The floor's master is down; the way below is open.",
+   "reward": {"gold": 25, "qi": 20},
+   "next": "The deep goes much further. Elder Mo has more to say."}
+ ]
+}

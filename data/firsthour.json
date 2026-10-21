@@ -1,0 +1,17 @@
+{
+ "_about": "Round 163: the guided first hour. Ten small steps, shown one at a time as a line under the top-left stats; each is noticed from what you really do. Hints can be turned off in the menu (same switch as the Guide's hints). (scripts/systems/FirstHour.gd)",
+ "finish_reward": {"items": {"healing_salve": 2, "qi_pill": 1}, "gold": 30},
+ "skip_after_playtime": 3600,
+ "steps": [
+  {"id": "move", "watch": "move", "text": "Move around: %s.", "keys": ["move_forward", "move_left", "move_back", "move_right"], "touch": "Move: drag on the left side of the screen."},
+  {"id": "talk", "ev": ["talk"], "text": "Walk up to someone in the village and talk: press %s near them.", "keys": ["interact"], "touch": "Walk up to someone in the village and tap the talk button."},
+  {"id": "attack", "watch": "attack", "text": "Attack: %s.", "keys": ["attack"], "touch": "Attack: tap the attack button on the right."},
+  {"id": "kill", "ev": ["kill"], "text": "Defeat a foe. Dodge with %s when it winds up.", "keys": ["dodge"], "touch": "Defeat a foe. Tap dodge when it winds up."},
+  {"id": "quick", "ev": ["art_used"], "text": "Use a ki art: %s is your quick key. (Menu > Arts changes it.)", "quick": 0, "touch": "Use a ki art: tap the Q1 button. (Menu > Arts changes it.)"},
+  {"id": "gather", "ev": ["gather"], "text": "Gather from a plant or a stone: walk up and press %s.", "keys": ["interact"], "touch": "Gather from a plant or a stone: walk up and tap the use button."},
+  {"id": "menu", "ev": ["menu_open"], "text": "Open the menu: %s. Every page has a ? Help.", "keys": ["menu"], "touch": "Open the menu: tap the menu button at the top. Every page has a ? Help."},
+  {"id": "goals", "ev": ["menu_open"], "page": "Quests", "text": "Look at Today's goals: menu > Quests. Three small things, a new mix every day.", "touch": "Look at Today's goals: menu > Quests. Three small things, a new mix every day."},
+  {"id": "sit", "watch": "sit", "need": 20, "text": "Sit and meditate for a little: press %s.", "keys": ["meditate"], "touch": "Sit and meditate for a little: tap the meditate button."},
+  {"id": "floor", "ev": ["enter_level"], "prefix": "floor", "text": "Go down into the deep: take the road to floor 1. You can always turn back.", "touch": "Go down into the deep: take the road to floor 1. You can always turn back."}
+ ]
+}

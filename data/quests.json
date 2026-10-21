@@ -1,0 +1,22 @@
+{
+  "first_herbs": {"name": "Roots of Cultivation", "order": 1,
+    "desc": "Elder Mo wants five Spirit Herbs. They grow at the village edge and in the warrens' damp corners.",
+    "goal": {"have": "spirit_herb", "count": 5, "take": true},
+    "reward": {"qi": 60, "gold": 15, "items": {"healing_salve": 2}}},
+  "warrens": {"name": "Thin the Warrens", "order": 2,
+    "desc": "Goblins have dug into the old dungeon under the village. Kill their chief on Floor 1.",
+    "goal": {"kill": "goblin_chief", "count": 1},
+    "reward": {"qi": 150, "gold": 40, "items": {"spirit_gourd": 1}}},
+  "crypt": {"name": "Rest for the Dead", "order": 3, "requires": "warrens",
+    "desc": "Below the warrens lies a crypt that will not stay quiet. Put down the Bone Lord on Floor 2.",
+    "goal": {"kill": "bone_lord", "count": 1},
+    "reward": {"qi": 350, "gold": 90}},
+  "mine": {"name": "The Drowned Seam", "order": 4, "requires": "crypt",
+    "desc": "The old silver mine on Floor 3 flooded, and something still works it. Break the Foreman Golem.",
+    "goal": {"kill": "foreman_golem", "count": 1},
+    "reward": {"qi": 700, "gold": 160}},
+  "sanctum": {"name": "The Warden Below", "order": 5, "requires": "mine",
+    "desc": "Floor 4 is where the nanites came from. Their Warden is corrupted. End it.",
+    "goal": {"kill": "corrupted_warden", "count": 1},
+    "reward": {"qi": 1500, "gold": 400}}
+}

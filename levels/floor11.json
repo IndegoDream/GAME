@@ -1,0 +1,547 @@
+{
+  "id": "floor11",
+  "name": "Floor 11, The Drowned Palace",
+  "theme": "dungeon",
+  "depth": 11,
+  "ambient": [
+    0.32,
+    0.48,
+    0.58
+  ],
+  "forged": {
+    "region": "drowned",
+    "cycle": 0,
+    "size": 1.0
+  },
+  "enemies": {
+    "g": "drowned_weak_f11",
+    "k": "drowned_brute_f11",
+    "B": "drowned_boss_f11",
+    "a": "drowned_animal_f11"
+  },
+  "layout": {
+    "seed": 11,
+    "corridor_traps": 3,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Flooded Stair",
+        "size": [
+          10,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "c*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Hall of Audiences",
+        "size": [
+          16,
+          5
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "c*4",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Courtiers' Gossip",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L*2",
+          "A",
+          "b*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Coral Gallery",
+        "size": [
+          13,
+          9
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "b*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Pearl Bed",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L",
+          "^*2",
+          "o*3",
+          "g"
+        ]
+      },
+      {
+        "name": "The Crab Nests",
+        "size": [
+          11,
+          7
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Throne-Room Pool",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L",
+          "~*6",
+          "&",
+          "g",
+          "h"
+        ]
+      },
+      {
+        "name": "The Empress's Puzzle",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L*2",
+          "?",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Barnacled Alcove",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L",
+          "g",
+          "E"
+        ]
+      },
+      {
+        "name": "The Salt Shallows",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L",
+          "a*2",
+          "h*3"
+        ]
+      },
+      {
+        "name": "The Treasury Annex",
+        "size": [
+          10,
+          6
+        ],
+        "has": [
+          "L",
+          "b*3",
+          "C",
+          "g"
+        ]
+      },
+      {
+        "name": "The Empress's Dressing Room",
+        "size": [
+          7,
+          5
+        ],
+        "has": [
+          "L",
+          "R",
+          "V"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Dry Chapel",
+        "size": [
+          7,
+          6
+        ],
+        "has": [
+          "Z",
+          "L*2",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Seaweed Labyrinth",
+        "size": [
+          11,
+          6
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "F",
+          "G"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Wave's Lullaby",
+        "size": [
+          10,
+          6
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "J",
+          "M"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Narrow Side-Gallery",
+        "size": [
+          8,
+          8
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k",
+          "N",
+          "O"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Forgotten Storeroom",
+        "size": [
+          12,
+          7
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k",
+          "Q",
+          "U"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Sealed Cell",
+        "size": [
+          8,
+          8
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "W",
+          "X"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Widow's Throne",
+        "size": [
+          18,
+          13
+        ],
+        "has": [
+          "L*4",
+          "B",
+          ">",
+          "k",
+          "c*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "abyssal_pearl": [
+          2,
+          3
+        ],
+        "gold": [
+          66,
+          110
+        ]
+      },
+      "note": "a courtier's jewel case"
+    },
+    "D": {
+      "loot": {
+        "coral_bone": [
+          1,
+          2
+        ],
+        "drowned_pill_f11": [
+          0,
+          1
+        ],
+        "gold": [
+          55,
+          99
+        ]
+      },
+      "note": "a barnacled treasury box"
+    },
+    "E": {
+      "loot": {
+        "abyssal_pearl": [
+          1,
+          2
+        ],
+        "drowned_pill_f11": [
+          1,
+          1
+        ],
+        "random_weapon": [
+          0,
+          1
+        ]
+      },
+      "note": "a sealed dowry chest",
+      "hidden": true
+    },
+    "V": {
+      "loot": {
+        "abyssal_pearl": [
+          3,
+          4
+        ],
+        "coral_bone": [
+          2,
+          3
+        ],
+        "drowned_pill_f11": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "random_gear": [
+          1,
+          1
+        ],
+        "gold": [
+          165,
+          275
+        ]
+      },
+      "note": "the Empress's own coffer"
+    },
+    "F": {
+      "loot": {
+        "gold": [
+          88,
+          165
+        ],
+        "abyssal_pearl": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Seaweed Labyrinth"
+    },
+    "J": {
+      "loot": {
+        "gold": [
+          88,
+          165
+        ],
+        "coral_bone": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Wave's Lullaby"
+    },
+    "N": {
+      "loot": {
+        "gold": [
+          88,
+          165
+        ],
+        "drowned_pill_f11": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in the Narrow Side-Gallery"
+    },
+    "Q": {
+      "loot": {
+        "gold": [
+          88,
+          165
+        ],
+        "breakthrough_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Forgotten Storeroom"
+    },
+    "W": {
+      "loot": {
+        "gold": [
+          88,
+          165
+        ],
+        "abyssal_pearl": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Sealed Cell"
+    }
+  },
+  "lore": {
+    "A": {
+      "title": "A Seal on a Flooded Door",
+      "text": "BY ORDER OF THE EMPRESS: THE COURT IS NOT DISMISSED. Beneath it, scratched by someone who tried the door for a very long time: none of us were ever dismissed."
+    },
+    "Y": {
+      "title": "The Courtiers' Gossip",
+      "text": "They say the Empress drowned her husband so she could mourn him forever. They say she flooded the palace so no one could leave her court. They say a great many things, very quietly."
+    },
+    "R": {
+      "title": "The Dressing Room Mirror",
+      "text": "Written in the steam that never clears: I learned to breathe the water. It is only slow. Everything in the deep is only slow. Be slow, and it cannot drown you.",
+      "teaches": "drowned_art"
+    },
+    "G": {
+      "title": "The Lost Path",
+      "text": "Here, the walls twist and turn, their surfaces covered in a thick carpet of green and red seaweed. Many have wandered these corridors, seeking the hidden treasures said to be concealed within the tangled maze. Few return, but whispers tell of a secret exit that leads to the heart of the Drowned Palace."
+    },
+    "M": {
+      "title": "A Message from the Depths",
+      "text": "Here, the whispers of the sea can be heard clearest, guiding lost souls back to the embrace of the waters. Carved into the walls are the names of those who sought the Empress's favor and the secrets they left behind in the murmur of the tide."
+    },
+    "O": {
+      "title": "The Forgotten Cistern",
+      "text": "Here, long ago, the empress stored her most precious water, a rarity in the underwater palace. Now, it serves as a quiet sanctuary, a place where whispers of the past and the tide intertwine."
+    },
+    "U": {
+      "title": "The Sacred Coral",
+      "text": "Here, the Empress's most devout followers gather to pray before the ancient coral that glows faintly in the dim light, believing it to hold the power to soothe the turbulent waters outside and protect the palace from the wrath of the sea."
+    },
+    "X": {
+      "title": "The Siren's Melody",
+      "text": "In this chamber, the siren's haunting melody echoes through the halls, luring the unwary into a trance. None who hear it escape unscathed, for the song whispers secrets and promises of eternal rest."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Riddle of Empress's Puzzle",
+      "question": "The more I dry, the wetter I get. What am I?",
+      "options": [
+        "A sponge",
+        "A towel",
+        "Coral"
+      ],
+      "answer": 1,
+      "reward": {
+        "items": {
+          "drowned_pill_f11": 1
+        },
+        "qi": 1786
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor10",
+      "arrive": ">",
+      "label": "Up to floor 10",
+      "down": false
+    },
+    ">": {
+      "to": "floor12",
+      "arrive": "<",
+      "label": "Down to floor 12"
+    }
+  },
+  "refined": {
+    "passes": 11,
+    "rooms_added": 5,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-05T13:07:58"
+  },
+  "map": [
+    "",
+    "                   .......L.....",
+    "    <.L.......     .............      ....o...",
+    "    .......c..     ..g..........      .......^",
+    "    ..........     .............      ........",
+    "    ........g.     .b..b.........T.....g.o....S.....................................",
+    "    L......c..     .........g...      .o......                                     .",
+    "    ..........     ......k......      ...^....                                     .",
+    "         .         .......D.....      L.......                                     .",
+    "         .         ...........L.          .                                        .",
+    "         .               ..               .                                        .",
+    "         .                .               .                                        .",
+    "         .                .               .                                        .                      L.......      ....L.Q.....",
+    "         .            L.A....g            .                                        .                      ...O....      ......g.....",
+    " ..L.............     Lb..b...           ..        L.........   h.........         S                      ....N^..      ......h.....",
+    " .c..c..c..c.....     ........      ..L........    .~..~..~..   L..a......    .......L..     ...h...      L..g...........g..........",
+    " ..g..........................      .....g.....    ..........   ..........    .b........     L.....L      ....g....     ...........L",
+    " .......g...Y.g..     ........      .g.........    .&........   a.........    .......g..     .......      ........      ...U.......k",
+    " ..L........L....     ........      ................~..~..~..   ..........TT......................Z.      .k......      ...h........",
+    "                      ........      ....hg.....    ..........   ..hh......    ..C.b..b..     .......      h.......            .       .................>",
+    "                                    ...........    .......h..   ..........    ..........     h......          .               .       .c........c.......",
+    "                                    ...........    ...g......   ..........        S             .             .               .       ..................",
+    "                                                        .            .         .......          .             .           ........    ..................",
+    "                                                        .            .         ......L          .             .           ........    ..................",
+    "                                                        .            .         ....V.R     ..........L   ...o......       .....g..    .....B............",
+    "                                                        .            .         .......     ...........   g.........       .X...ko.......................",
+    "                                                    ......?.     ........      .......     .......F...   .....M....       L........   .......c..........",
+    "                                                    L.......     ........                  ......hG................       ......g.    ..................",
+    "                                                    ........     ...E....                  .......h...   ...g.k..o.       L.o.W...    ..................",
+    "                                                    .....................                  .L.g..g....   ..L..J...L       ........    .............c...k",
+    "                                                    ........     ...g....                                                             ..................",
+    "                                                    ......h.     L.......                                                             .....L....L.L....L",
+    "                                                    ..hL....     ........",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

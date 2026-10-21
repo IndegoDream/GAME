@@ -1,0 +1,20 @@
+{
+ "_note": "Round 119 (Robert, 2026-10-13): two roads run side by side, the Main Road (the story) and the Legacy Road (the masters' tasks). Up to `limit` points apart nothing happens. Past it, Imbalance scales in with the excess (over `span` more points it reaches its cap) until the gap closes. The Balance (the ultimate legacy) shows the gauges and, when the roads are within the limit and the legacy road has begun, gives the Even Road: an easier passage through danger for the same reward. Every number is here; scripts/systems/Balance.gd reads it.",
+ "limit": 50,
+ "span": 50,
+ "imbalance": {"qi_mult": 0.30, "meditate_mult": 0.30, "foe_damage": 0.15},
+ "even_road": {"damage_taken": 0.85},
+ "aspects": {
+  "body":        {"name": "Body",        "hint": "Train a weapon or survival skill; fight things your own size."},
+  "qi":          {"name": "Qi",          "hint": "Sit and cultivate; break through to the next realm."},
+  "craft":       {"name": "Craft",       "hint": "Smith, brew, cut gems, gather herbs: raise a craft skill."},
+  "lore":        {"name": "Lore",        "hint": "Read old places and talk to the old; collect Eliet's history."},
+  "standing":    {"name": "Standing",    "hint": "Take up a guild's work or a sect's road and rise in rank."},
+  "wealth":      {"name": "Wealth",      "hint": "Sell what you find; carry gold for the road ahead."},
+  "exploration": {"name": "Exploration", "hint": "Go deeper and open the floors you have skipped."}
+ },
+ "body_skills": ["sword", "dagger", "saber", "spear", "axe", "hammer", "halberd", "staff", "unarmed", "survival"],
+ "craft_skills": ["smithing", "alchemy", "medicine", "jewelcrafting", "herbalism", "mining"],
+ "skill_cap": 10,
+ "gold_per_floor": 400
+}

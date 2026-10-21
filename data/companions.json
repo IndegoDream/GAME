@@ -1,0 +1,203 @@
+{
+ "_about": "Round 32 (Robert: 'companions and pets grown up'). Companions fight in a STYLE you choose, carry GEAR you give them, level with what they do, and can be knocked down (they're back after a while, or when you rest). Familiars EVOLVE through stages as the bond deepens; the TAMING skill (fed animals, finds, bites) opens a tree of perks, one choice per tier. Your HOME grows from Elder Mo's plot into a COMPOUND, stage by stage, and a compound looks after your companion and familiar while you're away.",
+ "styles": {
+  "striker": {
+   "name": "Striker",
+   "desc": "Goes after whatever's nearest and hits hardest.",
+   "damage": 1.3,
+   "hunt": 9.0,
+   "cooldown": 1.2,
+   "guard": 0.0,
+   "finds": 0.0,
+   "sense": 0.0
+  },
+  "guard": {
+   "name": "Guard",
+   "desc": "Keeps your shoulder. Steps into blows meant for you, half the time.",
+   "damage": 0.9,
+   "hunt": 5.0,
+   "cooldown": 1.5,
+   "guard": 0.5,
+   "finds": 0.0,
+   "sense": 0.0
+  },
+  "scout": {
+   "name": "Scout",
+   "desc": "Fights only what comes close. Turns things up as you walk, and spots what's hidden.",
+   "damage": 0.8,
+   "hunt": 4.0,
+   "cooldown": 1.6,
+   "guard": 0.0,
+   "finds": 80.0,
+   "sense": 4.0
+  }
+ },
+ "levels": {
+  "xp": [
+   0,
+   25,
+   70,
+   150,
+   280,
+   460,
+   700,
+   1000,
+   1400,
+   1900
+  ],
+  "damage_per_level": 0.08,
+  "hp_per_level": 0.1,
+  "names": [
+   "green",
+   "blooded",
+   "steady",
+   "seasoned",
+   "hardened",
+   "veteran",
+   "feared",
+   "renowned",
+   "legendary",
+   "peerless"
+  ],
+  "xp_strike": 1,
+  "xp_kill_base": 4,
+  "xp_kill_per_depth": 1
+ },
+ "hp": {
+  "base_frac": 0.7,
+  "armor_mult": 2.5,
+  "down_seconds": 90,
+  "regen_per_sec": 0.015
+ },
+ "familiar": {
+  "stages": [
+   {
+    "bond": 0,
+    "title": "",
+    "scale": 1.0,
+    "bite": 0.0,
+    "effect": 1.0
+   },
+   {
+    "bond": 40,
+    "title": "grown",
+    "scale": 1.3,
+    "bite": 0.25,
+    "effect": 1.3,
+    "told": "%s has grown. The bones are heavier, the eyes steadier; it stands between you and things now, and bites."
+   },
+   {
+    "bond": 100,
+    "title": "fierce",
+    "scale": 1.6,
+    "bite": 0.45,
+    "effect": 1.6,
+    "told": "%s is fierce now -- a beast the deep would be proud of. Its gifts to you have grown with it."
+   },
+   {
+    "bond": 170,
+    "title": "spirit beast",
+    "scale": 1.9,
+    "bite": 0.7,
+    "effect": 2.2,
+    "glow": true,
+    "told": "%s is a spirit beast. Something of the deep's light lives in it; what it gives you, it gives twice over."
+   }
+  ],
+  "bite_cooldown": 1.6,
+  "bite_reach": 2.6,
+  "bite_hunt": 4.0
+ },
+ "taming": {
+  "tiers": [
+   {
+    "skill": 1,
+    "a": {
+     "id": "keen_nose",
+     "name": "Keen Nose",
+     "desc": "Your familiar turns things up half again as often."
+    },
+    "b": {
+     "id": "sharp_fangs",
+     "name": "Sharp Fangs",
+     "desc": "Its bites hurt half again as much."
+    }
+   },
+   {
+    "skill": 3,
+    "a": {
+     "id": "thick_hide",
+     "name": "Thick Hide",
+     "desc": "What it gives you grows by a third more."
+    },
+    "b": {
+     "id": "quick_paws",
+     "name": "Quick Paws",
+     "desc": "It finds faster, and senses further (+3)."
+    }
+   },
+   {
+    "skill": 5,
+    "a": {
+     "id": "pack_bond",
+     "name": "Pack Bond",
+     "desc": "When it bites, you mend a little (2% of your life)."
+    },
+    "b": {
+     "id": "wild_call",
+     "name": "Wild Call",
+     "desc": "Animals come to trust you in half the feedings; the bond grows half again as fast."
+    }
+   }
+  ],
+  "xp_feed": 4.0,
+  "xp_find": 3.0,
+  "xp_bite": 0.5
+ },
+ "compound": {
+  "stages": [
+   {
+    "id": "plot",
+    "name": "Elder Mo's plot",
+    "cost": 0,
+    "needs": {},
+    "desc": "A tent, a garden, a bench, a chest and a bed."
+   },
+   {
+    "id": "cottage",
+    "name": "a cottage",
+    "cost": 350,
+    "needs": {
+     "iron_ore": 8,
+     "spirit_resin": 2
+    },
+    "desc": "Walls and a roof instead of a tent. A night here mends more than your body: the well-rested hour is twice as long, and the chest holds twice the stacks.",
+    "rested_mult": 2.0
+   },
+   {
+    "id": "courtyard",
+    "name": "a courtyard",
+    "cost": 1000,
+    "needs": {
+     "iron_ore": 16,
+     "rough_jade": 3
+    },
+    "desc": "A fenced yard with lanterns and a cultivation stone of your own: sit and cultivate at home at the shrine's rate. The bench works a second order at once.",
+    "shrine": true
+   },
+   {
+    "id": "compound",
+    "name": "a compound",
+    "cost": 2600,
+    "needs": {
+     "silver_ore": 6,
+     "spirit_resin": 6,
+     "rough_jade": 4
+    },
+    "desc": "Quarters for your companion and a kennel for your familiar. While you're away, your companion trains (experience by the hour) and your familiar's bond deepens. A wall around it all.",
+    "away_xp_per_hour": 12.0,
+    "away_bond_per_hour": 2.0
+   }
+  ]
+ }
+}

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+ <defs>
+  <radialGradient id="glow" cx="256" cy="330" r="150" gradientUnits="userSpaceOnUse">
+   <stop offset="0" stop-color="#ffe9a8"/><stop offset="0.35" stop-color="#f2b13c"/><stop offset="1" stop-color="#5a2a08" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+   <stop offset="0" stop-color="#9aa6b8"/><stop offset="1" stop-color="#4b5566"/>
+  </linearGradient>
+  <linearGradient id="blade" x1="0" y1="0" x2="0" y2="1">
+   <stop offset="0" stop-color="#f4fbff"/><stop offset="1" stop-color="#8fd6c4"/>
+  </linearGradient>
+ <clipPath id="door"><path d="M174 420 L174 236 A82 82 0 0 1 338 236 L338 420 Z"/></clipPath>
+ </defs>
+ <!-- the arch: a gate into the deep -->
+ <path d="M126 420 L126 230 A130 130 0 0 1 386 230 L386 420 L338 420 L338 236 A82 82 0 0 0 174 236 L174 420 Z" fill="url(#stone)" stroke="#2a303b" stroke-width="6" stroke-linejoin="round"/>
+ <!-- keystone -->
+ <path d="M236 96 L276 96 L268 138 L244 138 Z" fill="#c9d2df" stroke="#2a303b" stroke-width="5"/>
+ <!-- the light below -->
+ <path d="M174 420 L174 236 A82 82 0 0 1 338 236 L338 420 Z" fill="#120a14"/>
+ <ellipse cx="256" cy="360" rx="110" ry="130" fill="url(#glow)" clip-path="url(#door)"/>
+ <rect x="104" y="418" width="304" height="14" rx="5" fill="#3a4250" stroke="#2a303b" stroke-width="5"/>
+ <!-- stairs going down into it -->
+ <g fill="#2b1a10" opacity="0.85">
+  <rect x="180" y="384" width="152" height="12" rx="3"/>
+  <rect x="196" y="360" width="120" height="10" rx="3"/>
+  <rect x="210" y="340" width="92" height="8" rx="3"/>
+  <rect x="222" y="324" width="68" height="6" rx="3"/>
+ </g>
+ <!-- a sword standing in the light -->
+ <path d="M256 168 L266 196 L266 300 L246 300 L246 196 Z" fill="url(#blade)" stroke="#2a303b" stroke-width="4" stroke-linejoin="round"/>
+ <rect x="226" y="298" width="60" height="12" rx="5" fill="#e3b04b" stroke="#2a303b" stroke-width="4"/>
+ <rect x="249" y="310" width="14" height="34" rx="4" fill="#6b3b1c" stroke="#2a303b" stroke-width="4"/>
+ <circle cx="256" cy="350" r="9" fill="#e3b04b" stroke="#2a303b" stroke-width="4"/>
+</svg>

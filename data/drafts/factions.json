@@ -1,0 +1,30 @@
+{
+  "brief": "factions",
+  "title": "The five peoples",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "text": "Eliet: The village at the top of the stair. Farmers, traders and the families of everyone who goes down. They remember who comes back, and who helps. Deepfolk: People who live down in the deep: mushroom farmers, candle-makers, smelters, the ones who couldn't go back up. Their camps grow when someone looks after them. Hollow: Beast-riding clans who took the deep by force when the old order fell. Proud, hard and fair by their own law. Cross them and their hunters come looking. Earn their respect and they share what they know about beasts. Heirs: The descendants of the people who built the nanites. They keep the old machines running and believe the swarm can still do what it was made for. Sects: The cultivation sects of the valley. They hold that the swarm was the Makers' great mistake and that qi alone is the true road."
+    },
+    {
+      "deepfolk": "People who live down in the deep: mushroom farmers, candle-makers, smelters, the ones who couldn't go back up. Their camps grow when someone looks after them.",
+      "hollow": "Beast-riding clans who took the deep by force when the old order fell. Proud, hard and fair by their own law. Cross them and their hunters come looking. Earn their respect and they share what they know about beasts.",
+      "heirs": "The descendants of the people who built the nanites. They keep the old machines running and believe the swarm can still do what it was made for.",
+      "sects": "The cultivation sects of the valley. They hold that the swarm was the Makers' great mistake and that qi alone is the true road."
+    },
+    {
+      "id": "heirs",
+      "text": "The descendants of the people who built the nanites. They keep the old machines running and believe the swarm can still do what it was made for. Rivals with the Valley Sects who see qi alone as the path to power."
+    },
+    {
+      "id": "sects",
+      "text": "The valley's cultivation sects, who believe qi alone is the true path to power. They reject the nanite swarm, seeing it as a Maker's mistake, and view the Heirs with suspicion. Cross a sect and their enforcers hunt you down; earn their respect and they might take you as a disciple."
+    },
+    {
+      "id": "sects",
+      "text": "The cultivation sects of the valley. They hold that the swarm was the Makers' great mistake and that qi alone is the true road. They compete with the Heirs of the Makers, who see the nanites as a key part of the path to power."
+    }
+  ],
+  "helped": []
+}

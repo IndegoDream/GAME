@@ -1,0 +1,16 @@
+{
+ "enabled": false,
+ "textures": {
+  "castle_brick_01": "own_castle_brick",
+  "old_stone_wall": "own_old_wall",
+  "mossy_cobblestone": "own_cobble",
+  "mossy_stone_wall": "own_mossy_wall",
+  "stony_dirt_path": "own_dirt_path",
+  "forest_floor": "own_forest_floor",
+  "grass_ground": "own_forest_floor",
+  "old_wood_floor": "own_wood_floor",
+  "weathered_planks": "own_wood_floor",
+  "rock_face": "own_rock_face",
+  "marble_01": "own_jade_marble"
+ }
+}

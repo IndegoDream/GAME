@@ -1,0 +1,776 @@
+{
+ "_about": "Hidden masters (round 34, Robert: 'put hidden masters throughout the game'). Each stands somewhere disguised as someone ordinary. Talk to them enough (and be strong enough) and they show who they are, set a test, and -- passed -- teach a technique no one else knows. The journal hints at the next one. Words: Dev's win (data/drafts/hidden_masters.json, items with 'id' and any of name, disguise, lines, reveal_text, done_text, after, hint).",
+ "difficulty": {"free_depth": 6, "floors_per_extra_talk": 8, "far_from_stairs_base": 6, "far_from_stairs_per_floor": 0.6, "far_from_stairs_max": 30, "_note": "Robert 2026-10-13: deeper hidden masters take more conversations before they show themselves (one more per 8 floors past the sixth) and wait farther from the way in (6 cells plus 0.6 per floor, at most 30). Never impossible."},
+"masters": [
+  {
+   "id": "sweeper",
+   "place": "village",
+   "disguise": "an old sweeper",
+   "name": "Grandmother Su, the Broom Saint",
+   "look": {
+    "sex": "f",
+    "hair": "bun",
+    "hair_color": [
+     0.85,
+     0.85,
+     0.85
+    ],
+    "robe": [
+     0.45,
+     0.4,
+     0.33
+    ],
+    "outfit": "villager"
+   },
+   "lines": [
+    "\"Mind your feet. I've just done that bit.\"",
+    "\"Same leaves every day. You'd think they'd learn.\"",
+    "\"You keep coming back. The broom doesn't mind.\""
+   ],
+   "reveal": {
+    "talks": 3
+   },
+   "hint": "In Eliet, someone sweeps the same stones every day and has done for longer than anyone remembers.",
+   "reveal_text": "She leans on the broom, and for a moment the broom is a spear and she is not old at all. \"Three times you've stopped to talk to a sweeper. Most of them step round me. Sit with me a while -- an hour at the shrine, all told -- and I'll show you how to stand where nothing reaches.\"",
+   "test": {
+    "kind": "sit",
+    "seconds": 600,
+    "text": "Sit and cultivate for ten minutes (any shrine or stone)."
+   },
+   "done_text": "\"Good. You can sit still. That's half of it. The other half is this.\" She sweeps once, and the leaves go round you and not through.",
+   "after": "\"Still sweeping. Still here. Go on down.\"",
+   "reward": {
+    "technique": {
+     "id": "broom_stance",
+     "name": "Broom Saint's Stance",
+     "kind": "passive",
+     "realm": 0,
+     "desc": "Grandmother Su's stance: you take 10% less damage.",
+     "effect": {
+      "damage_taken": 0.9
+     }
+    },
+    "title": "Su's Student",
+    "insight": 3
+   }
+  },
+  {
+   "id": "fisher",
+   "place": "valley",
+   "disguise": "a fisherman who never catches anything",
+   "name": "Old Bao of the Still Water",
+   "look": {
+    "sex": "m",
+    "hair": "topknot",
+    "beard": true,
+    "hair_color": [
+     0.7,
+     0.7,
+     0.7
+    ],
+    "robe": [
+     0.3,
+     0.38,
+     0.4
+    ],
+    "outfit": "ranger"
+   },
+   "lines": [
+    "\"Nothing biting. Nothing ever does.\"",
+    "\"Patience isn't waiting. It's how you wait.\"",
+    "\"Bring me a fish someday. I'm too busy to catch one.\""
+   ],
+   "reveal": {
+    "talks": 2,
+    "realm": 1
+   },
+   "hint": "On the valley road a fisherman sits by the water all day and never catches a thing. Some say that's the point.",
+   "reveal_text": "He lifts the line. There's no hook on it. \"I'm not fishing for fish. Bring me three of whatever you pull from the water yourself, and I'll teach you to be as still as it is.\"",
+   "test": {
+    "kind": "bring",
+    "items": {
+     "cave_carp": 3
+    },
+    "text": "Bring Old Bao three fish of your own catching."
+   },
+   "done_text": "He eats one raw, which you didn't expect. \"Now. Breathe the way the water does.\"",
+   "after": "\"Still nothing biting. Good.\"",
+   "reward": {
+    "technique": {
+     "id": "still_water",
+     "name": "Still Water Breath",
+     "kind": "passive",
+     "realm": 0,
+     "desc": "Old Bao's breathing: sitting gathers 20% more qi.",
+     "effect": {
+      "meditate_mult": 1.2
+     }
+    },
+    "title": "Bao's Patience",
+    "insight": 3
+   }
+  },
+  {
+   "id": "ratcatcher",
+   "place": "floor4",
+   "disguise": "a ratcatcher",
+   "name": "Hollow Jin, the Last Monk of the Warrens",
+   "look": {
+    "sex": "m",
+    "hair": "shaved",
+    "robe": [
+     0.4,
+     0.3,
+     0.2
+    ],
+    "outfit": "villager"
+   },
+   "lines": [
+    "\"Rats. Goblins. Same thing, more teeth.\"",
+    "\"Don't step there. I mean it.\"",
+    "\"You're quieter than the last one. The last one's down there somewhere.\""
+   ],
+   "reveal": {
+    "talks": 2
+   },
+   "hint": "Somewhere on floor 4 a ratcatcher works alone, where no ratcatcher has any business being.",
+   "reveal_text": "He sets down the sack, and the way he does it -- weight on the back foot, hands open -- is a monk's. \"The goblins took my temple. Thin them for me: twenty, and I'll teach you the step we used to walk these halls without waking them.\"",
+   "test": {
+    "kind": "kill",
+    "enemy": "__floor_weak",
+    "count": 20,
+    "text": "Kill twenty of this floor's foes."
+   },
+   "done_text": "\"That'll do. Watch my feet.\" He crosses the room and you don't hear him do it.",
+   "after": "\"Quieter down here now. I can almost hear the bells.\"",
+   "reward": {
+    "technique": {
+     "id": "warren_step",
+     "name": "Warren Step",
+     "kind": "passive",
+     "realm": 0,
+     "desc": "Hollow Jin's step: you move 6% faster, and one blow in twenty-five finds only where you were.",
+     "effect": {
+      "move_mult": 1.06,
+      "dodge_chance": 0.04
+     }
+    },
+    "insight": 3,
+    "items": {
+     "qi_pill": 2
+    }
+   }
+  },
+  {
+   "id": "cook",
+   "place": "floor10",
+   "disguise": "the inn's cook",
+   "name": "Ma Lian, the Cauldron Sage",
+   "look": {
+    "sex": "f",
+    "hair": "short",
+    "hair_color": [
+     0.25,
+     0.18,
+     0.12
+    ],
+    "robe": [
+     0.6,
+     0.45,
+     0.3
+    ],
+    "outfit": "villager"
+   },
+   "lines": [
+    "\"Out of my kitchen.\"",
+    "\"You've been eating dungeon food. I can tell from here.\"",
+    "\"Salt, fire, patience. That's all a pill is too, you know.\""
+   ],
+   "reveal": {
+    "talks": 3,
+    "skill": {
+     "id": "alchemy",
+     "level": 2
+    },
+    "realm": 2
+   },
+   "hint": "In the town on floor 10, the inn's cook makes broth that heals better than any salve. Ask her how.",
+   "reveal_text": "She tastes the broth and looks at you instead. \"You've a little alchemy in your hands. Not enough. Make me five pills of your own -- any kind, made well -- and I'll show you what a cauldron really wants.\"",
+   "test": {
+    "kind": "craft_skill",
+    "skill": "alchemy",
+    "count": 5,
+    "text": "Craft five things with alchemy."
+   },
+   "done_text": "\"Hm. Edible.\" From her, it's a compliment. \"Now: the fire is not under the pot. It's in you.\"",
+   "after": "\"Eat something. You look like a dungeon.\"",
+   "reward": {
+    "technique": {
+     "id": "cauldron_heart",
+     "name": "Cauldron Heart",
+     "kind": "passive",
+     "realm": 2,
+     "desc": "Ma Lian's method: +8% success at alchemy and medicine.",
+     "effect": {
+      "craft_success_alchemy": 0.08,
+      "craft_success_medicine": 0.08
+     }
+    },
+    "title": "Lian's Apprentice",
+    "insight": 4
+   }
+  },
+  {
+   "id": "bonepicker",
+   "place": "floor9",
+   "disguise": "a bone-picker",
+   "name": "Sister Ivory of the Ossuary",
+   "look": {
+    "sex": "f",
+    "hair": "long",
+    "hair_color": [
+     0.9,
+     0.9,
+     0.88
+    ],
+    "robe": [
+     0.82,
+     0.8,
+     0.75
+    ],
+    "outfit": "ranger"
+   },
+   "lines": [
+    "\"Mind the bones. They're mine.\"",
+    "\"Every one of them was somebody. Most of them were stupid.\"",
+    "\"Don't be bones.\""
+   ],
+   "reveal": {
+    "talks": 2,
+    "realm": 2
+   },
+   "hint": "Down on floor 9 someone gathers bones -- carefully, as if they were still owed something.",
+   "reveal_text": "She holds a skull up to the light like a jeweller. \"You're still breathing at floor nine. Prove you'll keep at it: come back after a night's sleep, and the next day, and I'll teach you how the dead stand back up.\"",
+   "test": {
+    "kind": "wait",
+    "hours": 12,
+    "text": "Come back to Sister Ivory after twelve hours (real time)."
+   },
+   "done_text": "\"You came back. Most don't.\" She presses two fingers to your sternum. \"When you fall, fall the way they did -- and get up.\"",
+   "after": "\"Still breathing? Good. Keep it up.\"",
+   "reward": {
+    "technique": {
+     "id": "ossuary_rise",
+     "name": "Ossuary Rise",
+     "kind": "passive",
+     "realm": 2,
+     "desc": "Sister Ivory's lesson: once a day, a killing blow leaves you at 1 life instead.",
+     "effect": {
+      "rebirth": 1
+     }
+    },
+    "title": "Unburied",
+    "insight": 4
+   }
+  },
+  {
+   "id": "blind_smith",
+   "place": "floor15",
+   "disguise": "a blind tinker",
+   "name": "Tie the Unseeing Hammer",
+   "look": {
+    "sex": "m",
+    "hair": "short",
+    "beard": true,
+    "hair_color": [
+     0.3,
+     0.3,
+     0.3
+    ],
+    "robe": [
+     0.28,
+     0.26,
+     0.24
+    ],
+    "outfit": "smith"
+   },
+   "lines": [
+    "\"I fix pots. That's all.\"",
+    "\"Your blade's singing flat. Can't you hear it?\"",
+    "\"Eyes lie. Steel doesn't.\""
+   ],
+   "reveal": {
+    "talks": 3,
+    "skill": {
+     "id": "smithing",
+     "level": 3
+    },
+    "realm": 3
+   },
+   "hint": "In Ironroot Hold on floor 15, a blind tinker mends pots -- and hears a cracked blade from across the street.",
+   "reveal_text": "He runs his thumb down your weapon without asking. \"Decent. Not yours, though -- not yet. Bring me the ore of three floors below this one, and I'll teach your hands to hear.\"",
+   "test": {
+    "kind": "bring",
+    "items": {
+     "thunder_iron": 4,
+     "storm_glass": 2
+    },
+    "text": "Bring Tie four thunder iron and two storm glass (floors 16+)."
+   },
+   "done_text": "He works it in the dark, and the ringing is the cleanest thing you've ever heard. \"Hear that? Now hear it in everything.\"",
+   "after": "\"Your blade's in tune today.\"",
+   "reward": {
+    "technique": {
+     "id": "unseeing_hammer",
+     "name": "Unseeing Hammer",
+     "kind": "passive",
+     "realm": 3,
+     "desc": "Tie's hearing: +10% smithing success and +6% damage.",
+     "effect": {
+      "craft_success_smithing": 0.1,
+      "damage_mult": 1.06
+     }
+    },
+    "title": "Hammer-Heard",
+    "insight": 5
+   }
+  },
+  {
+   "id": "beggar",
+   "place": "floor20",
+   "disguise": "a beggar at the Pagoda gate",
+   "name": "The Ninth Man's Brother",
+   "look": {
+    "sex": "m",
+    "hair": "long",
+    "beard": true,
+    "hair_color": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "robe": [
+     0.3,
+     0.28,
+     0.26
+    ],
+    "outfit": "villager"
+   },
+   "lines": [
+    "\"Spare something?\"",
+    "\"I've been sat here forty years. I'm waiting for my brother.\"",
+    "\"Spare something? Not coin. Something.\""
+   ],
+   "reveal": {
+    "talks": 3,
+    "realm": 5
+   },
+   "hint": "At the Jade Pagoda, a beggar has sat for forty years waiting for someone who went down with the first expedition.",
+   "reveal_text": "\"You've been past forty-five, haven't you -- no. Not yet. But you will.\" He takes your hand. \"Give me what you would give a stranger, and I'll give you what my brother left me.\"",
+   "test": {
+    "kind": "give_gold",
+    "gold": 500,
+    "text": "Give the beggar 500 gold."
+   },
+   "done_text": "He doesn't count it. He gives it, there and then, to the first child that passes. \"That's what he left me: how to let go of things.\"",
+   "after": "\"Still waiting. Still here.\"",
+   "reward": {
+    "technique": {
+     "id": "open_hand",
+     "name": "Open Hand",
+     "kind": "passive",
+     "realm": 5,
+     "desc": "The beggar's gift: one foe in ten gives up its loot twice, and +5% qi.",
+     "effect": {
+      "loot_luck": 0.1,
+      "qi_mult": 1.05
+     }
+    },
+    "title": "Open-Handed",
+    "insight": 6
+   }
+  },
+  {
+   "id": "child",
+   "place": "floor23",
+   "disguise": "a lost child",
+   "name": "Little Hu, Who Is Older Than the Mountain",
+   "look": {
+    "sex": "m",
+    "hair": "short",
+    "hair_color": [
+     0.1,
+     0.08,
+     0.06
+    ],
+    "robe": [
+     0.7,
+     0.3,
+     0.25
+    ],
+    "outfit": "villager",
+    "child": true
+   },
+   "lines": [
+    "\"Are you lost too?\"",
+    "\"I'm not scared. I'm never scared.\"",
+    "\"Play with me?\""
+   ],
+   "reveal": {
+    "talks": 3,
+    "realm": 6
+   },
+   "hint": "On floor 23, a child wanders the ash, unafraid. There should not be a child on floor 23.",
+   "reveal_text": "\"You keep asking if I'm lost.\" The child's eyes are very old. \"I'm not. I was here before the deep was deep. Kill the floor's master -- for fun, for me -- and I'll show you a game.\"",
+   "test": {
+    "kind": "boss",
+    "text": "Kill this floor's master."
+   },
+   "done_text": "The child laughs and is gone, and something of the laughter stays in you: a lightness that doesn't care how deep you are.",
+   "after": "A small handprint in the ash, and no child.",
+   "reward": {
+    "technique": {
+     "id": "mountain_child",
+     "name": "Older Than the Mountain",
+     "kind": "passive",
+     "realm": 6,
+     "desc": "Little Hu's game: +10% attack speed, and one blow in twenty-five misses you.",
+     "effect": {
+      "attack_speed": 1.1,
+      "dodge_chance": 0.04
+     }
+    },
+    "title": "Hu's Playmate",
+    "insight": 6
+   }
+  },
+  {
+   "id": "hermit",
+   "place": "floor28",
+   "disguise": "a hermit in a cave",
+   "name": "Master Wu of No Sect",
+   "look": {
+    "sex": "m",
+    "hair": "topknot",
+    "beard": true,
+    "hair_color": [
+     0.95,
+     0.95,
+     0.95
+    ],
+    "robe": [
+     0.55,
+     0.55,
+     0.55
+    ],
+    "outfit": "ranger"
+   },
+   "lines": [
+    "\"Go away.\"",
+    "\"I said go away.\"",
+    "\"...Fine. Sit. Don't talk.\""
+   ],
+   "reveal": {
+    "talks": 3,
+    "realm": 7
+   },
+   "hint": "Below the Mirror, on floor 28, a hermit lives in a cave and tells everyone to go away. Few listen; fewer stay.",
+   "reveal_text": "\"Every sect wanted me. I wanted none of them.\" He finally looks at you. \"Meditate here, beside me, for half an hour, and don't once ask what I'm teaching you.\"",
+   "test": {
+    "kind": "sit",
+    "seconds": 1800,
+    "text": "Sit and cultivate for half an hour."
+   },
+   "done_text": "\"There. You learned it.\" You didn't notice learning anything. That was the lesson.",
+   "after": "He doesn't look up. He doesn't need to.",
+   "reward": {
+    "technique": {
+     "id": "no_sect",
+     "name": "The Way of No Sect",
+     "kind": "passive",
+     "realm": 7,
+     "desc": "Master Wu's way: +12% qi, and sitting gathers 10% more.",
+     "effect": {
+      "qi_mult": 1.12,
+      "meditate_mult": 1.1
+     }
+    },
+    "title": "Of No Sect",
+    "insight": 8
+   }
+  },
+  {
+   "id": "widow",
+   "place": "floor33",
+   "disguise": "a widow tending a grave",
+   "name": "Lady Rui, the Last of the First Expedition",
+   "look": {
+    "sex": "f",
+    "hair": "bun",
+    "hair_color": [
+     0.6,
+     0.6,
+     0.62
+    ],
+    "robe": [
+     0.15,
+     0.15,
+     0.18
+    ],
+    "outfit": "ranger"
+   },
+   "lines": [
+    "\"He's buried here. I put him here myself.\"",
+    "\"Forty years. You'd think I'd have left.\"",
+    "\"Mo still alive? Tell him I said nothing.\""
+   ],
+   "reveal": {
+    "talks": 2,
+    "realm": 8,
+    "story": "expedition"
+   },
+   "hint": "On floor 33 there's a grave someone tends. The first expedition had nine men. It also had a woman nobody mentions.",
+   "reveal_text": "\"Mo never told you there were ten of us.\" She stands. She is a head taller than you thought. \"Bring me the master's heart from forty -- the floor's master, dead by your hand -- and I'll teach you what I taught the nine. They didn't listen.\"",
+   "test": {
+    "kind": "boss_floor",
+    "floor": 40,
+    "text": "Kill the master of floor 40."
+   },
+   "done_text": "\"So you can listen.\" She shows you, once, the cut that killed the thing that killed her husband.",
+   "after": "\"He'd have liked you. He liked fools.\"",
+   "reward": {
+    "technique": {
+     "id": "tenth_blade",
+     "name": "The Tenth Blade",
+     "kind": "passive",
+     "realm": 8,
+     "desc": "Lady Rui's cut: +12% damage and +6% chance to strike true.",
+     "effect": {
+      "damage_mult": 1.12,
+      "crit_chance": 0.06
+     }
+    },
+    "title": "The Tenth's Heir",
+    "insight": 10
+   }
+  },
+  {
+   "id": "clockmaker",
+   "place": "floor38",
+   "disguise": "a clockmaker who talks to cogs",
+   "name": "Ticktock Fen, the Engine Immortal",
+   "look": {
+    "sex": "f",
+    "hair": "short",
+    "hair_color": [
+     0.7,
+     0.4,
+     0.2
+    ],
+    "robe": [
+     0.45,
+     0.35,
+     0.2
+    ],
+    "outfit": "smith"
+   },
+   "lines": [
+    "\"Shh. It's ticking.\"",
+    "\"Everything down here's a clock. Even you.\"",
+    "\"Bring cogs. Always bring cogs.\""
+   ],
+   "reveal": {
+    "talks": 2,
+    "realm": 10
+   },
+   "hint": "On floor 38 someone talks to the machinery, and the machinery seems to answer.",
+   "reveal_text": "\"The nanites are clockwork, did you know? Very small clockwork, and very old.\" She holds up a cog. \"Make me a star iron key -- any lock's will do -- and I'll show you how to wind yours.\"",
+   "test": {
+    "kind": "craft",
+    "item": "star_iron_key",
+    "count": 1,
+    "text": "Forge a Star Iron Key (it's yours to keep)."
+   },
+   "done_text": "She doesn't take the key. She listens to it. \"Lovely.\" Then she winds something in you, and you feel the nanites quicken.",
+   "after": "\"Tick. Tock. Good.\"",
+   "reward": {
+    "technique": {
+     "id": "engine_wind",
+     "name": "Engine Winding",
+     "kind": "passive",
+     "realm": 10,
+     "desc": "Fen's winding: your nanite swarm grows 15% faster, and your hands 5% quicker.",
+     "effect": {
+      "swarm_mult": 1.15,
+      "attack_speed": 1.05
+     }
+    },
+    "title": "Wound Tight",
+    "insight": 10
+   }
+  },
+  {
+   "id": "mirror",
+   "place": "floor48",
+   "disguise": "your own reflection",
+   "name": "The One Who Went Down Before You",
+   "look": {
+    "sex": "m",
+    "hair": "topknot",
+    "hair_color": [
+     0.2,
+     0.2,
+     0.22
+    ],
+    "robe": [
+     0.2,
+     0.22,
+     0.3
+    ],
+    "outfit": "ranger"
+   },
+   "lines": [
+    "It says what you say, a moment after you.",
+    "It says what you say, a moment before you.",
+    "It says something you were going to say."
+   ],
+   "reveal": {
+    "talks": 3,
+    "realm": 12
+   },
+   "hint": "On floor 48, a cultivator stands still in the dark, and you've seen that face before.",
+   "reveal_text": "\"I went down. I didn't come back. Don't be me.\" The face isn't yours; it's close. \"Show me you won't: master every part of you -- the weapon, the body, the blood -- and come back.\"",
+   "test": {
+    "kind": "mastery",
+    "weapon": 18,
+    "purity": 50,
+    "text": "Weapon skill 18, and a bloodline at 50% purity."
+   },
+   "done_text": "\"Then go in. I'll stay. Someone has to stand here.\"",
+   "after": "It stands where it stands. It nods.",
+   "reward": {
+    "technique": {
+     "id": "before_you",
+     "name": "The One Before",
+     "kind": "passive",
+     "realm": 12,
+     "desc": "What the one before learned: +10% to damage, life and qi.",
+     "effect": {
+      "damage_mult": 1.1,
+      "hp_mult": 1.1,
+      "qi_mult": 1.1
+     }
+    },
+    "title": "Not the One Before",
+    "insight": 15
+   }
+  },
+  {
+   "id": "rune_carver",
+   "place": "floor17",
+   "disguise": "a grave-cutter",
+   "name": "Old Oda, Who Cuts the Names",
+   "look": {
+    "sex": "m",
+    "hair": "shaved",
+    "beard": true,
+    "hair_color": [
+     0.7,
+     0.7,
+     0.68
+    ],
+    "robe": [
+     0.32,
+     0.3,
+     0.28
+    ],
+    "outfit": "smith"
+   },
+   "lines": [
+    "\"Names on stones. Someone has to. The deep forgets the rest.\"",
+    "\"Steady hand, sharp chisel, no hurry. That's the whole of it. Mostly.\"",
+    "\"You look at the marks the way a hungry man looks at bread.\""
+   ],
+   "reveal": {
+    "talks": 2,
+    "realm": 4
+   },
+   "hint": "On the seventeenth floor an old man cuts names for the dead -- and, people say, other marks that aren't names at all.",
+   "reveal_text": "He turns the stone over. On the back, where no one looks, there's a mark that moves when you look away from it. \"Names are the easy ones. These are the old marks -- runes. Set one in steel and the steel remembers what it's for. Bring me silver and bone and I'll show you the cutting.\"",
+   "test": {
+    "kind": "bring",
+    "items": {
+     "silver_ore": 4,
+     "bone_shard": 6
+    },
+    "text": "Bring Oda 4 silver ore and 6 bone shards, for practice blanks."
+   },
+   "done_text": "He cuts a blank, then a mark, then puts the chisel in your hand and doesn't take it back. \"Again. Again. There -- that one would hold.\"",
+   "after": "\"Carved anything worth the stone? Show me.\"",
+   "reward": {
+    "craft": "runecraft",
+    "items": {
+     "rune_blank": 3,
+     "edge_rune": 1
+    },
+    "title": "Rune-Cutter",
+    "insight": 3
+   },
+   "table": "runecraft"
+  },
+  {
+   "id": "talisman_scribe",
+   "place": "floor22",
+   "disguise": "a letter-writer",
+   "name": "Sister Hwa of the Red Brush",
+   "look": {
+    "sex": "f",
+    "hair": "long",
+    "hair_color": [
+     0.12,
+     0.1,
+     0.1
+    ],
+    "robe": [
+     0.55,
+     0.18,
+     0.15
+    ],
+    "outfit": "villager"
+   },
+   "lines": [
+    "\"A letter home? Two coppers. Three if you want it to sound brave.\"",
+    "\"Ink's dear down here. I make my own. Don't ask from what.\"",
+    "\"You've a steady hand for a fighter. Hold the brush higher.\""
+   ],
+   "reveal": {
+    "talks": 2,
+    "realm": 6
+   },
+   "hint": "On the twenty-second floor a woman writes letters home for coppers. Her ink is very red, and her paper doesn't burn the way paper should.",
+   "reveal_text": "She writes one stroke on a scrap and blows on it, and the scrap catches without a flame and goes out without ash. \"Letters are what I do for coppers. This is what I do for the ones who'll still be alive to need it. Bring me spirit silk and herbs -- the paper starts there.\"",
+   "test": {
+    "kind": "bring",
+    "items": {
+     "spirit_silk": 2,
+     "spirit_herb": 6
+    },
+    "text": "Bring Sister Hwa 2 spirit silk and 6 spirit herbs."
+   },
+   "done_text": "\"Paper first. Then ink. Then the stroke -- and the stroke is all qi, not wrist.\" Your first talisman smoulders. Your third burns.",
+   "after": "\"Burn them, don't hoard them. A talisman in your pouch never saved anyone.\"",
+   "reward": {
+    "craft": "talismans",
+    "items": {
+     "spirit_paper": 3,
+     "cinnabar_ink": 2,
+     "flame_talisman": 2,
+     "mending_talisman": 1
+    },
+    "title": "Red Brush",
+    "insight": 3
+   },
+   "table": "talismans"
+  }
+ ]
+}

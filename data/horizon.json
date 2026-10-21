@@ -1,0 +1,116 @@
+{
+ "_note": "Round 48: the world past the edge of the map (scripts/Horizon.gd). Looks only. Outdoors: the land (metres past the map's edge, grid size), hills and mountains (how high, how far out they start), the snow line (lower in Frost), the forest on the slopes, the far tower and the farms' smoke, and a light haze so the distance reads as distance. Underground: how far the rock runs on past the halls, how far it falls away at the edge, and the glowing cracks.",
+ "land": {
+  "margin": 230,
+  "step": 6,
+  "hills": [
+   4,
+   45,
+   6,
+   10
+  ],
+  "mountains": [
+   70,
+   190,
+   55,
+   55
+  ],
+  "snow_line": 70,
+  "snow_line_frost": 30,
+  "passes": 3,
+  "pass_depth": 0.12,
+  "_passes_note": "Round 63: gaps in the ring of mountains (how many, and how low the mountains fall in one: 0..1) -- through them the far ranges show, and the roads run out through them."
+ },
+ "forest": {
+  "trees": 170,
+  "out": [
+   6,
+   95
+  ],
+  "height": [
+   7,
+   13
+  ],
+  "max_y": 40,
+  "sparse": 0.9
+ },
+ "tower": {
+  "ahead": 120,
+  "across": 0.65,
+  "scale": 9,
+  "lamp": 3.0
+ },
+ "smoke": {
+  "count": 3,
+  "range": [
+   70,
+   130
+  ]
+ },
+ "haze": {
+  "clear": 0.0032,
+  "day": [
+   0.74,
+   0.8,
+   0.88
+  ],
+  "night": [
+   0.08,
+   0.1,
+   0.18
+  ],
+  "dusk": [
+   0.95,
+   0.68,
+   0.45
+  ]
+ },
+ "rock": {
+  "margin": 34,
+  "drop": 26,
+  "drop_from": 8,
+  "lift": 0.9,
+  "dark": 0.6,
+  "cracks": 7,
+  "crack_energy": 0.8,
+  "light": 0.45,
+  "light_color": [
+   0.62,
+   0.7,
+   0.85
+  ],
+  "layer": 20
+ },
+ "far": {
+  "_note": "Round 63: rings of far ranges past the hills: [radius m, height m, how much haze (0..1), ridges around]. foot: where they stand (m).",
+  "layers": [
+   [
+    600,
+    250,
+    0.26,
+    10.0
+   ],
+   [
+    1100,
+    470,
+    0.46,
+    7.0
+   ],
+   [
+    1800,
+    800,
+    0.66,
+    5.0
+   ]
+  ],
+  "foot": -30.0
+ },
+ "cavern": {
+  "_note": "Round 63: underground, past the rock's edge: columns into the dark, far lights, mist. gap/depth in metres.",
+  "gap": 18,
+  "depth": 260,
+  "columns": 70,
+  "lights": 26,
+  "mist": 0.55
+ }
+}

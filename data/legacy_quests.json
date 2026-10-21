@@ -1,0 +1,154 @@
+{
+ "_note": "Legacy quest lines (round 119, Robert 2026-10-13): an inheritance is no longer found-and-taken. Touching the seat only opens the master's task; the last step lets you accept. The better the inheritance, the longer the line; the more the master's gift fits your build (tags), the shorter, never below min_share of the base. Steps already met complete themselves. Every number is here; scripts/systems/LegacyLines.gd reads it. Dev rewrites the words.",
+ "base_steps": {
+  "minor": 3,
+  "major": 6,
+  "heavenly": 10,
+  "ultimate": 14
+ },
+ "synergy_cut": 0.5,
+ "min_share": 0.5,
+ "kill": {
+  "major": [
+   8,
+   14
+  ],
+  "heavenly": [
+   14,
+   24
+  ],
+  "minor": [
+   6,
+   10
+  ],
+  "ultimate": [
+   20,
+   32
+  ]
+ },
+ "gather_count": {
+  "major": [
+   3,
+   6
+  ],
+  "heavenly": [
+   5,
+   10
+  ],
+  "minor": [
+   2,
+   4
+  ],
+  "ultimate": [
+   8,
+   14
+  ]
+ },
+ "skill_level": {
+  "major": 2,
+  "heavenly": 4,
+  "minor": 1,
+  "ultimate": 5
+ },
+ "reach_extra": {
+  "major": 1,
+  "heavenly": 2,
+  "minor": 1,
+  "ultimate": 3
+ },
+ "reward_qi_kills": {
+  "major": 4,
+  "heavenly": 10,
+  "minor": 2,
+  "ultimate": 14
+ },
+ "skills": [
+  "mining",
+  "herbalism",
+  "smithing",
+  "alchemy",
+  "hunting",
+  "survival",
+  "medicine",
+  "jewelcrafting"
+ ],
+ "gather_bands": [
+  {
+   "floors": [
+    1,
+    8
+   ],
+   "items": [
+    "iron_ore",
+    "spirit_herb",
+    "goblin_tooth",
+    "bone_shard",
+    "rough_jade"
+   ]
+  },
+  {
+   "floors": [
+    9,
+    25
+   ],
+   "items": [
+    "silver_ore",
+    "moonpetal",
+    "ember_root",
+    "iron_thistle",
+    "cave_carp"
+   ]
+  },
+  {
+   "floors": [
+    26,
+    60
+   ],
+   "items": [
+    "nanite_shard",
+    "warden_core",
+    "heartwood",
+    "spirit_resin",
+    "emperor_jade"
+   ]
+  }
+ ],
+ "effect_tags": {
+  "damage_mult": "offense",
+  "crit_chance": "offense",
+  "attack_speed": "offense",
+  "burst_mult": "offense",
+  "hp_mult": "defense",
+  "damage_taken": "defense",
+  "ward": "defense",
+  "qi_mult": "qi",
+  "meditate_mult": "qi",
+  "swarm_mult": "qi",
+  "move_mult": "speed",
+  "dodge_chance": "speed",
+  "dash": "speed",
+  "craft_success": "craft",
+  "regen": "vitality",
+  "rebirth": "vitality",
+  "heal_on_kill": "vitality",
+  "loot_luck": "fortune"
+ },
+ "words": {
+  "gather": [
+   "Bring %d %s as an offering at the master's seat.",
+   "The master asks for %d %s -- gather them and keep them ready."
+  ],
+  "kill": [
+   "Honour the master's old wars: defeat %d foes on floor %d.",
+   "Clear %d of the things that stalk floor %d."
+  ],
+  "skill": [
+   "The master's way needs steady hands: reach %s level %d.",
+   "Train %s until it is level %d."
+  ],
+  "reach": [
+   "Walk down to floor %d. The master wants to know the road is open."
+  ],
+  "done": "The master's task is done. Return to the seat and accept the legacy."
+ }
+}

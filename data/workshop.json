@@ -1,0 +1,599 @@
+{
+ "note": "Round 148: the Road Workshop (a portable bench, in four stages) and the sects' techniques. Long chains; each step is a thing to do or hand in. Nothing is for sale.",
+ "max_active": 2,
+ "lines": [
+  {
+   "id": "table",
+   "name": "The Folding Table",
+   "kind": "workshop",
+   "needs": [],
+   "text": "A bench you can carry. Hale says a good one folds flat, holds an anvil's weight and costs an honest pile of materials. Gather them and learn the joinery.",
+   "steps": [
+    {
+     "kind": "give",
+     "items": {
+      "iron_ore": 6,
+      "beast_hide": 3
+     },
+     "text": "Bring Hale the stock for a frame: iron, hide for the hinges."
+    },
+    {
+     "kind": "craft",
+     "count": 6,
+     "text": "Make six things at any bench, to learn the weight of the work."
+    },
+    {
+     "kind": "give",
+     "items": {
+      "heartwood": 2,
+      "spirit_resin": 3
+     },
+     "text": "Seasoned wood and resin for the top."
+    },
+    {
+     "kind": "craft",
+     "count": 8,
+     "text": "Make eight more, harder ones (difficulty 6 or more).",
+     "min_diff": 6
+    },
+    {
+     "kind": "skill",
+     "skill": "smithing",
+     "level": 3,
+     "text": "Reach Smithing 3: the hinges have to be forged true."
+    }
+   ],
+   "reward": {
+    "unlock": "table",
+    "effects": {
+     "craft_success": 0.01
+    },
+    "text": "You can set up a folding table anywhere. Crafting on the road no longer costs you the no-bench penalty."
+   }
+  },
+  {
+   "id": "forge",
+   "name": "The Field Forge",
+   "kind": "workshop",
+   "needs": [
+    "table"
+   ],
+   "text": "A forge that fits in a pack: a firebox, a bellows of oiled hide, a pair of tongs that never leave your belt.",
+   "steps": [
+    {
+     "kind": "give",
+     "items": {
+      "slag_iron": 6,
+      "firestone": 4
+     },
+     "text": "Slag and firestone for the firebox."
+    },
+    {
+     "kind": "craft",
+     "count": 6,
+     "text": "Forge six things of some difficulty (10 or more).",
+     "min_diff": 10
+    },
+    {
+     "kind": "skill",
+     "skill": "smithing",
+     "level": 8,
+     "text": "Reach Smithing 8."
+    },
+    {
+     "kind": "give",
+     "items": {
+      "beast_hide": 8,
+      "wire_thistle": 3,
+      "spirit_resin": 4
+     },
+     "text": "Bellows leather and fine wire."
+    },
+    {
+     "kind": "depth",
+     "floor": 7,
+     "text": "Reach floor 7, where the furnace-kings keep their coal."
+    },
+    {
+     "kind": "craft",
+     "count": 10,
+     "text": "Make ten things of difficulty 20 or more, to prove the forge.",
+     "min_diff": 20
+    }
+   ],
+   "reward": {
+    "unlock": "forge",
+    "effects": {
+     "craft_success": 0.02
+    },
+    "text": "Your folding table now carries a field forge: smithing at it counts as working at a real forge, anywhere."
+   }
+  },
+  {
+   "id": "roll",
+   "name": "The Alchemist's Roll",
+   "kind": "workshop",
+   "needs": [
+    "forge"
+   ],
+   "text": "A roll of pouches, scales and lacquered paper. Pills, tonics and rune marks at a camp fire, if you can carry the reagents without ruining them.",
+   "steps": [
+    {
+     "kind": "give",
+     "items": {
+      "spirit_silk": 4,
+      "spirit_paper": 4,
+      "rime_ink": 3
+     },
+     "text": "Silk and paper for the roll itself."
+    },
+    {
+     "kind": "skill",
+     "skill": "alchemy",
+     "level": 8,
+     "text": "Reach Alchemy 8."
+    },
+    {
+     "kind": "craft",
+     "count": 8,
+     "text": "Brew eight things of difficulty 25 or more.",
+     "min_diff": 25
+    },
+    {
+     "kind": "give",
+     "items": {
+      "mirror_silver": 3,
+      "storm_glass": 3,
+      "ash_glass": 3
+     },
+     "text": "Mirror-silver and glass for the scales."
+    },
+    {
+     "kind": "depth",
+     "floor": 13,
+     "text": "Reach floor 13."
+    },
+    {
+     "kind": "craft",
+     "count": 12,
+     "text": "Make twelve things of difficulty 40 or more.",
+     "min_diff": 40
+    }
+   ],
+   "reward": {
+    "unlock": "roll",
+    "effects": {
+     "craft_success": 0.02
+    },
+    "text": "The rune table and the alchemist's bench both travel with you now."
+   }
+  },
+  {
+   "id": "master",
+   "name": "The Master's Kit",
+   "kind": "workshop",
+   "needs": [
+    "roll"
+   ],
+   "text": "Everything a master carries: a true anvil block, a ring of dies, a lens, a lamp. The materials are rare, the work is exact, and no one will hand you the last piece.",
+   "steps": [
+    {
+     "kind": "give",
+     "items": {
+      "star_iron": 4,
+      "gantry_steel": 4,
+      "brass_cog": 6
+     },
+     "text": "Star-iron and gantry steel for the anvil block."
+    },
+    {
+     "kind": "skill",
+     "skill": "smithing",
+     "level": 14,
+     "text": "Reach Smithing 14."
+    },
+    {
+     "kind": "craft",
+     "count": 10,
+     "text": "Make ten things of difficulty 50 or more.",
+     "min_diff": 50
+    },
+    {
+     "kind": "give",
+     "items": {
+      "quantum_quartz": 3,
+      "singing_crystal": 3,
+      "nanite_ingot": 3
+     },
+     "text": "Rare crystal for the lens and lamp."
+    },
+    {
+     "kind": "depth",
+     "floor": 19,
+     "text": "Reach floor 19."
+    },
+    {
+     "kind": "kills",
+     "count": 60,
+     "floor": 12,
+     "text": "Fell 60 foes from floor 12 down, with the kit on your back."
+    },
+    {
+     "kind": "craft",
+     "count": 12,
+     "text": "Make twelve things of difficulty 70 or more.",
+     "min_diff": 70
+    }
+   ],
+   "reward": {
+    "unlock": "master",
+    "effects": {
+     "craft_success": 0.03,
+     "craft_quality": 0.03
+    },
+    "text": "The Master's Kit: sturdier work and finer finish, anywhere you set it down."
+   }
+  },
+  {
+   "id": "seed",
+   "name": "The Reliable Seed",
+   "kind": "sect",
+   "needs": [
+    "table"
+   ],
+   "text": "The Lotus Ascent Academy teaches a way of building the inner world that does not wither when you look away. The Elders ask a great deal before they teach it.",
+   "steps": [
+    {
+     "kind": "rank",
+     "guild": "academy",
+     "rank": 1,
+     "text": "Become an Inner Disciple of the Lotus Ascent Academy."
+    },
+    {
+     "kind": "inner",
+     "level": 3,
+     "text": "Open your inner world to level 3: a valley."
+    },
+    {
+     "kind": "give",
+     "items": {
+      "spirit_resin": 4,
+      "heartwood": 4,
+      "verdant_heart": 1
+     },
+     "text": "Offerings for the Elder: resin, heartwood, a living heart."
+    },
+    {
+     "kind": "kills",
+     "count": 40,
+     "floor": 6,
+     "text": "Fell 40 foes from floor 6 down, and keep the beasts you meet."
+    },
+    {
+     "kind": "sit",
+     "minutes": 90,
+     "text": "Sit 90 minutes in all, so the Elder can see how you hold still."
+    },
+    {
+     "kind": "rank",
+     "guild": "academy",
+     "rank": 2,
+     "text": "Become a Core Disciple."
+    },
+    {
+     "kind": "give",
+     "items": {
+      "immortal_dust": 3,
+      "cloud_jade": 2
+     },
+     "text": "A sample of the deep stuff."
+    },
+    {
+     "kind": "inner",
+     "level": 4,
+     "text": "Grow the inner world to level 4: a small heaven."
+    }
+   ],
+   "reward": {
+    "unlock": "seed",
+    "effects": {
+     "qi_mult": 1.02
+    },
+    "text": "The Reliable Seed: the inner world grows half again as fast, holds two more beasts, gains a plot, and its workshop room opens (it adds to your crafting wherever you are)."
+   }
+  },
+  {
+   "id": "hands",
+   "name": "The Steady Hands Method",
+   "kind": "sect",
+   "needs": [
+    "forge"
+   ],
+   "text": "The Blacksmiths' Guild keeps a method that makes failure rare. It is only taught to those who have failed often enough to understand it.",
+   "steps": [
+    {
+     "kind": "rank",
+     "guild": "blacksmiths",
+     "rank": 1,
+     "text": "Become a Journeyman Smith."
+    },
+    {
+     "kind": "craft",
+     "count": 8,
+     "text": "Forge eight things of difficulty 30 or more for the guild's examiners.",
+     "min_diff": 30,
+     "skill": "smithing"
+    },
+    {
+     "kind": "give",
+     "items": {
+      "grave_steel": 4,
+      "scrap_alloy": 4
+     },
+     "text": "A guild fee, paid in steel."
+    },
+    {
+     "kind": "skill",
+     "skill": "smithing",
+     "level": 14,
+     "text": "Reach Smithing 14."
+    },
+    {
+     "kind": "rank",
+     "guild": "blacksmiths",
+     "rank": 2,
+     "text": "Become a Master Smith."
+    },
+    {
+     "kind": "craft",
+     "count": 6,
+     "text": "Forge six things of difficulty 60 or more.",
+     "min_diff": 60,
+     "skill": "smithing"
+    }
+   ],
+   "reward": {
+    "unlock": "hands",
+    "effects": {
+     "craft_success": 0.04
+    },
+    "text": "The Steady Hands Method: crafting succeeds noticeably more often."
+   }
+  },
+  {
+   "id": "step",
+   "name": "The Wayfinder's Step",
+   "kind": "sect",
+   "needs": [
+    "table"
+   ],
+   "text": "The Adventurers' Lodge trains its champions in a way of walking that wastes nothing. They want proof you have walked far.",
+   "steps": [
+    {
+     "kind": "rank",
+     "guild": "adventurers",
+     "rank": 2,
+     "text": "Become a Vanguard of the Lodge."
+    },
+    {
+     "kind": "depth",
+     "floor": 12,
+     "text": "Reach floor 12."
+    },
+    {
+     "kind": "kills",
+     "count": 80,
+     "floor": 10,
+     "text": "Fell 80 foes from floor 10 down."
+    },
+    {
+     "kind": "give",
+     "items": {
+      "storm_glass": 3,
+      "thunder_iron": 3
+     },
+     "text": "Storm-glass and thunder-iron for the old compass."
+    },
+    {
+     "kind": "depth",
+     "floor": 16,
+     "text": "Reach floor 16."
+    },
+    {
+     "kind": "rank",
+     "guild": "adventurers",
+     "rank": 3,
+     "text": "Become a Pathfinder."
+    }
+   ],
+   "reward": {
+    "unlock": "step",
+    "effects": {
+     "move_mult": 1.05,
+     "sense_radius": 1.0
+    },
+    "text": "The Wayfinder's Step: you move a little faster and sense a little further."
+   }
+  },
+  {
+   "id": "breath",
+   "name": "The Hearth-Fire Breath",
+   "kind": "sect",
+   "needs": [
+    "roll"
+   ],
+   "text": "The Alchemists' Circle burns a small fire at the centre of the body. The breath that tends it is taught only to those who can brew what it burns.",
+   "steps": [
+    {
+     "kind": "rank",
+     "guild": "alchemists",
+     "rank": 1,
+     "text": "Become a Refiner of the Circle."
+    },
+    {
+     "kind": "craft",
+     "count": 10,
+     "text": "Brew ten things of difficulty 45 or more.",
+     "min_diff": 45,
+     "skill": "alchemy"
+    },
+    {
+     "kind": "give",
+     "items": {
+      "cryo_lotus": 3,
+      "lunar_lichen": 3,
+      "reactor_ember": 2
+     },
+     "text": "Lotus, lichen and ember for the first coal."
+    },
+    {
+     "kind": "skill",
+     "skill": "alchemy",
+     "level": 14,
+     "text": "Reach Alchemy 14."
+    },
+    {
+     "kind": "rank",
+     "guild": "alchemists",
+     "rank": 2,
+     "text": "Become a Pill Master."
+    }
+   ],
+   "reward": {
+    "unlock": "breath",
+    "effects": {
+     "qi_mult": 1.06,
+     "regen": 0.2
+    },
+    "text": "The Hearth-Fire Breath: qi comes more easily and a little life returns as you go."
+   }
+  },
+  {
+   "id": "eye",
+   "name": "The Gatherer's Eye",
+   "kind": "sect",
+   "needs": [
+    "table"
+   ],
+   "text": "The Gatherers' Hall can read a hillside. They teach it to those who have walked a thousand hillsides.",
+   "steps": [
+    {
+     "kind": "rank",
+     "guild": "gatherers",
+     "rank": 1,
+     "text": "Become a Picker."
+    },
+    {
+     "kind": "give",
+     "items": {
+      "halcyon_basil": 3,
+      "lumen_fern": 3,
+      "mirage_bloom": 2
+     },
+     "text": "Rare herbs for the Hall's pressed book."
+    },
+    {
+     "kind": "kills",
+     "count": 50,
+     "floor": 8,
+     "text": "Fell 50 foes from floor 8 down, gathering as you go."
+    },
+    {
+     "kind": "rank",
+     "guild": "gatherers",
+     "rank": 2,
+     "text": "Become a Prospector."
+    },
+    {
+     "kind": "depth",
+     "floor": 14,
+     "text": "Reach floor 14."
+    }
+   ],
+   "reward": {
+    "unlock": "eye",
+    "effects": {
+     "gather_chance": 0.06,
+     "gather_bonus": 0.25
+    },
+    "text": "The Gatherer's Eye: more finds from every plant and vein."
+   }
+  },
+  {
+   "id": "heaven",
+   "name": "The World-Seed",
+   "kind": "sect",
+   "needs": [
+    "seed",
+    "master"
+   ],
+   "text": "There is a technique older than the sects: the world-seed, from which a hidden world is raised in one lifetime. The Lotus Elders know a page of it. The Masters know another. Each asks for the rarest things.",
+   "steps": [
+    {
+     "kind": "rank",
+     "guild": "academy",
+     "rank": 3,
+     "text": "Become a True Disciple."
+    },
+    {
+     "kind": "inner",
+     "level": 5,
+     "text": "Grow the inner world to level 5: a living realm."
+    },
+    {
+     "kind": "give",
+     "items": {
+      "dragon_scale_shard": 4,
+      "drake_blood": 3,
+      "immortal_dust": 6
+     },
+     "text": "Dragon, drake and the dust of immortals."
+    },
+    {
+     "kind": "kills",
+     "count": 150,
+     "floor": 16,
+     "text": "Fell 150 foes from floor 16 down."
+    },
+    {
+     "kind": "sit",
+     "minutes": 300,
+     "text": "Sit 300 minutes in all."
+    },
+    {
+     "kind": "give",
+     "items": {
+      "true_reflection": 1,
+      "imperial_seal": 1,
+      "emperor_jade": 2
+     },
+     "text": "A mirror that does not lie, and a seal that cannot be forged."
+    },
+    {
+     "kind": "depth",
+     "floor": 25,
+     "text": "Reach floor 25."
+    },
+    {
+     "kind": "inner",
+     "level": 6,
+     "text": "Grow the inner world to level 6: a hidden world."
+    },
+    {
+     "kind": "rank",
+     "guild": "academy",
+     "rank": 4,
+     "text": "Become the Elder's Chosen."
+    }
+   ],
+   "reward": {
+    "unlock": "heaven",
+    "effects": {
+     "insight_mult": 1.05,
+     "qi_mult": 1.03
+    },
+    "text": "The World-Seed: the inner world's gifts are half again stronger, its levels run to the top, and your insight comes a little easier."
+   }
+  }
+ ]
+}

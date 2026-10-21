@@ -1,0 +1,44 @@
+{
+ "_note": "Round 63: downtime that's worth something and can't be gamed (scripts/systems/Pursuit.gd). idle_after_s: no input this long (and nothing hunting you) and your character takes up the pursuit at the keys. The pursuit bank: hours in hand, up to bank_max_h, refilling bank_refill_per_h an hour (about 10 a day), spent 1:1 by pursuing -- open or closed. tiers: [hours into a stretch, share an hour gives]. clock_slack_s: how far the clock may read behind the high-water mark before away time stops counting. step_min: the report's steps. count_max_h: the most away time worked through. moments: our lines about a pursuit, used until Dev's pursuit_moments drafts exist.",
+ "idle_after_s": 90,
+ "afk_step_s": 10,
+ "afk_clear_m": 18,
+ "start_bank_h": 6,
+ "bank_max_h": 12,
+ "bank_refill_per_h": 0.42,
+ "tiers": [
+  [
+   2,
+   1.0
+  ],
+  [
+   6,
+   0.75
+  ],
+  [
+   9999,
+   0.5
+  ]
+ ],
+ "clock_slack_s": 300,
+ "step_min": 15,
+ "count_max_h": 48,
+ "moments": {
+  "meditate": [
+   "Somewhere in the second hour the breath stopped being something you did.",
+   "A bird landed on your knee and stayed a while."
+  ],
+  "train": [
+   "You ran the same form until your feet stopped asking where to go.",
+   "A child watched you practise, then copied you badly, then less badly."
+  ],
+  "gather": [
+   "You found a patch nobody had picked in years.",
+   "Rain came; you sheltered under a ledge and sorted what you had."
+  ],
+  "craft": [
+   "The bench found its rhythm and you followed it.",
+   "You ruined one, swore, and the next came out better for it."
+  ]
+ }
+}

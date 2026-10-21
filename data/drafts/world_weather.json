@@ -1,0 +1,58 @@
+{
+  "brief": "world_weather",
+  "title": "Weather above, currents below",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "text": "Clear skies. The first expedition left forty winters past, but only one returned.",
+      "id": "weather_01"
+    },
+    {
+      "id": "weather_currents",
+      "text": "Thunder over the valley. Lightning in the blood: telling blows land more often."
+    },
+    {
+      "text": "A cold wind brings the leaves down. The valley folk know a chill in the air means the deeper currents stir with life."
+    },
+    {
+      "text": "Steady rain. The herbs drink it up."
+    },
+    {
+      "id": "weather_currents",
+      "text": "A cold wind brings the leaves down. The deep is quiet. A cool mist of loose qi drifts through the halls. Breathe deep."
+    },
+    {
+      "text": "Thunder over the valley. Lightning in the blood: telling blows land more often."
+    },
+    {
+      "text": "A cold wind brings the leaves down. Elder Mo's study in the old lodge is full of scrolls and secrets. Look behind the falling leaves, and you'll find a hidden door with a keyhole."
+    },
+    {
+      "id": "weather",
+      "text": "Steady rain. The herbs drink it up."
+    },
+    {
+      "text": "Thunder over the valley. Lightning in the blood: telling blows land more often."
+    },
+    {
+      "text": "Steady rain. The herbs drink it up. The valley's quiet, but underfoot, the stone stirs with the old rhythms: a tremor now and then means loose ore. Gather carefully.",
+      "id": "weather_and_deep"
+    },
+    {
+      "id": "weather",
+      "text": "Steady rain. The herbs drink it up."
+    },
+    {
+      "text": "Cold seep. The stone feels the chill, slowing those who dig and delve."
+    },
+    {
+      "id": "13",
+      "text": "The deep is quiet. Listen for the shifting of the tortoise's breath. Shellhaven may be still, but the tortoise never sleeps."
+    },
+    {
+      "text": "Thick fog. Your spirit sense reaches further when your eyes can't."
+    }
+  ],
+  "helped": []
+}

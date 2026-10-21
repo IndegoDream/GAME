@@ -1,0 +1,25 @@
+{
+  "brief": "festivals",
+  "title": "Eliet's festivals",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "lantern",
+      "text": "Eliet hangs paper lanterns for everyone who went down and came back. The traders give a little off, and the elder has a gift for those who walk the deep."
+    },
+    {
+      "id": "ember",
+      "text": "Bonfires in the square, and the smiths show off. A night for blades and bragging."
+    },
+    {
+      "id": "harvest_moon",
+      "text": "The whole village eats together under the big moon. The traders' carts are full and the prices are kind."
+    },
+    {
+      "id": "long_night",
+      "text": "Candles in every window until dawn, for the ones who didn't come back. A night to sit and remember."
+    }
+  ],
+  "helped": []
+}

@@ -1,0 +1,501 @@
+{
+  "id": "floor8",
+  "name": "Floor 8, The Terracotta Barrows",
+  "theme": "dungeon",
+  "depth": 8,
+  "ambient": [
+    0.45,
+    0.38,
+    0.3
+  ],
+  "enemies": {
+    "u": "clay_soldier",
+    "v": "clay_cavalier",
+    "X": "buried_emperor",
+    "q": "burrow_mole"
+  },
+  "layout": {
+    "seed": 8,
+    "corridor_traps": 3,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Barrow Stair",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "u",
+          "x"
+        ]
+      },
+      {
+        "name": "The First Rank",
+        "size": [
+          20,
+          6
+        ],
+        "has": [
+          "L*3",
+          "u*3",
+          "c*4"
+        ]
+      },
+      {
+        "name": "The Second Rank",
+        "size": [
+          20,
+          6
+        ],
+        "has": [
+          "L*3",
+          "u*3",
+          "v"
+        ]
+      },
+      {
+        "name": "The Chariot Pit",
+        "size": [
+          14,
+          10
+        ],
+        "has": [
+          "L*2",
+          "v*2",
+          "b*2",
+          "x*2",
+          "C"
+        ]
+      },
+      {
+        "name": "The Clay Armoury",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L*2",
+          "c*2",
+          "u*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Kiln Hall",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "u",
+          "o*3",
+          "x*2"
+        ]
+      },
+      {
+        "name": "The Mole Warren",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L",
+          "q*2",
+          "h*3",
+          "o*2"
+        ]
+      },
+      {
+        "name": "The Jade Quarry",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "^*2",
+          "o*3",
+          "u*2"
+        ]
+      },
+      {
+        "name": "The General's Tent",
+        "size": [
+          7,
+          6
+        ],
+        "secret": true,
+        "has": [
+          "L",
+          "R",
+          "V",
+          "=*2"
+        ]
+      },
+      {
+        "name": "The Hall of Offerings",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*3",
+          "Y",
+          "b*2",
+          "?",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Hall of Ministers",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "u*2",
+          "v",
+          "c*2"
+        ]
+      },
+      {
+        "name": "The Collapsed Barrow",
+        "size": [
+          9,
+          8
+        ],
+        "has": [
+          "L",
+          "x*4",
+          "u*2",
+          "K"
+        ]
+      },
+      {
+        "name": "The Spirit Road",
+        "size": [
+          18,
+          5
+        ],
+        "has": [
+          "L*3",
+          "v*2",
+          "=*4"
+        ]
+      },
+      {
+        "name": "The Buried Treasury",
+        "size": [
+          11,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "u*2",
+          "E",
+          "F"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Clay Oracle",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "u*2",
+          "v",
+          "G",
+          "J"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Potter's Dream",
+        "size": [
+          11,
+          6
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "u*2",
+          "v",
+          "M",
+          "N"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Quiet Grotto",
+        "size": [
+          8,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "u*2",
+          "v",
+          "O",
+          "Q"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Buried Emperor's Tomb",
+        "size": [
+          16,
+          12
+        ],
+        "has": [
+          "L*4",
+          "X",
+          ">",
+          "u*2",
+          "c*6"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "ancient_clay": [
+          2,
+          4
+        ],
+        "gold": [
+          60,
+          100
+        ]
+      },
+      "note": "a charioteer's war chest"
+    },
+    "D": {
+      "loot": {
+        "ancient_clay": [
+          1,
+          3
+        ],
+        "emperor_jade": [
+          0,
+          1
+        ]
+      },
+      "note": "a rack-master's clay coffer"
+    },
+    "V": {
+      "loot": {
+        "emperor_jade": [
+          2,
+          3
+        ],
+        "earthmarrow_pill": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "gold": [
+          180,
+          300
+        ],
+        "random_gear": [
+          1,
+          1
+        ]
+      },
+      "note": "the general's campaign chest"
+    },
+    "K": {
+      "loot": {
+        "emperor_jade": [
+          1,
+          2
+        ],
+        "gold_nugget": [
+          1,
+          3
+        ]
+      },
+      "note": "a grave-robber's stash, never collected",
+      "hidden": true
+    },
+    "E": {
+      "loot": {
+        "gold": [
+          64,
+          120
+        ],
+        "ancient_clay": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Buried Treasury"
+    },
+    "G": {
+      "loot": {
+        "gold": [
+          64,
+          120
+        ],
+        "emperor_jade": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Clay Oracle"
+    },
+    "M": {
+      "loot": {
+        "gold": [
+          64,
+          120
+        ],
+        "earthmarrow_pill": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in Potter's Dream"
+    },
+    "O": {
+      "loot": {
+        "gold": [
+          64,
+          120
+        ],
+        "breakthrough_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Quiet Grotto"
+    }
+  },
+  "lore": {
+    "Y": {
+      "title": "The Emperor's Decree",
+      "text": "BY ORDER: the army shall stand guard in death as in life. Every soldier shall be made in the likeness of a living man. Every living man shall be made into a soldier. -- the Third Year of the Endless Reign."
+    },
+    "R": {
+      "title": "The General's Drill Book",
+      "teaches": "terracotta_stance",
+      "text": "Lesson one: a soldier who cannot be moved cannot be beaten. Plant your feet as if you had been fired in a kiln. Let them strike; clay does not flinch. Lesson two: do not become clay. The Emperor's soldiers forgot lesson two."
+    },
+    "F": {
+      "title": "The Lost Wealth",
+      "text": "Here lies the forgotten riches of ancient rulers, buried with their dreams and ambitions. Coins and jewels, once symbols of power and prestige, now rest silently under layers of earth and time."
+    },
+    "J": {
+      "title": "Whispers of the Ancients",
+      "text": "Here, the shadows hold the secrets of the Terracotta Army. At night, one can hear the faint murmurings of past generals, their voices carried by the cool, damp air of the crypt."
+    },
+    "N": {
+      "title": "The Offering to the Earth Spirits",
+      "text": "Here, the ancient priests would lay offerings to the earth spirits, hoping for bountiful harvests and protection from the gods. The clay altar, worn smooth by countless hands, bears the marks of both joyous celebrations and solemn prayers."
+    },
+    "Q": {
+      "title": "The Echo of the Earth",
+      "text": "Here, the spirits of the ancient potters linger, their whispers carried by the winds that pass through the cracks in the walls. The clay beneath your feet seems to pulse with their ancient secrets and the tales of a world long buried."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Offering Bowl",
+      "question": "I was dug from the earth, shaped by hands, baked in fire and given a face. I have stood a thousand years and never taken a step. What am I?",
+      "options": [
+        "A statue of the Emperor",
+        "A clay soldier",
+        "A kiln"
+      ],
+      "answer": 1,
+      "reward": {
+        "items": {
+          "earthmarrow_pill": 1
+        },
+        "qi": 450
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor7",
+      "arrive": ">",
+      "label": "Up to the Ember Forges",
+      "down": false
+    },
+    ">": {
+      "to": "floor9",
+      "arrive": "<",
+      "label": "Down to the Sword Grave"
+    }
+  },
+  "refined": {
+    "passes": 9,
+    "rooms_added": 4,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-04T07:06:58"
+  },
+  "map": [
+    "",
+    "                                                           ..L..L..L...",
+    "                                                           .b....h.....   ........L.",
+    "                                                           ............   .c.....uv.              ..u..h.....",
+    "                                                           ...?........   .......u..              ..F....h...   ...L.Ju..",
+    "                                     .....................S.b.......................              L.....u....   .v.......",
+    "                                     .                     ....h.......   .c.......L              .....E.....   ..o......",
+    "                                     S                     ..Y.........   ..........              ...............G...o...",
+    " ........L...........      .....L..............            ............   ..........              ...........   ......u..",
+    " .c.....c.....c..c...      ....................            ............        ......             L..........   .L.......",
+    " ....................      ...........u...u....                  .                  .             ...........       .....",
+    " ..u.........u...................v.............                  .                  .                  .                .",
+    " ....................      ....................                  .                  .                  .                .",
+    " u..L...........L....      ............L...u..L                  .                  .                  .                .",
+    "           .                         .                           .                  .                  .                .",
+    "           .                         .                           .              .........              ..               .        ..Lh....",
+    "           .                         .                     ............         Kx.....x.      .....=L....=......  .L.......h.   L.......",
+    "           .                  ..............               ....o....... ....... .........      ..v...............  ..u........   .O....Qv",
+    "       ........L              .......x.....v    .......... L.....o..... ....... .................................  L.......N..   ........",
+    "       .........              ..............    Lc........ ......^.....S.V..... .x...u.x..     ....v.............  ............TT........",
+    "       .........              ..............    .......D.. ........u.u. .R....= .........      .....=L.....=..L..  ......v....   ....u...",
+    "       ....u...L              .b..x.........    .......... ............ ....... .........                          ......^.Mu.   ...h....",
+    "       .......x.              ..............T....c........ o........... .=....L ..u..L...                                        ..u.....",
+    "       <........              ..............    .....u.... ..L........^                                                              .",
+    "                              ....b.........    L.........       .                                                                   .",
+    "                              .............L    .......u..       .                                                                   .",
+    "                              ....L.....C.v.         .           .                                                           .....L.........L",
+    "                                                     .           .                                                           .c.uc...........",
+    "                                                     .           .                                                           ..u.............",
+    "                                                     .           .                                                           .........X......",
+    "                                                ........o.   .........                                                       L......c..c.....",
+    "                                                L...x.....   .........                                                       ................",
+    "                                                ...o......   .....oh..                                                       ...............L",
+    "                                                ..............q.......                                                       ..........c.....",
+    "                                                .x...o..u.   .....o...                                                       ................",
+    "                                                L.........   ........q                                                       ................",
+    "                                                ..........   L.h...h..                                                       ..........c.....",
+    "                                                                                                                             >...............",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

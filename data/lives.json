@@ -1,0 +1,20 @@
+{
+ "_about": "Round 121: the end-of-life summary (scripts/systems/Lives.gd). When you fall, a card says what this life did, what you were nearly at, and one thing to try. tips: keywords are matched against what killed you.",
+ "title": "This life, in short",
+ "min_seconds_for_card": 20,
+ "tips": [
+  {"words": ["heavy", "slam", "stamp", "sweep", "charge"], "text": "A big blow shows a ring first. Roll through it (Ctrl) or parry it (tap right mouse / GRD) -- blocking won't stop it."},
+  {"words": ["poison", "venom"], "text": "Poison ticks for a few seconds. A salve (1) mends it; keep one for fights with green-tinted foes."},
+  {"words": ["burn", "fire", "lava", "ember"], "text": "Fire keeps hurting while you stand in it. Step out, and don't fight on the glowing floor."},
+  {"words": ["trap", "spike", "dart"], "text": "Traps are spotted by walking slowly or with sense. A Delver path and Spirit Sense both help."},
+  {"words": ["arrow", "bolt", "ki", "shot"], "text": "Ranged foes lose to cover. Break their line with a wall, then close in -- or answer with a bow of your own."},
+  {"words": ["boss", "master", "chief", "lord", "warden", "mother"], "text": "A master changes at two thirds and a third of its health. Learn its first big move, then fight in the quiet after it."}
+ ],
+ "general_tips": [
+  "A salve (1) heals in a fight; a qi pill (2) does not. Drink before you are in trouble, not once you are.",
+  "Retreat is a move. A foe that loses you stops hunting; come back with full health.",
+  "Parry staggers a foe and opens it to harder hits. Tap guard just as the blow lands.",
+  "Your Path's art (key 6) is a few seconds of being much better at your job. Use it at the start of a hard fight.",
+  "Sitting (M) at a shrine heals and gathers qi; do it before a master, not after."
+ ]
+}

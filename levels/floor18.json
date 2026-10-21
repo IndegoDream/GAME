@@ -1,0 +1,597 @@
+{
+  "id": "floor18",
+  "name": "Floor 18, The Fallen Star Mine",
+  "theme": "dungeon",
+  "depth": 18,
+  "ambient": [
+    0.45,
+    0.42,
+    0.6
+  ],
+  "forged": {
+    "region": "starmine",
+    "cycle": 0,
+    "size": 1.0
+  },
+  "enemies": {
+    "g": "starmine_weak_f18",
+    "k": "starmine_brute_f18",
+    "B": "starmine_boss_f18",
+    "a": "starmine_animal_f18"
+  },
+  "layout": {
+    "seed": 18,
+    "corridor_traps": 3,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Crater Stair",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "x*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Main Shaft",
+        "size": [
+          20,
+          6
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "x*4"
+        ]
+      },
+      {
+        "name": "The Ferret Holes",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L",
+          "a*2",
+          "h*3"
+        ]
+      },
+      {
+        "name": "The Starlight Gallery",
+        "size": [
+          14,
+          9
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "b*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Ore Carts",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L",
+          "b*3",
+          "C",
+          "g"
+        ]
+      },
+      {
+        "name": "The Miners' Warren",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Astronomer's Puzzle",
+        "size": [
+          7,
+          7
+        ],
+        "has": [
+          "L*2",
+          "?",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Impact Cavern",
+        "size": [
+          18,
+          12
+        ],
+        "has": [
+          "L*4",
+          "g*2",
+          "k",
+          "x*4",
+          "h*2",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Foreman's Log",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "A",
+          "b*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Collapsed Drift",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "L",
+          "g",
+          "E"
+        ]
+      },
+      {
+        "name": "The Star-Iron Seam",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L",
+          "^*2",
+          "o*3",
+          "g"
+        ]
+      },
+      {
+        "name": "The Star's Heart Chamber",
+        "size": [
+          7,
+          6
+        ],
+        "has": [
+          "L",
+          "R",
+          "V",
+          "I"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Miners' Chapel",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "Z",
+          "L*2",
+          "h*2"
+        ]
+      },
+      {
+        "name": "Starlit Pinnacles",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "F",
+          "G"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Starvein Crucible",
+        "size": [
+          11,
+          7
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "J",
+          "M"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Galactic Vein",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k",
+          "N",
+          "O"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Narrow Alcove",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k",
+          "Q",
+          "U"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Sealed Undercroft",
+        "size": [
+          14,
+          7
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "W",
+          "X"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Flooded Cistern",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Heart of the Fallen Star",
+        "size": [
+          16,
+          12
+        ],
+        "has": [
+          "L*4",
+          "B",
+          ">",
+          "k",
+          "x*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "star_iron": [
+          2,
+          3
+        ],
+        "gold": [
+          108,
+          180
+        ]
+      },
+      "note": "a miner's lunch-crate"
+    },
+    "D": {
+      "loot": {
+        "meteor_glass": [
+          1,
+          2
+        ],
+        "starmine_pill_f18": [
+          0,
+          1
+        ],
+        "gold": [
+          90,
+          162
+        ]
+      },
+      "note": "an ore cart, tipped and loaded"
+    },
+    "E": {
+      "loot": {
+        "star_iron": [
+          1,
+          2
+        ],
+        "starmine_pill_f18": [
+          1,
+          1
+        ],
+        "random_weapon": [
+          0,
+          1
+        ]
+      },
+      "note": "a foreman's safe",
+      "hidden": true
+    },
+    "V": {
+      "loot": {
+        "star_iron": [
+          3,
+          4
+        ],
+        "meteor_glass": [
+          2,
+          3
+        ],
+        "starmine_pill_f18": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "random_gear": [
+          1,
+          1
+        ],
+        "gold": [
+          270,
+          450
+        ]
+      },
+      "note": "a chest made of star-iron"
+    },
+    "F": {
+      "loot": {
+        "gold": [
+          144,
+          270
+        ],
+        "star_iron": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Starlit Pinnacles"
+    },
+    "J": {
+      "loot": {
+        "gold": [
+          144,
+          270
+        ],
+        "meteor_glass": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Starvein Crucible"
+    },
+    "N": {
+      "loot": {
+        "gold": [
+          144,
+          270
+        ],
+        "starmine_pill_f18": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in Galactic Vein"
+    },
+    "Q": {
+      "loot": {
+        "gold": [
+          144,
+          270
+        ],
+        "breakthrough_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Narrow Alcove"
+    },
+    "W": {
+      "loot": {
+        "gold": [
+          144,
+          270
+        ],
+        "star_iron": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Sealed Undercroft"
+    }
+  },
+  "lore": {
+    "A": {
+      "title": "The Foreman's Log",
+      "text": "The star fell before there were sects. We dig it because it is the finest iron there is. The men who dig too deep come back up humming, with stars in their eyes. Then they stop coming back up."
+    },
+    "Y": {
+      "title": "A Prayer Chalked at the Shaft",
+      "text": "Star above, you fell for us. Don't make us fall for you. Keep the roof up, keep the air sweet, and let us go home humming only the songs we came down with."
+    },
+    "R": {
+      "title": "The Star's Heart Chamber",
+      "text": "The oldest miners say the star is not dead, only sleeping, and that whoever sits by its heart long enough grows heavy with its iron. They are right.",
+      "teaches": "starmine_art"
+    },
+    "G": {
+      "title": "Whispers of the Ancients",
+      "text": "In the shadows of the towering spires, miners whisper tales of the fallen star's secrets. Echoes of ancient chants can be heard at midnight, guiding those who dare to listen deeper into the mysteries of the mine."
+    },
+    "M": {
+      "title": "The Relic of Blacksmith Varrick",
+      "text": "Here, in the shadows of the mine, the ancient forge of Varrick still smokes, a testament to his lost art. Legend whispers that his spirit haunts this place, guiding the hammer of any who dare to shape star-iron."
+    },
+    "O": {
+      "title": "The Legend of the Lost Lode",
+      "text": "Here, miners whisper of a vein of star-iron, hidden deep within the fallen star's core. Legends speak of its discovery and subsequent mysterious disappearance, leaving only tales and the occasional shimmer of metal dust in the air."
+    },
+    "U": {
+      "title": "The Echo of the Fallen",
+      "text": "Miners whisper tales of a voice that echoes through these tunnels, a remnant of the star that once fell. Some say it guides lost souls back to the surface, others that it foretells the fate of the mine."
+    },
+    "X": {
+      "title": "A Miner's Solitude",
+      "text": "Lonely miners carved messages into the walls, sharing tales of home and dreams of escape, their voices echoing through the darkness."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Riddle of Impact Cavern",
+      "question": "I fell from the sky but I am not rain, I burned on the way but I am not ash. What am I?",
+      "options": [
+        "A meteor",
+        "A bird",
+        "Lightning"
+      ],
+      "answer": 0,
+      "reward": {
+        "items": {
+          "starmine_pill_f18": 1
+        },
+        "qi": 40333
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor17",
+      "arrive": ">",
+      "label": "Up to floor 17",
+      "down": false
+    },
+    ">": {
+      "to": "floor19",
+      "arrive": "<",
+      "label": "Down to floor 19"
+    }
+  },
+  "inheritances": {
+    "I": {
+      "master": "the First Miner",
+      "hidden": true,
+      "needs_realm": 5,
+      "text": "An old miner sits by the glowing heart, eyes full of stars. \"I dug it up. I should have left it. Take my pick and my iron -- and don't stay too long.\"",
+      "grants": {
+        "items": {
+          "meteor_hammer_f18@masterwork": 1
+        },
+        "qi": 60500
+      }
+    }
+  },
+  "refined": {
+    "passes": 15,
+    "rooms_added": 6,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-05T17:13:37"
+  },
+  "map": [
+    "",
+    "                         .D......g.....",
+    "                         .......b..b...      ..........",
+    "                         ..............      .b........",
+    "                         ..............      ..g.......",
+    "       <..L.L..          ..............................",
+    "       .x......          ........k.....      .b....Cb..",
+    "       ........          ............g.      ..........",
+    "       g.......          L.............      ........L.",
+    "       ....x...          L.............           .",
+    "       ........                 T                 .",
+    "           .                    .                 .",
+    "           .                    .                 .",
+    "           .                    .                 .",
+    "           .               ..........        L.........     .?.....",
+    " .....L............L.      ..........        ..g......g     ......L                      ........    ..h.....",
+    " .......x..x.........      ........h.        ..........     .......          ........    g.......    L.....h.        h..NL....    ......L.L.",
+    " ....................     ........h..        ............T.........          ....Eg..    .o...^o.    ........        .....k...    .g.h......",
+    " ..........g.....g...................        ..........     ....h..          ................................        L....^O..    .......k..",
+    " .x..........g...x...      ......a.h.        ....h.....     ...h...          .........   ..o.....    .....Z.L        g....g.................",
+    " ...L................      ...L...a..        .......g..     L......          ........    .......^    ........        .........    .....g...U",
+    "                                                               .             ......L.    .....L..    ........        .........    ..........",
+    "                                                               .                 .          S            .           .........    .Q......h.",
+    "                                                               .                 .       .......         .               .             .",
+    "                                                      .L.........Y..L...         .       .......         .               .             .",
+    "                                                      ....xk....x.......         .       L......         T               .             .",
+    "                                                      L.................    ..........   ....V..         .               .             .",
+    "                                                      h.g...............    .b.....b..   R......         .               .             .",
+    "                                                      L...............x.    ..........   ......I   ...........h     ...........        .           .......L....",
+    "                                                      ..............................g.             F...G.....g.     Lg.k....... L....o......X.     .........^..",
+    "                                                      ..........g........   ..........             ............     ........M.o .......g...W.L     ............",
+    "                                                      ..................    ..........             ............    ............ ..............     .....g...kh.",
+    "                                                      ..............h...    .A......LL             ........g...............o... .......k.......................",
+    "                                                      ..................                           ............     ........... ..............     ............",
+    "                                                      .x................                           ............     .LJ...g.... ...........g.o     .....g......",
+    "                                                      ..................                           ..LLh.......                 ..............     .L..........",
+    "                                                               S                                                                                         .",
+    "                                                               .                                                                                         .",
+    "                                                               .                                                                                         .",
+    "                                                               .                                                                                         .",
+    "                                                               .                                                                                         .",
+    "                                                               .                                                                                 ................",
+    "                                                               .                                                                                 L...x..x........",
+    "                                                               .                                                                                 ................",
+    "                                                               .                                                                                 ................",
+    "                                                               .                                                                                 .B..............",
+    "                                                               .                                                                                 ................",
+    "                                                               .................................................................................S................",
+    "                                                                                                                                                 ....x..x........",
+    "                                                                                                                                                 L...k...........",
+    "                                                                                                                                                 ................",
+    "                                                                                                                                                 ................",
+    "                                                                                                                                                 ..L..........L.>",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

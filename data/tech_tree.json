@@ -1,0 +1,1424 @@
+{
+ "_about": "Round 40 (Robert: 'growing your own swarm, it would be nice to utilize them as a utility ... build its own skill tree, be able to design different nanites for different functions, cost qi and resources to research and connect while meditating ... a research tree for splitting the mind or diverting the nanites' function on more than one thing at a time. Wetware, hardware, cybernetics and power armor come into play in late game. The game should feel more techy as we get further on but qi and equipment still matter. Build it modular.'). ONE ENGINE (scripts/systems/Research.gd) reads this file: add a node here and it's in the game. Kinds: design (connected into the swarm's BANDWIDTH, runs on qi upkeep, can be TUNED with a material), passive (always on once researched), unlock (opens a feature: split meditation, background work), install (wetware / hardware / cybernetics / power armour: costs BODY LOAD, which grows with your realm and how clean your meridians are). Research takes sitting time (Research as your meditation focus), qi (a share of a step, paid at the start) and materials. Connecting, tuning and installing are done while you sit.",
+ "branches": {
+  "mending": {
+   "name": "Mending",
+   "color": [
+    0.5,
+    1.0,
+    0.6
+   ],
+   "desc": "nanites that heal"
+  },
+  "guarding": {
+   "name": "Guarding",
+   "color": [
+    0.6,
+    0.8,
+    1.0
+   ],
+   "desc": "nanites that take the blow"
+  },
+  "hunting": {
+   "name": "Hunting",
+   "color": [
+    1.0,
+    0.55,
+    0.4
+   ],
+   "desc": "nanites that cut"
+  },
+  "scouting": {
+   "name": "Scouting",
+   "color": [
+    0.9,
+    0.9,
+    0.5
+   ],
+   "desc": "nanites that look and listen and find"
+  },
+  "crafting": {
+   "name": "Crafting",
+   "color": [
+    0.85,
+    0.7,
+    0.5
+   ],
+   "desc": "nanites that make"
+  },
+  "conduit": {
+   "name": "Conduit",
+   "color": [
+    0.6,
+    1.0,
+    1.0
+   ],
+   "desc": "nanites that work with your qi -- what they were made for"
+  },
+  "mind": {
+   "name": "Divided Mind",
+   "color": [
+    0.85,
+    0.7,
+    1.0
+   ],
+   "desc": "thinking of more than one thing at once"
+  },
+  "wetware": {
+   "name": "Wetware",
+   "color": [
+    1.0,
+    0.6,
+    0.8
+   ],
+   "desc": "living upgrades grown into the body",
+   "late": true
+  },
+  "hardware": {
+   "name": "Hardware",
+   "color": [
+    0.75,
+    0.78,
+    0.85
+   ],
+   "desc": "metal and fibre in place of flesh",
+   "late": true
+  },
+  "cybernetics": {
+   "name": "Cybernetics",
+   "color": [
+    0.5,
+    0.85,
+    1.0
+   ],
+   "desc": "machines that replace what you were born with",
+   "late": true
+  },
+  "armour": {
+   "name": "Power Armour",
+   "color": [
+    1.0,
+    0.8,
+    0.4
+   ],
+   "desc": "a frame the swarm wears with you",
+   "late": true
+  },
+  "constructs": {
+   "name": "Constructs",
+   "color": [
+    0.8,
+    0.7,
+    0.5
+   ],
+   "desc": "things you build that serve"
+  }
+ },
+ "nodes": {
+  "clotting_swarm": {
+   "name": "Clotting Swarm",
+   "branch": "mending",
+   "kind": "design",
+   "desc": "Nanites that crowd a wound and hold it shut.",
+   "cost": {
+    "seconds": 600,
+    "qi": 0.05,
+    "items": {
+     "nanite_shard": 2,
+     "spirit_herb": 3
+    }
+   },
+   "effect": {
+    "regen": 0.3
+   },
+   "bandwidth": 1,
+   "upkeep": 1
+  },
+  "marrow_menders": {
+   "name": "Marrow Menders",
+   "branch": "mending",
+   "kind": "design",
+   "desc": "They rebuild bone from the inside, a little stronger than it was.",
+   "cost": {
+    "seconds": 1800,
+    "qi": 0.1,
+    "items": {
+     "nanite_shard": 4,
+     "bone_shard": 6
+    }
+   },
+   "effect": {
+    "hp_mult": 1.06,
+    "regen": 0.3
+   },
+   "requires": [
+    "clotting_swarm"
+   ],
+   "gate": {
+    "tier": 2
+   },
+   "bandwidth": 2,
+   "upkeep": 1
+  },
+  "field_surgeons": {
+   "name": "Field Surgeons",
+   "branch": "mending",
+   "kind": "design",
+   "desc": "Every kill is a moment's pause, and they use it.",
+   "cost": {
+    "seconds": 3600,
+    "qi": 0.15,
+    "items": {
+     "nanite_shard": 6,
+     "bloodsap": 2
+    }
+   },
+   "effect": {
+    "heal_on_kill": 6
+   },
+   "requires": [
+    "marrow_menders"
+   ],
+   "gate": {
+    "tier": 4
+   },
+   "bandwidth": 2,
+   "upkeep": 2
+  },
+  "phoenix_lattice": {
+   "name": "Phoenix Lattice",
+   "branch": "mending",
+   "kind": "design",
+   "desc": "A second skeleton of light under the first. It catches what would break you.",
+   "cost": {
+    "seconds": 9000,
+    "qi": 0.3,
+    "items": {
+     "nanite_shard": 12,
+     "sovereign_ember": 1
+    }
+   },
+   "effect": {
+    "damage_taken": 0.92,
+    "regen": 0.8
+   },
+   "requires": [
+    "field_surgeons"
+   ],
+   "gate": {
+    "tier": 7,
+    "realm": 8
+   },
+   "bandwidth": 4,
+   "upkeep": 3
+  },
+  "hardening_film": {
+   "name": "Hardening Film",
+   "branch": "guarding",
+   "kind": "design",
+   "desc": "A skin under your skin that stiffens when struck.",
+   "cost": {
+    "seconds": 600,
+    "qi": 0.05,
+    "items": {
+     "nanite_shard": 2,
+     "iron_ore": 4
+    }
+   },
+   "effect": {
+    "damage_taken": 0.96
+   },
+   "bandwidth": 1,
+   "upkeep": 1
+  },
+  "kinetic_shell": {
+   "name": "Kinetic Shell",
+   "branch": "guarding",
+   "kind": "design",
+   "desc": "They meet a blow halfway and spend it.",
+   "cost": {
+    "seconds": 1800,
+    "qi": 0.1,
+    "items": {
+     "nanite_shard": 4,
+     "silver_ore": 4
+    }
+   },
+   "effect": {
+    "ward": 1.0
+   },
+   "requires": [
+    "hardening_film"
+   ],
+   "gate": {
+    "tier": 2
+   },
+   "bandwidth": 2,
+   "upkeep": 1
+  },
+  "reflex_weave": {
+   "name": "Reflex Weave",
+   "branch": "guarding",
+   "kind": "design",
+   "desc": "They feel the blow coming before you do, and pull.",
+   "cost": {
+    "seconds": 3600,
+    "qi": 0.15,
+    "items": {
+     "nanite_shard": 6,
+     "mycelium_thread": 3
+    }
+   },
+   "effect": {
+    "dodge_chance": 0.04
+   },
+   "requires": [
+    "kinetic_shell"
+   ],
+   "gate": {
+    "tier": 4
+   },
+   "bandwidth": 2,
+   "upkeep": 2
+  },
+  "bulwark_swarm": {
+   "name": "Bulwark Swarm",
+   "branch": "guarding",
+   "kind": "design",
+   "desc": "A wall that walks with you.",
+   "cost": {
+    "seconds": 9000,
+    "qi": 0.3,
+    "items": {
+     "nanite_shard": 12,
+     "thunder_iron": 2,
+     "slag_iron": 4
+    }
+   },
+   "effect": {
+    "damage_taken": 0.9,
+    "hp_mult": 1.05
+   },
+   "requires": [
+    "reflex_weave"
+   ],
+   "gate": {
+    "tier": 6,
+    "realm": 7
+   },
+   "bandwidth": 3,
+   "upkeep": 2
+  },
+  "edge_swarm": {
+   "name": "Edge Swarm",
+   "branch": "hunting",
+   "kind": "design",
+   "desc": "A film of nanites along every edge you swing.",
+   "cost": {
+    "seconds": 600,
+    "qi": 0.05,
+    "items": {
+     "nanite_shard": 2,
+     "goblin_tooth": 5
+    }
+   },
+   "effect": {
+    "damage_mult": 1.04
+   },
+   "bandwidth": 1,
+   "upkeep": 1
+  },
+  "seeker_motes": {
+   "name": "Seeker Motes",
+   "branch": "hunting",
+   "kind": "design",
+   "desc": "They find the soft places and show your hand.",
+   "cost": {
+    "seconds": 1800,
+    "qi": 0.1,
+    "items": {
+     "nanite_shard": 4,
+     "rough_jade": 1
+    }
+   },
+   "effect": {
+    "crit_chance": 0.04
+   },
+   "requires": [
+    "edge_swarm"
+   ],
+   "gate": {
+    "tier": 2
+   },
+   "bandwidth": 2,
+   "upkeep": 1
+  },
+  "ember_mites": {
+   "name": "Ember Mites",
+   "branch": "hunting",
+   "kind": "design",
+   "desc": "They ride your blows in and set the wound alight.",
+   "cost": {
+    "seconds": 2700,
+    "qi": 0.12,
+    "items": {
+     "nanite_shard": 5,
+     "firestone": 2
+    }
+   },
+   "effect": {
+    "burn_on_hit": 3
+   },
+   "requires": [
+    "edge_swarm"
+   ],
+   "gate": {
+    "tier": 3
+   },
+   "bandwidth": 2,
+   "upkeep": 2
+  },
+  "overclock_swarm": {
+   "name": "Overclock Swarm",
+   "branch": "hunting",
+   "kind": "design",
+   "desc": "They push your muscles past what muscles do. It costs them more than it costs you.",
+   "cost": {
+    "seconds": 9000,
+    "qi": 0.3,
+    "items": {
+     "nanite_shard": 12,
+     "oil_of_motion": 2,
+     "brass_cog": 2
+    }
+   },
+   "effect": {
+    "attack_speed": 1.08,
+    "damage_mult": 1.05
+   },
+   "requires": [
+    "seeker_motes",
+    "ember_mites"
+   ],
+   "gate": {
+    "tier": 6,
+    "realm": 7
+   },
+   "bandwidth": 3,
+   "upkeep": 3
+  },
+  "lantern_motes": {
+   "name": "Lantern Motes",
+   "branch": "scouting",
+   "kind": "design",
+   "desc": "A few of them drift ahead and glow.",
+   "cost": {
+    "seconds": 600,
+    "qi": 0.05,
+    "items": {
+     "nanite_shard": 2,
+     "glowfin_eel": 1
+    }
+   },
+   "effect": {
+    "sight": 2
+   },
+   "bandwidth": 1,
+   "upkeep": 1
+  },
+  "whisper_net": {
+   "name": "Whisper Net",
+   "branch": "scouting",
+   "kind": "design",
+   "desc": "They spread thin and listen for anything alive.",
+   "cost": {
+    "seconds": 1200,
+    "qi": 0.08,
+    "items": {
+     "nanite_shard": 3,
+     "spirit_resin": 2
+    }
+   },
+   "effect": {
+    "sense_radius": 6
+   },
+   "requires": [
+    "lantern_motes"
+   ],
+   "gate": {
+    "tier": 1
+   },
+   "bandwidth": 1,
+   "upkeep": 1
+  },
+  "prospector_swarm": {
+   "name": "Prospector Swarm",
+   "branch": "scouting",
+   "kind": "design",
+   "desc": "They taste the rock and the roots and tell you where to dig.",
+   "cost": {
+    "seconds": 2700,
+    "qi": 0.12,
+    "items": {
+     "nanite_shard": 5,
+     "gold_nugget": 2
+    }
+   },
+   "effect": {
+    "gather_chance": 0.12,
+    "gather_bonus": 1
+   },
+   "requires": [
+    "whisper_net"
+   ],
+   "gate": {
+    "tier": 3
+   },
+   "bandwidth": 2,
+   "upkeep": 1
+  },
+  "fortune_seekers": {
+   "name": "Fortune Seekers",
+   "branch": "scouting",
+   "kind": "design",
+   "desc": "What the dead carried, they find.",
+   "cost": {
+    "seconds": 5400,
+    "qi": 0.2,
+    "items": {
+     "nanite_shard": 8,
+     "gold_nugget": 4,
+     "emperor_jade": 1
+    }
+   },
+   "effect": {
+    "loot_luck": 0.06
+   },
+   "requires": [
+    "prospector_swarm"
+   ],
+   "gate": {
+    "tier": 5
+   },
+   "bandwidth": 2,
+   "upkeep": 2
+  },
+  "steady_hands": {
+   "name": "Steady Hands",
+   "branch": "crafting",
+   "kind": "design",
+   "desc": "They take the tremor out of your fingers.",
+   "cost": {
+    "seconds": 600,
+    "qi": 0.05,
+    "items": {
+     "nanite_shard": 2,
+     "iron_ore": 3
+    }
+   },
+   "effect": {
+    "craft_success": 0.05
+   },
+   "bandwidth": 1,
+   "upkeep": 1
+  },
+  "micro_tooling": {
+   "name": "Micro-Tooling",
+   "branch": "crafting",
+   "kind": "design",
+   "desc": "Tools too small to see, at the end of every finger.",
+   "cost": {
+    "seconds": 1800,
+    "qi": 0.1,
+    "items": {
+     "nanite_shard": 4,
+     "silver_ore": 3
+    }
+   },
+   "effect": {
+    "craft_quality": 0.05
+   },
+   "requires": [
+    "steady_hands"
+   ],
+   "gate": {
+    "tier": 2
+   },
+   "bandwidth": 2,
+   "upkeep": 1
+  },
+  "runic_etchers": {
+   "name": "Runic Etchers",
+   "branch": "crafting",
+   "kind": "design",
+   "desc": "They cut a rune truer than a chisel, and draw a stroke steadier than a brush.",
+   "cost": {
+    "seconds": 3600,
+    "qi": 0.15,
+    "items": {
+     "nanite_shard": 6,
+     "resonant_dust": 2
+    }
+   },
+   "effect": {
+    "craft_success_runecraft": 0.1,
+    "craft_quality_talismans": 0.08
+   },
+   "requires": [
+    "micro_tooling"
+   ],
+   "gate": {
+    "tier": 4
+   },
+   "bandwidth": 2,
+   "upkeep": 1
+  },
+  "assembler_swarm": {
+   "name": "Assembler Swarm",
+   "branch": "crafting",
+   "kind": "design",
+   "desc": "A workshop that fits in your blood.",
+   "cost": {
+    "seconds": 7200,
+    "qi": 0.25,
+    "items": {
+     "nanite_shard": 10,
+     "brass_cog": 3
+    }
+   },
+   "effect": {
+    "craft_success": 0.06,
+    "craft_quality": 0.05
+   },
+   "requires": [
+    "micro_tooling"
+   ],
+   "gate": {
+    "tier": 5
+   },
+   "bandwidth": 3,
+   "upkeep": 2
+  },
+  "qi_siphons": {
+   "name": "Qi Siphons",
+   "branch": "conduit",
+   "kind": "design",
+   "desc": "They drink the thin qi in the air and hand it to you.",
+   "cost": {
+    "seconds": 900,
+    "qi": 0.06,
+    "items": {
+     "nanite_shard": 3,
+     "spirit_herb": 4
+    }
+   },
+   "effect": {
+    "qi_mult": 1.04
+   },
+   "bandwidth": 1,
+   "upkeep": 1
+  },
+  "scrubber_swarm": {
+   "name": "Scrubber Swarm",
+   "branch": "conduit",
+   "kind": "design",
+   "desc": "They scour your meridians from the inside. Cleansing goes faster.",
+   "cost": {
+    "seconds": 1800,
+    "qi": 0.1,
+    "items": {
+     "nanite_shard": 4,
+     "moonpetal": 3
+    }
+   },
+   "effect": {
+    "cleanse_speed": 1.25
+   },
+   "requires": [
+    "qi_siphons"
+   ],
+   "gate": {
+    "tier": 2
+   },
+   "bandwidth": 2,
+   "upkeep": 1
+  },
+  "thought_relays": {
+   "name": "Thought Relays",
+   "branch": "conduit",
+   "kind": "design",
+   "desc": "They carry a thought further than a mind can. Research goes faster.",
+   "cost": {
+    "seconds": 2700,
+    "qi": 0.12,
+    "items": {
+     "nanite_shard": 5,
+     "singing_crystal": 1
+    }
+   },
+   "effect": {
+    "research_speed": 1.25
+   },
+   "requires": [
+    "qi_siphons"
+   ],
+   "gate": {
+    "tier": 3
+   },
+   "bandwidth": 2,
+   "upkeep": 1
+  },
+  "upkeep_governor": {
+   "name": "Upkeep Governor",
+   "branch": "conduit",
+   "kind": "passive",
+   "desc": "The swarm learns to sip, not gulp: everything that runs on qi costs less.",
+   "cost": {
+    "seconds": 3600,
+    "qi": 0.15,
+    "items": {
+     "nanite_shard": 6,
+     "spirit_resin": 4
+    }
+   },
+   "effect": {
+    "upkeep_mult": 0.8
+   },
+   "requires": [
+    "scrubber_swarm",
+    "thought_relays"
+   ],
+   "gate": {
+    "tier": 4
+   }
+  },
+  "heaven_bridge": {
+   "name": "Heaven Bridge",
+   "branch": "conduit",
+   "kind": "passive",
+   "desc": "The design the nanites were made for: a bridge from you to the heavens. It still doesn't reach. But it reaches further than it ever has.",
+   "cost": {
+    "seconds": 18000,
+    "qi": 0.5,
+    "items": {
+     "nanite_shard": 20,
+     "true_reflection": 2,
+     "star_iron": 2
+    }
+   },
+   "effect": {
+    "insight_mult": 1.15,
+    "qi_mult": 1.06
+   },
+   "requires": [
+    "upkeep_governor"
+   ],
+   "gate": {
+    "tier": 8,
+    "realm": 10
+   }
+  },
+  "second_thread": {
+   "name": "Second Thread",
+   "branch": "mind",
+   "kind": "unlock",
+   "desc": "Half your mind sits with the qi; the other half works. Meditation can be split two ways.",
+   "cost": {
+    "seconds": 1200,
+    "qi": 0.08,
+    "items": {
+     "nanite_shard": 3
+    }
+   },
+   "gate": {
+    "tier": 1,
+    "realm": 2
+   },
+   "unlock": "split2"
+  },
+  "third_thread": {
+   "name": "Third Thread",
+   "branch": "mind",
+   "kind": "unlock",
+   "desc": "Three strands of thought at once. Meditation can be split three ways.",
+   "cost": {
+    "seconds": 5400,
+    "qi": 0.2,
+    "items": {
+     "nanite_shard": 8,
+     "singing_crystal": 1
+    }
+   },
+   "requires": [
+    "second_thread"
+   ],
+   "gate": {
+    "tier": 4,
+    "realm": 5
+   },
+   "unlock": "split3"
+  },
+  "quiet_mind": {
+   "name": "Quiet Mind",
+   "branch": "mind",
+   "kind": "unlock",
+   "desc": "The threads stop tangling: a split sitting loses nothing.",
+   "cost": {
+    "seconds": 7200,
+    "qi": 0.25,
+    "items": {
+     "nanite_shard": 10,
+     "spirit_silk": 1
+    }
+   },
+   "requires": [
+    "third_thread"
+   ],
+   "gate": {
+    "tier": 5,
+    "realm": 6
+   },
+   "unlock": "split_eff"
+  },
+  "swarm_parallelism": {
+   "name": "Swarm Parallelism",
+   "branch": "mind",
+   "kind": "unlock",
+   "desc": "The swarm keeps working while you don't: research and cleansing go on at a quarter pace while you walk, fight and talk.",
+   "cost": {
+    "seconds": 2700,
+    "qi": 0.12,
+    "items": {
+     "nanite_shard": 6
+    }
+   },
+   "requires": [
+    "second_thread"
+   ],
+   "gate": {
+    "tier": 3,
+    "realm": 3
+   },
+   "unlock": "bg1"
+  },
+  "swarm_parallelism_2": {
+   "name": "Swarm Parallelism II",
+   "branch": "mind",
+   "kind": "unlock",
+   "desc": "Half pace, all the time.",
+   "cost": {
+    "seconds": 9000,
+    "qi": 0.3,
+    "items": {
+     "nanite_shard": 14,
+     "brass_cog": 2
+    }
+   },
+   "requires": [
+    "swarm_parallelism"
+   ],
+   "gate": {
+    "tier": 6,
+    "realm": 7
+   },
+   "unlock": "bg2"
+  },
+  "neural_lace": {
+   "name": "Neural Lace",
+   "branch": "wetware",
+   "kind": "install",
+   "desc": "A mesh grown into the brain's own folds. Faster hands, sharper eyes.",
+   "cost": {
+    "seconds": 7200,
+    "qi": 0.25,
+    "items": {
+     "nanite_shard": 10,
+     "spirit_silk": 2,
+     "singing_crystal": 1
+    }
+   },
+   "effect": {
+    "attack_speed": 1.05,
+    "crit_chance": 0.03
+   },
+   "gate": {
+    "tier": 5,
+    "realm": 7
+   },
+   "load": 2
+  },
+  "synaptic_accelerator": {
+   "name": "Synaptic Accelerator",
+   "branch": "wetware",
+   "kind": "install",
+   "desc": "Nerves that fire before they're asked.",
+   "cost": {
+    "seconds": 9000,
+    "qi": 0.3,
+    "items": {
+     "nanite_shard": 12,
+     "oil_of_motion": 2
+    }
+   },
+   "effect": {
+    "dodge_chance": 0.04,
+    "move_mult": 1.04
+   },
+   "requires": [
+    "neural_lace"
+   ],
+   "gate": {
+    "tier": 5,
+    "realm": 7
+   },
+   "load": 2
+  },
+  "glial_reservoir": {
+   "name": "Glial Reservoir",
+   "branch": "wetware",
+   "kind": "install",
+   "desc": "Cells that hold qi the way fat holds heat.",
+   "cost": {
+    "seconds": 7200,
+    "qi": 0.25,
+    "items": {
+     "nanite_shard": 10,
+     "spirit_resin": 6,
+     "moonpetal": 3
+    }
+   },
+   "effect": {
+    "qi_mult": 1.06,
+    "meditate_mult": 1.05
+   },
+   "gate": {
+    "tier": 5,
+    "realm": 7
+   },
+   "load": 2
+  },
+  "memory_weave": {
+   "name": "Memory Weave",
+   "branch": "wetware",
+   "kind": "install",
+   "desc": "Nothing your body learns is ever lost again.",
+   "cost": {
+    "seconds": 5400,
+    "qi": 0.2,
+    "items": {
+     "nanite_shard": 8,
+     "resonant_dust": 3
+    }
+   },
+   "effect": {
+    "adapt_mult": 1.1
+   },
+   "requires": [
+    "neural_lace"
+   ],
+   "gate": {
+    "tier": 5,
+    "realm": 7
+   },
+   "load": 1
+  },
+  "subdermal_mesh": {
+   "name": "Subdermal Mesh",
+   "branch": "hardware",
+   "kind": "install",
+   "desc": "Woven metal under the skin.",
+   "cost": {
+    "seconds": 7200,
+    "qi": 0.25,
+    "items": {
+     "nanite_shard": 10,
+     "thunder_iron": 2,
+     "silver_ore": 6
+    }
+   },
+   "effect": {
+    "damage_taken": 0.94
+   },
+   "gate": {
+    "tier": 6,
+    "realm": 8
+   },
+   "load": 2
+  },
+  "carbon_tendons": {
+   "name": "Carbon Tendons",
+   "branch": "hardware",
+   "kind": "install",
+   "desc": "Tendons that don't tear.",
+   "cost": {
+    "seconds": 7200,
+    "qi": 0.25,
+    "items": {
+     "nanite_shard": 10,
+     "star_iron": 1,
+     "mycelium_thread": 4
+    }
+   },
+   "effect": {
+    "damage_mult": 1.06
+   },
+   "gate": {
+    "tier": 6,
+    "realm": 8
+   },
+   "load": 2
+  },
+  "myomer_fibres": {
+   "name": "Myomer Fibres",
+   "branch": "hardware",
+   "kind": "install",
+   "desc": "Muscle that was never alive, and never tires.",
+   "cost": {
+    "seconds": 9000,
+    "qi": 0.3,
+    "items": {
+     "nanite_shard": 12,
+     "brass_cog": 3,
+     "oil_of_motion": 2
+    }
+   },
+   "effect": {
+    "move_mult": 1.05,
+    "attack_speed": 1.04
+   },
+   "requires": [
+    "carbon_tendons"
+   ],
+   "gate": {
+    "tier": 6,
+    "realm": 8
+   },
+   "load": 2
+  },
+  "ward_lattice": {
+   "name": "Ward Lattice",
+   "branch": "hardware",
+   "kind": "install",
+   "desc": "A cage of fine wire around the heart that turns blows aside.",
+   "cost": {
+    "seconds": 5400,
+    "qi": 0.2,
+    "items": {
+     "nanite_shard": 8,
+     "meteor_glass": 2
+    }
+   },
+   "effect": {
+    "ward": 1.5
+   },
+   "gate": {
+    "tier": 6,
+    "realm": 8
+   },
+   "load": 1
+  },
+  "optic_implant": {
+   "name": "Optic Implant",
+   "branch": "cybernetics",
+   "kind": "install",
+   "desc": "An eye that sees in the dark and finds the gap in any guard.",
+   "cost": {
+    "seconds": 10800,
+    "qi": 0.35,
+    "items": {
+     "nanite_shard": 14,
+     "meteor_glass": 2,
+     "mirror_silver": 1
+    }
+   },
+   "effect": {
+    "sight": 3,
+    "crit_chance": 0.04
+   },
+   "gate": {
+    "tier": 7,
+    "realm": 9
+   },
+   "load": 2
+  },
+  "cyber_arm": {
+   "name": "Cybernetic Arm",
+   "branch": "cybernetics",
+   "kind": "install",
+   "desc": "An arm of star iron and nanites. It hits like a falling tree.",
+   "cost": {
+    "seconds": 14400,
+    "qi": 0.4,
+    "items": {
+     "nanite_shard": 18,
+     "star_iron": 3,
+     "brass_cog": 4
+    }
+   },
+   "effect": {
+    "damage_mult": 1.1
+   },
+   "requires": [
+    "optic_implant"
+   ],
+   "gate": {
+    "tier": 7,
+    "realm": 9
+   },
+   "load": 3
+  },
+  "spinal_reflex_core": {
+   "name": "Spinal Reflex Core",
+   "branch": "cybernetics",
+   "kind": "install",
+   "desc": "A second spine of wire that moves before you think.",
+   "cost": {
+    "seconds": 14400,
+    "qi": 0.4,
+    "items": {
+     "nanite_shard": 18,
+     "thunder_iron": 3,
+     "oil_of_motion": 3
+    }
+   },
+   "effect": {
+    "dodge_chance": 0.05,
+    "attack_speed": 1.05
+   },
+   "gate": {
+    "tier": 7,
+    "realm": 9
+   },
+   "load": 3
+  },
+  "cortex_coprocessor": {
+   "name": "Cortex Coprocessor",
+   "branch": "cybernetics",
+   "kind": "install",
+   "desc": "A thinking engine behind the eyes. Research and cleansing go much faster.",
+   "cost": {
+    "seconds": 10800,
+    "qi": 0.35,
+    "items": {
+     "nanite_shard": 14,
+     "singing_crystal": 2,
+     "brass_cog": 2
+    }
+   },
+   "effect": {
+    "research_speed": 1.3,
+    "cleanse_speed": 1.2
+   },
+   "gate": {
+    "tier": 7,
+    "realm": 9
+   },
+   "load": 2
+  },
+  "power_frame": {
+   "name": "Power Frame",
+   "branch": "armour",
+   "kind": "install",
+   "desc": "A frame of plates and servos that wears you as much as you wear it. It needs qi to move.",
+   "cost": {
+    "seconds": 18000,
+    "qi": 0.5,
+    "items": {
+     "nanite_shard": 24,
+     "star_iron": 4,
+     "brass_cog": 6,
+     "warden_core": 1
+    }
+   },
+   "effect": {
+    "hp_mult": 1.12,
+    "damage_taken": 0.9
+   },
+   "gate": {
+    "tier": 8,
+    "realm": 10
+   },
+   "upkeep": 2,
+   "load": 4
+  },
+  "servo_limbs": {
+   "name": "Servo Limbs",
+   "branch": "armour",
+   "kind": "install",
+   "desc": "Servos at every joint of the frame.",
+   "cost": {
+    "seconds": 10800,
+    "qi": 0.35,
+    "items": {
+     "nanite_shard": 12,
+     "oil_of_motion": 3,
+     "brass_cog": 3
+    }
+   },
+   "effect": {
+    "move_mult": 1.08,
+    "damage_mult": 1.06
+   },
+   "requires": [
+    "power_frame"
+   ],
+   "gate": {
+    "tier": 8,
+    "realm": 10
+   },
+   "upkeep": 1,
+   "load": 2
+  },
+  "composite_plating": {
+   "name": "Composite Plating",
+   "branch": "armour",
+   "kind": "install",
+   "desc": "Plates of star iron and mirror silver.",
+   "cost": {
+    "seconds": 10800,
+    "qi": 0.35,
+    "items": {
+     "nanite_shard": 12,
+     "star_iron": 3,
+     "mirror_silver": 2
+    }
+   },
+   "effect": {
+    "ward": 3.0,
+    "damage_taken": 0.94
+   },
+   "requires": [
+    "power_frame"
+   ],
+   "gate": {
+    "tier": 8,
+    "realm": 10
+   },
+   "upkeep": 1,
+   "load": 2
+  },
+  "qi_reactor": {
+   "name": "Qi Reactor",
+   "branch": "armour",
+   "kind": "install",
+   "desc": "A heart for the frame that burns qi cleanly: everything costs less to run, and it mends you.",
+   "cost": {
+    "seconds": 14400,
+    "qi": 0.4,
+    "items": {
+     "nanite_shard": 16,
+     "sovereign_ember": 1,
+     "true_reflection": 1
+    }
+   },
+   "effect": {
+    "regen": 1.0,
+    "upkeep_mult": 0.85
+   },
+   "requires": [
+    "power_frame"
+   ],
+   "gate": {
+    "tier": 8,
+    "realm": 10
+   },
+   "load": 2
+  },
+  "weapon_mount": {
+   "name": "Weapon Mount",
+   "branch": "armour",
+   "kind": "install",
+   "desc": "The frame strikes when you do.",
+   "cost": {
+    "seconds": 14400,
+    "qi": 0.4,
+    "items": {
+     "nanite_shard": 16,
+     "star_iron": 2,
+     "drake_blood": 2
+    }
+   },
+   "effect": {
+    "damage_mult": 1.08,
+    "crit_chance": 0.04
+   },
+   "requires": [
+    "servo_limbs"
+   ],
+   "gate": {
+    "tier": 8,
+    "realm": 11
+   },
+   "upkeep": 2,
+   "load": 2
+  },
+  "animation": {
+   "name": "Animation",
+   "branch": "constructs",
+   "kind": "unlock",
+   "desc": "Teach the swarm to breathe a spark into shaped clay and stone. Golems can be built and join your contracts.",
+   "cost": {
+    "seconds": 1800,
+    "qi": 0.1,
+    "items": {
+     "nanite_shard": 4,
+     "ancient_clay": 2
+    }
+   },
+   "gate": {
+    "tier": 1,
+    "realm": 1
+   },
+   "unlock": "animate"
+  },
+  "skiff_yard": {
+   "name": "Skiff Yard",
+   "branch": "constructs",
+   "kind": "unlock",
+   "desc": "A small boat the swarm can steer. A golem crew can sail it on timed voyages and come home laden.",
+   "cost": {
+    "seconds": 3600,
+    "qi": 0.15,
+    "items": {
+     "nanite_shard": 6,
+     "iron_ore": 4,
+     "spirit_resin": 2
+    }
+   },
+   "requires": [
+    "animation"
+   ],
+   "gate": {
+    "tier": 3,
+    "realm": 3
+   },
+   "unlock": "voyage"
+  },
+  "mech_suit": {
+   "name": "Mech Suit",
+   "branch": "constructs",
+   "kind": "unlock",
+   "desc": "Wear the Power Frame as a mech: far tougher and harder-hitting, a little slower, and it drinks qi while you wear it.",
+   "cost": {
+    "seconds": 14400,
+    "qi": 0.4,
+    "items": {
+     "nanite_shard": 16,
+     "star_iron": 3,
+     "brass_cog": 4
+    }
+   },
+   "requires": [
+    "animation",
+    "power_frame"
+   ],
+   "gate": {
+    "tier": 8,
+    "realm": 10
+   },
+   "unlock": "mech"
+  }
+ },
+ "bandwidth": [
+  [
+   0,
+   2
+  ],
+  [
+   1,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   3,
+   6
+  ],
+  [
+   4,
+   8
+  ],
+  [
+   5,
+   10
+  ],
+  [
+   6,
+   12
+  ],
+  [
+   8,
+   15
+  ],
+  [
+   10,
+   20
+  ]
+ ],
+ "load": {
+  "base": 2,
+  "per_two_realms": 1,
+  "per_radiant": 0.34
+ },
+ "split_efficiency": 0.85,
+ "split_qi": 0.6,
+ "background": {
+  "bg1": 0.25,
+  "bg2": 0.5
+ },
+ "tunings": {
+  "nanite_shard": {
+   "name": "Refined",
+   "need": 2,
+   "mult": 1.08,
+   "upkeep": 0,
+   "bandwidth": 0,
+   "desc": "cleaner code in every mote: a little stronger"
+  },
+  "silver_ore": {
+   "name": "Silvered",
+   "need": 3,
+   "mult": 1.15,
+   "upkeep": 1,
+   "bandwidth": 0,
+   "desc": "stronger, and hungrier"
+  },
+  "moonpetal": {
+   "name": "Cooled",
+   "need": 3,
+   "mult": 1.0,
+   "upkeep": -1,
+   "bandwidth": 0,
+   "desc": "runs cool: one less upkeep"
+  },
+  "rough_jade": {
+   "name": "Jade-bound",
+   "need": 1,
+   "mult": 1.1,
+   "upkeep": 0,
+   "bandwidth": -1,
+   "desc": "packed tight: stronger, and takes less room"
+  },
+  "firestone": {
+   "name": "Ember-tuned",
+   "need": 2,
+   "mult": 1.0,
+   "upkeep": 0,
+   "bandwidth": 0,
+   "add": {
+    "burn_on_hit": 1
+   },
+   "desc": "everything it touches runs a little hot: your blows burn"
+  },
+  "singing_crystal": {
+   "name": "Resonant",
+   "need": 1,
+   "mult": 1.25,
+   "upkeep": 1,
+   "bandwidth": 1,
+   "desc": "much stronger, bigger, hungrier"
+  }
+ }
+}

@@ -1,0 +1,680 @@
+{
+  "id": "floor26",
+  "name": "Floor 26, The Night Market of the Dead",
+  "theme": "dungeon",
+  "depth": 26,
+  "ambient": [
+    0.45,
+    0.35,
+    0.5
+  ],
+  "forged": {
+    "region": "ghostmarket",
+    "cycle": 0,
+    "size": 1.5
+  },
+  "enemies": {
+    "g": "ghostmarket_weak_f26",
+    "k": "ghostmarket_brute_f26",
+    "B": "ghostmarket_boss_f26",
+    "a": "ghostmarket_animal_f26"
+  },
+  "layout": {
+    "seed": 26,
+    "corridor_traps": 4,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Lantern Stair",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "b*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Market Street",
+        "size": [
+          19,
+          5
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "b*4"
+        ]
+      },
+      {
+        "name": "The Paper-Gold Seam",
+        "size": [
+          10,
+          6
+        ],
+        "has": [
+          "L",
+          "^*2",
+          "o*3",
+          "g"
+        ]
+      },
+      {
+        "name": "The Mask Gallery",
+        "size": [
+          14,
+          7
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "c*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Riddle Stall",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L*2",
+          "?",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Hungry Alley",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Rules of the Market",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L*2",
+          "A",
+          "c*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Great Market Square",
+        "size": [
+          20,
+          14
+        ],
+        "has": [
+          "L*4",
+          "g*2",
+          "k",
+          "b*4",
+          "h*2",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Pawnshop",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L",
+          "b*3",
+          "C",
+          "g"
+        ]
+      },
+      {
+        "name": "The Lantern-Bearers' Guild",
+        "size": [
+          11,
+          8
+        ],
+        "has": [
+          "L*2",
+          "k*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Crane Roost",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L",
+          "a*2",
+          "h*3"
+        ]
+      },
+      {
+        "name": "The Paper Bridge",
+        "size": [
+          14,
+          5
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "x*2"
+        ]
+      },
+      {
+        "name": "The Back Room",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L",
+          "g",
+          "E"
+        ]
+      },
+      {
+        "name": "The Lower Market Street",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*2",
+          "h*6",
+          "g"
+        ]
+      },
+      {
+        "name": "The Broker's Ledger Room",
+        "size": [
+          6,
+          6
+        ],
+        "has": [
+          "L",
+          "R",
+          "V"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Lantern Hall",
+        "size": [
+          17,
+          6
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "b*4"
+        ]
+      },
+      {
+        "name": "The Opera Gallery",
+        "size": [
+          14,
+          7
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "c*2"
+        ]
+      },
+      {
+        "name": "The Lower Hungry Alley",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Lower Great Market Square",
+        "size": [
+          17,
+          14
+        ],
+        "has": [
+          "L*4",
+          "g*2",
+          "k",
+          "b*4",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Incense Shrine",
+        "size": [
+          7,
+          7
+        ],
+        "has": [
+          "Z",
+          "L*2",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Inkwell Pit",
+        "size": [
+          8,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "F",
+          "G"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Sealed Grotto",
+        "size": [
+          11,
+          8
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "J",
+          "M"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Forgotten Side-Gallery",
+        "size": [
+          15,
+          11
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k",
+          "N",
+          "O"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Flooded Annex",
+        "size": [
+          15,
+          11
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k",
+          "Q",
+          "U"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Forgotten Grotto",
+        "size": [
+          11,
+          8
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "W",
+          "X"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Sunken Storeroom",
+        "size": [
+          16,
+          9
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Flooded Niche",
+        "size": [
+          11,
+          9
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Bone-Bargain Booth",
+        "size": [
+          11,
+          9
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Ghost Broker's Counter",
+        "size": [
+          17,
+          12
+        ],
+        "has": [
+          "L*4",
+          "B",
+          ">",
+          "k",
+          "b*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "spirit_paper": [
+          2,
+          3
+        ],
+        "gold": [
+          156,
+          260
+        ]
+      },
+      "note": "A miner's strongbox filled with gold and silver coins"
+    },
+    "D": {
+      "loot": {
+        "ghost_lantern_oil": [
+          1,
+          2
+        ],
+        "ghostmarket_pill_f26": [
+          0,
+          1
+        ],
+        "gold": [
+          130,
+          234
+        ]
+      },
+      "note": "A merchant's trunk brimming with exotic spices and fabrics"
+    },
+    "E": {
+      "loot": {
+        "spirit_paper": [
+          1,
+          2
+        ],
+        "ghostmarket_pill_f26": [
+          1,
+          1
+        ],
+        "random_weapon": [
+          0,
+          1
+        ]
+      },
+      "note": "A hollow lantern concealing a note",
+      "hidden": true
+    },
+    "V": {
+      "loot": {
+        "spirit_paper": [
+          3,
+          4
+        ],
+        "ghost_lantern_oil": [
+          2,
+          3
+        ],
+        "ghostmarket_pill_f26": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "random_gear": [
+          1,
+          1
+        ],
+        "gold": [
+          390,
+          650
+        ]
+      },
+      "note": "A sealed chest adorned with fire motifs, containing a flaming sword"
+    },
+    "F": {
+      "loot": {
+        "gold": [
+          208,
+          390
+        ],
+        "spirit_paper": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Inkwell Pit"
+    },
+    "J": {
+      "loot": {
+        "gold": [
+          208,
+          390
+        ],
+        "ghost_lantern_oil": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Sealed Grotto"
+    },
+    "N": {
+      "loot": {
+        "gold": [
+          208,
+          390
+        ],
+        "ghostmarket_pill_f26": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in the Forgotten Side-Gallery"
+    },
+    "Q": {
+      "loot": {
+        "gold": [
+          208,
+          390
+        ],
+        "breakthrough_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Inkwell Pit"
+    },
+    "W": {
+      "loot": {
+        "gold": [
+          208,
+          390
+        ],
+        "spirit_paper": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Forgotten Grotto"
+    }
+  },
+  "lore": {
+    "A": {
+      "title": "Lantern Stair Rule",
+      "text": "One lantern per soul who died on this stair. Do not blow any out. Do not take any. Count them as you go up and you will know how many cheated the fee."
+    },
+    "Y": {
+      "title": "Market Square Prices",
+      "text": "Stalls open at dusk and close when the lamps gutter. They take names, years, or a coin with a hole in it. The vendors will not cheat you. They will only be honest with you."
+    },
+    "R": {
+      "title": "The Half-Step",
+      "text": "Move one foot, then the other. Not together. The dead cross the square half here and half there, and the lanterns never see them whole. Stagger your step and the strikes pass through the gap.",
+      "teaches": "ghostmarket_art"
+    },
+    "G": {
+      "title": "A Dead Man's Advice",
+      "text": "Never buy what you cannot carry out. Never sell what you cannot spare. And never haggle with the ones who stop speaking. That is what the dead told me."
+    },
+    "M": {
+      "title": "A Ledger of Debts",
+      "text": "Row on row of names, each with a sum beside it. Most are unpaid. At the bottom, in fresh ink, is your name and a blank."
+    },
+    "O": {
+      "title": "The Weavers' Stall",
+      "text": "Shrouds, sold by the yard. The weavers upstairs pass down what they cannot finish. A tag reads: sold twice, buried once."
+    },
+    "U": {
+      "title": "Closing Bell",
+      "text": "When the bell rings the stalls vanish and so does anyone left in the lanes. Be at an exit by the third stroke. I was not. This is written from the inside."
+    },
+    "X": {
+      "title": "The Last Stall",
+      "text": "A single lantern burning over an empty table. The sign says: the dead trade here for what they lost. Whatever you leave, you will not see it again."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Vendor's Question",
+      "question": "The one who makes me does not need me. The one who buys me does not use me. The one who uses me never knows it.",
+      "options": [
+        "A lantern",
+        "A coin",
+        "A coffin"
+      ],
+      "answer": 2,
+      "reward": {
+        "items": {
+          "ghostmarket_pill_f26": 1
+        },
+        "qi": 1421221
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor25",
+      "arrive": ">",
+      "label": "Up to floor 25",
+      "down": false
+    },
+    ">": {
+      "to": "floor27",
+      "arrive": "<",
+      "label": "Down to floor 27"
+    }
+  },
+  "refined": {
+    "passes": 8,
+    "rooms_added": 8,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-05T20:12:01"
+  },
+  "map": [
+    "",
+    "                                                                                                                                                               ........",
+    "                                                                                                                                                  ..L....      hh.F....",
+    "                          ....o.Lo..                 ....h.....L.....L..L                                                                         .......      ........",
+    " ................L..      ...o......                 ................b...                                                                         .......      ........",
+    " .b..b..g.....b..bg.      ..........                 ....................                                                     .....L.....L..      .....................",
+    " ........................T...^......                 Y...................    .........                  ....L......L.....     ..............      ..h....      ..g...g.",
+    " ...................      ......g.^.                 ..........b.........    ....b..C.                  g...b............     ........g....k      Z.....L      ...G...L",
+    " L...L...........g..      ..........                 ....................    .........                  L...................................      .h.....      L.......",
+    "          ..                   .                     ................................L                  ..................    .......c..c...         .             ..",
+    "           .                   .                     .b..b...g............   .bg.b....                  .b..bg.b.........     .............g         .              .",
+    "           .                   .                     ......g.............    .........                  ..............g..     ..............         .              .        ............L..",
+    "           .            ..............      ..h..L.. ............h.......    .........                          .                   ..               .              .        ...............",
+    "       ........         ..............      ........ ....................        .                              .                   .                .         ...........   ......g........",
+    "       .b..b...         .....g........      ........ ....................        .                              ..                  .        L...........L.... L...g......   .h.....^....... ...........gg...     ..g...L..L.",
+    "       .......L         .k......................h... ....................        .                         L..L........             .        g...b...........L .g.........   ............... ................     ...........",
+    "       ........         .c....D...c...      ........ ...L..........k.....   .L.........    ..........      ............ V.....      .        .....g........... ...........  ...............L L...............     ...........",
+    "       ....g..L         L....g........      ......?.         ...            ..g........    ..........      h.h......... ......      .        ................. o......k..........g.......... ..k.......^.....     ...........",
+    "       <.......         .........L....      ......L.         .              ...........    ........aL      ........h...S......  L........    .............b... ......M....   ....k.......... .........................hk.....",
+    "                                                .            .              ...........    ..h.......      ............ ....R.  ....h....    ................. ..........J   ............N.. ......h.........     ...........",
+    "                                                .            .              .............T...........      ............ .....L  ....g....    ................. .L.......o.   .....O......... ................     .h.........",
+    "                                                .            .              ....k......    ..........      ............ ......  ...g..........b...............               ............... ................     ......g....",
+    "                                                .            .              ...........    ........h.      .h...h......         .........    .................                      .        .L..............     ...........",
+    "                                           ..g......L    .........          ...k....L..    a.......h.      ...hg.......         g........    ..............k..                      .                .                 .",
+    "                                           ..........    ....c....               S              .                .              .........    ..h..........b...                      .                .                 .           ....L...........>",
+    "                                           ..........    .....g...               .              .                T                           ...h.............               ...U...........         .                 .           ...........k.b...",
+    "                                           .......................               .              .                .                           .................               ...Q.h..k......    ........k..       ...........      L...............L",
+    "                                           .h........    .c.......               .              .            .gL......                       .......L.........               ...............    .....X....L       ......g....      .................",
+    "                                           ..........    .L.LA....               .       ............L.      .........                                                       ...............    ......o....       ...........      .................",
+    "                                           g.......g.                            .       .xg.......x...      .........                                                       ...............    ..........L       .....o.....      .................",
+    "                                                                                 .......S................T............                                                       g.......................W.....       ........o.........................",
+    "                                                                                         ..............      .........                                                       ...............    ...........       .........k.      .b........b......",
+    "                                                                                         ........L.g...      ....E....                                                       ....h..........    ......o...g       ....g......      .................",
+    "                                                                                                                                                                             L..............    ..g........       ...........      .................",
+    "                                                                                                                                                                             ....g..........                      ..L....L...      .bB..............",
+    "                                                                                                                                                                             .....L.........                                       .............L...",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

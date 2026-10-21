@@ -1,0 +1,6 @@
+{
+ "events": [
+  {"id": "crater_titan", "kind": "world", "name": "The Crater Titan", "period_min": 60, "duration_min": 12, "offset_min": 0, "tier": 5, "bonus": 1.0},
+  {"id": "raid_night", "kind": "bonus", "name": "Raid Night (raid rewards x1.5)", "period_min": 10080, "duration_min": 180, "offset_min": 5880, "bonus": 1.5}
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "_about": "Round 162: today's three goals. A card in the Quests page; the day is the real calendar day; small gold and insight, a bonus for all three, a streak counter. Nothing is for sale. (scripts/systems/DailyGoals.gd)",
+ "gold_base": 20,
+ "gold_per_depth": 8,
+ "insight": 1.0,
+ "bonus_base": 60,
+ "bonus_per_depth": 20,
+ "pool": [
+  {"id": "kills", "text": "Defeat %d foes", "events": ["kill"], "need": 8, "per_depth": 1.0, "cat": "fight"},
+  {"id": "arts", "text": "Use your ki arts %d times", "events": ["art_used"], "need": 12, "per_depth": 0.0, "cat": "fight"},
+  {"id": "places", "text": "Visit %d places", "events": ["enter_level"], "need": 3, "per_depth": 0.0, "cat": "walk"},
+  {"id": "gather", "text": "Gather %d times", "events": ["gather"], "need": 6, "per_depth": 0.5, "cat": "make"},
+  {"id": "craft", "text": "Make %d things", "events": ["craft"], "need": 2, "per_depth": 0.0, "cat": "make", "success": true},
+  {"id": "talk", "text": "Talk with %d people", "events": ["talk"], "need": 3, "per_depth": 0.0, "cat": "folk"},
+  {"id": "deed", "text": "Ask a companion for their deed", "events": ["beast_deed", "wayfarer_deed"], "need": 1, "per_depth": 0.0, "cat": "folk"},
+  {"id": "sit", "text": "Sit in meditation for %d minutes", "sit": true, "need": 5, "per_depth": 0.0, "cat": "calm"},
+  {"id": "treasure", "text": "Find a treasure", "events": ["treasure"], "need": 1, "per_depth": 0.0, "cat": "walk"},
+  {"id": "hidden", "text": "Notice %d hidden things", "events": ["secret_noticed", "trap_spotted"], "need": 2, "per_depth": 0.0, "cat": "walk"},
+  {"id": "study", "text": "Study something new", "events": ["study", "lesson"], "need": 1, "per_depth": 0.0, "cat": "calm"},
+  {"id": "cook", "text": "Cook %d meals", "events": ["cook"], "need": 1, "per_depth": 0.0, "cat": "make"},
+  {"id": "photo", "text": "Take a photo of something worth remembering", "events": ["photo"], "need": 1, "per_depth": 0.0, "cat": "calm"},
+  {"id": "raise", "text": "Tend your beasts: bring one young one into the world", "events": ["beast_born"], "need": 1, "per_depth": 0.0, "cat": "folk", "rare": true}
+ ]
+}

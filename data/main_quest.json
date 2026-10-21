@@ -1,0 +1,452 @@
+{
+ "_about": "The main quest line, round 34 (Robert: 'a main story line quest that keeps the players going in the right direction'). Chapters in order; each has goals the game checks on its own (a floor reached, a master killed, a realm, a craft, a skill, a gate passed, a story act, a guild, your home, your blood) and a townsperson to report to (or none: it completes itself). Rewards on report. The HUD's first goal line is always the next open goal. Words: Dev's win (data/drafts/main_quest.json, items with 'chapter', 'name', 'brief').",
+ "chapters": [
+  {
+   "id": "first_steps",
+   "name": "The Road Down",
+   "who": "Elder Mo",
+   "brief": "Elder Mo wants to see what the deep makes of you. Talk to him, go down to the first floor, and come back with the goblin chief's head.",
+   "goals": [
+    {
+     "talk": "Elder Mo",
+     "text": "Talk to Elder Mo at the fountain"
+    },
+    {
+     "floor": 1,
+     "text": "Go down to floor 1"
+    },
+    {
+     "boss": 1,
+     "text": "Kill the master of floor 1"
+    }
+   ],
+   "reward": {
+    "gold": 40,
+    "qi": 80,
+    "items": {
+     "healing_salve": 3,
+     "whetstone": 2
+    },
+    "insight": 2
+   }
+  },
+  {
+   "id": "three_floors",
+   "name": "What the Mine Keeps",
+   "who": "Elder Mo",
+   "brief": "Three floors, a salve of your own making, and the third floor's master. The deep teaches by being new; so does the bench.",
+   "goals": [
+    {
+     "craft": "healing_salve",
+     "text": "Craft a Healing Salve (medicine)"
+    },
+    {
+     "floor": 3,
+     "text": "Reach floor 3"
+    },
+    {
+     "boss": 3,
+     "text": "Kill the master of floor 3"
+    }
+   ],
+   "reward": {
+    "gold": 80,
+    "qi": 150,
+    "items": {
+     "qi_pill": 3
+    },
+    "insight": 3
+   }
+  },
+  {
+   "id": "condense",
+   "name": "Condense",
+   "who": "Elder Mo",
+   "brief": "The air below the fifth floor drowns an untempered body. Fill your sea of qi, open your ring, face the heart demon: Qi Condensation. Then the way down to six opens.",
+   "goals": [
+    {
+     "floor": 5,
+     "text": "Reach floor 5 (Shellhaven)"
+    },
+    {
+     "realm": 1,
+     "text": "Break through to Qi Condensation"
+    },
+    {
+     "gate": 6,
+     "text": "Pass the gate to floor 6"
+    }
+   ],
+   "reward": {
+    "gold": 120,
+    "qi": 200,
+    "items": {
+     "breakthrough_pill": 1
+    },
+    "insight": 4,
+    "title": "Condensed"
+   }
+  },
+  {
+   "id": "deep_breath",
+   "name": "Deep Breath",
+   "who": "Apothecary Lin",
+   "brief": "Past the tenth floor the air sits in the lungs like water. Apothecary Lin knows the pill the old miners took -- learn alchemy enough to brew it yourself.",
+   "goals": [
+    {
+     "skill": {
+      "id": "alchemy",
+      "level": 3
+     },
+     "text": "Alchemy 3"
+    },
+    {
+     "craft": "deep_breath_pill",
+     "text": "Brew a Deep Breath Pill"
+    },
+    {
+     "realm": 3,
+     "text": "Break through to Core Formation"
+    },
+    {
+     "gate": 11,
+     "text": "Pass the gate to floor 11"
+    }
+   ],
+   "reward": {
+    "gold": 200,
+    "qi": 300,
+    "items": {
+     "deep_breath_pill": 1,
+     "qi_incense": 3
+    },
+    "insight": 4
+   }
+  },
+  {
+   "id": "foundation",
+   "name": "Nascent",
+   "who": "Elder Mo",
+   "brief": "Fifteen floors down there is a town, and below it something that reaches for the unwarded. Grow a nascent soul, join a guild, and cut a ward of jade and silver.",
+   "goals": [
+    {
+     "floor": 15,
+     "text": "Reach floor 15"
+    },
+    {
+     "realm": 4,
+     "text": "Break through to Nascent Soul"
+    },
+    {
+     "guild": true,
+     "text": "Join a guild (the Lodge or the Gatherers)"
+    },
+    {
+     "craft": "warding_talisman",
+     "text": "Cut a Warding Talisman (jewelcrafting)"
+    },
+    {
+     "gate": 16,
+     "text": "Pass the gate to floor 16"
+    }
+   ],
+   "reward": {
+    "gold": 350,
+    "qi": 500,
+    "items": {
+     "breakthrough_pill": 1,
+     "ironskin_salve": 3
+    },
+    "insight": 5,
+    "title": "Nascent"
+   }
+  },
+  {
+   "id": "blood_and_dark",
+   "name": "Blood and Dark",
+   "who": "Elder Mo",
+   "brief": "Twenty floors: the Jade Pagoda, and the blood waking in you. Below it, a dark that torches don't answer. Survival will carry you; stormglass will light you.",
+   "goals": [
+    {
+     "floor": 20,
+     "text": "Reach floor 20"
+    },
+    {
+     "blood": true,
+     "text": "Your blood wakes (around floor 20)"
+    },
+    {
+     "story": "pagoda",
+     "text": "Hear Elder Mo's confession (the story)"
+    },
+    {
+     "skill": {
+      "id": "survival",
+      "level": 10
+     },
+     "text": "Survival 10 (the deep teaches it: new floors, wounds dressed, fights survived)"
+    },
+    {
+     "craft": "stormglass_lantern",
+     "text": "Forge a Stormglass Lantern (smithing)"
+    },
+    {
+     "realm": 6,
+     "text": "Break through to Void Refinement"
+    },
+    {
+     "learn": "runecraft",
+     "text": "Learn rune craft (Old Oda, floor 17 -- he cuts names for the dead)"
+    },
+    {
+     "runes": 1,
+     "text": "Set a rune into something you wear"
+    },
+    {
+     "gate": 21,
+     "text": "Pass the gate to floor 21"
+    }
+   ],
+   "reward": {
+    "gold": 600,
+    "qi": 800,
+    "items": {
+     "nanite_shard": 10
+    },
+    "insight": 6
+   }
+  },
+  {
+   "id": "core",
+   "name": "Body and Qi as One",
+   "who": "Elder Mo",
+   "brief": "The twenty-fifth floor's master wears your face. Integrate body and qi, kill it, and decide what you are -- the deep won't take anyone who hasn't.",
+   "goals": [
+    {
+     "realm": 7,
+     "text": "Break through to Body Integration"
+    },
+    {
+     "boss": 25,
+     "text": "Kill the master of floor 25"
+    },
+    {
+     "story": "mirror",
+     "text": "Face the Mirror (the story: Elder Mo)"
+    },
+    {
+     "learn": "talismans",
+     "text": "Learn talisman craft (Sister Hwa, floor 22 -- she writes letters home)"
+    },
+    {
+     "craft": "mirror_seal_talisman",
+     "text": "Draw a Mirror Seal Talisman (talisman craft)"
+    },
+    {
+     "gate": 26,
+     "text": "Pass the gate to floor 26"
+    }
+   ],
+   "reward": {
+    "gold": 900,
+    "qi": 1200,
+    "items": {
+     "breakthrough_pill": 1
+    },
+    "insight": 8,
+    "title": "Integrated"
+   }
+  },
+  {
+   "id": "thin_air",
+   "name": "Thin Air",
+   "who": "Captain Rhee",
+   "brief": "Below thirty the qi turns thin and ordinary blood sickens. The Lodge is going down behind you; Lin's voidsalt will keep you alive ahead of them. Make your home somewhere worth coming back to.",
+   "goals": [
+    {
+     "floor": 30,
+     "text": "Reach floor 30"
+    },
+    {
+     "story": "expedition",
+     "text": "Answer Captain Rhee (the story)"
+    },
+    {
+     "home": 2,
+     "text": "Build your home to a courtyard"
+    },
+    {
+     "craft": "voidsalt_draught",
+     "text": "Brew a Voidsalt Draught (alchemy)"
+    },
+    {
+     "realm": 9,
+     "text": "Break through to Tribulation Transcendence"
+    },
+    {
+     "rune_word": 1,
+     "text": "Make the runes speak: set a rune word"
+    },
+    {
+     "gate": 31,
+     "text": "Pass the gate to floor 31"
+    }
+   ],
+   "reward": {
+    "gold": 1400,
+    "qi": 1800,
+    "items": {
+     "voidsalt_draught": 1
+    },
+    "insight": 8
+   }
+  },
+  {
+   "id": "nascent",
+   "name": "Tribulation",
+   "who": "Smith Hale",
+   "brief": "Thirty-six is cold enough to still a lesser soul. Pass your tribulation, master a weapon as your own hand, put heartfire in your chest, and stand with Hale through the night at the forge.",
+   "goals": [
+    {
+     "realm": 10,
+     "text": "Break through to Immortal Ascension"
+    },
+    {
+     "weapon_skill": 16,
+     "text": "Level 16 in the weapon you carry"
+    },
+    {
+     "story": "last_steel",
+     "text": "Smith Hale's last steel (the story)"
+    },
+    {
+     "craft": "heartfire_elixir",
+     "text": "Brew a Heartfire Elixir"
+    },
+    {
+     "weapon_runes": 2,
+     "text": "Two runes in the weapon you carry"
+    },
+    {
+     "gate": 36,
+     "text": "Pass the gate to floor 36"
+    }
+   ],
+   "reward": {
+    "gold": 2000,
+    "qi": 2500,
+    "items": {
+     "breakthrough_pill": 2
+    },
+    "insight": 10,
+    "title": "Tribulation-Tested"
+   }
+  },
+  {
+   "id": "star_iron_door",
+   "name": "The Star Iron Door",
+   "who": "Apothecary Lin",
+   "brief": "Forty floors, and the children of Eliet dream the deep. A door of star iron waits on forty-one, locked by the first expedition. Answer Lin, then forge the key.",
+   "goals": [
+    {
+     "floor": 40,
+     "text": "Reach floor 40"
+    },
+    {
+     "story": "sickness",
+     "text": "Answer Apothecary Lin (the story)"
+    },
+    {
+     "craft": "star_iron_key",
+     "text": "Forge a Star Iron Key"
+    },
+    {
+     "realm": 12,
+     "text": "Break through to Immortal Realm II"
+    },
+    {
+     "gate": 41,
+     "text": "Pass the gate to floor 41"
+    }
+   ],
+   "reward": {
+    "gold": 2800,
+    "qi": 3200,
+    "items": {
+     "nanite_shard": 20
+    },
+    "insight": 10
+   }
+  },
+  {
+   "id": "the_letter",
+   "name": "Knock Politely",
+   "who": "Trader Wen",
+   "brief": "Forty-five: a wall with a merchant's seal. Open Wen's letter with him, climb the immortal realms, and bind a ward of the Heart's own silver.",
+   "goals": [
+    {
+     "floor": 45,
+     "text": "Reach floor 45"
+    },
+    {
+     "story": "last_letter",
+     "text": "Trader Wen's last letter (the story)"
+    },
+    {
+     "realm": 13,
+     "text": "Break through to Immortal Realm III"
+    },
+    {
+     "craft": "mirrorheart_ward",
+     "text": "Bind a Mirrorheart Ward (jewelcrafting)"
+    },
+    {
+     "gate": 46,
+     "text": "Pass the gate to floor 46"
+    }
+   ],
+   "reward": {
+    "gold": 4000,
+    "qi": 4500,
+    "items": {
+     "breakthrough_pill": 2
+    },
+    "insight": 12,
+    "title": "Immortal"
+   }
+  },
+  {
+   "id": "the_heart",
+   "name": "The Heart of the Deep",
+   "who": "",
+   "brief": "Fifty floors. The Heart of the Deep, and whatever it is you've become. Kill its master and walk in.",
+   "goals": [
+    {
+     "floor": 50,
+     "text": "Reach floor 50"
+    },
+    {
+     "finished": true,
+     "text": "Walk into the Heart of the Deep"
+    }
+   ],
+   "reward": {
+    "insight": 20,
+    "title": "The Deep's Equal"
+   }
+  }
+ ],
+ "errands": {
+  "_about": "Elder Mo's errands: for every floor you've reached, a kill errand and a gather errand, made from that floor's own foes and materials. Rewards scale with the floor.",
+  "kill_count": [
+   6,
+   0.5
+  ],
+  "gather_count": [
+   4,
+   0.3
+  ],
+  "gold_per_floor": 18,
+  "qi_per_floor": 25
+ }
+}

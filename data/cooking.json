@@ -1,0 +1,24 @@
+{
+ "_about": "Round 164: cooking. Fish from the water, meat from beasts, herbs from the garden and the floors become meals that heal and give a buff for a while. A meal is a normal consumable (eat it from the bag); several different meals can be in effect together. Cook in any town, or anywhere with the test kit. A higher survival level stretches how long a meal lasts (+2% a level, up to +50%). Nothing is for sale. (scripts/systems/Cooking.gd)",
+ "xp": 6,
+ "stretch_per_level": 0.02,
+ "stretch_cap": 0.5,
+ "meals": [
+  {"id": "herb_broth", "name": "Herb Broth", "needs": {"raw_meat": 1, "spirit_herb": 1}, "heal": 90, "value": 30,
+   "buff": {"effect": {"regen": 1.0}, "seconds": 600}, "desc": "Slow-simmered and green. Heals 90 HP and mends you steadily for a while."},
+  {"id": "grilled_carp", "name": "Grilled Cave Carp", "needs": {"cave_carp": 1, "ember_root": 1}, "heal": 70, "value": 34,
+   "buff": {"effect": {"damage_mult": 1.08}, "seconds": 600}, "desc": "Charred over ember root. Heals 70 HP; you hit a little harder for a while."},
+  {"id": "eel_stew", "name": "Glowfin Eel Stew", "needs": {"glowfin_eel": 1, "iron_thistle": 1}, "heal": 120, "value": 60,
+   "buff": {"effect": {"damage_taken": 0.9}, "seconds": 600}, "desc": "Thick and warming. Heals 120 HP; blows land softer for a while."},
+  {"id": "moon_dumplings", "name": "Moonpetal Dumplings", "needs": {"moonpetal": 1, "spirit_herb": 1, "raw_meat": 1}, "heal": 40, "value": 48,
+   "buff": {"effect": {"meditate_mult": 1.25}, "seconds": 900}, "desc": "Light as a held breath. Heals 40 HP; sitting goes deeper for a while."},
+  {"id": "thistle_roast", "name": "Thistle Roast", "needs": {"raw_meat": 2, "iron_thistle": 1}, "heal": 60, "value": 40,
+   "buff": {"effect": {"ward": 1.0}, "seconds": 900}, "desc": "Tough and honest. Heals 60 HP; a ward stands round you for a while."},
+  {"id": "travellers_plate", "name": "Traveller's Plate", "needs": {"raw_meat": 1, "cave_carp": 1, "spirit_herb": 1}, "heal": 80, "value": 44,
+   "buff": {"effect": {"move_mult": 1.08}, "seconds": 900}, "desc": "Eaten walking. Heals 80 HP; your feet are lighter for a while."},
+  {"id": "foragers_soup", "name": "Forager's Soup", "needs": {"spirit_herb": 2, "moonpetal": 1}, "heal": 40, "value": 36,
+   "buff": {"effect": {"gather_chance": 0.1}, "seconds": 900}, "desc": "Smells of the whole meadow. Heals 40 HP; plants give more for a while."},
+  {"id": "deep_feast", "name": "Deep Feast", "needs": {"cave_carp": 1, "glowfin_eel": 1, "raw_meat": 1, "ember_root": 1, "moonpetal": 1}, "heal": 200, "value": 120,
+   "buff": {"effect": {"damage_mult": 1.1, "loot_luck": 0.05}, "seconds": 1200}, "desc": "Everything good, at once. Heals 200 HP; you strike harder and finds fall your way for a good while."}
+ ]
+}

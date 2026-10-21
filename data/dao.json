@@ -1,0 +1,508 @@
+{
+ "ranks": [
+  0,
+  30,
+  120,
+  320,
+  700,
+  1400
+ ],
+ "rank_names": [
+  "Unfelt",
+  "Glimpse",
+  "Understanding",
+  "Insight",
+  "Mastery",
+  "Your own"
+ ],
+ "scale": [
+  0,
+  0.015,
+  0.035,
+  0.06,
+  0.09,
+  0.12
+ ],
+ "sense_stages": [
+  [
+   0,
+   "Dull",
+   "You hear the world and take it for noise."
+  ],
+  [
+   25,
+   "Stirring",
+   "Something under things leans one way or another."
+  ],
+  [
+   90,
+   "Aware",
+   "You can tell which way a place leans."
+  ],
+  [
+   220,
+   "Keen",
+   "Fights, work and quiet each pull you toward a way."
+  ],
+  [
+   500,
+   "Clear",
+   "You see the ways in things before they move."
+  ],
+  [
+   1000,
+   "Dao-seeing",
+   "You see the grain of the world, and choose where to cut."
+  ]
+ ],
+ "sense_per_second": 0.02,
+ "sense_meditate_day_cap": 60,
+ "sense_share": 0.25,
+ "day_cap_per_dao": 80,
+ "focus_bonus": 0.6,
+ "off_focus": 0.6,
+ "founded_mult": 1.5,
+ "resonance_bonus": 1.0,
+ "contemplate_per_day": 3,
+ "contemplate_sense": 4.0,
+ "focus_change_days": 1,
+ "daos": {
+  "blade": {
+   "name": "Blade",
+   "text": "The way of the edge: decide, then cut. Grows from fighting, parrying and winning duels.",
+   "fx": {
+    "damage_mult": 1.0
+   },
+   "tenets": [
+    [
+     "keen",
+     "Keen",
+     "Strikes find the gap.",
+     {
+      "crit_chance": 0.05
+     }
+    ],
+    [
+     "patient",
+     "Patient",
+     "You wait, and take less.",
+     {
+      "damage_taken": 0.94
+     }
+    ],
+    [
+     "relentless",
+     "Relentless",
+     "Your hands do not stop.",
+     {
+      "attack_speed": 1.06
+     }
+    ]
+   ]
+  },
+  "flame": {
+   "name": "Flame",
+   "text": "The way of burning: trial, pressure and breakthrough. Grows from tribulations, towers and bursts of qi.",
+   "fx": {
+    "damage_mult": 0.6,
+    "qi_mult": 0.6
+   },
+   "tenets": [
+    [
+     "burning",
+     "Burning",
+     "What you hit keeps burning.",
+     {
+      "burn_on_hit": 0.06
+     }
+    ],
+    [
+     "tempered",
+     "Tempered",
+     "Fire makes you harder to break.",
+     {
+      "hp_mult": 1.06
+     }
+    ],
+    [
+     "wild",
+     "Wild",
+     "You hit as the fire spreads.",
+     {
+      "damage_mult": 1.06
+     }
+    ]
+   ]
+  },
+  "tide": {
+   "name": "Tide",
+   "text": "The way of water: rest, stillness and flow. Grows from meditating, resting and slipping blows.",
+   "fx": {
+    "qi_mult": 0.9,
+    "meditate_mult": 1.5
+   },
+   "tenets": [
+    [
+     "stillness",
+     "Stillness",
+     "Sitting goes deeper.",
+     {
+      "meditate_mult": 1.12
+     }
+    ],
+    [
+     "ebb",
+     "Ebb",
+     "Blows pass through you.",
+     {
+      "dodge_chance": 0.04
+     }
+    ],
+    [
+     "flow",
+     "Flow",
+     "Qi runs without effort.",
+     {
+      "qi_mult": 1.06
+     }
+    ]
+   ]
+  },
+  "stone": {
+   "name": "Stone",
+   "text": "The way of the mountain: endure, build, keep. Grows from home, settlements, giving and surviving.",
+   "fx": {
+    "hp_mult": 1.0,
+    "damage_taken": -0.4
+   },
+   "tenets": [
+    [
+     "bulwark",
+     "Bulwark",
+     "Less gets through.",
+     {
+      "damage_taken": 0.93
+     }
+    ],
+    [
+     "root",
+     "Root",
+     "More of you to hit.",
+     {
+      "hp_mult": 1.08
+     }
+    ],
+    [
+     "patience",
+     "Patience",
+     "You mend as you stand.",
+     {
+      "regen": 0.4
+     }
+    ]
+   ]
+  },
+  "verdant": {
+   "name": "Verdant",
+   "text": "The way of growth: tend, feed, gather and mend. Grows from gathering, harvests, beasts and bonds.",
+   "fx": {
+    "heal_on_kill": 40,
+    "hp_mult": 0.4
+   },
+   "tenets": [
+    [
+     "bloom",
+     "Bloom",
+     "Every kill gives back.",
+     {
+      "heal_on_kill": 2.0
+     }
+    ],
+    [
+     "seed",
+     "Seed",
+     "The land gives more.",
+     {
+      "gather_chance": 0.08
+     }
+    ],
+    [
+     "harvest",
+     "Harvest",
+     "Finds come richer.",
+     {
+      "loot_luck": 0.04
+     }
+    ]
+   ]
+  },
+  "forge": {
+   "name": "Forge",
+   "text": "The way of making: shape, test, shape again. Grows from crafting, forging, inscribing and designing.",
+   "fx": {
+    "craft_success": 1.0,
+    "craft_quality": 0.75
+   },
+   "tenets": [
+    [
+     "exact",
+     "Exact",
+     "Finer work.",
+     {
+      "craft_quality": 0.03
+     }
+    ],
+    [
+     "sure",
+     "Sure",
+     "Fewer failures.",
+     {
+      "craft_success": 0.05
+     }
+    ],
+    [
+     "spark",
+     "Spark",
+     "Your work throws off luck.",
+     {
+      "loot_luck": 0.03
+     }
+    ]
+   ]
+  },
+  "swarm": {
+   "name": "Swarm",
+   "text": "The way of the many: study, wetware and the nanites. Grows from research, techniques, installs and study.",
+   "fx": {
+    "qi_mult": 0.5,
+    "attack_speed": 0.6
+   },
+   "tenets": [
+    [
+     "hive",
+     "Hive",
+     "The many feed the one.",
+     {
+      "qi_mult": 1.06
+     }
+    ],
+    [
+     "lattice",
+     "Lattice",
+     "Orderly sitting.",
+     {
+      "meditate_mult": 1.12
+     }
+    ],
+    [
+     "reflex",
+     "Reflex",
+     "Machine-quick.",
+     {
+      "dodge_chance": 0.04
+     }
+    ]
+   ]
+  },
+  "seeker": {
+   "name": "Seeker",
+   "text": "The way of the open eye: look where others do not. Grows from discoveries, secrets, relics and riddles.",
+   "fx": {
+    "gather_chance": 1.5,
+    "sense_radius": 20,
+    "loot_luck": 0.3
+   },
+   "tenets": [
+    [
+     "lantern",
+     "Lantern",
+     "You see further.",
+     {
+      "sense_radius": 2.0
+     }
+    ],
+    [
+     "fortune",
+     "Fortune",
+     "Luck leans to you.",
+     {
+      "loot_luck": 0.05
+     }
+    ],
+    [
+     "stride",
+     "Stride",
+     "Dangers find you less.",
+     {
+      "dodge_chance": 0.03
+     }
+    ]
+   ]
+  }
+ },
+ "events": {
+  "kill": {
+   "blade": 0.6
+  },
+  "elite_kill": {
+   "blade": 3
+  },
+  "boss_kill": {
+   "blade": 6
+  },
+  "keeper_kill": {
+   "blade": 6
+  },
+  "parry": {
+   "blade": 0.8
+  },
+  "perfect_dodge": {
+   "blade": 0.8,
+   "tide": 0.5
+  },
+  "duel_won": {
+   "blade": 4
+  },
+  "tribulation_start": {
+   "flame": 3
+  },
+  "heaven_trial_won": {
+   "flame": 8
+  },
+  "tower_floor": {
+   "flame": 2
+  },
+  "qi_burst": {
+   "flame": 1
+  },
+  "breakthrough": {
+   "flame": 8
+  },
+  "backlash": {
+   "flame": 1
+  },
+  "rest": {
+   "tide": 1
+  },
+  "rest_home": {
+   "tide": 1.5
+  },
+  "dodge": {
+   "tide": 0.3
+  },
+  "fountain_coin": {
+   "tide": 1
+  },
+  "home_upgrade": {
+   "stone": 3
+  },
+  "settlement_help": {
+   "stone": 2
+  },
+  "donation": {
+   "stone": 2
+  },
+  "settlement_grew": {
+   "stone": 2
+  },
+  "guard_broken": {
+   "stone": 1
+  },
+  "landmark_seen": {
+   "stone": 0.8
+  },
+  "gather": {
+   "verdant": 0.5
+  },
+  "harvest": {
+   "verdant": 1
+  },
+  "feed": {
+   "verdant": 1
+  },
+  "familiar_stage": {
+   "verdant": 3
+  },
+  "bond": {
+   "verdant": 1
+  },
+  "taming_perk": {
+   "verdant": 3
+  },
+  "beast_summoned": {
+   "verdant": 0.5
+  },
+  "craft": {
+   "forge": 1.5
+  },
+  "forge": {
+   "forge": 2
+  },
+  "combine": {
+   "forge": 1
+  },
+  "inscribe": {
+   "forge": 1.5
+  },
+  "formula": {
+   "forge": 2
+  },
+  "heirloom_piece": {
+   "forge": 4
+  },
+  "design_tuned": {
+   "forge": 2
+  },
+  "creation": {
+   "forge": 2
+  },
+  "study": {
+   "swarm": 1.5
+  },
+  "researched": {
+   "swarm": 4
+  },
+  "technique": {
+   "swarm": 2
+  },
+  "nano_node": {
+   "swarm": 2
+  },
+  "installed": {
+   "swarm": 3
+  },
+  "augment_found": {
+   "swarm": 3
+  },
+  "discovery": {
+   "seeker": 3
+  },
+  "secret": {
+   "seeker": 3
+  },
+  "treasure": {
+   "seeker": 1.5
+  },
+  "relic_found": {
+   "seeker": 3
+  },
+  "dig": {
+   "seeker": 1.5
+  },
+  "puzzle_solved": {
+   "seeker": 3
+  },
+  "lore_read": {
+   "seeker": 1
+  },
+  "riddle_solved": {
+   "seeker": 2
+  },
+  "landmark_secret": {
+   "seeker": 3
+  },
+  "reach_found": {
+   "seeker": 3
+  }
+ }
+}

@@ -1,0 +1,597 @@
+{
+  "id": "floor16",
+  "name": "Floor 16, The Thunderhead Spire",
+  "theme": "dungeon",
+  "depth": 16,
+  "ambient": [
+    0.45,
+    0.45,
+    0.58
+  ],
+  "forged": {
+    "region": "storm",
+    "cycle": 0,
+    "size": 1.0
+  },
+  "enemies": {
+    "g": "storm_weak_f16",
+    "k": "storm_brute_f16",
+    "B": "storm_boss_f16",
+    "a": "storm_animal_f16"
+  },
+  "layout": {
+    "seed": 16,
+    "corridor_traps": 3,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Lightning Stair",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "c*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Gale Hall",
+        "size": [
+          19,
+          5
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "c*4"
+        ]
+      },
+      {
+        "name": "The Thunder-Iron Vein",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L",
+          "^*2",
+          "o*3",
+          "g"
+        ]
+      },
+      {
+        "name": "The Rod Gallery",
+        "size": [
+          13,
+          8
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "x*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Scorched Niche",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L",
+          "g",
+          "E"
+        ]
+      },
+      {
+        "name": "The Imp Roost",
+        "size": [
+          11,
+          8
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Stormcaller's Warning",
+        "size": [
+          10,
+          6
+        ],
+        "has": [
+          "L*2",
+          "A",
+          "x*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Eye of the Storm",
+        "size": [
+          18,
+          11
+        ],
+        "has": [
+          "L*4",
+          "g*2",
+          "k",
+          "c*4",
+          "h*2",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Goat Ledges",
+        "size": [
+          9,
+          8
+        ],
+        "has": [
+          "L",
+          "a*2",
+          "h*3"
+        ]
+      },
+      {
+        "name": "The Weather-Vane",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "L*2",
+          "?",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Rod-Maker's Store",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L",
+          "b*3",
+          "C",
+          "g"
+        ]
+      },
+      {
+        "name": "The Grounding Chamber",
+        "size": [
+          6,
+          5
+        ],
+        "has": [
+          "L",
+          "R",
+          "V"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Calm Room",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "Z",
+          "L*2",
+          "h*2"
+        ]
+      },
+      {
+        "name": "Thunder's Hush",
+        "size": [
+          11,
+          7
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "F",
+          "G"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Lantern-lit Grotto",
+        "size": [
+          11,
+          6
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "J",
+          "M"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Storm's Sanctuary",
+        "size": [
+          9,
+          8
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k",
+          "N",
+          "O"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Windrunner's Perch",
+        "size": [
+          11,
+          7
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k",
+          "Q",
+          "U"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Root-choked Storeroom",
+        "size": [
+          13,
+          9
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "W",
+          "X"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Collapsed Alcove",
+        "size": [
+          11,
+          9
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Tyrant's Crown",
+        "size": [
+          16,
+          12
+        ],
+        "has": [
+          "L*4",
+          "B",
+          ">",
+          "k",
+          "c*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "storm_glass": [
+          2,
+          3
+        ],
+        "gold": [
+          96,
+          160
+        ]
+      },
+      "note": "a rod-maker's insulated chest"
+    },
+    "D": {
+      "loot": {
+        "thunder_iron": [
+          1,
+          2
+        ],
+        "storm_pill_f16": [
+          0,
+          1
+        ],
+        "gold": [
+          80,
+          144
+        ]
+      },
+      "note": "a scorched coffer"
+    },
+    "E": {
+      "loot": {
+        "storm_glass": [
+          1,
+          2
+        ],
+        "storm_pill_f16": [
+          1,
+          1
+        ],
+        "random_weapon": [
+          0,
+          1
+        ]
+      },
+      "note": "a lightning-struck lockbox, fused shut once and pried open again",
+      "hidden": true
+    },
+    "V": {
+      "loot": {
+        "storm_glass": [
+          3,
+          4
+        ],
+        "thunder_iron": [
+          2,
+          3
+        ],
+        "storm_pill_f16": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "random_gear": [
+          1,
+          1
+        ],
+        "gold": [
+          240,
+          400
+        ]
+      },
+      "note": "the stormcaller's sealed trunk"
+    },
+    "F": {
+      "loot": {
+        "gold": [
+          128,
+          240
+        ],
+        "storm_glass": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Thunder's Hush"
+    },
+    "J": {
+      "loot": {
+        "gold": [
+          128,
+          240
+        ],
+        "thunder_iron": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Lantern-lit Grotto"
+    },
+    "N": {
+      "loot": {
+        "gold": [
+          128,
+          240
+        ],
+        "storm_pill_f16": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in Storm's Sanctuary"
+    },
+    "Q": {
+      "loot": {
+        "gold": [
+          128,
+          240
+        ],
+        "breakthrough_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Windrunner's Perch"
+    },
+    "W": {
+      "loot": {
+        "gold": [
+          128,
+          240
+        ],
+        "storm_glass": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Root-choked Storeroom"
+    }
+  },
+  "lore": {
+    "A": {
+      "title": "The Stormcaller's Warning",
+      "text": "We built the spire to catch the storm and keep it. We caught it. Now it keeps us. Do not touch the rods with bare hands, and do not stand under the crown when it glows."
+    },
+    "Y": {
+      "title": "Burned Into a Door",
+      "text": "SHE LAUGHS WHEN IT THUNDERS. THE TYRANT LAUGHS. RUN WHEN YOU HEAR HER LAUGH."
+    },
+    "R": {
+      "title": "The Grounding Chamber",
+      "text": "The stormcallers' last discipline: be the gap between the cloud and the ground. The bolt does not hesitate there, and neither should your hand.",
+      "teaches": "storm_art"
+    },
+    "G": {
+      "title": "The Echo of Prophecy",
+      "text": "Here, the winds carry whispers of the future, tales of coming storms and fallen heroes. Sages listen in silence, seeking guidance in the chaotic patterns of the air."
+    },
+    "M": {
+      "title": "The Secrets of the Storm",
+      "text": "Below the thundering hallways lies this hidden cellar, where the whispers of ancient storms are stored in eerie silence. Here, the stormcaller's secrets and forbidden lore are kept, a place of quiet reverence amidst the chaos above."
+    },
+    "O": {
+      "title": "The Reverberant Whisper",
+      "text": "Here, the echoes of thunder and the whispers of storm spirits mingle, creating a cacophony that only the most attuned can decipher. Legend speaks of a lost treasure hidden in the heart of the cavern, revealed only to those who can hear the storm's secret language."
+    },
+    "U": {
+      "title": "The Windrunner's Perch",
+      "text": "Here, the winds are tamed by the skilled runners who navigate the spire's corridors with grace, leaving no trace of their passage but the soft rustle of garments swept by the currents."
+    },
+    "X": {
+      "title": "The Sound of Wind",
+      "text": "Those who pass through here hear a mournful whistle, as if the spire itself is sighing. The wind carves the stone into thin, hollow tubes, each one resonating with the gusts of the eternal storm."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Riddle of Eye of the Storm",
+      "question": "You hear me after you see me, and I never come before my brother. What am I?",
+      "options": [
+        "Rain",
+        "Thunder",
+        "An echo"
+      ],
+      "answer": 1,
+      "reward": {
+        "items": {
+          "storm_pill_f16": 1
+        },
+        "qi": 16554
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor15",
+      "arrive": ">",
+      "label": "Up to floor 15",
+      "down": false
+    },
+    ">": {
+      "to": "floor17",
+      "arrive": "<",
+      "label": "Down to floor 17"
+    }
+  },
+  "refined": {
+    "passes": 14,
+    "rooms_added": 6,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-05T16:41:08"
+  },
+  "map": [
+    "",
+    "      <........",
+    "      .......c.",
+    "      L........",
+    "      .........",
+    "      .g..c....",
+    "      L........",
+    "          .",
+    "          .",
+    "          .",
+    "          .",
+    "          .              ^o........",
+    " ....L.............L     ......o...    ...g.......",
+    " .......c..c.gc..cg.     .....o....    ...........     .....L.A..",
+    " ......................T..g........    ...........     .x...g.x..",
+    " .............g.....     ....^.....    .g.........     ..........",
+    " ......L............     ..........    ..........................",
+    "                         .........L    ...........     .........L",
+    "                             ..        ...g.h.....     ..........",
+    "                             .         .L.........          .",
+    "                             .              .               .",
+    "                             .              .               .",
+    "                             .              .               .",
+    "                             .              ..     .....L......h..L..",
+    "                       ....L........     ........  .......k.gc.......     ..h.L....",
+    "                       ....x........     ........  ...........Y......     .........",
+    "                       .....D.k.....     ........  ..................     ...a.....",
+    "                       .............    .........  .c..c.............     ..ah.....",
+    "                       .x........................  ....................T...........",
+    "                       ...........g.     ..E.....  ..................     .........      V....L",
+    "                       .............     g.....L.  ....g..c..........     ..h......      ......",
+    "                       ...L.......g.               .................L     .........      ..R...",
+    "                             S                     .h................         .          ......",
+    "                             .                     ......L...........         .          ......",
+    "                             .                                                .            S",
+    "                             .                                                .        ..........    ..L...L.",
+    "                             .                                            ......L.     ....b..b..    .......h",
+    "                             .                                            ........     ..........    .......Z",
+    "                             .                                            ....h...    .......g.............h.",
+    "                             .                                            ......?.............b..    ........",
+    "                             .                                            .h......     ..........    ........",
+    "                             .                                            .L......     CL........    ........",
+    "                             .                                                                          ..                        WL..L........    ..........L",
+    "                             .                                                                          .                         ....o..X.....    h..........",
+    "                             .                                                                          .                         .............    ...........",
+    "                             .                                                                     .L.g.......     L.........o    .............    ........k..",
+    "                             .                                                                     ...........     L.J....g...    ............................",
+    "                             .                                                                     .........G.     ...k....g..    ......g..k...    ...........",
+    "                             .....................................................................S.h.......F.......M.........    .............    .......g...",
+    "                                                                                                   .........g.     ..o........    .............    L...g.^....",
+    "                                                                                                   ........h..     ...........    ..........og.    ...........",
+    "                                                                                                   .L.........          .               .               .",
+    "                                                                                                                        .               .               .",
+    "                                                                                                                        .               .               .",
+    "                                                                                                                        .               .               T",
+    "                                                                                                                        .               .               .",
+    "                                                                                                                    .L....^..      hL.........  .....k..........",
+    "                                                                                                                    .........      ...........  ................",
+    "                                                                                                                    .........      .h....g...g  ................",
+    "                                                                                                                    ....g.....................  ................",
+    "                                                                                                                    O.........     ....k......  L...c..c........",
+    "                                                                                                                    ....g....      .........Q.  ................",
+    "                                                                                                                    ....N...L      .....L...U.  ...............L",
+    "                                                                                                                    ..h.k....                   .c..............",
+    "                                                                                                                                                ..B.............",
+    "                                                                                                                                                ................",
+    "                                                                                                                                                .c..............",
+    "                                                                                                                                                >.....L....L....",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

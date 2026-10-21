@@ -1,0 +1,7 @@
+[
+"'s legacy",
+"Run ",
+"The ",
+"You ",
+"shader_type canvas_item;\nuniform sampler2D screen_tex : hint_screen_texture, filter_linear_mipmap;\nuniform vec3 tint = vec3(1.0);\nuniform float sat = 1.0;\nuniform float contrast = 1.0;\nuniform float vignette = 0.0;\nvoid fragment() {\n\tvec3 c = textureLod(screen_tex, SCREEN_UV, 0.0).rgb;\n\tfloat l = dot(c, vec3(0.299, 0.587, 0.114));\n\tc = mix(vec3(l), c, sat);\n\tc = (c - 0.5) * contrast + 0.5;\n\tc *= tint;\n\tvec2 d = SCREEN_UV - 0.5;\n\tc *= 1.0 - vignette * dot(d, d) * 2.2;\n\tCOLOR = vec4(c, 1.0);\n}\n"
+]

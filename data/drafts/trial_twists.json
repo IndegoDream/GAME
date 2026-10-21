@@ -1,0 +1,49 @@
+{
+  "brief": "trial_twists",
+  "title": "The daily trial's twists",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "twist": "blood_moon",
+      "name": "Moon's Embrace",
+      "desc": "Elite enemies gather under the blood moon, each one carries more than usual."
+    },
+    {
+      "twist": "glass_edge",
+      "name": "Shattered Resolve",
+      "desc": "Every strike echoes; expect to bleed more."
+    },
+    {
+      "twist": "swarming",
+      "name": "Vermin's Feast",
+      "desc": "Expect to fight more, but each is a trifle less formidable."
+    },
+    {
+      "twist": "ironhide",
+      "name": "Tough Skins",
+      "desc": "Expect richer spoils, but every scratch feels like a bite of iron."
+    },
+    {
+      "twist": "quickened",
+      "name": "Swift Shadows",
+      "desc": "They'll be upon you before you know it."
+    },
+    {
+      "twist": "spirit_tide",
+      "name": "Qi Overflow",
+      "desc": "Gather twice as much qi, but beware the influx of other cultivators drawn by the excess."
+    },
+    {
+      "twist": "no_mercy",
+      "name": "Unyielding Wounds",
+      "desc": "Expect every cut and gash to linger, healing as slowly as the dawn."
+    },
+    {
+      "twist": "veteran",
+      "name": "Warrior's Pride",
+      "desc": "Each opponent fights like a seasoned cultivator, demanding tactics and patience."
+    }
+  ],
+  "helped": []
+}

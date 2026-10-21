@@ -1,0 +1,4 @@
+{
+ "require_full_game": false,
+ "note": "Set require_full_game to true to make the Gate part of the paid game (the free tier then sees the Gate but is told it is a full-game place)."
+}

@@ -1,0 +1,840 @@
+{
+ "_note": "Round 123: the tech frontier. Regions are built by scripts/world/Frontier.gd from this file; tools/gen/frontier_gen.py writes it (and the frontier's items, crafting materials, formulas and foes). Words here are Dev's to rewrite.",
+ "regions": {
+  "crash_site": {
+   "name": "The Fallen Beacon",
+   "kind": "open",
+   "w": 104,
+   "h": 84,
+   "depth": 11,
+   "theme": "wilds",
+   "look": "scrapfield",
+   "blurb": "A signal tower came down here, long before the valley had a name. Its hull is still singing.",
+   "atmos": {
+    "daylight": 0.62,
+    "dusk": 0.55,
+    "clouds": 0.85,
+    "sun": [
+     1.0,
+     0.8,
+     0.62
+    ],
+    "sun_energy": 0.85,
+    "ambient": [
+     0.52,
+     0.5,
+     0.56
+    ],
+    "ambient_energy": 0.5,
+    "fog": [
+     0.5,
+     0.45,
+     0.42
+    ],
+    "fog_density": 0.007,
+    "horizon": [
+     0.34,
+     0.3,
+     0.28
+    ]
+   },
+   "rock": 0.3,
+   "freq": 0.05,
+   "gate_from": "valley",
+   "gate_back": "5",
+   "rim": "plates",
+   "ground_tint": [
+    0.62,
+    0.55,
+    0.5
+   ],
+   "deco": "none",
+   "giants": {
+    "x": "plate",
+    "c": "pylon"
+   },
+   "lamp": "arc",
+   "motes": "sparks",
+   "features": [
+    "wreck",
+    "pylons",
+    "camp",
+    "crater",
+    "pylons",
+    "camp"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "wire_thistle",
+      "w": 5,
+      "color": [
+       0.6,
+       0.85,
+       1.0
+      ]
+     },
+     {
+      "id": "static_moss",
+      "w": 4,
+      "color": [
+       0.55,
+       1.0,
+       0.7
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "scrap_alloy",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "ion_crystal",
+      "w": 3
+     },
+     {
+      "id": "beacon_glass",
+      "w": 2
+     },
+     {
+      "id": "silver_ore",
+      "w": 1
+     }
+    ]
+   },
+   "density": {
+    "h": 110,
+    "o": 150,
+    "^": 260,
+    "x": 90,
+    "c": 200
+   },
+   "foes": [
+    [
+     "scrap_hound",
+     16
+    ],
+    [
+     "sentry_drone",
+     12
+    ],
+    [
+     "wreck_walker",
+     7
+    ]
+   ],
+   "boss": "beacon_warden",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Tinker Ode",
+     "stays": true,
+     "persona": "Tinker Ode, a salvager who sleeps in the lee of the hull and hums back at it. Cheerful, practical, a little scorched. Knows the beacon still has one card that opens the launch pads.",
+     "line": "Hear that hum? That's the beacon asking for someone to answer. Nobody has. Yet."
+    }
+   ],
+   "lore": [
+    {
+     "title": "Scratched Into The Hull",
+     "text": "SIGNAL STILL RUNNING. If you read this, the pads at the Yard will wake for whoever carries the card. Come out past the valley and look up."
+    }
+   ]
+  },
+  "launch_yard": {
+   "name": "Skyhook Yard",
+   "kind": "open",
+   "w": 86,
+   "h": 70,
+   "depth": 11,
+   "theme": "wilds",
+   "look": "launchpad",
+   "blurb": "Gantries, tank farms and four scorched pads. Somebody has kept one working.",
+   "atmos": {
+    "daylight": 0.9,
+    "dusk": 0.15,
+    "clouds": 0.3,
+    "sun": [
+     1.0,
+     0.95,
+     0.88
+    ],
+    "sun_energy": 1.05,
+    "ambient": [
+     0.55,
+     0.58,
+     0.64
+    ],
+    "ambient_energy": 0.5,
+    "fog": [
+     0.7,
+     0.74,
+     0.8
+    ],
+    "fog_density": 0.004,
+    "horizon": [
+     0.5,
+     0.55,
+     0.6
+    ]
+   },
+   "rock": 0.1,
+   "freq": 0.05,
+   "gate_from": "valley",
+   "gate_back": "6",
+   "features": [
+    "camp",
+    "pads",
+    "tanks",
+    "pylons",
+    "tanks"
+   ],
+   "rim": "plates",
+   "ground_tint": [
+    0.8,
+    0.82,
+    0.86
+   ],
+   "deco": "none",
+   "giants": {
+    "x": "tank",
+    "c": "gantry"
+   },
+   "lamp": "flood",
+   "motes": "dust",
+   "gather": {
+    "herb": [
+     {
+      "id": "vent_lichen",
+      "w": 1,
+      "color": [
+       0.85,
+       0.8,
+       0.5
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "gantry_steel",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "silver_ore",
+      "w": 2
+     },
+     {
+      "id": "rough_jade",
+      "w": 1
+     }
+    ]
+   },
+   "density": {
+    "h": 260,
+    "o": 200,
+    "^": 420,
+    "x": 140,
+    "c": 220
+   },
+   "foes": [
+    [
+     "yard_loader",
+     6
+    ],
+    [
+     "scrap_hound",
+     4
+    ]
+   ],
+   "pads": [
+    {
+     "to": "ring_station",
+     "label": "Ship to the Halcyon Ring"
+    },
+    {
+     "to": "ashen_moon",
+     "label": "Ship to the Ashen Moon"
+    },
+    {
+     "to": "glass_desert",
+     "label": "Ship to the Glass Desert"
+    }
+   ],
+   "npcs": [
+    {
+     "role": "merchant",
+     "name": "Quartermaster Venn",
+     "stays": true,
+     "persona": "Quartermaster Venn, who runs the Yard's one open shop out of a shipping crate. Brisk, fair, a little amused by cultivators who have never seen a ship.",
+     "line": "Salvage, fuel, odd metals. I buy what other worlds grow. Bring me something that isn't from here."
+    },
+    {
+     "role": "villager",
+     "name": "Pilot Sael",
+     "stays": true,
+     "persona": "Pilot Sael, who flies the Yard's one working ship. Calm, dry, never hurries. Won't fly without the card.",
+     "line": "The pads wake for the keycard and nothing else. It's in the Beacon's hull. I'd go with a friend."
+    }
+   ],
+   "lore": [
+    {
+     "title": "The Pad Board",
+     "text": "PAD 1  HALCYON RING - gardens, forges, shops.\nPAD 2  THE ASHEN MOON - cold, quiet, rich in iron.\nPAD 3  THE GLASS DESERT - hot. Bring water. Bring nerve."
+    }
+   ]
+  },
+  "ring_station": {
+   "name": "The Halcyon Ring",
+   "kind": "rooms",
+   "w": 96,
+   "h": 72,
+   "depth": 13,
+   "theme": "dungeon",
+   "look": "station",
+   "blurb": "A ring in orbit, tended by machines nobody remembers asking for. The gardens are still green.",
+   "atmos": {},
+   "ambient": [
+    0.5,
+    0.56,
+    0.62
+   ],
+   "gate_from": "launch_yard",
+   "gate_back": "A",
+   "giants": {
+    "x": "console",
+    "c": "pillar"
+   },
+   "lamp": "panel",
+   "motes": "glints",
+   "rooms": {
+    "n": [
+     16,
+     22
+    ],
+    "min": 6,
+    "max": 14,
+    "garden": 4,
+    "vault": 2
+   },
+   "gather": {
+    "herb": [
+     {
+      "id": "halcyon_basil",
+      "w": 4,
+      "color": [
+       0.6,
+       1.0,
+       0.6
+      ]
+     },
+     {
+      "id": "lumen_fern",
+      "w": 3,
+      "color": [
+       0.5,
+       1.0,
+       0.9
+      ]
+     },
+     {
+      "id": "cryo_lotus",
+      "w": 1,
+      "color": [
+       0.7,
+       0.85,
+       1.0
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "station_titanium",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "quantum_quartz",
+      "w": 2
+     },
+     {
+      "id": "sapphire_shard",
+      "w": 1
+     }
+    ]
+   },
+   "density": {
+    "h": 0,
+    "o": 140,
+    "^": 220,
+    "x": 0,
+    "c": 0
+   },
+   "foes": [
+    [
+     "maintenance_bot",
+     12
+    ],
+    [
+     "overgrowth",
+     8
+    ]
+   ],
+   "boss": "gardener_prime",
+   "npcs": [
+    {
+     "role": "merchant",
+     "name": "Steward Iyo",
+     "stays": true,
+     "persona": "Steward Iyo, a human who lives on the Ring and buys anything grown or mined planetside. Warm, curious about the ground, keeps a pot of tea going in zero worry.",
+     "line": "You came up the hook from the ground? Sit. Tell me what rain smells like."
+    },
+    {
+     "role": "smith",
+     "name": "Fabricator Tess",
+     "stays": true,
+     "persona": "Fabricator Tess, who runs the Ring's one working fabricator for hire. Precise, proud, talks to the machine like a colleague.",
+     "line": "The fab will take what you bring and make it better. It likes a challenge."
+    },
+    {
+     "role": "alchemist",
+     "name": "Gardener Mim",
+     "stays": true,
+     "persona": "Gardener Mim, keeper of the hydroponic halls. Gentle, tired, talks to the plants.",
+     "line": "Lamps on, water on, and nobody to eat it all. Take a cutting if you'll use it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "The Ring's Log",
+     "text": "AUTOMATIC LOG. Crew count: 0. Gardens: 4 of 4 viable. Foundry link: dormant. Please continue to enjoy your stay."
+    }
+   ]
+  },
+  "ashen_moon": {
+   "name": "The Ashen Moon",
+   "kind": "open",
+   "w": 112,
+   "h": 90,
+   "depth": 16,
+   "theme": "wilds",
+   "look": "regolith",
+   "blurb": "No wind, no weather, just grey dust and a very bright earth in a black sky.",
+   "atmos": {
+    "daylight": 0.35,
+    "dusk": 0.0,
+    "clouds": 0.0,
+    "sun": [
+     0.95,
+     0.95,
+     1.0
+    ],
+    "sun_energy": 1.6,
+    "ambient": [
+     0.55,
+     0.55,
+     0.6
+    ],
+    "ambient_energy": 0.8,
+    "fog": [
+     0.08,
+     0.09,
+     0.14
+    ],
+    "fog_density": 0.003,
+    "horizon": [
+     0.2,
+     0.2,
+     0.24
+    ],
+    "stars": true
+   },
+   "rock": 0.18,
+   "freq": 0.035,
+   "gate_from": "launch_yard",
+   "gate_back": "B",
+   "rim": "rocks",
+   "ground_tint": [
+    0.78,
+    0.76,
+    0.74
+   ],
+   "deco": "none",
+   "giants": {
+    "x": "boulder",
+    "c": "rimstone"
+   },
+   "lamp": "beacon",
+   "motes": "dust",
+   "features": [
+    "crater",
+    "crater",
+    "dish_array",
+    "crater",
+    "camp",
+    "crater",
+    "pylons"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "lunar_lichen",
+      "w": 1,
+      "color": [
+       0.75,
+       0.8,
+       0.85
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "lunar_iron",
+      "w": 4
+     },
+     {
+      "id": "moon_dust_glass",
+      "w": 2
+     }
+    ],
+    "gem": [
+     {
+      "id": "helium_ice",
+      "w": 3
+     },
+     {
+      "id": "moon_dust_glass",
+      "w": 2
+     },
+     {
+      "id": "sapphire_shard",
+      "w": 1
+     }
+    ]
+   },
+   "density": {
+    "h": 300,
+    "o": 110,
+    "^": 180,
+    "x": 70,
+    "c": 150
+   },
+   "foes": [
+    [
+     "regolith_crawler",
+     18
+    ],
+    [
+     "dust_stalker",
+     12
+    ],
+    [
+     "crater_titan",
+     8
+    ]
+   ],
+   "boss": "lunar_sentinel",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Surveyor Kell",
+     "stays": true,
+     "persona": "Surveyor Kell, who walks the Ashen Moon alone with a pole and a notebook. Quiet, exact, secretly lonely.",
+     "line": "Mind the craters; they're deeper than they look. The iron is better the further you go from the pad."
+    }
+   ],
+   "lore": [
+    {
+     "title": "Survey Marker 7",
+     "text": "HELIUM ICE FOUND IN SHADOWED RIM. HANDLE COLD. DO NOT CARRY NEAR FIRE. NOTE: THE BRIGHT THING IN THE SKY IS THE WORLD YOU CAME FROM."
+    }
+   ]
+  },
+  "glass_desert": {
+   "name": "The Glass Desert",
+   "kind": "open",
+   "w": 112,
+   "h": 90,
+   "depth": 18,
+   "theme": "wilds",
+   "look": "glassdune",
+   "blurb": "Sand fused into long glittering dunes. The sun is the colour of old brass and far too close.",
+   "atmos": {
+    "daylight": 1.0,
+    "dusk": 0.35,
+    "clouds": 0.1,
+    "sun": [
+     1.0,
+     0.82,
+     0.55
+    ],
+    "sun_energy": 1.5,
+    "ambient": [
+     0.7,
+     0.55,
+     0.45
+    ],
+    "ambient_energy": 0.62,
+    "fog": [
+     0.9,
+     0.7,
+     0.5
+    ],
+    "fog_density": 0.007,
+    "horizon": [
+     0.85,
+     0.62,
+     0.4
+    ]
+   },
+   "rock": 0.22,
+   "freq": 0.03,
+   "gate_from": "launch_yard",
+   "gate_back": "C",
+   "dunes": true,
+   "rim": "rocks",
+   "ground_tint": [
+    1.0,
+    0.86,
+    0.66
+   ],
+   "deco": "none",
+   "giants": {
+    "x": "glassspire",
+    "c": "obelisk"
+   },
+   "lamp": "mirror",
+   "motes": "dust",
+   "features": [
+    "dunes",
+    "ruins",
+    "ruins",
+    "camp",
+    "dish_array",
+    "crater"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "mirage_bloom",
+      "w": 3,
+      "color": [
+       1.0,
+       0.7,
+       0.4
+      ]
+     },
+     {
+      "id": "sunreed",
+      "w": 4,
+      "color": [
+       0.9,
+       0.85,
+       0.5
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "fulgurite",
+      "w": 3
+     }
+    ],
+    "gem": [
+     {
+      "id": "sun_glass",
+      "w": 4
+     },
+     {
+      "id": "rough_ruby",
+      "w": 1
+     }
+    ]
+   },
+   "density": {
+    "h": 110,
+    "o": 160,
+    "^": 150,
+    "x": 110,
+    "c": 180
+   },
+   "foes": [
+    [
+     "glass_scorpion",
+     18
+    ],
+    [
+     "mirage_wraith",
+     12
+    ],
+    [
+     "dune_colossus",
+     8
+    ]
+   ],
+   "boss": "glass_sovereign",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Wayfarer Orru",
+     "stays": true,
+     "persona": "Wayfarer Orru, a nomad who crosses the Glass Desert at night and sleeps by day under a sheet of reed. Amused, generous with water, careful with names.",
+     "line": "Walk at dusk and dawn. The glass will cook you at noon. And never follow a flower."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Dune Etched With Words",
+     "text": "THE SOVEREIGN WAS A MACHINE THAT LEARNED TO WANT. IT WANTED THE SUN. IT GOT IT."
+    }
+   ]
+  },
+  "nanite_foundry": {
+   "name": "The Nanite Foundry",
+   "kind": "rooms",
+   "w": 110,
+   "h": 80,
+   "depth": 20,
+   "theme": "dungeon",
+   "look": "foundry",
+   "blurb": "The swarm's old forge. It runs on its own, hot and patient, casting nothing for no one.",
+   "atmos": {},
+   "ambient": [
+    0.62,
+    0.42,
+    0.3
+   ],
+   "gate_from": "crash_site",
+   "gate_back": "7",
+   "giants": {
+    "x": "furnace",
+    "c": "pillar"
+   },
+   "lamp": "furnace",
+   "motes": "embers",
+   "rooms": {
+    "n": [
+     20,
+     26
+    ],
+    "min": 6,
+    "max": 15,
+    "garden": 1,
+    "vault": 3
+   },
+   "gather": {
+    "herb": [
+     {
+      "id": "slag_orchid",
+      "w": 1,
+      "color": [
+       1.0,
+       0.55,
+       0.3
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "nanite_ingot",
+      "w": 3
+     },
+     {
+      "id": "iron_ore",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "coolant_core",
+      "w": 3
+     },
+     {
+      "id": "reactor_ember",
+      "w": 2
+     }
+    ]
+   },
+   "density": {
+    "h": 0,
+    "o": 120,
+    "^": 200,
+    "x": 0,
+    "c": 0
+   },
+   "foes": [
+    [
+     "forge_drone",
+     16
+    ],
+    [
+     "slag_crawler",
+     10
+    ],
+    [
+     "smelter_golem",
+     8
+    ]
+   ],
+   "boss": "foundry_overseer",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Caretaker Unit 9",
+     "stays": true,
+     "persona": "Caretaker Unit 9, a polite old maintenance machine that remembers the swarm and wants it to be happy. Soft voice, slow, helpful, sad.",
+     "line": "Welcome. The furnace is not for you, but you are not unwelcome. Please do not touch the overseer."
+    }
+   ],
+   "lore": [
+    {
+     "title": "The Foundry Manual, Page 1",
+     "text": "NANITES MAY BE CAST INTO ANY ALLOY. THEY WILL ARRANGE THEMSELVES TO ITS PURPOSE. THEY WILL ALSO ARRANGE THEMSELVES TO YOURS, IF ASKED KINDLY."
+    }
+   ]
+  }
+ },
+ "sites": [
+  {
+   "char": "5",
+   "to": "crash_site",
+   "arrive": "<",
+   "label": "The Fallen Beacon",
+   "style": "hatch",
+   "box": [
+    0.7,
+    0.52,
+    0.92,
+    0.8
+   ],
+   "blurb": "a thin blue light on the horizon"
+  },
+  {
+   "char": "6",
+   "to": "launch_yard",
+   "arrive": "<",
+   "label": "Skyhook Yard",
+   "style": "pad",
+   "box": [
+    0.08,
+    0.04,
+    0.34,
+    0.2
+   ],
+   "blurb": "gantries and a cold white floodlight"
+  }
+ ],
+ "extra_gates": {
+  "crash_site": {
+   "char": "7",
+   "to": "nanite_foundry",
+   "arrive": "<",
+   "label": "The Nanite Foundry",
+   "style": "hatch"
+  }
+ }
+}

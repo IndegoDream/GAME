@@ -1,0 +1,546 @@
+{
+  "id": "floor6",
+  "name": "Floor 6, The Strangling Grove",
+  "theme": "dungeon",
+  "depth": 6,
+  "ambient": [
+    0.3,
+    0.45,
+    0.3
+  ],
+  "enemies": {
+    "n": "thornling",
+    "k": "rootbound_monk",
+    "G": "grove_mother",
+    "s": "moss_stag"
+  },
+  "layout": {
+    "seed": 6,
+    "corridor_traps": 3,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Root-Choked Stairwell",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "x*2",
+          "h",
+          "n"
+        ]
+      },
+      {
+        "name": "The Drowned Orchard",
+        "size": [
+          14,
+          9
+        ],
+        "has": [
+          "L*2",
+          "~*8",
+          "&",
+          "t*3",
+          "n*2",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Hall of Strangling Vines",
+        "size": [
+          18,
+          5
+        ],
+        "has": [
+          "L*3",
+          "n*3",
+          "t*2",
+          "h"
+        ]
+      },
+      {
+        "name": "The Herb Terraces",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*6",
+          "n*2",
+          "C"
+        ]
+      },
+      {
+        "name": "The Meditation Hall",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L*2",
+          "k",
+          "c*4",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Seed Granary",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L",
+          "b*3",
+          "n*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Moss-Stag Clearing",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*2",
+          "s*2",
+          "t*3",
+          "h*3"
+        ]
+      },
+      {
+        "name": "The Resin Pond",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L",
+          "~*5",
+          "h*2",
+          "k",
+          "o"
+        ]
+      },
+      {
+        "name": "The Root Hollow",
+        "size": [
+          6,
+          5
+        ],
+        "secret": true,
+        "has": [
+          "L",
+          "R",
+          "V"
+        ]
+      },
+      {
+        "name": "The Cracked Rock",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "L",
+          "^",
+          "o*2",
+          "n*2"
+        ]
+      },
+      {
+        "name": "The Weeping Willow Court",
+        "size": [
+          10,
+          9
+        ],
+        "has": [
+          "L*2",
+          "t*2",
+          "?",
+          "k",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Sect's Ruined Library",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L*2",
+          "b*2",
+          "k",
+          "E",
+          "Q"
+        ]
+      },
+      {
+        "name": "The Thorn Gate",
+        "size": [
+          12,
+          6
+        ],
+        "has": [
+          "L*2",
+          "n*3",
+          "k",
+          "x*2"
+        ]
+      },
+      {
+        "name": "Veiled Monolith",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "n*2",
+          "F",
+          "J"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Murmuring Thicket",
+        "size": [
+          11,
+          6
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "n*2",
+          "k",
+          "M",
+          "N"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Withered Altar",
+        "size": [
+          11,
+          6
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "n*2",
+          "k",
+          "O",
+          "U"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Lantern-lit Cell",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "n*2",
+          "k",
+          "W",
+          "X"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Heartwood Throne",
+        "size": [
+          16,
+          12
+        ],
+        "has": [
+          "L*4",
+          "G",
+          ">",
+          "n*2",
+          "t*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "spirit_resin": [
+          2,
+          4
+        ],
+        "gold": [
+          40,
+          70
+        ]
+      },
+      "note": "a terrace-keeper's seed box"
+    },
+    "D": {
+      "loot": {
+        "heartwood": [
+          1,
+          2
+        ],
+        "spirit_herb": [
+          2,
+          4
+        ],
+        "gold": [
+          30,
+          60
+        ]
+      },
+      "note": "a sealed grain bin, roots curled around it"
+    },
+    "V": {
+      "loot": {
+        "heartwood": [
+          2,
+          3
+        ],
+        "verdant_pill": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "gold": [
+          120,
+          200
+        ],
+        "random_gear": [
+          1,
+          1
+        ]
+      },
+      "note": "the sect's last seed vault"
+    },
+    "E": {
+      "loot": {
+        "spirit_resin": [
+          1,
+          3
+        ],
+        "qi_pill": [
+          1,
+          2
+        ]
+      },
+      "note": "a scholar's book-box, swollen shut",
+      "hidden": true
+    },
+    "F": {
+      "loot": {
+        "gold": [
+          48,
+          90
+        ],
+        "spirit_resin": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Veiled Monolith"
+    },
+    "M": {
+      "loot": {
+        "gold": [
+          48,
+          90
+        ],
+        "heartwood": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Murmuring Thicket"
+    },
+    "O": {
+      "loot": {
+        "gold": [
+          48,
+          90
+        ],
+        "spirit_herb": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in the Withered Altar"
+    },
+    "W": {
+      "loot": {
+        "gold": [
+          48,
+          90
+        ],
+        "verdant_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Lantern-lit Cell"
+    }
+  },
+  "lore": {
+    "Y": {
+      "title": "The Last Sitting",
+      "text": "Sixty monks sat down in this hall to meditate through the drought. The rain came, and the roots came with it. They are still sitting -- some of them. If one stands up, do not wait to see which way he walks."
+    },
+    "R": {
+      "title": "What the Roots Know",
+      "teaches": "evergreen_body",
+      "text": "Cut a root and it grows two. Burn the grove and it greens by spring. The sect learned this from the trees too late to save the sect, but not too late to write it down: be cut, and grow back."
+    },
+    "Q": {
+      "title": "The Gardener's Ledger",
+      "text": "Day 112. The mother-tree asked for water again. We gave it blood by mistake -- Han cut his hand on a thorn. It has not asked for water since. Day 113. Han is missing."
+    },
+    "J": {
+      "title": "Whispers of the Past",
+      "text": "Ancient runes etched into the stone walls speak of forgotten rituals. The air is thick with the scent of incense and decay, where the dead still whisper secrets to the living."
+    },
+    "N": {
+      "title": "The Guardian's Hush",
+      "text": "Here, the ancient trees bend low, their leaves rustling in a secret language known only to the spirits of this grove. Legends speak of a guardian, a ghostly figure that appears to those who seek the truth of the forest, guiding them to the heart of the Strangling Grove."
+    },
+    "U": {
+      "title": "A Place of Forgotten Sacrifice",
+      "text": "Here, ancient ceremonies were held to appease the spirits of the Strangling Grove. Now, only the gnawed remnants of offerings and the twisted vines that strangle the stone altar remain as testaments to the once-faithful rituals."
+    },
+    "X": {
+      "title": "The Shadows Speak",
+      "text": "Here, the walls whisper secrets of the past, tales of those who once sought enlightenment and now rest in the embrace of the grove. The shadows play tricks on the eyes, revealing fleeting images of ancient rituals and forgotten faces."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Willow's Question",
+      "question": "I wear a ring for every year I live, yet I have never married. What am I?",
+      "options": [
+        "A tree",
+        "A bell",
+        "A sect elder"
+      ],
+      "answer": 0,
+      "reward": {
+        "items": {
+          "verdant_pill": 1
+        },
+        "qi": 300
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor5",
+      "arrive": ">",
+      "label": "Up to Shellhaven",
+      "down": false
+    },
+    ">": {
+      "to": "floor7",
+      "arrive": "<",
+      "label": "Down to the Ember Forges"
+    }
+  },
+  "refined": {
+    "passes": 7,
+    "rooms_added": 4,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-04T06:49:02"
+  },
+  "map": [
+    "",
+    "                       ....h.C.....      L.........",
+    "    <.....L.           .n.n..h.....      .cY.c..c..",
+    "    .x..x...           .......h....      k.........",
+    "    ......h.           .....h......      ..........",
+    "    ........           ................T.....c.....",
+    "    ........           ............      ..........",
+    "    Ln......           .........h.L      ..........",
+    "        .              L........h..      .L........",
+    "        .                    .               ..",
+    "        .                    .               .",
+    " ..........n...              .               .",
+    " ....~..~..~.h.              .               .       ....s....L..",
+    " ...n..........     ....L...........n.       .       Ls..t.......",
+    " .h............     ....t..h........tL   .n.......   ............",
+    " .~..~..~..t..........................   .b..D....   .....hh.....",
+    " ..............     ...nn.............   .........  .....t..t....",
+    " ....&.........     .............L....   ........................",
+    " .~..t..~..t...                          .b.....b.   ...h........",
+    " .L...........L                          ....L.n..   ............",
+    "        S                                            ............",
+    "        .                                                  .",
+    "        .                                                  .",
+    "        .                                                  .",
+    "        .                                                  .",
+    "        .                                             .L........",
+    "        .                                             .~..~.h... ......",
+    "        .                                             .......... ..R...",
+    "        .                                             ..........S......",
+    "        .                                             h~..~..~.. ...V..",
+    "        .                                             ..o....... .L....",
+    "        .                                             ......k...",
+    "        .                                             ..........",
+    "        .                                                  .",
+    "        .                                                  .        .........k",
+    "        .                                                  .        h......h..",
+    "        .                                              .L....n.     ..........",
+    "        .                                              n.......     .........L",
+    "        .                                              ^......................",
+    "        .                                              ....o....    ..........",
+    "        .                                              o.......     .......?..",
+    "        .                                              ........     ....t..t..",
+    "        .                                                           ...L......",
+    "        .                                                                .",
+    "        .                                                                .",
+    "        .                                                               ..",
+    "        .                                                           .........     k.........L.",
+    "        .                                                           L...b.E..     .x...n.x....                   n..hLhn.",
+    "        .                                                           .........     ............   .........n.     W....X..",
+    "        ...........................................................S...................n.n....   Lnk....^...     ........",
+    "                                                                    .......b.     ............   ...........    .........",
+    "                                                                    .Q.......     ..........L.   ...............T......k.",
+    "                                                                    .L.....k.           .        ..h.U...O..     .......L",
+    "                                                                                        .        .L.........     ........",
+    "                                                                                        .             T              .",
+    "                                                                                        .             .              .",
+    "                                                                                       ..             .              .",
+    "                                                                                   J........     ........... ..........LLn...",
+    "                                                                                   .......h.     n......M... L.G....t........",
+    "                                                                                   .......h.     ........... ................",
+    "                                                                                   ....n................o... ................",
+    "                                                                                   .F....n..     .....n.N..L .t.....t........",
+    "                                                                                   ..L.....L     k...L...o.. ................",
+    "                                                                                                             ................",
+    "                                                                                                             ................",
+    "                                                                                                             ................",
+    "                                                                                                             ................",
+    "                                                                                                             .............t..",
+    "                                                                                                             >..........n..L.",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

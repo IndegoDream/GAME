@@ -1,0 +1,76 @@
+{
+ "_about": "What keeps you coming back (round 30, Robert 2026-10-03: 'we don't want a boring game we want it to keep people coming back'). Engine: Game.gd 'retention' -- the daily trial (TrialGen.gd), the week's sect trials, the Trial Board's marks, collections, rare world events, and ascension. Missing a day never takes anything away.",
+ "daily": {
+  "mods": {
+   "blood_moon": {"name": "Blood Moon", "desc": "Elites everywhere, and they carry more.", "elite_mult": 4.0, "loot_mult": 1.5},
+   "glass_edge": {"name": "Glass Edge", "desc": "Every blow lands half again as hard -- yours and theirs.", "foe_damage": 1.5, "your_damage": 1.5},
+   "swarming": {"name": "Swarming Halls", "desc": "Half as many again of them, a little weaker each.", "foe_count": 1.5, "foe_hp": 0.8},
+   "ironhide": {"name": "Ironhide", "desc": "Tough hides, rich pickings.", "foe_hp": 1.6, "loot_mult": 2.0},
+   "quickened": {"name": "Quickened", "desc": "They move faster than they should.", "foe_speed": 1.3},
+   "spirit_tide": {"name": "Spirit Tide", "desc": "The air is thick with qi: twice what you'd gather.", "qi_mult": 2.0},
+   "no_mercy": {"name": "No Mercy", "desc": "Your wounds don't close on their own in here.", "no_regen": 1.0, "loot_mult": 1.5},
+   "veteran": {"name": "Veterans", "desc": "Every one of them has a fighting style -- no plain brawlers.", "all_variants": 1.0}
+  },
+  "mods_per_day": [1, 2],
+  "rooms": [7, 10],
+  "foes_per_room": [1, 3],
+  "reward": {"gold_per_depth": 30, "insight": 3.0, "marks": 3, "streak_marks": 1, "streak_cap": 7, "material_rolls": 2},
+  "score": {"base": 1000, "per_kill": 40, "per_second": 2, "per_hp_lost": 1, "elite": 60}
+ },
+ "weekly": {
+  "goals_per_week": 3,
+  "pool": [
+   {"id": "slayer", "text": "Defeat %d foes", "event": "kill", "need": 150},
+   {"id": "elites", "text": "Defeat %d elites", "event": "elite_kill", "need": 8},
+   {"id": "gatherer", "text": "Gather %d times", "event": "gather", "need": 40},
+   {"id": "maker", "text": "Make %d things (craft, forge or combine)", "event": ["craft", "forge", "combine"], "need": 8},
+   {"id": "seeker", "text": "Find %d secrets or discoveries", "event": ["secret", "discovery", "landmark_secret", "riddle_solved"], "need": 3},
+   {"id": "duelist", "text": "Win %d bouts with rival disciples", "event": "duel_won", "need": 3},
+   {"id": "climber", "text": "Clear %d tower floors", "event": "tower_floor", "need": 3},
+   {"id": "trialist", "text": "Finish %d daily trials", "event": "daily_trial_done", "need": 3},
+   {"id": "bossbane", "text": "Bring down %d floor masters", "event": "boss_kill", "need": 2},
+   {"id": "cultivator", "text": "Rise %d steps in cultivation", "event": "levelup", "need": 3},
+   {"id": "wanderer", "text": "Enter %d places", "event": "enter_level", "need": 15}
+  ],
+  "reward": {"marks": 6, "insight": 5.0, "gold": 250, "all_three": {"marks": 10, "item": "qi_pill", "count": 3}}
+ },
+ "shop": [
+  {"id": "qi_pills", "name": "Three qi pills", "cost": 4, "item": "qi_pill", "count": 3},
+  {"id": "salves", "name": "Five healing salves", "cost": 3, "item": "healing_salve", "count": 5},
+  {"id": "nanites", "name": "Ten nanite shards", "cost": 5, "item": "nanite_shard", "count": 10},
+  {"id": "formula", "name": "An unknown formula scroll", "cost": 9, "formula": true},
+  {"id": "insight", "name": "A night with the trial-keeper's notes (+4 insight)", "cost": 8, "insight": 4.0},
+  {"id": "essence", "name": "A drop of ancestral blood (once your blood has woken)", "cost": 18, "essence": true}
+ ],
+ "collections": {
+  "tiers": [25, 50, 75, 100],
+  "reward_marks": [3, 5, 8, 15],
+  "reward_insight": [2.0, 3.0, 5.0, 10.0],
+  "bestiary": {"studied": 10, "mastered": 50, "studied_bonus": 1.04, "mastered_bonus": 1.1}
+ },
+ "events": {
+  "base_chance": 0.05, "pity_step": 0.012, "max_chance": 0.3, "min_depth": 2,
+  "list": {
+   "blood_moon": {"name": "Blood Moon", "weight": 3, "desc": "The light down here has gone red. There are more of them, and worse.", "elite_mult": 3.0, "loot_mult": 1.5, "essence_mult": 3.0, "color": [0.9, 0.15, 0.1]},
+   "spirit_tide": {"name": "Spirit Tide", "weight": 4, "desc": "Qi rolls through these halls like a spring flood: everything you gather here, doubled.", "qi_mult": 2.0, "color": [0.45, 0.9, 1.0]},
+   "wandering_master": {"name": "A Wandering Master", "weight": 3, "desc": "Someone has set up a little camp on this floor -- an old cultivator, passing through.", "spawn": "master", "color": [0.95, 0.85, 0.5]},
+   "meteor_fall": {"name": "Meteor Fall", "weight": 2, "min_depth": 5, "desc": "Something fell through the rock and is still glowing. Star iron, if you're quick.", "spawn": "meteor", "color": [0.7, 0.75, 1.0]},
+   "treasure_spirit": {"name": "Treasure Spirit", "weight": 3, "desc": "A little gilded thing is running around this floor, dropping coins. It won't stay long.", "spawn": "treasure", "color": [1.0, 0.85, 0.2]},
+   "heavenly_sign": {"name": "Heavenly Sign", "weight": 1, "min_depth": 18, "desc": "The stars show through the rock for a moment. Old blood answers.", "blood_mult": 3.0, "essence_mult": 4.0, "color": [0.75, 0.55, 1.0]}
+  }
+ },
+ "ascension": {
+  "unlock_depth": 25, "unlock_realm": 3,
+  "foe_scale_per": 0.25, "loot_boost_per": 1,
+  "marks_per_depth": 1.0, "marks_per_realm": 6.0, "marks_per_collection": 0.5,
+  "keep_blood": 0.6,
+  "boons": {
+   "start_gold": {"name": "Remembered Wealth", "desc": "+150 gold at the start of each climb", "max": 5, "cost": [3, 5, 8, 12, 16], "gold": 150},
+   "deep_root": {"name": "Deep Root", "desc": "+4% qi, always", "max": 5, "cost": [4, 6, 9, 13, 18], "qi_mult": 0.04},
+   "old_bones": {"name": "Old Bones", "desc": "+4% max HP, always", "max": 5, "cost": [4, 6, 9, 13, 18], "hp_mult": 0.04},
+   "clear_mind": {"name": "Clear Mind", "desc": "Start each climb with 5 insight", "max": 3, "cost": [5, 9, 14], "insight": 5.0},
+   "true_blood": {"name": "True Blood", "desc": "Keep 10% more of your bloodline's purity when you ascend", "max": 3, "cost": [6, 10, 15], "keep_blood": 0.1},
+   "heirloom": {"name": "Heirloom", "desc": "Carry one more piece of gear into the next climb", "max": 3, "cost": [8, 14, 20], "heirlooms": 1}
+  }
+ }
+}

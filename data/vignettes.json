@@ -1,0 +1,197 @@
+{
+  "_about": "Little scenes on dungeon floors (scripts/Vignette.gd): what you see when you press E on them. 'kinds' are the scenes; 'lines' are what you read, any of which may be picked; a look's own lines (keyed by the look from Look.gd) come first when it has them. Dev may add lines here -- write from inside the world, never about the game.",
+  "kinds": {
+    "camp": {
+      "title": "A cold camp",
+      "lines": [
+        "Someone slept here not long ago. The ashes are cold but the ground beneath them is still dry -- they left in a hurry, or they meant to come back.",
+        "A bedroll, a ring of stones, a pot scraped clean. Whoever camped here ate the last of their food and went deeper anyway.",
+        "Three sets of footprints come into this camp. Two leave it."
+      ]
+    },
+    "fallen": {
+      "title": "Someone who didn't make it",
+      "lines": [
+        "A cultivator, or what's left of one. Their hand is still closed around the hilt; their sword still points the way they were going.",
+        "They died sitting up, back against the stone, as if they'd only stopped to rest. Their pack is open. Whatever they were saving is gone.",
+        "No wound you can see. Their face is calm. Whatever took them here took them quietly."
+      ]
+    },
+    "shrine": {
+      "title": "A small shrine",
+      "lines": [
+        "Somebody built this down here, stone by stone, and kept the candles lit. Some of them are still burning. Somebody still comes.",
+        "A broken statue, its face worn away by a thousand hands touching it for luck. You touch it too. It's warm.",
+        "Offerings at the foot of an old pillar: a coin, a dried flower, a child's carved bird. Prayers, left where nobody would hear them but the deep."
+      ]
+    },
+    "battle": {
+      "title": "Where a fight happened",
+      "lines": [
+        "Scorched stone, scattered blades, a shield split down the middle. Whoever won this fight didn't stay to bury anyone.",
+        "The marks on the walls are from qi, not steel -- someone was strong enough to cut stone, and it still wasn't enough.",
+        "Arrows, broken spears, and a long dark smear where something was dragged away."
+      ]
+    },
+    "cache": {
+      "title": "Someone's stash",
+      "lines": [
+        "Barrels and jars, tucked out of sight. Most of it has rotted. Most of it.",
+        "A smuggler's cache, by the look of it -- false bottoms in the barrels, a tally scratched into the wall. The last tally mark is unfinished.",
+        "Supplies, left by someone planning to come back down. They didn't."
+      ]
+    },
+    "smithy": {
+      "title": "A lost forge",
+      "craft": "smithing",
+      "lines": [
+        "A forge someone built down here by hand, stone on stone, and worked for years. The bellows have rotted, but the anvil-stone still rings when you tap it.",
+        "Half-finished blades on a rack, a quench barrel gone to sludge, tally marks of every piece they made. The last mark is a sword they never finished.",
+        "A smith's corner: tongs, a cracked hammer, slag swept neatly into a pile. They kept a tidy forge right up until the end."
+      ]
+    },
+    "alchemy_lab": {
+      "title": "An abandoned laboratory",
+      "craft": "alchemy",
+      "lines": [
+        "Flasks and furnaces, a table stained every colour qi can be. One flask still glows faintly -- whatever's in it has been brewing for a very long time.",
+        "An alchemist's bench, the notes on it written in a hand that got shakier page by page. The last page says only: 'too much fire. always too much fire.'",
+        "Somebody refined pills down here, far from anyone who might steal the recipe. The recipe is scratched into the table. Most of it."
+      ]
+    },
+    "apothecary": {
+      "title": "A healer's lost rooms",
+      "craft": "medicine",
+      "lines": [
+        "Bundles of herbs hung to dry and never taken down, clean linen folded on a shelf, a cot. Someone tended the wounded down here.",
+        "A healer's table, scrubbed pale. Jars labelled in a careful hand: for fever, for broken bones, for grief. The last one is empty.",
+        "A field hospital, of a kind -- someone treated miners here. There are names scratched on the wall, and most of them have a mark beside them meaning 'walked out'."
+      ]
+    },
+    "jeweler": {
+      "title": "A jeweller's bench",
+      "craft": "jewelcrafting",
+      "lines": [
+        "Tiny tools laid out in a row, a loupe of polished crystal, a dish of chips too small to sell. Someone cut stones down here, by lamplight, alone.",
+        "A cutter's bench with a stone still clamped in the vice -- half-faceted, beautiful, and cracked clean through on the last cut.",
+        "Settings without stones, stones without settings. Whoever worked here was always about to finish something."
+      ]
+    },
+    "herb_garden": {
+      "title": "A hidden garden",
+      "craft": "herbalism",
+      "lines": [
+        "Someone grew a garden here, in the dark, under a crack of light from far above. It's gone wild -- but it's still growing.",
+        "Raised beds of carried-down soil, rows still visible under the weeds. Spirit herbs grow thickest where the gardener used to kneel.",
+        "A gardener's plot, marked with little stone tags. The tags name plants you've never heard of. Some of the plants are still here."
+      ]
+    }
+  },
+  "looks": {
+    "forge": {
+      "battle": [
+        "The slag here has fused around a sword. Whoever dropped it was standing where the floor melted."
+      ],
+      "fallen": [
+        "A smith, apron still on, hammer still in hand. The forge they were tending has been cold a long time; they haven't."
+      ]
+    },
+    "dragonspine": {
+      "fallen": [
+        "Ribs, huge, curved over a much smaller skeleton -- someone sheltered inside the dragon's bones, and stayed."
+      ]
+    },
+    "drowned": {
+      "fallen": [
+        "Waterlogged robes, a court seal on a cord. A palace official, still waiting for an audience that will never come."
+      ],
+      "shrine": [
+        "A shrine to the river. The water has risen over its first step, and its second, and someone has kept moving the candles up."
+      ]
+    },
+    "canopy": {
+      "camp": [
+        "A camp strung up off the ground in a net of vines. Smart -- the floor here moves at night."
+      ]
+    },
+    "fungal": {
+      "fallen": [
+        "They're overgrown. Not decayed -- overgrown, gently, by pale caps that glow a little brighter near the heart."
+      ]
+    },
+    "crystal": {
+      "shrine": [
+        "Someone has tuned these crystals by chipping them, one tone at a time, until the little alcove hums a single chord."
+      ]
+    },
+    "swordgrave": {
+      "fallen": [
+        "Ten thousand swords in this grave, and this one disciple died with none -- their hands are empty, reaching for the nearest."
+      ]
+    },
+    "barrows": {
+      "shrine": [
+        "A clay soldier kneels here, alone, facing the wall. Someone has set a bowl of rice in front of it. The rice is fresh."
+      ]
+    },
+    "crypt": {
+      "cache": [
+        "Grave goods, quietly stolen and quietly hidden: jade, silver, a funeral mask. The thief left a note to the dead apologising."
+      ]
+    },
+    "starmine": {
+      "camp": [
+        "A miners' rest: tin cups, a deck of cards, and a lump of star-iron someone was too tired to carry the last mile."
+      ]
+    }
+  },
+  "legacies": {
+    "_about": "The masters who sit at a lost workshop on the upper floors (1-10). They pass on their craft once, ever -- but only to someone who has already started down that road (the craft at level 2 or better).",
+    "smithing": {
+      "masters": [
+        "the Hammer of Eliet",
+        "Smith Dun of the Ninth Vein",
+        "the Old Sect's Forgemaster"
+      ],
+      "technique": "forge_sense",
+      "words": "The figure at the anvil turns its head -- slowly, the way stone turns. \"You have callouses in the right places. Good. I never found anyone down here worth teaching. Take what I learned. Take my best work too. Don't let it rust.\""
+    },
+    "alchemy": {
+      "masters": [
+        "the Pill Saint of the Damp",
+        "Mother Ash-Hand",
+        "the Last Furnace-Keeper"
+      ],
+      "technique": "furnace_heart",
+      "words": "Smoke curls from the dead furnace, though nothing has burned here in years. \"You smell of herbs and failure. So did I, once. Here: everything I ever got right. It's less than you'd think, and more than enough.\""
+    },
+    "medicine": {
+      "masters": [
+        "the Physician of the Lower Wards",
+        "Sister Lame-Foot",
+        "the Healer Nobody Thanked"
+      ],
+      "technique": "healers_touch",
+      "words": "The seated figure's hands are folded as if over a patient. \"You've bound a wound or two. Then you know the worst of it is the waiting. Take my hands -- they knew where to press -- and my last good salves.\""
+    },
+    "jewelcrafting": {
+      "masters": [
+        "the Cutter of the Glittering Seam",
+        "Old Mirelle of the Loupe",
+        "the Jeweller Who Saw Through Stone"
+      ],
+      "technique": "jewel_mind",
+      "words": "Light moves inside the figure's eyes like light inside a cut stone. \"You've held a gem and wondered what's inside it. That's the whole art, child. Take my eye for it -- and the ring I never sold.\""
+    },
+    "herbalism": {
+      "masters": [
+        "the Gardener in the Dark",
+        "Grandfather Root",
+        "the Woman Who Grew Light"
+      ],
+      "technique": "verdant_eye",
+      "words": "Vines have grown through the figure's sleeves and out again, and it doesn't seem to mind. \"You know a leaf by its smell. Good. Here -- see what they're for. And take some seed. Plant it somewhere better than this.\""
+    },
+    "turned_away": "The figure at the {place} doesn't stir for you. Whatever it is waiting for, you aren't it -- not yet. (It wants someone who has started down the road of {craft}: {craft} {need} or better.)"
+  }
+}

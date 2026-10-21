@@ -1,0 +1,2466 @@
+{
+ "_about": "Round 141b (Robert, 2026-10-17: 'more variety of beast companions, they should have more function and use, and human companions that can maybe end up a party member'). BEASTS: every tameable animal has a ROLE (tracker, forager, digger, hunter, healer, guardian, striker, lantern, scholar, courier, charmer, lucky): a small passive gift that grows with its bond (like any familiar's), and a DEED you can ask of it (a buff, a heal, or a few of its finds) on a cooldown. 26 new tameable species fill floors 2-47 and wander the floors (scripts/systems/Menagerie.gd places 0-2 per floor). HUMANS: ten WAYFARERS wait in the towns. Anyone can take them on without the long friendship the villagers want; each has a trade, a gift while they travel with you, a deed, and TRUST that grows as you fight, descend and use their deed together. Reach their oath floor with trust 60 and they ask to SWEAR: a sworn companion adds a second gift for good, can always be called back from any town, and their deed recovers faster. Numbers here; nothing else holds them.",
+ "trust": {
+  "per_kill": 0.25,
+  "per_minute": 0.4,
+  "per_deed": 2.0,
+  "per_new_floor": 1.5,
+  "oath_trust": 60,
+  "max": 100
+ },
+ "wild": {
+  "chance": 0.7,
+  "max": 2,
+  "band": 4
+ },
+ "roles": {
+  "tracker": {
+   "name": "Tracker",
+   "desc": "Nose to the ground. Sharpens your senses so hidden things show from further off.",
+   "effect": {
+    "sense_radius": 1.5,
+    "sight": 0.5
+   },
+   "deed": {
+    "name": "Pick up the trail",
+    "desc": "For two minutes your senses reach much further.",
+    "cool": 240,
+    "buff": {
+     "id": "mn_trail",
+     "name": "On the trail",
+     "secs": 120,
+     "effect": {
+      "sense_radius": 5.0,
+      "sight": 2.0
+     }
+    }
+   }
+  },
+  "forager": {
+   "name": "Forager",
+   "desc": "Knows what grows where. Plants and roots come to hand more often.",
+   "effect": {
+    "gather_chance": 0.05
+   },
+   "deed": {
+    "name": "Forage",
+    "desc": "It roots about and comes back with something useful (a few of its finds).",
+    "cool": 300,
+    "items": {
+     "n": [
+      2,
+      3
+     ]
+    }
+   }
+  },
+  "digger": {
+   "name": "Digger",
+   "desc": "Digs where ore sleeps. Rock gives a little more.",
+   "effect": {
+    "gather_chance": 0.03,
+    "gather_bonus": 0.2
+   },
+   "deed": {
+    "name": "Dig",
+    "desc": "It tears up the ground and comes back with ore and stone (a few of its finds).",
+    "cool": 300,
+    "items": {
+     "n": [
+      2,
+      4
+     ]
+    }
+   }
+  },
+  "hunter": {
+   "name": "Hunter",
+   "desc": "Brings down small game and drags it back. Never lets you go hungry.",
+   "effect": {
+    "loot_luck": 0.02
+   },
+   "deed": {
+    "name": "Run down game",
+    "desc": "It's gone a minute, then drops meat and hide at your feet.",
+    "cool": 300,
+    "items": {
+     "fixed": {
+      "raw_meat": [
+       2,
+       3
+      ],
+      "beast_hide": [
+       1,
+       1
+      ]
+     }
+    }
+   }
+  },
+  "healer": {
+   "name": "Healer",
+   "desc": "Licks wounds, steadies breath. A little life comes back with every kill.",
+   "effect": {
+    "heal_on_kill": 2.0
+   },
+   "deed": {
+    "name": "Tend your wounds",
+    "desc": "Restores a third of your life.",
+    "cool": 300,
+    "heal": 0.33
+   }
+  },
+  "guardian": {
+   "name": "Guardian",
+   "desc": "Plants itself between you and trouble. Blows land a little softer.",
+   "effect": {
+    "ward": 1.5,
+    "damage_taken": 0.98
+   },
+   "deed": {
+    "name": "Stand guard",
+    "desc": "For 45 seconds you take a good deal less damage.",
+    "cool": 240,
+    "buff": {
+     "id": "mn_guard",
+     "name": "Stood guard over",
+     "secs": 45,
+     "effect": {
+      "ward": 6.0,
+      "damage_taken": 0.88
+     }
+    }
+   }
+  },
+  "striker": {
+   "name": "Striker",
+   "desc": "Bites first and hardest. Your own blows carry a little of its fury.",
+   "effect": {
+    "damage_mult": 1.02
+   },
+   "deed": {
+    "name": "Savage them",
+    "desc": "For 30 seconds you hit harder and crit more.",
+    "cool": 180,
+    "buff": {
+     "id": "mn_savage",
+     "name": "Savage",
+     "secs": 30,
+     "effect": {
+      "damage_mult": 1.18,
+      "crit_chance": 0.08
+     }
+    }
+   }
+  },
+  "lantern": {
+   "name": "Lantern",
+   "desc": "Gives off a soft light. You see further in the dark.",
+   "effect": {
+    "sight": 1.0
+   },
+   "deed": {
+    "name": "Glow bright",
+    "desc": "For five minutes the dark gives way around you.",
+    "cool": 420,
+    "buff": {
+     "id": "mn_glow",
+     "name": "Lit by a friend",
+     "secs": 300,
+     "effect": {
+      "sight": 4.0,
+      "sense_radius": 2.0
+     }
+    }
+   }
+  },
+  "scholar": {
+   "name": "Scholar",
+   "desc": "Quiet, watchful, unnervingly wise. Insight comes a little easier.",
+   "effect": {
+    "insight_mult": 1.03
+   },
+   "deed": {
+    "name": "Share a thought",
+    "desc": "For ten minutes insight and sitting come faster.",
+    "cool": 900,
+    "buff": {
+     "id": "mn_thought",
+     "name": "A shared thought",
+     "secs": 600,
+     "effect": {
+      "insight_mult": 1.2,
+      "meditate_mult": 1.1
+     }
+    }
+   }
+  },
+  "courier": {
+   "name": "Courier",
+   "desc": "Quick on its feet and quicker to move you along.",
+   "effect": {
+    "move_mult": 1.02
+   },
+   "deed": {
+    "name": "Run ahead",
+    "desc": "For 90 seconds you move faster and slip blows more easily.",
+    "cool": 240,
+    "buff": {
+     "id": "mn_dash",
+     "name": "Running with a friend",
+     "secs": 90,
+     "effect": {
+      "move_mult": 1.12,
+      "dodge_chance": 0.05
+     }
+    }
+   }
+  },
+  "charmer": {
+   "name": "Charmer",
+   "desc": "People and beasts warm to what it's with. Bonds grow a little faster.",
+   "effect": {
+    "bond_mult": 1.05
+   },
+   "deed": {
+    "name": "Make friends",
+    "desc": "For ten minutes bonds with anyone you talk to grow much faster.",
+    "cool": 900,
+    "buff": {
+     "id": "mn_charm",
+     "name": "Easy company",
+     "secs": 600,
+     "effect": {
+      "bond_mult": 1.5
+     }
+    }
+   }
+  },
+  "lucky": {
+   "name": "Lucky",
+   "desc": "Things turn up around it. Drops fall a little kinder.",
+   "effect": {
+    "loot_luck": 0.02
+   },
+   "deed": {
+    "name": "Turn the luck",
+    "desc": "For two minutes drops are much likelier.",
+    "cool": 600,
+    "buff": {
+     "id": "mn_luck",
+     "name": "Fortune's friend",
+     "secs": 120,
+     "effect": {
+      "loot_luck": 0.12
+     }
+    }
+   }
+  },
+  "warden": {
+   "name": "Warden",
+   "desc": "Holds a quiet line. Wounds knit a little between blows.",
+   "effect": {
+    "regen": 0.4,
+    "ward": 1.0
+   },
+   "deed": {
+    "name": "Hold the line",
+    "desc": "For ninety seconds you mend and shrug off blows.",
+    "cool": 280,
+    "buff": {
+     "id": "mn_hold",
+     "name": "Held line",
+     "secs": 90,
+     "effect": {
+      "regen": 2.0,
+      "ward": 4.0
+     }
+    }
+   }
+  },
+  "ember": {
+   "name": "Ember",
+   "desc": "Leaves a little fire in every blow.",
+   "effect": {
+    "burn_on_hit": 0.04,
+    "crit_chance": 0.01
+   },
+   "deed": {
+    "name": "Fan the flame",
+    "desc": "Your strikes burn hotter for a minute and a half.",
+    "cool": 260,
+    "buff": {
+     "id": "mn_ember",
+     "name": "Kindled",
+     "secs": 90,
+     "effect": {
+      "burn_on_hit": 0.2,
+      "damage_mult": 1.1
+     }
+    }
+   }
+  },
+  "hoarder": {
+   "name": "Hoarder",
+   "desc": "Pockets what others leave. Less is lost when you fall.",
+   "effect": {
+    "keep_gold": 0.02,
+    "loot_luck": 0.01
+   },
+   "deed": {
+    "name": "Dig up a cache",
+    "desc": "It comes back with silver and a few odds and ends.",
+    "cool": 360,
+    "items": {
+     "fixed": {
+      "silver_ore": [
+       1,
+       2
+      ],
+      "bone_shard": [
+       1,
+       2
+      ]
+     }
+    }
+   }
+  },
+  "brewer": {
+   "name": "Brewer",
+   "desc": "Knows which roots steep into what. Kills leave you steadier.",
+   "effect": {
+    "heal_on_kill": 1.0,
+    "gather_chance": 0.02
+   },
+   "deed": {
+    "name": "Steep a draught",
+    "desc": "It brings back herbs and a ready qi pill.",
+    "cool": 420,
+    "items": {
+     "fixed": {
+      "spirit_herb": [
+       1,
+       2
+      ],
+      "qi_pill": [
+       1,
+       1
+      ]
+     }
+    }
+   }
+  },
+  "fury": {
+   "name": "Fury",
+   "desc": "Bristles when you are hurt, and so do you.",
+   "effect": {
+    "low_hp_fury": 0.08,
+    "crit_chance": 0.01
+   },
+   "deed": {
+    "name": "Howl",
+    "desc": "A wild minute: you hit harder and crit more, the more it hurts.",
+    "cool": 300,
+    "buff": {
+     "id": "mn_howl",
+     "name": "Howling",
+     "secs": 60,
+     "effect": {
+      "low_hp_fury": 0.3,
+      "crit_chance": 0.08,
+      "damage_mult": 1.1
+     }
+    }
+   }
+  },
+  "mystic": {
+   "name": "Mystic",
+   "desc": "Hums at the edge of hearing. Qi and stillness come easier.",
+   "effect": {
+    "qi_mult": 1.03,
+    "meditate_mult": 1.03
+   },
+   "deed": {
+    "name": "Sing you still",
+    "desc": "Meditation and qi run deeper for two minutes.",
+    "cool": 300,
+    "buff": {
+     "id": "mn_still",
+     "name": "Stilled",
+     "secs": 120,
+     "effect": {
+      "qi_mult": 1.15,
+      "meditate_mult": 1.25
+     }
+    }
+   }
+  },
+  "sentinel": {
+   "name": "Sentinel",
+   "desc": "Watches your back and your timing.",
+   "effect": {
+    "timing": 0.01,
+    "dodge_chance": 0.01
+   },
+   "deed": {
+    "name": "Call the beat",
+    "desc": "Parries and rolls land more forgivingly for a minute.",
+    "cool": 240,
+    "buff": {
+     "id": "mn_beat",
+     "name": "On the beat",
+     "secs": 60,
+     "effect": {
+      "timing": 0.06,
+      "dodge_chance": 0.08
+     }
+    }
+   }
+  },
+  "marksman": {
+   "name": "Marksman",
+   "desc": "Eyes like a drawn string. Shots fly truer.",
+   "effect": {
+    "ranged_mult": 1.03,
+    "sight": 0.5
+   },
+   "deed": {
+    "name": "Steady your aim",
+    "desc": "Your ranged blows hit harder for a minute.",
+    "cool": 240,
+    "buff": {
+     "id": "mn_aim",
+     "name": "Steady aim",
+     "secs": 60,
+     "effect": {
+      "ranged_mult": 1.2,
+      "crit_chance": 0.06
+     }
+    }
+   }
+  }
+ },
+ "species_roles": {
+  "cave_hare": "forager",
+  "tunnel_boar": "striker",
+  "moss_stag": "healer",
+  "ember_salamander": "striker",
+  "burrow_mole": "digger",
+  "steel_crow": "tracker",
+  "drowned_animal_f11": "guardian",
+  "cloudruins_animal_f13": "scholar",
+  "fungal_animal_f14": "forager",
+  "storm_animal_f16": "courier",
+  "dragonspine_animal_f17": "striker",
+  "crystal_animal_f19": "tracker",
+  "canopy_animal_f12": "forager",
+  "starmine_animal_f18": "lucky",
+  "clockwork_animal_f21": "courier",
+  "silk_animal_f22": "charmer",
+  "ash_animal_f23": "guardian",
+  "frost_animal_f24": "healer",
+  "mirror_animal_f25": "lucky",
+  "ghostmarket_animal_f26": "charmer",
+  "drowned_animal_f27": "guardian",
+  "fungal_animal_f28": "forager",
+  "clockwork_animal_f29": "courier",
+  "dragonspine_animal_f31": "striker",
+  "ash_animal_f32": "guardian",
+  "mirror_animal_f33": "lucky",
+  "crystal_animal_f34": "tracker",
+  "cloudruins_animal_f35": "scholar",
+  "storm_animal_f36": "courier",
+  "silk_animal_f37": "charmer",
+  "starmine_animal_f38": "lucky",
+  "ghostmarket_animal_f39": "charmer",
+  "canopy_animal_f41": "forager",
+  "frost_animal_f42": "healer",
+  "clockwork_animal_f43": "courier",
+  "starmine_animal_f44": "lucky",
+  "storm_animal_f45": "courier",
+  "ash_animal_f46": "guardian",
+  "drowned_animal_f47": "guardian",
+  "crystal_animal_f48": "tracker",
+  "cloudruins_animal_f49": "scholar",
+  "cloudruins_animal_f50": "scholar",
+  "lantern_newt": "lantern",
+  "rock_badger": "guardian",
+  "tomb_owl": "scholar",
+  "cinder_fox": "courier",
+  "ridge_goat": "forager",
+  "dune_hound": "tracker",
+  "spirit_toad": "healer",
+  "iron_beetle": "digger",
+  "thorn_boar": "striker",
+  "moon_lynx": "lucky",
+  "river_otter": "charmer",
+  "glass_stag": "tracker",
+  "mist_heron": "scholar",
+  "vine_ape": "forager",
+  "grey_wolf": "hunter",
+  "sun_hawk": "hunter",
+  "canopy_sloth": "healer",
+  "iron_ram": "guardian",
+  "star_moth": "lantern",
+  "cog_hound": "tracker",
+  "frost_hare": "courier",
+  "ghost_cat": "lucky",
+  "dragon_whelp": "striker",
+  "storm_crane": "scholar",
+  "jade_tortoise": "guardian",
+  "void_fox": "charmer",
+  "field_mouse": "hoarder",
+  "marsh_frog": "brewer",
+  "cave_bat": "sentinel",
+  "ember_wren": "ember",
+  "hollow_stag": "warden",
+  "bark_marten": "marksman",
+  "salt_crab": "warden",
+  "dusk_moth": "mystic",
+  "brass_magpie": "hoarder",
+  "stone_tortoise": "sentinel",
+  "fen_crane": "marksman",
+  "ash_ferret": "fury",
+  "coral_seal": "brewer",
+  "tallow_owl": "mystic",
+  "rust_mastiff": "fury",
+  "pearl_swan": "warden",
+  "glow_gecko": "ember",
+  "cinder_bull": "ember",
+  "bell_deer": "mystic",
+  "quartz_porcupine": "sentinel",
+  "night_heron": "marksman",
+  "lode_badger": "hoarder",
+  "mirror_carp": "brewer",
+  "thunder_ibex": "fury",
+  "lotus_panda": "brewer",
+  "sky_manta": "mystic",
+  "gilded_lion": "warden",
+  "coolant_wyrm": "sentinel",
+  "phoenix_chick": "ember",
+  "star_whale": "mystic",
+  "heaven_qilin": "warden",
+  "abyss_koi": "fury",
+  "golem_clay": "guardian",
+  "golem_stone": "sentinel",
+  "golem_iron": "striker",
+  "golem_jade": "healer",
+  "golem_crystal": "scholar",
+  "golem_meteor": "warden"
+ },
+ "new_species": [
+  {
+   "floor": 2,
+   "id": "lantern_newt",
+   "name": "Lantern Newt",
+   "tint": [
+    0.55,
+    0.8,
+    0.5
+   ],
+   "scale": 0.8,
+   "role": "lantern",
+   "fname": "Wick",
+   "finds": [
+    "moonpetal",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 3,
+   "id": "rock_badger",
+   "name": "Rock Badger",
+   "tint": [
+    0.5,
+    0.48,
+    0.45
+   ],
+   "scale": 1.0,
+   "role": "guardian",
+   "fname": "Bulwark",
+   "finds": [
+    "iron_ore",
+    "beast_hide"
+   ]
+  },
+  {
+   "floor": 3,
+   "id": "tomb_owl",
+   "name": "Tomb Owl",
+   "tint": [
+    0.78,
+    0.74,
+    0.66
+   ],
+   "scale": 0.85,
+   "role": "scholar",
+   "fname": "Hush",
+   "finds": [
+    "spirit_herb",
+    "spirit_resin"
+   ]
+  },
+  {
+   "floor": 4,
+   "id": "cinder_fox",
+   "name": "Cinder Fox",
+   "tint": [
+    0.9,
+    0.5,
+    0.25
+   ],
+   "scale": 0.9,
+   "role": "courier",
+   "fname": "Dart",
+   "finds": [
+    "ember_root",
+    "firestone"
+   ]
+  },
+  {
+   "floor": 4,
+   "id": "ridge_goat",
+   "name": "Ridge Goat",
+   "tint": [
+    0.82,
+    0.8,
+    0.76
+   ],
+   "scale": 1.0,
+   "role": "forager",
+   "fname": "Clamber",
+   "finds": [
+    "spirit_herb",
+    "raw_meat"
+   ]
+  },
+  {
+   "floor": 5,
+   "id": "dune_hound",
+   "name": "Dune Hound",
+   "tint": [
+    0.78,
+    0.62,
+    0.4
+   ],
+   "scale": 1.0,
+   "role": "tracker",
+   "fname": "Nose",
+   "finds": [
+    "raw_meat",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 5,
+   "id": "spirit_toad",
+   "name": "Spirit Toad",
+   "tint": [
+    0.45,
+    0.7,
+    0.6
+   ],
+   "scale": 0.85,
+   "role": "healer",
+   "fname": "Mend",
+   "finds": [
+    "spirit_herb",
+    "moonpetal"
+   ]
+  },
+  {
+   "floor": 6,
+   "id": "iron_beetle",
+   "name": "Iron Beetle",
+   "tint": [
+    0.35,
+    0.4,
+    0.5
+   ],
+   "scale": 0.8,
+   "role": "digger",
+   "fname": "Burrower",
+   "finds": [
+    "iron_ore",
+    "silver_ore"
+   ]
+  },
+  {
+   "floor": 6,
+   "id": "thorn_boar",
+   "name": "Thorn Boar",
+   "tint": [
+    0.5,
+    0.32,
+    0.28
+   ],
+   "scale": 1.1,
+   "role": "striker",
+   "fname": "Briar",
+   "finds": [
+    "raw_meat",
+    "beast_hide"
+   ]
+  },
+  {
+   "floor": 7,
+   "id": "moon_lynx",
+   "name": "Moon Lynx",
+   "tint": [
+    0.72,
+    0.74,
+    0.9
+   ],
+   "scale": 1.0,
+   "role": "lucky",
+   "fname": "Fortune",
+   "finds": [
+    "moonpetal",
+    "gold_nugget"
+   ]
+  },
+  {
+   "floor": 7,
+   "id": "river_otter",
+   "name": "River Otter",
+   "tint": [
+    0.5,
+    0.4,
+    0.3
+   ],
+   "scale": 0.85,
+   "role": "charmer",
+   "fname": "Lark",
+   "finds": [
+    "spirit_herb",
+    "rough_jade"
+   ]
+  },
+  {
+   "floor": 8,
+   "id": "glass_stag",
+   "name": "Glass Stag",
+   "tint": [
+    0.7,
+    0.85,
+    0.9
+   ],
+   "scale": 1.1,
+   "role": "tracker",
+   "fname": "Prism",
+   "finds": [
+    "sapphire_shard",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 8,
+   "id": "mist_heron",
+   "name": "Mist Heron",
+   "tint": [
+    0.85,
+    0.88,
+    0.92
+   ],
+   "scale": 1.0,
+   "role": "scholar",
+   "fname": "Reed",
+   "finds": [
+    "spirit_resin",
+    "moonpetal"
+   ]
+  },
+  {
+   "floor": 9,
+   "id": "vine_ape",
+   "name": "Vine Ape",
+   "tint": [
+    0.4,
+    0.6,
+    0.35
+   ],
+   "scale": 1.1,
+   "role": "forager",
+   "fname": "Tendril",
+   "finds": [
+    "spirit_herb",
+    "bloodsap"
+   ]
+  },
+  {
+   "floor": 10,
+   "id": "grey_wolf",
+   "name": "Grey Wolf",
+   "tint": [
+    0.6,
+    0.6,
+    0.62
+   ],
+   "scale": 1.1,
+   "role": "hunter",
+   "fname": "Fang",
+   "finds": [
+    "raw_meat",
+    "beast_hide"
+   ]
+  },
+  {
+   "floor": 10,
+   "id": "sun_hawk",
+   "name": "Sun Hawk",
+   "tint": [
+    0.9,
+    0.75,
+    0.35
+   ],
+   "scale": 0.9,
+   "role": "hunter",
+   "fname": "Talon",
+   "finds": [
+    "raw_meat",
+    "gold_nugget"
+   ]
+  },
+  {
+   "floor": 12,
+   "id": "canopy_sloth",
+   "name": "Canopy Sloth",
+   "tint": [
+    0.55,
+    0.6,
+    0.4
+   ],
+   "scale": 1.1,
+   "role": "healer",
+   "fname": "Drowse",
+   "finds": [
+    "bloodsap",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 15,
+   "id": "iron_ram",
+   "name": "Iron Ram",
+   "tint": [
+    0.55,
+    0.55,
+    0.6
+   ],
+   "scale": 1.2,
+   "role": "guardian",
+   "fname": "Anvil",
+   "finds": [
+    "iron_ore",
+    "silver_ore"
+   ]
+  },
+  {
+   "floor": 18,
+   "id": "star_moth",
+   "name": "Star Moth",
+   "tint": [
+    0.8,
+    0.8,
+    1.0
+   ],
+   "scale": 0.9,
+   "role": "lantern",
+   "fname": "Gleam",
+   "finds": [
+    "star_iron",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 21,
+   "id": "cog_hound",
+   "name": "Cog Hound",
+   "tint": [
+    0.7,
+    0.6,
+    0.4
+   ],
+   "scale": 1.0,
+   "role": "tracker",
+   "fname": "Cog",
+   "finds": [
+    "brass_cog",
+    "oil_of_motion"
+   ]
+  },
+  {
+   "floor": 24,
+   "id": "frost_hare",
+   "name": "Frost Hare",
+   "tint": [
+    0.85,
+    0.92,
+    1.0
+   ],
+   "scale": 0.9,
+   "role": "courier",
+   "fname": "Rime",
+   "finds": [
+    "rime_ink",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 27,
+   "id": "ghost_cat",
+   "name": "Ghost Cat",
+   "tint": [
+    0.8,
+    0.85,
+    0.9
+   ],
+   "scale": 1.0,
+   "role": "lucky",
+   "fname": "Wisp",
+   "finds": [
+    "spirit_paper",
+    "ghost_lantern_oil"
+   ]
+  },
+  {
+   "floor": 31,
+   "id": "dragon_whelp",
+   "name": "Dragon Whelp",
+   "tint": [
+    0.8,
+    0.35,
+    0.25
+   ],
+   "scale": 1.1,
+   "role": "striker",
+   "fname": "Ember",
+   "finds": [
+    "dragon_scale_shard",
+    "drake_blood"
+   ]
+  },
+  {
+   "floor": 36,
+   "id": "storm_crane",
+   "name": "Storm Crane",
+   "tint": [
+    0.7,
+    0.78,
+    0.95
+   ],
+   "scale": 1.1,
+   "role": "scholar",
+   "fname": "Gale",
+   "finds": [
+    "storm_glass",
+    "thunder_iron"
+   ]
+  },
+  {
+   "floor": 42,
+   "id": "jade_tortoise",
+   "name": "Jade Tortoise",
+   "tint": [
+    0.45,
+    0.7,
+    0.55
+   ],
+   "scale": 1.3,
+   "role": "guardian",
+   "fname": "Shell",
+   "finds": [
+    "cloud_jade",
+    "immortal_dust"
+   ]
+  },
+  {
+   "floor": 47,
+   "id": "void_fox",
+   "name": "Void Fox",
+   "tint": [
+    0.55,
+    0.4,
+    0.75
+   ],
+   "scale": 1.0,
+   "role": "charmer",
+   "fname": "Hollow",
+   "finds": [
+    "singing_crystal",
+    "resonant_dust"
+   ]
+  },
+  {
+   "floor": 2,
+   "id": "field_mouse",
+   "name": "Field Mouse",
+   "tint": [
+    0.7,
+    0.62,
+    0.5
+   ],
+   "scale": 0.5,
+   "role": "hoarder",
+   "fname": "Crumb",
+   "finds": [
+    "bone_shard",
+    "beast_hide"
+   ]
+  },
+  {
+   "floor": 2,
+   "id": "marsh_frog",
+   "name": "Marsh Frog",
+   "tint": [
+    0.4,
+    0.65,
+    0.35
+   ],
+   "scale": 0.7,
+   "role": "brewer",
+   "fname": "Bog",
+   "finds": [
+    "spirit_herb",
+    "moonpetal"
+   ]
+  },
+  {
+   "floor": 3,
+   "id": "cave_bat",
+   "name": "Cave Bat",
+   "tint": [
+    0.3,
+    0.28,
+    0.35
+   ],
+   "scale": 0.6,
+   "role": "sentinel",
+   "fname": "Flit",
+   "finds": [
+    "bone_shard",
+    "beast_hide"
+   ]
+  },
+  {
+   "floor": 4,
+   "id": "ember_wren",
+   "name": "Ember Wren",
+   "tint": [
+    0.95,
+    0.5,
+    0.2
+   ],
+   "scale": 0.5,
+   "role": "ember",
+   "fname": "Spark",
+   "finds": [
+    "iron_ore",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 5,
+   "id": "hollow_stag",
+   "name": "Hollow Stag",
+   "tint": [
+    0.55,
+    0.5,
+    0.4
+   ],
+   "scale": 1.2,
+   "role": "warden",
+   "fname": "Antler",
+   "finds": [
+    "beast_hide",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 6,
+   "id": "bark_marten",
+   "name": "Bark Marten",
+   "tint": [
+    0.5,
+    0.38,
+    0.25
+   ],
+   "scale": 0.8,
+   "role": "marksman",
+   "fname": "Quill",
+   "finds": [
+    "beast_hide",
+    "raw_meat"
+   ]
+  },
+  {
+   "floor": 7,
+   "id": "salt_crab",
+   "name": "Salt Crab",
+   "tint": [
+    0.9,
+    0.85,
+    0.8
+   ],
+   "scale": 0.7,
+   "role": "warden",
+   "fname": "Pincer",
+   "finds": [
+    "silver_ore",
+    "bone_shard"
+   ]
+  },
+  {
+   "floor": 8,
+   "id": "dusk_moth",
+   "name": "Dusk Moth",
+   "tint": [
+    0.6,
+    0.5,
+    0.8
+   ],
+   "scale": 0.6,
+   "role": "mystic",
+   "fname": "Hush",
+   "finds": [
+    "moonpetal",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 9,
+   "id": "brass_magpie",
+   "name": "Brass Magpie",
+   "tint": [
+    0.85,
+    0.7,
+    0.3
+   ],
+   "scale": 0.6,
+   "role": "hoarder",
+   "fname": "Glint",
+   "finds": [
+    "silver_ore",
+    "iron_ore"
+   ]
+  },
+  {
+   "floor": 11,
+   "id": "stone_tortoise",
+   "name": "Stone Tortoise",
+   "tint": [
+    0.5,
+    0.55,
+    0.5
+   ],
+   "scale": 1.0,
+   "role": "sentinel",
+   "fname": "Patience",
+   "finds": [
+    "tortoise_scale",
+    "iron_ore"
+   ]
+  },
+  {
+   "floor": 12,
+   "id": "fen_crane",
+   "name": "Fen Crane",
+   "tint": [
+    0.8,
+    0.85,
+    0.9
+   ],
+   "scale": 1.1,
+   "role": "marksman",
+   "fname": "Reed",
+   "finds": [
+    "spirit_herb",
+    "beast_hide"
+   ]
+  },
+  {
+   "floor": 13,
+   "id": "ash_ferret",
+   "name": "Ash Ferret",
+   "tint": [
+    0.45,
+    0.42,
+    0.4
+   ],
+   "scale": 0.7,
+   "role": "fury",
+   "fname": "Soot",
+   "finds": [
+    "bone_shard",
+    "beast_hide"
+   ]
+  },
+  {
+   "floor": 14,
+   "id": "coral_seal",
+   "name": "Coral Seal",
+   "tint": [
+    0.55,
+    0.7,
+    0.8
+   ],
+   "scale": 1.0,
+   "role": "brewer",
+   "fname": "Tide",
+   "finds": [
+    "coral_bone",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 16,
+   "id": "tallow_owl",
+   "name": "Tallow Owl",
+   "tint": [
+    0.9,
+    0.85,
+    0.7
+   ],
+   "scale": 0.8,
+   "role": "mystic",
+   "fname": "Candle",
+   "finds": [
+    "moonpetal",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 17,
+   "id": "rust_mastiff",
+   "name": "Rust Mastiff",
+   "tint": [
+    0.6,
+    0.35,
+    0.25
+   ],
+   "scale": 1.2,
+   "role": "fury",
+   "fname": "Rivet",
+   "finds": [
+    "iron_ore",
+    "beast_hide"
+   ]
+  },
+  {
+   "floor": 19,
+   "id": "pearl_swan",
+   "name": "Pearl Swan",
+   "tint": [
+    0.95,
+    0.95,
+    0.98
+   ],
+   "scale": 1.1,
+   "role": "warden",
+   "fname": "Lull",
+   "finds": [
+    "spirit_silk",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 20,
+   "id": "glow_gecko",
+   "name": "Glow Gecko",
+   "tint": [
+    0.8,
+    0.9,
+    0.3
+   ],
+   "scale": 0.6,
+   "role": "ember",
+   "fname": "Ember-eye",
+   "finds": [
+    "glowcap_spore",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 22,
+   "id": "cinder_bull",
+   "name": "Cinder Bull",
+   "tint": [
+    0.7,
+    0.25,
+    0.15
+   ],
+   "scale": 1.4,
+   "role": "ember",
+   "fname": "Kiln",
+   "finds": [
+    "iron_ore",
+    "beast_hide"
+   ]
+  },
+  {
+   "floor": 23,
+   "id": "bell_deer",
+   "name": "Bell Deer",
+   "tint": [
+    0.85,
+    0.8,
+    0.6
+   ],
+   "scale": 1.1,
+   "role": "mystic",
+   "fname": "Toll",
+   "finds": [
+    "moonpetal",
+    "spirit_silk"
+   ]
+  },
+  {
+   "floor": 25,
+   "id": "quartz_porcupine",
+   "name": "Quartz Porcupine",
+   "tint": [
+    0.8,
+    0.8,
+    0.9
+   ],
+   "scale": 0.9,
+   "role": "sentinel",
+   "fname": "Facet",
+   "finds": [
+    "singing_crystal",
+    "bone_shard"
+   ]
+  },
+  {
+   "floor": 26,
+   "id": "night_heron",
+   "name": "Night Heron",
+   "tint": [
+    0.3,
+    0.35,
+    0.5
+   ],
+   "scale": 1.0,
+   "role": "marksman",
+   "fname": "Dagger-bill",
+   "finds": [
+    "beast_hide",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 28,
+   "id": "lode_badger",
+   "name": "Lode Badger",
+   "tint": [
+    0.4,
+    0.38,
+    0.36
+   ],
+   "scale": 1.0,
+   "role": "hoarder",
+   "fname": "Seam",
+   "finds": [
+    "silver_ore",
+    "iron_ore"
+   ]
+  },
+  {
+   "floor": 30,
+   "id": "mirror_carp",
+   "name": "Mirror Carp",
+   "tint": [
+    0.75,
+    0.8,
+    0.9
+   ],
+   "scale": 0.8,
+   "role": "brewer",
+   "fname": "Ripple",
+   "finds": [
+    "spirit_herb",
+    "moonpetal"
+   ]
+  },
+  {
+   "floor": 32,
+   "id": "thunder_ibex",
+   "name": "Thunder Ibex",
+   "tint": [
+    0.6,
+    0.6,
+    0.7
+   ],
+   "scale": 1.2,
+   "role": "fury",
+   "fname": "Crag",
+   "finds": [
+    "beast_hide",
+    "ion_crystal"
+   ]
+  },
+  {
+   "floor": 34,
+   "id": "lotus_panda",
+   "name": "Lotus Panda",
+   "tint": [
+    0.92,
+    0.9,
+    0.88
+   ],
+   "scale": 1.3,
+   "role": "brewer",
+   "fname": "Petal",
+   "finds": [
+    "spirit_herb",
+    "moonpetal"
+   ]
+  },
+  {
+   "floor": 38,
+   "id": "sky_manta",
+   "name": "Sky Manta",
+   "tint": [
+    0.4,
+    0.55,
+    0.8
+   ],
+   "scale": 1.5,
+   "role": "mystic",
+   "fname": "Drift",
+   "finds": [
+    "spirit_silk",
+    "ion_crystal"
+   ]
+  },
+  {
+   "floor": 40,
+   "id": "gilded_lion",
+   "name": "Gilded Lion",
+   "tint": [
+    0.9,
+    0.75,
+    0.3
+   ],
+   "scale": 1.4,
+   "role": "warden",
+   "fname": "Mane",
+   "finds": [
+    "dragon_scale_shard",
+    "beast_hide"
+   ]
+  },
+  {
+   "floor": 43,
+   "id": "coolant_wyrm",
+   "name": "Coolant Wyrm",
+   "tint": [
+    0.5,
+    0.8,
+    0.85
+   ],
+   "scale": 1.3,
+   "role": "sentinel",
+   "fname": "Chill",
+   "finds": [
+    "coolant_core",
+    "ion_crystal"
+   ]
+  },
+  {
+   "floor": 45,
+   "id": "phoenix_chick",
+   "name": "Phoenix Chick",
+   "tint": [
+    1,
+    0.55,
+    0.2
+   ],
+   "scale": 0.7,
+   "role": "ember",
+   "fname": "Cinder",
+   "finds": [
+    "dragon_scale_shard",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 48,
+   "id": "star_whale",
+   "name": "Star Whale",
+   "tint": [
+    0.35,
+    0.4,
+    0.8
+   ],
+   "scale": 1.8,
+   "role": "mystic",
+   "fname": "Hymn",
+   "finds": [
+    "singing_crystal",
+    "spirit_silk"
+   ]
+  },
+  {
+   "floor": 50,
+   "id": "heaven_qilin",
+   "name": "Heaven Qilin",
+   "tint": [
+    0.95,
+    0.9,
+    0.6
+   ],
+   "scale": 1.5,
+   "role": "warden",
+   "fname": "Dawn",
+   "finds": [
+    "dragon_scale_shard",
+    "spirit_herb"
+   ]
+  },
+  {
+   "floor": 49,
+   "id": "abyss_koi",
+   "name": "Abyss Koi",
+   "tint": [
+    0.2,
+    0.2,
+    0.35
+   ],
+   "scale": 1.0,
+   "role": "fury",
+   "fname": "Maw",
+   "finds": [
+    "coral_bone",
+    "ion_crystal"
+   ]
+  }
+ ],
+ "wayfarers": [
+  {
+   "id": "marin",
+   "name": "Marin Ashgrove",
+   "tint": [
+    0.85,
+    0.78,
+    0.7
+   ],
+   "trade": "Field medic",
+   "towns": [
+    "village"
+   ],
+   "min_realm": 0,
+   "style": "guard",
+   "persona": "Marin Ashgrove, a field medic who walked out of a war nobody remembers. Gentle hands, dry humour, always counting bandages. Wants to stop being needed for wounds and be needed for something else.",
+   "line": "Sit down, you're favouring that leg. No, don't argue. I've set worse with less.",
+   "gift": {
+    "heal_on_kill": 3.0,
+    "damage_taken": 0.98
+   },
+   "deed": {
+    "name": "Bind your wounds",
+    "desc": "Restores half your life.",
+    "cool": 300,
+    "heal": 0.5
+   },
+   "oath": {
+    "depth": 10,
+    "text": "I told myself I'd never follow anyone again. Then you carried a stranger out of the dark. Let me swear to you."
+   },
+   "sworn_gift": {
+    "heal_on_kill": 3.0
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Marin presses two fingers to your wrist, as if counting a pulse, and says the words she never said to the army. She is yours until the road ends."
+  },
+  {
+   "id": "dorn",
+   "name": "Dorn Quill",
+   "tint": [
+    0.5,
+    0.6,
+    0.45
+   ],
+   "trade": "Scout",
+   "towns": [
+    "village"
+   ],
+   "min_realm": 0,
+   "style": "scout",
+   "persona": "Dorn Quill, a ranger with a scarred bow-arm and an eye for what doesn't belong. Laconic. Prefers tracks to words. Misses a valley that burned.",
+   "line": "Three hares, a fox and one man who thinks he's quiet. He's behind that wall.",
+   "gift": {
+    "sense_radius": 2.0,
+    "sight": 1.0,
+    "dodge_chance": 0.02
+   },
+   "deed": {
+    "name": "Read the ground",
+    "desc": "For two minutes you see everything hidden within a long reach.",
+    "cool": 240,
+    "buff": {
+     "id": "mn_dorn",
+     "name": "Dorn reads the ground",
+     "secs": 120,
+     "effect": {
+      "sense_radius": 7.0,
+      "sight": 2.0
+     }
+    }
+   },
+   "oath": {
+    "depth": 8,
+    "text": "You keep going back for the ones I'd have left. I'll walk behind you from now on, if you'll have me."
+   },
+   "sworn_gift": {
+    "sense_radius": 2.0,
+    "loot_luck": 0.03
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Dorn lays an arrow in your palm. 'That one's yours. The rest are mine to spend on whatever tries to hurt you.'"
+  },
+  {
+   "id": "hesk",
+   "name": "Hesk the Younger",
+   "tint": [
+    0.6,
+    0.6,
+    0.68
+   ],
+   "trade": "Shield-bearer",
+   "towns": [
+    "floor5"
+   ],
+   "min_realm": 1,
+   "style": "guard",
+   "persona": "Hesk the Younger, a shield-bearer from a line of shield-bearers, last of them. Earnest, a little pompous, secretly afraid of being the one who fails. Tends his dead father's shield.",
+   "line": "If it's coming for you, it will have to come through me. I practised the line. How did it sound?",
+   "gift": {
+    "ward": 3.0,
+    "damage_taken": 0.96
+   },
+   "deed": {
+    "name": "Raise the shield",
+    "desc": "For 45 seconds you take much less damage.",
+    "cool": 240,
+    "buff": {
+     "id": "mn_hesk",
+     "name": "Behind Hesk's shield",
+     "secs": 45,
+     "effect": {
+      "ward": 8.0,
+      "damage_taken": 0.85
+     }
+    }
+   },
+   "oath": {
+    "depth": 15,
+    "text": "My father said a shield is only a shield once it has someone to stand in front of. I have found mine."
+   },
+   "sworn_gift": {
+    "ward": 3.0,
+    "damage_taken": 0.97
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Hesk drives his father's shield into the ground and kneels behind it. 'Ward of the house, as long as the house stands.'"
+  },
+  {
+   "id": "tamsin",
+   "name": "Tamsin Reed",
+   "tint": [
+    0.7,
+    0.55,
+    0.4
+   ],
+   "trade": "Beast-speaker",
+   "towns": [
+    "floor5"
+   ],
+   "min_realm": 1,
+   "style": "scout",
+   "persona": "Tamsin Reed, who speaks to animals more easily than to people and knows it. Quick laugh, muddy boots, a crow on her shoulder that isn't hers. Believes every beast chose its person.",
+   "line": "That hare behind you is the third one to follow you today. Do you feed them, or is it your face?",
+   "gift": {
+    "bond_mult": 1.1,
+    "gather_chance": 0.04
+   },
+   "deed": {
+    "name": "Sing to the beasts",
+    "desc": "Your beasts grow close faster, and the bond with them deepens at once (+12).",
+    "cool": 900,
+    "beast_bond": 12,
+    "buff": {
+     "id": "mn_tamsin",
+     "name": "The beasts are listening",
+     "secs": 600,
+     "effect": {
+      "bond_mult": 1.4
+     }
+    }
+   },
+   "oath": {
+    "depth": 20,
+    "text": "The animals have been telling me for weeks that you're one of the good ones. I trust them more than I trust me. Take me."
+   },
+   "sworn_gift": {
+    "bond_mult": 1.1,
+    "gather_chance": 0.04
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Tamsin whistles a long, odd note and every beast of yours looks up. 'There. They know I'm with you now. So do I.'"
+  },
+  {
+   "id": "lio",
+   "name": "Lio Verrane",
+   "tint": [
+    0.78,
+    0.5,
+    0.52
+   ],
+   "trade": "Duellist",
+   "towns": [
+    "floor10"
+   ],
+   "min_realm": 2,
+   "style": "striker",
+   "persona": "Lio Verrane, a duellist who stopped winning on purpose and found it made him better. Charming, fast, fond of a dramatic flourish he pretends is accidental.",
+   "line": "I've lost eleven duels and learned from every one. You look like the twelfth. I'd rather travel with you than fight you, if it's all the same.",
+   "gift": {
+    "crit_chance": 0.03,
+    "damage_mult": 1.03
+   },
+   "deed": {
+    "name": "Open a line",
+    "desc": "For 30 seconds you crit far more often.",
+    "cool": 180,
+    "buff": {
+     "id": "mn_lio",
+     "name": "Lio opens a line",
+     "secs": 30,
+     "effect": {
+      "crit_chance": 0.15,
+      "damage_mult": 1.08
+     }
+    }
+   },
+   "oath": {
+    "depth": 25,
+    "text": "Fighting you would be a waste of a good friend. Let me spend my blade on whoever deserves it instead."
+   },
+   "sworn_gift": {
+    "crit_chance": 0.03,
+    "dodge_chance": 0.03
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Lio salutes with a flourish and, for once, it isn't an accident. 'My blade, my word. In that order.'"
+  },
+  {
+   "id": "wen",
+   "name": "Sister Wen",
+   "tint": [
+    0.8,
+    0.75,
+    0.55
+   ],
+   "trade": "Wandering monk",
+   "towns": [
+    "floor10"
+   ],
+   "min_realm": 2,
+   "style": "guard",
+   "persona": "Sister Wen, a monk who left her monastery on purpose. Serene on the surface, curious underneath, keeps asking 'but why' until it hurts. Collects other people's meditation methods.",
+   "line": "You sit like someone who is trying. Sit like someone who is listening, and see what changes.",
+   "gift": {
+    "meditate_mult": 1.05,
+    "insight_mult": 1.04
+   },
+   "deed": {
+    "name": "Breathe together",
+    "desc": "For ten minutes sitting is faster and insight comes easier.",
+    "cool": 900,
+    "buff": {
+     "id": "mn_wen",
+     "name": "Breathing with Wen",
+     "secs": 600,
+     "effect": {
+      "meditate_mult": 1.15,
+      "insight_mult": 1.15
+     }
+    }
+   },
+   "oath": {
+    "depth": 30,
+    "text": "I left to find a teacher who would let me argue. You argue back. I'd like to stay."
+   },
+   "sworn_gift": {
+    "meditate_mult": 1.05,
+    "qi_mult": 1.03
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Wen bows lower than a monk should to anyone, then grins. 'Questions for the road. Yours first.'"
+  },
+  {
+   "id": "brask",
+   "name": "Brask Orren",
+   "tint": [
+    0.55,
+    0.4,
+    0.3
+   ],
+   "trade": "Travelling smith",
+   "towns": [
+    "floor15"
+   ],
+   "min_realm": 3,
+   "style": "striker",
+   "persona": "Brask Orren, a smith who carries a portable anvil on his back and refuses to explain why. Booming laugh, burned eyebrows, deeply offended by badly balanced swords.",
+   "line": "That edge is a crime. Hand it over, and I'll tell you everything that's wrong with it. It will take a while.",
+   "gift": {
+    "craft_quality_smithing": 0.04,
+    "damage_mult": 1.02
+   },
+   "deed": {
+    "name": "True the edge",
+    "desc": "For ten minutes your crafting comes out better.",
+    "cool": 600,
+    "buff": {
+     "id": "mn_brask",
+     "name": "Brask trued your gear",
+     "secs": 600,
+     "effect": {
+      "craft_quality_smithing": 0.08,
+      "damage_mult": 1.05
+     }
+    }
+   },
+   "oath": {
+    "depth": 30,
+    "text": "Every smith wants one customer who uses the work. Hold on to me. I intend to see what you do with it."
+   },
+   "sworn_gift": {
+    "craft_quality_smithing": 0.04,
+    "ward": 2.0
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Brask sets his anvil down for the first time in years and strikes it once. 'That note's yours. Mine. Ours. Let's go.'"
+  },
+  {
+   "id": "vey",
+   "name": "Vey Calder",
+   "tint": [
+    0.5,
+    0.62,
+    0.78
+   ],
+   "trade": "Fixer",
+   "towns": [
+    "floor20"
+   ],
+   "min_realm": 4,
+   "style": "scout",
+   "persona": "Vey Calder, a fixer who knows a price for everything and a name for everyone. Smooth, observant, generous in ways he'd deny. Collects debts of gratitude, not gold.",
+   "line": "Everyone in this pagoda owes someone. Tell me who you want to be owed by and I'll see what can be arranged.",
+   "gift": {
+    "loot_luck": 0.03,
+    "bond_mult": 1.05
+   },
+   "deed": {
+    "name": "Call in a favour",
+    "desc": "For two minutes drops are much likelier and people warm to you.",
+    "cool": 600,
+    "buff": {
+     "id": "mn_vey",
+     "name": "A favour called in",
+     "secs": 120,
+     "effect": {
+      "loot_luck": 0.1,
+      "bond_mult": 1.25
+     }
+    }
+   },
+   "oath": {
+    "depth": 35,
+    "text": "I have never owed anyone before you. It feels strange. Let me be in your debt for good."
+   },
+   "sworn_gift": {
+    "loot_luck": 0.03,
+    "keep_gold": 0.1
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Vey tears up a very long list and lets the pieces fall. 'Debts cleared. The only one left is the one I owe you.'"
+  },
+  {
+   "id": "pell",
+   "name": "Pell Ardent",
+   "tint": [
+    0.4,
+    0.85,
+    0.8
+   ],
+   "trade": "Nanite tinker",
+   "towns": [
+    "floor30"
+   ],
+   "min_realm": 5,
+   "style": "guard",
+   "persona": "Pell Ardent, a tinker whose own swarm has opinions. Jittery, brilliant, apologises to machines. Has never once finished a sentence before a better one occurred to her.",
+   "line": "Oh! You carry a swarm. May I -- no, of course, sorry, can I just listen to it? It hums in a lovely key.",
+   "gift": {
+    "swarm_mult": 1.06,
+    "qi_mult": 1.02
+   },
+   "deed": {
+    "name": "Tune the swarm",
+    "desc": "For ten minutes your swarm works faster.",
+    "cool": 900,
+    "buff": {
+     "id": "mn_pell",
+     "name": "Tuned by Pell",
+     "secs": 600,
+     "effect": {
+      "swarm_mult": 1.2
+     }
+    }
+   },
+   "oath": {
+    "depth": 40,
+    "text": "I have tuned a thousand swarms and never one that wanted to be tuned. Yours does. I'd like to see where it goes."
+   },
+   "sworn_gift": {
+    "swarm_mult": 1.06,
+    "cleanse_speed": 0.1
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Pell hums the swarm's note back to it and, for once, doesn't apologise. 'We're one team now. All of us.'"
+  },
+  {
+   "id": "isolde",
+   "name": "Isolde Kern",
+   "tint": [
+    0.65,
+    0.7,
+    0.82
+   ],
+   "trade": "Marksman",
+   "towns": [
+    "floor40"
+   ],
+   "min_realm": 6,
+   "style": "striker",
+   "persona": "Isolde Kern, a marksman who has not missed since the day she decided to. Formal, precise, quietly lonely. Keeps a notebook of every shot she has taken and the wind that day.",
+   "line": "Forty-one paces, wind from the left, a thing in the rafters that thinks I haven't seen it. Do you want it gone?",
+   "gift": {
+    "ranged_mult": 1.06,
+    "crit_chance": 0.03
+   },
+   "deed": {
+    "name": "Mark the target",
+    "desc": "For 30 seconds your ranged strikes hit much harder.",
+    "cool": 180,
+    "buff": {
+     "id": "mn_isolde",
+     "name": "Isolde has the range",
+     "secs": 30,
+     "effect": {
+      "ranged_mult": 1.25,
+      "crit_chance": 0.08
+     }
+    }
+   },
+   "oath": {
+    "depth": 50,
+    "text": "You have never once told me where to stand. I would like to choose to stand beside you."
+   },
+   "sworn_gift": {
+    "ranged_mult": 1.06,
+    "damage_mult": 1.03
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Isolde closes her notebook and hands it to you. 'Last page is blank. Write what you like. I'll take the shot.'"
+  },
+  {
+   "id": "odalys",
+   "name": "Odalys Wren",
+   "tint": [
+    0.8,
+    0.7,
+    0.75
+   ],
+   "trade": "Hedge witch",
+   "towns": [
+    "village"
+   ],
+   "min_realm": 0,
+   "style": "scout",
+   "persona": "Odalys Wren, a hedge witch who sells charms she doesn't believe in and cures she does. Talks to the plants first and people second.",
+   "line": "The nettles say you're coming down with something. Or in for something.",
+   "gift": {
+    "gather_chance": 0.04,
+    "heal_on_kill": 1.0
+   },
+   "deed": {
+    "name": "Brew a poultice",
+    "desc": "Restores a third of your life.",
+    "cool": 280,
+    "heal": 0.33
+   },
+   "oath": {
+    "depth": 8,
+    "text": "I never meant to leave the hedge. But you walk like someone who'll need a witch before the end."
+   },
+   "sworn_gift": {
+    "gather_chance": 0.03
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Odalys ties a sprig of rue to your sleeve. 'There. Now it's binding.'"
+  },
+  {
+   "id": "tobiah",
+   "name": "Tobiah Reeve",
+   "tint": [
+    0.7,
+    0.65,
+    0.55
+   ],
+   "trade": "Retired caravan guard",
+   "towns": [
+    "village"
+   ],
+   "min_realm": 0,
+   "style": "guard",
+   "persona": "Tobiah Reeve, thirty years guarding other people's wagons. Hates surprises, loves tea, never sits with his back to a door.",
+   "line": "Quiet road is a lying road. Stay sharp.",
+   "gift": {
+    "ward": 1.5,
+    "damage_taken": 0.98
+   },
+   "deed": {
+    "name": "Circle the wagons",
+    "desc": "For a minute you take far less harm.",
+    "cool": 280,
+    "buff": {
+     "id": "wf_circle",
+     "name": "Wagons circled",
+     "secs": 60,
+     "effect": {
+      "ward": 5.0,
+      "damage_taken": 0.88
+     }
+    }
+   },
+   "oath": {
+    "depth": 9,
+    "text": "Never took an oath to a customer. You're not a customer anymore."
+   },
+   "sworn_gift": {
+    "ward": 1.5,
+    "damage_taken": 0.98
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Tobiah shakes your hand once, firmly. 'Back to the door, then. Yours.'"
+  },
+  {
+   "id": "zhu_ling",
+   "name": "Zhu Ling",
+   "tint": [
+    0.85,
+    0.8,
+    0.6
+   ],
+   "trade": "Wandering scribe",
+   "towns": [
+    "floor5"
+   ],
+   "min_realm": 1,
+   "style": "scout",
+   "persona": "Zhu Ling, a scribe who copies the walls of every ruin and sells the copies to people who'll never visit. Carries too many brushes.",
+   "line": "Hold still. No, the other way. You're in my light.",
+   "gift": {
+    "insight_mult": 1.03,
+    "sight": 0.5
+   },
+   "deed": {
+    "name": "Read the walls",
+    "desc": "For two minutes insight comes faster.",
+    "cool": 300,
+    "buff": {
+     "id": "wf_read",
+     "name": "Reading the walls",
+     "secs": 120,
+     "effect": {
+      "insight_mult": 1.2,
+      "meditate_mult": 1.1
+     }
+    }
+   },
+   "oath": {
+    "depth": 12,
+    "text": "I have copied a thousand walls. I would like to be written into one of yours."
+   },
+   "sworn_gift": {
+    "insight_mult": 1.03
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Zhu Ling inks a small mark on your wrist. 'Witnessed.'"
+  },
+  {
+   "id": "kell",
+   "name": "Kell Varga",
+   "tint": [
+    0.6,
+    0.45,
+    0.4
+   ],
+   "trade": "Debt-collector",
+   "towns": [
+    "floor5"
+   ],
+   "min_realm": 1,
+   "style": "striker",
+   "persona": "Kell Varga, who collected debts for a guild that no longer exists and kept collecting out of habit. Blunt, fair, oddly sentimental about stray dogs.",
+   "line": "Everyone owes something. Let's see what you do with yours.",
+   "gift": {
+    "damage_mult": 1.02,
+    "crit_chance": 0.01
+   },
+   "deed": {
+    "name": "Collect",
+    "desc": "For a minute your blows land heavier.",
+    "cool": 260,
+    "buff": {
+     "id": "wf_collect",
+     "name": "Collecting",
+     "secs": 60,
+     "effect": {
+      "damage_mult": 1.15,
+      "crit_chance": 0.06
+     }
+    }
+   },
+   "oath": {
+    "depth": 13,
+    "text": "The ledger's closed. You never asked me for anything, which is why I'm offering."
+   },
+   "sworn_gift": {
+    "damage_mult": 1.02
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Kell tears a page from his ledger and gives it to you, blank. 'No debts between us.'"
+  },
+  {
+   "id": "neve",
+   "name": "Neve Aldous",
+   "tint": [
+    0.75,
+    0.85,
+    0.9
+   ],
+   "trade": "Ice-fisher",
+   "towns": [
+    "floor10"
+   ],
+   "min_realm": 2,
+   "style": "scout",
+   "persona": "Neve Aldous, who fishes through the ice of lakes that shouldn't freeze. Patient to a fault, bad at small talk, good at silence.",
+   "line": "Shh. Something's biting.",
+   "gift": {
+    "move_mult": 1.02,
+    "loot_luck": 0.01
+   },
+   "deed": {
+    "name": "Cast a line",
+    "desc": "She comes back with meat, hide and something strange.",
+    "cool": 320,
+    "items": {
+     "fixed": {
+      "raw_meat": [
+       2,
+       3
+      ],
+      "coral_bone": [
+       1,
+       1
+      ]
+     }
+    }
+   },
+   "oath": {
+    "depth": 16,
+    "text": "I wait for the catch that's worth keeping. I think that's you."
+   },
+   "sworn_gift": {
+    "loot_luck": 0.02
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Neve hands you a bone hook on a cord. 'Don't lose it. Don't let go of it either.'"
+  },
+  {
+   "id": "rhosyn",
+   "name": "Rhosyn Dale",
+   "tint": [
+    0.9,
+    0.55,
+    0.5
+   ],
+   "trade": "Fire-eater",
+   "towns": [
+    "floor10"
+   ],
+   "min_realm": 2,
+   "style": "striker",
+   "persona": "Rhosyn Dale, a fairground fire-eater who learned the trick was real. Showy, brave, a little terrified of what she can do.",
+   "line": "Stand back. Or don't. It's a good show either way.",
+   "gift": {
+    "burn_on_hit": 0.04,
+    "crit_chance": 0.01
+   },
+   "deed": {
+    "name": "Breathe fire",
+    "desc": "Your strikes burn for ninety seconds.",
+    "cool": 280,
+    "buff": {
+     "id": "wf_fire",
+     "name": "Fire-breath",
+     "secs": 90,
+     "effect": {
+      "burn_on_hit": 0.2,
+      "damage_mult": 1.08
+     }
+    }
+   },
+   "oath": {
+    "depth": 17,
+    "text": "I've lit up for a thousand crowds. Let me burn for one person who sees me."
+   },
+   "sworn_gift": {
+    "burn_on_hit": 0.04
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Rhosyn kisses a spark off her thumb and lets it die on yours. 'Mine. Yours. Whatever.'"
+  },
+  {
+   "id": "anselm",
+   "name": "Anselm Thorne",
+   "tint": [
+    0.5,
+    0.55,
+    0.65
+   ],
+   "trade": "Bellringer",
+   "towns": [
+    "floor15"
+   ],
+   "min_realm": 3,
+   "style": "guard",
+   "persona": "Anselm Thorne, who rang the bell of a drowned town until the tide took the tower. Slow-spoken, steady, hears the hour in everything.",
+   "line": "Time. It's always time for something.",
+   "gift": {
+    "timing": 0.01,
+    "dodge_chance": 0.01
+   },
+   "deed": {
+    "name": "Ring the hour",
+    "desc": "A minute of forgiving timing and sure feet.",
+    "cool": 240,
+    "buff": {
+     "id": "wf_bell",
+     "name": "The hour rings",
+     "secs": 60,
+     "effect": {
+      "timing": 0.06,
+      "dodge_chance": 0.08
+     }
+    }
+   },
+   "oath": {
+    "depth": 20,
+    "text": "The bell is gone. I'd like to keep something ringing."
+   },
+   "sworn_gift": {
+    "timing": 0.01
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Anselm taps a slow count on your shoulder. 'That is the time we keep.'"
+  },
+  {
+   "id": "saffi",
+   "name": "Saffi Okoro",
+   "tint": [
+    0.6,
+    0.8,
+    0.55
+   ],
+   "trade": "Seed-trader",
+   "towns": [
+    "floor15",
+    "village"
+   ],
+   "min_realm": 3,
+   "style": "scout",
+   "persona": "Saffi Okoro, a seed-trader who smuggles plants across places they're banned. Cheerful, dishonest only about prices.",
+   "line": "I've got something you can't buy here. Which is why it costs double.",
+   "gift": {
+    "gather_chance": 0.04,
+    "gather_bonus": 0.1
+   },
+   "deed": {
+    "name": "Scatter seed",
+    "desc": "She comes back with herbs and a pill.",
+    "cool": 420,
+    "items": {
+     "fixed": {
+      "spirit_herb": [
+       2,
+       3
+      ],
+      "qi_pill": [
+       1,
+       1
+      ]
+     }
+    }
+   },
+   "oath": {
+    "depth": 22,
+    "text": "I plant things and walk away. You're the first thing I want to come back to."
+   },
+   "sworn_gift": {
+    "gather_chance": 0.03
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Saffi presses a seed into your palm. 'If it grows, we're even. If not, you owe me.'"
+  },
+  {
+   "id": "barrow",
+   "name": "Barrow Quill",
+   "tint": [
+    0.4,
+    0.4,
+    0.45
+   ],
+   "trade": "Grave-watcher",
+   "towns": [
+    "floor20"
+   ],
+   "min_realm": 4,
+   "style": "guard",
+   "persona": "Barrow Quill, who keeps the dead company so nobody else has to. Gentle, grim, strangely good with the living.",
+   "line": "They don't mind visitors. Ask them anything.",
+   "gift": {
+    "regen": 0.4,
+    "ward": 1.0
+   },
+   "deed": {
+    "name": "Stand vigil",
+    "desc": "A minute and a half of mending and warding.",
+    "cool": 280,
+    "buff": {
+     "id": "wf_vigil",
+     "name": "Vigil",
+     "secs": 90,
+     "effect": {
+      "regen": 2.0,
+      "ward": 4.0
+     }
+    }
+   },
+   "oath": {
+    "depth": 27,
+    "text": "The dead have all the company they need. I'd like to keep the living for a change."
+   },
+   "sworn_gift": {
+    "regen": 0.3
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Barrow sets a pebble on your palm. 'One for each who made it. Keep going.'"
+  },
+  {
+   "id": "ysolde_k",
+   "name": "Ysolde Kane",
+   "tint": [
+    0.85,
+    0.75,
+    0.5
+   ],
+   "trade": "Sky-archer",
+   "towns": [
+    "floor30"
+   ],
+   "min_realm": 5,
+   "style": "striker",
+   "persona": "Ysolde Kane, who shot messages between mountain towns until the winds changed. Proud, precise, bad at losing.",
+   "line": "One arrow. One answer. Try not to flinch.",
+   "gift": {
+    "ranged_mult": 1.03,
+    "crit_chance": 0.01
+   },
+   "deed": {
+    "name": "Loose a volley",
+    "desc": "Your ranged blows hit harder for a minute.",
+    "cool": 240,
+    "buff": {
+     "id": "wf_volley",
+     "name": "Volley",
+     "secs": 60,
+     "effect": {
+      "ranged_mult": 1.2,
+      "crit_chance": 0.06
+     }
+    }
+   },
+   "oath": {
+    "depth": 32,
+    "text": "I only follow what I can't out-shoot. So far that's you."
+   },
+   "sworn_gift": {
+    "ranged_mult": 1.03
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Ysolde gives you a fletched shaft. 'Aim true. I'll cover the left.'"
+  },
+  {
+   "id": "momo_ha",
+   "name": "Momo Ha",
+   "tint": [
+    0.9,
+    0.7,
+    0.8
+   ],
+   "trade": "Tea-spirit's apprentice",
+   "towns": [
+    "floor40"
+   ],
+   "min_realm": 6,
+   "style": "scout",
+   "persona": "Momo Ha, who apprentices to a tea spirit that mostly sulks. Dreamy, exact, always steeping something.",
+   "line": "Is it too hot? It's meant to be too hot.",
+   "gift": {
+    "qi_mult": 1.03,
+    "meditate_mult": 1.03
+   },
+   "deed": {
+    "name": "Pour a cup",
+    "desc": "Meditation and qi run deeper for two minutes.",
+    "cool": 300,
+    "buff": {
+     "id": "wf_tea",
+     "name": "Steeped",
+     "secs": 120,
+     "effect": {
+      "qi_mult": 1.15,
+      "meditate_mult": 1.25
+     }
+    }
+   },
+   "oath": {
+    "depth": 38,
+    "text": "The spirit says go. For once I agree with it."
+   },
+   "sworn_gift": {
+    "qi_mult": 1.02
+   },
+   "sworn_deed_cool": 0.7,
+   "sworn_text": "Momo sets a cup of nothing in your hands. It is warm. 'That's us.'"
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+Patient||沉稳||Paciente||Paciente||Терпеливый||Geduldig||Patient||忍耐||인내||Sabırlı
+Relentless||不懈||Implacable||Implacável||Неумолимый||Unerbittlich||Implacable||不屈||집요함||Amansız
+Burning||燃烧||Ardiente||Ardente||Пылающий||Brennend||Ardent||燃焼||불타오름||Yakıcı
+Tempered||淬炼||Templado||Temperado||Закалённый||Gehärtet||Trempé||鍛錬||단련||Su verilmiş
+Wild||狂野||Salvaje||Selvagem||Дикий||Wild||Sauvage||野性||야성||Vahşi
+Stillness||静||Quietud||Quietude||Покой||Stille||Calme||静||고요||Durgunluk
+Ebb||退潮||Reflujo||Vazante||Отлив||Ebbe||Reflux||引き潮||썰물||Cezir
+Flow||流||Flujo||Fluxo||Течение||Fließen||Flux||流れ||흐름||Akış
+Bulwark||壁垒||Baluarte||Baluarte||Оплот||Bollwerk||Rempart||砦||보루||Siper
+Root||根||Raíz||Raiz||Корень||Wurzel||Racine||根||뿌리||Kök
+Patience||耐心||Paciencia||Paciência||Терпение||Geduld||Patience||忍耐||참을성||Sabır
+Bloom||绽放||Floración||Florescer||Цветение||Blüte||Floraison||開花||만개||Çiçeklenme
+Seed||种子||Semilla||Semente||Семя||Samen||Graine||種||씨앗||Tohum
+Harvest||收获||Cosecha||Colheita||Урожай||Ernte||Récolte||収穫||수확||Hasat
+Exact||精准||Exacto||Exato||Точность||Exakt||Exact||精密||정밀||Hassas
+Sure||稳妥||Seguro||Seguro||Надёжность||Sicher||Sûr||確実||확실함||Kesin
+Spark||火花||Chispa||Faísca||Искра||Funke||Étincelle||火花||불꽃||Kıvılcım
+Hive||蜂巢||Colmena||Colmeia||Улей||Bienenstock||Ruche||巣||벌집||Kovan
+Lattice||格||Retícula||Treliça||Решётка||Gitter||Réseau||格子||격자||Kafes
+Reflex||反射||Reflejo||Reflexo||Рефлекс||Reflex||Réflexe||反射||반사||Refleks
+Lantern||灯笼||Linterna||Lanterna||Фонарь||Laterne||Lanterne||提灯||등불||Fener
+Fortune||福运||Fortuna||Fortuna||Фортуна||Glück||Fortune||幸運||행운||Talih
+Stride||大步||Zancada||Passada||Шаг||Schritt||Foulée||歩幅||성큼걸음||Adım
+Strikes find the gap.||攻击总能找到破绽。||Los golpes encuentran el hueco.||Os golpes encontram a brecha.||Удары находят брешь.||Schläge finden die Lücke.||Les coups trouvent la faille.||攻撃が隙を見つける。||공격이 빈틈을 찾습니다.||Darbeler boşluğu bulur.
+You wait, and take less.||你静待时机，受伤更少。||Esperas y recibes menos.||Você espera e recebe menos.||Вы ждёте — и получаете меньше.||Du wartest und erleidest weniger.||Tu attends, et tu encaisses moins.||待つことで、受ける傷が減る。||기다리며 덜 맞습니다.||Beklersin ve daha az hasar alırsın.
+Your hands do not stop.||你的双手永不停歇。||Tus manos no se detienen.||Suas mãos não param.||Ваши руки не останавливаются.||Deine Hände halten nicht inne.||Tes mains ne s'arrêtent pas.||手が止まらない。||손이 멈추지 않습니다.||Ellerin durmaz.
+What you hit keeps burning.||被你击中的目标持续燃烧。||Lo que golpeas sigue ardiendo.||O que você acerta continua queimando.||Всё, что вы бьёте, продолжает гореть.||Was du triffst, brennt weiter.||Ce que tu frappes continue de brûler.||攻撃した相手は燃え続ける。||맞은 것이 계속 탑니다.||Vurduğun şey yanmaya devam eder.
+Fire makes you harder to break.||火让你更难被击垮。||El fuego te hace más difícil de romper.||O fogo o torna mais difícil de quebrar.||Огонь делает вас крепче.||Feuer macht dich schwerer zu brechen.||Le feu te rend plus dur à briser.||炎があなたを折れにくくする。||불이 당신을 더 단단하게 합니다.||Ateş seni kırılması zor kılar.
+You hit as the fire spreads.||你出手如烈火蔓延。||Golpeas como se extiende el fuego.||Você golpeia como o fogo se espalha.||Вы бьёте, как распространяется огонь.||Du schlägst zu, wie sich Feuer ausbreitet.||Tu frappes comme le feu se propage.||炎が広がるように打つ。||불이 번지듯 칩니다.||Ateş yayılırken sen de vurursun.
+Sitting goes deeper.||打坐更加深入。||La meditación llega más hondo.||A meditação vai mais fundo.||Сидение становится глубже.||Das Sitzen geht tiefer.||La méditation va plus profond.||座禅がより深くなる。||명상이 더 깊어집니다.||Oturuş derinleşir.
+Blows pass through you.||攻击从你身上穿过。||Los golpes te atraviesan.||Os golpes passam por você.||Удары проходят сквозь вас.||Schläge gehen durch dich hindurch.||Les coups te traversent.||攻撃が体をすり抜ける。||공격이 당신을 통과합니다.||Darbeler içinden geçip gider.
+Qi runs without effort.||真气不费力地流转。||El qi fluye sin esfuerzo.||O qi flui sem esforço.||Ци течёт без усилий.||Qi fließt mühelos.||Le qi coule sans effort.||気が苦もなく巡る。||기가 힘들이지 않고 흐릅니다.||Qi çabasızca akar.
+Less gets through.||更少的伤害能穿透。||Pasa menos daño.||Passa menos dano.||Проходит меньше урона.||Weniger kommt durch.||Moins passe.||通るダメージが減る。||덜 뚫립니다.||Daha azı geçer.
+More of you to hit.||你有更多生命可供承受。||Más de ti que golpear.||Mais de você para acertar.||В вас больше, чтобы бить.||Mehr von dir, das getroffen werden kann.||Plus de toi à frapper.||打たれ強くなる。||맞을 곳이 더 많아집니다.||Vurulacak daha çok şeyin var.
+You mend as you stand.||你站着便能愈合。||Te curas mientras te mantienes en pie.||Você se cura enquanto está de pé.||Вы исцеляетесь, стоя на месте.||Du heilst, während du stehst.||Tu te soignes en restant debout.||立っているだけで癒える。||서 있기만 해도 회복됩니다.||Ayaktayken iyileşirsin.
+Every kill gives back.||每次击杀都有所回馈。||Cada baja te devuelve algo.||Cada abate devolve algo.||Каждое убийство что-то возвращает.||Jeder Kill gibt etwas zurück.||Chaque victoire te rend quelque chose.||倒すたびに回復する。||처치할 때마다 돌려받습니다.||Her öldürme bir şey geri verir.
+The land gives more.||大地给予更多。||La tierra da más.||A terra dá mais.||Земля даёт больше.||Das Land gibt mehr.||La terre donne davantage.||大地がより多くを与える。||땅이 더 많이 내어 줍니다.||Toprak daha çok verir.
+Finds come richer.||发现的东西更丰厚。||Los hallazgos son más ricos.||Os achados vêm mais ricos.||Находки богаче.||Funde fallen reicher aus.||Les trouvailles sont plus riches.||見つかるものが豊かになる。||발견물이 더 풍성해집니다.||Buluntular daha zengin gelir.
+Finer work.||手艺更精细。||Trabajo más fino.||Trabalho mais fino.||Работа тоньше.||Feinere Arbeit.||Travail plus fin.||仕事が精緻になる。||더 정교한 작업.||Daha ince işçilik.
+Fewer failures.||失败更少。||Menos fallos.||Menos falhas.||Меньше неудач.||Weniger Fehlschläge.||Moins d'échecs.||失敗が減る。||실패가 줄어듭니다.||Daha az başarısızlık.
+Your work throws off luck.||你的作品散发好运。||Tu trabajo desprende suerte.||Seu trabalho espalha sorte.||Ваша работа приносит удачу.||Deine Arbeit wirft Glück ab.||Ton travail dégage de la chance.||作るものが運を呼ぶ。||당신의 작업이 행운을 흩뿌립니다.||Yaptığın işler şans saçar.
+The many feed the one.||众者滋养一者。||Los muchos alimentan al uno.||Os muitos alimentam o um.||Многие питают одного.||Die Vielen nähren den Einen.||Le nombre nourrit l'un.||多が一を養う。||다수가 하나를 키웁니다.||Çokluk bire güç verir.
+Orderly sitting.||有序的打坐。||Meditación ordenada.||Meditação ordenada.||Упорядоченная медитация.||Geordnetes Sitzen.||Méditation ordonnée.||整った座禅。||질서 있는 명상.||Düzenli oturuş.
+Machine-quick.||如机器般迅捷。||Rápido como una máquina.||Rápido como uma máquina.||Быстрота машины.||Maschinenschnell.||Vif comme une machine.||機械のように素早い。||기계처럼 빠릅니다.||Makine gibi hızlı.
+You see further.||你看得更远。||Ves más lejos.||Você vê mais longe.||Вы видите дальше.||Du siehst weiter.||Tu vois plus loin.||より遠くが見える。||더 멀리 봅니다.||Daha uzağı görürsün.
+Luck leans to you.||运气偏向你。||La suerte se inclina hacia ti.||A sorte pende para você.||Удача клонится к вам.||Das Glück neigt sich dir zu.||La chance penche vers toi.||運があなたに傾く。||행운이 당신 쪽으로 기웁니다.||Şans sana yönelir.
+Dangers find you less.||危险更少找上你。||Los peligros te encuentran menos.||Os perigos encontram você menos.||Опасности находят вас реже.||Gefahren finden dich seltener.||Les dangers te trouvent moins.||危険に見つかりにくくなる。||위험이 덜 찾아옵니다.||Tehlikeler seni daha az bulur.

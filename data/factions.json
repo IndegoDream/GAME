@@ -1,0 +1,348 @@
+{
+ "_note": "Round 44: factions that remember. Standing runs from -1000 to 1000. Helping one faction cools its rival by rival_share of the gain. 'places' says whose town or floor is whose (their traders' prices follow your standing). 'events' turns things you already do (Game.log_event kinds) into standing. Words are Dev's to rewrite (brief factions).",
+ "min": -1000,
+ "max": 1000,
+ "rival_share": 0.35,
+ "tiers": [
+  {
+   "id": "hated",
+   "name": "Hated",
+   "from": -1000,
+   "price": 0.0,
+   "color": [
+    0.9,
+    0.2,
+    0.2
+   ]
+  },
+  {
+   "id": "hostile",
+   "name": "Hostile",
+   "from": -600,
+   "price": 0.0,
+   "color": [
+    1.0,
+    0.4,
+    0.3
+   ]
+  },
+  {
+   "id": "wary",
+   "name": "Wary",
+   "from": -250,
+   "price": 1.15,
+   "color": [
+    1.0,
+    0.7,
+    0.45
+   ]
+  },
+  {
+   "id": "neutral",
+   "name": "Neutral",
+   "from": -25,
+   "price": 1.0,
+   "color": [
+    0.8,
+    0.8,
+    0.8
+   ]
+  },
+  {
+   "id": "known",
+   "name": "Known",
+   "from": 50,
+   "price": 1.0,
+   "color": [
+    0.8,
+    0.95,
+    0.85
+   ]
+  },
+  {
+   "id": "trusted",
+   "name": "Trusted",
+   "from": 200,
+   "price": 0.95,
+   "color": [
+    0.6,
+    1.0,
+    0.7
+   ]
+  },
+  {
+   "id": "honoured",
+   "name": "Honoured",
+   "from": 450,
+   "price": 0.9,
+   "color": [
+    0.5,
+    0.95,
+    1.0
+   ]
+  },
+  {
+   "id": "revered",
+   "name": "Revered",
+   "from": 800,
+   "price": 0.85,
+   "color": [
+    1.0,
+    0.85,
+    0.4
+   ]
+  }
+ ],
+ "factions": {
+  "eliet": {
+   "name": "The Village of Eliet",
+   "short": "Eliet",
+   "rival": "",
+   "start": 50,
+   "color": [
+    0.95,
+    0.8,
+    0.45
+   ],
+   "banner": "fantasy-town-kit/banner-green.glb",
+   "desc": "The village at the top of the stair. Farmers, traders and the families of everyone who goes down. They remember who comes back, and who helps.",
+   "gifts": {
+    "trusted": "The inn is free to you now.",
+    "honoured": "Eliet's traders keep their best stock for you.",
+    "revered": "They've put your name on the Lantern Stone."
+   },
+   "stock": {
+    "trusted": [
+     "breakthrough_pill"
+    ],
+    "honoured": [
+     "deep_breath_pill"
+    ]
+   },
+   "effect": {
+    "honoured": {
+     "shop_discount": 0.05
+    },
+    "revered": {
+     "shop_discount": 0.1,
+     "exp_mult": 1.05
+    }
+   }
+  },
+  "deepfolk": {
+   "name": "The Deepfolk",
+   "short": "Deepfolk",
+   "rival": "hollow",
+   "start": 0,
+   "color": [
+    0.55,
+    0.85,
+    0.65
+   ],
+   "banner": "fantasy-town-kit/banner-green.glb",
+   "desc": "People who live down in the deep: mushroom farmers, candle-makers, smelters, the ones who couldn't go back up. Their camps grow when someone looks after them.",
+   "gifts": {
+    "trusted": "Deepfolk camps will let you rest by their fires for nothing.",
+    "honoured": "Deepfolk traders carry spirit lanterns for you.",
+    "revered": "Every Deepfolk camp keeps a bed for you."
+   },
+   "stock": {
+    "trusted": [
+     "spirit_lantern"
+    ],
+    "honoured": [
+     "deep_breath_pill"
+    ]
+   },
+   "effect": {
+    "honoured": {
+     "rest_heal_mult": 1.1
+    },
+    "revered": {
+     "rest_heal_mult": 1.25,
+     "lantern_radius": 1.15
+    }
+   }
+  },
+  "hollow": {
+   "name": "The Hollow Clans",
+   "short": "Hollow Clans",
+   "rival": "deepfolk",
+   "start": -40,
+   "color": [
+    0.85,
+    0.35,
+    0.3
+   ],
+   "banner": "fantasy-town-kit/banner-red.glb",
+   "desc": "Beast-riding clans who took the deep by force when the old order fell. Proud, hard and fair by their own law. Cross them and their hunters come looking. Earn their respect and they share what they know about beasts.",
+   "gifts": {
+    "known": "Their hunters stop following you.",
+    "trusted": "Clan traders sell you beast-gear.",
+    "honoured": "Clan beast-masters teach your beasts their ways: bonds grow faster.",
+    "revered": "The clans call you kin."
+   },
+   "stock": {
+    "trusted": [
+     "hunters_oil",
+     "raw_meat",
+     "hunter_shortbow"
+    ],
+    "honoured": [
+     "swift_tonic",
+     "garrison_crossbow"
+    ]
+   },
+   "effect": {
+    "honoured": {
+     "bond_mult": 1.1
+    },
+    "revered": {
+     "bond_mult": 1.2
+    }
+   },
+   "hunters": {
+    "below": "wary",
+    "chance": 0.35,
+    "min_depth": 7,
+    "count": 3
+   }
+  },
+  "heirs": {
+   "name": "The Heirs of the Makers",
+   "short": "Heirs",
+   "rival": "sects",
+   "start": 0,
+   "color": [
+    0.5,
+    0.9,
+    1.0
+   ],
+   "banner": "mini-dungeon/banner.glb",
+   "desc": "The descendants of the people who built the nanites. They keep the old machines running and believe the swarm can still do what it was made for.",
+   "gifts": {
+    "trusted": "Heir traders sell you swarm parts.",
+    "honoured": "The Heirs share their notes: your swarm research runs faster.",
+    "revered": "The Heirs open their deepest vault to you."
+   },
+   "stock": {
+    "trusted": [
+     "nanite_shard"
+    ],
+    "honoured": [
+     "brass_cog",
+     "oil_of_motion"
+    ]
+   },
+   "effect": {
+    "honoured": {
+     "research_speed": 1.1
+    },
+    "revered": {
+     "research_speed": 1.2,
+     "swarm_mult": 1.05
+    }
+   }
+  },
+  "sects": {
+   "name": "The Valley Sects",
+   "short": "Sects",
+   "rival": "heirs",
+   "start": 0,
+   "color": [
+    0.85,
+    0.75,
+    1.0
+   ],
+   "banner": "mini-dungeon/banner.glb",
+   "desc": "The cultivation sects of the valley. They hold that the swarm was the Makers' great mistake and that qi alone is the true road.",
+   "gifts": {
+    "trusted": "Sect traders sell you pills from their own furnaces.",
+    "honoured": "Sect elders share their breathing methods: you sit deeper.",
+    "revered": "Every sect hall opens its doors to you."
+   },
+   "stock": {
+    "trusted": [
+     "breakthrough_pill",
+     "jade_bead_wraps"
+    ],
+    "honoured": [
+     "qi_incense",
+     "monk_prayer_wraps_f9"
+    ]
+   },
+   "effect": {
+    "honoured": {
+     "meditate_mult": 1.05
+    },
+    "revered": {
+     "meditate_mult": 1.1
+    }
+   }
+  }
+ },
+ "places": {
+  "village": "eliet",
+  "floor5": "deepfolk",
+  "floor10": "deepfolk",
+  "floor15": "deepfolk",
+  "floor20": "sects",
+  "floor30": "hollow",
+  "floor40": "sects",
+  "valley": "sects"
+ },
+ "events": {
+  "quest_done": {
+   "eliet": 15
+  },
+  "bounty": {
+   "eliet": 6
+  },
+  "donation": {
+   "eliet": 10
+  },
+  "festival_gift": {
+   "eliet": 5
+  },
+  "contract_done": {
+   "eliet": 4
+  },
+  "sect_donate": {
+   "sects": 6
+  },
+  "sect_rank": {
+   "sects": 25
+  },
+  "sect_trial": {
+   "sects": 15
+  },
+  "tower_floor": {
+   "sects": 3
+  },
+  "researched": {
+   "heirs": 6
+  },
+  "design_connected": {
+   "heirs": 3
+  },
+  "installed": {
+   "heirs": 10
+  },
+  "keeper_kill": {
+   "deepfolk": 8
+  },
+  "boss_kill": {
+   "deepfolk": 5
+  },
+  "hunter_kill": {
+   "hollow": -12,
+   "deepfolk": 6
+  },
+  "settlement_help": {},
+  "relic_given": {}
+ },
+ "hunter": {
+  "name": "Hollow Clan hunter",
+  "hp_mult": 1.3
+ }
+}

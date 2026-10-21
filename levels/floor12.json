@@ -1,0 +1,562 @@
+{
+  "id": "floor12",
+  "name": "Floor 12, The Crimson Canopy",
+  "theme": "dungeon",
+  "depth": 12,
+  "ambient": [
+    0.5,
+    0.35,
+    0.32
+  ],
+  "forged": {
+    "region": "canopy",
+    "cycle": 0,
+    "size": 1.0
+  },
+  "enemies": {
+    "g": "canopy_weak_f12",
+    "k": "canopy_brute_f12",
+    "B": "canopy_boss_f12",
+    "a": "canopy_animal_f12"
+  },
+  "layout": {
+    "seed": 12,
+    "corridor_traps": 3,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Root Stair",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "t*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Vine Hall",
+        "size": [
+          19,
+          5
+        ],
+        "has": [
+          "L*3",
+          "g*3",
+          "t*4",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Hollow Trunk",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "L",
+          "g",
+          "E"
+        ]
+      },
+      {
+        "name": "The Blossom Gallery",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*2",
+          "g*2",
+          "k",
+          "t*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Hunters' Cache",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "L",
+          "b*3",
+          "C",
+          "g"
+        ]
+      },
+      {
+        "name": "The Stalker Nests",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h"
+        ]
+      },
+      {
+        "name": "The Sap Seam",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L",
+          "^*2",
+          "o*3",
+          "g"
+        ]
+      },
+      {
+        "name": "The Red Pool",
+        "size": [
+          11,
+          8
+        ],
+        "has": [
+          "L",
+          "~*6",
+          "&",
+          "g",
+          "h"
+        ]
+      },
+      {
+        "name": "The Flower Riddle",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L*2",
+          "?",
+          "h*2"
+        ]
+      },
+      {
+        "name": "The Hunter's Carving",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "A",
+          "t*2",
+          "g"
+        ]
+      },
+      {
+        "name": "The Beetle Glade",
+        "size": [
+          9,
+          8
+        ],
+        "has": [
+          "L",
+          "a*2",
+          "h*3"
+        ]
+      },
+      {
+        "name": "The Matriarch's Seed",
+        "size": [
+          6,
+          5
+        ],
+        "has": [
+          "L",
+          "R",
+          "V",
+          "I"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Quiet Clearing",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "Z",
+          "L*2",
+          "h*2"
+        ]
+      },
+      {
+        "name": "Silken Hideaway",
+        "size": [
+          8,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "F",
+          "G"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Waterlogged Den",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "J",
+          "M"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Shadow Loom",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "k",
+          "N",
+          "O"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Root-choked Grotto",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "k",
+          "Q",
+          "U"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Hollow Cistern",
+        "size": [
+          11,
+          7
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "k",
+          "W",
+          "X"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Matriarch's Bower",
+        "size": [
+          16,
+          13
+        ],
+        "has": [
+          "L*4",
+          "B",
+          ">",
+          "k",
+          "t*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "bloodsap": [
+          2,
+          3
+        ],
+        "gold": [
+          72,
+          120
+        ]
+      },
+      "note": "a hunter's cache wrapped in vines"
+    },
+    "D": {
+      "loot": {
+        "crimson_bark": [
+          1,
+          2
+        ],
+        "canopy_pill_f12": [
+          0,
+          1
+        ],
+        "gold": [
+          60,
+          108
+        ]
+      },
+      "note": "a sap-sealed box"
+    },
+    "E": {
+      "loot": {
+        "bloodsap": [
+          1,
+          2
+        ],
+        "canopy_pill_f12": [
+          1,
+          1
+        ],
+        "random_weapon": [
+          0,
+          1
+        ]
+      },
+      "note": "a hollow log with something inside",
+      "hidden": true
+    },
+    "V": {
+      "loot": {
+        "bloodsap": [
+          3,
+          4
+        ],
+        "crimson_bark": [
+          2,
+          3
+        ],
+        "canopy_pill_f12": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "random_gear": [
+          1,
+          1
+        ],
+        "gold": [
+          180,
+          300
+        ]
+      },
+      "note": "the Matriarch's hoard"
+    },
+    "F": {
+      "loot": {
+        "gold": [
+          96,
+          180
+        ],
+        "bloodsap": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Silken Hideaway"
+    },
+    "J": {
+      "loot": {
+        "gold": [
+          96,
+          180
+        ],
+        "crimson_bark": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Waterlogged Den"
+    },
+    "N": {
+      "loot": {
+        "gold": [
+          96,
+          180
+        ],
+        "canopy_pill_f12": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in the Shadow Loom"
+    },
+    "Q": {
+      "loot": {
+        "gold": [
+          96,
+          180
+        ],
+        "breakthrough_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Root-choked Grotto"
+    },
+    "W": {
+      "loot": {
+        "gold": [
+          96,
+          180
+        ],
+        "bloodsap": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Hollow Cistern"
+    }
+  },
+  "lore": {
+    "A": {
+      "title": "The Hunter's Carving",
+      "text": "The canopy is not a forest. The canopy is one animal, and we are walking inside it. It has been very patient with us. It will not be patient forever."
+    },
+    "Y": {
+      "title": "Notched Into a Trunk",
+      "text": "Seven hunters came in. Count the notches. I am the seventh notch. If you are reading this, cut the eighth for yourself -- and then prove it wrong."
+    },
+    "R": {
+      "title": "The Matriarch's Seed",
+      "text": "The canopy taught its hunters one thing: the strongest strike is the one you waited for. Wait longer than your prey, and you will never need a second.",
+      "teaches": "canopy_art"
+    },
+    "G": {
+      "title": "A Safe Haven",
+      "text": "Here, the vines are thick and the whispers of the canopy are hushed. This is where the elders meet, their secrets and council guarded by the tightest of knots and the most intricate of weavings."
+    },
+    "M": {
+      "title": "The Voice of the Forest",
+      "text": "Here, the wind carries secrets of the deep woods. Listen closely and you may hear the cries of the lost and the whispers of the wise."
+    },
+    "O": {
+      "title": "The Weaver's Warning",
+      "text": "Beware the shadows that whisper secrets of the night. Here, the weaver's loom waits, its threads entangled with tales of those who dared to tread where light fears to go."
+    },
+    "U": {
+      "title": "The Keeper of Secrets",
+      "text": "Here, the vines and leaves entwine to form a labyrinthine tapestry, where the whispers of the forest carry secrets of the past. Those who listen closely may hear the tales of long-lost hunters and ancient battles fought within the Crimson Canopy's embrace."
+    },
+    "X": {
+      "title": "Whispers of the Ancients",
+      "text": "Legends say this ancient tree holds the whispers of long-forgotten hunters, their voices carried by the wind through the hollows of its bark."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Riddle of Red Pool",
+      "question": "I have a crown but no head, I grow but never move, and I drink with my feet. What am I?",
+      "options": [
+        "A tree",
+        "A queen",
+        "A beetle"
+      ],
+      "answer": 0,
+      "reward": {
+        "items": {
+          "canopy_pill_f12": 1
+        },
+        "qi": 2788
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor11",
+      "arrive": ">",
+      "label": "Up to floor 11",
+      "down": false
+    },
+    ">": {
+      "to": "floor13",
+      "arrive": "<",
+      "label": "Down to floor 13"
+    }
+  },
+  "inheritances": {
+    "I": {
+      "master": "the Seventh Hunter",
+      "hidden": true,
+      "needs_realm": 3,
+      "text": "A hunter sits against the great trunk, bow across her knees. \"Six friends I lost to her. Take my things. Be the eighth -- and be the one who walks out.\"",
+      "grants": {
+        "items": {
+          "bloodbark_axe_f12@masterwork": 1
+        },
+        "qi": 4183
+      }
+    }
+  },
+  "refined": {
+    "passes": 12,
+    "rooms_added": 5,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-05T13:21:12"
+  },
+  "map": [
+    "",
+    "                       ............",
+    "      <.L......        g...t.......      ......L..",
+    "      .......t.        ..D.........      .b..b....",
+    "      .........        ............      .........",
+    "      .........        kt............T............S....................................",
+    "      ..g....tL        ............      ....b..C.                                    .",
+    "      .........        ............      .......g.                                    .",
+    "          .            ............          .                                        .",
+    "          .            gL.L........          .                                        .",
+    "          .                  .               .                                        .",
+    "          .                  .               .                                        .                   .L.N........",
+    "          .                  .               .                                        S                   ..^.........      ........",
+    "          .              ........            .                                    a.....L..     .......L  ............      gUh.....",
+    " .....L.............     ........       ..........    .....^....    .......L..    .........     ..h.....  .....g...O..      .k..h...",
+    " .t..t..t..t...g....     ........       ..g.......    o........L    ..........    a....h...     ...Z....  k........................L",
+    " ................Y......T.....E..       ..........    ..^..o....    .g........    ....hh................  ............      .....g..",
+    " ...................     ........       .....g..................    ........................    ......h.  ...h...g....      ..L....Q",
+    " .......LLg..g......     .L.....g       ...........   .........o    L...t..t..    .........     ........  L...........          .        ...........L...>",
+    "                                        ......g...    ..g.......    ..........    .........     ..L.....        .               .        ....t...........",
+    "                                        ..h.......    ..........    ...A......    .........         .           .              ..        ..............B.",
+    "                                        .......L..         .             .           S              .           .         .........o.    ........k.......",
+    "                                                           .             .         ......           .           .         ..........L    .t.....t........",
+    "                                                           .             .         ...R..       ........   .........o     ...........    ................",
+    "                                                          ..             .         .....I       L.......   L.........     ..............................L",
+    "                                                     ...........     L.......      ......       ........   ..........     g....X.....    ....t...........",
+    "                                                     .~..~..~...     ........      ..V.L.       ....g...   .....g....     g.......ok.    L...............",
+    "                                                     .......h...     .......L                   L..h..h..............     ..L....W...    ................",
+    "                                                     ...........    .........                   ..F.....   .........k                    ...............L",
+    "                                                     .~..~..~...T........h..?                   .g......   .g...o..ML                    ................",
+    "                                                     ...g.......     ........                   ..G.....   .........J                    ................",
+    "                                                     ..&........     .h......",
+    "                                                     ........L..",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

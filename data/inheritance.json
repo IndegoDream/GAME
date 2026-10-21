@@ -1,0 +1,6 @@
+{
+ "_note": "Round 43: inheritance base requirement and crystals. floors_per_realm: a legacy whose level names no needs_realm asks one realm per this many floors. crystal value = base * (1+realm)^2 + item values + per_art * (1+realm) per art + qi_sqrt * sqrt(qi).",
+ "floors_per_realm": 4,
+ "max_default_realm": 12,
+ "crystal_value": {"base": 120, "per_art": 250, "qi_sqrt": 4.0}
+}

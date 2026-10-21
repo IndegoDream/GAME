@@ -1,0 +1,280 @@
+{
+ "note": "Round 27 (Claude, 2026-10-03): the nanotech crafting tree (Robert: 'create a nanotech crafting tree'). Unlocked in the Nanoforge tab of the inventory (I) with nanite shards, at your swarm's tier; two nodes are secrets found by experimenting.",
+ "nodes": [
+  {
+   "id": "filament_spinning",
+   "name": "Filament Spinning",
+   "tier": 0,
+   "needs": [],
+   "cost": {
+    "nanite_shard": 2
+   },
+   "pos": [
+    0,
+    0
+   ],
+   "gives": {
+    "class": "nanoweave",
+    "formula": "nanoweave_thread"
+   },
+   "desc": "Teach the swarm to climb a thread. You can spin nanoweave -- cloth the nanites live in -- and make cowls, capes, robes, gloves, pants, boots, under-armour and even a chest from it."
+  },
+  {
+   "id": "lattice_plating",
+   "name": "Lattice Plating",
+   "tier": 1,
+   "needs": [
+    "filament_spinning"
+   ],
+   "cost": {
+    "nanite_shard": 4,
+    "iron_ore": 3
+   },
+   "pos": [
+    -1,
+    1
+   ],
+   "gives": {
+    "class": "lattice",
+    "formula": "lattice_alloy"
+   },
+   "desc": "The swarm holds metal in a lattice instead of a lump. Lattice plate: armour at a third of the weight."
+  },
+  {
+   "id": "micro_circuitry",
+   "name": "Micro-circuitry",
+   "tier": 1,
+   "needs": [
+    "filament_spinning"
+   ],
+   "cost": {
+    "nanite_shard": 3,
+    "silver_ore": 2
+   },
+   "pos": [
+    1,
+    1
+   ],
+   "gives": {
+    "jewel_nano": true
+   },
+   "desc": "Nanites laid down as circuits. Rings, bracelets, chokers, necklaces and toe rings can be made of circuit instead of metal -- and carry the swarm."
+  },
+  {
+   "id": "self_repair",
+   "name": "Self-repair",
+   "tier": 2,
+   "needs": [
+    "filament_spinning"
+   ],
+   "cost": {
+    "nanite_shard": 5,
+    "spirit_herb": 4
+   },
+   "pos": [
+    0,
+    2
+   ],
+   "gives": {
+    "nano_regen": 0.25
+   },
+   "desc": "Every nano piece you wear mends you a little, all the time (+0.25 health a second each)."
+  },
+  {
+   "id": "adaptive_skin",
+   "name": "Adaptive Skin",
+   "tier": 2,
+   "needs": [
+    "lattice_plating"
+   ],
+   "cost": {
+    "nanite_shard": 6,
+    "beast_hide": 3
+   },
+   "pos": [
+    -1,
+    2
+   ],
+   "gives": {
+    "hybrid_mult": 1.25
+   },
+   "desc": "Crafted and nano, together. A piece that is both -- made by hand, then given to the swarm at the bench -- carries its gifts a quarter stronger."
+  },
+  {
+   "id": "catalysis",
+   "name": "Catalysis",
+   "tier": 2,
+   "needs": [
+    "micro_circuitry"
+   ],
+   "cost": {
+    "nanite_shard": 5,
+    "spirit_resin": 3
+   },
+   "pos": [
+    1,
+    2
+   ],
+   "gives": {
+    "combine_success": 0.07,
+    "luck": 0.03
+   },
+   "desc": "The swarm steadies a mix while you work it. Every combination at the bench is likelier to take, and likelier to surprise you."
+  },
+  {
+   "id": "resonance_tuning",
+   "name": "Resonance Tuning",
+   "tier": 3,
+   "needs": [
+    "catalysis"
+   ],
+   "cost": {
+    "nanite_shard": 8,
+    "singing_crystal": 1
+   },
+   "pos": [
+    1,
+    3
+   ],
+   "gives": {
+    "tuned_mult": 1.5
+   },
+   "desc": "Tune what you make to your own frequency: the synergies of qi and stillness (Singing, Neural, Quiet Shell, Heartwood Calm) come out half again as strong."
+  },
+  {
+   "id": "swarm_reservoir",
+   "name": "Swarm Reservoir",
+   "tier": 3,
+   "needs": [
+    "self_repair"
+   ],
+   "cost": {
+    "nanite_shard": 8,
+    "abyssal_pearl": 1
+   },
+   "pos": [
+    0,
+    3
+   ],
+   "gives": {
+    "nano_swarm": 0.03
+   },
+   "desc": "Nano pieces you wear hold a reservoir of the swarm: each one grows it 3% faster."
+  },
+  {
+   "id": "phase_weave",
+   "name": "Phase Weave",
+   "tier": 4,
+   "needs": [
+    "adaptive_skin"
+   ],
+   "cost": {
+    "nanite_shard": 10,
+    "oil_of_motion": 1
+   },
+   "pos": [
+    -1,
+    4
+   ],
+   "gives": {
+    "gear_weight": 0.75
+   },
+   "desc": "The swarm carries part of everything you wear. All your gear weighs a quarter less."
+  },
+  {
+   "id": "neural_lace",
+   "name": "Neural Lace",
+   "tier": 4,
+   "needs": [
+    "micro_circuitry"
+   ],
+   "cost": {
+    "nanite_shard": 10,
+    "storm_glass": 1
+   },
+   "pos": [
+    2,
+    4
+   ],
+   "secret": true,
+   "found_by": {
+    "with": [
+     "storm_glass",
+     "nanite_shard"
+    ]
+   },
+   "gives": {
+    "jewel_speed": 0.015,
+    "formula": "storm_filament"
+   },
+   "desc": "Found, not taught: lightning-glass and the swarm, together at the bench, showed you this. Nano jewellery quickens your hands (+1.5% attack speed a piece) and you can draw storm filament."
+  },
+  {
+   "id": "swarm_shell",
+   "name": "Swarm Shell",
+   "tier": 5,
+   "needs": [
+    "phase_weave",
+    "swarm_reservoir"
+   ],
+   "cost": {
+    "nanite_shard": 14,
+    "brass_cog": 1
+   },
+   "pos": [
+    -0.5,
+    5
+   ],
+   "gives": {
+    "class": "shell",
+    "formula": "swarm_core_lattice"
+   },
+   "desc": "Open a warden's core and let it spread: swarm-shell, the strongest armour the swarm can be."
+  },
+  {
+   "id": "entropy_harvest",
+   "name": "Entropy Harvest",
+   "tier": 3,
+   "needs": [
+    "catalysis"
+   ],
+   "cost": {
+    "nanite_shard": 6
+   },
+   "pos": [
+    2,
+    3
+   ],
+   "secret": true,
+   "found_by": {
+    "failures": 5
+   },
+   "gives": {
+    "fail_refund": 0.5,
+    "luck": 0.03
+   },
+   "desc": "Found by failing: the swarm learned to catch what a ruined mix throws off. Half of what a failure would cost comes back, and surprises come more often."
+  },
+  {
+   "id": "singularity_forge",
+   "name": "Singularity Forge",
+   "tier": 6,
+   "needs": [
+    "swarm_shell",
+    "resonance_tuning"
+   ],
+   "cost": {
+    "nanite_shard": 20,
+    "warden_core": 1
+   },
+   "pos": [
+    0,
+    6
+   ],
+   "gives": {
+    "merge": true
+   },
+   "desc": "Two pieces of the same kind become one: the bench folds a second piece's gifts into the first."
+  }
+ ]
+}

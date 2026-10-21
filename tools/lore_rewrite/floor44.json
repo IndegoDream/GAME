@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "Miners' Stair",
+  "text": "Steep and narrow, cut into the side of the crater. Hand-holds chiselled every few steps. Whoever cut them expected people to fall."
+ },
+ "Y": {
+  "title": "Where the Star Fell",
+  "text": "A melted rock sits at the center, still warm after all this time. The old miners dug here and called it a gift. Then they stopped calling it anything."
+ },
+ "R": {
+  "title": "The Heavy Stone",
+  "text": "A small grey stone, half buried. It weighs more than a cart. Sit with it and learn to be that heavy yourself, when it matters."
+ },
+ "G": {
+  "title": "Smith's Shed",
+  "text": "Tongs, a cracked anvil, a bucket that still smells of quench. The star-iron is hard to work. Nobody here ever got the temper wrong twice."
+ },
+ "M": {
+  "title": "Names in the Wall",
+  "text": "Miners cut their names where they struck ore. Forty-one names. The last few are in a different, shaking hand."
+ },
+ "O": {
+  "title": "The Starlit Forge",
+  "text": "The forge needs no coal. Chips of the star glow in the wall and heat the iron. Work fast. The glow fades once you touch the metal."
+ },
+ "U": {
+  "title": "Lantern Count",
+  "text": "A ledger line, pinned to a post: lamps out, forty. Lamps back, thirty-one. Foreman says the pit is not dangerous. Foreman has not been down."
+ },
+ "X": {
+  "title": "Torn Survey Maps",
+  "text": "The maps stop at the edge of the crater. Someone has added, in pencil, a way down. It is wrong in two places. Trust the shape, not the lines."
+ }
+}

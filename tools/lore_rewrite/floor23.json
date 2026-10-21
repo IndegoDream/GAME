@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "Hot Ground",
+  "text": "The slope is steeper than it looks and the ash is hot an inch down. Keep to the dark patches. The pale ash is thin and gives way."
+ },
+ "Y": {
+  "title": "Wind Corridor Marks",
+  "text": "The wind cuts this passage new each night. Old marks on the walls are scoured clean by morning. My own mark is a fresh one. Follow it if you are lost."
+ },
+ "R": {
+  "title": "In the Caravan Wreck",
+  "text": "Under the broken cart lies a stone with a potter's mark. It says: let the fire bake you slowly and you will not crack. Skin turned to clay shrugs off the heat."
+ },
+ "G": {
+  "title": "The Ash Keeper",
+  "text": "A shelter dug in the lee of a dune, swept clean every dawn by no one. Chalked on the wall: water jar behind the third stone. It is empty."
+ },
+ "M": {
+  "title": "Do Not Listen Long",
+  "text": "From this ledge you can hear your name called from the glass seam below. It is not your name. It is only the wind in the glass. Walk on."
+ },
+ "O": {
+  "title": "Cairn of Nine",
+  "text": "Nine stones, one for each caravan driver. Someone added a tenth. No name. Whoever left it is likely under the dune now."
+ },
+ "U": {
+  "title": "A Driver's Ledger",
+  "text": "Three camels lost. Water short by half. Salt traded for glass, a bad bargain on any road. Pay the guide before you start."
+ },
+ "X": {
+  "title": "Last Mark of the Caravan",
+  "text": "The sand here shifts into the shape of a door and back again. The caravans stopped here to rest. Their tracks go in. None come out."
+ }
+}

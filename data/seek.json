@@ -1,0 +1,29 @@
+{
+ "_about": "Round 155 (Robert: 'one human companion to follow at most, both slots can be used to search for items and reagents, plants, jewels and shards'). Only the first human companion walks with you; the second waits at camp. EITHER can be sent to search for a kind of find, for 1-8 real hours. Deeper floors reached open richer finds. Fair pay: earned by bonds and time, never bought.",
+ "hours": [1, 2, 4, 8],
+ "rolls_per_hour": 2.5,
+ "warmth_bonus": 300.0,
+ "tier_weights": [1.0, 0.6, 0.35, 0.2],
+ "kinds": {
+  "plants": {"name": "Plants", "desc": "Herbs, blooms and moss.", "tiers": [
+   {"depth": 1, "items": ["spirit_herb", "ember_root", "moonpetal", "iron_thistle"]},
+   {"depth": 8, "items": ["glowcap_spore", "mycelium_thread", "bloodsap"]},
+   {"depth": 20, "items": ["lumen_fern", "halcyon_basil", "cryo_lotus", "mirage_bloom", "sunreed"]},
+   {"depth": 35, "items": ["slag_orchid", "verdant_heart", "static_moss", "vent_lichen"]}]},
+  "reagents": {"name": "Reagents", "desc": "Resins, dusts, oils and bone.", "tiers": [
+   {"depth": 1, "items": ["spirit_resin", "bone_shard", "firestone", "ancient_clay", "beast_hide"]},
+   {"depth": 10, "items": ["resonant_dust", "immortal_dust", "ghost_lantern_oil", "rime_ink", "spirit_paper"]},
+   {"depth": 22, "items": ["oil_of_motion", "coolant_core", "venom_sac", "drake_blood"]},
+   {"depth": 35, "items": ["reactor_ember", "sovereign_ember", "ash_glass"]}]},
+  "jewels": {"name": "Jewels", "desc": "Jade, gems and bright metal.", "tiers": [
+   {"depth": 1, "items": ["rough_jade", "rough_ruby", "sapphire_shard", "silver_ore", "gold_nugget"]},
+   {"depth": 12, "items": ["abyssal_pearl", "cloud_jade", "singing_crystal", "mirror_silver"]},
+   {"depth": 30, "items": ["emperor_jade", "storm_glass", "quantum_quartz", "sun_glass", "ion_crystal"]},
+   {"depth": 45, "items": ["true_reflection", "star_iron"]}]},
+  "shards": {"name": "Shards", "desc": "Nanite shards, glass and edged fragments.", "tiers": [
+   {"depth": 1, "items": ["nanite_shard", "scrap_alloy"]},
+   {"depth": 8, "items": ["sword_intent_shard", "storm_glass"]},
+   {"depth": 20, "items": ["dragon_scale_shard", "meteor_glass", "thunder_iron"]},
+   {"depth": 35, "items": ["beacon_glass", "fulgurite", "nanite_ingot"]}]}
+ }
+}

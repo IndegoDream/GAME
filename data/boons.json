@@ -1,0 +1,254 @@
+{
+ "note": "Round 144: a blessing and an optional hardship for each trip down, a wandering merchant, a shrine and a quarry of the day. Nothing here is paid for with money, and skipping all of it costs nothing.",
+ "offer": 3,
+ "shrine_seconds": 1800,
+ "quarry": {
+  "need": 3,
+  "insight": 2,
+  "gold_base": 6,
+  "gold_per_floor": 2,
+  "span": 4
+ },
+ "merchant": {
+  "slots": 3,
+  "stock_each": 2,
+  "price_mult": 2.0
+ },
+ "merchant_stock": [
+  "silver_ore",
+  "gold_nugget",
+  "rough_jade",
+  "rough_ruby",
+  "sapphire_shard",
+  "ember_root",
+  "moonpetal",
+  "iron_thistle",
+  "spirit_herb",
+  "bone_shard",
+  "carp_oil_salve",
+  "bone_broth"
+ ],
+ "merchant_names": [
+  "Old Pell the pedlar",
+  "Sunniva of the long road",
+  "A veiled tinker",
+  "Tomas Reed, with his cart",
+  "The salt-trader's cousin",
+  "A quiet man with many pockets",
+  "Brisk Aldwyn"
+ ],
+ "boons": [
+  {
+   "id": "swift_feet",
+   "name": "Swift Feet",
+   "text": "You move 8% faster.",
+   "fx": {
+    "move_mult": 1.08
+   }
+  },
+  {
+   "id": "keen_edge",
+   "name": "Keen Edge",
+   "text": "Your blows land 6% harder.",
+   "fx": {
+    "damage_mult": 1.06
+   }
+  },
+  {
+   "id": "thick_skin",
+   "name": "Thick Skin",
+   "text": "You take 8% less damage.",
+   "fx": {
+    "damage_taken": 0.92
+   }
+  },
+  {
+   "id": "steady_breath",
+   "name": "Steady Breath",
+   "text": "Kills give 10% more qi.",
+   "fx": {
+    "qi_mult": 1.1
+   }
+  },
+  {
+   "id": "quick_study",
+   "name": "Quick Study",
+   "text": "Insight comes 15% faster.",
+   "fx": {
+    "insight_mult": 1.15
+   }
+  },
+  {
+   "id": "lucky_pocket",
+   "name": "Lucky Pocket",
+   "text": "A little better odds of finds.",
+   "fx": {
+    "loot_luck": 0.08
+   }
+  },
+  {
+   "id": "second_wind",
+   "name": "Second Wind",
+   "text": "You recover life a little between blows.",
+   "fx": {
+    "regen": 0.4
+   }
+  },
+  {
+   "id": "warm_heart",
+   "name": "Warm Heart",
+   "text": "Bonds with beasts and people grow 15% faster.",
+   "fx": {
+    "bond_mult": 1.15
+   }
+  },
+  {
+   "id": "fleet_blade",
+   "name": "Fleet Blade",
+   "text": "You strike 6% faster.",
+   "fx": {
+    "attack_speed": 1.06
+   }
+  },
+  {
+   "id": "calm_mind",
+   "name": "Calm Mind",
+   "text": "Sitting still gives 20% more.",
+   "fx": {
+    "meditate_mult": 1.2
+   }
+  },
+  {
+   "id": "sure_hands",
+   "name": "Sure Hands",
+   "text": "Crafting goes a little better.",
+   "fx": {
+    "craft_success": 0.04
+   }
+  },
+  {
+   "id": "good_omen",
+   "name": "Good Omen",
+   "text": "A little more luck at dodging and at striking true.",
+   "fx": {
+    "dodge_chance": 0.03,
+    "crit_chance": 0.03
+   }
+  }
+ ],
+ "curses": [
+  {
+   "id": "glass_skin",
+   "name": "Glass Skin",
+   "text": "You take 15% more damage. Kills pay 10% more qi, and finds come 10% more often.",
+   "fx": {
+    "damage_taken": 1.15
+   },
+   "reward": 0.1
+  },
+  {
+   "id": "heavy_boots",
+   "name": "Heavy Boots",
+   "text": "You move 8% slower. +6% qi and finds.",
+   "fx": {
+    "move_mult": 0.92
+   },
+   "reward": 0.06
+  },
+  {
+   "id": "cold_sitting",
+   "name": "Cold Sitting",
+   "text": "Sitting still gives 20% less. +6% qi and finds.",
+   "fx": {
+    "meditate_mult": 0.8
+   },
+   "reward": 0.06
+  },
+  {
+   "id": "shaky_hands",
+   "name": "Shaky Hands",
+   "text": "Your blows land 10% softer. +8% qi and finds.",
+   "fx": {
+    "damage_mult": 0.9
+   },
+   "reward": 0.08
+  },
+  {
+   "id": "thin_blood",
+   "name": "Thin Blood",
+   "text": "Your body holds 15% less life. +10% qi and finds.",
+   "fx": {
+    "hp_mult": 0.85
+   },
+   "reward": 0.1
+  },
+  {
+   "id": "slow_hands",
+   "name": "Slow Hands",
+   "text": "You strike 10% slower. +8% qi and finds.",
+   "fx": {
+    "attack_speed": 0.9
+   },
+   "reward": 0.08
+  }
+ ],
+ "shrines": [
+  {
+   "id": "hare",
+   "name": "the Hare Shrine",
+   "text": "Light feet for half an hour.",
+   "fx": {
+    "move_mult": 1.1
+   }
+  },
+  {
+   "id": "oak",
+   "name": "the Oak Shrine",
+   "text": "Bark-like skin for half an hour: 10% less damage taken.",
+   "fx": {
+    "damage_taken": 0.9
+   }
+  },
+  {
+   "id": "flame",
+   "name": "the Candle Shrine",
+   "text": "A steady flame: blows land 8% harder for half an hour.",
+   "fx": {
+    "damage_mult": 1.08
+   }
+  },
+  {
+   "id": "stream",
+   "name": "the Stream Shrine",
+   "text": "Qi runs freely: +12% from kills and sitting, for half an hour.",
+   "fx": {
+    "qi_mult": 1.12,
+    "meditate_mult": 1.12
+   }
+  },
+  {
+   "id": "owl",
+   "name": "the Owl Shrine",
+   "text": "Clear sight: insight comes 20% faster for half an hour.",
+   "fx": {
+    "insight_mult": 1.2
+   }
+  },
+  {
+   "id": "pebble",
+   "name": "the Pebble Shrine",
+   "text": "A pocketful of luck: better odds of finds for half an hour.",
+   "fx": {
+    "loot_luck": 0.1
+   }
+  },
+  {
+   "id": "hearth",
+   "name": "the Hearth Shrine",
+   "text": "Warmth for company: bonds grow 20% faster for half an hour.",
+   "fx": {
+    "bond_mult": 1.2
+   }
+  }
+ ]
+}

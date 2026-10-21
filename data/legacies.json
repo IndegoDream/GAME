@@ -1,0 +1,250 @@
+{
+ "_note": "Round 51: three tiers of inheritance, different in every new game (scripts/systems/Legacies.gd). Robert, 2026-10-04: 'make sure major inheritance isn't something easy to find -- I like the blacksmith in the beginning, make it random though to make replay interesting' and 'minor inheritances, major inheritances and heavenly inheritance, all providing unique benefits; it's possible to attain multiple, and even when the main quest is done players are free to be a completionist within their own game.' MINOR: the craft masters who sit at lost workshops -- all five are in every game, but which craft waits near the start (floor 1 or 2) and which floors hold the rest is decided when the game begins. MAJOR: the dead masters a floor's map names -- always hidden, seen only from close by (Spirit Sense) or by searching slowly in the right place; each game moves them to a far corner or a sealed chamber of their floor; and some sleep until you're strong enough (or the road is walked), then wake. HEAVENLY: a few per game, from a larger pool, on random deep floors -- you need Core Formation even to perceive one, Spirit Sense from a few steps away, and the master's echo tests you in a fight before it gives anything. Every number here; Dev rewrites the words (brief heavenly_inheritances).",
+ "depth_scale": {
+  "from": 8,
+  "to": 48,
+  "reach_min": 0.6,
+  "tell_min": 0.6,
+  "notice_min": 0.4,
+  "_note": "Robert 2026-10-13: hidden masters and inheritances get harder to find the deeper they sit, never impossible. At the deepest floors the senses reach 60%, the slow search 40% as fast."
+ },
+ "minor": {
+  "crafts": [
+   "smithing",
+   "alchemy",
+   "medicine",
+   "jewelcrafting",
+   "herbalism"
+  ],
+  "first_floors": [
+   1,
+   2
+  ],
+  "upper_floors": 10
+ },
+ "major": {
+  "sealed_share": 0.35,
+  "designed_spot_chance": 0.35,
+  "min_from_stairs": 12,
+  "sense_reach": 6.0,
+  "tell_reach": 14.0,
+  "notice": {
+   "reach": 2.8,
+   "base": 0.035,
+   "per_survival": 0.006,
+   "still_mult": 3.0,
+   "sprint_mult": 0.0
+  },
+  "wake_realm_over_need": 1
+ },
+ "heavenly": {
+  "per_game": 3,
+  "floors": [
+   8,
+   48
+  ],
+  "perceive_realm": 3,
+  "sense_reach": 4.5,
+  "tell_reach": 10.0,
+  "min_realm": 4,
+  "echo": {
+   "hp_mult": 4.0,
+   "damage_mult": 1.6,
+   "fallback": "goblin_chief"
+  },
+  "qi": 2500,
+  "band": 6,
+  "pool": [
+   {
+    "id": "jade_sky",
+    "master": "the Jade Sky Emperor",
+    "title": "Heir of the Jade Sky",
+    "text": "A figure in white jade robes sits on a lotus of stone, untouched by a single grain of dust. \"Ten thousand years I ruled a heaven that is gone. All I kept was the body that ruled it. Take it -- and stand where nothing can move you.\"",
+    "technique": {
+     "id": "jade_sky_body",
+     "name": "Jade Sky Sovereign Body",
+     "desc": "The body of a heaven's ruler: +25% health, and every blow that lands on you is 12% lighter.",
+     "effect": {
+      "hp_mult": 1.25,
+      "damage_taken": 0.88
+     }
+    },
+    "item": {
+     "id": "jade_sky_seal",
+     "name": "Jade Sky Seal",
+     "desc": "A seal of the vanished heaven, cold and heavy. While you carry it: +10% health and a ward of 6.",
+     "effect": {
+      "hp_mult": 1.1,
+      "ward": 6.0
+     },
+     "value": 4000
+    }
+   },
+   {
+    "id": "star_sword",
+    "master": "the Star-Cleaving Sword Ancestor",
+    "title": "Successor of the Star-Cleaving Sword",
+    "text": "An old swordsman sits with no sword at all; the scar of a cut runs across the stone wall behind him and on into the dark. \"I cut a star once. It was the last thing I ever needed to cut. Learn the intent, not the sword.\"",
+    "technique": {
+     "id": "star_cleaving_intent",
+     "name": "Star-Cleaving Intent",
+     "desc": "The intent that cut a star: +22% damage, and 8% of your blows strike true.",
+     "effect": {
+      "damage_mult": 1.22,
+      "crit_chance": 0.08
+     }
+    },
+    "item": {
+     "id": "starfall_sheath",
+     "name": "Starfall Sheath",
+     "desc": "An empty sheath of black iron flecked with starlight. While you carry it, your hands move 8% faster.",
+     "effect": {
+      "attack_speed": 1.08
+     },
+     "value": 4000
+    }
+   },
+   {
+    "id": "void_sage",
+    "master": "the Sage Beyond the Void",
+    "title": "Disciple Beyond the Void",
+    "text": "There is a seated sage here, and also there isn't: the outline flickers like heat over stone. \"I breathed in the void and it did not end me. Breathe as I did, and the heavens will pour into you.\"",
+    "technique": {
+     "id": "void_breath_canon",
+     "name": "Void Breath Canon",
+     "desc": "Breathing the void itself: +30% qi from everything, and sitting to cultivate is 30% faster.",
+     "effect": {
+      "qi_mult": 1.3,
+      "meditate_mult": 1.3
+     }
+    },
+    "item": {
+     "id": "void_lotus",
+     "name": "Void Lotus",
+     "desc": "A black lotus that floats a finger's width above your palm. While you carry it, the swarm grows 15% faster.",
+     "effect": {
+      "swarm_mult": 1.15
+     },
+     "value": 4000
+    }
+   },
+   {
+    "id": "vermilion_phoenix",
+    "master": "the Undying Vermilion Phoenix",
+    "title": "Child of Nirvana Fire",
+    "text": "A woman sits in a ring of cold ash that is still, somehow, warm. \"Nine times I burned and nine times I came back. The tenth time, I chose to stay. Take the fire -- it remembers how to bring you back.\"",
+    "technique": {
+     "id": "nirvana_flame",
+     "name": "Nirvana Flame",
+     "desc": "Once a day, a killing blow leaves you standing instead; and your wounds close by 2 health a second.",
+     "effect": {
+      "rebirth": 1,
+      "regen": 2.0
+     }
+    },
+    "item": {
+     "id": "vermilion_feather",
+     "name": "Vermilion Feather",
+     "desc": "A feather that never cools. While you carry it, each kill gives back 6 health.",
+     "effect": {
+      "heal_on_kill": 6.0
+     },
+     "value": 4000
+    }
+   },
+   {
+    "id": "wind_saint",
+    "master": "the Saint Who Walked the Wind",
+    "title": "Heir of the Nine Winds",
+    "text": "The seated figure is so light the air moves its sleeves. \"I walked the nine winds from one end of the sky to the other and never once touched the ground. Here -- learn to be where the blow isn't.\"",
+    "technique": {
+     "id": "nine_winds_step",
+     "name": "Nine Winds Step",
+     "desc": "Walking on the wind: you move 15% faster and slip 8% of the blows aimed at you.",
+     "effect": {
+      "move_mult": 1.15,
+      "dodge_chance": 0.08
+     }
+    },
+    "item": {
+     "id": "wind_bell",
+     "name": "Bell of the Nine Winds",
+     "desc": "A bronze bell with no clapper that rings anyway. While you carry it, your hands move 10% faster.",
+     "effect": {
+      "attack_speed": 1.1
+     },
+     "value": 4000
+    }
+   },
+   {
+    "id": "first_seed",
+    "master": "the First of the Makers",
+    "title": "Heir of the First Seed",
+    "text": "Not bones -- a figure of grey metal and jade, seated, its chest open on a single dark seed that still pulses. \"We made the swarm to carry people up the road. Then we forgot why. You remember. Take the seed.\"",
+    "technique": {
+     "id": "makers_covenant",
+     "name": "Makers' Covenant",
+     "desc": "What the swarm was made for: it grows 25% faster, and everything you make comes out better (+10% craft success).",
+     "effect": {
+      "swarm_mult": 1.25,
+      "craft_success": 0.1
+     }
+    },
+    "item": {
+     "id": "first_seed_core",
+     "name": "First Seed Core",
+     "desc": "The first nanite seed ever made, dark and warm. While you carry it: +10% qi from everything, and better finds (+10% loot luck).",
+     "effect": {
+      "qi_mult": 1.1,
+      "loot_luck": 0.1
+     },
+     "value": 4000
+    }
+   },
+   {
+    "id": "even_road",
+    "ultimate": true,
+    "line_tier": "ultimate",
+    "floors": [
+     20,
+     40
+    ],
+    "master": "the Keeper of the Even Road",
+    "title": "Walker of the Even Road",
+    "text": "A plain figure sits where two worn roads meet in the dark, one hand on each. \"The road of the story and the road of the masters. Walk only one and the other will close behind you. Walk both, level, and I will show you the way between the dangers.\"",
+    "technique": {
+     "id": "the_balance",
+     "name": "The Balance",
+     "desc": "You can see how your whole self stands: the Road page shows every aspect and names the weakest. While your main road and your legacy road stay within 50 points of each other, you take 15% less damage (the Even Road). +5% health and qi.",
+     "effect": {
+      "hp_mult": 1.05,
+      "qi_mult": 1.05
+     }
+    },
+    "item": {
+     "id": "even_road_scale",
+     "name": "Scale of the Even Road",
+     "desc": "A small bronze scale that is never quite still. While you carry it, a ward of 3.",
+     "effect": {
+      "ward": 3.0
+     },
+     "value": 4000
+    }
+   }
+  ]
+ },
+ "new_game_plus": {
+  "enabled": true,
+  "modifiers": [
+   "damage_multiplier",
+   "health_multiplier",
+   "qi_multiplier",
+   "attack_speed_multiplier",
+   "crit_chance_multiplier",
+   "dodge_chance_multiplier",
+   "regen_multiplier",
+   "craft_success_multiplier",
+   "loot_luck_multiplier"
+  ]
+ }
+}

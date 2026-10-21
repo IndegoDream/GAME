@@ -1,0 +1,94 @@
+{
+ "_about": "Round 34 (Robert: 'each level a little harder, bottlenecks that need more training, items, alchemy to push through'). The stairs down to these floors refuse until you meet the need: a realm (a breakthrough), a skill, a story act, an item you must craft (and lose passing). The main quest (data/main_quest.json) always points at the next one. Words: Dev's win (data/drafts/gates.json, items with 'floor' and 'text'). Realms match the floor forge's expected cultivation for the floor below (godot_forge.expected): the floor's foes are tuned for it.",
+ "gates": [
+  {
+   "floor": 6,
+   "need": {
+    "realm": 1
+   },
+   "text": "Below the fifth floor the qi is thick enough to drown in. A body that hasn't condensed it can't breathe it.",
+   "hint": "Break through to Qi Condensation (fill your sea of qi, open your ring, face the heart demon)."
+  },
+  {
+   "floor": 11,
+   "need": {
+    "realm": 3,
+    "item": "deep_breath_pill"
+   },
+   "text": "The air past the tenth floor is wrong -- it sits in the lungs like water. Miners went down with a pill under the tongue, or didn't come back.",
+   "hint": "Reach Core Formation; brew a Deep Breath Pill (alchemy, at Apothecary Lin's bench or your own). It's used up going down."
+  },
+  {
+   "floor": 16,
+   "need": {
+    "realm": 4,
+    "item": "warding_talisman"
+   },
+   "text": "Something below fifteen reaches for the unwarded. The towns down there hang jade and silver over every door.",
+   "hint": "Reach Nascent Soul, and cut a Warding Talisman (jewelcrafting). The ward burns out on the way down."
+  },
+  {
+   "floor": 21,
+   "need": {
+    "realm": 6,
+    "skill": {
+     "id": "survival",
+     "level": 10
+    },
+    "item": "stormglass_lantern"
+   },
+   "text": "The twenty-first floor is dark in a way torches don't answer. Only stormglass holds a light down there, and only the seasoned keep their feet.",
+   "hint": "Reach Void Refinement; survival 10 (the deep teaches it), and a Stormglass Lantern from the forge (smithing)."
+  },
+  {
+   "floor": 26,
+   "need": {
+    "realm": 7,
+    "story": "mirror",
+    "item": "mirror_seal_talisman"
+   },
+   "text": "Past the Mirror nothing is mapped. The deep won't take a cultivator whose body and qi aren't one -- or one who hasn't decided what they are.",
+   "hint": "Body Integration; face what the twenty-fifth floor shows you (the story: Elder Mo, in Eliet); and draw a Mirror Seal Talisman (talisman craft -- Sister Hwa, floor 22). The seal burns out at the gate."
+  },
+  {
+   "floor": 31,
+   "need": {
+    "realm": 9,
+    "item": "voidsalt_draught"
+   },
+   "text": "Below thirty the qi turns thin and strange, and ordinary blood sickens in a day. The old expedition carried a draught of mirror-silver and salt.",
+   "hint": "Reach Tribulation Transcendence; brew a Voidsalt Draught (alchemy: mirror silver, a true reflection, herbs, nanite shards)."
+  },
+  {
+   "floor": 36,
+   "need": {
+    "realm": 10,
+    "weapon_skill": 16,
+    "item": "heartfire_elixir",
+    "weapon_runes": 2
+   },
+   "text": "Thirty-six is cold enough to still a nascent soul. Masters go down with heartfire in them and a weapon they know like their own hand, with the old marks cut in it.",
+   "hint": "Immortal Ascension, level 16 in the weapon you carry, two runes set in it (rune craft -- Old Oda, floor 17), and a Heartfire Elixir (alchemy: ash glass, rime ink, drake blood)."
+  },
+  {
+   "floor": 41,
+   "need": {
+    "realm": 12,
+    "item": "star_iron_key",
+    "story": "sickness"
+   },
+   "text": "A door of star iron, locked from the far side forty years ago. It opens to a key of the same iron, and to no one the village hasn't answered for.",
+   "hint": "Reach Immortal Realm II; forge a Star Iron Key (smithing: star iron, meteor glass, brass cogs), and answer Apothecary Lin (the story, floor 40)."
+  },
+  {
+   "floor": 46,
+   "need": {
+    "realm": 13,
+    "item": "mirrorheart_ward",
+    "story": "last_letter"
+   },
+   "text": "Below forty-five the Heart is close enough to hear. It takes an immortal's soul and a ward made of its own silver to go nearer.",
+   "hint": "Immortal Realm III, a Mirrorheart Ward (jewelcrafting), and Wen's last letter (the story, floor 45)."
+  }
+ ]
+}

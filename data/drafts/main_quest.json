@@ -1,0 +1,69 @@
+{
+  "brief": "main_quest",
+  "title": "The road down: twelve chapters",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "chapter": "first_steps",
+      "name": "The Road Down",
+      "brief": "Elder Mo seeks to test your mettle and spirit. He wants you to descend into the dungeon beneath Eliet, retrieve the head of the goblin chief, and return it to him. This is your first step into the depths, where true strength is forged."
+    },
+    {
+      "chapter": "three_floors",
+      "name": "What the Deep Keeps",
+      "brief": "Elder Mo speaks of the trials to come. Venture down to the third floor and gather a salve to soothe the miner's wounds. Return with the head of the third floor's master to show your readiness."
+    },
+    {
+      "chapter": "condense",
+      "name": "Cage of Qi",
+      "brief": "Elder Mo has heard that you've mastered the lower depths. Now, go down to the fifth floor and return with a sample of your qi. The air there drowns the untempered, and only those who can harness their qi will survive. Once you have a sea of qi, return here to face the heart demon and open the way to the sixth floor."
+    },
+    {
+      "chapter": "deep_breath",
+      "name": "Deep Breath",
+      "brief": "The air down here is thick as water, Elder Mo says. Apothecary Lin has the cure, but she needs you to learn her ways first. Head to her shop and ask about the miners' remedy."
+    },
+    {
+      "chapter": "foundation",
+      "name": "Nascent",
+      "brief": "Elder Mo seeks you out to discuss your readiness. Prove your worth by joining a guild and cutting a ward of jade and silver beneath the fifteenth floor. The town of Shellhaven lies in the dark, waiting for those who dare to forge a nascent soul."
+    },
+    {
+      "chapter": "blood_and_dark",
+      "name": "Twenty Floors Down",
+      "brief": "Elder Mo calls you to his hearth. He says the Jade Pagoda below twenty floors is where the deep whispers in blood. Learn to hear it and hold your breath against the dark, then return with a piece of the pagoda's heart."
+    },
+    {
+      "chapter": "core",
+      "name": "Body and Qi as One",
+      "brief": "Elder Mo says the master of the twenty-fifth floor wears a face you recognize. He tells you to integrate your body and qi, slay the master, and only then will you know what you are. The deep won't accept anyone who isn't whole."
+    },
+    {
+      "chapter": "thin_air",
+      "name": "Voidsalt's Embrace",
+      "brief": "Elder Mo says the deep gets colder and thinner the deeper you go. Fetch Lin's voidsalt to keep your blood warm and clear as you pass the thirty-fifth floor."
+    },
+    {
+      "chapter": "foundation",
+      "name": "Nascent Soul",
+      "brief": "Elder Mo tells you that reaching the fifteenth floor will prove your worth. Join a guild, master your qi, and come back with a ward of jade and silver to show your readiness."
+    },
+    {
+      "chapter": "first_steps",
+      "name": "Elder's Test",
+      "brief": "Elder Mo seeks to gauge your worth. Head down to the dungeon, retrieve the goblin chief's head, and return to prove your mettle."
+    },
+    {
+      "chapter": "first_steps",
+      "name": "The Chief's Head",
+      "brief": "Elder Mo seeks your strength. Prove yourself by bringing back the goblin chief's head from the first floor of the dungeon. He will guide you further if you show worth."
+    },
+    {
+      "chapter": "first_steps",
+      "name": "Elder's Call",
+      "brief": "Elder Mo awaits your presence in the village square. He has a task for you that will prove your readiness to face the deeper trials of the dungeon. Retrieve the head of the goblin chief from the first floor and return to him for guidance."
+    }
+  ],
+  "helped": []
+}

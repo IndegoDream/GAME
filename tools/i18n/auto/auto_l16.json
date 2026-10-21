@@ -1,0 +1,17 @@
+{
+"Hare Meadow": ["野兔草甸", "Prado de las Liebres", "Campo das Lebres", "Заячий луг", "Hasenwiese", "Prairie des lièvres", "野ウサギの草地", "토끼 초원", "Tavşan Çayırı"],
+"Boar Flats": ["野猪平原", "Llanos del Jabalí", "Planície dos Javalis", "Равнина кабанов", "Keilerebene", "Plaines des sangliers", "猪の平原", "멧돼지 평원", "Yaban Domuzu Düzlüğü"],
+"Goat Ridge": ["山羊岭", "Cresta de las Cabras", "Cume das Cabras", "Козий хребет", "Ziegengrat", "Crête des chèvres", "山羊の尾根", "염소 능선", "Keçi Sırtı"],
+"Otter Bend": ["水獭湾", "Recodo de las Nutrias", "Curva das Lontras", "Излучина выдр", "Otterbiegung", "Méandre des loutres", "カワウソの湾曲", "수달 굽이", "Su Samuru Dirseği"],
+"Lynx Heights": ["山猫高地", "Alturas del Lince", "Altos do Lince", "Высоты рыси", "Luchshöhen", "Hauteurs du lynx", "オオヤマネコの高地", "스라소니 고지", "Vaşak Tepeleri"],
+"Spirit Herb Glade": ["灵草林间空地", "Claro de las Hierbas Espirituales", "Clareira das Ervas Espirituais", "Поляна духовных трав", "Geisterkräuter-Lichtung", "Clairière des herbes spirituelles", "霊草の空き地", "영초 숲속 공터", "Ruh Otları Açıklığı"],
+"Moonpetal Hollow": ["月瓣谷地", "Hondonada del Pétalo de Luna", "Vale da Pétala-Lunar", "Лощина лунного лепестка", "Mondblütenmulde", "Creux des pétales de lune", "月花びらの窪地", "달꽃잎 골짜기", "Ay Yaprağı Çukuru"],
+"Highland Herb Terraces": ["高地药草梯田", "Terrazas de Hierbas de las Tierras Altas", "Terraços de Ervas das Terras Altas", "Нагорные травяные террасы", "Hochland-Kräuterterrassen", "Terrasses d'herbes des hautes terres", "高地の薬草段丘", "고지대 약초 계단밭", "Yayla Ot Teraslari"],
+"The Iron Seam": ["铁矿脉", "La Veta de Hierro", "A Veia de Ferro", "Железная жила", "Die Eisenader", "La Veine de fer", "鉄の鉱脈", "철광맥", "Demir Damarı"],
+"Glass Scree": ["琉璃碎石坡", "Pedregal de Cristal", "Pedreira de Vidro", "Стеклянная осыпь", "Glasgeröll", "Éboulis de verre", "ガラスの崖錐", "유리 자갈밭", "Cam Moloz"],
+"Reed Bend": ["芦苇湾", "Recodo de los Juncos", "Curva dos Juncos", "Тростниковая излучина", "Schilfbiegung", "Méandre des roseaux", "葦の湾曲", "갈대 굽이", "Kamış Dirseği"],
+"Hunting ground": ["狩猎场", "Coto de caza", "Área de caça", "Охотничьи угодья", "Jagdgrund", "Terrain de chasse", "狩場", "사냥터", "Av sahası"],
+"Gathering ground: herbs": ["采集地:药草", "Zona de recolección: hierbas", "Área de coleta: ervas", "Место сбора: травы", "Sammelgebiet: Kräuter", "Zone de cueillette : herbes", "採集地:薬草", "채집지: 약초", "Toplama alanı: otlar"],
+"Gathering ground: ore and stone": ["采集地:矿石与岩石", "Zona de recolección: mineral y piedra", "Área de coleta: minério e pedra", "Место сбора: руда и камень", "Sammelgebiet: Erz und Stein", "Zone de collecte : minerai et pierre", "採集地:鉱石と石", "채집지: 광석과 돌", "Toplama alanı: maden ve taş"],
+"Fishing reeds": ["垂钓芦苇滩", "Juncales de pesca", "Juncos de pesca", "Тростники для рыбалки", "Angelschilf", "Roseaux de pêche", "釣りの葦原", "낚시 갈대밭", "Balık tutma kamışlığı"]
+}

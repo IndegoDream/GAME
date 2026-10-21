@@ -1,0 +1,74 @@
+{
+ "tiers": [
+  {
+   "id": "gentle",
+   "name": "Gentle",
+   "foe_hp": 0.85,
+   "foe_damage": 0.85,
+   "reward": -0.15,
+   "text": "Foes are softer; rewards are 15% smaller. For learning the ropes or a quiet evening."
+  },
+  {
+   "id": "standard",
+   "name": "Standard",
+   "foe_hp": 1.0,
+   "foe_damage": 1.0,
+   "reward": 0.0,
+   "text": "The game as designed."
+  },
+  {
+   "id": "hard",
+   "name": "Hard",
+   "foe_hp": 1.2,
+   "foe_damage": 1.15,
+   "reward": 0.12,
+   "text": "Foes hit and last longer; kills give 12% more qi, and finds come 12% more often."
+  },
+  {
+   "id": "brutal",
+   "name": "Brutal",
+   "foe_hp": 1.45,
+   "foe_damage": 1.3,
+   "reward": 0.28,
+   "text": "A real fight every time. +28% qi and finds."
+  },
+  {
+   "id": "mythic",
+   "name": "Mythic",
+   "foe_hp": 1.8,
+   "foe_damage": 1.6,
+   "reward": 0.55,
+   "text": "For those who have outgrown the deep. +55% qi and finds."
+  }
+ ],
+ "handicaps": [
+  {
+   "id": "frail",
+   "name": "Frail",
+   "text": "Your body holds 20% less life.",
+   "fx": {
+    "hp_mult": 0.8
+   },
+   "reward": 0.08
+  },
+  {
+   "id": "dull",
+   "name": "Dull",
+   "text": "Qi comes 20% slower.",
+   "fx": {
+    "qi_mult": 0.8
+   },
+   "reward": 0.08
+  },
+  {
+   "id": "bare",
+   "name": "Bare-handed",
+   "text": "Your blows land 12% softer.",
+   "fx": {
+    "damage_mult": 0.88
+   },
+   "reward": 0.06
+  }
+ ],
+ "change_in": "village"
+}

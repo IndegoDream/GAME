@@ -1,0 +1,528 @@
+{
+  "id": "floor7",
+  "name": "Floor 7, The Ember Forges",
+  "theme": "dungeon",
+  "depth": 7,
+  "ambient": [
+    0.55,
+    0.32,
+    0.22
+  ],
+  "enemies": {
+    "i": "cinder_imp",
+    "j": "slag_brute",
+    "F": "furnace_sovereign",
+    "e": "ember_salamander"
+  },
+  "layout": {
+    "seed": 7,
+    "corridor_traps": 3,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "The Slag-River Bridge",
+        "size": [
+          16,
+          5
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "i*2",
+          "x*2"
+        ]
+      },
+      {
+        "name": "The Anvil Hall",
+        "size": [
+          14,
+          9
+        ],
+        "has": [
+          "L*3",
+          "c*4",
+          "j",
+          "i*2",
+          "C",
+          "A"
+        ]
+      },
+      {
+        "name": "The Bellows Chamber",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L*2",
+          "b*3",
+          "i*2",
+          "j"
+        ]
+      },
+      {
+        "name": "The Ore Stores",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L",
+          "o*6",
+          "i",
+          "b*2"
+        ]
+      },
+      {
+        "name": "The Cooling Pit",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "L",
+          "~*6",
+          "&",
+          "j",
+          "h"
+        ]
+      },
+      {
+        "name": "The Firestone Vein",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "L",
+          "^*2",
+          "o*2",
+          "i*2"
+        ]
+      },
+      {
+        "name": "The Salamander Nest",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L",
+          "e*2",
+          "h*3",
+          "x*2"
+        ]
+      },
+      {
+        "name": "The Quenching Trough",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "L",
+          "~*3",
+          "i*2",
+          "D"
+        ]
+      },
+      {
+        "name": "The Master's Workshop",
+        "size": [
+          6,
+          5
+        ],
+        "secret": true,
+        "has": [
+          "L",
+          "R",
+          "V"
+        ]
+      },
+      {
+        "name": "The Mould Gallery",
+        "size": [
+          18,
+          5
+        ],
+        "has": [
+          "L*3",
+          "i*2",
+          "j",
+          "c*4"
+        ]
+      },
+      {
+        "name": "The Slag Heap",
+        "size": [
+          10,
+          9
+        ],
+        "has": [
+          "L",
+          "x*4",
+          "j*2",
+          "o*2",
+          "E"
+        ]
+      },
+      {
+        "name": "The Tool Crib",
+        "size": [
+          7,
+          6
+        ],
+        "has": [
+          "L*2",
+          "b*2",
+          "?",
+          "h"
+        ]
+      },
+      {
+        "name": "The Hall of Fallen Hammers",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "j*2",
+          "i*2",
+          "Y",
+          "c*2"
+        ]
+      },
+      {
+        "name": "The Smith's Retreat",
+        "size": [
+          8,
+          8
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "i*2",
+          "G",
+          "J"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Hammer's Heart",
+        "size": [
+          8,
+          8
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "i*2",
+          "j",
+          "M",
+          "N"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Salamander Spires",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "i*2",
+          "j",
+          "O",
+          "Q"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Root-choked Undercroft",
+        "size": [
+          12,
+          6
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "i*2",
+          "j",
+          "U",
+          "W"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Furnace Sovereign's Crucible",
+        "size": [
+          16,
+          12
+        ],
+        "has": [
+          "L*4",
+          "F",
+          ">",
+          "i",
+          "j",
+          "c*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "C": {
+      "loot": {
+        "slag_iron": [
+          1,
+          3
+        ],
+        "gold": [
+          50,
+          80
+        ]
+      },
+      "note": "an anvil-master's strongbox"
+    },
+    "D": {
+      "loot": {
+        "firestone": [
+          1,
+          2
+        ],
+        "ember_root": [
+          2,
+          3
+        ]
+      },
+      "note": "a quencher's crate, still warm"
+    },
+    "V": {
+      "loot": {
+        "firestone": [
+          2,
+          4
+        ],
+        "slag_iron": [
+          2,
+          3
+        ],
+        "magma_pill": [
+          1,
+          2
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "gold": [
+          150,
+          240
+        ],
+        "random_gear": [
+          1,
+          1
+        ]
+      },
+      "note": "the master smith's own chest"
+    },
+    "E": {
+      "loot": {
+        "slag_iron": [
+          2,
+          4
+        ],
+        "gold_nugget": [
+          1,
+          2
+        ]
+      },
+      "note": "a box of slag-sorted nuggets, buried in the heap",
+      "hidden": true
+    },
+    "G": {
+      "loot": {
+        "gold": [
+          56,
+          105
+        ],
+        "slag_iron": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Smith's Retreat"
+    },
+    "M": {
+      "loot": {
+        "gold": [
+          56,
+          105
+        ],
+        "firestone": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Hammer's Heart"
+    },
+    "O": {
+      "loot": {
+        "gold": [
+          56,
+          105
+        ],
+        "ember_root": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in Salamander Spires"
+    },
+    "U": {
+      "loot": {
+        "gold": [
+          56,
+          105
+        ],
+        "magma_pill": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in the Root-choked Undercroft"
+    }
+  },
+  "lore": {
+    "A": {
+      "title": "The Foundry Oath",
+      "text": "We swore on the first anvil: no fire in these halls goes out while one of us still lives. We kept it. The fires are still burning. Count the hammers on the wall and you will know how long we kept it."
+    },
+    "R": {
+      "title": "The Master's Breath",
+      "teaches": "ember_meridians",
+      "text": "Forty years at the bellows taught me one thing: fire does not burn wood, it burns air. Breathe your qi the way the bellows breathe the forge -- short, hard, all the way down -- and your strikes will land hot."
+    },
+    "Y": {
+      "title": "The Fallen Hammers",
+      "text": "Each hammer hangs where its smith fell. The last hook is empty. The Sovereign keeps it for whoever comes down here next."
+    },
+    "J": {
+      "title": "A Quiet Solitude",
+      "text": "Beyond the roar of the forges, this secluded alcove offers a moment of calm. Here, weary blacksmiths rest their aching limbs and sharpen their wits. The faint glow of a solitary lantern dances against the walls, casting long shadows that whisper tales of countless hammer strikes and molten dreams."
+    },
+    "N": {
+      "title": "Echoes of the Forge",
+      "text": "Here, the hammers speak in low tones, sharing secrets of the smiths who wield them. Each clang and thud tells tales of battles won and lost, of metal transformed and spirits forged anew."
+    },
+    "Q": {
+      "title": "The Forge Where Shadows Speak",
+      "text": "Here, the echoes of countless hammer strikes whisper secrets of the metals that pass through. Shadows dance along the walls, casting tales of the forges past and the spirits that linger within."
+    },
+    "W": {
+      "title": "The Secrets of the Forge",
+      "text": "Here, the ancient forges hum with whispers of old secrets, passed down through generations of skilled smiths. Legend speaks of a hidden mechanism that, when activated, reveals a cache of rare metals and ancient tools. Few have dared to seek it out, for the forge guards its secrets fiercely."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Tool Crib Lock",
+      "question": "The more you feed me, the hungrier I grow. Give me water and I die. What am I?",
+      "options": [
+        "A salamander",
+        "A smith",
+        "A furnace's fire"
+      ],
+      "answer": 2,
+      "reward": {
+        "items": {
+          "magma_pill": 1
+        },
+        "qi": 350
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor6",
+      "arrive": ">",
+      "label": "Up to the Strangling Grove",
+      "down": false
+    },
+    ">": {
+      "to": "floor8",
+      "arrive": "<",
+      "label": "Down to the Terracotta Barrows"
+    }
+  },
+  "refined": {
+    "passes": 10,
+    "rooms_added": 4,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-05T01:36:05"
+  },
+  "map": [
+    "",
+    "                        iL........   ..L......",
+    "                        .b...i.b..   .o...o.b.",
+    "                        ..........   ...o.....",
+    "                        ...............oi.....",
+    "         ..............S....b.j....  .b.......",
+    "         .              ..........   .o...o...",
+    "         .              ..........   .........",
+    "         .              .......L..       ...",
+    "         .                   .             .",
+    "         .                   .             .",
+    "         .                   .        ..........   .....^.o",
+    "         .                   T        .~..~..~..   ..^....L",
+    "         .                   T        ..........   .....i..",
+    "         .                   .        ................o....",
+    "         .            .........L.i.A  .~..~..~...  .......i",
+    "         S            ....c.....c...  ..........   ........        .....R",
+    " ................     ...C..........  ..........   ........        ......",
+    " L...x.....x.....     ..............  L..&..jh..       .           V.....",
+    " ........................i..........                   .           ......",
+    " i......i........     ..............                   .           .....L",
+    " <..L............     ......j.......                   .             S",
+    "                      .......c..c...              .h.....L..      ........    ............L...L.",
+    "                      ...L......L...              .......x..      .~..~...    .c.....c..c..i..c.",
+    "                                                  ..........      ......i.   ..i................",
+    "                                                  ..............................................",
+    "                                                  .e..x.....      ..D.~...    ......jL..........",
+    "                                                  ...e......      ....L..i             .",
+    "                                                  h........h                           .",
+    "                                                                                       .",
+    "                                                                                       .",
+    "                                                                                       .                      .....i..",
+    "                                                                                       .                      .N.jM...    L....L..",
+    "                                                                                  .........L                  ........    ..QiO...",
+    "                                                                                  ....x..x..   .......        L.o.....    ........",
+    "                                                                                  ..........   L...bhL        ...............j....",
+    "                                                                                  ..........   ..?....        ........    ..h..i..",
+    "                                                                                  .x..x...............        L....oi.    ..^.....",
+    "                                                                                  ....jo..E.   .b.....        ........        .",
+    "                                                                                  .........o   .......            .           .          ....j...L.L....>",
+    "                                                                                  ..........      T               .           .          .......c........",
+    "                                                                                  ........j.      .               .           .          ................",
+    "                                                                                                  .               .     LL..........     ................",
+    "                                                                                            ............      ........  .j....h.....     ................",
+    "                                                                                            .j.....ci...      LG......  ..........U.     ................",
+    "                                                                                            .......Y....      ........  ....h............................",
+    "                                                                                            ............      ..i.....  ........i...     .c..c..c........",
+    "                                                                                            .......c.i.........h......  ........W.i.     ............i...",
+    "                                                                                            ............      ........                   F...............",
+    "                                                                                            ............      i.......                   ................",
+    "                                                                                            ..L....L...j      .LJh....                   L...L...........",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

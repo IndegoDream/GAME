@@ -1,0 +1,680 @@
+{
+ "_about": "Round 38 (Robert: 'build rune craft and talisman into mid-tier game'). Two crafts nobody is born knowing. Rune craft is taught on floor 17 and talisman craft on floor 22, by people the deep has hidden (data/hidden_masters.json: rune_carver, talisman_scribe). RUNES are carved, then inscribed into what you wear. A weapon takes 1 rune, 2 at Runecraft 8, 3 at 15. Any other piece takes 1, 2 at Runecraft 12. Runes on worn pieces pool together, and each extra one of the same kind counts for less. Runes set in the right order on one piece speak a RUNE WORD. TALISMANS are drawn on spirit paper and burned (key 4, switch with 5): fire, frost, thunder, binding, iron skin, swiftness, mending, clear sight. Items, recipes and the two skills live here (Game merges them at start). Words: Dev's, brief 'runes' (data/drafts/runes.json).",
+ "skills": {
+  "runecraft": {
+   "name": "Runecraft",
+   "kind": "crafting",
+   "teach": true,
+   "elements": {
+    "metal": 0.5,
+    "earth": 0.5
+   },
+   "desc": "Carving the old marks into stone and setting them into steel. A rune holds an intent, and a weapon remembers it.",
+   "teacher": "rune_carver"
+  },
+  "talismans": {
+   "name": "Talisman craft",
+   "kind": "crafting",
+   "teach": true,
+   "elements": {
+    "fire": 0.4,
+    "water": 0.3,
+    "wood": 0.3
+   },
+   "desc": "Brush, ink and qi on spirit paper. A talisman is a technique folded small enough to carry.",
+   "teacher": "talisman_scribe"
+  }
+ },
+ "taught_xp": 90,
+ "sockets": {
+  "weapon": [
+   [
+    0,
+    1
+   ],
+   [
+    8,
+    2
+   ],
+   [
+    15,
+    3
+   ]
+  ],
+  "wear": [
+   [
+    0,
+    1
+   ],
+   [
+    12,
+    2
+   ]
+  ]
+ },
+ "inscribe": {
+  "base": 0.62,
+  "per_level": 0.06,
+  "min": 0.15,
+  "max": 0.97,
+  "scour_gold": 25
+ },
+ "wear_pool": {
+  "soft": 0.08,
+  "after": 0.4,
+  "cap": 0.25
+ },
+ "quality_weight": 0.5,
+ "runes": {
+  "edge_rune": {
+   "name": "Rune of the Edge",
+   "mark": "Edge",
+   "difficulty": 1,
+   "value": 60,
+   "needs": {
+    "rune_blank": 1,
+    "slag_iron": 1
+   },
+   "weapon": {
+    "damage_mult": 1.06
+   },
+   "wear": {
+    "damage_taken": 0.97
+   },
+   "desc": "A single straight cut. Steel that carries it remembers it was made to cut."
+  },
+  "ember_rune": {
+   "name": "Rune of the Ember",
+   "mark": "Ember",
+   "difficulty": 2,
+   "value": 70,
+   "needs": {
+    "rune_blank": 1,
+    "firestone": 1
+   },
+   "weapon": {
+    "burn_on_hit": 2
+   },
+   "wear": {
+    "regen": 0.15
+   },
+   "desc": "A mark like a coal's crack. Warm to hold."
+  },
+  "root_rune": {
+   "name": "Rune of the Root",
+   "mark": "Root",
+   "difficulty": 2,
+   "value": 70,
+   "needs": {
+    "rune_blank": 1,
+    "heartwood": 1
+   },
+   "weapon": {
+    "heal_on_kill": 4
+   },
+   "wear": {
+    "hp_mult": 1.04
+   },
+   "desc": "A mark that branches downward. It drinks."
+  },
+  "tide_rune": {
+   "name": "Rune of the Tide",
+   "mark": "Tide",
+   "difficulty": 3,
+   "value": 80,
+   "needs": {
+    "rune_blank": 1,
+    "abyssal_pearl": 1
+   },
+   "weapon": {
+    "attack_speed": 1.05
+   },
+   "wear": {
+    "regen": 0.25
+   },
+   "desc": "Two curves, one returning. It never stops moving."
+  },
+  "stone_rune": {
+   "name": "Rune of the Stone",
+   "mark": "Stone",
+   "difficulty": 3,
+   "value": 80,
+   "needs": {
+    "rune_blank": 1,
+    "emperor_jade": 1
+   },
+   "weapon": {
+    "damage_mult": 1.03,
+    "ward": 0.4
+   },
+   "wear": {
+    "ward": 0.6
+   },
+   "desc": "A square inside a square. Heavy to carry, hard to move."
+  },
+  "fortune_rune": {
+   "name": "Rune of Fortune",
+   "mark": "Fortune",
+   "difficulty": 3,
+   "value": 90,
+   "needs": {
+    "rune_blank": 1,
+    "gold_nugget": 2
+   },
+   "weapon": {
+    "loot_luck": 0.04
+   },
+   "wear": {
+    "loot_luck": 0.04
+   },
+   "desc": "A coin's mark with a hole in it. The deep gives a little more to whoever wears it."
+  },
+  "wind_rune": {
+   "name": "Rune of the Wind",
+   "mark": "Wind",
+   "difficulty": 4,
+   "value": 90,
+   "needs": {
+    "rune_blank": 1,
+    "cloud_jade": 1
+   },
+   "weapon": {
+    "attack_speed": 1.04
+   },
+   "wear": {
+    "move_mult": 1.04
+   },
+   "desc": "Three strokes that never quite meet."
+  },
+  "eye_rune": {
+   "name": "Rune of the Eye",
+   "mark": "Eye",
+   "difficulty": 4,
+   "value": 90,
+   "needs": {
+    "rune_blank": 1,
+    "glowcap_spore": 2
+   },
+   "weapon": {
+    "crit_chance": 0.03
+   },
+   "wear": {
+    "sight": 1
+   },
+   "desc": "An open eye, carved shut at the corners. It sees the soft places."
+  },
+  "storm_rune": {
+   "name": "Rune of the Storm",
+   "mark": "Storm",
+   "difficulty": 6,
+   "value": 130,
+   "needs": {
+    "rune_blank": 1,
+    "thunder_iron": 1,
+    "storm_glass": 1
+   },
+   "weapon": {
+    "crit_chance": 0.03,
+    "damage_mult": 1.03
+   },
+   "wear": {
+    "dodge_chance": 0.03
+   },
+   "desc": "A broken line. It stings the hand that carves it."
+  },
+  "song_rune": {
+   "name": "Rune of the Song",
+   "mark": "Song",
+   "difficulty": 7,
+   "value": 140,
+   "needs": {
+    "rune_blank": 1,
+    "singing_crystal": 1,
+    "resonant_dust": 1
+   },
+   "weapon": {
+    "qi_mult": 1.04,
+    "crit_chance": 0.02
+   },
+   "wear": {
+    "meditate_mult": 1.06
+   },
+   "desc": "Carved to a note, not a shape. It hums when your qi passes."
+  },
+  "star_rune": {
+   "name": "Rune of the Fallen Star",
+   "mark": "Star",
+   "difficulty": 9,
+   "value": 170,
+   "needs": {
+    "rune_blank": 1,
+    "star_iron": 1,
+    "meteor_glass": 1
+   },
+   "weapon": {
+    "damage_mult": 1.07
+   },
+   "wear": {
+    "hp_mult": 1.05
+   },
+   "desc": "Five points and a tail. Heavier than the stone it's cut in."
+  },
+  "void_rune": {
+   "name": "Rune of the Void",
+   "mark": "Void",
+   "difficulty": 10,
+   "value": 200,
+   "needs": {
+    "rune_blank": 1,
+    "mirror_silver": 1,
+    "true_reflection": 1
+   },
+   "weapon": {
+    "damage_mult": 1.08
+   },
+   "wear": {
+    "qi_mult": 1.05
+   },
+   "desc": "Nothing carved in a circle. It's hard to look at for long."
+  }
+ },
+ "blank": {
+  "id": "rune_blank",
+  "name": "Rune Blank",
+  "value": 12,
+  "difficulty": 0,
+  "needs": {
+   "silver_ore": 1,
+   "bone_shard": 2
+  },
+  "gold": 5,
+  "desc": "A smooth disc of bone-set silver, ready for a mark."
+ },
+ "words": [
+  {
+   "id": "keen_flame",
+   "name": "Keen Flame",
+   "runes": [
+    "edge_rune",
+    "ember_rune"
+   ],
+   "on": "weapon",
+   "effect": {
+    "damage_mult": 1.05,
+    "burn_on_hit": 3
+   },
+   "hint": "Edge, then Ember, on a blade."
+  },
+  {
+   "id": "gale_edge",
+   "name": "Gale Edge",
+   "runes": [
+    "wind_rune",
+    "edge_rune"
+   ],
+   "on": "weapon",
+   "effect": {
+    "attack_speed": 1.08
+   },
+   "hint": "The wind first, and the cut it carries."
+  },
+  {
+   "id": "rooted_oak",
+   "name": "Rooted Oak",
+   "runes": [
+    "root_rune",
+    "stone_rune"
+   ],
+   "on": "wear",
+   "effect": {
+    "hp_mult": 1.08
+   },
+   "hint": "Root into stone, on something you wear."
+  },
+  {
+   "id": "stillwater",
+   "name": "Stillwater",
+   "runes": [
+    "tide_rune",
+    "stone_rune"
+   ],
+   "on": "wear",
+   "effect": {
+    "regen": 0.4,
+    "damage_taken": 0.95
+   },
+   "hint": "The tide that meets a stone and stops."
+  },
+  {
+   "id": "seers_mark",
+   "name": "Seer's Mark",
+   "runes": [
+    "eye_rune",
+    "fortune_rune"
+   ],
+   "on": "any",
+   "effect": {
+    "loot_luck": 0.08,
+    "sight": 2
+   },
+   "hint": "An eye for fortune, anywhere you carry it."
+  },
+  {
+   "id": "heartfire",
+   "name": "Heartfire",
+   "runes": [
+    "ember_rune",
+    "root_rune",
+    "ember_rune"
+   ],
+   "on": "weapon",
+   "effect": {
+    "heal_on_kill": 8,
+    "burn_on_hit": 2
+   },
+   "hint": "A root between two embers."
+  },
+  {
+   "id": "thunderclap",
+   "name": "Thunderclap",
+   "runes": [
+    "storm_rune",
+    "storm_rune",
+    "edge_rune"
+   ],
+   "on": "weapon",
+   "effect": {
+    "crit_chance": 0.06,
+    "damage_mult": 1.06
+   },
+   "hint": "Storm, storm, and then the edge comes down."
+  },
+  {
+   "id": "singing_blade",
+   "name": "Singing Blade",
+   "runes": [
+    "song_rune",
+    "wind_rune",
+    "song_rune"
+   ],
+   "on": "weapon",
+   "effect": {
+    "qi_mult": 1.08,
+    "attack_speed": 1.05
+   },
+   "hint": "Two songs with the wind between them."
+  },
+  {
+   "id": "fallen_star",
+   "name": "Fallen Star",
+   "runes": [
+    "star_rune",
+    "ember_rune",
+    "storm_rune"
+   ],
+   "on": "weapon",
+   "effect": {
+    "damage_mult": 1.1,
+    "burn_on_hit": 3
+   },
+   "hint": "The star falls, burns, and splits the sky."
+  },
+  {
+   "id": "mirror_of_nothing",
+   "name": "Mirror of Nothing",
+   "runes": [
+    "void_rune",
+    "stone_rune"
+   ],
+   "on": "wear",
+   "effect": {
+    "damage_taken": 0.9,
+    "qi_mult": 1.05
+   },
+   "hint": "Nothing, held still by stone."
+  }
+ ],
+ "talisman_mats": {
+  "spirit_paper": {
+   "name": "Spirit Paper",
+   "value": 10,
+   "difficulty": 0,
+   "needs": {
+    "spirit_herb": 2,
+    "spirit_resin": 1
+   },
+   "desc": "Pressed herb pulp and resin. It takes ink, and holds qi like a held breath."
+  },
+  "cinnabar_ink": {
+   "name": "Cinnabar Ink",
+   "value": 14,
+   "difficulty": 1,
+   "needs": {
+    "ember_root": 2,
+    "bloodsap": 1
+   },
+   "desc": "Red ink ground from ember root and bloodsap. A talisman written in anything else is only a drawing."
+  }
+ },
+ "talismans": {
+  "flame_talisman": {
+   "name": "Flame Talisman",
+   "difficulty": 2,
+   "value": 40,
+   "needs": {
+    "spirit_paper": 1,
+    "cinnabar_ink": 1,
+    "firestone": 1
+   },
+   "use": {
+    "kind": "burst",
+    "mult": 2.4,
+    "radius": 5.0,
+    "burn": 6,
+    "color": [
+     1.0,
+     0.45,
+     0.15
+    ]
+   },
+   "desc": "Burn it and the air around you catches. Everything near you burns."
+  },
+  "frost_talisman": {
+   "name": "Frost Talisman",
+   "difficulty": 3,
+   "value": 45,
+   "needs": {
+    "spirit_paper": 1,
+    "cinnabar_ink": 1,
+    "abyssal_pearl": 1
+   },
+   "use": {
+    "kind": "burst",
+    "mult": 1.6,
+    "radius": 6.0,
+    "slow": 5.0,
+    "color": [
+     0.55,
+     0.85,
+     1.0
+    ]
+   },
+   "desc": "A breath of the deep cold: what's near you is cut and slowed."
+  },
+  "thunder_talisman": {
+   "name": "Thunder Talisman",
+   "difficulty": 4,
+   "value": 55,
+   "needs": {
+    "spirit_paper": 1,
+    "cinnabar_ink": 1,
+    "thunder_iron": 1
+   },
+   "use": {
+    "kind": "burst",
+    "mult": 3.0,
+    "radius": 4.0,
+    "stun": 1.2,
+    "color": [
+     0.85,
+     0.85,
+     1.0
+    ]
+   },
+   "desc": "A clap of thunder in a held hand. It hits hard and close."
+  },
+  "binding_talisman": {
+   "name": "Binding Talisman",
+   "difficulty": 3,
+   "value": 45,
+   "needs": {
+    "spirit_paper": 1,
+    "cinnabar_ink": 1,
+    "mycelium_thread": 2
+   },
+   "use": {
+    "kind": "burst",
+    "mult": 0.0,
+    "radius": 6.5,
+    "stun": 3.5,
+    "color": [
+     0.95,
+     0.85,
+     0.4
+    ]
+   },
+   "desc": "Threads of qi that hold everything near you where it stands. The great hold for less time."
+  },
+  "ironskin_talisman": {
+   "name": "Iron Skin Talisman",
+   "difficulty": 2,
+   "value": 40,
+   "needs": {
+    "spirit_paper": 1,
+    "cinnabar_ink": 1,
+    "crimson_bark": 1
+   },
+   "use": {
+    "kind": "buff",
+    "effect": {
+     "damage_taken": 0.6
+    },
+    "seconds": 20,
+    "color": [
+     0.8,
+     0.75,
+     0.6
+    ]
+   },
+   "desc": "For twenty breaths, blows land on you like rain on a roof: 40% less damage taken."
+  },
+  "swift_talisman": {
+   "name": "Swift Talisman",
+   "difficulty": 4,
+   "value": 50,
+   "needs": {
+    "spirit_paper": 1,
+    "cinnabar_ink": 1,
+    "oil_of_motion": 1
+   },
+   "use": {
+    "kind": "buff",
+    "effect": {
+     "move_mult": 1.3,
+     "attack_speed": 1.12
+    },
+    "seconds": 30,
+    "color": [
+     0.6,
+     1.0,
+     0.7
+    ]
+   },
+   "desc": "Half a minute of moving like the wind: faster feet and faster strikes."
+  },
+  "mending_talisman": {
+   "name": "Mending Talisman",
+   "difficulty": 2,
+   "value": 40,
+   "needs": {
+    "spirit_paper": 1,
+    "cinnabar_ink": 1,
+    "moonpetal": 2
+   },
+   "use": {
+    "kind": "heal",
+    "frac": 0.35,
+    "color": [
+     0.5,
+     1.0,
+     0.6
+    ]
+   },
+   "desc": "Burned against a wound, it closes it: a third of your health, at once."
+  },
+  "clear_sight_talisman": {
+   "name": "Clear Sight Talisman",
+   "difficulty": 3,
+   "value": 45,
+   "needs": {
+    "spirit_paper": 1,
+    "cinnabar_ink": 1,
+    "glowcap_spore": 1
+   },
+   "use": {
+    "kind": "sight",
+    "effect": {
+     "sight": 4
+    },
+    "seconds": 300,
+    "reveal": true,
+    "color": [
+     0.75,
+     0.95,
+     1.0
+    ]
+   },
+   "desc": "The floor you stand on, shown whole: the map is yours, and you see further for five minutes."
+  },
+  "heavenfire_talisman": {
+   "name": "Heavenfire Talisman",
+   "difficulty": 8,
+   "value": 140,
+   "needs": {
+    "frost_vellum": 1,
+    "rime_ink": 1,
+    "ash_glass": 1,
+    "drake_blood": 1
+   },
+   "use": {
+    "kind": "burst",
+    "mult": 5.0,
+    "radius": 6.0,
+    "burn": 12,
+    "stun": 0.8,
+    "color": [
+     1.0,
+     0.85,
+     0.4
+    ]
+   },
+   "desc": "Written on frozen vellum in ink that never thawed, so the fire has something to fight. It burns down the sky."
+  },
+  "mirror_seal_talisman": {
+   "name": "Mirror Seal Talisman",
+   "difficulty": 5,
+   "value": 200,
+   "needs": {
+    "frost_vellum": 1,
+    "rime_ink": 1,
+    "cloud_jade": 1,
+    "nanite_shard": 1
+   },
+   "use": {
+    "kind": "seal"
+   },
+   "gate": 26,
+   "desc": "A seal against what the mirror shows. Past the twenty-fifth floor nothing is mapped, and the deep doesn't let the unsealed through. It burns out passing the gate."
+  }
+ }
+}

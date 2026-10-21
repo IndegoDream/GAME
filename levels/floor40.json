@@ -1,0 +1,725 @@
+{
+  "id": "floor40",
+  "name": "Floor 40, The Hollow Moon Monastery",
+  "theme": "settlement",
+  "depth": 40,
+  "ground": "moss",
+  "breathing": false,
+  "ambient": [
+    0.55,
+    0.58,
+    0.7
+  ],
+  "forged": {
+    "settlement": "moonmonastery",
+    "cycle": 0,
+    "size": 2.0
+  },
+  "layout": {
+    "seed": 40,
+    "secret_passages": 0,
+    "rooms": [
+      {
+        "name": "The Pale Gate",
+        "size": [
+          9,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "R"
+        ]
+      },
+      {
+        "name": "The Alms Market",
+        "size": [
+          16,
+          9
+        ],
+        "has": [
+          "L*3",
+          "b*3",
+          "M",
+          "G"
+        ]
+      },
+      {
+        "name": "The Moonlit Square",
+        "size": [
+          14,
+          11
+        ],
+        "has": [
+          "f",
+          "P",
+          "L*4",
+          "E"
+        ]
+      },
+      {
+        "name": "The Pilgrims' Rest",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "H",
+          "b*2",
+          "N",
+          "D",
+          "q"
+        ]
+      },
+      {
+        "name": "The Silent Forge",
+        "size": [
+          14,
+          6
+        ],
+        "has": [
+          "L*2",
+          "H*2",
+          "O",
+          "U"
+        ]
+      },
+      {
+        "name": "The Moon-Herb Hall",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "h*3",
+          "Q",
+          "W"
+        ]
+      },
+      {
+        "name": "The Guild Cloisters",
+        "size": [
+          14,
+          7
+        ],
+        "has": [
+          "L*2",
+          "=*2",
+          "X",
+          "u"
+        ]
+      },
+      {
+        "name": "The Moon Ring",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "L*3",
+          "=*4",
+          "Y"
+        ]
+      },
+      {
+        "name": "The Academy Hall",
+        "size": [
+          10,
+          7
+        ],
+        "has": [
+          "L*2",
+          "=*2",
+          "J"
+        ]
+      },
+      {
+        "name": "The Moon-Stone Shrine",
+        "size": [
+          8,
+          7
+        ],
+        "has": [
+          "Z",
+          "L*3",
+          "h*2",
+          "v"
+        ]
+      },
+      {
+        "name": "The Monks' Cells",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h",
+          "B"
+        ]
+      },
+      {
+        "name": "The Night Gardens",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "h*6",
+          "L*2"
+        ]
+      },
+      {
+        "name": "The Lower Monks' Cells",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h"
+        ]
+      },
+      {
+        "name": "The Far Night Gardens",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "h*6",
+          "L*2"
+        ]
+      },
+      {
+        "name": "The Broken Alms Market",
+        "size": [
+          16,
+          9
+        ],
+        "has": [
+          "L*3",
+          "b*3"
+        ]
+      },
+      {
+        "name": "The Inner Monks' Cells",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h"
+        ]
+      },
+      {
+        "name": "The Old Night Gardens",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "h*6",
+          "L*2",
+          "j"
+        ]
+      },
+      {
+        "name": "The Sunken Alms Market",
+        "size": [
+          16,
+          9
+        ],
+        "has": [
+          "L*3",
+          "b*3"
+        ]
+      },
+      {
+        "name": "The High Monks' Cells",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h"
+        ]
+      },
+      {
+        "name": "The Outer Night Gardens",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "h*6",
+          "L*2",
+          "n"
+        ]
+      },
+      {
+        "name": "The Second Alms Market",
+        "size": [
+          16,
+          9
+        ],
+        "has": [
+          "L*3",
+          "b*3"
+        ]
+      },
+      {
+        "name": "The Quiet Monks' Cells",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h"
+        ]
+      },
+      {
+        "name": "The Ruined Night Gardens",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "h*6",
+          "L*2",
+          "m"
+        ]
+      },
+      {
+        "name": "The Last Alms Market",
+        "size": [
+          16,
+          9
+        ],
+        "has": [
+          "L*3",
+          "b*3"
+        ]
+      },
+      {
+        "name": "The Hidden Monks' Cells",
+        "size": [
+          14,
+          8
+        ],
+        "has": [
+          "H*4",
+          "L*2",
+          "h"
+        ]
+      },
+      {
+        "name": "The Narrow Night Gardens",
+        "size": [
+          12,
+          9
+        ],
+        "has": [
+          "h*6",
+          "L*2",
+          "p"
+        ]
+      },
+      {
+        "name": "The Undercroft",
+        "size": [
+          6,
+          5
+        ],
+        "has": [
+          "L",
+          "K"
+        ],
+        "secret": true
+      },
+      {
+        "name": "The Descent Gate",
+        "size": [
+          10,
+          6
+        ],
+        "has": [
+          ">",
+          "L*2",
+          "V"
+        ]
+      }
+    ],
+    "roads": true
+  },
+  "npcs": {
+    "M": {
+      "role": "merchant",
+      "name": "Brother Gale",
+      "stock": [
+        "moonmonastery_restorative_f40",
+        "moonmonastery_elixir_f40",
+        "breakthrough_pill",
+        "ash_pill_f32",
+        "cloudruins_pill_f35",
+        "crystal_pill_f34",
+        "dragonspine_pill_f31",
+        "ghostmarket_pill_f39",
+        "mirror_pill_f33",
+        "silk_pill_f37",
+        "starmine_pill_f38",
+        "storm_pill_f36"
+      ],
+      "line": "Welcome to the Hollow Moon Monastery, where the pale stone brings light to the dark.",
+      "lines": [
+        "Have you heard about the strange happenings on the lower floors? The glow from the stone is not as constant as it used to be.",
+        "Brother Stone has been acting peculiar lately, always muttering about something he's brewing in his alchemist's lab."
+      ],
+      "persona": "Brother Gale, the merchant who brings the outside world to the monastery."
+    },
+    "N": {
+      "role": "innkeeper",
+      "name": "Brother Stone",
+      "price": 160,
+      "line": "The inn is always open for weary travelers seeking rest and stories.",
+      "lines": [
+        "There are tales of a forgotten chamber deep below the monastery, where ancient secrets lay hidden.",
+        "Old Mother Silence has been seen more often than usual, her eyes always looking down the spiral staircase."
+      ],
+      "persona": "Brother Stone, the innkeeper who knows the monastery\u2019s secrets."
+    },
+    "O": {
+      "role": "smith",
+      "name": "Novice Tey",
+      "line": "I'm Novice Tey, here to forge the tools and weapons needed for the journey ahead.",
+      "lines": [
+        "The stone has been acting odd lately, its glow flickering as if trying to communicate something.",
+        "Keeper Rook told me he's concocting something special, something that could change everything down here."
+      ],
+      "persona": "Novice Tey, a blacksmith dedicated to crafting for the monastery\u2019s needs."
+    },
+    "Q": {
+      "role": "alchemist",
+      "name": "Keeper Rook",
+      "line": "Welcome, seeker of knowledge. I am Keeper Rook, your guide to the arcane and mystical.",
+      "lines": [
+        "The lower floors hold secrets of the ancients, but beware, for they are guarded well.",
+        "A mysterious energy has been detected emanating from the depths, drawing many to investigate."
+      ],
+      "persona": "Keeper Rook, the alchemist who delves into the unknown."
+    },
+    "U": {
+      "role": "guild",
+      "name": "Sister Ember",
+      "guild": "blacksmiths",
+      "line": "I am Sister Ember, a member of the guild dedicated to the protection and exploration of the monastery.",
+      "lines": [
+        "Strange occurrences have been reported in the deeper levels, suggesting something new is stirring.",
+        "Our patrols have encountered unusual creatures, unlike any we have seen before."
+      ],
+      "persona": "Sister Ember, a brave and vigilant guild member."
+    },
+    "W": {
+      "role": "guild",
+      "name": "Sister Hush",
+      "guild": "healers",
+      "line": "Sister Hush here, keeper of the guild\u2019s archives and the secrets of the past.",
+      "lines": [
+        "Old scrolls hint at a powerful artifact hidden within the monastery's bowels.",
+        "The deeper you go, the more you uncover about the origins of the pale stone."
+      ],
+      "persona": "Sister Hush, the quiet and wise guild member who guards the monastery\u2019s history."
+    },
+    "X": {
+      "role": "guild",
+      "name": "Abbot Lune",
+      "guild": "gatherers",
+      "line": "Abbot Lune, leader of the guild and the monastery\u2019s spiritual guide.",
+      "lines": [
+        "The true purpose of the pale stone remains a mystery, waiting to be unraveled by those who dare.",
+        "The monastery\u2019s lower levels are said to hold the answers to the stone\u2019s enigma."
+      ],
+      "persona": "Abbot Lune, the enlightened guide and leader of the guild."
+    },
+    "Y": {
+      "role": "tournament",
+      "name": "Novice Pim",
+      "tier": 40,
+      "line": "Novice Pim, a participant in the monastery\u2019s annual tournament, eager to prove my worth.",
+      "lines": [
+        "The deeper you go, the more you realize the tournament is about more than just proving yourself.",
+        "There are whispers of an ancient arena, said to be the true site of the tournament\u2019s origins."
+      ],
+      "persona": "Novice Pim, a tournament participant with a thirst for knowledge."
+    },
+    "J": {
+      "role": "academy",
+      "name": "Old Mother Silence",
+      "line": "Old Mother Silence, keeper of the academy\u2019s ancient knowledge and wisdom.",
+      "lines": [
+        "The lower floors hold the truth about the monastery's founding, but not all are ready to face it.",
+        "The academy\u2019s secrets are vast, but so too are the risks of uncovering them."
+      ],
+      "persona": "Old Mother Silence, the silent but wise keeper of the academy."
+    },
+    "G": {
+      "role": "villager",
+      "name": "Brother Ash",
+      "line": "Brother Ash, a simple villager with a love for the monastery\u2019s peace and tranquility.",
+      "lines": [
+        "The deeper down you go, the more you feel like you\u2019re stepping back in time.",
+        "The stone\u2019s glow down there changes, as if it\u2019s trying to tell you something."
+      ],
+      "persona": "Brother Ash, a humble villager content with the monastery\u2019s way of life."
+    },
+    "E": {
+      "role": "villager",
+      "name": "Pilgrim Ren",
+      "line": "Pilgrim Ren, a seeker of enlightenment and knowledge from the outside world.",
+      "lines": [
+        "The monastery\u2019s lower levels are said to hold keys to understanding the stone\u2019s power.",
+        "The deeper you go, the more you realize how little you truly know about the world."
+      ],
+      "persona": "Pilgrim Ren, a curious traveler in search of enlightenment."
+    },
+    "D": {
+      "role": "villager",
+      "name": "Keeper Moss",
+      "line": "Keeper Moss, a villager with a deep connection to the natural world and the monastery.",
+      "lines": [
+        "The lower levels are said to hold the ancient roots of the stone\u2019s power.",
+        "The stone\u2019s glow down there is different, more intense and full of secrets."
+      ],
+      "persona": "Keeper Moss, a villager with a deep understanding of the natural world."
+    },
+    "B": {
+      "role": "villager",
+      "name": "Sister Pale",
+      "line": "Sister Pale, a villager with a mysterious aura and an air of mystery.",
+      "lines": [
+        "The deeper you go, the more you realize the stone\u2019s light is not just light, but a guide.",
+        "The lower floors hold the truth, but it\u2019s a truth that not all are ready to face."
+      ],
+      "persona": "Sister Pale, a villager with an air of mystery and wisdom."
+    },
+    "V": {
+      "role": "villager",
+      "name": "Brother Wick",
+      "stays": true,
+      "line": "Brother Wick, a villager who lives and breathes the monastery\u2019s traditions.",
+      "lines": [
+        "The lower floors are steeped in the history and lore of the monastery.",
+        "The stone\u2019s glow down there changes, as if it\u2019s trying to communicate something."
+      ],
+      "persona": "Brother Wick, a villager dedicated to the monastery\u2019s traditions."
+    },
+    "j": {
+      "role": "villager",
+      "name": "Luna",
+      "line": "Welcome to the Alms Market, where the moon's light touches our humble offerings.",
+      "lines": [
+        "Seek the Moonlit Square for the heart of our community.",
+        "The Silent Forge is where the best blades are forged under the moon's watchful gaze."
+      ],
+      "persona": "A hospitable guide, always ready to share the secrets of the Hollow Moon Monastery.",
+      "added": "refine"
+    },
+    "n": {
+      "role": "villager",
+      "name": "Sister Lumiara",
+      "line": "Welcome, traveler, to the Moonlit Square, where the light of the full moon guides our paths and illuminates our souls.",
+      "lines": [
+        "May the silver glow of the moon bring you peace and clarity.",
+        "Please, rest a while at the Pilgrims' Rest, for many seek solace and enlightenment here."
+      ],
+      "persona": "A serene and welcoming monk who oversees the Moonlit Square and greets visitors to the Hollow Moon Monastery.",
+      "added": "refine"
+    },
+    "m": {
+      "role": "villager",
+      "name": "Sister Lunara",
+      "line": "Welcome to the Hollow Moon Monastery, traveler. May the light of the full moon guide your path.",
+      "lines": [
+        "The Moon-Stone Shrine is just beyond the Moonlit Square, where you can pay your respects to our lunar deity.",
+        "Do not hesitate to visit the Alms Market for any provisions or to exchange your offerings for goods and services."
+      ],
+      "persona": "A humble monkess who oversees the pilgrims and ensures the sanctuary of the monastery is respected.",
+      "added": "refine"
+    },
+    "p": {
+      "role": "villager",
+      "name": "Sister Luminara",
+      "line": "Welcome to the Hollow Moon Monastery, pilgrim. May the serene light of the moon guide your path.",
+      "lines": [
+        "The night gardens are a place of quiet contemplation and healing, a must-visit for all.",
+        "The Silent Forge is where our artisans create sacred tools and weapons, imbued with the moon's essence."
+      ],
+      "persona": "A serene and wise monkess who has dedicated her life to the spiritual growth of all who enter the monastery.",
+      "added": "refine"
+    },
+    "q": {
+      "role": "villager",
+      "name": "Mira Stonecarver",
+      "line": "Welcome to the Moon-Herb Hall, where we cultivate the rarest of lunar plants. May the light of the moon guide you.",
+      "lines": [
+        "Our herbs are essential for the monks' alchemy and healing potions.",
+        "Each herb has a story, and some say the moon itself whispers to them."
+      ],
+      "persona": "Mira Stonecarver is a herbalist who tends to the rare lunar plants in the Moon-Herb Hall.",
+      "added": "refine"
+    },
+    "u": {
+      "role": "villager",
+      "name": "Lan Wei",
+      "line": "Greetings, pilgrim. Welcome to the Hollow Moon Monastery. May the light of the moon guide your path.",
+      "lines": [
+        "Would you like to buy some moon-herbs for your journey?",
+        "The Night Gardens are the place to go for a quiet moment of reflection."
+      ],
+      "persona": "Lan Wei is a cheerful monk who tends to the Alms Market and assists pilgrims with their needs.",
+      "added": "refine"
+    },
+    "v": {
+      "role": "villager",
+      "name": "Elder Li",
+      "line": "Greetings, pilgrim. Welcome to the Hollow Moon Monastery. May the moon guide your path and the stars illuminate your wisdom.",
+      "lines": [
+        "Would you like to visit the Moon-Herb Hall for some restorative elixirs?",
+        "I've heard the Moonlit Square is bustling with pilgrims and scholars alike."
+      ],
+      "persona": "Elder Li is a revered elder monk who has lived in the monastery for over half a century, known for his wisdom and kindness.",
+      "added": "refine"
+    }
+  },
+  "chests": {
+    "K": {
+      "loot": {
+        "random_gear": [
+          1,
+          1
+        ],
+        "breakthrough_pill": [
+          1,
+          1
+        ],
+        "gold": [
+          800,
+          1200
+        ]
+      },
+      "note": "a sealed chest someone in The Hollow Moon Monastery hoped nobody would find"
+    }
+  },
+  "lore": {
+    "R": {
+      "title": "The Monastery's Vow",
+      "text": "We keep the light. We do not know who lit it, or why, or for whom. We know only that the dark below is very large, and that this is the only moon it has."
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor39",
+      "arrive": ">",
+      "label": "Up to floor 39",
+      "down": false
+    },
+    ">": {
+      "to": "floor41",
+      "arrive": "<",
+      "label": "Down to floor 41"
+    }
+  },
+  "refined": {
+    "passes": 7,
+    "rooms_added": 0,
+    "people_added": 7,
+    "reworded": 0,
+    "last": "2026-10-05T11:27:01"
+  },
+  "map": [
+    "",
+    "     <...R...L",
+    "     .........",
+    "     .........",
+    "     .........",
+    "     ........L",
+    "     .........",
+    "         ,",
+    "         ,",
+    "         ,",
+    "         ,",
+    "         ,",
+    "         ,          ..............",
+    " ....G...........   ..............",
+    " ................   ..............     ..L.W.....    ......=...=..L",
+    " ................   ..............     ..........    ..............",
+    " ................   .......f......     ..........    ..............",
+    " .b...........b..,,,..............     ...h......,,,,..............",
+    " ................   .............P     ...h......    ...u..........",
+    " ......M.........   ..............     ......Q...    ..............",
+    " ....b...........   ...........E..     h.L.......    ...........L.X",
+    " ....L..L.L......   ..............          ,               ,                          h..........L   ..............",
+    "                    L.........LL.L          ,               ,                          .........h..   .H..Hh....H...",
+    "                           ,                ,               ,                          ............   ..............",
+    "                           ,                ,               ,                          ........h...   ..............",
+    "                           ,                ,         ..=.........                     ......h.h...,,,.H............",
+    "                           ,                ,         ......Y.....      ......LJ..     L...........   ..............",
+    "                      ..........     ...........L..   ............      ..........     ...........h   ..............",
+    "                      .......H..     ..........H...   ............      ..........     ............   .........L...L",
+    "                      L.........     ......U......L   ............,,,,,,..........     ............          ,",
+    "                      ..........,,,,,..............   ............      ..........           ,               ,",
+    "                      .b..bq....     ....H.....O...   =..........L      .........=           ,               ,                           ......L......L..     ..L...........",
+    "                      ....D.....     ..............   =..........L      ...=....L.           ,         ............     ...............L .b..............     ....H..H......",
+    "                      ..L..N....                      ...=...L....           ,               ,         .......h....     ................ ................     ..............",
+    "                                                                             ,               ,         Lh..........     ................ ................     ..............",
+    "                                                                             ,        .L............   L....h......     ................ ....b...........,,,,,.Hh....H......",
+    "                                                                         .v......     ....H..H......   .....h......,,,,,.b...........b.. ................     ..............",
+    "                                                                         .h..h...     ..............   ........h...     ................ L...............     ..............",
+    "                                                                         .....Z..     ..............   ............     ................ .b..............     ..L...........",
+    "                                                                         ........,,,,,.H.....H....B.   ............     .......b........ ................            ,",
+    "                                                                         ........     ..............   ......h.....     .....L.....L....         ,                   ,",
+    "                                                                         L.......     ........h.....                            ,                ,                   ,",
+    "                                                                         .LL.....     ........L.....                            ,                ,                   ,                          .....L....L.....     .........L....",
+    "                                                                                                                                ,                ,             ....L.......    L.......L...L... .......b..b.....     .......H..H...",
+    "                                                                                                                                ,                ,             ............    ....b........b.. ................     ......h.......",
+    "                                                                                                                                ,          ............        .......h....    ................ ................     ..............",
+    "                                                                                                                         ..............    .........h.L        ............    ................ .......b........,,,,,.H........H...",
+    "                                                                                                                         .H..H........h    ..........h.        ..h.....n...,,,,.......b........ ................     ..............",
+    "                                                                                                                         ..............    ............        ............    ................ ................     ..............",
+    "                                                                                                                         ..............   ,............        .........h..    ................ ...............L     L.............",
+    "                                                                                                                         .......H..H...,,,,............        ........h...    ................ ................            ,",
+    "                                                                                                                         ..............    ...h.......h        ....h.L.h...    ................         ,                   ,",
+    "                                                                                                                         ..............    ............                                ,                ,                   ,",
+    "                                                                                                                         ....L.L.......    ..Ljhh......                                ,                ,                   ,",
+    "                                                                                                                                                                                       ,          ........h...        ...........L",
+    "                                                                                                                                                                                ...L..........    L...........        ............",
+    "                                                                                                                                                                                L..h...H......    ............        ............ .L.K..",
+    "                                                                                                                                                                                ..............    ............        h.....h..... ......",
+    "                                                                                                                                                                                ..............,,,,.m.........h        ..h.........S......",
+    "                                                                                                                                                                                ....H..H..H...,   .......h....        ....hh...... ......",
+    "                                                                                                                                                                                ..............    ..........h.        ............ ......",
+    "                                                                                                                                                                                ..............    h...........        ..........ph",
+    "                                                                                                                                                                                ..............    .h.L........        ...........L",
+    "                                                                                                                                                                                                                            ,",
+    "                                                                                                                                                                                                                            ,",
+    "                                                                                                                                                                                                                            ,",
+    "                                                                                                                                                                                                                       L.........",
+    "                                                                                                                                                                                                                       ..........",
+    "                                                                                                                                                                                                                       .........V",
+    "                                                                                                                                                                                                                       ..........",
+    "                                                                                                                                                                                                                       ..........",
+    "                                                                                                                                                                                                                       >........L",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

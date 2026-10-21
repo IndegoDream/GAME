@@ -1,0 +1,43 @@
+{
+  "brief": "settlements",
+  "title": "Camps in the deep",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "rootlight",
+      "text": "Mushroom farmers who came down from Eliet in a hungry year and never went back up. They grow glowcaps in the damp and trade them for anything with iron in it."
+    },
+    {
+      "id": "quiet_lotus",
+      "text": "The last few disciples of a sect that came down to fight and lost. They guard the hall they died for and keep their founder's lamp burning."
+    },
+    {
+      "quiet_lotus": "The last few disciples of a sect that came down to fight and lost. They guard the hall they died for and keep their founder's lamp burning. Meet Master Hu, who teaches the dead how to whisper to the living."
+    },
+    {
+      "text": "quiet_lotus -- ours: \"The last few disciples of a sect that came down to fight and lost. They guard the hall they died for and keep their founder's lamp burning. The hall is a place of great power, where the elements are balanced and the nanites thrive.\""
+    },
+    {
+      "waking_vault": "ours: \"The last enclave of the Heirs, built against the sealed door of the Makers' deepest vault. They're trying to open it. They're not sure they should.\""
+    },
+    {
+      "quiet_lotus": "Disciples of the old sect that fought and fell here. They guard their founder's hall and keep his lamp burning. If you need to rest, they'll let you, but don't touch the founder's lamp. It’s said the light holds the secrets of the sect.",
+      "cinder_rest": "Smelters who work the ash dunes for glass and slag iron. They trade with anyone who can handle the heat. Their leader, Iron Hand, has a reputation for fairness, but don’t break your word or she’ll remember.",
+      "lattice_choir": "Heirs of the Makers living among the old machines. They sing to keep the machines running, believing the swarm can still bridge qi to heaven. If you help them with a song, they’ll share the Maker’s secrets.",
+      "bonefire_moot": "The great bonfire of the Hollow Clans burns on old bones and grudges. Clan law is made here. Avoid the moot unless you have a clear reason and the courage to speak in the dark.",
+      "waking_vault": "Heirs guarding the sealed door of the Makers’ deepest vault. They’re trying to open it but aren’t sure they should. If you bring them a clue about the vault’s lock, they might share the Maker’s wisdom."
+    },
+    {
+      "text": "A refuge on the deep floors for people who went down too far to climb back. Quiet, careful and kind. They hide the wounded and lost, and know all the stories of the deep. If you need rest or a place to hide, they'll take you in, but only if you bring something they can't find in the dark."
+    },
+    {
+      "id": "lattice_choir",
+      "text": "Heirs of the Makers who live among the old machines and sing to keep them running. They believe the swarm can still bridge qi to heaven."
+    },
+    {
+      "waking_vault": "The last enclave of the Heirs, built against the sealed door of the Makers' deepest vault. They're trying to open it. They're not sure they should. If you have the key, the Heirs will trade it for silence and the Maker's blessing."
+    }
+  ],
+  "helped": []
+}

@@ -1,0 +1,165 @@
+{
+ "_about": "Round 143: the commission board. Four orders a day in each town, named clients who want a made thing in a minimum quality. Paid a little over what a trader would give (never a buy-craft-sell loop: the pay is bounded by what the materials cost and a daily gold cap), plus standing with the matching guild (kept for you if you haven't joined), a little skill practice, and now and then a find. scripts/systems/Commissions.gd.",
+ "board": {
+  "size": 4,
+  "max_active": 3,
+  "expire_days": 3,
+  "gold_mult": 1.22,
+  "min_gold": 6,
+  "daily_gold_cap": 600,
+  "quality_mult": {
+   "": 1.0,
+   "fine": 1.3,
+   "superior": 1.7,
+   "masterwork": 2.3
+  },
+  "quality_odds": {
+   "": 0.6,
+   "fine": 0.3,
+   "superior": 0.1
+  },
+  "bonus_chance": 0.15,
+  "bonus_items": [
+   "spirit_herb",
+   "iron_ore",
+   "moonpetal",
+   "silver_ore",
+   "rough_jade"
+  ],
+  "guilds": {
+   "smithing": "blacksmiths",
+   "alchemy": "alchemists",
+   "medicine": "healers"
+  }
+ },
+ "clients": {
+  "smithing": [
+   {
+    "name": "Watchman Tove",
+    "trade": "the night watch",
+    "reason": "The night watch is down to rusted pikes and good intentions."
+   },
+   {
+    "name": "Farmer Oska",
+    "trade": "a farm",
+    "reason": "Our ploughshare cracked on a root as old as the village."
+   },
+   {
+    "name": "Mara the carter",
+    "trade": "a carter",
+    "reason": "Every cart I own is held together with prayer and string."
+   },
+   {
+    "name": "Old Gunnar",
+    "trade": "a retired sergeant",
+    "reason": "I'm too old to fight, but I refuse to be buried with a bad sword."
+   },
+   {
+    "name": "Bell Ashdown",
+    "trade": "the lodge quartermaster",
+    "reason": "The lodge is two blades short, and the delvers are being polite about it."
+   },
+   {
+    "name": "Halvar the miller",
+    "trade": "a miller",
+    "reason": "The millstone chisels have worn to nubs. It's flour or nothing."
+   }
+  ],
+  "alchemy": [
+   {
+    "name": "Pim",
+    "trade": "a healer's apprentice",
+    "reason": "My master says I can't run the shop until I stock it. I have never stocked a shop."
+   },
+   {
+    "name": "Merchant Zuri",
+    "trade": "a caravan master",
+    "reason": "My guards keep catching colds. A caravan of sneezing guards is not a caravan."
+   },
+   {
+    "name": "Brother Aldous",
+    "trade": "a lay brother",
+    "reason": "The brothers are fasting, and some of them are cheating. A strong tonic helps."
+   },
+   {
+    "name": "Widow Perrin",
+    "trade": "a lodging-house keeper",
+    "reason": "A full house, and every lodger with a different complaint."
+   },
+   {
+    "name": "Kestrel",
+    "trade": "a courier",
+    "reason": "Three days on the road without sleep. Don't ask. Just make it."
+   },
+   {
+    "name": "Doctor Ames",
+    "trade": "a travelling physician",
+    "reason": "I left my own kit in the last village. Please, something sound."
+   }
+  ],
+  "medicine": [
+   {
+    "name": "Midwife Odrun",
+    "trade": "a midwife",
+    "reason": "It's going to be a long night in the lower lanes, and I'm short of everything."
+   },
+   {
+    "name": "Nurse Callis",
+    "trade": "an infirmary nurse",
+    "reason": "The infirmary has eleven beds and nine patients. I could use more of the good stuff."
+   },
+   {
+    "name": "Brenn the shepherd",
+    "trade": "a shepherd",
+    "reason": "The flock has a cough and I have a conscience."
+   },
+   {
+    "name": "Sister Maud",
+    "trade": "a hospice sister",
+    "reason": "Comfort, mostly. Whatever you can spare of it."
+   },
+   {
+    "name": "Teodric",
+    "trade": "a delver's spouse",
+    "reason": "She's gone down again. She'll come back hurt. I want to be ready this time."
+   },
+   {
+    "name": "Little Wren",
+    "trade": "a runner",
+    "reason": "My brother fell off a roof. He's fine. He is also very loud about it."
+   }
+  ],
+  "jewelcrafting": [
+   {
+    "name": "Ilsa",
+    "trade": "a bride-to-be",
+    "reason": "A spring wedding and the only thing missing is something worth looking at."
+   },
+   {
+    "name": "Corra",
+    "trade": "a jeweller's widow",
+    "reason": "My husband's shop needs a piece in the window or it's a funeral too."
+   },
+   {
+    "name": "Merchant Dune",
+    "trade": "a trader",
+    "reason": "A gift for someone I need to impress. I'm paying for the impression."
+   },
+   {
+    "name": "Abbot Hale",
+    "trade": "an abbot",
+    "reason": "A reliquary needs something to hold. The saints are not choosy."
+   },
+   {
+    "name": "Lord Venn's steward",
+    "trade": "a steward",
+    "reason": "His lordship wants a trinket. His lordship has expensive opinions."
+   },
+   {
+    "name": "Fenn",
+    "trade": "a young apprentice",
+    "reason": "My master says I have no eye. I'd like him to be wrong."
+   }
+  ]
+ }
+}

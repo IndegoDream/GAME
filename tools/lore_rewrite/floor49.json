@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "Stair to Nowhere",
+  "text": "The sky-stair broke off in the middle. What is left climbs a little way and then stops. Take the lower path through the cloud. It is the only one that goes on."
+ },
+ "Y": {
+  "title": "The Hall of Winds",
+  "text": "The wind in this hall is trapped, and it knows. It pushes toward the doors. Stand with your back to the wall until a gust passes."
+ },
+ "R": {
+  "title": "Breath of the Terrace",
+  "text": "The old teachers stood here and breathed slowly until the air held them up. Not magic, they said. Only calm, practised."
+ },
+ "G": {
+  "title": "Last Terrace Ledger",
+  "text": "The terrace had a keeper, a gardener, and a gatekeeper. Three names, three pay lines. The pay stopped at the same date for all three."
+ },
+ "M": {
+  "title": "The Veil, Thin Here",
+  "text": "The mist hangs like cloth in the doorway. Pass through slowly. Rush it and it drags at you. It remembers every hurried step."
+ },
+ "O": {
+  "title": "Sentry's Scratch",
+  "text": "They guarded the stair from below. When the stair broke, the guard stayed. Nobody told them they could go. Guard note: relieve me, someone."
+ },
+ "U": {
+  "title": "Palace Door Notice",
+  "text": "Notice nailed to a door: the Accord was signed on this terrace, in the sun. After the signing there was a feast. After the feast, the forgetting."
+ },
+ "X": {
+  "title": "Cloud Marker",
+  "text": "A cairn of white stones at the lip of the terrace. One stone for every delver who went down to the last floor. I count nine. Add yours."
+ }
+}

@@ -1,0 +1,523 @@
+{
+  "id": "floor4",
+  "name": "Floor 4, The Nanite Sanctum",
+  "theme": "dungeon",
+  "depth": 4,
+  "enemies": {
+    "g": "nanite_wraith",
+    "w": "sanctum_sentinel",
+    "W": "corrupted_warden",
+    "a": "tunnel_boar"
+  },
+  "layout": {
+    "seed": 7,
+    "corridor_traps": 3,
+    "secret_passages": 1,
+    "rooms": [
+      {
+        "name": "Entry Vestibule",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "<",
+          "L*2",
+          "A",
+          "c*2"
+        ]
+      },
+      {
+        "name": "Humming Conduit Hall",
+        "size": [
+          18,
+          5
+        ],
+        "has": [
+          "L*2",
+          "g*3",
+          "c*4",
+          "o"
+        ]
+      },
+      {
+        "name": "Coolant Cistern",
+        "size": [
+          10,
+          8
+        ],
+        "has": [
+          "~*6",
+          "&",
+          "L",
+          "g",
+          "h"
+        ]
+      },
+      {
+        "name": "Archive of Hands",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L*2",
+          "w",
+          "Y",
+          "b*2"
+        ]
+      },
+      {
+        "name": "Conduit Junction",
+        "size": [
+          7,
+          7
+        ],
+        "has": [
+          "L",
+          "g*2",
+          "w",
+          "o",
+          "h"
+        ]
+      },
+      {
+        "name": "The Great Central Chamber",
+        "size": [
+          20,
+          14
+        ],
+        "has": [
+          "L*4",
+          "g*3",
+          "w*2",
+          "c*6",
+          "^",
+          "h*2"
+        ]
+      },
+      {
+        "name": "Reliquary",
+        "size": [
+          8,
+          6
+        ],
+        "has": [
+          "L*2",
+          "K",
+          "?"
+        ]
+      },
+      {
+        "name": "The Disciple's Cell",
+        "size": [
+          6,
+          5
+        ],
+        "secret": true,
+        "has": [
+          "L",
+          "I",
+          "h"
+        ]
+      },
+      {
+        "name": "Maintenance Crawl",
+        "size": [
+          12,
+          5
+        ],
+        "has": [
+          "L",
+          "g*2",
+          "w",
+          "o*2",
+          "b",
+          "a*2"
+        ]
+      },
+      {
+        "name": "Seed Vault",
+        "size": [
+          7,
+          6
+        ],
+        "secret": true,
+        "has": [
+          "L",
+          "R",
+          "V"
+        ]
+      },
+      {
+        "name": "Sentinel Barracks",
+        "size": [
+          12,
+          8
+        ],
+        "has": [
+          "L*2",
+          "w*3",
+          "c*2",
+          "^",
+          "D"
+        ]
+      },
+      {
+        "name": "Lightless Gallery",
+        "size": [
+          14,
+          6
+        ],
+        "has": [
+          "L",
+          "g*3",
+          "h*2",
+          "x*2",
+          "E"
+        ]
+      },
+      {
+        "name": "Shrine Before the Throne",
+        "size": [
+          7,
+          6
+        ],
+        "has": [
+          "Z",
+          "L*2",
+          "h*2",
+          "=*2"
+        ]
+      },
+      {
+        "name": "Echoing Archives",
+        "size": [
+          11,
+          7
+        ],
+        "has": [
+          "L*2",
+          "h*2",
+          "g*2",
+          "C",
+          "F"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "Nanite Forge",
+        "size": [
+          9,
+          7
+        ],
+        "has": [
+          "L*2",
+          "o*2",
+          "g*2",
+          "w",
+          "G",
+          "J"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Whispering Corridor",
+        "size": [
+          8,
+          8
+        ],
+        "has": [
+          "L*2",
+          "^",
+          "h",
+          "g*2",
+          "w",
+          "M",
+          "N"
+        ],
+        "added": "refine"
+      },
+      {
+        "name": "The Warden's Throne",
+        "size": [
+          16,
+          12
+        ],
+        "has": [
+          "L*4",
+          "W",
+          ">",
+          "w*2",
+          "c*4"
+        ]
+      }
+    ]
+  },
+  "chests": {
+    "K": {
+      "loot": {
+        "nanite_shard": [
+          2,
+          4
+        ],
+        "silver_ore": [
+          2,
+          4
+        ],
+        "gold": [
+          40,
+          80
+        ]
+      },
+      "note": "the reliquary-keeper's coffer"
+    },
+    "D": {
+      "loot": {
+        "gold": [
+          30,
+          60
+        ],
+        "healing_salve": [
+          2,
+          3
+        ]
+      },
+      "note": "a sentinel's footlocker, its owner long gone"
+    },
+    "E": {
+      "loot": {
+        "silver_ore": [
+          2,
+          3
+        ],
+        "qi_pill": [
+          1,
+          2
+        ]
+      },
+      "note": "a maker's toolbox, dark and cold",
+      "hidden": true
+    },
+    "V": {
+      "loot": {
+        "nanite_shard": [
+          5,
+          8
+        ],
+        "breakthrough_pill": [
+          1,
+          2
+        ],
+        "sapphire_shard": [
+          1,
+          2
+        ],
+        "gold": [
+          150,
+          250
+        ],
+        "random_gear": [
+          1,
+          1
+        ]
+      },
+      "note": "the seed-keepers' last offering"
+    },
+    "C": {
+      "loot": {
+        "gold": [
+          32,
+          60
+        ],
+        "nanite_shard": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Echoing Archives"
+    },
+    "G": {
+      "loot": {
+        "gold": [
+          32,
+          60
+        ],
+        "silver_ore": [
+          1,
+          3
+        ]
+      },
+      "note": "something left behind in Nanite Forge"
+    },
+    "M": {
+      "loot": {
+        "gold": [
+          32,
+          60
+        ],
+        "healing_salve": [
+          1,
+          3
+        ],
+        "random_gear": [
+          0,
+          1
+        ]
+      },
+      "note": "something left behind in the Whispering Corridor"
+    }
+  },
+  "lore": {
+    "A": {
+      "title": "Letters of Light",
+      "text": "Letters of light still crawl across the lintel: THE WARDEN KEEPS THE SEED. THE SEED KEEPS THE WORLD. Below them, fainter, as if the light itself were tired: turn back, child of the surface. The Warden no longer knows you."
+    },
+    "Y": {
+      "title": "The Archive of Hands",
+      "text": "Rows of metal hands, palms up, each holding a sliver of something that hums. A plaque: HERE THE MAKERS GAVE THEIR NANITES TO THE SANCTUM, SO THE WARDEN COULD KEEP WHAT THEY COULD NOT. Scratched beneath it, much later: the Warden kept us too."
+    },
+    "R": {
+      "title": "The Seed Vault's Hymn",
+      "text": "No words here, only a hum -- and the shards in your blood answer it. Sit still and you can hear what the nanites were made for. Not to fight. To mend. To gather what is scattered.",
+      "teaches": "nanite_resonance"
+    },
+    "F": {
+      "title": "Whispers of the Ancients",
+      "text": "Here, the voices of those who have walked these halls before linger, their whispers guiding the curious and warning the unwary. Each tome and scroll carries the weight of forgotten knowledge, a silent testament to the sanctum's enduring quest for understanding."
+    },
+    "J": {
+      "title": "The Heart of Creation",
+      "text": "Here, the eternal hum of machinery blends with the soft glow of nanite synthesis. The air is thick with the scent of ozone and the whispers of ancient knowledge, as the nanites weave the fabric of reality itself."
+    },
+    "N": {
+      "title": "The Echoes of Forgotten Words",
+      "text": "Here, the walls hum with the whispers of ancient lore, secrets passed down through the ages. Only those with the ears to hear and the courage to listen may uncover the truths hidden beneath the silence."
+    }
+  },
+  "inheritances": {
+    "I": {
+      "master": "the Warden's Last Disciple",
+      "hidden": true,
+      "needs_realm": 2,
+      "text": "A figure in a cracked mantle sits facing the wall, as if listening through it to the throne room beyond. \"I could not save my master from what the Sanctum made of him. Perhaps you can end it. Take my seat. Sit, and the petals will open for you as they opened for me.\"",
+      "grants": {
+        "items": {
+          "lotus_seat": 1
+        },
+        "qi": 400
+      }
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Reliquary Lock",
+      "question": "I was made to mend and taught to break. I am smaller than dust and older than the Warden. What am I?",
+      "options": [
+        "A seed",
+        "A nanite",
+        "A sword"
+      ],
+      "answer": 1,
+      "reward": {
+        "items": {
+          "nanite_shard": 2
+        },
+        "qi": 250
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "floor3",
+      "arrive": ">",
+      "label": "Up to Floor 3",
+      "down": false
+    },
+    ">": {
+      "to": "floor5",
+      "arrive": "<",
+      "label": "Down to Shellhaven"
+    }
+  },
+  "ambient": [
+    0.27,
+    0.38,
+    0.48
+  ],
+  "refined": {
+    "passes": 3,
+    "rooms_added": 3,
+    "people_added": 0,
+    "reworded": 0,
+    "last": "2026-10-02T15:15:11"
+  },
+  "map": [
+    "",
+    "                  .&........   ........Y",
+    "                  .~..~..~..   .........",
+    "                  .......g..   ...w.....",
+    "                  ......................",
+    "                  h~..~..~...  ....b..b.",
+    "                  ..........   .........",
+    "                  L.........   ..L.....L    ....L.........L.....",
+    "                  ..........       ...      .............c......",
+    "                       .             .      ....................",
+    "                       .             .      ..h..h.............g",
+    "                       .          ......g   .............c......",
+    "                       .          .......   ....................",
+    "                       .          .......   ...............g....",
+    "                       .          ..............c..c.....c......",
+    " <.......     .............o....  ...h...   ....................",
+    " ....c...     .c....g...c..c..c.  .w.....   .........w.........w",
+    " ...............g...............  .o.g.L.   .c.g................",
+    " .........    ....g.............            ....................",
+    " .c......     ....L......L......            ..................^.",
+    " .L.LA...              S                    L.................L.",
+    "                       .                              .",
+    "                       .                              T",
+    "                       .                              .",
+    "                       .                              .",
+    "                       .                          ........ ..I.L.",
+    "                       .                          ........ .h....",
+    "                       .                          ........S......",
+    "                       ..........................S........ ......",
+    "                                                  .......? ......",
+    "                                                  LLK.....",
+    "                                                      .",
+    "                                                      .",
+    "                                                      .",
+    "                                                      .",
+    "                                                      .",
+    "                                                      .      .......",
+    "                                                .o.........L ..R....",
+    "                                                ..w....a..b. .......",
+    "                                                ............S.......",
+    "                                                .g....o..a.. ......L                        .....^..",
+    "                                                ........g... ....V..           w.....L..    g.......",
+    "                                                      .                        .....o...    .......L",
+    "                                                      .                        L........    ....w...",
+    "                                                      .                        .......o.............",
+    "                                                ............                   .G.......    .......g",
+    "                                                ....c.....c.   ...E..........  .gg....J.    .....N..",
+    "                                                L..w.......w   .......x..x..g  .........    ..h...ML",
+    "                                                ............   ....g.........      .            .",
+    "                                                .....w..................h....      .            .",
+    "                                                ............   ..............      .            .",
+    "                                                L........^.D   h..gL.........      .            .",
+    "                                                ............          .            .    ............L...",
+    "                                                                      .          ..T    ..........c..c..",
+    "                                                                     ..     ........... ................",
+    "                                                                  .Z.....   ....h...g.C ................",
+    "                                                                  .......   ........... ................",
+    "                                                                  h......T.....g....F.. ...............w",
+    "                                                                  L.h.....  ..........h ................",
+    "                                                                  =......   L.......... ...............W",
+    "                                                                  ..=...L   .L......... ................",
+    "                                                                                        ................",
+    "                                                                                        .......c..c.....",
+    "                                                                                        >.w....LLL......",
+    ""
+  ],
+  "map_drawn_from_layout": true
+}

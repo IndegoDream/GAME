@@ -1,0 +1,263 @@
+{
+  "id": "floor1",
+  "name": "Floor 1 -- The Goblin Warrens",
+  "theme": "dungeon",
+  "depth": 1,
+  "recommended": "Body Tempering 1-4",
+  "ambient": [
+    0.32,
+    0.28,
+    0.36
+  ],
+  "notes": "Teaching floor. Arrival room, a goblin den, a spike-trap corridor, a pillared great hall, a side store room, and the Goblin Chief's hall with the stairs down. Secrets: a loose stone in the arrival room's south wall hides a cache and the Monk's Stone; a cold stone in the great hall's south wall opens a hidden meditation chamber (a shrine, and the Azure Sword Sage's inheritance -- invisible without Spirit Sense, refuses anyone below Qi Condensation); a chest in the arrival room only Spirit Sense shows. Ore and herbs feed the smith's first recipes.",
+  "map": [
+    "",
+    "",
+    "  .<.....V    L........L     L.........          L......",
+    "  ......bb    ......g...     ..g....rh.   ....L  .......",
+    "  L.............g......................   .x...  ....g..",
+    "  ........    ..........     ....~~~....................",
+    "  .......L    .......g..     ....~~~...   ...x.  .......",
+    "  ........    .b........     .....&..g.   ..o..  ......h",
+    "     S        .x......hh     .h.r......   .x...     .",
+    "   L.....         ..         .........L   .....     .",
+    "   ..R...         T.                      ...^.   ........L",
+    "   ....K.         ..                      G....   .h.......",
+    "   .h...o         .T                              ......h..",
+    "         ....L    ..             L.....L          ....g....",
+    "         h..o.    T.             .....C.          .........",
+    "          L.....Y...........L    ..=.=..          ...h...h.",
+    "          .=...............o.    .......          r........",
+    "          ...c.....c.....c...    ...B...              .",
+    "          ............g......    .......              .",
+    "   ............g...............T........           L.......",
+    "  L....b  ...................    .......           ........   .....L",
+    "  ......  ...c.....c.....c...    .G.....           ...~~~..   ....X.",
+    "  ....g.  .o.....G.....g.....    .......           ...~~~......G....",
+    "  ..g...  L.................L    .......           ....&...   ......",
+    "  ....^.      S         .        .......           .r......   ......",
+    "  .Q....      .         .        L..>..L           .......^   ..T...",
+    "  h....o   L......L  L.......M.                               ....g.",
+    "    .      ......I.  ...c..c...                               ......",
+    "    .      .Z......  ?......G....L.......",
+    "  L.......           .g.......L  ......F.",
+    "  ......b.                       ...c.c..",
+    "  ....g.b.                       ........",
+    "  ........                       ........",
+    "  .g.h...J                       .g.....L",
+    "     .",
+    "     .",
+    "  L............",
+    "  .............  L.....L",
+    "  ..b..b..b..b.  .......",
+    "  ......................",
+    "  ...g......G..  ...Z...",
+    "  .......g.....  .......",
+    "  .U..........L  .....h.",
+    "      .",
+    "      .",
+    "   L.........",
+    "   ......g.^.",
+    "   ..o.......",
+    "   .....o...x",
+    ""
+  ],
+  "enemies": {
+    "g": "goblin",
+    "G": "goblin_brute",
+    "B": "goblin_chief",
+    "r": "cave_hare"
+  },
+  "chests": {
+    "K": {
+      "loot": {
+        "iron_ore": [
+          2,
+          3
+        ],
+        "qi_pill": [
+          1,
+          1
+        ],
+        "gold": [
+          15,
+          25
+        ]
+      },
+      "note": "A goblin's secret stash!"
+    },
+    "Q": {
+      "loot": {
+        "healing_salve": [
+          1,
+          2
+        ],
+        "spirit_herb": [
+          1,
+          2
+        ],
+        "gold": [
+          5,
+          12
+        ]
+      }
+    },
+    "C": {
+      "loot": {
+        "gold": [
+          30,
+          50
+        ],
+        "iron_ore": [
+          2,
+          3
+        ],
+        "padded_vest": [
+          1,
+          1
+        ],
+        "random_gear": [
+          1,
+          1
+        ]
+      },
+      "note": "The Chief's hoard."
+    },
+    "J": {
+      "loot": {
+        "healing_salve": [
+          1,
+          2
+        ],
+        "goblin_tooth": [
+          2,
+          4
+        ],
+        "gold": [
+          8,
+          16
+        ]
+      },
+      "note": "The goblins' larder. Mostly bones. Mostly."
+    },
+    "X": {
+      "loot": {
+        "rough_jade": [
+          1,
+          2
+        ],
+        "gold": [
+          15,
+          30
+        ],
+        "qi_pill": [
+          0,
+          1
+        ]
+      },
+      "note": "Wrapped in old webbing -- someone else's bad luck."
+    },
+    "U": {
+      "loot": {
+        "iron_ore": [
+          2,
+          4
+        ],
+        "goblin_tooth": [
+          3,
+          6
+        ],
+        "healing_salve": [
+          1,
+          1
+        ]
+      },
+      "note": "The barracks' pay chest. The goblins won't miss it. They'll notice, though."
+    },
+    "V": {
+      "loot": {
+        "qi_pill": [
+          1,
+          2
+        ],
+        "spirit_herb": [
+          2,
+          3
+        ],
+        "gold": [
+          20,
+          30
+        ]
+      },
+      "hidden": true,
+      "note": "A chest nobody else could see -- left for someone who could."
+    }
+  },
+  "riddles": {
+    "?": {
+      "title": "The Monks' Doorkeeper",
+      "question": "The more of me you take, the more of me you leave behind. What am I?",
+      "options": [
+        "Breath",
+        "Footsteps",
+        "Years"
+      ],
+      "answer": 1,
+      "reward": {
+        "items": {
+          "qi_pill": 2
+        },
+        "qi": 80
+      }
+    }
+  },
+  "inheritances": {
+    "I": {
+      "master": "the Azure Sword Sage",
+      "hidden": true,
+      "needs_realm": 1,
+      "text": "\"I came down here to die where no one would take my sword from me. The goblins came after; they never once saw me. You see me. Then you have the eyes for it.\n\nThe sword is not held, child. It is asked.\"",
+      "grants": {
+        "items": {
+          "flying_sword": 1
+        },
+        "techniques": [
+          "sword_heart"
+        ],
+        "qi": 300
+      }
+    }
+  },
+  "exits": {
+    "<": {
+      "to": "village",
+      "arrive": "D",
+      "label": "Up to Eliet Village",
+      "down": false
+    },
+    ">": {
+      "to": "floor2",
+      "arrive": "<",
+      "label": "Down -- Floor 2"
+    }
+  },
+  "lore": {
+    "R": {
+      "title": "The Monk's Stone",
+      "teaches": "iron_skin",
+      "text": "Before the goblins, monks dug these halls to sit closer to the old machines.\n\n'Breathe in until the breath is heavy. Hold it under the skin. Let the blow land on the breath, not on you.'"
+    },
+    "F": {
+      "title": "The Last Shelf",
+      "text": "One stone tablet survived the rot, propped where a shelf once stood:\n\n'Fire forged in water does not break. Metal cut from wood does not bend. Every strength has a thing it fears and a thing it feeds. Learn both, and you will not be surprised by yourself.'"
+    },
+    "M": {
+      "title": "A Monk's Lament",
+      "text": "Scratched beside a sleeping mat, small and neat:\n\n'Brother Haan went down past the hall and did not come back. Brother Ilse says the sage below will not speak to anyone who has not first learned to see. I think the sage is only bones. I think I am afraid that he is not.'"
+    },
+    "Y": {
+      "title": "Scratched Carving",
+      "text": "Goblin scratches cover an older carving. You can make out a figure stepping sideways out of a sword's path, its feet drawn as gusts of wind.\n\nUnderneath, in goblin: 'BIG ONE MOVE FUNNY. WATCH IT.'"
+    }
+  }
+}

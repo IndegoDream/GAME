@@ -1,0 +1,136 @@
+{
+ "_note": "Round 61 (scripts/systems/FloorRun.gd): the pull of one more floor. Robert: 'make game play more enjoyable, immersive and compulsive.' A floor's tally from the moment you arrive; a graded card when its master falls (a better grade than before pays the difference); a descent streak for going down floor after floor without falling or turning back. Dev writes the verdict lines (brief floor_verdicts); these are ours until then.",
+ "weights": {
+  "explored": 0.3,
+  "foes": 0.2,
+  "chests": 0.15,
+  "secrets": 0.1,
+  "safety": 0.15,
+  "time": 0.1
+ },
+ "foes_share": 0.8,
+ "safe_at": 0.6,
+ "par_minutes": 9.0,
+ "par_per_depth": 0.35,
+ "grades": [
+  {
+   "id": "S",
+   "at": 0.9,
+   "low": 0.5
+  },
+  {
+   "id": "A",
+   "at": 0.75
+  },
+  {
+   "id": "B",
+   "at": 0.55
+  },
+  {
+   "id": "C",
+   "at": 0.35
+  },
+  {
+   "id": "D",
+   "at": 0.0
+  }
+ ],
+ "rewards": {
+  "S": {
+   "gold_per_depth": 40,
+   "insight": 4,
+   "qi_kills": 4
+  },
+  "A": {
+   "gold_per_depth": 25,
+   "insight": 2,
+   "qi_kills": 2
+  },
+  "B": {
+   "gold_per_depth": 12,
+   "insight": 1,
+   "qi_kills": 1
+  },
+  "C": {
+   "gold_per_depth": 5
+  },
+  "D": {}
+ },
+ "streak": {
+  "cap": 5,
+  "qi": 0.05,
+  "luck": 0.04
+ },
+ "verdicts": {
+  "S": [
+   [
+    "Not a Stone Unturned",
+    "Every corner walked, every lock tried, and you never once bled for it. The deep noticed."
+   ],
+   [
+    "Like Water Through Rock",
+    "Fast, thorough, untouched. I have watched a thousand go down. Few like that."
+   ],
+   [
+    "The Floor Is Yours",
+    "Nothing here is hidden from you now. Go on -- the next one is waiting."
+   ]
+  ],
+  "A": [
+   [
+    "Well Walked",
+    "Thorough and sure-footed. A corner or two left for next time."
+   ],
+   [
+    "A Good Descent",
+    "Little missed, little lost. Keep that pace."
+   ],
+   [
+    "Steady Hands",
+    "You fought well and looked hard. Not quite everything -- nearly."
+   ]
+  ],
+  "B": [
+   [
+    "Solid Ground",
+    "You got what mattered. There's more here, if you come back."
+   ],
+   [
+    "Honest Work",
+    "No shame in it. The chests you passed are still there."
+   ],
+   [
+    "Through, and Better For It",
+    "A fair floor. Look behind the walls next time."
+   ]
+  ],
+  "C": [
+   [
+    "Got Through",
+    "You made it down. You walked past half of what this place had."
+   ],
+   [
+    "In a Hurry",
+    "Quick, but you left a lot behind. The deep rewards a patient eye."
+   ],
+   [
+    "Scraped By",
+    "Through, with gaps. Spirit sense finds what eyes miss."
+   ]
+  ],
+  "D": [
+   [
+    "Still Standing",
+    "That was close. Rest, mend your gear, and walk this floor again when you're ready."
+   ],
+   [
+    "The Deep Was Kind",
+    "Barely. Sit at a shrine, then come back and take what you missed."
+   ],
+   [
+    "A Hard Lesson",
+    "You lived. Next time, guard more, chase less, and look around."
+   ]
+  ]
+ }
+}

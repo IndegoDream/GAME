@@ -1,0 +1,434 @@
+{
+ "_about": "Character creation (round 36, Robert: 'make character creation more involved... ask more questions about who they want the character to be and have those answers weigh in on where their starting stats are and how many free points they have to spend'). Asked after a name, a look and a past: every answer is worth the same (one point, as an attribute or a free point, and sometimes a small gift), so no answer is a trap -- but who you say you are is who you start as. Words: Dev's win (data/drafts/creation.json, items with 'id', 'ask', 'answers': [texts]).",
+ "questions": [
+  {
+   "id": "born",
+   "ask": "Where were you born?",
+   "answers": [
+    {
+     "text": "In Eliet, in sight of the shaft.",
+     "attrs": {
+      "spirit": 1
+     },
+     "gift": {
+      "insight": 2
+     },
+     "note": "You grew up knowing the deep was there."
+    },
+    {
+     "text": "In the hills, among the herders.",
+     "attrs": {
+      "body": 1
+     },
+     "gift": {
+      "items": {
+       "raw_meat": 3
+      }
+     },
+     "note": "Cold mornings and long walks."
+    },
+    {
+     "text": "Under a sect's roof, a servant's child.",
+     "attrs": {
+      "spirit": 1
+     },
+     "gift": {
+      "items": {
+       "qi_pill": 1
+      }
+     },
+     "note": "You watched disciples train from the kitchen door."
+    },
+    {
+     "text": "On the road -- never two nights in the same place.",
+     "free": 1,
+     "gift": {
+      "gold": 15
+     },
+     "note": "Nothing holds you, and nothing ever has."
+    }
+   ]
+  },
+  {
+   "id": "trouble",
+   "ask": "When trouble came to your door, what did you do?",
+   "answers": [
+    {
+     "text": "Stood in front of the others.",
+     "attrs": {
+      "body": 1
+     },
+     "note": "Someone has to be the wall."
+    },
+    {
+     "text": "Hit first, and hardest.",
+     "attrs": {
+      "might": 1
+     },
+     "note": "It was over quickly. It usually is."
+    },
+    {
+     "text": "I was already round the back.",
+     "attrs": {
+      "agility": 1
+     },
+     "note": "Trouble can't hit what isn't there."
+    },
+    {
+     "text": "Talked until it went away.",
+     "free": 1,
+     "note": "Words are a weapon too, and they're cheaper."
+    }
+   ]
+  },
+  {
+   "id": "hands",
+   "ask": "What did your hands do most, growing up?",
+   "answers": [
+    {
+     "text": "Carried, dug and hauled.",
+     "attrs": {
+      "might": 1
+     },
+     "gift": {
+      "skill_xp": {
+       "mining": 40
+      }
+     }
+    },
+    {
+     "text": "Quick work: knots, locks, other people's pockets.",
+     "attrs": {
+      "agility": 1
+     },
+     "gift": {
+      "gold": 10
+     }
+    },
+    {
+     "text": "Very little. I sat, and listened, and breathed.",
+     "attrs": {
+      "spirit": 1
+     },
+     "gift": {
+      "skill_xp": {
+       "survival": 30
+      }
+     }
+    },
+    {
+     "text": "A bit of everything, none of it well.",
+     "free": 1
+    }
+   ]
+  },
+  {
+   "id": "fear",
+   "ask": "What do you fear most?",
+   "answers": [
+    {
+     "text": "Being weak when it matters.",
+     "attrs": {
+      "might": 1
+     }
+    },
+    {
+     "text": "Being caught.",
+     "attrs": {
+      "agility": 1
+     }
+    },
+    {
+     "text": "Being forgotten.",
+     "attrs": {
+      "spirit": 1
+     }
+    },
+    {
+     "text": "Being alone.",
+     "attrs": {
+      "body": 1
+     },
+     "gift": {
+      "warmth": 6
+     },
+     "note": "The village notices; people are a little warmer to you."
+    }
+   ]
+  },
+  {
+   "id": "why",
+   "ask": "Why are you going down the shaft?",
+   "answers": [
+    {
+     "text": "For Eliet. Someone has to.",
+     "attrs": {
+      "body": 1
+     },
+     "gift": {
+      "rep": {
+       "adventurers": 10
+      }
+     }
+    },
+    {
+     "text": "For power. I'm tired of being small.",
+     "attrs": {
+      "might": 1
+     }
+    },
+    {
+     "text": "For the truth of what's down there.",
+     "attrs": {
+      "spirit": 1
+     },
+     "gift": {
+      "insight": 3
+     }
+    },
+    {
+     "text": "Someone I loved went down and didn't come back.",
+     "attrs": {
+      "agility": 1
+     },
+     "gift": {
+      "items": {
+       "healing_salve": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "temper",
+   "ask": "Which is most like you?",
+   "answers": [
+    {
+     "text": "Patient. I can wait out anything.",
+     "attrs": {
+      "spirit": 1
+     }
+    },
+    {
+     "text": "Fierce. I don't back down.",
+     "attrs": {
+      "might": 1
+     }
+    },
+    {
+     "text": "Careful. I check twice.",
+     "attrs": {
+      "body": 1
+     }
+    },
+    {
+     "text": "Restless. I'm already moving.",
+     "attrs": {
+      "agility": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "pace",
+   "ask": "What do you want your first days to be like?",
+   "answers": [
+    {
+     "text": "Fights. Show me the deep and something to hit.",
+     "attrs": {
+      "might": 1
+     },
+     "gift": {
+      "items": {
+       "healing_salve": 1
+      }
+     },
+     "pace": "fighter",
+     "note": "The game will point you at a weapon, a Path and the stairs first."
+    },
+    {
+     "text": "A bench, a hearth, and good materials.",
+     "free": 1,
+     "gift": {
+      "skill_xp": {
+       "smithing": 25,
+       "alchemy": 25
+      }
+     },
+     "pace": "crafter",
+     "note": "The game will point you at the benches first. Every craft has a small skill game, and you can skip it."
+    },
+    {
+     "text": "Roads. I want to see what is over the next hill.",
+     "attrs": {
+      "agility": 1
+     },
+     "gift": {
+      "gold": 12
+     },
+     "pace": "wanderer",
+     "note": "The game will point you at the waystones and the way down first."
+    },
+    {
+     "text": "Answers. Why the deep is there at all.",
+     "attrs": {
+      "spirit": 1
+     },
+     "gift": {
+      "insight": 3
+     },
+     "pace": "scholar",
+     "note": "The game will point you at teachers, your journal and meditation first."
+    }
+   ]
+  },
+  {
+   "id": "road",
+   "ask": "How much of who you are will you leave to the road?",
+   "answers": [
+    {
+     "text": "Nothing. I know exactly who I am.",
+     "lean": 2,
+     "note": "+2 more to what you lean toward most."
+    },
+    {
+     "text": "A little. I know mostly.",
+     "lean": 1,
+     "free": 1,
+     "note": "+1 to what you lean toward, +1 to spend."
+    },
+    {
+     "text": "All of it. The road will tell me.",
+     "free": 2,
+     "note": "+2 to spend however you like."
+    }
+   ]
+  }
+ ],
+ "look": {
+  "sex": [
+   [
+    "m",
+    "A man"
+   ],
+   [
+    "f",
+    "A woman"
+   ]
+  ],
+  "skin": [
+   [
+    0,
+    "Fair"
+   ],
+   [
+    1,
+    "Dark"
+   ]
+  ],
+  "hair": [
+   [
+    "topknot",
+    "A topknot"
+   ],
+   [
+    "short",
+    "Short"
+   ],
+   [
+    "long",
+    "Long"
+   ],
+   [
+    "buzzed",
+    "Cropped close"
+   ],
+   [
+    "bald",
+    "Shaved"
+   ]
+  ],
+  "hair_color": [
+   [
+    [
+     0.08,
+     0.07,
+     0.07
+    ],
+    "Black"
+   ],
+   [
+    [
+     0.25,
+     0.15,
+     0.08
+    ],
+    "Dark brown"
+   ],
+   [
+    [
+     0.45,
+     0.3,
+     0.15
+    ],
+    "Brown"
+   ],
+   [
+    [
+     0.7,
+     0.55,
+     0.3
+    ],
+    "Sandy"
+   ],
+   [
+    [
+     0.85,
+     0.85,
+     0.85
+    ],
+    "White"
+   ],
+   [
+    [
+     0.5,
+     0.15,
+     0.1
+    ],
+    "Red"
+   ]
+  ],
+  "beard": [
+   [
+    false,
+    "Clean-shaven"
+   ],
+   [
+    true,
+    "A beard"
+   ]
+  ]
+ },
+ "names": {
+  "m": [
+   "Wei",
+   "Jin",
+   "Bo",
+   "Kai",
+   "Ren",
+   "Tao",
+   "Lun",
+   "Shu"
+  ],
+  "f": [
+   "Lan",
+   "Mei",
+   "Yun",
+   "Hua",
+   "Xia",
+   "Ling",
+   "Qiu",
+   "Rui"
+  ]
+ }
+}

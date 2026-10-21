@@ -1,0 +1,20 @@
+# systemd unit: copy to /etc/systemd/system/, edit the paths and the two Supabase lines, then
+#   systemctl daemon-reload && systemctl enable --now elite-online
+[Unit]
+Description=Elite Online (Dungeon Crawl Elite shared world)
+After=network.target
+
+[Service]
+User=elite
+WorkingDirectory=/opt/elite/tools/server
+Environment=ELITE_DATA=/opt/elite/data
+Environment=ELITE_DB=/var/lib/elite/elite.db
+Environment=ELITE_SUPABASE_URL=https://YOURPROJECT.supabase.co
+Environment=ELITE_SUPABASE_ANON=YOUR_PUBLIC_ANON_KEY
+Environment=ELITE_MIN_BUILD=2026101704
+ExecStart=/usr/bin/python3 /opt/elite/tools/server/elite_server.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

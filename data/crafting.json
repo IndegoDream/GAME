@@ -1,0 +1,1369 @@
+{
+ "note": "Round 27 (Claude, 2026-10-03): what materials ARE, and what they do together. Robert: 'allow for items, reagents, ores, gems and plants to have different attributes that can be combined with other materials to create synergistic effects or improve the odds of success, failure and unexpected benefits ... allow recipes to be bought or created through trial and error.' Game.gd reads this; a material the forge adds later with no entry here gets traits read from its name and description (Game.material_traits).",
+ "traits": {
+  "hard": {
+   "name": "Hard",
+   "effect": "ward",
+   "per": 1.6,
+   "desc": "turns blows aside (ward)"
+  },
+  "supple": {
+   "name": "Supple",
+   "effect": "attack_speed",
+   "per": 0.012,
+   "desc": "moves with you (quicker strikes, lighter)"
+  },
+  "vital": {
+   "name": "Vital",
+   "effect": "hp_mult",
+   "per": 0.014,
+   "desc": "full of life (more health)"
+  },
+  "keen": {
+   "name": "Keen",
+   "effect": "damage_mult",
+   "per": 0.014,
+   "desc": "wants to cut (more damage)"
+  },
+  "conductive": {
+   "name": "Conductive",
+   "effect": "qi_mult",
+   "per": 0.012,
+   "desc": "qi runs through it (more qi)"
+  },
+  "resonant": {
+   "name": "Resonant",
+   "effect": "meditate_mult",
+   "per": 0.03,
+   "desc": "hums with you when you sit (deeper meditation)"
+  },
+  "warding": {
+   "name": "Warding",
+   "effect": "damage_taken",
+   "per": -0.011,
+   "desc": "keeps harm out (less damage taken)"
+  },
+  "volatile": {
+   "name": "Volatile",
+   "effect": "damage_mult",
+   "per": 0.02,
+   "desc": "power that wants out (more damage -- and risk at the bench)"
+  },
+  "binding": {
+   "name": "Binding",
+   "effect": "craft_success",
+   "per": 0.008,
+   "desc": "holds things together (steadier work, safer mixes)"
+  },
+  "nano": {
+   "name": "Nano",
+   "effect": "swarm_mult",
+   "per": 0.03,
+   "desc": "the old machines live in it (the swarm grows faster)"
+  },
+  "seeking": {
+   "name": "Seeking",
+   "effect": "gather_chance",
+   "per": 0.012,
+   "desc": "finds things (better gathering)"
+  },
+  "living": {
+   "name": "Living",
+   "effect": "heal_on_kill",
+   "per": 1.2,
+   "desc": "grows back (health from each kill)"
+  }
+ },
+ "synergies": [
+  {
+   "a": "hard",
+   "b": "binding",
+   "name": "Tempered",
+   "effect": {
+    "ward": 4.0
+   }
+  },
+  {
+   "a": "keen",
+   "b": "volatile",
+   "name": "Searing",
+   "effect": {
+    "damage_mult": 0.05
+   }
+  },
+  {
+   "a": "conductive",
+   "b": "resonant",
+   "name": "Singing",
+   "effect": {
+    "qi_mult": 0.04,
+    "meditate_mult": 0.08
+   },
+   "tuned": true
+  },
+  {
+   "a": "vital",
+   "b": "living",
+   "name": "Evergreen",
+   "effect": {
+    "regen": 0.5
+   }
+  },
+  {
+   "a": "nano",
+   "b": "conductive",
+   "name": "Neural",
+   "effect": {
+    "attack_speed": 0.03,
+    "swarm_mult": 0.05
+   },
+   "tuned": true
+  },
+  {
+   "a": "warding",
+   "b": "resonant",
+   "name": "Quiet Shell",
+   "effect": {
+    "damage_taken": -0.04
+   },
+   "tuned": true
+  },
+  {
+   "a": "volatile",
+   "b": "binding",
+   "name": "Caged Storm",
+   "effect": {
+    "damage_mult": 0.04
+   },
+   "steadies": true
+  },
+  {
+   "a": "keen",
+   "b": "hard",
+   "name": "Honed",
+   "effect": {
+    "damage_mult": 0.035
+   }
+  },
+  {
+   "a": "supple",
+   "b": "conductive",
+   "name": "Flowing",
+   "effect": {
+    "attack_speed": 0.04
+   }
+  },
+  {
+   "a": "nano",
+   "b": "vital",
+   "name": "Mending Swarm",
+   "effect": {
+    "regen": 0.7
+   }
+  },
+  {
+   "a": "seeking",
+   "b": "resonant",
+   "name": "Far-sensing",
+   "effect": {
+    "sense_radius": 3.0,
+    "gather_chance": 0.03
+   }
+  },
+  {
+   "a": "nano",
+   "b": "warding",
+   "name": "Adaptive",
+   "effect": {
+    "damage_taken": -0.045
+   }
+  },
+  {
+   "a": "living",
+   "b": "resonant",
+   "name": "Heartwood Calm",
+   "effect": {
+    "meditate_mult": 0.1
+   },
+   "tuned": true
+  },
+  {
+   "a": "supple",
+   "b": "hard",
+   "name": "Layered",
+   "effect": {
+    "ward": 3.0,
+    "light": 0.15
+   }
+  },
+  {
+   "a": "vital",
+   "b": "warding",
+   "name": "Bulwark",
+   "effect": {
+    "hp_mult": 0.03,
+    "damage_taken": -0.02
+   }
+  },
+  {
+   "a": "seeking",
+   "b": "keen",
+   "name": "Hunter's",
+   "effect": {
+    "damage_mult": 0.025,
+    "gather_chance": 0.03
+   }
+  }
+ ],
+ "materials": {
+  "iron_ore": {
+   "element": "metal",
+   "traits": {
+    "hard": 2,
+    "binding": 1
+   }
+  },
+  "spirit_herb": {
+   "element": "wood",
+   "traits": {
+    "vital": 2,
+    "conductive": 1
+   }
+  },
+  "goblin_tooth": {
+   "element": "earth",
+   "traits": {
+    "keen": 1,
+    "volatile": 1
+   }
+  },
+  "bone_shard": {
+   "element": "earth",
+   "traits": {
+    "hard": 1,
+    "warding": 1
+   }
+  },
+  "silver_ore": {
+   "element": "metal",
+   "traits": {
+    "conductive": 2,
+    "warding": 1
+   }
+  },
+  "nanite_shard": {
+   "element": "metal",
+   "traits": {
+    "nano": 3,
+    "conductive": 1
+   }
+  },
+  "warden_core": {
+   "element": "metal",
+   "traits": {
+    "nano": 4,
+    "warding": 2,
+    "resonant": 1
+   }
+  },
+  "rough_jade": {
+   "element": "earth",
+   "traits": {
+    "resonant": 2,
+    "vital": 1
+   }
+  },
+  "rough_ruby": {
+   "element": "fire",
+   "traits": {
+    "keen": 2,
+    "volatile": 1
+   }
+  },
+  "sapphire_shard": {
+   "element": "water",
+   "traits": {
+    "resonant": 2,
+    "binding": 1
+   }
+  },
+  "gold_nugget": {
+   "element": "metal",
+   "traits": {
+    "conductive": 1,
+    "binding": 2
+   }
+  },
+  "ember_root": {
+   "element": "fire",
+   "traits": {
+    "volatile": 2,
+    "living": 1
+   }
+  },
+  "moonpetal": {
+   "element": "water",
+   "traits": {
+    "resonant": 1,
+    "living": 1,
+    "supple": 1
+   }
+  },
+  "iron_thistle": {
+   "element": "wood",
+   "traits": {
+    "supple": 1,
+    "keen": 1
+   }
+  },
+  "cave_carp": {
+   "element": "water",
+   "traits": {
+    "living": 1,
+    "vital": 1
+   }
+  },
+  "glowfin_eel": {
+   "element": "water",
+   "traits": {
+    "conductive": 2,
+    "seeking": 1
+   }
+  },
+  "beast_hide": {
+   "element": "earth",
+   "traits": {
+    "supple": 2,
+    "warding": 1
+   }
+  },
+  "spirit_resin": {
+   "element": "wood",
+   "traits": {
+    "binding": 3
+   }
+  },
+  "heartwood": {
+   "element": "wood",
+   "traits": {
+    "living": 2,
+    "hard": 1,
+    "resonant": 1
+   }
+  },
+  "verdant_heart": {
+   "element": "wood",
+   "traits": {
+    "living": 3,
+    "vital": 3,
+    "resonant": 1
+   }
+  },
+  "firestone": {
+   "element": "fire",
+   "traits": {
+    "volatile": 2,
+    "keen": 1
+   }
+  },
+  "slag_iron": {
+   "element": "metal",
+   "traits": {
+    "hard": 3,
+    "volatile": 1
+   }
+  },
+  "sovereign_ember": {
+   "element": "fire",
+   "traits": {
+    "volatile": 3,
+    "keen": 3,
+    "resonant": 1
+   }
+  },
+  "ancient_clay": {
+   "element": "earth",
+   "traits": {
+    "binding": 2,
+    "warding": 1
+   }
+  },
+  "emperor_jade": {
+   "element": "earth",
+   "traits": {
+    "resonant": 2,
+    "warding": 2
+   }
+  },
+  "imperial_seal": {
+   "element": "earth",
+   "traits": {
+    "binding": 3,
+    "warding": 3,
+    "resonant": 1
+   }
+  },
+  "grave_steel": {
+   "element": "metal",
+   "traits": {
+    "keen": 3,
+    "hard": 2
+   }
+  },
+  "sword_intent_shard": {
+   "element": "metal",
+   "traits": {
+    "keen": 4,
+    "volatile": 2
+   }
+  },
+  "abyssal_pearl": {
+   "element": "water",
+   "traits": {
+    "conductive": 2,
+    "resonant": 2
+   }
+  },
+  "coral_bone": {
+   "element": "water",
+   "traits": {
+    "hard": 2,
+    "living": 1
+   }
+  },
+  "cloud_jade": {
+   "element": "earth",
+   "traits": {
+    "supple": 2,
+    "resonant": 2
+   }
+  },
+  "immortal_dust": {
+   "element": "earth",
+   "traits": {
+    "resonant": 2,
+    "seeking": 2
+   }
+  },
+  "glowcap_spore": {
+   "element": "wood",
+   "traits": {
+    "seeking": 2,
+    "volatile": 1
+   }
+  },
+  "mycelium_thread": {
+   "element": "wood",
+   "traits": {
+    "supple": 2,
+    "binding": 1,
+    "living": 1
+   }
+  },
+  "storm_glass": {
+   "element": "fire",
+   "traits": {
+    "conductive": 3,
+    "volatile": 2
+   }
+  },
+  "thunder_iron": {
+   "element": "metal",
+   "traits": {
+    "hard": 2,
+    "conductive": 2,
+    "volatile": 1
+   }
+  },
+  "dragon_scale_shard": {
+   "element": "fire",
+   "traits": {
+    "hard": 3,
+    "warding": 2
+   }
+  },
+  "drake_blood": {
+   "element": "fire",
+   "traits": {
+    "vital": 2,
+    "volatile": 2
+   }
+  },
+  "singing_crystal": {
+   "element": "water",
+   "traits": {
+    "resonant": 3,
+    "conductive": 1
+   }
+  },
+  "resonant_dust": {
+   "element": "earth",
+   "traits": {
+    "resonant": 2,
+    "seeking": 1
+   }
+  },
+  "bloodsap": {
+   "element": "wood",
+   "traits": {
+    "vital": 3,
+    "binding": 1
+   }
+  },
+  "crimson_bark": {
+   "element": "wood",
+   "traits": {
+    "hard": 2,
+    "supple": 1
+   }
+  },
+  "star_iron": {
+   "element": "metal",
+   "traits": {
+    "hard": 3,
+    "keen": 2
+   }
+  },
+  "meteor_glass": {
+   "element": "fire",
+   "traits": {
+    "seeking": 2,
+    "conductive": 2
+   }
+  },
+  "brass_cog": {
+   "element": "metal",
+   "traits": {
+    "nano": 2,
+    "binding": 2
+   }
+  },
+  "oil_of_motion": {
+   "element": "water",
+   "traits": {
+    "supple": 3,
+    "nano": 1
+   }
+  },
+  "spirit_silk": {
+   "element": "wood",
+   "traits": {
+    "supple": 3,
+    "conductive": 2
+   }
+  },
+  "venom_sac": {
+   "element": "water",
+   "traits": {
+    "keen": 2,
+    "volatile": 2
+   }
+  },
+  "ash_glass": {
+   "element": "fire",
+   "traits": {
+    "warding": 2,
+    "keen": 1
+   }
+  },
+  "sunbaked_bone": {
+   "element": "earth",
+   "traits": {
+    "hard": 3,
+    "warding": 1
+   }
+  },
+  "rime_ink": {
+   "element": "water",
+   "traits": {
+    "binding": 2,
+    "resonant": 2
+   }
+  },
+  "frost_vellum": {
+   "element": "water",
+   "traits": {
+    "warding": 2,
+    "supple": 1
+   }
+  },
+  "mirror_silver": {
+   "element": "metal",
+   "traits": {
+    "warding": 3,
+    "conductive": 1
+   }
+  },
+  "true_reflection": {
+   "element": "metal",
+   "traits": {
+    "resonant": 3,
+    "seeking": 2,
+    "warding": 1
+   }
+  },
+  "wire_thistle": {
+   "element": "metal",
+   "traits": {
+    "conductive": 2,
+    "supple": 1
+   }
+  },
+  "static_moss": {
+   "element": "wood",
+   "traits": {
+    "living": 2,
+    "nano": 1
+   }
+  },
+  "scrap_alloy": {
+   "element": "metal",
+   "traits": {
+    "hard": 2,
+    "conductive": 1
+   }
+  },
+  "ion_crystal": {
+   "element": "metal",
+   "traits": {
+    "resonant": 2,
+    "conductive": 2
+   }
+  },
+  "beacon_glass": {
+   "element": "fire",
+   "traits": {
+    "keen": 1,
+    "seeking": 2
+   }
+  },
+  "gantry_steel": {
+   "element": "metal",
+   "traits": {
+    "hard": 3,
+    "binding": 1
+   }
+  },
+  "vent_lichen": {
+   "element": "wood",
+   "traits": {
+    "vital": 1,
+    "warding": 1
+   }
+  },
+  "halcyon_basil": {
+   "element": "wood",
+   "traits": {
+    "vital": 2,
+    "living": 2
+   }
+  },
+  "lumen_fern": {
+   "element": "wood",
+   "traits": {
+    "seeking": 2,
+    "resonant": 1
+   }
+  },
+  "cryo_lotus": {
+   "element": "water",
+   "traits": {
+    "warding": 2,
+    "vital": 1
+   }
+  },
+  "station_titanium": {
+   "element": "metal",
+   "traits": {
+    "hard": 3,
+    "supple": 1
+   }
+  },
+  "quantum_quartz": {
+   "element": "water",
+   "traits": {
+    "resonant": 3,
+    "nano": 1
+   }
+  },
+  "lunar_lichen": {
+   "element": "wood",
+   "traits": {
+    "vital": 1,
+    "warding": 2
+   }
+  },
+  "lunar_iron": {
+   "element": "metal",
+   "traits": {
+    "hard": 2,
+    "binding": 2
+   }
+  },
+  "helium_ice": {
+   "element": "water",
+   "traits": {
+    "volatile": 2,
+    "resonant": 1
+   }
+  },
+  "moon_dust_glass": {
+   "element": "earth",
+   "traits": {
+    "keen": 2,
+    "seeking": 1
+   }
+  },
+  "mirage_bloom": {
+   "element": "fire",
+   "traits": {
+    "seeking": 2,
+    "volatile": 1,
+    "vital": 1
+   }
+  },
+  "sunreed": {
+   "element": "wood",
+   "traits": {
+    "supple": 2,
+    "living": 1
+   }
+  },
+  "fulgurite": {
+   "element": "fire",
+   "traits": {
+    "conductive": 3,
+    "keen": 1
+   }
+  },
+  "sun_glass": {
+   "element": "fire",
+   "traits": {
+    "keen": 2,
+    "resonant": 2,
+    "volatile": 1
+   }
+  },
+  "nanite_ingot": {
+   "element": "metal",
+   "traits": {
+    "nano": 3,
+    "hard": 2
+   }
+  },
+  "coolant_core": {
+   "element": "water",
+   "traits": {
+    "warding": 2,
+    "conductive": 2
+   }
+  },
+  "reactor_ember": {
+   "element": "fire",
+   "traits": {
+    "volatile": 3,
+    "keen": 1
+   }
+  },
+  "slag_orchid": {
+   "element": "fire",
+   "traits": {
+    "vital": 1,
+    "volatile": 2
+   }
+  }
+ },
+ "products": {
+  "thistle_linen": {
+   "name": "Thistle Linen",
+   "value": 24,
+   "element": "wood",
+   "traits": {
+    "supple": 2,
+    "vital": 1
+   },
+   "desc": "Thistle fibre retted and woven fine. Good cloth for a cultivator who moves."
+  },
+  "tempered_steel": {
+   "name": "Tempered Steel",
+   "value": 70,
+   "element": "metal",
+   "traits": {
+    "hard": 3,
+    "binding": 2,
+    "keen": 1
+   },
+   "desc": "Iron folded with firestone's heat and bound with resin. Holds an edge and a shape."
+  },
+  "nanoweave_thread": {
+   "name": "Nanoweave Thread",
+   "value": 120,
+   "element": "metal",
+   "traits": {
+    "nano": 3,
+    "supple": 3,
+    "conductive": 2
+   },
+   "desc": "Spirit silk the swarm has threaded itself through. It moves before you do."
+  },
+  "lattice_alloy": {
+   "name": "Lattice Alloy",
+   "value": 110,
+   "element": "metal",
+   "traits": {
+    "nano": 3,
+    "hard": 2,
+    "conductive": 1
+   },
+   "desc": "Iron and silver the nanites hold in a lattice. Light, and it remembers its shape."
+  },
+  "qi_lacquer": {
+   "name": "Qi Lacquer",
+   "value": 60,
+   "element": "water",
+   "traits": {
+    "resonant": 2,
+    "binding": 3,
+    "warding": 1
+   },
+   "desc": "Resin, moonpetal and jade dust. A coat of it makes anything steadier at the bench."
+  },
+  "ember_alloy": {
+   "name": "Ember Alloy",
+   "value": 110,
+   "element": "fire",
+   "traits": {
+    "hard": 3,
+    "volatile": 2,
+    "keen": 2
+   },
+   "desc": "Slag-iron that took an ember root's fire into itself. Always a little warm."
+  },
+  "living_leather": {
+   "name": "Living Leather",
+   "value": 85,
+   "element": "wood",
+   "traits": {
+    "supple": 2,
+    "living": 2,
+    "vital": 2
+   },
+   "desc": "Hide cured in bloodsap over heartwood. Scratches close on it overnight."
+  },
+  "storm_filament": {
+   "name": "Storm Filament",
+   "value": 160,
+   "element": "fire",
+   "traits": {
+    "conductive": 4,
+    "nano": 2,
+    "volatile": 1
+   },
+   "desc": "Lightning-glass drawn into wire by the swarm. It crackles when you're angry."
+  },
+  "moonsilver": {
+   "name": "Moonsilver",
+   "value": 95,
+   "element": "water",
+   "traits": {
+    "conductive": 2,
+    "resonant": 3
+   },
+   "desc": "Silver smelted by moonlight with sapphire and moonpetal. It sings when you sit."
+  },
+  "dragonhide": {
+   "name": "Dragonhide",
+   "value": 190,
+   "element": "fire",
+   "traits": {
+    "hard": 3,
+    "warding": 3,
+    "vital": 1
+   },
+   "desc": "Scale set into hide with the drake's own blood."
+  },
+  "swarm_core_lattice": {
+   "name": "Swarm-core Lattice",
+   "value": 420,
+   "element": "metal",
+   "traits": {
+    "nano": 5,
+    "warding": 2,
+    "binding": 2
+   },
+   "desc": "A warden's core, opened and spread into plates. It thinks about the blows before they land."
+  },
+  "starsteel": {
+   "name": "Starsteel",
+   "value": 230,
+   "element": "metal",
+   "traits": {
+    "hard": 4,
+    "keen": 3,
+    "seeking": 1
+   },
+   "desc": "Sky-iron and grave-steel, folded with meteor glass. Nothing on this world is harder."
+  },
+  "dreamsilk": {
+   "name": "Dreamsilk",
+   "value": 240,
+   "element": "water",
+   "traits": {
+    "supple": 3,
+    "resonant": 4
+   },
+   "desc": "Spirit silk soaked in a singing crystal's hum. Sitting in it is like sleeping."
+  },
+  "mirrorglass": {
+   "name": "Mirrorglass",
+   "value": 200,
+   "element": "metal",
+   "traits": {
+    "warding": 4,
+    "resonant": 1
+   },
+   "desc": "Mirror-silver fused to ash glass. Harm looks at it and sees itself."
+  },
+  "bone_lacquer": {
+   "name": "Lacquered Bone",
+   "value": 30,
+   "element": "earth",
+   "traits": {
+    "hard": 2,
+    "warding": 2,
+    "binding": 1
+   },
+   "desc": "Bone plates boiled in resin until they stop being brittle."
+  },
+  "ion_alloy": {
+   "name": "Ion Alloy",
+   "value": 190,
+   "element": "metal",
+   "traits": {
+    "hard": 3,
+    "conductive": 3,
+    "resonant": 1
+   },
+   "desc": "Hull plate drawn out with a charged crystal. It takes a current and keeps it."
+  },
+  "lumen_extract": {
+   "name": "Lumen Extract",
+   "value": 210,
+   "element": "wood",
+   "traits": {
+    "vital": 3,
+    "living": 2,
+    "seeking": 1
+   },
+   "desc": "A bright tonic base pressed from station-grown leaf."
+  },
+  "lunar_steel": {
+   "name": "Lunar Steel",
+   "value": 260,
+   "element": "metal",
+   "traits": {
+    "hard": 3,
+    "binding": 3,
+    "volatile": 1
+   },
+   "desc": "Moon iron folded around a sliver of helium ice. The grain never rusts."
+  },
+  "sunglass_lens": {
+   "name": "Sun-Glass Lens",
+   "value": 300,
+   "element": "fire",
+   "traits": {
+    "keen": 3,
+    "resonant": 3,
+    "seeking": 1
+   },
+   "desc": "A ground lens that gathers light into a point."
+  },
+  "foundry_plate": {
+   "name": "Foundry Plate",
+   "value": 340,
+   "element": "metal",
+   "traits": {
+    "nano": 3,
+    "hard": 3,
+    "warding": 1
+   },
+   "desc": "Girder steel cast with the swarm's own ingot. The plate adjusts to what hits it."
+  },
+  "skyweave": {
+   "name": "Skyweave",
+   "value": 230,
+   "element": "wood",
+   "traits": {
+    "supple": 3,
+    "seeking": 1,
+    "resonant": 1
+   },
+   "desc": "A cloth woven from desert reed and fern-light. Light as a thought."
+  }
+ },
+ "formulas": [
+  {
+   "id": "thistle_linen",
+   "needs": {
+    "iron_thistle": 2,
+    "spirit_herb": 1
+   },
+   "makes": "thistle_linen",
+   "n": 1,
+   "skill": "jewelcrafting",
+   "difficulty": 0,
+   "price": 40,
+   "sold": [
+    "merchant"
+   ],
+   "hint": "Thistle fibres, softened with a herb that drinks qi."
+  },
+  {
+   "id": "bone_lacquer",
+   "needs": {
+    "bone_shard": 2,
+    "spirit_resin": 1
+   },
+   "makes": "bone_lacquer",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 1,
+   "price": 50,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Old bone and amber sap, boiled together."
+  },
+  {
+   "id": "tempered_steel",
+   "needs": {
+    "iron_ore": 2,
+    "firestone": 1,
+    "spirit_resin": 1
+   },
+   "makes": "tempered_steel",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 3,
+   "price": 120,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Iron, a stone that holds fire, and something to bind them."
+  },
+  {
+   "id": "qi_lacquer",
+   "needs": {
+    "spirit_resin": 1,
+    "moonpetal": 1,
+    "rough_jade": 1
+   },
+   "makes": "qi_lacquer",
+   "n": 2,
+   "skill": "alchemy",
+   "difficulty": 2,
+   "price": 90,
+   "sold": [
+    "alchemist",
+    "merchant"
+   ],
+   "hint": "Sap, a night flower and a warm green stone."
+  },
+  {
+   "id": "living_leather",
+   "needs": {
+    "beast_hide": 2,
+    "bloodsap": 1,
+    "heartwood": 1
+   },
+   "makes": "living_leather",
+   "n": 1,
+   "skill": "jewelcrafting",
+   "difficulty": 4,
+   "price": 150,
+   "sold": [
+    "merchant"
+   ],
+   "hint": "Hide, red sap that clots, and the living core of a tree."
+  },
+  {
+   "id": "moonsilver",
+   "needs": {
+    "silver_ore": 2,
+    "moonpetal": 1,
+    "sapphire_shard": 1
+   },
+   "makes": "moonsilver",
+   "n": 1,
+   "skill": "jewelcrafting",
+   "difficulty": 4,
+   "price": 160,
+   "sold": [
+    "merchant",
+    "alchemist"
+   ],
+   "hint": "Silver, a cold blue stone, and a flower that opens in the dark."
+  },
+  {
+   "id": "ember_alloy",
+   "needs": {
+    "slag_iron": 1,
+    "ember_root": 1,
+    "firestone": 1
+   },
+   "makes": "ember_alloy",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 5,
+   "price": 190,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Black iron, a warm root, and a warmer stone."
+  },
+  {
+   "id": "nanoweave_thread",
+   "needs": {
+    "nanite_shard": 1,
+    "spirit_silk": 1
+   },
+   "makes": "nanoweave_thread",
+   "n": 2,
+   "skill": "jewelcrafting",
+   "difficulty": 4,
+   "price": 0,
+   "node": "filament_spinning",
+   "hint": "The swarm, given silk to climb."
+  },
+  {
+   "id": "lattice_alloy",
+   "needs": {
+    "nanite_shard": 2,
+    "iron_ore": 1,
+    "silver_ore": 1
+   },
+   "makes": "lattice_alloy",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 4,
+   "price": 0,
+   "node": "lattice_plating",
+   "hint": "Two metals, and nanites to hold them in a lattice."
+  },
+  {
+   "id": "storm_filament",
+   "needs": {
+    "storm_glass": 1,
+    "silver_ore": 1,
+    "nanite_shard": 1
+   },
+   "makes": "storm_filament",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 7,
+   "price": 0,
+   "secret": true,
+   "hint": "Lightning's glass, a bright metal, and the swarm to draw them into wire."
+  },
+  {
+   "id": "dragonhide",
+   "needs": {
+    "dragon_scale_shard": 1,
+    "beast_hide": 2,
+    "drake_blood": 1
+   },
+   "makes": "dragonhide",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 8,
+   "price": 320,
+   "sold": [
+    "smith"
+   ],
+   "hint": "A scale, a hide, and the blood of the thing the scale came from."
+  },
+  {
+   "id": "starsteel",
+   "needs": {
+    "star_iron": 1,
+    "grave_steel": 1,
+    "meteor_glass": 1
+   },
+   "makes": "starsteel",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 10,
+   "price": 420,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Sky iron, a buried blade's steel, and the glass from where the sky iron fell."
+  },
+  {
+   "id": "dreamsilk",
+   "needs": {
+    "spirit_silk": 1,
+    "singing_crystal": 1,
+    "cloud_jade": 1
+   },
+   "makes": "dreamsilk",
+   "n": 1,
+   "skill": "jewelcrafting",
+   "difficulty": 9,
+   "price": 400,
+   "sold": [
+    "merchant"
+   ],
+   "hint": "Silk, a crystal that hums, and jade light enough to float."
+  },
+  {
+   "id": "mirrorglass",
+   "needs": {
+    "mirror_silver": 1,
+    "ash_glass": 1
+   },
+   "makes": "mirrorglass",
+   "n": 1,
+   "skill": "jewelcrafting",
+   "difficulty": 9,
+   "price": 0,
+   "secret": true,
+   "hint": "Two things that show you yourself."
+  },
+  {
+   "id": "swarm_core_lattice",
+   "needs": {
+    "warden_core": 1,
+    "nanite_shard": 2,
+    "brass_cog": 1
+   },
+   "makes": "swarm_core_lattice",
+   "n": 2,
+   "skill": "smithing",
+   "difficulty": 9,
+   "price": 0,
+   "node": "swarm_shell",
+   "hint": "A machine's heart, the swarm, and a cog that turns on its own."
+  },
+  {
+   "id": "ion_alloy",
+   "needs": {
+    "scrap_alloy": 2,
+    "ion_crystal": 1
+   },
+   "makes": "ion_alloy",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 5,
+   "price": 220,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Scrap plating and a crystal that remembers lightning."
+  },
+  {
+   "id": "lumen_extract",
+   "needs": {
+    "halcyon_basil": 2,
+    "lumen_fern": 1
+   },
+   "makes": "lumen_extract",
+   "n": 1,
+   "skill": "alchemy",
+   "difficulty": 5,
+   "price": 240,
+   "sold": [
+    "alchemist"
+   ],
+   "hint": "Basil and fern, pressed cold under a lamp."
+  },
+  {
+   "id": "lunar_steel",
+   "needs": {
+    "lunar_iron": 2,
+    "helium_ice": 1
+   },
+   "makes": "lunar_steel",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 8,
+   "price": 300,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Iron from the moon, quenched in its own cold."
+  },
+  {
+   "id": "sunglass_lens",
+   "needs": {
+    "sun_glass": 2,
+    "mirage_bloom": 1
+   },
+   "makes": "sunglass_lens",
+   "n": 1,
+   "skill": "jewelcrafting",
+   "difficulty": 8,
+   "price": 340,
+   "sold": [
+    "merchant"
+   ],
+   "hint": "Desert glass, ground with a flower that isn't there."
+  },
+  {
+   "id": "foundry_plate",
+   "needs": {
+    "nanite_ingot": 2,
+    "gantry_steel": 1
+   },
+   "makes": "foundry_plate",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 10,
+   "price": 380,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Girder steel and a swarm-cast ingot, poured together."
+  },
+  {
+   "id": "skyweave",
+   "needs": {
+    "sunreed": 2,
+    "lumen_fern": 1
+   },
+   "makes": "skyweave",
+   "n": 1,
+   "skill": "jewelcrafting",
+   "difficulty": 6,
+   "price": 260,
+   "sold": [
+    "merchant"
+   ],
+   "hint": "Reed fibre and fern, spun until it glows faintly."
+  }
+ ],
+ "odds": {
+  "base": 0.55,
+  "per_skill": 0.03,
+  "binding": 0.045,
+  "volatile": -0.05,
+  "generates": 0.07,
+  "overcomes": -0.06,
+  "formula": 0.22,
+  "no_bench": -0.12,
+  "min": 0.08,
+  "max": 0.96,
+  "luck_base": 0.05,
+  "luck_volatile": 0.03,
+  "luck_resonant": 0.015,
+  "luck_overcomes": 0.04
+ },
+ "infusions": [
+  2,
+  2,
+  3,
+  4,
+  5
+ ]
+}

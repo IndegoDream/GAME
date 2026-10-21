@@ -1,0 +1,57 @@
+{
+  "brief": "waystone_words",
+  "title": "Words carved on the waystones",
+  "by": "Dev (local model), checked by the writing room",
+  "status": "draft -- Claude integrates",
+  "items": [
+    {
+      "id": "w_01",
+      "text": "Touch the stone if you are lost; it remembers the road home."
+    },
+    {
+      "id": "w_02",
+      "text": "Touch my ring. The light will pull you home from any dark place."
+    },
+    {
+      "id": "w_3",
+      "text": "Stone hums cold. Touch it to return home."
+    },
+    {
+      "id": "w_4",
+      "text": "Stone hums when touched; light rings for Eliet."
+    },
+    {
+      "id": "w_05",
+      "text": "The stone hums warm; touch the ring to return home if you bleed out in the dark."
+    },
+    {
+      "id": "w_6",
+      "text": "Touch me to rest; I hold the name for Smith Hale."
+    },
+    {
+      "id": "w_07",
+      "text": "The stone here hums softly; keep your nanites quiet and do not touch the runes until you are ready."
+    },
+    {
+      "id": "w_08",
+      "text": "Stand steady on the stone where light hums below your hand."
+    },
+    {
+      "id": "w_09",
+      "text": "The stone hums when you touch it. Nine died down there. One came back with a map."
+    },
+    {
+      "id": "w_10",
+      "text": "Touch me and step back to Eliet's cold hearth."
+    },
+    {
+      "id": "w_11",
+      "text": "The stone hums when you stand near the deep dark."
+    },
+    {
+      "id": "w_12",
+      "text": "Welcome home, child. The stone remembers the first nine who went down."
+    }
+  ],
+  "helped": []
+}

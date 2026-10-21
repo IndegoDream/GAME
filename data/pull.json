@@ -1,0 +1,41 @@
+{
+"_about": "Round 152: the pull -- almost-there teasers, a sitting readout, omens in the deep, bark lines from the beasts and people at your side, petting and feeding, streak titles. Nothing here is paid or exclusive. (scripts/systems/Pull.gd)",
+"teaser": {"min_frac": 0.55, "max": 3},
+"omen": {"chance": 0.42, "valley_chance": 0.6, "weights": {"cache": 50, "spirit": 30, "sage": 20}, "rest": 90.0},
+"bark": {"cool": 45.0, "chance": 0.55},
+"pet": {"cool": 480.0, "bond": 0.6, "feed_bond": 2.0, "feed_cool": 240.0, "feed_items": ["raw_meat", "spirit_herb", "bone_broth", "moonpetal"]},
+"streak_titles": {"7": "Steady Footed", "14": "Fortnight Walker", "30": "Unbroken Month", "60": "Two Moons Without a Miss", "100": "Hundred-Day Pilgrim"},
+"starter_weapon": "iron_sword",
+"omens": {
+  "cache": {"name": "A glint in the dark", "color": [1.0, 0.82, 0.35], "found": "A traveller's cache, forgotten and still sealed."},
+  "spirit": {"name": "A wandering spirit", "color": [0.45, 0.9, 1.0], "found": "A spirit of the deep brushes past you, and what it carries settles in you."},
+  "sage": {"name": "A hermit's afterglow", "color": [0.82, 0.62, 1.0], "found": "Where a hermit once sat, understanding lingers like warmth in a stone."}
+},
+"beast_barks": {
+  "tracker": ["sniffs the air and tugs you toward something.", "freezes, nose up: there was something here."],
+  "forager": ["paws at a root, proud of itself.", "noses through the leaves, humming."],
+  "digger": ["scrabbles at the ground, delighted by the dirt.", "sneezes dust and looks smug."],
+  "hunter": ["watches the shadows with bright, patient eyes.", "licks its lips at the smell of game."],
+  "healer": ["presses close, warm against your side.", "breathes slow and even, steadying you."],
+  "guardian": ["plants its feet and faces the dark.", "bumps your leg: stay behind it."],
+  "striker": ["bristles, eager for the next fight.", "scratches the floor, impatient."],
+  "lantern": ["glows a little brighter for you.", "flickers happily."],
+  "scholar": ["tilts its head at the old walls, thinking.", "blinks slowly, as if it has understood something."],
+  "courier": ["circles you, restless to be moving.", "darts ahead and waits, tail high."],
+  "charmer": ["leans on you the way a friend does.", "makes a small, pleased sound."],
+  "lucky": ["trots with its head high, sure the day is good.", "nudges your pocket and looks innocent."],
+  "warden": ["stands steady, a calm weight at your side.", "watches the way back, quietly."],
+  "ember": ["sparks, and looks thrilled with the sparks.", "warms the air around you."],
+  "hoarder": ["pats its cheeks, suspiciously full.", "guards a pebble it thinks is treasure."],
+  "brewer": ["sniffs a leaf and sneezes happily.", "tastes the air and approves."],
+  "fury": ["growls low, then wags, embarrassed.", "paces, ready for trouble."],
+  "mystic": ["hums at nothing, and the air hums back.", "gazes at the dark as if it were a window."],
+  "sentinel": ["keeps its eyes on your back.", "counts steps under its breath."],
+  "marksman": ["tracks something far off with unblinking eyes.", "holds perfectly still, ready."]
+},
+"human_barks": {
+  "guard": {"floor": ["Stay close. I'll take the left.", "Eyes up. Quiet places lie."], "boss": ["That's a big one. I'm with you.", "Good. Now we can breathe."], "clear": ["Floor's ours. Don't get comfortable.", "Well held."]},
+  "scout": {"floor": ["I smell water, and something worse.", "Careful. Something's watching the corner."], "boss": ["Never seen one that big go down that easy.", "You make it look simple."], "clear": ["Clean sweep. Nice.", "That's a floor I'd cross twice."]},
+  "striker": {"floor": ["Let's break something.", "Lead the way, I'll make the noise."], "boss": ["Ha! Did you see that?", "Again! Find me another."], "clear": ["That's how it's done.", "Is that all they had?"]}
+}
+}

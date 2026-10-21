@@ -1,0 +1,439 @@
+{
+ "made": "2026-10-10 17:23",
+ "shaders": {
+  "dissolve": {
+   "ok": true,
+   "why": [],
+   "desc": "A model burns away from one side. Animate `progress` 0 -> 1 (a foe dying, a door fading).",
+   "file": "shaders/dissolve.gdshader",
+   "uniforms": [
+    "albedo",
+    "edge_color",
+    "progress",
+    "edge_width",
+    "noise_scale"
+   ]
+  },
+  "hit_flash": {
+   "ok": true,
+   "why": [],
+   "desc": "Flashes a model white (or any colour) when struck. Set `flash` to 1 and tween it down to 0 in ~0.12 s.",
+   "file": "shaders/hit_flash.gdshader",
+   "uniforms": [
+    "albedo",
+    "albedo_tex",
+    "use_tex",
+    "flash_color",
+    "flash",
+    "roughness"
+   ]
+  },
+  "rim_glow": {
+   "ok": true,
+   "why": [],
+   "desc": "A coloured edge glow that follows the camera: cultivators, relics, selected things, boss auras.",
+   "file": "shaders/rim_glow.gdshader",
+   "uniforms": [
+    "albedo",
+    "rim_color",
+    "rim_power",
+    "rim_strength",
+    "pulse_speed",
+    "pulse_amount"
+   ]
+  },
+  "force_field": {
+   "ok": true,
+   "why": [],
+   "desc": "A see-through energy shell with a bright edge and slow scan lines (shields, barriers, sect formations).",
+   "file": "shaders/force_field.gdshader",
+   "uniforms": [
+    "color",
+    "edge_power",
+    "scan_speed",
+    "scan_lines",
+    "opacity"
+   ]
+  },
+  "lava": {
+   "ok": true,
+   "why": [],
+   "desc": "Flowing molten rock for floors and cracks. Bright seams move slowly through dark crust.",
+   "file": "shaders/lava.gdshader",
+   "uniforms": [
+    "crust_color",
+    "lava_color",
+    "scale",
+    "flow_speed",
+    "glow"
+   ]
+  },
+  "water": {
+   "ok": true,
+   "why": [],
+   "desc": "A calm dungeon pool: gentle waves, depth tint, soft shine. Put it on a flat plane.",
+   "file": "shaders/water.gdshader",
+   "uniforms": [
+    "shallow",
+    "deep",
+    "wave_height",
+    "wave_speed",
+    "scale"
+   ]
+  },
+  "portal": {
+   "ok": true,
+   "why": [],
+   "desc": "A swirling gateway on a flat quad: waystones, realm doors, the end-of-floor exit.",
+   "file": "shaders/portal.gdshader",
+   "uniforms": [
+    "inner",
+    "outer",
+    "swirl",
+    "spin_speed",
+    "opacity"
+   ]
+  },
+  "torch_flicker": {
+   "ok": true,
+   "why": [],
+   "desc": "Warm fire-lit surface: emission wobbles like a flame. For braziers, lanterns, torch heads.",
+   "file": "shaders/torch_flicker.gdshader",
+   "uniforms": [
+    "albedo",
+    "fire_color",
+    "base_glow",
+    "flicker_speed",
+    "flicker_amount"
+   ]
+  },
+  "frost": {
+   "ok": true,
+   "why": [],
+   "desc": "Icy sheen with glittering specks, edge-lit blue. For frozen foes, ice rooms, the frost sect.",
+   "file": "shaders/frost.gdshader",
+   "uniforms": [
+    "ice_color",
+    "base_color",
+    "amount",
+    "sparkle_scale"
+   ]
+  },
+  "wind_sway": {
+   "ok": true,
+   "why": [],
+   "desc": "Leaves and grass bend in the wind from the base up. Works on foliage cards and bushes.",
+   "file": "shaders/wind_sway.gdshader",
+   "uniforms": [
+    "albedo_tex",
+    "tint",
+    "sway",
+    "speed",
+    "alpha_cut"
+   ]
+  },
+  "ghost": {
+   "ok": true,
+   "why": [],
+   "desc": "A see-through spirit with a rising scan band. Ghosts, memories, heart demons.",
+   "file": "shaders/ghost.gdshader",
+   "uniforms": [
+    "color",
+    "opacity",
+    "rim_power",
+    "band_speed"
+   ]
+  },
+  "damage_vignette": {
+   "ok": true,
+   "why": [],
+   "desc": "Full-screen: red pulses in at the edges when hurt, colour drains when near death. Put on a ColorRect over the game.",
+   "file": "shaders/damage_vignette.gdshader",
+   "uniforms": [
+    "screen_tex",
+    "hurt_color",
+    "hurt",
+    "low_health"
+   ]
+  }
+ },
+ "particles": {
+  "embers_rising": {
+   "ok": true,
+   "why": [],
+   "desc": "Slow glowing embers drifting up (braziers, forges, fire rooms).",
+   "file": "fx/embers_rising.tscn",
+   "amount": 28,
+   "life": 3.0
+  },
+  "magic_burst": {
+   "ok": true,
+   "why": [],
+   "desc": "One burst of gold sparks (spell cast, level up, pickup).",
+   "file": "fx/magic_burst.tscn",
+   "amount": 36,
+   "life": 0.9
+  },
+  "hit_sparks": {
+   "ok": true,
+   "why": [],
+   "desc": "Short spray of sparks when a blow lands.",
+   "file": "fx/hit_sparks.tscn",
+   "amount": 18,
+   "life": 0.45
+  },
+  "dust_motes": {
+   "ok": true,
+   "why": [],
+   "desc": "Faint dust hanging in the air of a hall. Cheap and subtle.",
+   "file": "fx/dust_motes.tscn",
+   "amount": 24,
+   "life": 6.0
+  },
+  "jade_aura": {
+   "ok": true,
+   "why": [],
+   "desc": "Calm jade qi rising off a cultivator.",
+   "file": "fx/jade_aura.tscn",
+   "amount": 16,
+   "life": 2.2
+  },
+  "fireflies": {
+   "ok": true,
+   "why": [],
+   "desc": "Drifting green-gold lights for night groves and the deeps.",
+   "file": "fx/fireflies.tscn",
+   "amount": 14,
+   "life": 7.0
+  },
+  "smoke_plume": {
+   "ok": true,
+   "why": [],
+   "desc": "Grey smoke curling up and thinning out.",
+   "file": "fx/smoke_plume.tscn",
+   "amount": 20,
+   "life": 3.5
+  },
+  "torch_flame": {
+   "ok": true,
+   "why": [],
+   "desc": "A torch flame: tight, warm, quick.",
+   "file": "fx/torch_flame.tscn",
+   "amount": 22,
+   "life": 0.9
+  },
+  "blood_spray": {
+   "ok": true,
+   "why": [],
+   "desc": "A quick dark-red spatter. Keep it small; the game is not about gore.",
+   "file": "fx/blood_spray.tscn",
+   "amount": 14,
+   "life": 0.6
+  },
+  "frost_mist": {
+   "ok": true,
+   "why": [],
+   "desc": "Cold mist rolling low over the ground.",
+   "file": "fx/frost_mist.tscn",
+   "amount": 18,
+   "life": 4.0
+  }
+ },
+ "sounds": {
+  "swing_a": {
+   "ok": true,
+   "why": [],
+   "kind": "swoosh",
+   "seconds": 0.28,
+   "loop": false,
+   "file": "sfx/swing_a.wav",
+   "hz": 32000
+  },
+  "swing_b": {
+   "ok": true,
+   "why": [],
+   "kind": "swoosh",
+   "seconds": 0.28,
+   "loop": false,
+   "file": "sfx/swing_b.wav",
+   "hz": 32000
+  },
+  "hit_flesh_a": {
+   "ok": true,
+   "why": [],
+   "kind": "thump",
+   "seconds": 0.28,
+   "loop": false,
+   "file": "sfx/hit_flesh_a.wav",
+   "hz": 32000
+  },
+  "hit_flesh_b": {
+   "ok": true,
+   "why": [],
+   "kind": "thump",
+   "seconds": 0.28,
+   "loop": false,
+   "file": "sfx/hit_flesh_b.wav",
+   "hz": 32000
+  },
+  "hit_metal": {
+   "ok": true,
+   "why": [],
+   "kind": "ring",
+   "seconds": 0.7,
+   "loop": false,
+   "file": "sfx/hit_metal.wav",
+   "hz": 32000
+  },
+  "spell_cast": {
+   "ok": true,
+   "why": [],
+   "kind": "magic",
+   "seconds": 0.7,
+   "loop": false,
+   "file": "sfx/spell_cast.wav",
+   "hz": 32000
+  },
+  "qi_charge": {
+   "ok": true,
+   "why": [],
+   "kind": "magic",
+   "seconds": 1.2,
+   "loop": false,
+   "file": "sfx/qi_charge.wav",
+   "hz": 32000
+  },
+  "coin_pickup": {
+   "ok": true,
+   "why": [],
+   "kind": "chime",
+   "seconds": 0.39,
+   "loop": false,
+   "file": "sfx/coin_pickup.wav",
+   "hz": 32000
+  },
+  "level_up": {
+   "ok": true,
+   "why": [],
+   "kind": "chime",
+   "seconds": 1.21,
+   "loop": false,
+   "file": "sfx/level_up.wav",
+   "hz": 32000
+  },
+  "hurt": {
+   "ok": true,
+   "why": [],
+   "kind": "voice",
+   "seconds": 0.32,
+   "loop": false,
+   "file": "sfx/hurt.wav",
+   "hz": 32000
+  },
+  "door_open": {
+   "ok": true,
+   "why": [],
+   "kind": "grind",
+   "seconds": 1.3,
+   "loop": false,
+   "file": "sfx/door_open.wav",
+   "hz": 32000
+  },
+  "chest_open": {
+   "ok": true,
+   "why": [],
+   "kind": "creak",
+   "seconds": 0.9,
+   "loop": false,
+   "file": "sfx/chest_open.wav",
+   "hz": 32000
+  },
+  "step_stone_a": {
+   "ok": true,
+   "why": [],
+   "kind": "step",
+   "seconds": 0.14,
+   "loop": false,
+   "file": "sfx/step_stone_a.wav",
+   "hz": 32000
+  },
+  "step_stone_b": {
+   "ok": true,
+   "why": [],
+   "kind": "step",
+   "seconds": 0.14,
+   "loop": false,
+   "file": "sfx/step_stone_b.wav",
+   "hz": 32000
+  },
+  "step_stone_c": {
+   "ok": true,
+   "why": [],
+   "kind": "step",
+   "seconds": 0.14,
+   "loop": false,
+   "file": "sfx/step_stone_c.wav",
+   "hz": 32000
+  },
+  "explosion": {
+   "ok": true,
+   "why": [],
+   "kind": "boom",
+   "seconds": 1.4,
+   "loop": false,
+   "file": "sfx/explosion.wav",
+   "hz": 32000
+  },
+  "ui_click": {
+   "ok": true,
+   "why": [],
+   "kind": "tick",
+   "seconds": 0.06,
+   "loop": false,
+   "file": "sfx/ui_click.wav",
+   "hz": 32000
+  },
+  "death": {
+   "ok": true,
+   "why": [],
+   "kind": "voice",
+   "seconds": 1.6,
+   "loop": false,
+   "file": "sfx/death.wav",
+   "hz": 32000
+  },
+  "amb_crypt": {
+   "ok": true,
+   "why": [],
+   "kind": "drone",
+   "seconds": 9.0,
+   "loop": true,
+   "file": "sfx/amb_crypt.wav",
+   "hz": 32000
+  },
+  "amb_wind": {
+   "ok": true,
+   "why": [],
+   "kind": "air",
+   "seconds": 9.0,
+   "loop": true,
+   "file": "sfx/amb_wind.wav",
+   "hz": 32000
+  },
+  "amb_drips": {
+   "ok": true,
+   "why": [],
+   "kind": "drips",
+   "seconds": 9.4,
+   "loop": true,
+   "file": "sfx/amb_drips.wav",
+   "hz": 32000
+  }
+ },
+ "failed": [],
+ "engine": {
+  "ran": true,
+  "line": "OWNFX DONE 12 shaders 10 particles 21 sounds, 0 bad",
+  "bad": []
+ }
+}

@@ -1,0 +1,68 @@
+{
+"%s can search for plants, reagents, jewels or shards while you are about. The deeper you have been, the richer the finds.": [
+"%s 可以在你外出时搜寻草药、药材、宝石或碎片。你走得越深，收获越丰厚。",
+"%s puede buscar plantas, reactivos, joyas o fragmentos mientras estás fuera. Cuanto más profundo hayas llegado, mejores serán los hallazgos.",
+"%s pode procurar plantas, reagentes, joias ou fragmentos enquanto você estiver fora. Quanto mais fundo você foi, mais ricos são os achados.",
+"%s может искать растения, реагенты, самоцветы или осколки, пока вас нет. Чем глубже вы побывали, тем богаче находки.",
+"%s kann in deiner Abwesenheit nach Pflanzen, Reagenzien, Juwelen oder Splittern suchen. Je tiefer du warst, desto reicher die Funde.",
+"%s peut chercher des plantes, des réactifs, des joyaux ou des éclats pendant votre absence. Plus vous êtes descendu profondément, plus les trouvailles sont riches.",
+"%sは留守の間、植物・試薬・宝石・欠片を探せます。深く潜るほど、見つかる物は豪華になります。",
+"%s은(는) 당신이 자리를 비운 동안 식물, 시약, 보석, 파편을 찾을 수 있습니다. 더 깊이 들어갈수록 더 풍성한 것을 발견합니다.",
+"%s, sen yokken bitki, reaktif, mücevher veya kıymık arayabilir. Ne kadar derine indiysen buluntular o kadar zengin olur."
+],
+"%s's search: back in %s": [
+"%s的搜寻：%s后返回",
+"Búsqueda de %s: vuelve en %s",
+"Busca de %s: volta em %s",
+"Поиск %s: вернётся через %s",
+"Suche von %s: zurück in %s",
+"Recherche de %s : de retour dans %s",
+"%sの探索：%s後に帰還",
+"%s의 탐색: %s 후 귀환",
+"%s aramada: %s sonra dönüyor"
+],
+"%s's voyage: home in %s": [
+"%s的远航：%s后返家",
+"Viaje de %s: en casa en %s",
+"Viagem de %s: em casa em %s",
+"Плавание %s: дома через %s",
+"Reise von %s: zu Hause in %s",
+"Voyage de %s : à la maison dans %s",
+"%sの航海：%s後に帰港",
+"%s의 항해: %s 후 귀항",
+"%s seferde: %s sonra evde"
+],
+"Send %s searching": [
+"派%s去搜寻",
+"Enviar a %s a buscar",
+"Enviar %s para procurar",
+"Отправить %s на поиски",
+"%s auf Suche schicken",
+"Envoyer %s en recherche",
+"%sを探索に出す",
+"%s을(를) 탐색 보내기",
+"%s kişisini aramaya gönder"
+],
+"Send %s searching (plants, reagents, jewels, shards)": [
+"派%s去搜寻（草药、药材、宝石、碎片）",
+"Enviar a %s a buscar (plantas, reactivos, joyas, fragmentos)",
+"Enviar %s para procurar (plantas, reagentes, joias, fragmentos)",
+"Отправить %s на поиски (растения, реагенты, самоцветы, осколки)",
+"%s auf Suche schicken (Pflanzen, Reagenzien, Juwelen, Splitter)",
+"Envoyer %s en recherche (plantes, réactifs, joyaux, éclats)",
+"%sを探索に出す（植物・試薬・宝石・欠片）",
+"%s을(를) 탐색 보내기 (식물, 시약, 보석, 파편)",
+"%s kişisini aramaya gönder (bitki, reaktif, mücevher, kıymık)"
+],
+"The clock keeps running when the game is closed.": [
+"游戏关闭时，时间仍在流逝。",
+"El reloj sigue corriendo aunque el juego esté cerrado.",
+"O relógio continua correndo mesmo com o jogo fechado.",
+"Часы идут, даже когда игра закрыта.",
+"Die Uhr läuft weiter, auch wenn das Spiel geschlossen ist.",
+"L'horloge continue de tourner quand le jeu est fermé.",
+"ゲームを閉じていても時間は進み続けます。",
+"게임을 닫아도 시간은 계속 흐릅니다.",
+"Oyun kapalıyken de saat işlemeye devam eder."
+]
+}

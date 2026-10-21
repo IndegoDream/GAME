@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "Lantern Stair Custom",
+  "text": "Take a lantern from the hook as you enter; leave one lit at the bottom. That is the rule, and the market keeps accounts. Come in with no lantern and you owe a debt."
+ },
+ "Y": {
+  "title": "Paper Bridge, Fire",
+  "text": "The bridge is paper over rope; it takes one person at a time; no open flame, no torch. If you carry a lantern, hold it low and away. I saw it go up in a breath."
+ },
+ "R": {
+  "title": "A Door Half Seen",
+  "text": "Some doors in the Mask Gallery are only half there. Look at them from the corner of the eye and they firm up. Look straight and they fade; the dead walk through them like a dream."
+ },
+ "G": {
+  "title": "Broker's Ledger, Page One",
+  "text": "Debts owed: forty-one. Debts paid: one; the one is marked in red. The ledger does not say who paid; it says only, thank you."
+ },
+ "M": {
+  "title": "The Rules of the Market",
+  "text": "One: no haggling after dark; Two: no looking at the faces behind the masks. Three: if a ghost offers a price, take it. Four: you do not leave until the bell; Five: the bell does not ring."
+ },
+ "O": {
+  "title": "Pawnshop Notice",
+  "text": "We buy anything. Boots, names, years; a man pawned a year of his life for a lamp. He was twenty; he looked forty when he came out; check what you sell."
+ },
+ "U": {
+  "title": "Hungry Alley, Careful",
+  "text": "The alley is narrow and the hungry things are quick; they are not ghosts. They are people who stayed too long at the bazaar. Shove them and run; do not give them food."
+ },
+ "X": {
+  "title": "The Ghost Broker",
+  "text": "He sits at the counter with a ledger and no face. He will buy and sell anything; he has been at it since before the Accord. He has never once been cheated, and neither has he cheated anyone."
+ }
+}

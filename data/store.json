@@ -1,0 +1,137 @@
+{
+ "_note": "Round 58: how the game is sold (scripts/Store.gd, scripts/Ads.gd). Robert, 2026-10-05: 'free play up to level 5 on iOS and Android with a full pay option ... Steam has its pay version from the start, with promises of expansions' -- then, the same day: 'after level 5 ... it will be ads on the free tier, still able to complete the game, but every so often an ad will pop up; I don't want it to be too distracting, but I do want to be profitable.' So on phones (model \"ads\"): the village, the valley and floors 1-5 are free with NO ads; below floor 5 the whole game stays free to the end with an occasional ad at a natural break (taking the stairs down, reaching a town -- never in a fight, at most one every ten minutes), plus ads the player can choose to watch for a small gift. ONE purchase (the full game) removes every ad for good on that store account. model \"locked\" is the other way (below floor 5 needs the purchase) -- kept, switchable here. On Steam (and the box's own builds) the whole game, no ads, from the start. Product ids must match what's made in Play Console / App Store Connect; prices are set in the stores, never here.",
+ "free_depth": 5,
+ "products": {
+  "full_game": {
+   "google": "full_game",
+   "apple": "com.grimm82.dungeoncrawlelite.full_game",
+   "name": "Dungeon Crawl Elite -- the full game (no ads)",
+   "kind": "ads_off+comforts"
+  },
+  "style_pack": {
+   "google": "style_pack",
+   "apple": "com.grimm82.dungeoncrawlelite.style_pack",
+   "name": "Dungeon Crawl Elite -- the Style pack (cosmetic auras)",
+   "kind": "cosmetic"
+  }
+ },
+ "pitch": {
+  "title": "The deep goes on",
+  "body": "Shellhaven is as far as the free road goes. Below it the stair keeps going -- forty-five more floors to the Heart of the Deep, every one with a reach of its own past its edge.\n\nThe full game opens all of it, once, for this device's store account:\n  -  floors 6 to 50 and the ending\n  -  the sects' roads to succession, the Jade Pagoda and the Hollow Moon\n  -  major and heavenly inheritances, the deep's ten lands and their wardens\n  -  every town below, every craft master, every art\n\nYour character carries straight on -- nothing restarts. One purchase. No ads, no timers, and nothing you can buy makes you stronger.",
+  "locked_quest": "full game"
+ },
+ "expansions": [
+  {
+   "id": "east_of_the_hills",
+   "name": "East of the Hills",
+   "status": "planned",
+   "pitch": "The road out of the valley, east past the hills Eliet has never crossed: an overland journey of sect cities, wandering cultivators and a war the deep has been waiting for.",
+   "levels_prefix": "east_of_the_hills_",
+   "products": {
+    "google": "east_of_the_hills",
+    "apple": "com.grimm82.dungeoncrawlelite.east_of_the_hills"
+   },
+   "steam_dlc": 0,
+   "needs_full_game": false
+  },
+  {
+   "id": "below_the_heart",
+   "name": "Below the Heart",
+   "status": "planned",
+   "pitch": "What lies under the fiftieth floor. The Heart of the Deep was a door; the expansion is what's behind it -- new realms past Immortal, and the ones who made the swarm.",
+   "levels_prefix": "below_the_heart_",
+   "products": {
+    "google": "below_the_heart",
+    "apple": "com.grimm82.dungeoncrawlelite.below_the_heart"
+   },
+   "steam_dlc": 0,
+   "needs_full_game": false
+  }
+ ],
+ "expansions_note": "Planned expansions -- not built yet. How one is made (DEV_GUIDE 'Adding an expansion'): its places are levels whose id starts with levels_prefix (e.g. levels/east_of_the_hills_road.json); its quests, items and words carry \"expansion\": \"<id>\". Set status to \"released\", steam_dlc to the DLC's Steam app id, and make the products in the phone stores. Store.owns_expansion(id) and Game.expansion_open(id) are what everything checks; Game.go_to refuses an expansion's places until it's owned and opens its window instead.",
+ "model": "ads",
+ "pitch_ads": {
+  "title": "The road goes on",
+  "body": "Shellhaven is as far as the quiet road goes. Below it the stair keeps going -- forty-five more floors to the Heart of the Deep -- and all of it stays free, to the very end.\n\nFrom here on there's a short ad now and then: only when you take the stairs down or reach a town, never in a fight, and never more than one every ten minutes. Sometimes you'll be offered a small gift for watching one -- that's always your choice.\n\nOr make it yours for good: the full game removes every ad and adds comforts -- five character slots, an auto-stash, selling your spare gear in one go. Never power: nothing you can buy makes you stronger. Your character carries straight on either way.",
+  "menu_title": "Remove the ads",
+  "menu_body": "The full game removes every ad, for good, on this store account -- the breaks at the stairs and the offers both -- and adds comforts (five character slots, auto-stash, sell spare gear in one go). Never power: the whole deep is already yours to play and nothing for sale makes you stronger.",
+  "carry_on": "Carry on (free, with the odd ad)"
+ },
+ "ads": {
+  "_note": "Scripts/Ads.gd. Ad breaks only below free_depth, only at these moments, only when the player is safe; gifts (rewarded ads) the player chooses. Unit ids: Google's TEST ids until Robert makes his AdMob app -- replace them (and admob/general/*/app_id in project.godot) with his own before release.",
+  "breaks": [
+   "descend",
+   "haven"
+  ],
+  "every_s": 600,
+  "first_after_s": 420,
+  "max_per_hour": 4,
+  "calm_s": 10,
+  "foe_clear_m": 14,
+  "delay_s": 1.2,
+  "notice": "A short break.",
+  "gifts": {
+   "recover_gold": {
+    "name": "Get your gold back",
+    "ask": "Watch a short ad to get back the %d gold you lost in the fall?",
+    "min_gold": 20
+   },
+   "blessing": {
+    "name": "The deep's blessing",
+    "ask": "Watch a short ad for the deep's blessing: +10% insight and a little more luck with loot, for 20 minutes.",
+    "effect": {
+     "insight_mult": 1.1,
+     "loot_luck": 0.04
+    },
+    "seconds": 1200,
+    "cooldown_s": 2400
+   }
+  },
+  "units": {
+   "android": {
+    "interstitial": "ca-app-pub-3940256099942544/1033173712",
+    "rewarded": "ca-app-pub-3940256099942544/5224354917"
+   },
+   "ios": {
+    "interstitial": "ca-app-pub-3940256099942544/4411468910",
+    "rewarded": "ca-app-pub-3940256099942544/1712485313"
+   }
+  },
+  "max_content_rating": "T"
+ },
+ "steam": {
+  "_note": "The Steam demo (export preset 'Windows (Steam Demo)', feature tag 'demo'): floors 1-5, then 'Get the full game on Steam'. It's its own free app on Steam (its app id goes in project.godot steam/app_id.demo); full_app_id is the full game's (it opens that store page). Both builds keep saves in the same folder on the PC, so the full game picks up the demo's character.",
+  "full_app_id": 0,
+  "store_url": ""
+ },
+ "pitch_demo": {
+  "title": "The end of the demo",
+  "body": "Shellhaven is as far as the demo goes. Below it the stair keeps going -- forty-five more floors to the Heart of the Deep, every one with a reach of its own past its edge, the sects' roads, the deep's ten lands and an ending.\n\nThe full game is on Steam. Your character is kept: install the full game on this PC and it picks up right here, on this save -- nothing to move, nothing restarts.",
+  "button": "Get the full game on Steam"
+ },
+ "fair_play": {
+  "_note": "Round 127 (Robert: 'pay for convenience but not pay to win'). tools/fair_check.gd fails the build if any of this stops being true.",
+  "promise": "Money buys convenience and style, never power. No purchase changes damage, health, qi, insight, drops, luck, prices or how fast you level.",
+  "kinds_allowed": [
+   "ads_off+comforts",
+   "cosmetic",
+   "content"
+  ],
+  "never_sold": [
+   "damage",
+   "health",
+   "qi",
+   "insight",
+   "loot_luck",
+   "drop_rates",
+   "experience",
+   "stats",
+   "gear",
+   "gold",
+   "consumables",
+   "revives",
+   "energy"
+  ],
+  "free_floors_note": "Floors 1-5 free with no ads; below, free to the end with the odd ad; one purchase removes them. Steam: a free demo to floor 5 whose character carries into the paid game."
+ }
+}

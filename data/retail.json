@@ -1,0 +1,6 @@
+{
+ "_about": "Round 71: the words a store page needs (godot_retail.py builds the Steam / Google Play / web kits from these). Dev's drafts in data/drafts/retail.json win over every key here. key_shot and shots name the levels tools/shoot.gd photographs (level, spawn tag, yaw).",
+ "key_shot": "village",
+ "shots": [["village", "P", 20], ["floor1", "P", 0], ["floor3", "P", 35], ["floor6", "P", 0], ["floor9", "P", 340], ["floor11", "P", 0]],
+ "steam": {"full_app_id": 0, "demo_app_id": 0, "price_hint": "$9.99", "early_access": false}
+}

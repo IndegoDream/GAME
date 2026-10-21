@@ -1,0 +1,366 @@
+{
+ "_about": "Round 36 (Robert: 'a level up screen where I can see my player stats; the nanite and qi system complementary to player stats, abilities and titles; everything is earned; clear progression'). ATTRIBUTES are earned, never given: points come from each step of cultivation, each realm crossed, each chapter of the road down, each hidden master who taught you. Spend them on the character sheet (P). TITLES each carry a small, permanent gift (listed here; a title not listed gives a little to the stat its words suggest).",
+ "attributes": {
+  "body": {
+   "name": "Body",
+   "desc": "Bone and breath. +3% health and +0.15 health a second per point.",
+   "effect": {
+    "hp_mult": 0.03,
+    "regen": 0.15
+   }
+  },
+  "might": {
+   "name": "Might",
+   "desc": "What a blow carries. +2.5% damage per point.",
+   "effect": {
+    "damage_mult": 0.025
+   }
+  },
+  "agility": {
+   "name": "Agility",
+   "desc": "Hands and feet. +1.2% attack speed, +0.8% speed and +0.3% to slip a blow per point.",
+   "effect": {
+    "attack_speed": 0.012,
+    "move_mult": 0.008,
+    "dodge_chance": 0.003
+   }
+  },
+  "spirit": {
+   "name": "Spirit",
+   "desc": "The sea of qi and the swarm. +3% qi, +2% from sitting, +2% to the swarm's growth per point.",
+   "effect": {
+    "qi_mult": 0.03,
+    "meditate_mult": 0.02,
+    "swarm_mult": 0.02
+   }
+  }
+ },
+ "points": {
+  "per_step": 1,
+  "per_realm": 3,
+  "per_chapter": 1,
+  "per_master": 1,
+  "respec_gold_per_realm": 150
+ },
+ "title_cap": 0.15,
+ "titles": {
+  "Heart Unshaken": {
+   "qi_mult": 0.02
+  },
+  "Heart of the Deep": {
+   "damage_mult": 0.04,
+   "hp_mult": 0.04
+  },
+  "The Deep's Equal": {
+   "damage_mult": 0.03,
+   "qi_mult": 0.03
+  },
+  "Outer Disciple of the Lotus Ascent Academy": {
+   "meditate_mult": 0.03
+  },
+  "The One Shen Couldn't Beat": {
+   "damage_mult": 0.03
+  },
+  "Condensed": {
+   "qi_mult": 0.02
+  },
+  "Founded": {
+   "hp_mult": 0.02
+  },
+  "Nascent": {
+   "qi_mult": 0.02
+  },
+  "Integrated": {
+   "hp_mult": 0.03
+  },
+  "Tribulation-Tested": {
+   "damage_mult": 0.03
+  },
+  "Immortal": {
+   "hp_mult": 0.03,
+   "damage_mult": 0.02
+  },
+  "Eliet's Own": {
+   "hp_mult": 0.02
+  },
+  "Eliet's Keeper": {
+   "regen": 0.5
+  },
+  "Elder of Eliet": {
+   "qi_mult": 0.03
+  },
+  "The Wanderer": {
+   "move_mult": 0.03
+  },
+  "The Sealer": {
+   "hp_mult": 0.03
+  },
+  "The Delver": {
+   "damage_mult": 0.03
+  },
+  "Expedition Leader": {
+   "damage_mult": 0.02
+  },
+  "Su's Student": {
+   "hp_mult": 0.02
+  },
+  "Bao's Patience": {
+   "meditate_mult": 0.03
+  },
+  "Lian's Apprentice": {
+   "craft_success": 0.02
+  },
+  "Unburied": {
+   "regen": 0.4
+  },
+  "Hammer-Heard": {
+   "craft_success": 0.02
+  },
+  "Open-Handed": {
+   "loot_luck": 0.02
+  },
+  "Hu's Playmate": {
+   "attack_speed": 0.02
+  },
+  "Of No Sect": {
+   "qi_mult": 0.03
+  },
+  "The Tenth's Heir": {
+   "damage_mult": 0.03
+  },
+  "Wound Tight": {
+   "swarm_mult": 0.03
+  },
+  "Not the One Before": {
+   "hp_mult": 0.03
+  },
+  "Expedition": {
+   "move_mult": 0.01
+  }
+ },
+ "title_words": [
+  [
+   "champion",
+   {
+    "damage_mult": 0.02
+   }
+  ],
+  [
+   "victor",
+   {
+    "damage_mult": 0.02
+   }
+  ],
+  [
+   "blade",
+   {
+    "damage_mult": 0.02
+   }
+  ],
+  [
+   "sword",
+   {
+    "damage_mult": 0.02
+   }
+  ],
+  [
+   "disciple",
+   {
+    "qi_mult": 0.02
+   }
+  ],
+  [
+   "sect",
+   {
+    "qi_mult": 0.02
+   }
+  ],
+  [
+   "heart",
+   {
+    "qi_mult": 0.02
+   }
+  ],
+  [
+   "sage",
+   {
+    "qi_mult": 0.02
+   }
+  ],
+  [
+   "tower",
+   {
+    "hp_mult": 0.02
+   }
+  ],
+  [
+   "summit",
+   {
+    "hp_mult": 0.02
+   }
+  ],
+  [
+   "warden",
+   {
+    "hp_mult": 0.02
+   }
+  ],
+  [
+   "keeper",
+   {
+    "hp_mult": 0.02
+   }
+  ],
+  [
+   "smith",
+   {
+    "craft_success": 0.02
+   }
+  ],
+  [
+   "alchem",
+   {
+    "craft_success": 0.02
+   }
+  ],
+  [
+   "master",
+   {
+    "craft_success": 0.01,
+    "damage_mult": 0.01
+   }
+  ],
+  [
+   "hunter",
+   {
+    "crit_chance": 0.01
+   }
+  ],
+  [
+   "shadow",
+   {
+    "dodge_chance": 0.01
+   }
+  ],
+  [
+   "swift",
+   {
+    "attack_speed": 0.02
+   }
+  ],
+  [
+   "wander",
+   {
+    "move_mult": 0.02
+   }
+  ]
+ ],
+ "title_default": {
+  "hp_mult": 0.01
+ },
+ "stats": [
+  [
+   "Health",
+   "max_hp"
+  ],
+  [
+   "Damage",
+   "damage"
+  ],
+  [
+   "Attack speed",
+   "attack_speed"
+  ],
+  [
+   "Blows land",
+   "taken"
+  ],
+  [
+   "Strike true",
+   "crit"
+  ],
+  [
+   "Slip a blow",
+   "dodge"
+  ],
+  [
+   "Speed",
+   "move"
+  ],
+  [
+   "Health back a second",
+   "regen"
+  ],
+  [
+   "Qi gathered",
+   "qi_gain"
+  ],
+  [
+   "Sitting",
+   "meditate"
+  ],
+  [
+   "Swarm growth",
+   "swarm"
+  ]
+ ],
+ "balance": {
+  "_about": "Round 37 (Robert: 'balance may provide the strongest growth possibilities'). Four scales, each 0..1 (how even it is): your attributes, your paths (fighting, making, finding), your two roads (qi and the swarm), your elements. Balance is their average; growth (qi, skill practice, the swarm) is multiplied by 1 + max_bonus * balance^curve. A specialist is strong now; a balanced cultivator grows fastest.",
+  "max_bonus": 0.6,
+  "curve": 1.6,
+  "min_total": 4,
+  "combat_skills": [
+   "sword",
+   "dagger",
+   "saber",
+   "spear",
+   "axe",
+   "hammer",
+   "halberd",
+   "staff",
+   "unarmed"
+  ],
+  "craft_skills": [
+   "smithing",
+   "alchemy",
+   "medicine",
+   "jewelcrafting",
+   "taming",
+   "runecraft",
+   "talismans"
+  ],
+  "gather_skills": [
+   "mining",
+   "herbalism",
+   "fishing",
+   "hunting"
+  ]
+ },
+ "mastery": {
+  "_about": "Round 37 (Robert: 'take days to complete and even when you do there is always more to do; impossible to pull a quick perfect game'). Mastery: how much of everything the game holds you've done, by category, weighted. Some of it can't be done in one life (all ten bloodlines pure; both endings) -- ascension carries you on.",
+  "weights": {
+   "floors": 3,
+   "chapters": 2,
+   "story": 2,
+   "endings": 1,
+   "masters": 2,
+   "gates": 1,
+   "titles": 1,
+   "achievements": 2,
+   "collections": 1,
+   "bestiary": 2,
+   "bloodlines": 2,
+   "realms": 2,
+   "skills": 2,
+   "ascension": 1,
+   "runewords": 1,
+   "cleansing": 2,
+   "research": 2,
+   "history": 2
+  },
+  "explored_frac": 0.9,
+  "skill_cap": 30,
+  "realm_cap": 13,
+  "ascension_cap": 5
+ }
+}

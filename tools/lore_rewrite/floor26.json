@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "Lantern Stair Rule",
+  "text": "One lantern per soul who died on this stair. Do not blow any out. Do not take any. Count them as you go up and you will know how many cheated the fee."
+ },
+ "Y": {
+  "title": "Market Square Prices",
+  "text": "Stalls open at dusk and close when the lamps gutter. They take names, years, or a coin with a hole in it. The vendors will not cheat you. They will only be honest with you."
+ },
+ "R": {
+  "title": "The Half-Step",
+  "text": "Move one foot, then the other. Not together. The dead cross the square half here and half there, and the lanterns never see them whole. Stagger your step and the strikes pass through the gap."
+ },
+ "G": {
+  "title": "A Dead Man's Advice",
+  "text": "Never buy what you cannot carry out. Never sell what you cannot spare. And never haggle with the ones who stop speaking. That is what the dead told me."
+ },
+ "M": {
+  "title": "A Ledger of Debts",
+  "text": "Row on row of names, each with a sum beside it. Most are unpaid. At the bottom, in fresh ink, is your name and a blank."
+ },
+ "O": {
+  "title": "The Weavers' Stall",
+  "text": "Shrouds, sold by the yard. The weavers upstairs pass down what they cannot finish. A tag reads: sold twice, buried once."
+ },
+ "U": {
+  "title": "Closing Bell",
+  "text": "When the bell rings the stalls vanish and so does anyone left in the lanes. Be at an exit by the third stroke. I was not. This is written from the inside."
+ },
+ "X": {
+  "title": "The Last Stall",
+  "text": "A single lantern burning over an empty table. The sign says: the dead trade here for what they lost. Whatever you leave, you will not see it again."
+ }
+}

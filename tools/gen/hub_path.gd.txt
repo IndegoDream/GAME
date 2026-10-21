@@ -1,0 +1,145 @@
+
+
+# ---- round 121: the Paths (nine classes) ---------------------------------------------------
+
+const PERK_NAMES := {"damage_mult": "damage", "ranged_mult": "ranged damage", "ki_mult": "ki speed", "hp_mult": "health", "attack_speed": "attack speed",
+	"crit_chance": "to strike true", "dodge_chance": "to slip a blow", "move_mult": "speed", "qi_mult": "qi", "meditate_mult": "from sitting",
+	"swarm_mult": "swarm growth", "loot_luck": "loot luck", "gather_chance": "extra gathering", "craft_success_smithing": "smithing success",
+	"craft_success_medicine": "medicine success", "craft_success_alchemy": "alchemy success", "craft_quality_smithing": "smithing quality"}
+
+
+func _perk_text(d: Dictionary) -> String:
+	var parts := []
+	for k in d:
+		var v := float(d[k])
+		var ks := str(k)
+		if ks == "damage_taken":
+			parts.append("%d%% %s damage taken" % [int(round(absf(v) * 100.0)), "less" if v < 0.0 else "more"])
+		elif ks == "regen":
+			parts.append("+%s health a second" % str(snappedf(v, 0.1)))
+		elif ks == "heal_on_kill":
+			parts.append("+%d health per kill" % int(v))
+		elif ks == "sight":
+			parts.append("+%d sight" % int(v))
+		elif ks == "sense_radius":
+			parts.append("+%d sense radius" % int(v))
+		elif ks == "gather_bonus":
+			parts.append("+%d from every vein" % int(v))
+		elif ks == "timing":
+			parts.append("+%s s parry window" % str(snappedf(v, 0.01)))
+		else:
+			parts.append("+%s%% %s" % [str(snappedf(v * 100.0, 0.1)).trim_suffix(".0"), str(PERK_NAMES.get(ks, ks))])
+	return ", ".join(parts)
+
+
+func _rank_perk_line(rd: Dictionary) -> String:
+	var bits := []
+	if rd.has("always"):
+		bits.append(_perk_text(rd["always"]))
+	if rd.has("weapon"):
+		var w: Dictionary = rd["weapon"]
+		bits.append("%s (with %s)" % [_perk_text(w.get("effect", {})), "/".join(w.get("skills", []))])
+	if rd.has("trigger"):
+		bits.append("KEYSTONE: " + str((rd["trigger"] as Dictionary).get("text", "")))
+	if bool(rd.get("art", false)):
+		bits.append("learn your art")
+	if str(rd.get("title", "")) != "":
+		bits.append("title: " + str(rd["title"]))
+	return "  ·  ".join(bits)
+
+
+func fill_path() -> void:
+	_clear(_path)
+	var P = Game.sys("paths")
+	if P == null:
+		return
+	var key := str(P.cfg.get("key", "6"))
+	_h(_path, "Path -- the road you walk", COL["Path"])
+	_p(_path, "A Path is who you are in a fight. Pick one and it grows with what you actually do: kills with its weapons, parries, shots, crafts. Each rank gives a gift, rank 2 teaches an ART (press %s, or the PATH button on a phone), rank 4 a KEYSTONE that triggers as you play. From %s a SECOND path opens and gives half of what a path gives. Nothing here is a trap: change your road any time (free until you are rank 2, then it costs gold), and every path remembers its own progress." % [key, P.rank_name(int(P.cfg.get("second_path_rank", 3)))], Color(0.85, 0.88, 0.9), 13)
+	if P.primary == "":
+		var s: String = P.suggested()
+		if s != "":
+			_p(_path, "Your past (%s) points toward the %s -- but any road is open." % [str(Game.BACKGROUNDS.get(Game.background, {}).get("name", "your past")), str(P.def(s).get("name", s))], Color(1.0, 0.92, 0.6), 13)
+		else:
+			_p(_path, "You walk no path yet. Choose one below -- it is free the first time.", Color(1.0, 0.92, 0.6), 13)
+	else:
+		_path_card(P, P.primary, false)
+		if P.secondary != "":
+			_path_card(P, P.secondary, true)
+		elif P.can_second():
+			_p(_path, "A second path is open to you. Pick one below (\"Take as second\").", Color(0.7, 1.0, 0.85), 13)
+	_h(_path, "The nine roads", COL["Path"].lightened(0.15), 17)
+	for p in P.paths():
+		var pid := str(p.get("id", ""))
+		if pid == P.primary or pid == P.secondary:
+			continue
+		var v := _card(_path, _path_col(p))
+		var r := _row(v)
+		var tl := _h(r, str(p.get("name", pid)), _path_col(p).lightened(0.25), 16)
+		tl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		if P.rank_of(pid) > 1:
+			hud._label(r, "you reached %s here" % P.rank_name(P.rank_of(pid)), 11, Color(0.7, 0.8, 0.7))
+		_p(v, str(p.get("blurb", "")), Color(0.85, 0.88, 0.9), 12)
+		var wl: Array = p.get("weapons", [])
+		_p(v, "Art: %s -- %s%s" % [str(p.get("art", {}).get("name", "")), str(p.get("art", {}).get("desc", "")), ("   Favours: " + ", ".join(wl)) if wl.size() > 0 else "   Works with any weapon."], Color(0.65, 0.7, 0.78), 11)
+		var br := _row(v)
+		var cost: int = P.respec_cost() if P.primary != "" else 0
+		_btn(br, "Take as my path%s" % ((" (%d gold)" % cost) if cost > 0 else ""), func(): _say(str(P.choose(pid, false).get("text", ""))), P.primary == pid)
+		if P.can_second():
+			_btn(br, "Take as second", func(): _say(str(P.choose(pid, true).get("text", ""))))
+
+
+func _path_col(p: Dictionary) -> Color:
+	var c: Array = p.get("color", [1, 1, 1])
+	return Color(float(c[0]), float(c[1]), float(c[2]))
+
+
+func _path_card(P, pid: String, is_second: bool) -> void:
+	var p: Dictionary = P.def(pid)
+	var col := _path_col(p)
+	var v := _card(_path, col)
+	var rk: int = P.rank_of(pid)
+	var r := _row(v)
+	var tl := _h(r, "%s%s  --  %s (rank %d of 5)" % ["Second path: " if is_second else "", str(p.get("name", pid)), P.rank_name(rk), rk], col.lightened(0.25), 18)
+	tl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	if is_second:
+		_btn(r, "Drop", func():
+			P.drop_second()
+			_say("You set your second path aside."))
+	_p(v, str(p.get("blurb", "")), Color(0.85, 0.88, 0.9), 13)
+	var wl: Array = p.get("weapons", [])
+	_p(v, ("Favours: " + ", ".join(wl) + " (weapon gifts count only while one is in hand)") if wl.size() > 0 else "Works with any weapon.", Color(0.65, 0.72, 0.8), 12)
+	# the next rank
+	var nn: Dictionary = P.next_needs(pid)
+	if nn.is_empty():
+		_p(v, "You have reached the top of this road.", Color(1.0, 0.92, 0.6), 14)
+	else:
+		_h(v, "Next: rank %d, %s" % [int(nn["rank"]), str(nn["name"])], Color(1.0, 0.95, 0.7), 14)
+		if not bool(nn.get("realm_ok", true)):
+			_p(v, "Needs the realm of %s (you are %s)." % [Game.realm_name_of(int(nn["realm_need"])), Game.realm_name_of(Game.realm)], Color(1.0, 0.7, 0.6), 12)
+		for n in nn.get("needs", []):
+			var nr := _row(v)
+			var lb: Label = hud._label(nr, str(n["label"]), 12, Color(0.8, 0.85, 0.9))
+			lb.custom_minimum_size = Vector2(250, 0)
+			_bar(nr, float(n["have"]), float(n["need"]), col, 150)
+			hud._label(nr, "%d / %d" % [int(n["have"]), int(n["need"])], 11, Color(0.7, 0.75, 0.8))
+	# the art
+	if P.has_art(pid):
+		var a: Dictionary = p.get("art", {})
+		var ar := _row(v)
+		hud._label(ar, "ART: %s  [%s]  ·  ready every %ds" % [str(a.get("name", "")), str(P.cfg.get("key", "6")), int(a.get("cooldown", 25))], 13, Color(1.0, 0.95, 0.6))
+		if P.primary != "" and P.secondary != "":
+			var slot_is: bool = (P.art_slot == "second") == is_second
+			_btn(ar, "Readied" if slot_is else "Ready this art", func():
+				P.set_art_slot("second" if is_second else "primary")
+				_fill("Path"), slot_is)
+		_p(v, str(a.get("desc", "")), Color(0.85, 0.88, 0.9), 12)
+	# every rank
+	for i in range(1, 6):
+		var rd: Dictionary = P.rank_def(pid, i)
+		var done: bool = rk >= i
+		var line := "%s %d  %s -- %s" % ["✓" if done else "·", i, str(rd.get("name", "")), str(rd.get("text", ""))]
+		_p(v, line, Color(0.9, 0.95, 0.85) if done else Color(0.6, 0.64, 0.7), 12)
+		var pk := _rank_perk_line(rd)
+		if pk != "":
+			_p(v, "      " + pk, Color(0.7, 0.85, 0.75) if done else Color(0.5, 0.54, 0.6), 11)

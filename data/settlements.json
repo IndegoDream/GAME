@@ -1,0 +1,714 @@
+{
+ "_note": "Round 44: peoples in the deep. Camps that live on the dungeon floors, placed at runtime in an open hall (no level file changes). Each grows through four stages as you meet its needs: camp -> outpost -> haven -> town. Each stage adds people, services and things you can see. One need a day; let a camp go a few days without help and it slips back toward the start of its stage (never below it). Words are Dev's to rewrite (brief settlements).",
+ "stages": [
+  {
+   "id": "camp",
+   "name": "Camp",
+   "from": 0
+  },
+  {
+   "id": "outpost",
+   "name": "Outpost",
+   "from": 60
+  },
+  {
+   "id": "haven",
+   "name": "Haven",
+   "from": 180
+  },
+  {
+   "id": "town",
+   "name": "Town",
+   "from": 400
+  }
+ ],
+ "need_reward": {
+  "prosperity": [
+   22,
+   34
+  ],
+  "standing": 12,
+  "gold_per_depth": 9
+ },
+ "supplies": {
+  "gold_per_depth": 12,
+  "prosperity": 6,
+  "standing": 2
+ },
+ "neglect": {
+  "grace_days": 3,
+  "per_day": 4
+ },
+ "rest_price_per_depth": 4,
+ "settlements": {
+  "rootlight": {
+   "name": "Rootlight",
+   "level": "floor3",
+   "faction": "deepfolk",
+   "desc": "Mushroom farmers who came down from Eliet in a hungry year and never went back up. They grow glowcaps in the damp and trade them for anything with iron in it.",
+   "headman": {
+    "name": "Old Mother Puk",
+    "line": "Mind the beds -- those caps took a month."
+   },
+   "people": [
+    {
+     "name": "Tilly Spore",
+     "role": "villager",
+     "lines": [
+      "The damp's good for caps and bad for joints.",
+      "My gran says the Makers' lights used to hang right here. You can still see the hooks in the stone."
+     ]
+    },
+    {
+     "name": "Wick",
+     "role": "merchant",
+     "stage": 1
+    },
+    {
+     "name": "Brother Moss",
+     "role": "alchemist",
+     "stage": 2
+    },
+    {
+     "name": "Hearth-keeper Ana",
+     "role": "innkeeper",
+     "stage": 3
+    }
+   ],
+   "needs": [
+    {
+     "type": "bring",
+     "item": "iron_ore",
+     "n": 6,
+     "why": "Our trowels are worn down to nubs."
+    },
+    {
+     "type": "bring",
+     "item": "spirit_herb",
+     "n": 5,
+     "why": "The caps sicken without a bit of spirit herb in the compost."
+    },
+    {
+     "type": "cull",
+     "n": 6,
+     "why": "Something keeps getting into the beds at night."
+    },
+    {
+     "type": "bring",
+     "item": "cave_carp",
+     "n": 3,
+     "why": "We haven't had fish in a month."
+    }
+   ],
+   "stock": [
+    "healing_salve",
+    "spirit_herb",
+    "shell_tea"
+   ],
+   "specialty": [
+    "moonpetal_tonic"
+   ],
+   "stage_lines": [
+    "We're getting by. Barely.",
+    "A trader stops here now. Things are looking up.",
+    "Brother Moss has set up his still. Folk come from the upper floors for his cures.",
+    "Rootlight's a proper town now. There's even an inn. We put up a statue of you by the fire -- don't laugh."
+   ]
+  },
+  "tallowmark": {
+   "name": "Tallowmark",
+   "level": "floor8",
+   "faction": "deepfolk",
+   "desc": "Candle-makers and miners camped among the barrows. They render beast fat into the candles every lamp in the deep runs on.",
+   "headman": {
+    "name": "Foreman Grell",
+    "line": "Light's a trade down here, same as bread."
+   },
+   "people": [
+    {
+     "name": "Dipper Sal",
+     "role": "villager",
+     "lines": [
+      "A good candle burns six hours. A bad one burns your hand.",
+      "The terracotta soldiers don't move if you keep a light on them. Mostly."
+     ]
+    },
+    {
+     "name": "Chandler Ru",
+     "role": "merchant",
+     "stage": 1
+    },
+    {
+     "name": "Smith Orra",
+     "role": "smith",
+     "stage": 2
+    },
+    {
+     "name": "Lampwife Ned",
+     "role": "innkeeper",
+     "stage": 3
+    }
+   ],
+   "needs": [
+    {
+     "type": "bring",
+     "item": "beast_hide",
+     "n": 5,
+     "why": "We need hide for the wick-bags."
+    },
+    {
+     "type": "bring",
+     "item": "bone_shard",
+     "n": 8,
+     "why": "Ground bone hardens the wax."
+    },
+    {
+     "type": "cull",
+     "n": 8,
+     "why": "The barrows are waking up again. Thin them out for us?"
+    },
+    {
+     "type": "bring",
+     "item": "silver_ore",
+     "n": 3,
+     "why": "Silver wicks don't smoke. The rich floors pay double."
+    }
+   ],
+   "stock": [
+    "spirit_lantern",
+    "healing_salve",
+    "beast_hide"
+   ],
+   "specialty": [
+    "whetstone"
+   ],
+   "stage_lines": [
+    "Wax and worry, that's Tallowmark.",
+    "A chandler sells here now. Our lights are going up and down the stair.",
+    "Orra's forge is lit. Tallowmark makes more than candles now.",
+    "Every floor below the eighth burns our candles. And there's your statue, lit day and night."
+   ]
+  },
+  "gnawed_banner": {
+   "name": "The Gnawed Banner",
+   "level": "floor12",
+   "faction": "hollow",
+   "desc": "A Hollow Clan war-camp in the red canopy. Beast-riders who answer to their own law. They don't like strangers, but they respect anyone who keeps their word.",
+   "headman": {
+    "name": "Warden Kesh of the Gnawed Banner",
+    "line": "Speak plainly. Clan law is short."
+   },
+   "people": [
+    {
+     "name": "Rider Vosk",
+     "role": "villager",
+     "lines": [
+      "Our beasts eat first. Then the children. Then us.",
+      "The Deepfolk call us raiders. Ask them who held the deep when the Sects ran back to the valley."
+     ]
+    },
+    {
+     "name": "Bone-trader Iyi",
+     "role": "merchant",
+     "stage": 1
+    },
+    {
+     "name": "Beast-mother Haro",
+     "role": "villager",
+     "stage": 2,
+     "lines": [
+      "A beast bonds to the one who feeds it in the dark. Remember that.",
+      "Bring your beasts to me when the clans call you kin."
+     ]
+    },
+    {
+     "name": "Firekeeper Juun",
+     "role": "innkeeper",
+     "stage": 3
+    }
+   ],
+   "needs": [
+    {
+     "type": "bring",
+     "item": "raw_meat",
+     "n": 6,
+     "why": "The beasts are hungry and the hunt went badly."
+    },
+    {
+     "type": "cull",
+     "n": 10,
+     "why": "Prove yourself. Ten kills on this floor, and the clan will hear of it."
+    },
+    {
+     "type": "bring",
+     "item": "beast_hide",
+     "n": 6,
+     "why": "New saddles before the moot."
+    },
+    {
+     "type": "bring",
+     "item": "crimson_bark",
+     "n": 2,
+     "why": "Red bark for the war paint."
+    }
+   ],
+   "stock": [
+    "raw_meat",
+    "hunters_oil",
+    "hunter_shortbow"
+   ],
+   "specialty": [
+    "swift_tonic"
+   ],
+   "stage_lines": [
+    "You're tolerated. For now.",
+    "Iyi trades with you. That's more than most outsiders get.",
+    "The beast-mother has asked about you. That's an honour.",
+    "The Gnawed Banner flies your mark beside its own. Clan law calls that kin."
+   ]
+  },
+  "quiet_lotus": {
+   "name": "Last Hall of the Quiet Lotus",
+   "level": "floor17",
+   "faction": "sects",
+   "desc": "The last few disciples of a sect that came down to fight and lost. They guard the hall they died for and keep their founder's lamp burning.",
+   "headman": {
+    "name": "Senior Sister Wen Yao",
+    "line": "We are what's left. We are enough."
+   },
+   "people": [
+    {
+     "name": "Junior Brother Pell",
+     "role": "villager",
+     "lines": [
+      "Our founder said the swarm would eat the world's qi. We came down to stop it.",
+      "Sit with us at the lamp if you like. It helps."
+     ]
+    },
+    {
+     "name": "Steward Lin",
+     "role": "merchant",
+     "stage": 1
+    },
+    {
+     "name": "Elder Hu of the Lamp",
+     "role": "alchemist",
+     "stage": 2
+    },
+    {
+     "name": "Gatekeeper Mo",
+     "role": "innkeeper",
+     "stage": 3
+    }
+   ],
+   "needs": [
+    {
+     "type": "bring",
+     "item": "spirit_resin",
+     "n": 4,
+     "why": "Resin for the lamp. It must not go out."
+    },
+    {
+     "type": "cull",
+     "n": 10,
+     "why": "Clear the spine's beasts from our door so we can sit in peace."
+    },
+    {
+     "type": "bring",
+     "item": "rough_jade",
+     "n": 3,
+     "why": "Jade for the memorial tablets."
+    },
+    {
+     "type": "bring",
+     "item": "qi_pill",
+     "n": 2,
+     "why": "Our youngest are starving for qi."
+    }
+   ],
+   "stock": [
+    "qi_pill",
+    "calming_incense"
+   ],
+   "specialty": [
+    "qi_incense"
+   ],
+   "stage_lines": [
+    "The lamp still burns. That's all we can say.",
+    "Steward Lin trades again. The Quiet Lotus is not dead yet.",
+    "Elder Hu has come out of seclusion. He says your name sometimes.",
+    "The hall is full of students again. Your likeness stands by the lamp."
+   ]
+  },
+  "cinder_rest": {
+   "name": "Cinder Rest",
+   "level": "floor23",
+   "faction": "deepfolk",
+   "desc": "Smelters who work the ash dunes for glass and slag iron. Hard people in a hard place. They'll trade with anyone who can stand the heat.",
+   "headman": {
+    "name": "Smeltmaster Dorrin",
+    "line": "Mind the slag. It's hotter than it looks."
+   },
+   "people": [
+    {
+     "name": "Glassblower Fen",
+     "role": "villager",
+     "lines": [
+      "Ash glass rings like a bell when it's good.",
+      "Something big walks the dunes at night. We don't go out."
+     ]
+    },
+    {
+     "name": "Cart-trader Bek",
+     "role": "merchant",
+     "stage": 1
+    },
+    {
+     "name": "Smith Harrow",
+     "role": "smith",
+     "stage": 2
+    },
+    {
+     "name": "Coolhouse Mira",
+     "role": "innkeeper",
+     "stage": 3
+    }
+   ],
+   "needs": [
+    {
+     "type": "bring",
+     "item": "firestone",
+     "n": 3,
+     "why": "The furnace needs feeding."
+    },
+    {
+     "type": "cull",
+     "n": 12,
+     "why": "The dune things are getting bold."
+    },
+    {
+     "type": "bring",
+     "item": "slag_iron",
+     "n": 5,
+     "why": "We'll make something of it. We always do."
+    },
+    {
+     "type": "bring",
+     "item": "ash_glass",
+     "n": 2,
+     "why": "Good glass for the lenses."
+    }
+   ],
+   "stock": [
+    "healing_salve",
+    "firestone"
+   ],
+   "specialty": [
+    "ironskin_salve"
+   ],
+   "stage_lines": [
+    "We're still here. That counts for something in the ash.",
+    "Bek's cart comes through. Water's cheaper now.",
+    "Harrow's anvil rings day and night.",
+    "Cinder Rest is a town. There's a statue of you in the coolhouse, so you never burn."
+   ]
+  },
+  "lattice_choir": {
+   "name": "The Lattice Choir",
+   "level": "floor28",
+   "faction": "heirs",
+   "desc": "Heirs of the Makers who live among the old machines and sing to keep them running. They believe the swarm can still bridge qi to heaven.",
+   "headman": {
+    "name": "Cantor Ilse",
+    "line": "Listen. The machines are humming the old hymn."
+   },
+   "people": [
+    {
+     "name": "Tuner Abe",
+     "role": "villager",
+     "lines": [
+      "The swarm was made to carry qi up to heaven. It couldn't. But it carries other things very well.",
+      "If you hear a machine sing off-key, tell me."
+     ]
+    },
+    {
+     "name": "Partswife Gemma",
+     "role": "merchant",
+     "stage": 1
+    },
+    {
+     "name": "Artificer Rook",
+     "role": "smith",
+     "stage": 2
+    },
+    {
+     "name": "Warden of the Hum",
+     "role": "innkeeper",
+     "stage": 3
+    }
+   ],
+   "needs": [
+    {
+     "type": "bring",
+     "item": "nanite_shard",
+     "n": 6,
+     "why": "Shards to patch the choir's housings."
+    },
+    {
+     "type": "bring",
+     "item": "brass_cog",
+     "n": 3,
+     "why": "Cogs for the old pump."
+    },
+    {
+     "type": "cull",
+     "n": 12,
+     "why": "Broken machines are attacking the working ones. Put them down."
+    },
+    {
+     "type": "bring",
+     "item": "oil_of_motion",
+     "n": 2,
+     "why": "The pump grinds without it."
+    }
+   ],
+   "stock": [
+    "nanite_shard",
+    "healing_salve"
+   ],
+   "specialty": [
+    "oil_of_motion"
+   ],
+   "stage_lines": [
+    "The hymn is thin, but we're singing.",
+    "Gemma sells parts again. The Choir is growing.",
+    "Rook has woken a machine that hasn't moved since the Sundering.",
+    "The whole floor hums in tune now. Your figure stands in the choir loft, in brass."
+   ]
+  },
+  "bonefire_moot": {
+   "name": "The Bonefire Moot",
+   "level": "floor33",
+   "faction": "hollow",
+   "desc": "Where all the Hollow Clans meet. Their great bonfire burns on old bones and older grudges. Clan law is made here.",
+   "headman": {
+    "name": "Moot-speaker Garrow",
+    "line": "Every clan has a voice at the fire. Outsiders listen."
+   },
+   "people": [
+    {
+     "name": "Speaker's Hound",
+     "role": "villager",
+     "lines": [
+      "The moot decides who hunts whom. Keep on its good side.",
+      "The fire was lit the night the Makers' towers fell. It's never gone out."
+     ]
+    },
+    {
+     "name": "Moot-trader Sallow",
+     "role": "merchant",
+     "stage": 1
+    },
+    {
+     "name": "Beast-father Oru",
+     "role": "villager",
+     "stage": 2,
+     "lines": [
+      "A beast that trusts you fights twice as hard. A clan is the same."
+     ]
+    },
+    {
+     "name": "Fireside Bael",
+     "role": "innkeeper",
+     "stage": 3
+    }
+   ],
+   "needs": [
+    {
+     "type": "cull",
+     "n": 14,
+     "why": "The moot wants a show of strength. Hunt on this floor."
+    },
+    {
+     "type": "bring",
+     "item": "raw_meat",
+     "n": 8,
+     "why": "Meat for the moot feast."
+    },
+    {
+     "type": "bring",
+     "item": "venom_sac",
+     "n": 2,
+     "why": "Venom for the hunters' arrows."
+    },
+    {
+     "type": "bring",
+     "item": "drake_blood",
+     "n": 1,
+     "why": "A cup of drake blood for the fire. Tradition."
+    }
+   ],
+   "stock": [
+    "raw_meat",
+    "hunters_oil",
+    "swift_tonic",
+    "garrison_crossbow"
+   ],
+   "specialty": [
+    "lucky_charm"
+   ],
+   "stage_lines": [
+    "The moot has heard of you.",
+    "Sallow trades with you. The clans are talking.",
+    "Beast-father Oru will speak with you. That's rare.",
+    "Your name is spoken at the fire. There's a bone carving of you on the speaker's stone."
+   ]
+  },
+  "stillwater": {
+   "name": "Stillwater",
+   "level": "floor38",
+   "faction": "deepfolk",
+   "desc": "A refuge on the deep floors for people who went down too far to climb back. Quiet, careful and kind.",
+   "headman": {
+    "name": "Keeper Asha",
+    "line": "No one is turned away at Stillwater."
+   },
+   "people": [
+    {
+     "name": "Mender Joss",
+     "role": "villager",
+     "lines": [
+      "Most come here hurt. Some stay.",
+      "The water here is so still you can see your own qi in it."
+     ]
+    },
+    {
+     "name": "Trader Nim",
+     "role": "merchant",
+     "stage": 1
+    },
+    {
+     "name": "Healer Sorrel",
+     "role": "alchemist",
+     "stage": 2
+    },
+    {
+     "name": "Innkeeper Pell",
+     "role": "innkeeper",
+     "stage": 3
+    }
+   ],
+   "needs": [
+    {
+     "type": "bring",
+     "item": "healing_salve",
+     "n": 4,
+     "why": "We go through salve faster than we can make it."
+    },
+    {
+     "type": "cull",
+     "n": 14,
+     "why": "Something has been hunting our fishers."
+    },
+    {
+     "type": "bring",
+     "item": "star_iron",
+     "n": 2,
+     "why": "Star iron for the gate. It keeps the worst out."
+    },
+    {
+     "type": "bring",
+     "item": "spirit_silk",
+     "n": 2,
+     "why": "Silk for bandages that don't rot."
+    }
+   ],
+   "stock": [
+    "healing_salve",
+    "qi_pill"
+   ],
+   "specialty": [
+    "deep_breath_pill"
+   ],
+   "stage_lines": [
+    "We're a few tents and a lot of hope.",
+    "Nim trades here now. People are finding us.",
+    "Sorrel's hospice is full and nobody's dying in it.",
+    "Stillwater is the safest place below the thirtieth floor. Your statue looks over the water."
+   ]
+  },
+  "waking_vault": {
+   "name": "The Waking Vault",
+   "level": "floor44",
+   "faction": "heirs",
+   "desc": "The last enclave of the Heirs, built against the sealed door of the Makers' deepest vault. They're trying to open it. They're not sure they should.",
+   "headman": {
+    "name": "Archivist Teodor",
+    "line": "Behind that door is the answer. Or the end."
+   },
+   "people": [
+    {
+     "name": "Lamplighter Quill",
+     "role": "villager",
+     "lines": [
+      "The door is warm. Doors shouldn't be warm.",
+      "Teodor reads the old records all night. He thinks the Makers were trying to apologise."
+     ]
+    },
+    {
+     "name": "Vault-trader Ossa",
+     "role": "merchant",
+     "stage": 1
+    },
+    {
+     "name": "Artificer Lune",
+     "role": "smith",
+     "stage": 2
+    },
+    {
+     "name": "Warden Brask",
+     "role": "innkeeper",
+     "stage": 3
+    }
+   ],
+   "needs": [
+    {
+     "type": "cull",
+     "n": 16,
+     "why": "The vault's guardians are waking. Keep them back."
+    },
+    {
+     "type": "bring",
+     "item": "nanite_shard",
+     "n": 10,
+     "why": "Shards for the door's lock."
+    },
+    {
+     "type": "bring",
+     "item": "singing_crystal",
+     "n": 2,
+     "why": "The lock answers to a pure tone."
+    },
+    {
+     "type": "bring",
+     "item": "warden_core",
+     "n": 1,
+     "why": "A guardian's core. Carefully."
+    }
+   ],
+   "stock": [
+    "nanite_shard",
+    "qi_pill"
+   ],
+   "specialty": [
+    "voidsalt_draught"
+   ],
+   "stage_lines": [
+    "We're holding on.",
+    "Ossa trades here. Word is getting up the stair.",
+    "Lune has made a key. Almost.",
+    "The Vault has become a town. Your brass likeness stands at the door, as if it were waiting too."
+   ]
+  }
+ }
+}

@@ -1,0 +1,87 @@
+{
+ "name": "Ember and Jade",
+ "mood": "old, weathered, natural light; Morrowind/Skyrim grey-brown stone that the torchlight colours",
+ "rules": [
+  "ground and walls are muted: no neon, no pure white, no pure black",
+  "colour is an accent (jade, ember, ice, blood, gold), never the whole surface",
+  "every surface has detail at two scales: big shapes plus fine grain",
+  "textures tile without a visible seam; effects fade to nothing before the edge of their picture",
+  "props are low-poly with a clear silhouette and stand on y = 0"
+ ],
+ "palette": {
+  "stone": [
+   "#2b2a2c",
+   "#4a4743",
+   "#6e6a62",
+   "#8f8a7e"
+  ],
+  "earth": [
+   "#241b14",
+   "#3d2f22",
+   "#5f4a35",
+   "#86704f"
+  ],
+  "moss": [
+   "#1c2a1a",
+   "#31472a",
+   "#4f6b37",
+   "#7f9a52"
+  ],
+  "wood": [
+   "#2a1b10",
+   "#4a3019",
+   "#6f4a28",
+   "#97703f"
+  ],
+  "ember": [
+   "#2a0d08",
+   "#7a2410",
+   "#d4501c",
+   "#ffb347"
+  ],
+  "jade": [
+   "#10261f",
+   "#1f5a46",
+   "#3f9a77",
+   "#9fe3c4"
+  ],
+  "ice": [
+   "#1b2733",
+   "#3b5d78",
+   "#7eb0d1",
+   "#e2f3fb"
+  ],
+  "bone": [
+   "#4a4033",
+   "#80725d",
+   "#b9aa90",
+   "#e8dfc9"
+  ],
+  "blood": [
+   "#1c0505",
+   "#4d0a0a",
+   "#8a1414",
+   "#c23a2a"
+  ],
+  "gold": [
+   "#3a2a0a",
+   "#7a5a14",
+   "#c9a232",
+   "#f3dc84"
+  ]
+ },
+ "limits": {
+  "lum_min": 0.12,
+  "lum_max": 0.62,
+  "sat_max": 0.78,
+  "contrast_min": 0.03,
+  "seam_max": 0.3,
+  "entropy_min": 3.0,
+  "dup_hamming_min": 6,
+  "normal_flat_min": 0.02
+ },
+ "grade": {
+  "saturation": 0.92,
+  "value": 1.0
+ }
+}

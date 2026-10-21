@@ -1,0 +1,35 @@
+{
+ "note": "Round 146: aspecting the nanites to an element. Active meditation (walk while you draw breath) is how it grows and how its buff is kept up; sitting refines it. Elements follow the five-element wheel the game already uses.",
+ "min_tier": 2,
+ "breath_seconds": 5.0,
+ "buff_per_breath": 45.0,
+ "buff_cap": 240.0,
+ "walk_mult": 0.85,
+ "idle_end": 8.0,
+ "att_gain": 0.25,
+ "att_decay_at": 110.0,
+ "sit_refine_per_minute": 0.5,
+ "refine_cap": 100.0,
+ "tier_floor": 0.4,
+ "tier_step": 0.1,
+ "aspects": {
+  "wood": {"name": "Verdant Thread", "text": "Growth and mending: you recover life as you go, and kills heal you.", "fx": {"regen": 1.2, "heal_on_kill": 5, "gather_chance": 0.15}},
+  "fire": {"name": "Ember Thread", "text": "The strike: blows land harder and more often true.", "fx": {"damage_mult": 0.12, "crit_chance": 0.06}},
+  "earth": {"name": "Stone Thread", "text": "Endurance: you take less damage and hold more life.", "fx": {"damage_taken": -0.12, "hp_mult": 0.10}},
+  "metal": {"name": "Edge Thread", "text": "Precision: quicker hands and a stronger guard.", "fx": {"attack_speed": 0.10, "ward": 4}},
+  "water": {"name": "Tide Thread", "text": "Flow: qi comes easier, sitting runs deeper, and you slip more blows.", "fx": {"qi_mult": 0.12, "meditate_mult": 0.15, "dodge_chance": 0.05}}
+ },
+ "secrets": [
+  {"id": "wood_roots", "element": "wood", "att": 40, "name": "Roots Beneath", "text": "The thread learns to drink from the ground. A little life comes back even when the aspect is quiet.", "fx": {"regen": 0.3}},
+  {"id": "wood_bloom", "element": "wood", "att": 80, "name": "Sudden Bloom", "text": "Kills feed it. Something green answers the swarm.", "fx": {"heal_on_kill": 2, "gather_chance": 0.05}},
+  {"id": "fire_spark", "element": "fire", "att": 40, "name": "The First Spark", "text": "You learn where a blow wants to land. A little more edge, always.", "fx": {"crit_chance": 0.02}},
+  {"id": "fire_forge", "element": "fire", "att": 80, "name": "Furnace Heart", "text": "The swarm runs hot and steady. Your blows carry a little more.", "fx": {"damage_mult": 0.03}},
+  {"id": "earth_root", "element": "earth", "att": 40, "name": "Footing", "text": "You stop being pushed around by the ground. You take a touch less damage, always.", "fx": {"damage_taken": -0.03}},
+  {"id": "earth_deep", "element": "earth", "att": 80, "name": "Deep Marrow", "text": "The thread reaches the bone. Your body holds a little more.", "fx": {"hp_mult": 0.03}},
+  {"id": "metal_keen", "element": "metal", "att": 40, "name": "Keen Line", "text": "You find the straight way between two points. A little quicker, always.", "fx": {"attack_speed": 0.03}},
+  {"id": "metal_ring", "element": "metal", "att": 80, "name": "Ringing Guard", "text": "Your guard rings true. A touch more ward, always.", "fx": {"ward": 1}},
+  {"id": "water_still", "element": "water", "att": 40, "name": "Still Water", "text": "Sitting runs a little deeper, always.", "fx": {"meditate_mult": 0.04}},
+  {"id": "water_tide", "element": "water", "att": 80, "name": "Tide Table", "text": "You feel the pull of qi like a tide. A little more qi, always.", "fx": {"qi_mult": 0.03}},
+  {"id": "five_threads", "element": "", "att": 50, "name": "The Five Threads", "text": "Every thread is woven. The swarm hums in five keys at once, and sometimes they agree.", "fx": {"qi_mult": 0.02, "damage_mult": 0.02, "hp_mult": 0.02}}
+ ]
+}

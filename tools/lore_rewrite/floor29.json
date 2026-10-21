@@ -1,0 +1,34 @@
+{
+ "A": {
+  "title": "The Escapement Stair",
+  "text": "The clicking gets louder as you climb. Keep pace with it. Out of time with the stair you fall."
+ },
+ "Y": {
+  "title": "Parts Store Ledger",
+  "text": "Shelves of springs, pins and gears, each labelled in a neat hand. Stock count: thousands. Stock needed: none."
+ },
+ "R": {
+  "title": "Under the Pendulum Gallery",
+  "text": "Beneath the floorboards, a stone engraved with a clockmaker's mark. It says: strike when the pendulum is at the top of its swing, for that is when it stops. Wait for the stop, then hit."
+ },
+ "G": {
+  "title": "Since the First Clock",
+  "text": "The first clock was wound before the war between the old ages. Its makers are long dead. It has not stopped. The clockmaker's hammer is still on the bench."
+ },
+ "M": {
+  "title": "The Mourning Hour",
+  "text": "At dusk the broken clockwork gather here and stand in rows. They do not attack. Stay out of the rows, and they ignore you."
+ },
+ "O": {
+  "title": "Brass Wall Mark",
+  "text": "Tap the brass with a coin. A flat sound means a wall. A ringing sound means a hollow behind it. A hunter marked three hollows in chalk."
+ },
+ "U": {
+  "title": "The Spur",
+  "text": "A gear with a single long tooth, bent. The Great Mainspring thumps beyond it, slow and heavy. Keep the beat in your ears and you will not get lost."
+ },
+ "X": {
+  "title": "Clockmaker's Last Word",
+  "text": "I built the engines to idle until the world needed them. I did not say when. Nobody wound them since the peace. Wind carefully, or the whole thing starts."
+ }
+}

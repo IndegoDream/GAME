@@ -1,0 +1,1 @@
+Source library (Poly Haven originals, round 17). The game reads the copies in assets/sky and assets/textures; this folder is kept out of the import and every export (round 31: it alone was 260 MB of the phone download).

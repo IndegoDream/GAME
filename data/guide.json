@@ -1,0 +1,329 @@
+{
+ "_about": "Round 120 (Robert: 'make the nanites and ki sections more intuitive, build a tutorial option that is optional'). Optional lessons, never forced: the menu's Guide page lists them, the ? Help button on a page starts the one for that page. Each step may carry a page -- the menu jumps there so the words and the screen sit together. Plain words only.",
+ "lessons": [
+  {
+   "id": "qi",
+   "title": "Qi: the energy you cultivate",
+   "page": "You",
+   "mins": 1,
+   "blurb": "What qi is, how you get it, and what filling it does.",
+   "steps": [
+    {
+     "page": "You",
+     "title": "Qi is your growth",
+     "text": "Qi is the energy you cultivate. It is the bar in the top row of this menu (Qi 120 / 400). Filling it takes you up a step; enough steps take you up a REALM -- stronger body, more health, more damage, new arts."
+    },
+    {
+     "page": "You",
+     "title": "Three ways to get qi",
+     "text": "1) Fighting: every kill gives qi.\n2) Sitting (press M anywhere): slow on its own, and it gets slower the longer you sit in one go.\n3) Sitting at a shrine or with aids (incense, the Lotus Seat): much faster. A little qi also trickles in while you are away."
+    },
+    {
+     "page": "You",
+     "title": "Spend it by getting stronger",
+     "text": "You never spend qi like mana. It only builds up. When the bar is full a step is yours. At the end of a realm you also need INSIGHT and a calm heart to break through -- the Meridians page tells you exactly what is missing."
+    },
+    {
+     "page": "Meridians",
+     "title": "Where to look next",
+     "text": "The Meridians page (K) is the map of your body's channels. The 'Meridians and arts' lesson walks through it."
+    }
+   ]
+  },
+  {
+   "id": "meridians",
+   "title": "Meridians and arts (ki skills)",
+   "page": "Meridians",
+   "mins": 2,
+   "blurb": "The 36 points, how to open them, and where your ki arts come from.",
+   "steps": [
+    {
+     "page": "Meridians",
+     "title": "The map",
+     "text": "Your body has 36 points on three channels: STRIKE (more damage), GUARD (less damage taken) and STEP (more speed). Every point you open is a permanent bonus. The points come in rings -- ring 1 is open to you now, each realm opens the next ring."
+    },
+    {
+     "page": "Meridians",
+     "title": "Opening a point",
+     "text": "Click a point on the map to make it your FOCUS. Then sit (press M) with your Mind focus on 'Cultivate' (the Mind page). The point fills up while you sit. When it hits 100% it is open and you pick the next one."
+    },
+    {
+     "page": "Meridians",
+     "title": "Arts",
+     "text": "An ART is a skill you can fire: Qi Burst, Wind Step, Severing Finger... You learn them from shrines, stone tablets, masters, and from 'glimpses' -- doing the thing (killing with arts, parrying, hitting in the air) can teach you the next one. Fire your strike art with F and your step art with V; X swaps the strike art."
+    },
+    {
+     "page": "Meridians",
+     "title": "Heat",
+     "text": "Every art adds HEAT (the Heat number on this page). Above 70% you run HOT: arts hit 15% harder. Past the cap you suffer a backlash and lose health and a channel for a while. Heat drains when you stop. Guarding adds a little; a perfectly timed guard (tap right mouse just before the hit) is a PARRY and vents heat."
+    },
+    {
+     "page": "Meridians",
+     "title": "Mastery",
+     "text": "Using an art practices it. A night's sleep at home, or time away, settles that practice into mastery: Practiced, Fluent, Mastered, Transcendent. At Fluent you choose an element for it (burn, slow, heal...)."
+    }
+   ]
+  },
+  {
+   "id": "mind",
+   "title": "Sitting: where your time goes",
+   "page": "Mind",
+   "mins": 1,
+   "blurb": "The Mind page decides what a sitting is FOR.",
+   "steps": [
+    {
+     "page": "Mind",
+     "title": "One sitting, one focus",
+     "text": "When you sit (M) you choose what the time is spent on: CULTIVATE (full qi and your focus point opens), CLEANSE (a meridian node is refined -- permanent health, damage and speed ceilings) or RESEARCH (the swarm's tech tree). Cleanse and Research give 60% of the qi."
+    },
+    {
+     "page": "Mind",
+     "title": "Split the mind",
+     "text": "Research 'Divided Mind' on the Swarm page and you can split one sitting between two or three jobs with the sliders on this page."
+    },
+    {
+     "page": "Mind",
+     "title": "Synergy",
+     "text": "SYNERGY is how well your qi road and your nanite road work together. Its level is the LOWER of your realm and your swarm tier, so grow both. It adds recovery, focus, skill growth and bond gains."
+    }
+   ]
+  },
+  {
+   "id": "nanites",
+   "title": "Nanites: your second road",
+   "page": "Swarm",
+   "mins": 2,
+   "blurb": "What the swarm is, how it grows, and what to do on the Swarm page.",
+   "steps": [
+    {
+     "page": "Swarm",
+     "title": "Qi and nanites are separate roads",
+     "text": "Qi grows by sitting and killing. The NANITE SWARM grows by being USED: running hot, blocking and parrying, absorbing nanite shards, nanite crafting, and surviving. Its level is a TIER (Nanite Seeding, Bloom, Lattice...). Each tier gives more heat room, health, damage and mending."
+    },
+    {
+     "page": "Swarm",
+     "title": "The top line",
+     "text": "Read the first line of the Swarm page: INTEGRATION is the swarm's growth. BANDWIDTH is how many designs it can run at once. BODY LOAD is how many installs your body can carry. UPKEEP is a small qi cost per minute for what is running; if qi runs out, designs go quiet until you have qi again ('RUN DRY')."
+    },
+    {
+     "page": "Swarm",
+     "title": "Research",
+     "text": "The cards below are the TECH TREE. A card marked OPEN can be researched: press Research. It costs sitting time, some qi and materials. Research only moves while you SIT (M) with Research as your Mind focus. Filter by branch with the buttons on top."
+    },
+    {
+     "page": "Swarm",
+     "title": "Designs: connect and tune",
+     "text": "A researched DESIGN is a program for the swarm. Sit, then press Connect to run it (it uses bandwidth and a little upkeep). You can TUNE it with a material for a better version. Disconnect when you need the room."
+    },
+    {
+     "page": "Swarm",
+     "title": "Installs",
+     "text": "An INSTALL is a permanent upgrade to your body (wetware, hardware, later cybernetics and power armour). Sit, then press Install. It uses body load, which grows with your realm."
+    },
+    {
+     "page": "Meridians",
+     "title": "Nanite bridges",
+     "text": "A nanite BRIDGE lets an art run through a point that is still sealed, at 1.5x heat. You get one from a boss's first defeat. Click a sealed point on the Meridians page, then 'Wire a nanite bridge'."
+    },
+    {
+     "page": "Mind",
+     "title": "Harmony",
+     "text": "If your swarm tier and your realm are within one of each other you are IN HARMONY: +10% qi and +10% swarm growth. Far ahead on one road and the other suffers (arts run hotter, or heat is capped). Keep them level."
+    }
+   ]
+  },
+  {
+   "id": "fighting",
+   "title": "Fighting, guarding and distance weapons",
+   "page": "You",
+   "mins": 1,
+   "blurb": "Combos, heavy blows, parry, dodge and the bow, crossbow and qi focus.",
+   "steps": [
+    {
+     "page": "You",
+     "title": "Blows",
+     "text": "Click for a light blow; three in a row chain into a finisher. HOLD to charge a heavy blow that can't be blocked and breaks a foe's poise. Every weapon kind fights differently (spears thrust and reach, hammers crush, daggers slip behind)."
+    },
+    {
+     "page": "You",
+     "title": "Guard, parry, roll",
+     "text": "Hold right mouse to guard: half the damage. TAP it just before a hit lands for a PARRY: no damage, the attacker staggers. Ctrl rolls through a hit (a perfect roll leaves the foe open). Z locks on to a foe."
+    },
+    {
+     "page": "Pack",
+     "title": "Distance weapons (from floor 4)",
+     "text": "Bows, crossbows and qi focuses appear from floor 4. Click to shoot, hold to draw a harder shot (an aim line shows). Far shots hit harder, point-blank ones weaker, so back off. A crossbow is slow but pierces. A qi focus fires from a pool of six bursts that refills as you breathe."
+    }
+   ]
+  },
+  {
+   "id": "paths",
+   "title": "Paths: the class you grow into",
+   "page": "Path",
+   "mins": 2,
+   "blurb": "Nine roads -- how to pick one, how it ranks up, and what the art key does.",
+   "steps": [
+    {
+     "page": "Path",
+     "title": "What a Path is",
+     "text": "A Path is who you are in a fight: Duelist, Vanguard, Ranger, Ki Adept, Nanite Warden, Shadowblade, Mender, Forgewright or Delver. Pick one on this page. The first pick is free, and nothing is a trap -- you can change it later."
+    },
+    {
+     "page": "Path",
+     "title": "Ranks come from what you do",
+     "text": "There are no points to spend. A path ranks up from DEEDS: kills with its weapons, parries, shots, crafts, secrets found. The card shows the next rank and a bar for every deed it needs. Some ranks also want a realm, so cultivating still matters."
+    },
+    {
+     "page": "Path",
+     "title": "Gifts that follow your weapon",
+     "text": "Every rank gives a gift. Gifts marked 'with sword/saber' (or bow, dagger ...) only count while that kind of weapon is in your hand, so a Ranger who swaps to a sword loses the bow bonus until the bow is back."
+    },
+    {
+     "page": "Path",
+     "title": "The art key",
+     "text": "Rank 2 teaches your path's signature ART. Press 6 (or the PATH button on a phone). It lasts a few seconds and then has a cooldown; the HUD shows when it is ready. Rank 4 adds a KEYSTONE that triggers by itself when you do the path's thing, like parrying."
+    },
+    {
+     "page": "Path",
+     "title": "A second path",
+     "text": "At rank 3 a second path opens. It gives half of what a path gives, and its art can be readied instead of the first (press 7 or use the Ready button). Hybrids are fine; a double of everything is not on offer."
+    }
+   ]
+  },
+  {
+   "id": "arts_library",
+   "title": "Arts: attack, movement, defence and support",
+   "page": "Meridians",
+   "mins": 3,
+   "blurb": "Four kinds of art, where support arts go, who can learn what, and why ki plus nanites beats either.",
+   "steps": [
+    {
+     "page": "Meridians",
+     "title": "Four kinds of art",
+     "text": "ATTACK arts fire on F. MOVEMENT arts on V. DEFENCE arts are how your guard behaves (right mouse). SUPPORT arts are new: they heal, buff or weaken, and they fire on 8 (and 9). Anyone can learn the open ones; you find them by doing -- tend wounds with salves and Mending Breath comes."
+    },
+    {
+     "page": "Meridians",
+     "title": "Where support arts go",
+     "text": "By default all support arts share one slot, key 8. On the Meridians page the 'Support arts' button changes that: TWO slots (8 mends, 9 boons and hexes), or SHARED with the attack key F if you would rather give up an attack to heal. Your choice is saved."
+    },
+    {
+     "page": "Meridians",
+     "title": "Sects and roads",
+     "text": "A sect teaches its own arts as you rise in it (Inner Disciple, Core, Elder's). A Path opens others at its ranks. Those are yours alone: another sect's or road's art stays shut. A sect's gifts stay with you if you leave; a road's art needs you to keep walking that road. The Meridians page lists every art and what it asks."
+    },
+    {
+     "page": "Meridians",
+     "title": "Ki, nanites, and both",
+     "text": "An art runs on an open meridian (ki) or on nanites. Either one alone works. When BOTH are in step -- the route open and your swarm past its first tier -- the art is 12% stronger and runs 15% cooler. The art list tells you which you are running on."
+    },
+    {
+     "page": "Meridians",
+     "title": "Companions",
+     "text": "Heals and boons reach the people with you, but not equally: flesh mends with Mending Breath, spirits with qi arts, made things with Gear Mend. A fallen companion can be called back with Call Back the Breath. Boons reach companions and familiars within 12 metres."
+    }
+   ]
+  },
+  {
+   "id": "tech_frontier",
+   "title": "The tech frontier and the Skyhook",
+   "page": "Map",
+   "mins": 3,
+   "blurb": "Where the high-tech places are, how to get a Skyhook keycard, and what only grows out there.",
+   "steps": [
+    {
+     "page": "Map",
+     "title": "Two gates in the valley",
+     "text": "Far from the sects, the valley has two new ways: the Fallen Beacon (a crashed ship, scrap and drones) and Skyhook Yard (a launch field). Look for a hatch and a lit pad on the map; they are a long walk from Eliet's road, and from each other."
+    },
+    {
+     "page": "Map",
+     "title": "The keycard",
+     "text": "The three launch pads at Skyhook Yard stay dark until you carry a Skyhook keycard. The Beacon Warden, the boss of the Fallen Beacon, drops it. With it the pads take you to the Halcyon Ring, the Ashen Moon and the Glass Desert."
+    },
+    {
+     "page": "Map",
+     "title": "Only here",
+     "text": "Every place has plants, ores and gems that grow nowhere else, and chests are never hidden the same way twice. Bring them home to craft: ion alloy, lumen extract, lunar steel, sunglass lenses, foundry plate and skyweave. The Nanite Foundry hatch is inside the Fallen Beacon."
+    }
+   ]
+  },
+  {
+   "id": "lite_cloud",
+   "title": "Lite world and the cloud save",
+   "page": "Map",
+   "mins": 2,
+   "blurb": "Why a phone plays a lighter world, and how to keep one character on every device.",
+   "steps": [
+    {
+     "page": "Map",
+     "title": "Lite and Full",
+     "text": "A phone starts in the Lite world: the village and the dungeon. The valley road, the towers and the tech frontier are Full-world places and the road tells you so. Change it any time: Pause menu -> Graphics fine-tune -> World. It is the same character either way."
+    },
+    {
+     "page": "Map",
+     "title": "One character everywhere",
+     "text": "Pause menu -> Cloud save... lets you sign in. Every save is then copied to your account a moment after it is written, and when another device opens the game the newer save is the one you play. The older one is kept as a backup beside it. Offline play always works; it syncs when it can."
+    },
+    {
+     "page": "Map",
+     "title": "If two devices disagree",
+     "text": "Nothing is thrown away. Sync now compares each slot; the newer one wins and the other is kept (the last three on the device, the last five in the cloud). A slot you are playing is never swapped under you: use 'Take the cloud save for this slot' to switch on purpose."
+    }
+   ]
+  },
+  {
+   "id": "online_gate",
+   "title": "The Gate: the shared world",
+   "page": "Map",
+   "mins": 3,
+   "blurb": "How to step through the Gate to dungeon runs, raids and world bosses with other players.",
+   "steps": [
+    {
+     "page": "Map",
+     "title": "Find the Gate",
+     "text": "A violet pad called The Gate stands in the village and in the valley. Step on it. You need a cloud-save account first (Pause menu -> Cloud save), because the shared world knows you by it. The Gate asks you to name an online hero: a separate character that starts at your rank (at most the third realm) and grows only there."
+    },
+    {
+     "page": "Map",
+     "title": "The hub and its stands",
+     "text": "The hub is a plaza shared with other players. Press T to talk. The Dungeon Gates stand starts a four-room run for up to four heroes (or finds you a group), the Raid Hall a boss fight for up to eight, the Event Obelisk joins a world boss when one is live, the Hall of Records shows the fastest and the strongest, the Market trades materials, the Post carries letters and gold, the Vault holds what you won."
+    },
+    {
+     "page": "Map",
+     "title": "In a fight",
+     "text": "Red circles are coming blows: step out of them. Stand close to a fallen friend to raise them. A solo hero gets one second wind. The server keeps score: it pays gold, marks, experience, titles and crafting materials, never gear. From the Vault you can carry materials home into your solo pouch -- the only thing that crosses. Your solo save is never changed by the Gate otherwise."
+    }
+   ]
+  },
+  {
+   "id": "hot_loop",
+   "title": "Chains, luck, dailies and the Ember Gauntlet",
+   "page": "Map",
+   "mins": 3,
+   "blurb": "The things that reward you for coming back: kill chains, the luck meter, the daily streak, mastery and the Gauntlet.",
+   "steps": [
+    {
+     "page": "Map",
+     "title": "Chains and luck",
+     "text": "Kill without a pause (seven seconds between foes) and a chain builds: at 3, 5, 8 and on it heals you, gives qi and pops a word. Every foe you slay without a Superior-or-better find tilts the next drop upward; at the top of the meter the next drop is guaranteed fine gear, and it resets when you find it."
+    },
+    {
+     "page": "Map",
+     "title": "The daily pull",
+     "text": "Come back each day to grow your streak: gold every day, a pill every third, gear every seventh. Three daily challenges (slay, chain, find gear) pay a prize when all are done; the nearest one shows under NEXT. Pause menu -> Streak, dailies & luck shows it all. Rewards need real play time, so the clock can't be farmed."
+    },
+    {
+     "page": "Map",
+     "title": "The Ember Gauntlet",
+     "text": "The Ember Stone stands by the village Gate. Ten waves in the ring, a boon of your choice between them (Fury, Bulwark, Bloodthirst, Second Wind, Windfall), and a rival you have met before at the end. Fall and you still keep the embers. Embers buy permanent Might and Vigor blessings at the Stone, ten ranks each."
+    },
+    {
+     "page": "Map",
+     "title": "Mastery and welcome-back",
+     "text": "Every kind of foe has three mastery tiers (50, 150 and 400 kills) that pay gold and insight; kill totals earn titles. Stay away for a few hours and a chest waits when you return. Seasonal nights add luck and double embers."
+    }
+   ]
+  }
+ ]
+}

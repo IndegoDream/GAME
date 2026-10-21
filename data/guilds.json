@@ -1,0 +1,630 @@
+{
+  "adventurers": {
+    "name": "Adventurers' Lodge",
+    "rival": "",
+    "desc": "Delvers, monster hunters, map-makers. They pay for what you clear and what you find.",
+    "rep_from": {
+      "kill": 1,
+      "boss": 25,
+      "secret": 6,
+      "chest": 2
+    },
+    "ranks": [
+      {
+        "name": "Initiate",
+        "rep": 0
+      },
+      {
+        "name": "Blade",
+        "rep": 80,
+        "effect": {
+          "damage_mult": 1.05
+        },
+        "perk": "+5% damage"
+      },
+      {
+        "name": "Vanguard",
+        "rep": 250,
+        "effect": {
+          "damage_taken": 0.93
+        },
+        "perk": "7% less damage taken"
+      },
+      {
+        "name": "Pathfinder",
+        "rep": 600,
+        "effect": {
+          "sense_radius": 6
+        },
+        "perk": "spirit sense reaches further"
+      },
+      {
+        "name": "Champion",
+        "rep": 1400,
+        "effect": {
+          "damage_mult": 1.1
+        },
+        "perk": "+10% more damage"
+      }
+    ],
+    "contracts": [
+      {
+        "id": "cull_goblins",
+        "desc": "Thin the warrens: kill 12 goblins.",
+        "goal": {
+          "kill": "goblin",
+          "count": 12
+        },
+        "reward": {
+          "rep": 30,
+          "gold": 25
+        }
+      },
+      {
+        "id": "lay_the_dead",
+        "desc": "Lay 10 skeletons back to rest.",
+        "goal": {
+          "kill": "skeleton",
+          "count": 10
+        },
+        "reward": {
+          "rep": 45,
+          "gold": 40
+        }
+      },
+      {
+        "id": "drowned",
+        "desc": "Put down 8 drowned miners.",
+        "goal": {
+          "kill": "drowned_miner",
+          "count": 8
+        },
+        "reward": {
+          "rep": 60,
+          "gold": 60
+        }
+      },
+      {
+        "id": "prune_the_grove",
+        "desc": "Cut back the Grove: 15 thornlings.",
+        "goal": {
+          "kill": "thornling",
+          "count": 15
+        },
+        "reward": {
+          "rep": 80,
+          "gold": 90
+        }
+      },
+      {
+        "id": "bank_the_fires",
+        "desc": "Put out 10 cinder imps.",
+        "goal": {
+          "kill": "cinder_imp",
+          "count": 10
+        },
+        "reward": {
+          "rep": 95,
+          "gold": 120
+        }
+      },
+      {
+        "id": "break_the_ranks",
+        "desc": "Break 12 clay soldiers.",
+        "goal": {
+          "kill": "clay_soldier",
+          "count": 12
+        },
+        "reward": {
+          "rep": 110,
+          "gold": 150
+        }
+      },
+      {
+        "id": "lay_the_swords",
+        "desc": "Lay 10 sword wraiths to rest.",
+        "goal": {
+          "kill": "sword_wraith",
+          "count": 10
+        },
+        "reward": {
+          "rep": 130,
+          "gold": 190
+        }
+      }
+    ],
+    "specials": [
+      {
+        "item": "lodge_field_ration",
+        "rank": 0,
+        "cost": 12,
+        "repeat": true
+      },
+      {
+        "item": "vanguard_token",
+        "rank": 1,
+        "cost": 70
+      },
+      {
+        "item": "pathfinder_compass",
+        "rank": 2,
+        "cost": 160
+      },
+      {
+        "item": "champions_brand",
+        "rank": 3,
+        "cost": 380
+      }
+    ],
+    "tailor_cost": 120,
+    "tailor_rank": 1
+  },
+  "gatherers": {
+    "name": "Gatherers' Hall",
+    "rival": "",
+    "desc": "Miners, herb-pickers, fishers and trappers. Everything anyone makes starts in their hands.",
+    "rep_from": {
+      "gather": 3
+    },
+    "ranks": [
+      {
+        "name": "Forager",
+        "rep": 0
+      },
+      {
+        "name": "Picker",
+        "rep": 60,
+        "effect": {
+          "gather_chance": 0.15
+        },
+        "perk": "15% chance of an extra find"
+      },
+      {
+        "name": "Prospector",
+        "rep": 200,
+        "effect": {
+          "gather_bonus": 1
+        },
+        "perk": "+1 from every vein and plant"
+      },
+      {
+        "name": "Warden of the Wild",
+        "rep": 600,
+        "effect": {
+          "gather_chance": 0.3
+        },
+        "perk": "30% more chance of an extra find"
+      }
+    ],
+    "contracts": [
+      {
+        "id": "herbs_for_lin",
+        "desc": "Bring 10 Spirit Herbs.",
+        "goal": {
+          "have": "spirit_herb",
+          "count": 10,
+          "take": true
+        },
+        "reward": {
+          "rep": 25,
+          "gold": 30
+        }
+      },
+      {
+        "id": "ore_for_hale",
+        "desc": "Bring 12 Iron Ore.",
+        "goal": {
+          "have": "iron_ore",
+          "count": 12,
+          "take": true
+        },
+        "reward": {
+          "rep": 30,
+          "gold": 35
+        }
+      },
+      {
+        "id": "silver_run",
+        "desc": "Bring 8 Silver Ore.",
+        "goal": {
+          "have": "silver_ore",
+          "count": 8,
+          "take": true
+        },
+        "reward": {
+          "rep": 50,
+          "gold": 70
+        }
+      }
+    ],
+    "specials": [
+      {
+        "item": "wild_tonic",
+        "rank": 0,
+        "cost": 12,
+        "repeat": true
+      },
+      {
+        "item": "forager_gloves",
+        "rank": 1,
+        "cost": 60
+      },
+      {
+        "item": "warden_satchel",
+        "rank": 2,
+        "cost": 150
+      }
+    ],
+    "tailor_cost": 120,
+    "tailor_rank": 1
+  },
+  "blacksmiths": {
+    "name": "Blacksmiths' Guild",
+    "rival": "",
+    "desc": "Forge-masters. Members share techniques -- and expect your best work.",
+    "rep_from": {
+      "craft:smithing": 6,
+      "craft_fine": 6
+    },
+    "ranks": [
+      {
+        "name": "Striker",
+        "rep": 0
+      },
+      {
+        "name": "Journeyman Smith",
+        "rep": 80,
+        "effect": {
+          "craft_success_smithing": 0.06
+        },
+        "perk": "+6% smithing success"
+      },
+      {
+        "name": "Master Smith",
+        "rep": 300,
+        "effect": {
+          "craft_quality_smithing": 0.08
+        },
+        "perk": "finer smithing"
+      }
+    ],
+    "contracts": [
+      {
+        "id": "swords_for_lodge",
+        "desc": "Forge 2 Iron Swords for the Lodge.",
+        "goal": {
+          "craft": "iron_sword",
+          "count": 2
+        },
+        "reward": {
+          "rep": 30,
+          "gold": 40
+        }
+      }
+    ],
+    "specials": [
+      {
+        "item": "guild_whetstone",
+        "rank": 1,
+        "cost": 70
+      },
+      {
+        "item": "master_tongs",
+        "rank": 2,
+        "cost": 170
+      }
+    ],
+    "tailor_cost": 100,
+    "tailor_rank": 1
+  },
+  "alchemists": {
+    "name": "Alchemists' Circle",
+    "rival": "healers",
+    "desc": "Pill-refiners. To them a herb is power waiting to be concentrated -- and they don't trust healers who 'waste' it.",
+    "rep_from": {
+      "craft:alchemy": 6,
+      "craft_fine": 4
+    },
+    "ranks": [
+      {
+        "name": "Furnace-tender",
+        "rep": 0
+      },
+      {
+        "name": "Refiner",
+        "rep": 80,
+        "effect": {
+          "craft_success_alchemy": 0.06
+        },
+        "perk": "+6% alchemy success"
+      },
+      {
+        "name": "Pill Master",
+        "rep": 300,
+        "effect": {
+          "qi_mult": 1.06
+        },
+        "perk": "+6% qi from everything"
+      }
+    ],
+    "contracts": [
+      {
+        "id": "pills_for_circle",
+        "desc": "Refine 3 Qi Gathering Pills.",
+        "goal": {
+          "craft": "qi_pill",
+          "count": 3
+        },
+        "reward": {
+          "rep": 35,
+          "gold": 30
+        }
+      }
+    ],
+    "specials": [
+      {
+        "item": "circle_qi_draught",
+        "rank": 0,
+        "cost": 18,
+        "repeat": true
+      },
+      {
+        "item": "furnace_charm",
+        "rank": 1,
+        "cost": 70
+      },
+      {
+        "item": "refiners_lens",
+        "rank": 2,
+        "cost": 170
+      }
+    ],
+    "tailor_cost": 120,
+    "tailor_rank": 1
+  },
+  "healers": {
+    "name": "Healers' House",
+    "rival": "alchemists",
+    "desc": "Physicians and herb-wives. To them a herb is a life saved -- and they don't trust alchemists who 'burn' it.",
+    "rep_from": {
+      "craft:medicine": 6,
+      "craft_fine": 4
+    },
+    "ranks": [
+      {
+        "name": "Orderly",
+        "rep": 0
+      },
+      {
+        "name": "Physician",
+        "rep": 80,
+        "effect": {
+          "craft_success_medicine": 0.06
+        },
+        "perk": "+6% medicine success"
+      },
+      {
+        "name": "Saint of the Wards",
+        "rep": 300,
+        "effect": {
+          "hp_mult": 1.08,
+          "heal_on_kill": 3
+        },
+        "perk": "+8% HP, heal 3 per kill"
+      }
+    ],
+    "contracts": [
+      {
+        "id": "salves_for_house",
+        "desc": "Make 4 Healing Salves for the wards.",
+        "goal": {
+          "craft": "healing_salve",
+          "count": 4
+        },
+        "reward": {
+          "rep": 30,
+          "gold": 25
+        }
+      }
+    ],
+    "specials": [
+      {
+        "item": "house_salve",
+        "rank": 0,
+        "cost": 15,
+        "repeat": true
+      },
+      {
+        "item": "ward_charm",
+        "rank": 1,
+        "cost": 70
+      },
+      {
+        "item": "saints_rosary",
+        "rank": 2,
+        "cost": 170
+      }
+    ],
+    "tailor_cost": 120,
+    "tailor_rank": 1
+  },
+  "academy": {
+    "name": "Lotus Ascent Academy",
+    "rival": "",
+    "exam": true,
+    "desc": "A school of cultivation that only takes those who prove themselves. Its disciples are expected to grow -- and to be seen growing.",
+    "rep_from": {
+      "kill": 0.5,
+      "boss": 20,
+      "secret": 5,
+      "chest": 1,
+      "craft_fine": 3
+    },
+    "ranks": [
+      {
+        "name": "Outer Disciple",
+        "rep": 0,
+        "realm": 1
+      },
+      {
+        "name": "Inner Disciple",
+        "rep": 120,
+        "realm": 2,
+        "trial_tier": 6,
+        "effect": {
+          "damage_mult": 1.05
+        },
+        "perk": "+5% damage"
+      },
+      {
+        "name": "Core Disciple",
+        "rep": 400,
+        "realm": 3,
+        "trial_tier": 9,
+        "effect": {
+          "hp_mult": 1.08
+        },
+        "perk": "+8% HP"
+      },
+      {
+        "name": "True Disciple",
+        "rep": 1000,
+        "realm": 4,
+        "trial_tier": 13,
+        "effect": {
+          "qi_mult": 1.12
+        },
+        "perk": "+12% qi"
+      },
+      {
+        "name": "Elder's Chosen",
+        "rep": 2400,
+        "realm": 6,
+        "trial_tier": 18,
+        "effect": {
+          "damage_mult": 1.1,
+          "damage_taken": 0.92
+        },
+        "perk": "+10% damage, 8% less damage taken"
+      },
+      {
+        "name": "Lotus Elder",
+        "rep": 5000,
+        "realm": 8,
+        "trial_tier": 26,
+        "effect": {
+          "meditate_mult": 1.5
+        },
+        "perk": "cultivate half again as fast"
+      }
+    ],
+    "contracts": [
+      {
+        "id": "academy_grove",
+        "desc": "Field study: put down 12 thornlings in the Strangling Grove.",
+        "goal": {
+          "kill": "thornling",
+          "count": 12
+        },
+        "reward": {
+          "rep": 40,
+          "gold": 60
+        }
+      },
+      {
+        "id": "academy_salves",
+        "desc": "Infirmary duty: make 3 Resin Salves.",
+        "goal": {
+          "craft": "resin_salve",
+          "count": 3
+        },
+        "reward": {
+          "rep": 30,
+          "gold": 40
+        }
+      },
+      {
+        "id": "academy_forges",
+        "desc": "Field study: break 8 slag brutes in the Ember Forges.",
+        "goal": {
+          "kill": "slag_brute",
+          "count": 8
+        },
+        "reward": {
+          "rep": 55,
+          "gold": 90
+        }
+      },
+      {
+        "id": "academy_barrows",
+        "desc": "Field study: bring down 6 clay cavaliers.",
+        "goal": {
+          "kill": "clay_cavalier",
+          "count": 6
+        },
+        "reward": {
+          "rep": 70,
+          "gold": 120
+        }
+      },
+      {
+        "id": "academy_grave",
+        "desc": "Field study: lay 10 sword wraiths to rest.",
+        "goal": {
+          "kill": "sword_wraith",
+          "count": 10
+        },
+        "reward": {
+          "rep": 90,
+          "gold": 160
+        }
+      }
+    ],
+    "library": [
+      {
+        "tech": "lotus_breathing",
+        "rank": 0,
+        "merit": 60
+      },
+      {
+        "tech": "flowing_strikes",
+        "rank": 1,
+        "merit": 150
+      },
+      {
+        "tech": "lotus_body",
+        "rank": 2,
+        "merit": 350
+      },
+      {
+        "tech": "heart_of_the_lotus",
+        "rank": 3,
+        "merit": 800
+      },
+      {
+        "tech": "thousand_petal_guard",
+        "rank": 4,
+        "merit": 1800
+      }
+    ],
+    "specials": [
+      {
+        "item": "lotus_seal",
+        "rank": 1,
+        "cost": 140
+      },
+      {
+        "item": "sparring_manual",
+        "rank": 2,
+        "cost": 300
+      },
+      {
+        "item": "elders_jade_slip",
+        "rank": 3,
+        "cost": 700
+      }
+    ],
+    "tailor_cost": 200,
+    "tailor_rank": 1
+  }
+}
