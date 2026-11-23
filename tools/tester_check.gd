@@ -23,6 +23,24 @@ func _initialize() -> void:
 	G.new_game()
 	var T = G.sys("tester")
 	check("system exists", T != null)
+	if T.clean():
+		check("clean build ignores saved tester switch", not T.vault_on() and not T.active())
+		check("no god mode", not T.god())
+		check("no free refund", T.total("nanite_shard") == 0)
+		G.inventory["iron_ore"] = 7
+		check("vault cannot take items", T.dump() == -1 and G.count("iron_ore") == 7)
+		check("vault cannot grant items", T.pull_all() == 0)
+		check("no free tables", not G.road_bench() and not G.field_forge() and not G.rune_table_anywhere())
+		var clean_hp: int = G.hp
+		G.hurt(10)
+		check("damage lands", G.hp < clean_hp)
+		var hurt_hp: int = G.hp
+		T.tick(0.1)
+		check("no automatic heal", G.hp == hurt_hp)
+		print("tester_check: %d passed, %d failed (clean build)" % [total - fails, fails])
+		DirAccess.remove_absolute(ap)
+		quit(1 if fails > 0 else 0)
+		return
 	check("kit on by default", T.vault_on() and T.active())
 	check("refund: 30 nanite shards in the vault", T.total("nanite_shard") == 30)
 	check("account file written", FileAccess.file_exists(ap) or T._dirty or true)

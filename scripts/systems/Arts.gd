@@ -32,7 +32,11 @@ func setup(game) -> void:
 	names = {}
 	var L: Dictionary = G.lattice_data()
 	var lat: Dictionary = L.get("arts", {})
-	for a in cfg.get("arts", []):
+	var all_arts: Array = (cfg.get("arts", []) as Array).duplicate()
+	var wa = G._load_json("res://data/weapon_arts.json", {})            # round 188: three arts for every kind of weapon
+	if wa is Dictionary:
+		all_arts += (wa.get("arts", []) as Array)
+	for a in all_arts:
 		var aid := str(a.get("id", ""))
 		if aid == "":
 			continue
@@ -177,6 +181,8 @@ func qualifies(aid: String) -> String:
 	## "" when you don't, else how: "open" (no restriction), "sect" or "path"
 	var a := def_of(aid)
 	var req: Dictionary = a.get("req", {})
+	if req.has("weapon"):
+		return "weapon" if G.skill_level(str(req["weapon"])) >= int(req.get("level", 0)) else ""
 	if G.realm < int(req.get("realm", 0)):
 		return ""
 	var any: Array = req.get("any", [])
@@ -210,8 +216,40 @@ func needs_text(aid: String) -> String:
 	return " and ".join(bits)
 
 
+func weapon_of(aid: String) -> String:
+	## round 188: "" unless it's a weapon art; else the weapon kind (skill) it belongs to
+	return str(def_of(aid).get("req", {}).get("weapon", ""))
+
+
+func weapon_arts(skill: String = "") -> Array:
+	var out := []
+	for aid in defs:
+		var w := weapon_of(str(aid))
+		if w != "" and (skill == "" or w == skill):
+			out.append(str(aid))
+	out.sort_custom(func(a, b): return int(defs[a]["req"].get("level", 0)) < int(defs[b]["req"].get("level", 0)))
+	return out
+
+
+func _wname(w: String) -> String:
+	return {"sword": "sword", "dagger": "dagger", "saber": "saber", "spear": "spear", "axe": "axe", "hammer": "hammer", "halberd": "halberd",
+		"staff": "staff", "unarmed": "bare-hand", "bow": "bow", "crossbow": "crossbow", "ki": "ki"}.get(w, w)
+
+
+func _quick_place(aid: String) -> void:
+	## a new weapon art for the weapon in your hand goes on the first empty quick key (R, F3, F4, F5), ready at once
+	if weapon_of(aid) != G.weapon_skill():
+		return
+	for i in G.quick_slots.size():
+		if str(G.quick_slots[i]) == "":
+			G.quick_slots[i] = aid
+			return
+
+
 func _source_text(a: Dictionary) -> String:
 	var req: Dictionary = a.get("req", {})
+	if req.has("weapon"):
+		return I18n.t("earned at %s skill %d") % [I18n.t(_wname(str(req["weapon"]))), int(req.get("level", 0))]
 	if (req.get("any", []) as Array).is_empty():
 		return I18n.t("open to anyone")
 	return "restricted"
@@ -234,6 +272,13 @@ func gate(aid: String) -> String:
 		return ""
 	var a: Dictionary = defs[aid]
 	var req: Dictionary = a.get("req", {})
+	if req.has("weapon"):                          # round 188: a weapon art goes with its weapon
+		var w := str(req["weapon"])
+		if G.weapon_skill() != w:
+			if w == "unarmed":
+				return I18n.t("%s is fought with empty hands -- put your weapon away.") % I18n.t(str(a["name"]))
+			return I18n.t("%s needs a weapon of its kind in hand (%s).") % [I18n.t(str(a["name"])), I18n.t(_wname(w))]
+		return ""
 	if G.realm < int(req.get("realm", 0)):
 		return I18n.t("%s needs the realm of %s.") % [str(a["name"]), G.realm_name_of(int(req["realm"]))]
 	var any: Array = req.get("any", [])
@@ -251,6 +296,22 @@ func gate(aid: String) -> String:
 
 func sync() -> void:
 	## teach whatever you now qualify for (a sect rank, a path rank, a realm)
+	# round 190: a seasoned fighter loading a save from before weapon arts would get twenty-odd at once --
+	# then they come together, in one line
+	var due := []
+	for aid in defs:
+		if not G.techniques.has(aid) and not (defs[aid] as Dictionary).has("glimpse") and qualifies(str(aid)) == "weapon":
+			due.append(str(aid))
+	if due.size() > 2:
+		var kinds := {}
+		var names := []
+		for aid in due:
+			G.learn(aid, "weapon", true)
+			_quick_place(aid)
+			kinds[weapon_of(aid)] = true
+			names.append(I18n.t(str(defs[aid]["name"])))
+			G.log_event("weapon_art", {"art": aid})
+		G.message.emit(I18n.t("WEAPON ARTS: your years with %d kinds of weapon come back to you -- %d arts: %s. (Arts page; each needs its weapon in hand.)") % [kinds.size(), due.size(), ", ".join(names)])
 	for aid in defs:
 		if G.techniques.has(aid):
 			continue
@@ -259,6 +320,13 @@ func sync() -> void:
 			continue                                # found by doing, not by rank
 		var how := qualifies(str(aid))
 		if how == "" or how == "open":
+			continue
+		if how == "weapon":                         # round 188: a weapon art, earned by fighting with that weapon
+			G.learn(str(aid), "weapon")
+			_quick_place(str(aid))
+			G.message.emit(I18n.t("WEAPON ART: %s -- %s skill %d. %s") % [I18n.t(str(a["name"])), I18n.t(_wname(weapon_of(str(aid)))),
+				int(a["req"].get("level", 0)), I18n.t(str(a.get("desc", "")))])
+			G.log_event("weapon_art", {"art": str(aid)})
 			continue
 		G.set_flag("ax:%s:%s" % [aid, how])
 		var src := "sect" if how == "sect" else "path"

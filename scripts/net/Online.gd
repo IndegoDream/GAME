@@ -19,7 +19,8 @@ var state := "off"                   # off | connecting | login | nochar | char 
 var char := {}                       # my online character (name, realm, step, level, gold, marks, inv, titles)
 var tiers := {}
 var events := []
-var party := {}                      # {id, leader, members:[{id,name,...}]} or {}
+var party := {}                      # {id, leader, members:[{id,name,...}], code} or {}
+var party_code := ""                 # round 182: this party's join code (the leader asks for it)
 var invites := []                    # [{pid, from}]
 var queued := {}                     # {kind, tier} while waiting for a match
 var players := {}                    # the hub: id -> {id, name, realm, x, z, yaw, anim}
@@ -44,6 +45,11 @@ func _ready() -> void:
 
 
 func load_config() -> void:
+	# round 182: the shipped address (data/online.json "url") once the shared world has a public home; a player's own wins
+	if FileAccess.file_exists("res://data/online.json"):
+		var dd = JSON.parse_string(FileAccess.get_file_as_string("res://data/online.json"))
+		if dd is Dictionary and str(dd.get("url", "")) != "":
+			url = str(dd["url"])
 	if not FileAccess.file_exists(CONFIG):
 		return
 	var f := FileAccess.open(CONFIG, FileAccess.READ)
@@ -55,10 +61,32 @@ func load_config() -> void:
 		sel_tier = int(d.get("tier", 1))
 
 
+static var online_cfg_path := "res://data/online.json"         # (a check can point this at a scratch file)
+
+
+static func open_to_players() -> bool:
+	## round 194: a store build (clean flavor) shows the Gate only once the shared world has a public address
+	## (data/online.json "url"). Without one the Gate led to the HomeAI box over Tailscale, which no player can
+	## reach -- "can't connect" for everyone. Test builds keep it. Robert: a server only once the game has traction.
+	if not load("res://scripts/systems/Tester.gd").clean():
+		return true
+	if not FileAccess.file_exists(online_cfg_path):
+		return false
+	var d = JSON.parse_string(FileAccess.get_file_as_string(online_cfg_path))
+	return d is Dictionary and str(d.get("url", "")).strip_edges() != ""
+
+
 func save_config() -> void:
 	var f := FileAccess.open(CONFIG, FileAccess.WRITE)
 	if f:
 		f.store_string(JSON.stringify({"url": url, "tier": sel_tier}))
+
+
+func _send_guild_key() -> void:
+	## round 188: hear your guild's chat (the server sends it only to the same guild)
+	var FS = Game.sys("fellowship")
+	if FS != null and FS.in_guild():
+		send({"t": "guild_key", "key": FS.online_key()})
 
 
 func is_connected_ok() -> bool:
@@ -92,6 +120,10 @@ func connect_now() -> bool:
 	close()
 	last_error = ""
 	last_code = ""
+	if load("res://scripts/core/Mods.gd").active():
+		last_error = "Mods are on: a modded game is a solo game. Turn them off (Menu > Mods) and restart to go online."
+		last_code = "mods"
+		return false
 	_ws = WebSocketPeer.new()
 	_ws.inbound_buffer_size = 1 << 20
 	var err := _ws.connect_to_url(url)
@@ -243,12 +275,14 @@ func _handle(m: Dictionary) -> void:
 			if bool(m.get("has_char", false)):
 				char = m.get("char", {})
 				state = "char"
+				_send_guild_key()
 			else:
 				state = "nochar"
 		"char":
 			char = m.get("char", {})
 			if state == "nochar":
 				state = "char"
+				_send_guild_key()
 		"char_error":
 			last_error = str(m.get("msg", ""))
 		"error":
@@ -284,6 +318,9 @@ func _handle(m: Dictionary) -> void:
 				state = "char"
 			players.clear()
 		"chat":
+			if str(m.get("ch", "")) == "guild" and Game.sys("fellowship") != null:
+				Game.sys("fellowship").online_line(str(m.get("from", "?")), str(m.get("text", "")))      # round 188: real guildmates
+				return
 			var ch := str(m.get("ch", "hub"))
 			var tag: String = {"hub": "", "party": "(party) ", "inst": "(group) ", "whisper": "(whisper) "}.get(ch, "")
 			Game.message.emit("%s%s: %s" % [tag, m.get("from", "?"), m.get("text", "")])
@@ -292,6 +329,8 @@ func _handle(m: Dictionary) -> void:
 			last_error = str(m.get("msg", ""))
 		"party":
 			party = m if int(m.get("id", 0)) != 0 else {}
+		"p_code":
+			party_code = str(m.get("code", ""))          # round 182: the join code a friend can type
 		"p_invited":
 			invites.append({"pid": int(m["pid"]), "from": str(m["from"])})
 			Game.message.emit("%s invites you to a party. (Gate menu -> Party)" % m["from"])

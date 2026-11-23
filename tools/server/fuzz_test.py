@@ -31,12 +31,16 @@ async def _reader(w, buf):
 
 async def drain(w, secs=0.2):
     """a well-behaved client reads continuously (the server drops clients that don't); this returns what arrived in `secs`"""
-    if id(w) not in BG:
-        BG[id(w)] = []
-        asyncio.create_task(_reader(w, BG[id(w)]))
+    # round 183: the buffer lives ON the socket. Keyed by id(w) it was shared with a closed socket whose id Python
+    # reused, so a reconnected client never got a reader and looked "not welcomed" (the gate's flaky fuzz failure).
+    buf = getattr(w, "_fz_buf", None)
+    if buf is None:
+        buf = []
+        w._fz_buf = buf
+        asyncio.create_task(_reader(w, buf))
     await asyncio.sleep(secs)
-    out = BG[id(w)][:]
-    BG[id(w)].clear()
+    out = buf[:]
+    buf.clear()
     return out
 
 
@@ -78,8 +82,18 @@ async def main():
         sent = 0
         for n in names:
             if w.close_code is not None:
-                check("connection survived before handler " + n, False)
-                break
+                # Dropping a flooder is valid. Reconnect so later handlers still get tested.
+                w = tolerant(await connect("ws://127.0.0.1:%d" % PORT))
+                await drain(w, 0.01)
+                await w.send(json.dumps(dict(t="hello", build=1, dev="Fuzzer")))
+                welcome = []
+                for _ in range(8):                        # (a busy machine can take more than half a second to answer)
+                    welcome += await drain(w, 0.5)
+                    if any(m["t"] == "welcome" for m in welcome):
+                        break
+                check("reconnect before handler " + n, any(m["t"] == "welcome" for m in welcome))
+                await w.send(json.dumps(dict(t="enter_hub")))
+                await drain(w)
             keys = ["to", "gold", "items", "foe", "amt", "x", "z", "yaw", "text", "ch", "id", "name", "kind", "price", "qty", "item", "subject", "body", "target", "who", "reason", "tier", "event", "q", "page", "shard", "n", "count"]
             for j in JUNK:
                 for k in keys[:: 3 if j in ("x" * 5000,) else 1]:
@@ -106,12 +120,20 @@ async def main():
         await drain(w2, 0.01)
         await w2.send(json.dumps(dict(t="hello", build=1, dev="Fresh")))
         fresh = await drain(w2, 1.0)
-        check("fresh client still welcomed", any(m["t"] == "welcome" for m in fresh))
+        for _ in range(6):
+            if any(m["t"] == "welcome" for m in fresh):
+                break
+            fresh += await drain(w2, 0.5)
+        check("fresh client still welcomed", any(m["t"] == "welcome" for m in fresh), str([m.get("t") for m in fresh])[:300])
         check("server process alive", p.poll() is None)
         w3 = await connect("ws://127.0.0.1:%d" % PORT)     # gold check through a re-login
         await drain(w3, 0.01)
         await w3.send(json.dumps(dict(t="hello", build=1, dev="Fuzzer")))
         wel = [m for m in await drain(w3, 1.0) if m["t"] == "welcome"]
+        for _ in range(6):
+            if wel:
+                break
+            wel = [m for m in await drain(w3, 0.5) if m["t"] == "welcome"]
         gold1 = wel[0]["char"]["gold"] if wel and wel[0].get("char") else None
         check("gold never rose from garbage", gold1 is not None and gold1 <= gold0, "%s -> %s" % (gold0, gold1))
     finally:

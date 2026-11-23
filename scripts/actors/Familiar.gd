@@ -53,13 +53,21 @@ func _build() -> void:
 	var BRd = Game.sys("breeding")
 	if BRd != null:
 		tcol = BRd.tint_for(_me(), tcol)                 # round 161: mixed blood and mutations show
+	var LKs = Game.sys("looks")
+	var look_coat: Array = LKs.coat() if LKs != null else []
+	if not look_coat.is_empty():
+		tcol = look_coat[0]                              # round 183: a coat from the store's Spirit Beast Coats (looks only)
 	_model = preload("res://scripts/actors/Enemy.gd").make_beast(tcol, str(st.get("name", _me().get("species", ""))))
 	var sd: Dictionary = Game.familiar_stage_def(_me())
 	var MNe = Game.sys("menagerie")
 	var fme: Dictionary = MNe.form_of(_me()) if MNe != null else {}
 	var accent: Color = fme["color"] if not fme.is_empty() else tcol.lightened(0.35)
+	if not look_coat.is_empty():
+		accent = look_coat[1]
 	if _model.has_method("evolve"):
 		_model.evolve(Game.familiar_stage(_me()), accent)           # round 153: the body changes, not just its size
+	if _model.has_method("role_form") and MNe != null:
+		_model.role_form(str(MNe.rid(_me())), Game.familiar_stage(_me()), accent)    # 2026-11-06: and into the role's own body
 	if _model.has_method("lineage") and BRd != null:
 		var mixc := Color(0, 0, 0, 0)
 		var mk := str(_me().get("mix", ""))
@@ -73,8 +81,21 @@ func _build() -> void:
 			var va: Array = BRd.data["variants"][vk]["color"]
 			vcc = Color(float(va[0]), float(va[1]), float(va[2]))
 		_model.lineage(Game.familiar_stage(_me()), vk, vcc, mixc, int(_me().get("gen", 0)))
+	if _model.has_method("barding") and Game.pet_armor_id(_me()) != "":
+		_model.barding(Game.pet_armor_id(_me()), Game.familiar_stage(_me()))      # 2026-11-06: the armour is worn, not just listed
+	var trk: Dictionary = LKs.current("trinkets") if LKs != null else {}
+	if not trk.is_empty() and _model.has_method("trinket"):
+		_model.trinket(trk)                              # round 183b: Familiar Trinkets (looks only)
+	if _model and _model.has_method("set_motion_stage"):
+		_model.set_motion_stage(Game.familiar_stage(_me()))     # 2026-11-06: how it moves grows with it
 	_model.scale = Vector3.ONE * 2.0 * float(st.get("scale", 1.0)) * float(sd.get("scale", 1.0)) * float(Game.contract_tier_def(_me()).get("scale", 1.0))
 	add_child(_model)
+	var stage_now := Game.familiar_stage(_me())
+	var who := str(_me().get("id", _me().get("name", "")))
+	if who == _seen_who and stage_now > _seen_stage and _seen_stage >= 0:
+		_transform(_model, accent)                        # 2026-11-06 (note item 2): you SEE it change
+	_seen_who = who
+	_seen_stage = stage_now
 	if bool(sd.get("glow", false)) and DisplayServer.get_name() != "headless":
 		_glow = OmniLight3D.new()                 # a spirit beast carries a little of the deep's light
 		_glow.light_color = Color(0.6, 0.95, 0.8)
@@ -99,6 +120,54 @@ func _build() -> void:
 
 
 var _orbs: Node3D
+var _seen_stage := -1
+var _seen_who := ""
+
+
+func _transform(m: Node3D, c: Color) -> void:
+	## an evolution, seen: a turning column of light, a flare, and the beast swells
+	## into its new body and settles (the old one is already gone -- this IS the new one)
+	if DisplayServer.get_name() == "headless" or m == null:
+		return
+	var full := m.scale
+	m.scale = full * 0.55
+	var col := MeshInstance3D.new()
+	var cm := CylinderMesh.new()
+	cm.top_radius = 0.55
+	cm.bottom_radius = 0.75
+	cm.height = 3.2
+	col.mesh = cm
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = Color(c.r, c.g, c.b, 0.35)
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.emission_enabled = true
+	mat.emission = c
+	mat.emission_energy_multiplier = 3.0
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	col.material_override = mat
+	col.position = Vector3(0, 1.6, 0)
+	col.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(col)
+	var flash := OmniLight3D.new()
+	flash.light_color = c
+	flash.light_energy = 0.0
+	flash.omni_range = 7.0
+	flash.position = Vector3(0, 1.2, 0)
+	add_child(flash)
+	var tw := create_tween()
+	tw.set_parallel(true)
+	tw.tween_property(col, "rotation:y", TAU * 2.0, 1.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(flash, "light_energy", 6.0, 1.1)
+	tw.tween_property(m, "scale", full * 1.18, 1.3).set_delay(0.2)
+	tw.chain().tween_property(flash, "light_energy", 0.0, 0.7)
+	tw.parallel().tween_property(m, "scale", full, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.parallel().tween_property(mat, "albedo_color:a", 0.0, 0.7)
+	tw.chain().tween_callback(func():
+		if is_instance_valid(col):
+			col.queue_free()
+		if is_instance_valid(flash):
+			flash.queue_free())
 
 
 func _add_form(fm: Dictionary) -> void:
@@ -162,10 +231,16 @@ func _process(delta: float) -> void:
 	elif to.length() > 0.4:
 		global_position += to * minf(delta * 4.0, 1.0)
 		_model.rotation.y = atan2(to.x, to.z)
-		_hop += delta * 12.0
-		_model.position.y = absf(sin(_hop)) * 0.15
+		var hop_m: float = _model.motion()["hop"] if _model.has_method("motion") else 1.0
+		_hop += delta * (13.0 - 3.0 * (1.0 - hop_m))
+		_model.position.y = absf(sin(_hop)) * 0.15 * hop_m      # young: bouncy; grown: it strides
 	else:
 		_model.position.y = 0.0
+	# it lies down beside you while you sit, and gets up when you do
+	if _model.has_method("act"):
+		var rest_now: bool = bool(Game.sitting) and to.length() <= 0.4
+		if rest_now != _model.is_down():
+			_model.act("down" if rest_now else "up")
 	global_position.y = player.global_position.y
 	_minute += delta
 	if _minute >= 60.0:
@@ -195,6 +270,8 @@ func find_something(roll: float) -> String:
 	if not Game.items.has(id):
 		return ""
 	Game.add_item(id, 1, false)
+	if _model and _model.has_method("act"):
+		_model.act("deed")
 	Game.message.emit(I18n.t("%s noses something out of the dirt: %s.") % [_me().get("name", ""), Game.item_name(id)])
 	Game.grow_bond(2.0, _me())
 	Game.taming_xp("find")
@@ -227,6 +304,8 @@ func bite(foe) -> int:
 		global_position += to.normalized() * minf(to.length() - 1.2, 2.0)      # it darts in
 	if _model:
 		_model.rotation.y = atan2(to.x, to.z)
+		if _model.has_method("act"):
+			_model.act("bite")
 	foe.take_damage(dmg, Game.familiar_title(_me()))
 	Game.taming_xp("bite")
 	if Game.has_perk("pack_bond"):
@@ -262,6 +341,15 @@ func interact(_player) -> void:
 		opts.append([I18n.t("Feed %s") % nm + ((" (" + Game.item_name(fi) + ")") if fi != "" else ""), func():
 			hud.close_dialog()
 			Game.message.emit(PU.feed(_me()))])
+	for aid in Game.inventory:
+		if str(Game.item_def(str(aid)).get("type", "")) == "pet_armor":
+			opts.append([I18n.t("Fit %s") % Game.item_name(str(aid)), func():
+				hud.close_dialog()
+				Game.message.emit(Game.fit_pet_armor(str(aid), _me()))])
+	if Game.pet_armor_id(_me()) != "":
+		opts.append([I18n.t("Take off its %s") % Game.item_name(Game.pet_armor_id(_me())), func():
+			hud.close_dialog()
+			Game.message.emit(Game.take_pet_armor(_me()))])
 	opts.append(["The taming tree", taming_menu])
 	opts.append(["Your contracts (the Party page)", func():
 		hud.close_dialog()
@@ -274,9 +362,12 @@ func interact(_player) -> void:
 	if Game.familiar_bite(_me()) > 0:
 		body += I18n.t("\nIts bite: %d.") % Game.familiar_bite(_me())
 	body += I18n.t("\nWhat it gives you is x%.1f for its stage.") % Game.familiar_effect_mult(_me())
+	if Game.pet_armor_id(_me()) != "":
+		body += I18n.t("\nArmour: %s.") % Game.item_name(Game.pet_armor_id(_me()))
 	if MN != null:
 		for bl in MN.beast_lines(_me()):
 			body += "\n" + bl
+		body += "\n\n" + "\n".join(MN.pet_trick_lines(_me()))
 	hud.open_dialog(Game.familiar_title(_me()), body, opts)
 
 

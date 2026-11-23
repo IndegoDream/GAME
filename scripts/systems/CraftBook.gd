@@ -47,6 +47,81 @@ func load_state(d: Dictionary) -> void:
 			order.append(str(k))
 
 
+# ---- crafting while you sit (round 181) -----------------------------------------------------------
+## Robert, 2026-10-26: "I want to be able to craft items while I meditate and use my unlimited items to help."
+## Pick a recipe from the journal and a number; while you sit (M) it is made again every few seconds, from the pouch
+## then the chest (and, in god mode, every craft succeeds and the stock never runs out). Standing up pauses it.
+
+var sit_key := ""
+var sit_left := 0
+var sit_done := 0
+var _sit_t := 0.0
+const SIT_GAP := 4.0            # seconds between pieces while sitting
+const SIT_GAP_GOD := 1.0
+
+
+func sit_active() -> bool:
+	return sit_key != "" and sit_left > 0
+
+
+func sit_name() -> String:
+	return str(recipes.get(sit_key, {}).get("name", "?")) if sit_key != "" else ""
+
+
+func sit_start(key: String, n: int) -> String:
+	var r: Dictionary = recipes.get(key, {})
+	if r.is_empty() or n <= 0:
+		return ""
+	sit_key = key
+	sit_left = clampi(n, 1, 999)
+	sit_done = 0
+	_sit_t = 0.0
+	return I18n.t("You will make %d %s while you sit%s.") % [sit_left, str(r.get("name", "?")), "" if G.sitting else I18n.t(" (sit with M to begin)")]
+
+
+func sit_stop(announce: bool = true) -> void:
+	var was := sit_key != ""
+	var nm := sit_name()
+	var done := sit_done
+	sit_key = ""
+	sit_left = 0
+	sit_done = 0
+	_sit_t = 0.0
+	if was and announce:
+		G.message.emit(I18n.t("Sitting craft over: %d %s made.") % [done, nm])
+		G.stats_changed.emit()
+
+
+func tick(delta: float) -> void:
+	if sit_key == "" or not G.sitting:
+		return
+	_sit_t += delta
+	var god: bool = G._god_craft()
+	if _sit_t < (SIT_GAP_GOD if god else SIT_GAP):
+		return
+	_sit_t = 0.0
+	var r: Dictionary = recipes.get(sit_key, {})
+	if r.is_empty():
+		sit_stop()
+		return
+	if str(r.get("kind", "")) == "recipe":
+		for rc in G.recipes:
+			if str(rc.get("makes", "")) == str(r.get("makes", "")):
+				if G.sys("tester") != null:
+					G.sys("tester").pull_for(rc)
+				G._pull_for(rc)
+	var v: Dictionary = recipe_view(sit_key)
+	if v.is_empty() or not bool(v.get("have_all", false)) or G.gold < int(v.get("gold", 0)):
+		G.message.emit(I18n.t("Out of materials for %s -- the sitting craft stops.") % sit_name())
+		sit_stop()
+		return
+	remake(sit_key)
+	sit_done += 1
+	sit_left -= 1
+	if sit_left <= 0:
+		sit_stop()
+
+
 # ---- recording ---------------------------------------------------------------------------------
 
 func _look_of(design: Dictionary) -> String:
@@ -91,6 +166,7 @@ func note_made(kind: String, item: String, inputs: Dictionary, skill: String, me
 	for id in inputs:
 		var b = G.base_id(str(id))
 		used[b] = int(used.get(b, 0)) + 1
+	G.Design.discover_check()                        # round 182: handling an element's materials teaches its aspect
 	if fresh:
 		G.message.emit("CRAFT JOURNAL: the recipe for %s is written down." % G.item_name(item))
 

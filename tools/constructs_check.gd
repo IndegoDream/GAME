@@ -90,6 +90,21 @@ func _initialize() -> void:
 	C.tick(1.1)
 	check("mech shuts off when dry", not C.mech_on)
 	check("mech off: no bonus", absf(G.tech_effect("hp_mult", 1.0) - hp0) < 0.001)
+	# 2026-11-06 (Robert: "my qi is still draining i took everything off"): taking everything off opens the frame
+	G.qi = G.qi_to_next() * 0.9
+	C.toggle_mech()
+	check("frame on again", C.mech_on)
+	var said: String = G.unequip_all()
+	check("take everything off opens the frame", not C.mech_on and said.contains("frame"))
+	var q1: float = G.qi
+	C.tick(5.0)
+	check("...and it stops drinking", absf(G.qi - q1) < 0.001)
+	C.toggle_mech()
+	var pl = load("res://scripts/actors/Player.gd").new()
+	root.add_child(pl)
+	pl.start_meditating(false)
+	check("sitting down opens the frame", not C.mech_on)
+	pl.queue_free()
 	# ---- voyages
 	check("voyage blocked before yard", C.voyage_block("coast") != "")
 	R.researched["skiff_yard"] = true

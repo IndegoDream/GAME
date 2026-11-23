@@ -18,7 +18,8 @@ func _initialize() -> void:
 	G.counters["bag_view"] = 0.0
 	kit.fill_pack()
 	await process_frame
-	var slots = kit.pack_body.find_children("*", "HFlowContainer", true, false)
+	# (2026-11-06: the slot grid is a GridContainer now -- a flow box with hundreds of items grew the pane ten screens wide)
+	var slots = kit.pack_body.find_children("*", "GridContainer", true, false)
 	ch.append(["a slot grid is drawn", slots.size() >= 1])
 	var grid = null
 	for sl in slots:
@@ -58,7 +59,7 @@ func _initialize() -> void:
 	await process_frame
 	await process_frame
 	ch.append(["tapping selects", kit.bag_sel != ""]) 
-	var acts = kit.pack_body.find_children("*", "Button", true, false)
+	var acts = kit._card_holder.find_children("*", "Button", true, false) + kit.pack_body.find_children("*", "Button", true, false)       # (the action card is pinned above the scrolling bag)
 	var names := []
 	for b in acts:
 		if not b.is_queued_for_deletion():
@@ -69,7 +70,7 @@ func _initialize() -> void:
 	kit.fill_pack()
 	await process_frame
 	var use = null
-	for b in kit.pack_body.find_children("*", "Button", true, false):
+	for b in kit._card_holder.find_children("*", "Button", true, false) + kit.pack_body.find_children("*", "Button", true, false):
 		if b.text == "Use" and not b.is_queued_for_deletion():
 			use = b
 	ch.append(["Use is on the card for a consumable", use != null])
@@ -82,7 +83,7 @@ func _initialize() -> void:
 	kit.fill_pack()
 	await process_frame
 	var g2 = null
-	for sl in kit.pack_body.find_children("*", "HFlowContainer", true, false):
+	for sl in kit.pack_body.find_children("*", "GridContainer", true, false):
 		if sl.get_child_count() >= 20:
 			g2 = sl
 	var n2 := 0
@@ -95,7 +96,7 @@ func _initialize() -> void:
 	kit._set_view("list")
 	await process_frame
 	await process_frame
-	ch.append(["the list view is one tap away", kit.bag_view == "list" and kit.pack_body.find_children("*", "HFlowContainer", true, false).all(func(n): return n.get_child_count() < 20)])
+	ch.append(["the list view is one tap away", kit.bag_view == "list" and kit.pack_body.find_children("*", "GridContainer", true, false).all(func(n): return n.get_child_count() < 20)])
 	ch.append(["...and remembered", float(G.counters.get("bag_view", 0.0)) > 0.0])
 	kit._set_view("grid")
 	await process_frame
@@ -104,7 +105,7 @@ func _initialize() -> void:
 	kit.fill_pack()
 	await process_frame
 	var g3 = null
-	for sl in kit.pack_body.find_children("*", "HFlowContainer", true, false):
+	for sl in kit.pack_body.find_children("*", "GridContainer", true, false):
 		if sl.get_child_count() >= 20:
 			g3 = sl
 	ch.append(["phone view draws", g3.get_child_count() >= 20])

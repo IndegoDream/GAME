@@ -45,10 +45,94 @@ func _ready() -> void:
 			_build_cat()
 		"bird":
 			_build_bird()
+		"cow", "horse", "sheep", "pig", "llama":
+			_build_livestock()
 		_:
 			_build_rat()
 	if DisplayServer.get_name() == "headless":
 		set_process(false)
+
+
+# ---- 2026-11-06: livestock (CC0 art pack -- Quaternius' animated farm animals,
+# assets/cc0/animals/) grazing the open ground of a town or a plot. They wander
+# slowly, stop to graze, and don't run from you.
+const STOCK := {"cow": ["Cow", 2.3, 0.55], "horse": ["Horse", 2.4, 0.8], "sheep": ["Sheep", 1.4, 0.45], "pig": ["Pig", 1.5, 0.5], "llama": ["Llama", 1.7, 0.55]}
+var _anim: AnimationPlayer
+var _walk_anim := ""
+var _idle_anim := ""
+
+
+static func livestock_ok(k: String) -> bool:
+	return STOCK.has(k) and ResourceLoader.exists("res://assets/cc0/animals/%s.fbx" % STOCK[k][0])
+
+
+func _build_livestock() -> void:
+	var spec: Array = STOCK[kind]
+	var ps = load("res://assets/cc0/animals/%s.fbx" % spec[0]) if livestock_ok(kind) else null
+	if ps == null:
+		_build_cat()
+		return
+	var m: Node3D = ps.instantiate()
+	_body.add_child(m)
+	# fit to a real animal's length (the files come in their own units)
+	var bb := _bounds(m)
+	var span := maxf(bb.size.x, bb.size.z)
+	if span > 0.001:
+		m.scale = Vector3.ONE * (float(spec[1]) / span)
+		m.position.y = -bb.position.y * m.scale.y
+	_speed = float(spec[2])
+	var aps := m.find_children("*", "AnimationPlayer", true, false)
+	if aps.size() > 0:
+		_anim = aps[0]
+		for a in _anim.get_animation_list():
+			var an := str(a).to_lower()
+			if an.ends_with("walkslow") or (an.ends_with("walk") and _walk_anim == ""):
+				_walk_anim = str(a)
+			if an.ends_with("idle"):
+				_idle_anim = str(a)
+		for a2 in [_walk_anim, _idle_anim]:
+			if a2 != "" and _anim.has_animation(a2):
+				_anim.get_animation(a2).loop_mode = Animation.LOOP_LINEAR
+		if _idle_anim != "":
+			_anim.play(_idle_anim)
+			_anim.seek(_rng.randf() * 2.0, true)
+	_body.rotation.y = _rng.randf() * TAU
+
+
+func _bounds(n: Node) -> AABB:
+	var out := AABB()
+	var first := true
+	for c in n.find_children("*", "MeshInstance3D", true, false):
+		var mi := c as MeshInstance3D
+		var t := Transform3D.IDENTITY
+		var p: Node = mi
+		while p != null and p != n.get_parent():
+			if p is Node3D:
+				t = (p as Node3D).transform * t
+			p = p.get_parent()
+		var bb := t * mi.get_aabb()
+		out = bb if first else out.merge(bb)
+		first = false
+	return out
+
+
+func _grazer(delta: float) -> void:
+	if _wait > 0.0:
+		_wait -= delta
+		if _anim and _idle_anim != "" and _anim.current_animation != _idle_anim:
+			_anim.play(_idle_anim, 0.4)
+		return
+	var to := _target - position
+	to.y = 0
+	if to.length() < 0.2 or _walk_anim == "":
+		_wait = _rng.randf_range(6.0, 18.0)
+		_target = _pick_spot(3)              # (around where the herd was put: they don't drift off down the road)
+		return
+	if _anim and _anim.current_animation != _walk_anim:
+		_anim.play(_walk_anim, 0.4)
+	position += to.normalized() * minf(to.length(), _speed * delta)
+	var want := atan2(to.x, to.z)
+	_body.rotation.y = lerp_angle(_body.rotation.y, want, minf(1.0, delta * 2.5))
 
 
 # ---- bodies (made from simple shapes, tinted to read at the game's distance) ----
@@ -189,6 +273,8 @@ func _process(delta: float) -> void:
 			_moth(delta)
 		"bird":
 			_bird(delta)
+		"cow", "horse", "sheep", "pig", "llama":
+			_grazer(delta)
 		_:
 			_walker(delta)
 

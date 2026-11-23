@@ -3,6 +3,7 @@ extends Node
 const PATH := "user://memlog.json"
 var t0 := 0.0
 var acc := 0.0
+var debug_on := false            # r271: debug extras (5 s log, crash banner) only in the editor or with user://debug_on.txt
 var safe_start := false          # round 169: the last run died in its first minute -> this one starts gently (no background model reading)
 const CRUMBS := "user://crumbs.txt"
 
@@ -19,6 +20,7 @@ func crumb(msg: String) -> void:
 	f.close()
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	debug_on = preload("res://scripts/core/PerfProbe.gd").wanted()
 	get_tree().auto_accept_quit = true
 	t0 = Time.get_ticks_msec() / 1000.0
 	var prev = _read()
@@ -27,6 +29,9 @@ func _ready() -> void:
 	var cf := FileAccess.open(CRUMBS, FileAccess.WRITE)           # a fresh page for this run
 	if cf != null:
 		cf.store_line("run start; safe_start=%s; prev=%s" % [str(safe_start), JSON.stringify(prev)])
+		if DisplayServer.get_name() != "headless":                # which card actually draws (a laptop or a box can pick the wrong one)
+			cf.store_line("card: %s | %s | %s %s" % [RenderingServer.get_video_adapter_name(), RenderingServer.get_video_adapter_vendor(),
+				RenderingServer.get_video_adapter_api_version(), str(ProjectSettings.get_setting("rendering/renderer/rendering_method", ""))])
 		cf.close()
 	_write(false)
 	if prev is Dictionary and not prev.get("clean", true) and float(prev.get("min", 0.0)) >= 0.5:
@@ -54,7 +59,7 @@ func _write(clean: bool) -> void:
 	if f: f.store_string(JSON.stringify(d))
 func _process(dt: float) -> void:
 	acc += dt
-	if acc >= 5.0:
+	if acc >= (5.0 if debug_on else 30.0):     # r271: a normal build only needs the crash flag now and then
 		acc = 0.0
 		_write(false)
 func _notification(what: int) -> void:
@@ -65,7 +70,15 @@ func _notification(what: int) -> void:
 		_write(true)
 	elif what == NOTIFICATION_APPLICATION_RESUMED:
 		_write(false)
+func _exit_tree() -> void:
+	# SceneTree.quit() (menu Quit and orderly tests) does not send a WM close event.
+	_write(true)
+
+
 func _show_prev(p: Dictionary) -> void:
+	## 2026-11-03: a developer's banner -- clean builds (the demo, the release) still keep the log on disk but never show it to a player
+	if load("res://scripts/systems/Tester.gd").clean() or not debug_on:
+		return
 	var cl := CanvasLayer.new(); cl.layer = 128
 	var l := Label.new()
 	l.text = "Last run ended unexpectedly after %s min  |  mem %s MB (peak %s)  textures %s MB  video %s MB  fps %s  nodes %s  in %s" % [p.get("min"), p.get("static_mb"), p.get("peak_mb"), p.get("tex_mb"), p.get("vid_mb"), p.get("fps"), p.get("nodes"), p.get("scene")]

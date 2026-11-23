@@ -19,7 +19,11 @@ func start(keep_photo_models: bool = true) -> void:
 	var d = JSON.parse_string(FileAccess.get_file_as_string(LIST)) if FileAccess.file_exists(LIST) else []
 	_todo = d if d is Array else []
 	if not keep_photo_models:
-		_todo = _todo.filter(func(p): return not str(p).contains("/realistic/"))
+		_todo = _todo.filter(func(p):
+			for folder in ["/realistic/", "/polyhaven/", "/characters/", "/sky/"]:
+				if str(p).contains(folder):
+					return false
+			return true)
 	total = _todo.size()
 
 

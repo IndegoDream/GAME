@@ -21,6 +21,26 @@ func _initialize() -> void:
 	wf.close()
 	G.new_game()
 	var T = G.sys("tester")
+	if T.clean():
+		check("clean build rejects endless mode", not T.endless())
+		check("clean build keeps locks", not T.unlocked() and not G.tester_unlocked())
+		check("normal away cap", is_equal_approx(G.away_cap_hours(), 12.0))
+		var original_level: String = G.current_level
+		G.level_change_requested.connect(func(id, _t): _went = str(id))
+		T.teleport("floor30")
+		await process_frame
+		if T.assist():
+			check("assist build: the floor warp works (locks still closed)", _went == "floor30" and not T.unlocked())          # round 176
+		else:
+			check("cheat teleport rejected", _went.is_empty() and G.current_level == original_level)
+		var pursuit = G.sys("pursuit")
+		var bank_before: float = pursuit.bank
+		pursuit._spend(1.0)
+		check("pursuit still costs energy", pursuit.bank < bank_before)
+		print("locks_check: %d passed, %d failed (clean build)" % [total - fails, fails])
+		DirAccess.remove_absolute(ap)
+		quit(1 if fails > 0 else 0)
+		return
 	check("endless on", T.endless())
 	check("locks open", T.unlocked() and G.tester_unlocked())
 	check("away cap lifted", G.away_cap_hours() > 100.0)

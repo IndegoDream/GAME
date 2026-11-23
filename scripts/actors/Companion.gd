@@ -324,6 +324,9 @@ func _fight_menu(note: String = "") -> void:
 	opts.append(["Back", interact.bind(null)])
 	var body := (note + "\n\n" if note != "" else "") + I18n.t("%s fights as a %s: %s\n\n%s") % [npc_name, Game.style_def("", slot).get("name", ""), Game.style_def("", slot).get("desc", ""), _sheet()]
 	body += I18n.t("\n\nThey grow with every strike and every kill (and train at home while you're away, once home is a compound).")
+	var MNs = Game.sys("menagerie")
+	if MNs != null:
+		body += "\n\n" + "\n".join(MNs.style_lines(slot))
 	hud.open_dialog("%s -- how they fight" % npc_name, body, opts)
 
 

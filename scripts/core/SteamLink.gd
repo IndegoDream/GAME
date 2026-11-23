@@ -83,7 +83,29 @@ func start() -> bool:
 		_steam.leaderboard_find_result.connect(_on_board_found)
 	_sync_achievements()
 	presence()
+	note_workshop()
 	return true
+
+
+func workshop_folders() -> Array:
+	## round 182: where Steam put the Workshop mods this player subscribed to (empty without a real App ID or Steam)
+	var out := []
+	if not on or _steam == null or app_id == DEFAULT_APP_ID or not _steam.has_method("getSubscribedItems"):
+		return out
+	for item in _steam.getSubscribedItems():
+		var info = _steam.getItemInstallInfo(int(item)) if _steam.has_method("getItemInstallInfo") else {}
+		if info is Dictionary and bool(info.get("ret", false)) and str(info.get("folder", "")) != "":
+			out.append(str(info["folder"]))
+	return out
+
+
+func note_workshop() -> void:
+	## Workshop folders are read at the next start (the game's data is read once, before Steam is up)
+	var dirs := workshop_folders()
+	var f := FileAccess.open("user://mods_workshop.json", FileAccess.WRITE)
+	if f:
+		f.store_string(JSON.stringify(dirs))
+		f.close()
 
 
 func stop() -> void:
@@ -156,6 +178,8 @@ func leaderboard(board: String, score: int) -> void:
 	## keeps your best (Steam does the comparing); creates the board if it's new
 	if not on or _steam == null:
 		return
+	if load("res://scripts/core/Mods.gd").active():
+		return                                    # round 182: a modded game posts no scores
 	if _boards.has(board):
 		_steam.uploadLeaderboardScore(score, true, PackedInt32Array(), int(_boards[board]))
 		return

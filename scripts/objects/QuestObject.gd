@@ -15,6 +15,8 @@ var _marker: Label3D
 var _t := 0.0
 
 const MARK_RANGE := 34.0
+const SUBTLE_RANGE := 6.0          # 2026-11-03: a treasure hunt's find -- the riddle leads you there; the diamond only shows when you're nearly on it
+var subtle := false
 
 
 func setup(lvl, args: Dictionary) -> void:
@@ -24,6 +26,7 @@ func setup(lvl, args: Dictionary) -> void:
 	item = str(args.get("item", ""))
 	what = str(args.get("what", "something"))
 	look = str(args.get("look", "satchel"))
+	subtle = bool(args.get("subtle", false))
 
 
 func _ready() -> void:
@@ -93,7 +96,7 @@ func _process(delta: float) -> void:
 	if _marker == null:
 		return
 	var p = get_tree().get_first_node_in_group("player")
-	_marker.visible = p != null and p.global_position.distance_to(global_position) < MARK_RANGE
+	_marker.visible = p != null and p.global_position.distance_to(global_position) < (SUBTLE_RANGE if subtle else MARK_RANGE)
 	_marker.position.y = 2.2 + sin(_t * 2.4) * 0.12
 
 

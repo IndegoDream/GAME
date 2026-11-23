@@ -1,0 +1,24 @@
+{
+"The drawing is slow -- checking what slows it (about half a minute; things may blink).": [
+"画面绘制很慢——正在检查原因（约半分钟，画面可能会闪烁）。",
+"El dibujado va lento: comprobando qué lo frena (cerca de medio minuto; algunas cosas pueden parpadear).",
+"O desenho está lento — verificando o que o atrasa (cerca de meio minuto; algumas coisas podem piscar).",
+"Отрисовка идёт медленно — проверяем, что её тормозит (около полуминуты; что-то может мигать).",
+"Das Zeichnen ist langsam – prüfe, was bremst (etwa eine halbe Minute; manches kann kurz flackern).",
+"L'affichage est lent — vérification de ce qui le ralentit (environ une demi-minute ; certaines choses peuvent clignoter).",
+"描画が遅い——原因を調べています（約30秒。表示がちらつくことがあります）。",
+"화면 그리기가 느립니다 — 원인을 확인하는 중(약 30초, 일부가 깜박일 수 있음).",
+"Çizim yavaş — neyin yavaşlattığı kontrol ediliyor (yaklaşık yarım dakika; bazı şeyler yanıp sönebilir)."
+],
+"Done checking -- noted for the developer.": [
+"检查完毕——已记录给开发者。",
+"Comprobación hecha: anotado para el desarrollador.",
+"Verificação concluída — anotado para o desenvolvedor.",
+"Проверка завершена — записано для разработчика.",
+"Prüfung fertig – für den Entwickler notiert.",
+"Vérification terminée — noté pour le développeur.",
+"確認完了——開発者向けに記録しました。",
+"확인 완료 — 개발자를 위해 기록했습니다.",
+"Kontrol tamam — geliştirici için not edildi."
+]
+}

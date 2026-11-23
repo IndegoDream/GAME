@@ -94,7 +94,34 @@ func label(m: String) -> String:
 
 
 func shares() -> Dictionary:
-	## what each second of sitting goes to (sums to 1)
+	## what each second of sitting goes to (sums to 1). A thread with nothing to
+	## work on (every cleansable node already at its best for your realm, no
+	## research chosen) hands its share back to cultivating, so no sitting is wasted.
+	return _redirect_idle(_raw_shares())
+
+
+func _thread_idle(k: String) -> bool:
+	if k == "cleanse":
+		var c = G.sys("cleansing")
+		return c != null and c.current() == ""
+	if k == "research":
+		var r = _res()
+		return r != null and r.current == ""
+	return false
+
+
+func _redirect_idle(s: Dictionary) -> Dictionary:
+	var moved := 0.0
+	for k in ["cleanse", "research"]:
+		if float(s.get(k, 0.0)) > 0.0 and _thread_idle(k):
+			moved += float(s[k])
+			s[k] = 0.0
+	if moved > 0.0:
+		s["cultivate"] = float(s.get("cultivate", 0.0)) + moved
+	return s
+
+
+func _raw_shares() -> Dictionary:
 	var out := {"cultivate": 0.0, "cleanse": 0.0, "research": 0.0}
 	if not use_split or threads() < 2:
 		out[mode] = 1.0

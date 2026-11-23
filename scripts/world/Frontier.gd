@@ -320,6 +320,56 @@ static func _feature_ruins(rng: RandomNumberGenerator, g: Array, c: Vector2i, ou
 	out.get("ruins", []).append(c)
 
 
+static func _feature_grove(rng: RandomNumberGenerator, g: Array, c: Vector2i, out: Dictionary) -> void:
+	## 2026-11-06 (sub-areas): a ring of old trees round a clearing -- two gaps to walk in by, herbs inside, a cache at its heart
+	var r := rng.randf_range(5.0, 6.5)
+	var gap1 := rng.randf() * TAU
+	var gap2 := gap1 + PI + rng.randf_range(-0.6, 0.6)
+	for a in 40:
+		var ang := a * TAU / 40.0
+		if absf(wrapf(ang - gap1, -PI, PI)) < 0.32 or absf(wrapf(ang - gap2, -PI, PI)) < 0.32:
+			continue
+		_put(g, c.x + int(round(cos(ang) * r)), c.y + int(round(sin(ang) * r)), "x")
+	for yy in range(c.y - 3, c.y + 4):
+		for xx in range(c.x - 3, c.x + 4):
+			if _at(g, xx, yy) in [" ", "x", "c"] and Vector2i(xx - c.x, yy - c.y).length() < 3.6:
+				_put(g, xx, yy, ".")
+	for k in rng.randi_range(5, 8):
+		var hc := c + Vector2i(rng.randi_range(-3, 3), rng.randi_range(-3, 3))
+		if hc != c and _at(g, hc.x, hc.y) == ".":
+			_put(g, hc.x, hc.y, "h")
+	out.get("groves", []).append(c)
+
+
+static func _feature_cave(rng: RandomNumberGenerator, g: Array, c: Vector2i, out: Dictionary) -> void:
+	## 2026-11-06 (sub-areas): a rock shelf with one way in -- ore and gems along its walls, a cache at the back
+	var hw := rng.randi_range(6, 8)
+	var hh := rng.randi_range(5, 6)
+	for yy in range(c.y - hh - 1, c.y + hh + 2):
+		for xx in range(c.x - hw - 1, c.x + hw + 2):
+			var e := Vector2((xx - c.x) / float(hw), (yy - c.y) / float(hh)).length()
+			if e <= 0.72:
+				_put(g, xx, yy, ".")
+			elif e <= 1.12:
+				_put(g, xx, yy, " ")
+	# the way in: a short passage out through the wall, on a side chosen by the seed
+	var side := rng.randi_range(0, 3)
+	var d: Vector2i = [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)][side]
+	var reach_out := (hw if d.x != 0 else hh) + 4
+	for t in reach_out:
+		for wv in [-1, 0, 1]:
+			var p: Vector2i = c + d * t + Vector2i(d.y, d.x) * wv
+			if _at(g, p.x, p.y) in [" ", "x", "c"]:
+				_put(g, p.x, p.y, ".")
+	# ore and gems hugging the inside of the wall
+	for k in rng.randi_range(4, 7):
+		var ang := rng.randf() * TAU
+		var p2 := c + Vector2i(int(round(cos(ang) * hw * 0.6)), int(round(sin(ang) * hh * 0.6)))
+		if _at(g, p2.x, p2.y) == ".":
+			_put(g, p2.x, p2.y, "o" if k % 2 == 0 else "^")
+	out.get("caves", []).append(c - d * 2)          # the cache sits at the back, away from the way in
+
+
 static func _feature_tanks(rng: RandomNumberGenerator, g: Array, c: Vector2i) -> void:
 	var n := rng.randi_range(3, 6)
 	for i in n:
@@ -460,7 +510,7 @@ static func make_def(level_id: String, enemy_ids: Dictionary) -> Dictionary:
 	var kind := str(reg.get("kind", "open"))
 	var g := _blank(w, h, " ")
 	var taken := {}
-	var extras := {"craters": [], "camps": [], "ruins": []}
+	var extras := {"craters": [], "camps": [], "ruins": [], "groves": [], "caves": []}
 	var sites: Array = []
 	var entry := Vector2i.ZERO
 	var rooms: Array = []
@@ -509,6 +559,8 @@ static func make_def(level_id: String, enemy_ids: Dictionary) -> Dictionary:
 				"pads": rx = 12; ry = 7
 				"tanks": rx = 7; ry = 5
 				"ruins": rx = 7; ry = 6
+				"grove": rx = 8; ry = 8
+				"cave": rx = 10; ry = 9
 				"dunes": continue
 			var c := _find_spot(rng, g, rx, ry, taken, sites, sep)
 			if c.x < 0:
@@ -526,6 +578,8 @@ static func make_def(level_id: String, enemy_ids: Dictionary) -> Dictionary:
 				"dish_array": _feature_dish_array(rng, g, c)
 				"ruins": _feature_ruins(rng, g, c, extras)
 				"tanks": _feature_tanks(rng, g, c)
+				"grove": _feature_grove(rng, g, c, extras)
+				"cave": _feature_cave(rng, g, c, extras)
 				"pads":
 					var pads: Array = reg.get("pads", [])
 					for i in pads.size():
@@ -572,8 +626,9 @@ static func make_def(level_id: String, enemy_ids: Dictionary) -> Dictionary:
 	_put(g, entry.x + 1, entry.y + 1, "P")
 	exits["<"] = {"to": back_to, "arrive": str(reg.get("gate_back", "<")), "label": I18n.t("Back to %s") % (I18n.t("the valley") if gate_from == "valley" else name_of("frontier:" + gate_from)), "down": false, "style": "hatch" if kind == "open" and gate_from == "valley" else ("pad" if gate_from == "launch_yard" else "stairs")}
 	# ---- a second way (the Foundry hatch inside the Fallen Beacon)
-	var eg: Dictionary = data().get("extra_gates", {}).get(rid, {})
-	if not eg.is_empty():
+	var egs_raw = data().get("extra_gates", {}).get(rid, {})
+	var egs: Array = egs_raw if egs_raw is Array else ([egs_raw] if egs_raw is Dictionary and not (egs_raw as Dictionary).is_empty() else [])
+	for eg in egs:
 		var gc := Vector2i(-1, -1)
 		if kind == "open":
 			gc = _hide_cell(rng, g, "far", reach, taken, maxd)
@@ -807,6 +862,36 @@ static func make_def(level_id: String, enemy_ids: Dictionary) -> Dictionary:
 					chest_i += 1
 					g[lk.y][lk.x] = cl2
 					chests[cl2] = {"loot": {"gold": [depth * 40, depth * 70], "qi_pill": [2, 3]}, "note": "The guardian's own cache.", "hidden": false}
+	# ---- 2026-11-06: what the groves and caves keep (a cache at the heart of each, while chest letters last)
+	var sub_sites: Array = []
+	for gv in extras["groves"]:
+		sub_sites.append([gv, "grove"])
+	for cv in extras["caves"]:
+		sub_sites.append([cv, "cave"])
+	for ss in sub_sites:
+		if chest_i >= CHEST_LETTERS.length():
+			break
+		var sc: Vector2i = ss[0]
+		if not reach.has(sc) or _at(g, sc.x, sc.y) != ".":
+			continue
+		var cl3 := CHEST_LETTERS[chest_i]
+		chest_i += 1
+		g[sc.y][sc.x] = cl3
+		var sl := {"gold": [depth * 18, depth * 34]}
+		if not mats.is_empty():
+			sl[mats[rng.randi() % mats.size()]] = [2, 4]
+		chests[cl3] = {"loot": sl, "note": "At the heart of the grove, under the oldest roots." if ss[1] == "grove" else "At the back of the cave, where the light gives out.", "hidden": ss[1] == "cave"}
+	# ---- the world boss: stirs on its day, somewhere far from the arrival
+	var wbid := str(reg.get("world_boss", ""))
+	if wbid != "" and enemy_ids.has(wbid):
+		var Gm = Engine.get_main_loop().root.get_node_or_null("Game")
+		if Gm != null and Gm.expansion_open("wardens_hunt") and Gm.sys("world").world_boss_up(int(reg.get("wb_slot", 0))):
+			var wrng := RandomNumberGenerator.new()
+			wrng.seed = hash("wboss:%s:%d" % [rid, int(Gm.sys("world").day())])
+			var wc := _hide_cell(wrng, g, "far", reach, taken, maxd)
+			if wc.x >= 0:
+				g[wc.y][wc.x] = "V"
+				enemies["V"] = wbid
 	# ---- done
 	var out := []
 	for row in g:

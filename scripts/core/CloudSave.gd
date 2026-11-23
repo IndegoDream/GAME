@@ -320,6 +320,22 @@ func sign_out() -> void:
 	_set_status(describe())
 
 
+func delete_account() -> Dictionary:
+	## round 194: Google Play's rule -- an account made in the app can be deleted from the app. The server
+	## (supabase/functions/delete-account) removes every cloud save, their history and the account; the saves on
+	## THIS device are not touched. Purchases stay with the store account and come back with "restore purchases".
+	if not signed_in():
+		return {"ok": false, "message": "Sign in first: only the account you are signed in to can be deleted."}
+	var r: Dictionary = await _call(HTTPClient.METHOD_POST, "/functions/v1/delete-account", {"confirm": "DELETE"})
+	if not r["ok"]:
+		return {"ok": false, "message": "The account could not be deleted: %s" % str(r.get("error", "no answer from the cloud"))}
+	session = {}
+	_store_session()
+	_dirty.clear()
+	_set_status(describe())
+	return {"ok": true, "message": "Your cloud account and every save stored in it are deleted. The saves on this device are still here."}
+
+
 # ---- saves ------------------------------------------------------------------------------------------
 
 func list_saves() -> Dictionary:

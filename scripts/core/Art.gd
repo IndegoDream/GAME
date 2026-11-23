@@ -97,6 +97,56 @@ const REMAT := {
 	"fantasy-town-kit/pillar-stone.glb": ["marble_01", [0.85, 0.83, 0.8], 1.2],
 }
 
+## 2026-11-06, the CC0 art pack (ArtPack.gd -- Quaternius' Fantasy Props and
+## Medieval Village MegaKits, assets/cc0/): more stand-ins, only while the pack
+## is on. "pk:" = assets/cc0/props/<name>.gltf, "vk:" = assets/cc0/village/.
+## Listed with the photo-scanned ones a level already picks among, so a market
+## is a mix of both.
+const SWAP_PACK := {
+	"fantasy-town-kit/stall.glb": ["pk:Stall_Empty", "pk:Stall_Cart_Empty"],
+	"fantasy-town-kit/stall-red.glb": ["pk:Stall_Cart_Empty", "pk:Stall_Empty"],
+	"fantasy-town-kit/stall-green.glb": ["pk:Stall_Empty"],
+	"fantasy-town-kit/cart.glb": ["vk:Prop_Wagon"],
+	"fantasy-town-kit/cart-high.glb": ["vk:Prop_Wagon"],
+	"mini-dungeon/barrel.glb": ["wine_barrel_01", "pk:Barrel", "wooden_barrels_01"],
+	"mini-dungeon/table.glb": ["WoodenTable_01", "pk:Table_Large", "chinese_tea_table"],
+	"mini-dungeon/chair.glb": ["chinese_stool", "pk:Chair_1", "pk:Stool"],
+	"mini-dungeon/wood-structure.glb": ["wooden_bookshelf_worn", "pk:Bookcase_2"],
+	"nature-kit/pot_small.glb": ["ceramic_vase_01", "pk:Vase_2", "jug_01"],
+	"mini-dungeon/pot.glb": ["ceramic_pot", "pk:Bucket_Wooden_1", "wooden_bucket_01"],
+	# the Lands' big stones and crags (2026-11-06): photo-scanned rock, not low-poly blocks
+	"nature-kit/rock_largeB.glb": ["boulder_01", "namaqualand_boulder_02", "rock_moss_set_01", "rock_moss_set_02"],
+	"nature-kit/rock_largeC.glb": ["boulder_01", "namaqualand_boulder_02", "rock_moss_set_01", "rock_moss_set_02"],
+	"nature-kit/rock_largeD.glb": ["boulder_01", "namaqualand_boulder_02", "rock_moss_set_01", "rock_moss_set_02"],
+	"nature-kit/rock_largeE.glb": ["boulder_01", "namaqualand_boulder_02", "rock_moss_set_01", "rock_moss_set_02"],
+	"nature-kit/rock_largeF.glb": ["boulder_01", "namaqualand_boulder_02", "rock_moss_set_01", "rock_moss_set_02"],
+	"nature-kit/rock_tallB.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/rock_tallC.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/rock_tallD.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/rock_tallE.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/rock_tallF.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/rock_tallG.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/rock_tallH.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/rock_tallI.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/rock_tallJ.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/stone_largeA.glb": ["stone_01", "boulder_01", "rock_07", "rock_moss_set_01"],
+	"nature-kit/stone_largeB.glb": ["stone_01", "boulder_01", "rock_07", "rock_moss_set_01"],
+	"nature-kit/stone_largeC.glb": ["stone_01", "boulder_01", "rock_07", "rock_moss_set_01"],
+	"nature-kit/stone_largeD.glb": ["stone_01", "boulder_01", "rock_07", "rock_moss_set_01"],
+	"nature-kit/stone_largeE.glb": ["stone_01", "boulder_01", "rock_07", "rock_moss_set_01"],
+	"nature-kit/stone_largeF.glb": ["stone_01", "boulder_01", "rock_07", "rock_moss_set_01"],
+	"nature-kit/stone_tallD.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/stone_tallE.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/stone_tallF.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/stone_tallG.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/stone_tallH.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/stone_tallI.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/stone_tallJ.glb": ["namaqualand_boulder_02", "rock_07", "boulder_01", "rock_09"],
+	"nature-kit/cliff_rock.glb": ["boulder_01", "namaqualand_boulder_02", "rock_moss_set_01", "rock_moss_set_02"],
+	"nature-kit/cliff_stone.glb": ["boulder_01", "namaqualand_boulder_02", "rock_moss_set_01", "rock_moss_set_02"],
+}
+const PACK_DIRS := {"pk": "res://assets/cc0/props/", "vk": "res://assets/cc0/village/", "rk": "res://assets/cc0/rocks/"}
+
 static var style := "realistic"           # set by Gfx (Low graphics = "kenney")
 static var _scenes := {}                  # path -> PackedScene (or null)
 static var _boxes := {}                   # path -> AABB of the model as built
@@ -108,16 +158,40 @@ static func scene(path: String) -> PackedScene:
 	return _scenes[path]
 
 
+## round 186: the photo scans ran 10,000-100,000 triangles apiece -- a village's grass alone was 16.6 million
+## triangles a frame (670 tufts x 24,730). Each heavy scan now has a low-poly copy beside it (<id>_lo.gltf,
+## tools/gen/decimate_gltf.py: 2,000-8,000 triangles, the same photo textures); every preset but Ultra uses it.
+static var full_detail := false
+static var _lo := {}
+
+
 static func real_path(id: String) -> String:
+	if id.length() > 3 and id[2] == ":" and PACK_DIRS.has(id.substr(0, 2)):
+		return PACK_DIRS[id.substr(0, 2)] + id.substr(3) + ".gltf"
+	if not full_detail and not id.ends_with("_lo"):
+		if not _lo.has(id):
+			var lo := REAL + id + "/" + id + "_lo.gltf"
+			_lo[id] = lo if ResourceLoader.exists(lo) else ""
+		if str(_lo[id]) != "":
+			return str(_lo[id])
 	return REAL + id + "/" + id + ".gltf"
+
+
+static func swap_list(rel: String) -> Array:
+	## the stand-ins this model may take right now
+	if SWAP_PACK.has(rel) and preload("res://scripts/core/ArtPack.gd").on():
+		return SWAP_PACK[rel]
+	return SWAP.get(rel, [])
 
 
 static func stand_in(rel: String, pick: int = 0) -> String:
 	## The photo-scanned model that would stand in for this Kenney one
 	## ("" for none, or when it isn't on disk).
-	if style == "kenney" or not SWAP.has(rel):
+	if style == "kenney":
 		return ""
-	var opts: Array = SWAP[rel]
+	var opts: Array = swap_list(rel)
+	if opts.is_empty():
+		return ""
 	var e = opts[absi(pick) % opts.size()]
 	var id := str(e[0]) if e is Array else str(e)
 	return id if scene(real_path(id)) != null else ""
@@ -147,7 +221,7 @@ static func make(rel: String, pick: int = 0) -> Node3D:
 	var k := 1.0
 	if want.size.length() > 0.0001:
 		k = maxf(maxf(want.size.x, want.size.z), want.size.y) / maxf(maxf(have.size.x, have.size.z), have.size.y)
-	var opts: Array = SWAP[rel]
+	var opts: Array = swap_list(rel)
 	for e in opts:
 		if e is Array and str(e[0]) == id and e.size() > 1:
 			k *= float(e[1])

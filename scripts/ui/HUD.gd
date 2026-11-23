@@ -26,6 +26,7 @@ var _boss_bar: ProgressBar
 var _boss_of: Node
 var _boss_t := 0.0
 var _log: VBoxContainer
+var chatbox                     # round 188: ChatBox.gd
 var _dialog: PanelContainer
 var _dialog_title: Label
 var _dialog_body: Label
@@ -81,6 +82,7 @@ var _touch_btn: Button
 var _vr_btn: Button
 const XRMode := preload("res://scripts/core/XRMode.gd")
 var _fog_btn: Button
+var _gpu_btn: Button = null
 var _steam_btn: Button
 var _music_btn: Button
 var _sfx_btn: Button
@@ -102,6 +104,7 @@ func _ready() -> void:
 			(n as Control).theme = _theme)
 	UI.watch(get_tree())                     # every button: the hover glow, the press
 	var root := Control.new()
+	root.name = "HudRoot"
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.theme = _theme
@@ -274,11 +277,16 @@ func _ready() -> void:
 	_log.alignment = BoxContainer.ALIGNMENT_END
 	_log.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(_log)
+	chatbox = preload("res://scripts/ui/ChatBox.gd").new()       # round 188: the guild chat while you play (Enter to talk)
+	root.add_child(chatbox)
+	chatbox.setup(self)
 
 	# ---- bottom-right: controls help ----
 	_help = Label.new()
-	_help.text = I18n.t("WASD move  ·  mouse look  ·  click/J attack  ·  E interact  ·  Shift sprint  ·  Space jump\nTab menu  ·  M meditate  ·  I pack  ·  O party  ·  1 salve  ·  2 qi pill  ·  3 gourd  ·  4 talisman (5 switch)  ·  N journal  ·  P character\nF / V arts  ·  X switch  ·  6 path art (7 switch)  ·  8 / 9 support arts (0 switch)  ·  right mouse guard (tap: parry)  ·  hold click: heavy  ·  Ctrl roll  ·  Z lock on  ·  G flying sword  ·  T do something unusual  ·  K meridians  ·  C camera  ·  Esc menu  ·  H hide this")
-	_help.add_theme_font_size_override("font_size", 12)
+	_help.text = _keyboard_help_text()
+	_help.custom_minimum_size.x = 500
+	_help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_help.add_theme_font_size_override("font_size", 14)
 	_help.add_theme_color_override("font_color", UI.col("text_dim", Color(0.55, 0.57, 0.65)).lightened(0.2))
 	var hsb: StyleBoxFlat = UI.box(UI.col("glass", Color(0.09, 0.1, 0.13, 0.82)), Color(0, 0, 0, 0), "card")      # round 50: on a quiet glass card (round 63: the apps' slate)
 	hsb.shadow_size = 0
@@ -355,6 +363,7 @@ func _ready() -> void:
 		ksc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 		_inventory.add_child(ksc)
 		_kit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		_kit.vertical = true            # 2026-10-31: the two columns stack and the page scrolls, instead of running off the side
 		ksc.add_child(_kit)
 	else:
 		_inventory.add_child(_kit)
@@ -585,13 +594,25 @@ func _ready() -> void:
 	_fog_btn = _button(pv, "", func():
 		Gfx.next_fog(get_tree())
 		_refresh_settings_buttons())
+	if not OS.has_feature("android") and not OS.has_feature("web"):
+		_gpu_btn = _button(pv, "", func():          # round 192
+			Gfx.next_sound_option("gpu_ai", get_tree())
+			_refresh_settings_buttons())
+		_gpu_btn.tooltip_text = I18n.t("A local AI program (like Ollama) can hold most of the graphics card, and then the game crawls. 'Free it' asks it to step aside while you play; it wakes again by itself.")
 	_refresh_settings_buttons()
 	# round 58: the full game (phones), what's planned (everywhere)
 	_section(pv, "The game")
 	_unlock_btn = _button(pv, "Unlock the full game", func(): open_unlock("", ""))
 	_restore_btn = _button(pv, "Restore purchases", func(): _toggle_pause(); _restore_purchases())
-	_bless_btn = _button(pv, "The deep's blessing", func(): offer_gift("blessing"))
+	_bless_btn = _button(pv, "Try on every look", func(): offer_gift("try_style"))          # round 182: a rewarded ad gives looks only
 	_privacy_btn = _button(pv, "Privacy choices (ads)", func(): _toggle_pause(); Game.ads.show_privacy())
+	_stats_btn = _button(pv, "Share anonymous play stats: off", func():          # round 182: opt-in, any time
+		var PS = Game.sys("playstats")
+		if PS:
+			PS.toggle()
+			_stats_btn.text = PS.settings_label())
+	if Game.sys("tester").clean() and Game.sys("tester").assist():
+		_button(pv, "Assist (god mode, floor warp, map warp)", func(): _toggle_pause(); Game.sys("tester").assist_menu(self))          # round 176
 	_button(pv, "Report a problem", func(): _toggle_pause(); open_report())          # round 64: straight to Dev
 	_button(pv, "Streak, dailies & luck", func(): _toggle_pause(); open_dialog("Streak, dailies & luck", Game.Hook.describe(), [["Close", close_dialog]]))          # round 126
 	_button(pv, "Controls (change any key)", func(): _toggle_pause(); open_controls())          # round 158
@@ -599,13 +620,15 @@ func _ready() -> void:
 	if not Game.sys("tester").clean():
 		_button(pv, "Test kit (vault, god mode, portable table)", func(): _toggle_pause(); Game.sys("tester").menu(self))          # round 156
 	_button(pv, "Comforts & Style", func(): _toggle_pause(); Game.Comfort.menu(self))          # round 127
+	if OS.has_feature("pc"):
+		_button(pv, "Mods", func(): _toggle_pause(); Game.Mods.menu(self))          # round 182: data mods
 	_button(pv, "Accessibility...", func(): _toggle_pause(); open_hub("System"))          # round 142a
 	_button(pv, "Expansions to come", func(): _toggle_pause(); open_expansions())
 	_refresh_store_buttons()
 	_button(pv, I18n.t("Characters (%d slots)") % Game.SLOTS, func(): _toggle_pause(); show_title(); _title_slots())      # round 51: three games, each its own character
 	_button(pv, "Quit", func(): _toggle_pause(); open_away_plan(true))
 
-	Game.stats_changed.connect(refresh)
+	Game.stats_changed.connect(_refresh_soon)          # round 196: once a frame however many changes (was: every change)
 	if Game.sys("travel"):
 		Game.sys("travel").channel_changed.connect(_on_travel_channel)          # round 63
 	# round 30: big moments (your blood waking, a trial cleared) wait for a quiet
@@ -691,6 +714,9 @@ func _process(delta: float) -> void:
 			open_floor_card(m[1])                         # round 61: a floor's verdict
 		elif str(m[0]) == "__gift":
 			offer_gift(str(m[1]))                        # round 58: an ad you may choose to watch
+		elif str(m[0]) == "__ask_stats":
+			if Game.sys("playstats"):
+				Game.sys("playstats").ask(self)          # round 182: asked once, at a town
 		else:
 			open_dialog(str(m[0]), str(m[1]), [["Onward", close_dialog]])
 	if _chat_think and _chat_think.text != "":
@@ -723,6 +749,8 @@ func _refresh_settings_buttons() -> void:
 		_touch_btn.text = I18n.t("Touch controls: ") + str(Gfx.TOUCH_LABEL.get(str(st.get("touch", "auto")), "auto"))
 	if _fog_btn:
 		_fog_btn.text = I18n.t("Fog of war: ") + ("on" if str(st.get("fog", "on")) == "on" else I18n.t("off (from the next floor)"))
+	if _gpu_btn:
+		_gpu_btn.text = I18n.t("Local AI on the graphics card while playing: %s") % (I18n.t("free it") if str(st.get("gpu_ai", "free")) != "leave" else I18n.t("leave it"))
 
 
 # ---- round 58: the full game, the free tier's ads, expansions ------------------------------------
@@ -736,6 +764,7 @@ func _refresh_settings_buttons() -> void:
 var _unlock_btn: Button
 var _restore_btn: Button
 var _bless_btn: Button
+var _stats_btn: Button = null          # round 182: play stats on/off
 var _privacy_btn: Button
 
 
@@ -752,9 +781,11 @@ func _refresh_store_buttons() -> void:
 	_unlock_btn.text = what + ("  (%s)" % p if p != "" else "")
 	_restore_btn.visible = st != null and st.backend in ["google", "apple", "test"]
 	var ads = Game.ads
-	_bless_btn.visible = ads != null and ads.live() and ads.gift_why_not("blessing") == ""
-	_bless_btn.text = str(ads.gift("blessing").get("name", I18n.t("The deep's blessing"))) + I18n.t("  (a short ad)") if ads else ""
+	_bless_btn.visible = ads != null and ads.live() and ads.gift_why_not("try_style") == ""
+	_bless_btn.text = I18n.t(str(ads.gift("try_style").get("name", "Try on every look"))) + I18n.t("  (a short ad)") if ads else ""
 	_privacy_btn.visible = ads != null and ads.privacy_button()
+	if _stats_btn and Game.sys("playstats"):
+		_stats_btn.text = Game.sys("playstats").settings_label()
 
 
 func _price_line(st) -> String:
@@ -828,7 +859,11 @@ func _open_demo_end(level_id: String) -> void:
 	var st = Game.store
 	var pd: Dictionary = st.data().get("pitch_demo", {})
 	Game.log_event("unlock_window", {"from": level_id, "mode": "demo"})
-	open_dialog(str(pd.get("title", "The end of the demo")), str(pd.get("body", "")),
+	var body := str(pd.get("body", ""))
+	if Game.FrontierGen.is_frontier(level_id):
+		## a Land's gate, not the stair: say which road it is instead of talking about Shellhaven
+		body = str(pd.get("land_body", "%s waits past this gate -- one of the deep's Lands, each with its own plants, beasts and masters. The Lands are part of the full game.\n\nYour character is kept: install the full game on this PC and it picks up right here.")).replace("%s", Game.FrontierGen.name_of(level_id))
+	open_dialog(str(pd.get("title", "The end of the demo")), body,
 		[[str(pd.get("button", "Get the full game on Steam")), func(): _buy("full_game", "", "")],
 		["Expansions to come", open_expansions],
 		["Not now", close_dialog]])
@@ -889,6 +924,16 @@ func open_expansion(id: String, level_id: String = "", arrive_at: String = "") -
 		body += I18n.t("\n\nNot built yet -- it's coming.")
 	opts.append(["Not now", close_dialog])
 	open_dialog(str(e.get("name", "An expansion")), body, opts)
+
+
+func _end_stats() -> void:
+	if Game.sys("playstats"):
+		Game.sys("playstats").end_session()
+
+
+func queue_moment(kind: String, arg) -> void:
+	## round 182: a window for the next quiet moment (after whatever is up)
+	_moments_q.append([kind, arg])
 
 
 func queue_gift(id: String) -> void:
@@ -997,7 +1042,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		_hub.toggle()
 		get_viewport().set_input_as_handled()
 		return
-	for pair in [["party", "Party"], ["bonds", "Bonds"], ["road", "Road"], ["swarm", "Swarm"], ["map", "Map"]]:
+	if event.is_action_pressed("chat_open") and chatbox != null and not chatbox.typing and not is_blocking() and not get_viewport().gui_get_focus_owner():
+		chatbox.start_typing()
+		get_viewport().set_input_as_handled()
+		return
+	for pair in [["party", "Party"], ["bonds", "Bonds"], ["guild", "Guild"], ["road", "Road"], ["swarm", "Swarm"], ["map", "Map"]]:
 		if event.is_action_pressed(pair[0]) and can_menu:
 			_hub.toggle_page(pair[1])
 			get_viewport().set_input_as_handled()
@@ -1042,10 +1091,19 @@ func set_touch_help() -> void:
 	_help.grow_horizontal = Control.GROW_DIRECTION_END
 	_help.grow_vertical = Control.GROW_DIRECTION_END
 	_help.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT, Control.PRESET_MODE_MINSIZE, 0)
-	_help.position = Vector2(20, 190)
+	_help.add_theme_font_size_override("font_size", 12)
+	var stats_panel := _stage.get_parent().get_parent() as Control
+	if not stats_panel.resized.is_connected(_place_touch_help):
+		stats_panel.resized.connect(_place_touch_help)
+	_place_touch_help.call_deferred()
 	get_tree().create_timer(45.0).timeout.connect(func(): _help.visible = false)     # (no H key on a phone to hide it)
 	_level_name.position.y = 84
 	_goals.position.y = 116
+
+
+func _place_touch_help() -> void:
+	var stats_panel := _stage.get_parent().get_parent() as Control
+	_help.position = Vector2(20, stats_panel.position.y + stats_panel.size.y + 8)
 
 
 func pad_focus(container: Node) -> void:
@@ -1080,21 +1138,62 @@ func sound_lines() -> Array:
 		["Effects: %d / 10" % int(st.get("sfx", 8)), func(): Gfx.step_volume("sfx", get_tree())],
 		["Music between quiet stretches: %s" % str(Gfx.MUSIC_OFTEN_LABEL.get(often, often)), func(): Gfx.next_sound_option("music_often", get_tree())],
 		["Drums in a fight: %s" % str(st.get("fight_music", "on")), func(): Gfx.next_sound_option("fight_music", get_tree())],
-		["Music style: %s" % ("the old loops (classic)" if str(st.get("music_style", "new")) == "classic" else "pieces with quiet between (new)"), func(): Gfx.next_sound_option("music_style", get_tree())],
+		["Music style: %s" % {"classic": "the old loops (classic)", "original": "pieces, as first made", "new": "full pieces with quiet between"}.get(str(st.get("music_style", "subtle")), "refined and subtle (a little, now and then)"), func(): Gfx.next_sound_option("music_style", get_tree())],
+		["Ambience: %s" % ("classic (more drips)" if str(st.get("amb_style", "new")) == "classic" else "new (calmer caves)"), func(): Gfx.next_sound_option("amb_style", get_tree())],
 		["Effects style: %s" % ("our own sounds" if str(st.get("sfx_style", "classic")) == "own" else "the originals (classic)"), func(): Gfx.next_sound_option("sfx_style", get_tree())],
 		["Death burn effect: %s" % str(st.get("own_fx", "on")), func(): Gfx.next_sound_option("own_fx", get_tree())],
+		["Sounds of the world (birds, rain, far-off work): %s" % str(st.get("world_sounds", "on")), func(): Gfx.next_sound_option("world_sounds", get_tree())],      # round 184
+		["Echo in caves and halls: %s" % str(st.get("room_echo", "on")), func(): Gfx.next_sound_option("room_echo", get_tree())],
+		["Villagers greet you as you pass: %s" % str(st.get("greetings", "on")), func(): Gfx.next_sound_option("greetings", get_tree())],
+		["Music room (play any piece)...", func(): open_music_room()],          # round 183b
 	]
+
+
+func open_music_room() -> void:
+	## round 183b: every piece by name -- tap one to hear it now; its set then plays wherever you go
+	var a = Game.audio
+	if a == null:
+		return
+	var body := I18n.t("Tap a piece to hear it now. Its group then plays wherever you go, until you let the places choose again.")
+	if a.classic():
+		body += "\n\n" + I18n.t("(Music style is set to the old loops -- the music room plays the pieces, so switch the style to hear them.)")
+	if a.pin_set != "":
+		body += "\n\n" + I18n.t("Now chosen by you.")
+	if a.piece != "" and a.title_of(a.piece) != "":
+		body += "\n" + I18n.t("Now playing: %s") % a.title_of(a.piece)
+	var opts := []
+	if a.pin_set != "":
+		opts.append(["Let the places choose the music again", func():
+			a.unpin()
+			open_music_room()])
+	for row in a.all_pieces():
+		var p: String = row[1]
+		var t: String = row[2] if str(row[2]) != "" else p
+		opts.append([("> " if p == a.piece else "") + I18n.t(t), func():
+			a.play_now(p)
+			open_music_room()])
+	opts.append(["Close", close_dialog])
+	open_dialog(I18n.t("Music room"), body, opts)
 
 
 func open_gfx_tune(back_to_pause: bool = false) -> void:
 	## round 123: every effect on its own, over the preset you picked. A * marks one you changed.
 	var tree := get_tree()
 	var opts := []
-	opts.append(["Look: %s  (tap for the next preset)" % Gfx.LABEL[Gfx.preset()], func():
-		Gfx.next_preset(tree)
-		_refresh_settings_buttons()
-		open_gfx_tune(back_to_pause)])
-	opts.append(["Picture size: %d%%  (lower = lighter on the GPU, softer picture)" % int(round(float(Gfx.settings.get("scale", "1.0")) * 100.0)), func():
+	if not Gfx.small_device():
+		opts.append(["Look: %s  (tap for the next preset)" % Gfx.LABEL[Gfx.preset()], func():
+			Gfx.next_preset(tree)
+			_refresh_settings_buttons()
+			open_gfx_tune(back_to_pause)])
+		opts.append([I18n.t("Visual effects: %s") % I18n.t(Gfx.effects_level().capitalize()), func():
+			Gfx.next_effects()
+			open_gfx_tune(back_to_pause)])
+	var sc_txt: String
+	if str(Gfx.settings.get("scale", "auto")) == "auto":
+		sc_txt = I18n.t("Picture size: auto, now %d%%  (fewer pixels while the GPU is busy)") % int(round(get_viewport().scaling_3d_scale * 100.0))
+	else:
+		sc_txt = I18n.t("Picture size: %d%%  (lower = lighter on the GPU, softer picture)") % int(round(float(Gfx.settings.get("scale", "1.0")) * 100.0))
+	opts.append([sc_txt, func():
 		Gfx.next_scale(tree)
 		open_gfx_tune(back_to_pause)])
 	opts.append(["Frame cap: %s" % str(Gfx.settings.get("fps", "auto")), func():
@@ -1103,7 +1202,13 @@ func open_gfx_tune(back_to_pause: bool = false) -> void:
 	opts.append(["World: %s" % str(Gfx.WORLD_LABEL[str(Gfx.settings.get("world", "auto"))]), func():
 		Gfx.next_world(tree)
 		open_gfx_tune(back_to_pause)])
+	if not Gfx.small_device():
+		opts.append([I18n.t("Art: %s  (the change shows from the next place you enter)") % I18n.t(str(Gfx.ART_PACK_LABEL[Gfx.art_pack()])), func():
+			Gfx.next_art_pack(tree)
+			open_gfx_tune(back_to_pause)])
 	for row in Gfx.TUNE:
+		if Gfx.small_device():
+			break
 		var key: String = row[0]
 		opts.append([Gfx.tune_text(row), func():
 			Gfx.tune_step(key, tree)
@@ -1115,7 +1220,8 @@ func open_gfx_tune(back_to_pause: bool = false) -> void:
 		close_dialog()
 		if back_to_pause:
 			_toggle_pause()])
-	open_dialog("Graphics fine-tune", "Start from Low, Medium, High or Ultra, then change any one thing: a sharp picture with few effects, or lots of effects at a lighter size. Changes to models and textures show from the next place you enter. A * marks what you changed.", opts)
+	var info := I18n.t("Low graphics and Low visual effects are protected on phones and browsers. Gameplay, menus and progression are shared with PC. Reduce picture size or choose 30 FPS to save battery.") if Gfx.small_device() else I18n.t("Start from Low, Medium, High or Ultra, then change any one thing: a sharp picture with few effects, or lots of effects at a lighter size. Changes to models and textures show from the next place you enter. A * marks what you changed.")
+	open_dialog("Graphics fine-tune", info, opts)
 
 
 # ---- round 124: cloud save ---------------------------------------------------------------------------
@@ -1155,6 +1261,7 @@ func open_cloud(back_to_pause: bool = false, note: String = "") -> void:
 			open_dialog("Cloud save", "Signing out...", [])
 			await cs.sign_out()
 			open_cloud(back_to_pause)])
+		opts.append(["Delete my cloud account...", func(): _cloud_delete_ask(back_to_pause)])          # round 194 (Play's rule)
 	opts.append(["Done", func(): _cloud_done(back_to_pause)])
 	open_dialog("Cloud save", body, opts)
 
@@ -1203,6 +1310,16 @@ func _cloud_login_form(back_to_pause: bool, making: bool) -> void:
 			open_dialog("Cloud save", "One moment...", [])
 			var r: Dictionary = await (cs.sign_up(str(v[0]), str(v[1])) if making else cs.sign_in(str(v[0]), str(v[1])))
 			open_cloud(back_to_pause, str(r.get("message", ""))), back_to_pause)
+
+
+func _cloud_delete_ask(back_to_pause: bool) -> void:
+	var cs = Game.cloudsave
+	open_dialog("Delete your cloud account?", "This deletes the account %s and every save stored in it, for good. It can't be undone.\n\nThe saves on this device stay, and you can keep playing offline. Anything you bought stays with your store account and comes back with Restore purchases." % cs.email(), [
+		["Delete my account for good", func():
+			open_dialog("Cloud save", "Deleting...", [])
+			var r: Dictionary = await cs.delete_account()
+			open_cloud(back_to_pause, str(r.get("message", "")))],
+		["Keep it", func(): open_cloud(back_to_pause)]])
 
 
 func _cloud_sync(back_to_pause: bool) -> void:
@@ -1449,38 +1566,52 @@ func show_title() -> void:
 	## carry on with this one, or open "Characters" to play or start another.
 	if _title == null:
 		_title = PanelContainer.new()
-		var tsb := StyleBoxFlat.new()                 # round 50: a veil over the world, not a framed box -- the place shows through
-		tsb.bg_color = Color(0.02, 0.025, 0.04, 0.84)
+		var tsb := StyleBoxFlat.new()
+		tsb.bg_color = Color(0.025, 0.04, 0.045, 0.66)
 		_title.add_theme_stylebox_override("panel", tsb)
 		_title.set_anchors_preset(Control.PRESET_FULL_RECT)
 		_title.process_mode = Node.PROCESS_MODE_ALWAYS
 		add_child(_title)
-		var center := CenterContainer.new()
-		center.set_anchors_preset(Control.PRESET_FULL_RECT)
-		_title.add_child(center)
+		var margin := MarginContainer.new()
+		for side in ["left", "right", "top", "bottom"]:
+			margin.add_theme_constant_override("margin_" + side, 32)
+		_title.add_child(margin)
+		var row := HBoxContainer.new()
+		margin.add_child(row)
+		var ledger := PanelContainer.new()
+		ledger.custom_minimum_size.x = 520
+		ledger.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		var paper: StyleBoxFlat = UI.box(Color(0.035, 0.06, 0.065, 0.97), UI.col("gold"), "panel")
+		paper.border_width_left = 3
+		paper.set_content_margin_all(28)
+		ledger.add_theme_stylebox_override("panel", paper)
+		row.add_child(ledger)
+		var scroll := ScrollContainer.new()
+		scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+		ledger.add_child(scroll)
 		var v := VBoxContainer.new()
-		v.add_theme_constant_override("separation", 10)
-		v.custom_minimum_size = Vector2(460, 0)
-		center.add_child(v)
-		var t := _label(v, I18n.t("DUNGEON CRAWL ELITE"), 44, Color(1.0, 0.85, 0.5))
-		t.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		var sub := _label(v, I18n.t("a cultivation dungeon crawl"), 16, Color(0.8, 0.8, 0.85))
-		sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		var orn := ColorRect.new()                     # a thin gold rule under the name
-		orn.color = Color(0.95, 0.78, 0.45, 0.55)
-		orn.custom_minimum_size = Vector2(160, 1)
-		orn.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-		v.add_child(orn)
-		_label(v, " ", 10, Color.WHITE)
+		v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		v.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		v.add_theme_constant_override("separation", 14)
+		scroll.add_child(v)
+		var t := _label(v, "DUNGEON CRAWL ELITE", 40, UI.col("gold"))
+		t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		var sub := _label(v, "a cultivation dungeon crawl", 17, Color(0.68, 0.79, 0.76))
+		sub.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		v.add_child(HSeparator.new())
 		_title_btns = VBoxContainer.new()
-		_title_btns.add_theme_constant_override("separation", 10)
+		_title_btns.add_theme_constant_override("separation", 8)
 		v.add_child(_title_btns)
-		_title_foot = _label(v, "", 12, Color(0.6, 0.6, 0.65))
-		_title_foot.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		v.add_child(HSeparator.new())
+		_title_foot = _label(v, "", 14, Color(0.67, 0.72, 0.7))
 		_title_foot.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		_title_foot.custom_minimum_size = Vector2(460, 0)
+		var space := Control.new()
+		space.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		space.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		row.add_child(space)
 	_title_main()
 	_title.visible = true
+	get_node("HudRoot").visible = false
 	UI.stagger(_title.find_children("*", "VBoxContainer", true, false)[0] if not _title.find_children("*", "VBoxContainer", true, false).is_empty() else null)     # round 50: the front door unfolds
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Game.audio:
@@ -1586,8 +1717,20 @@ func _title_main() -> void:
 		_button(_title_btns, tl, func(): close_title(); open_unlock("", ""))      # round 58
 	_button(_title_btns, I18n.t("Settings"), func(): close_title(); _toggle_pause())
 	if not OS.has_feature("web"):
-		_button(_title_btns, "Quit", func(): Game.save_game(); get_tree().quit())
-	_title_foot.text = "v%s   ·   %s" % [str(ProjectSettings.get_setting("application/config/version", "")), "Steam " + Game.steam.status if Game.steam and Game.steam.on else "move WASD · look with the mouse · E to talk · Esc for the menu"]
+		_button(_title_btns, "Quit", func(): Game.save_game(); _end_stats(); get_tree().quit())
+	_title_foot.text = "v%s\n%s" % [str(ProjectSettings.get_setting("application/config/version", "")), I18n.t("Touch controls") if preload("res://scripts/ui/TouchUI.gd").wanted() else I18n.t("WASD: move   E: interact   H: keys   Esc: menu")]
+	var first := true
+	for child in _title_btns.get_children():
+		if child is Button:
+			child.custom_minimum_size.y = 52
+			child.alignment = HORIZONTAL_ALIGNMENT_LEFT
+			child.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+			child.tooltip_text = child.text
+			if first:
+				var chosen: StyleBoxFlat = UI.box(Color(0.17, 0.24, 0.22, 1), UI.col("gold"), "button")
+				chosen.border_width_left = 4
+				child.add_theme_stylebox_override("normal", chosen)
+				first = false
 	pad_focus.call_deferred(_title_btns)
 
 
@@ -1680,6 +1823,7 @@ var _away_text := ""
 func close_title() -> void:
 	if _title:
 		_title.visible = false
+	get_node("HudRoot").visible = true
 	if _away_text != "":
 		_moments_q.append(["While you were away", _away_text])     # (round 62: shown once you're in)
 		_away_text = ""
@@ -1690,6 +1834,14 @@ func close_title() -> void:
 		var lv = get_tree().root.find_child("Level", true, false)
 		if lv:
 			Game.audio.set_music(Game.audio.music_for(lv.level_id, lv.def))
+
+
+func open_craftplay_pass(label: String) -> void:
+	## Master mode's "pass 2 of 4" over the next craft game (CraftPlay sets it, then clears it when the pass ends)
+	if _play == null:
+		_play = preload("res://scripts/ui/CraftPlayUI.gd").new()
+		add_child(_play)
+	_play.pass_label = label
 
 
 func open_craftplay(kind: String, skill: String, edge: int, cb: Callable) -> void:
@@ -1719,7 +1871,7 @@ func photo_active() -> bool:
 
 
 func is_blocking() -> bool:
-	return photo_active() or (_hub != null and _hub.visible) or (_title != null and _title.visible) or (_ending != null and _ending.visible) or (_char != null and _char.visible) or (_create != null and _create.visible) or _dialog.visible or _pause.visible or _inventory.visible or _journal.visible or _chat.visible or _lattice.visible or _trade.visible or (_play != null and _play.visible)
+	return (chatbox != null and chatbox.typing) or photo_active() or (_hub != null and _hub.visible) or (_title != null and _title.visible) or (_ending != null and _ending.visible) or (_char != null and _char.visible) or (_create != null and _create.visible) or _dialog.visible or _pause.visible or _inventory.visible or _journal.visible or _chat.visible or _lattice.visible or _trade.visible or (_play != null and _play.visible)
 
 
 func menu_pages_open() -> bool:
@@ -1880,8 +2032,8 @@ func _fill_swarm_rows() -> void:
 	sl.add_theme_font_size_override("font_size", 14)
 	sl.add_theme_color_override("font_color", Color(0.55, 0.95, 0.85))
 	var nx := Game.integration_next()
-	sl.text = I18n.t("Your swarm: %s (%d%s integration) -- %s. Augments running: %d of %d.") % [Game.tier_name(), int(Game.integration),
-		(" / %d" % int(nx)) if nx > 0.0 else "", Game.harmony_text(), Game.augments_on(), Game.augment_slots()]
+	sl.text = I18n.t("Your swarm: %s (%s%s integration) -- %s. Augments running: %d of %d.") % [Game.tier_name(), Game.big(Game.integration),
+		(" / " + Game.big(nx)) if nx > 0.0 else "", Game.harmony_text(), Game.augments_on(), Game.augment_slots()]
 	_lat_rows.add_child(sl)
 	for aug in Game.augments:
 		var aid := str(aug)
@@ -2376,27 +2528,45 @@ func fill_journal() -> void:
 		_wrap(_label(_jr_body, "%s -- %s" % [r[0], r[1]], 13, Color(0.75, 1.0, 0.9)))
 	_wrap(_label(_jr_body, I18n.t("%d of %d ways of doing things found. The rest are out there -- try things; townsfolk trade rumours.") % [found.size(), drows.size()], 12, Color(0.65, 0.7, 0.7)))
 	var akn: Array = Game.augments.keys()
-	_wrap(_label(_jr_body, I18n.t("Swarm: %s, %d integration -- %s. Augments found: %d of %d (experiment at your workbench).") % [Game.tier_name(), int(Game.integration),
+	_wrap(_label(_jr_body, I18n.t("Swarm: %s, %s integration -- %s. Augments found: %d of %d (experiment at your workbench).") % [Game.tier_name(), Game.big(Game.integration),
 		Game.harmony_text(), akn.size(), Game.nanite_data().get("augments", {}).size()], 13, Color(0.6, 0.95, 0.85)))
 	_label(_jr_body, I18n.t("\nThings you've found"), 18, Color(0.95, 0.8, 0.5))
-	var ids: Array = Game.journal["items"].keys()
-	ids.sort()
-	if ids.is_empty():
-		_label(_jr_body, I18n.t("Nothing yet."), 13, Color(0.6, 0.6, 0.6))
-	for id in ids:
-		var e: Dictionary = Game.journal["items"][id]
-		var where: Array = e.get("where", [])
-		_wrap(_label(_jr_body, I18n.t("%s  (found: %s)") % [Game.item_name(id), ", ".join(where.map(func(w): return _place_name(w)))], 14, Color(0.95, 0.92, 0.85)))
-		_wrap(_label(_jr_body, Game.item_desc(id), 12, Color(0.75, 0.75, 0.7)))
+	var lz_found := func():
+		var ids: Array = Game.journal["items"].keys()
+		ids.sort()
+		if ids.is_empty():
+			_label(_jr_body, I18n.t("Nothing yet."), 13, Color(0.6, 0.6, 0.6))
+		for id in ids:
+			var e: Dictionary = Game.journal["items"][id]
+			var where: Array = e.get("where", [])
+			_wrap(_label(_jr_body, I18n.t("%s  (found: %s)") % [Game.item_name(id), ", ".join(where.map(func(w): return _place_name(w)))], 14, Color(0.95, 0.92, 0.85)))
+			_wrap(_label(_jr_body, Game.item_desc(id), 12, Color(0.75, 0.75, 0.7)))
+	_hub._lazy(self, "_jr_body", lz_found)
 	_label(_jr_body, "\nPlaces", 18, Color(0.95, 0.8, 0.5))
-	for pid in Game.journal["places"]:
-		var pl: Dictionary = Game.journal["places"][pid]
-		_label(_jr_body, I18n.t("%s -- visited %d time(s)") % [_place_name(pid), int(pl.get("visits", 0))], 14, Color(0.92, 0.9, 0.85))
-		for n in pl.get("notes", []):
-			_wrap(_label(_jr_body, "   " + str(n), 12, Color(0.75, 0.75, 0.7)))
+	var lz_places := func():
+		for pid in Game.journal["places"]:
+			var pl: Dictionary = Game.journal["places"][pid]
+			_label(_jr_body, I18n.t("%s -- visited %d time(s)") % [_place_name(pid), int(pl.get("visits", 0))], 14, Color(0.92, 0.9, 0.85))
+			for n in pl.get("notes", []):
+				_wrap(_label(_jr_body, "   " + str(n), 12, Color(0.75, 0.75, 0.7)))
+	_hub._lazy(self, "_jr_body", lz_places)
+
+
+var _pname := {}                 # round 198: a place's name, read from its file once (was: the whole level file per mention --
+var _pname_lang := ""            # the Journal named ~700 finds' places: 640 ms a redraw on Robert's save)
 
 
 func _place_name(pid) -> String:
+	if _pname_lang != I18n.current:
+		_pname = {}
+		_pname_lang = I18n.current
+	var k := str(pid)
+	if not _pname.has(k):
+		_pname[k] = _place_name_read(pid)
+	return _pname[k]
+
+
+func _place_name_read(pid) -> String:
 	if str(pid) == "valley":
 		return I18n.t("The Valley of Eliet")
 	if Game.TowerGen.is_tower(str(pid)):
@@ -2449,17 +2619,35 @@ func _tick_slots(delta: float) -> void:
 		refresh()
 
 
+var _refresh_queued := false
+
+
+func _refresh_soon() -> void:
+	## Round 196: one refresh() costs ~5 ms on a big save, and stats_changed can fire many times in one frame (a kill:
+	## the gold, the XP, the drop, the skill...). Queue one for the end of the frame instead.
+	if _refresh_queued:
+		return
+	_refresh_queued = true
+	call_deferred("_refresh_now")
+
+
+func _refresh_now() -> void:
+	_refresh_queued = false
+	if is_inside_tree():
+		refresh()
+
+
 func refresh() -> void:
 	_stage.text = "%s   ·   %s%s" % [Game.cultivation_label(), Game.nanite_label(), I18n.t("   ·   in harmony") if Game.harmony() == "harmony" else ""]
 	var nx := Game.integration_next()
 	var t0: float = float(Game.nanite_data().get("tiers", [])[Game.nanite_tier()].get("need", 0)) if Game.nanite_data().get("tiers", []).size() > 0 else 0.0
 	_swarm_bar.max_value = maxf(nx - t0, 1.0) if nx > 0.0 else 1.0
 	_swarm_bar.value = (Game.integration - t0) if nx > 0.0 else 1.0
-	_swarm_text.text = I18n.t("Swarm %d / %d") % [int(Game.integration), int(nx)] if nx > 0.0 else I18n.t("Swarm %d (the summit)") % int(Game.integration)
-	UI.set_bar(_hp_bar, Game.hp, Game.max_hp())
-	_hp_text.text = "HP %d / %d" % [Game.hp, Game.max_hp()]
+	_swarm_text.text = I18n.t("Swarm %s / %s") % [Game.big(Game.integration), Game.big(nx)] if nx > 0.0 else I18n.t("Swarm %s (the summit)") % Game.big(Game.integration)
+	UI.set_bar(_hp_bar, Game.hp, Game.max_hp(true))
+	_hp_text.text = "HP %d / %d" % [Game.hp, Game.max_hp(true)]
 	UI.set_bar(_qi_bar, Game.qi, Game.qi_to_next())
-	_qi_text.text = "Qi %d / %d" % [int(Game.qi), int(Game.qi_to_next())]
+	_qi_text.text = "Qi %s / %s" % [Game.big(Game.qi), Game.big(Game.qi_to_next())]
 	var sl := []
 	var axs = Game.sys("arts")                    # round 122: the support slots depend on the mode
 	for pair in (axs.slots_shown() if axs != null else [["F", "strike"], ["V", "step"], ["Guard", "guard"]]):
@@ -2481,11 +2669,11 @@ func refresh() -> void:
 	var fl: String = FH.hud_line() if FH != null else ""
 	_first.text = fl
 	_first.visible = fl != ""
-	_gold.text = I18n.t("%d gold   ·   dmg %d   ·   %s%s") % [Game.gold, Game.damage(), Game.item_name(Game.weapon) if Game.weapon != "" else I18n.t("bare hands"),
+	_gold.text = I18n.t("%d gold   ·   dmg %d   ·   %s%s") % [Game.gold, Game.damage(true), Game.item_name(Game.weapon) if Game.weapon != "" else I18n.t("bare hands"),
 		" (untrained)" if Game.skill_level(Game.weapon_skill()) < 5 else ""]
 	update_clock()
 	if _inventory.visible:
-		_kit.refresh()
+		_kit.refresh_soft()
 
 
 func set_level_name(text: String) -> void:
@@ -2505,7 +2693,7 @@ func _screen_tick(delta: float) -> void:
 	var S: Dictionary = preload("res://scripts/fx/FX.gd").feel("screen")
 	var real := delta / maxf(Engine.time_scale, 0.05)
 	_hurt = maxf(0.0, _hurt - float(S.get("hurt_decay", 2.2)) * real)
-	var frac := float(Game.hp) / maxf(float(Game.max_hp()), 1.0)
+	var frac := float(Game.hp) / maxf(float(Game.max_hp(true)), 1.0)
 	var lowv := clampf((0.3 - frac) / 0.3, 0.0, 1.0) * float(S.get("low_hp", 0.3)) / 0.3 if Game.hp > 0 else 0.0
 	_pulse += real * float(S.get("low_pulse", 2.4)) * TAU / 2.0
 	var m := _screen_fx.material as ShaderMaterial
@@ -2586,6 +2774,8 @@ static func split_prompt(text: String) -> Array:
 
 
 func log_message(text: String) -> void:
+	if Game.msg_hold and (text.begins_with("+") or text.begins_with(I18n.t("Cultivation rises: %s").get_slice("%", 0))):
+		return                      # (round 186: a handful of pills taken at once -- one summary line follows; anything else still shows)
 	var l := Label.new()
 	l.text = text
 	l.add_theme_font_size_override("font_size", 15)
@@ -2648,8 +2838,23 @@ func open_dialog(title: String, body: String, options: Array) -> void:
 	pad_focus.call_deferred(_dialog_buttons)
 
 
+func _keyboard_help_text() -> String:
+	var C = preload("res://scripts/core/Controls.gd")
+	var lines := []
+	for actions in [["move_forward", "move_left", "move_back", "move_right"], ["attack", "guard", "dodge"], ["interact", "inventory", "pause"]]:
+		var parts := []
+		for action in actions:
+			parts.append("[%s] %s" % [C.key_text(action), C.label_of(action)])
+		lines.append("   ".join(parts))
+	lines.append(I18n.t("Mouse: look / attack / guard. Hold attack for a heavy strike."))
+	lines.append(I18n.t("Settings > Controls: all bindings   H: hide keys"))
+	return "\n".join(lines)
+
+
 func open_controls(group: String = "") -> void:
 	## round 158: every key can be moved. Pick a group, then an action, then press the key you want.
+	if not preload("res://scripts/ui/TouchUI.gd").wanted():
+		_help.text = _keyboard_help_text()
 	var C = preload("res://scripts/core/Controls.gd")
 	var groups := []
 	for r in C.ROWS:
@@ -2665,7 +2870,7 @@ func open_controls(group: String = "") -> void:
 			Game.message.emit(I18n.t("All keys are back to their defaults."))
 			open_controls()])
 		opts.append([I18n.t("Close"), close_dialog])
-		open_dialog(I18n.t("Controls"), I18n.t("Choose a group, then tap an action and press the key you want for it. Escape cancels. A key another action used is moved over to this one, and you are told.\n\nGame pad: hold Back and press A, B, X, Y for the four quick arts; tap Back alone for the bag."), opts)
+		open_dialog(I18n.t("Controls"), I18n.t("Choose a group, then tap an action and press the key you want for it. Escape cancels. A key another action used is moved over to this one, and you are told.\n\nGame pad: hold Back and press A, B, X, Y for the four quick arts, LB for your path art and RB to ready the next one; tap Back alone for the bag."), opts)
 		return
 	var lines := []
 	for r in C.ROWS:
@@ -2904,13 +3109,13 @@ func open_travel(from_stone: bool) -> void:
 			if w != "":
 				Game.message.emit(w)])
 	var tkk = Game.sys("tester")
-	if tkk != null and tkk.unlocked():
+	if tkk != null and tkk.can_warp():
 		opts.append([I18n.t("Teleport to any floor"), func():          # round 168
 			close_dialog()
 			tkk.teleport_menu(self)])
 	opts.append(["Stay", close_dialog])
 	var body := ""
-	if opts.size() <= 1 or (opts.size() == 2 and tkk != null and tkk.unlocked()):
+	if opts.size() <= 1 or (opts.size() == 2 and tkk != null and tkk.can_warp()):
 		body = "No other waystone is yours yet. Each floor has one beside its way down, past its master; Eliet's stands by the fountain, and every town has its own."
 	else:
 		body = "Where to?%s" % ("" if from_stone else "  (From here it takes a moment of gathering yourself -- a blow breaks it.)")
@@ -3013,6 +3218,7 @@ func open_away_plan(then_quit: bool = false) -> void:
 		Game.message.emit(PU.set_goal(t) if PU else Game.set_away_task(t))
 		if then_quit:
 			Game.save_game()
+			_end_stats()
 			get_tree().quit()
 		else:
 			close_dialog()
@@ -3024,7 +3230,7 @@ func open_away_plan(then_quit: bool = false) -> void:
 		["Just rest", after.bind({})],
 	]
 	if then_quit:
-		opts.append(["Quit without changing it", func(): Game.save_game(); get_tree().quit()])
+		opts.append(["Quit without changing it", func(): Game.save_game(); _end_stats(); get_tree().quit()])
 	opts.append(["(back)", close_dialog])
 	open_dialog("Your pursuit", body, opts)
 
@@ -3193,9 +3399,9 @@ func fill_character() -> void:
 	t.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_button(head, "Close (P)", close_character)
 	var need := Game.qi_to_next()
-	_wrap(_label(_char_body, I18n.t("Qi %d / %d to the next step%s.   Swarm: %s (%d integration).   %s") % [int(Game.qi), int(need),
+	_wrap(_label(_char_body, I18n.t("Qi %s / %s to the next step%s.   Swarm: %s (%s integration).   %s") % [Game.big(Game.qi), Game.big(need),
 		I18n.t(" -- the sea is full: ") + (I18n.t("sit (M) and face your tribulation") if Game.breakthrough_missing().is_empty() else I18n.t("you still need ") + ", ".join(Game.breakthrough_missing())) if Game.at_threshold() else "",
-		Game.tier_name(), int(Game.integration), (I18n.t("Blood: %s") % ", ".join(Game.blood_rows().map(func(r): return "%s %d%%" % [r[0], int(r[1])]))) if not Game.blood_rows().is_empty() else ""], 14, Color(0.85, 0.9, 1.0)))
+		Game.tier_name(), Game.big(Game.integration), (I18n.t("Blood: %s") % ", ".join(Game.blood_rows().map(func(r): return "%s %d%%" % [r[0], int(r[1])]))) if not Game.blood_rows().is_empty() else ""], 14, Color(0.85, 0.9, 1.0)))
 	# where you're going: the road down's next goal, and the next gate's need
 	var road := []
 	if Game.mq_line() != "":
@@ -3244,6 +3450,18 @@ func fill_character() -> void:
 	var free := Game.attr_points_free()
 	_label(right, I18n.t("Attributes -- %d point%s to spend") % [free, "" if free == 1 else "s"], 18, Color(0.95, 0.8, 0.5) if free == 0 else Color(0.6, 1.0, 0.6))
 	_wrapc(_label(right, I18n.t("Earned: 1 for each step of cultivation, 3 for each realm crossed, 1 for each chapter of the road down, 1 for each hidden master who taught you%s.") % ((I18n.t(", and %d from who you are") % int(Game.born.get("free", 0))) if int(Game.born.get("free", 0)) > 0 else ""), 12, Color(0.75, 0.75, 0.8)))
+	if free > 1:
+		# round 200: at the top and lit, where the points are announced (it sat under the list and he kept spending
+		# them one click at a time, a point to each attribute in turn -- which is what this does)
+		var sb := _button(right, I18n.t("Spread them evenly (%d)") % free, func():
+			Game.attr_spread()
+			Game.sfx("ui_ok", 0.6)
+			fill_character())
+		sb.tooltip_text = I18n.t("Each point goes to whichever attribute is lowest -- a balanced cultivator grows fastest.")
+		sb.add_theme_font_size_override("font_size", 16)
+		sb.add_theme_color_override("font_color", Color(0.6, 1.0, 0.6))
+		sb.custom_minimum_size = Vector2(0, 40)
+		sb.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	var A: Dictionary = Game.char_data().get("attributes", {})
 	for id in Game.attr_ids():
 		var a: Dictionary = A.get(id, {})
@@ -3256,6 +3474,16 @@ func fill_character() -> void:
 				Game.attr_spend(id)
 				Game.sfx("ui_ok", 0.6)
 				fill_character())
+			if free >= 5:          # round 190: 107 of his 110 points went in one click at a time
+				_button(row, "+5", func():
+					Game.attr_spend(id, 5)
+					Game.sfx("ui_ok", 0.6)
+					fill_character())
+			if free > 1:
+				_button(row, I18n.t("All (%d)") % free, func():
+					Game.attr_spend(id, Game.attr_points_free())
+					Game.sfx("ui_ok", 0.6)
+					fill_character())
 		_wrapc(_label(right, "  " + str(a.get("desc", "")), 12, Color(0.8, 0.8, 0.85)))
 	if Game.attr_points_spent() > 0:
 		_button(right, "Unlearn them all (%d gold)" % Game.attr_respec_cost(), func():

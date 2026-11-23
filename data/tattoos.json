@@ -1,0 +1,14 @@
+{
+  "_about": "Round 177 (Robert, 2026-10-25): 'allow runes to be used on constructs and to be utilised as tattoos.' A rune is cut into a beast as a tattoo, in a town. Choose where: the placement leans the rune's gift (brow for senses and luck, paw for fighting and speed, flank for toughness, back for gathering and bonds). Slots follow Runecraft; a slip cracks the rune and the beast flinches.",
+  "bond_help": 0.0015,
+  "flinch": 0.5,
+  "flinch_loss": 1.0,
+  "scour_gold": 25,
+  "lean": 0.35,
+  "placements": {
+    "brow":  {"name": "Brow",  "desc": "senses and luck",           "keys": ["sense_radius", "sight", "qi_mult", "insight_mult", "loot_luck", "crit_chance"]},
+    "paw":   {"name": "Paw",   "desc": "fighting and speed",        "keys": ["damage_mult", "burn_on_hit", "move_mult", "dodge_chance", "ranged_mult"]},
+    "flank": {"name": "Flank", "desc": "toughness and mending",     "keys": ["damage_taken", "hp_mult", "regen", "ward", "heal_on_kill"]},
+    "back":  {"name": "Back",  "desc": "gathering, bonds and work", "keys": ["gather_chance", "gather_bonus", "keep_gold", "bond_mult", "swarm_mult", "meditate_mult"]}
+  }
+}

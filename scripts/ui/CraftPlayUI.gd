@@ -34,6 +34,9 @@ const W := 640.0
 const H := 400.0
 
 
+var pass_label := ""          # "Master pass 2 of 4" -- set by CraftPlay before each Master pass, cleared after
+
+
 func start(p_kind: String, p_skill: String, p_edge: int, p_cb: Callable) -> void:
 	CP = Game.sys("craftplay")
 	kind = p_kind
@@ -56,6 +59,8 @@ func start(p_kind: String, p_skill: String, p_edge: int, p_cb: Callable) -> void
 	if _title == null:
 		_build()
 	_title.text = {"hammer": I18n.t("At the anvil"), "simmer": I18n.t("Over the flame"), "pour": I18n.t("Measuring"), "facet": I18n.t("At the wheel"), "trace": I18n.t("Setting the strokes")}.get(kind, "")
+	if pass_label != "":
+		_title.text += "  --  " + pass_label          # 2026-11-03: Master mode says which pass this is (it used to just start over)
 	_hint.text = {"hammer": I18n.t("Strike when the heat is in the glowing zone."), "simmer": I18n.t("Hold to heat, let go to cool. Keep the flame in the band."),
 		"pour": I18n.t("Hold to pour. Let go on the line."), "facet": I18n.t("Cut as the pointer crosses the mark."), "trace": I18n.t("Watch the strokes, then draw them back.")}.get(kind, "")
 	_act.text = {"hammer": I18n.t("STRIKE"), "simmer": I18n.t("HOLD"), "pour": I18n.t("POUR"), "facet": I18n.t("CUT"), "trace": ""}.get(kind, "")

@@ -16,6 +16,8 @@ func _initialize() -> void:
 	root.add_child(m)
 	for i in 40:
 		await physics_frame
+	# Assertions below compare English phrases, independent of the host locale.
+	load("res://scripts/core/I18n.gd").apply("en")
 	var B = G.sys("breeding")
 	G.skills["taming"] = 10.0 * 12 * 12 + 1.0
 	G.bond_familiar("cave_hare")

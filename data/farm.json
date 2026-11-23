@@ -1,0 +1,60 @@
+{
+  "_about": "Round 177 (Robert, 2026-10-25): 'allow for user to build a nanite farm and learn skills to improve self replication so it doesnt become stagnant.' Vats at home hold a culture that replicates (fast at first, slower as it fills). Left alone it stagnates: diversity drains and the yield drops. Events ask for a choice (odds shown); skills slow the drain, speed replication and open new strains. Harvest the culture for shards, swarm growth or qi. It also feeds a small passive swarm bonus while it lives.",
+  "min_tier": 1,
+  "vats": {"max": 6, "cap_each": 60.0, "cost": {"iron_ore": 4, "nanite_shard": 2}, "gold": 80, "gold_step": 60},
+  "seed": 6.0,
+  "rate_per_min": 0.045,
+  "stagnate_per_min": 0.0018,
+  "eff_floor": 0.35,
+  "event_minutes": [80, 140],
+  "event_low_div_mult": 0.6,
+  "offline_max_hours": 24,
+  "harvest_keep": 0.35,
+  "shard_per": 40.0,
+  "passive": {"swarm_per_pop": 0.0004, "cap": 0.08},
+  "strains": {
+    "builder": {"name": "Builder line",  "desc": "shapes shards: the workshop's favourite", "shards": 1.0, "integ": 0.15, "qi": 0.0},
+    "weaver":  {"name": "Weaver line",   "desc": "knits into your swarm",                    "shards": 0.2, "integ": 1.0,  "qi": 0.0},
+    "cinder":  {"name": "Cinder line",   "desc": "runs hot and gives qi",                    "shards": 0.2, "integ": 0.2,  "qi": 1.0, "found": true},
+    "sprout":  {"name": "Sprout line",   "desc": "breeds very fast, smaller yield",         "shards": 0.5, "integ": 0.4,  "qi": 0.2, "rate": 1.25, "yield": 0.8, "found": true},
+    "deep":    {"name": "Deep-vat line", "desc": "slow, dense and generous",                 "shards": 1.2, "integ": 0.6,  "qi": 0.3, "rate": 0.8, "yield": 1.3, "found": true}
+  },
+  "skills": {
+    "rep":      {"name": "Self-Replication",   "max": 5, "cost": [2, 3, 5, 8, 12],  "desc": "+20% replication speed a level"},
+    "lattice":  {"name": "Vat Lattice",        "max": 5, "cost": [2, 3, 5, 8, 12],  "desc": "+25% room in every vat a level"},
+    "repair":   {"name": "Error Correction",   "max": 5, "cost": [2, 4, 6, 9, 13],  "desc": "stagnation drains 15% slower a level"},
+    "diversify":{"name": "Diversity Engine",   "max": 3, "cost": [3, 6, 10],        "desc": "events come sooner and every good choice is worth more"},
+    "mutate":   {"name": "Directed Mutation",  "max": 3, "cost": [3, 6, 10],        "desc": "stray strands are likelier to be worth keeping"},
+    "link":     {"name": "Swarm Link",         "max": 3, "cost": [3, 6, 10],        "desc": "harvests feed your swarm 30% more a level"}
+  },
+  "events": {
+    "rut": {"title": "A rut", "text": "One lineage has crowded out the rest. The culture is replicating, but it is all the same.", "min_div": 1.0, "max_div": 0.6,
+      "choices": [
+        {"id": "prune", "name": "Prune the dominant line", "desc": "Cut away a third of the colony to make room.", "outcomes": [{"p": 1.0, "pop_mult": 0.67, "div": 0.3, "text": "You cut it back hard. The rest wakes up."}]},
+        {"id": "feed", "name": "Feed it fresh shards", "desc": "Two shards of new material to disturb the pattern.", "cost": {"nanite_shard": 2}, "outcomes": [
+          {"p": 0.7, "div": 0.28, "pop_mult": 1.1, "text": "New patterns bloom in the shard-dust."}, {"p": 0.3, "div": 0.05, "text": "It ignores the feast."}]},
+        {"id": "leave", "name": "Let it run", "desc": "Maybe it will sort itself out.", "outcomes": [{"p": 0.3, "div": 0.1, "text": "A branch finds its own way."}, {"p": 0.7, "div": -0.08, "text": "It settles deeper into the rut."}]}
+      ]},
+    "stray": {"title": "A stray strand", "text": "A strand has drifted from the main culture and is doing something of its own.", "min_div": 0.0, "max_div": 1.0,
+      "choices": [
+        {"id": "cultivate", "name": "Cultivate it", "desc": "Give it its own vat-corner. It may be a new line.", "outcomes": [
+          {"p": 0.5, "strain": true, "div": 0.2, "lore": 1, "text": "It takes hold. A new line grows from it."}, {"p": 0.5, "pop_mult": 0.85, "div": 0.05, "text": "It turns out to be a parasite."}]},
+        {"id": "study", "name": "Study it", "desc": "Take notes and take samples. Safe.", "outcomes": [{"p": 1.0, "lore": 2, "div": 0.08, "text": "You learn what you can from it."}]},
+        {"id": "cull", "name": "Cull it", "desc": "Burn it out.", "outcomes": [{"p": 1.0, "div": 0.0, "text": "Gone."}]}
+      ]},
+    "blight": {"title": "Blight", "text": "Part of the culture has gone grey and slow. It is spreading.", "min_div": 0.0, "max_div": 1.0,
+      "choices": [
+        {"id": "quarantine", "name": "Quarantine and burn", "desc": "Lose a third of the colony, for certain.", "outcomes": [{"p": 1.0, "pop_mult": 0.67, "div": 0.05, "text": "You seal it off and burn the grey part."}]},
+        {"id": "antibody", "name": "Brew an antibody", "desc": "Two spirit herbs. Likely to work.", "cost": {"spirit_herb": 2}, "outcomes": [
+          {"p": 0.75, "div": 0.15, "lore": 1, "text": "The grey fades. The colony is stronger for it."}, {"p": 0.25, "pop_mult": 0.5, "text": "It is too late for half of it."}]},
+        {"id": "ignore", "name": "Ignore it", "desc": "Risky.", "outcomes": [{"p": 0.5, "text": "It burns itself out."}, {"p": 0.5, "pop_mult": 0.4, "div": -0.1, "text": "It sweeps through the vats."}]}
+      ]},
+    "surge": {"title": "A surge", "text": "The culture is humming. Everything is replicating at once.", "min_div": 0.4, "max_div": 1.0,
+      "choices": [
+        {"id": "harvest", "name": "Harvest at the peak", "desc": "Take half again as much, right now.", "outcomes": [{"p": 1.0, "harvest_bonus": 1.5, "text": "You pull the vats at the crest."}]},
+        {"id": "ride", "name": "Ride it out", "desc": "It may leave the colony larger -- or burn it out.", "outcomes": [
+          {"p": 0.65, "pop_mult": 1.4, "div": 0.1, "text": "The surge settles into a bigger colony."}, {"p": 0.35, "pop_mult": 0.7, "div": -0.1, "text": "It overran itself."}]},
+        {"id": "share", "name": "Pour it into your swarm", "desc": "A gift of integration, no shards.", "outcomes": [{"p": 1.0, "integ_gift": 6, "pop_mult": 0.85, "text": "The surge runs out into your own nanites."}]}
+      ]}
+  }
+}

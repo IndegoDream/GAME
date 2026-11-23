@@ -33,6 +33,23 @@ static func _free_cells(level) -> Dictionary:
 	return out
 
 
+static func _walk_cells(level) -> Dictionary:
+	## 2026-11-06: every cell you can actually walk (what the pathfinder walks),
+	## not only the plain "free" floor. The free cells left out the side chambers'
+	## tunnels and the walkable marks (stairs, traps, torches...), so the reach from
+	## the stairs stopped at the first room -- the gate's check that the way down
+	## stays on the near side never saw the way down, and on floors 8, 12 and 16 the
+	## Keeper's gate stood across the only road on.
+	var out := _free_cells(level)
+	var r: Rect2i = level.astar.region
+	for x in range(r.position.x, r.end.x):
+		for y in range(r.position.y, r.end.y):
+			var c := Vector2i(x, y)
+			if not level.astar.is_point_solid(c) and level.char_at(c) != "S":
+				out[c] = true        # (a secret wall isn't a way through until it's found)
+	return out
+
+
 static func _bfs(level, free: Dictionary, start: Vector2i, blocked: Vector2i = Vector2i(-99, -99)) -> Dictionary:
 	## cell -> steps from start, walking the free cells (4-way)
 	var dist := {start: 0}
@@ -84,6 +101,8 @@ static func place(level) -> Dictionary:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash("setpieces|" + str(level.level_id))
 	var free := _free_cells(level)
+	var walk := _walk_cells(level)
+	level.set_meta("sp_walk", walk)          # (tests: what the placement saw)
 	var starts: Array = level.spawns.get("<", level.spawns.get("P", []))
 	if starts.is_empty() or free.size() < 60:
 		return {}
@@ -94,7 +113,7 @@ static func place(level) -> Dictionary:
 			if free.has(start + d):
 				start = start + d
 				break
-	var dist := _bfs(level, free, start)
+	var dist := _bfs(level, walk, start)
 	var important := _important_cells(level)
 	var out := {}
 	var depth := int(level.def.get("depth", 1))
@@ -105,19 +124,19 @@ static func place(level) -> Dictionary:
 	for c in dist:
 		maxd = maxi(maxd, int(dist[c]))
 	for c in dist:
-		if int(dist[c]) >= maxd * 0.35 and _corridor(level, free, c):
+		if int(dist[c]) >= maxd * 0.35 and free.has(c) and _corridor(level, walk, c):
 			cands.append(c)
 	cands.sort_custom(func(a, b): return int(dist[a]) < int(dist[b]))
 	var gate_cell := Vector2i(-1, -1)
 	var pocket := []
 	for t in mini(cands.size(), 40):
 		var c: Vector2i = cands[(rng.randi() % cands.size())]
-		var d2 := _bfs(level, free, start, c)
+		var d2 := _bfs(level, walk, start, c)
 		var cut := []
-		for f in free:
+		for f in walk:
 			if f != c and not d2.has(f) and dist.has(f):
 				cut.append(f)
-		if cut.size() < 6 or cut.size() > free.size() * 0.4:
+		if cut.size() < 6 or cut.size() > walk.size() * 0.4 or not cut.any(func(f): return free.has(f)):
 			continue
 		var ok := true
 		for imp in important:
@@ -136,6 +155,10 @@ static func place(level) -> Dictionary:
 		# the vault: the chest at the far end of the pocket
 		pocket.sort_custom(func(a, b): return int(dist[a]) > int(dist[b]))
 		var vc: Vector2i = pocket[0]
+		for pc0 in pocket:
+			if free.has(pc0):
+				vc = pc0                 # (the far end that's plain floor, for the chest)
+				break
 		var loot := {"gold": [45 * depth, 90 * depth], "qi_pill": [1, 2], "nanite_shard": [2, 4]}
 		level._spawn_script("res://scripts/objects/Chest.gd", level.cell_to_world(vc), {"cell": vc, "loot": loot, "gear": 1 + (1 if depth >= 8 else 0), "essence": depth >= 20,
 			"note": "The Keeper's vault: what the floor kept for itself."})
@@ -252,12 +275,12 @@ static func place(level) -> Dictionary:
 				var c2: Vector2i = cands[rng.randi() % cands.size()]
 				if not free.has(c2):
 					continue
-				var d3 := _bfs(level, free, start, c2)
+				var d3 := _bfs(level, walk, start, c2)
 				var cut2 := []
-				for f in free:
+				for f in walk:
 					if f != c2 and not d3.has(f) and dist.has(f):
 						cut2.append(f)
-				if cut2.size() < 4 or cut2.size() > free.size() * 0.3:
+				if cut2.size() < 4 or cut2.size() > walk.size() * 0.3:
 					continue
 				var ok2 := true
 				for imp in important:

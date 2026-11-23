@@ -34,7 +34,7 @@ const CAMERA_LABEL := {"far": "third person", "shoulder": "over the shoulder", "
 const SKY_DAY := "res://assets/sky/kloofendal_28d_misty.hdr"
 const SKY_EVENING := "res://assets/sky/evening_meadow.hdr"
 
-static var settings := {"preset": "high", "window": "fullscreen", "camera": "far", "touch": "auto", "vr": "off", "steam": "off", "music": 6, "sfx": 8, "fog": "on", "ambience": 7, "music_often": "sometimes", "fight_music": "on", "music_style": "new", "store_test": "off", "preset_user": "no", "custom": {}, "scale": "1.0", "fps": "auto", "world": "auto", "cloud_when": "saves", "a_text": "1.0", "a_cb": "off", "a_toggle": "off", "a_caps": "off", "a_motion": "full", "a_hand": "right", "a_big": "off"}
+static var settings := {"preset": "high", "window": "fullscreen", "camera": "far", "zoom_far": "9.0", "zoom_sh": "3.0", "zoom_fov": "75.0", "touch": "auto", "vr": "off", "steam": "off", "music": 6, "sfx": 8, "fog": "on", "ambience": 7, "music_often": "sometimes", "fight_music": "on", "music_style": "subtle", "music_v": "1", "amb_style": "new", "world_sounds": "on", "room_echo": "on", "greetings": "on", "store_test": "off", "preset_user": "no", "custom": {}, "effects": "high", "scale": "auto", "fps": "auto", "world": "auto", "cloud_when": "saves", "a_text": "1.0", "a_cb": "off", "a_toggle": "off", "a_caps": "off", "a_motion": "full", "a_hand": "right", "a_big": "off", "art_pack": "new", "gpu_ai": "free", "res_v": "1"}
 
 
 static func step_volume(which: String, tree: SceneTree) -> int:
@@ -56,13 +56,17 @@ const MUSIC_OFTEN_LABEL := {"often": "often", "sometimes": "now and then", "rare
 
 static func next_sound_option(which: String, tree: SceneTree) -> String:
 	load_settings()
-	var opts: Array = {"music_often": MUSIC_OFTEN, "fight_music": ["on", "off"], "music_style": ["new", "classic"], "sfx_style": ["classic", "own"]}.get(which, ["on", "off"])
+	var opts: Array = {"music_often": MUSIC_OFTEN, "fight_music": ["on", "off"], "gpu_ai": ["free", "leave"], "music_style": ["subtle", "new", "original", "classic"], "amb_style": ["new", "classic"], "sfx_style": ["classic", "own"]}.get(which, ["on", "off"])
 	var i := opts.find(str(settings.get(which, opts[0])))
 	settings[which] = opts[(i + 1) % opts.size()]
 	save_settings()
 	var g = tree.root.get_node_or_null("Game") if tree else null
 	if g and g.audio and which == "music_style":
 		g.audio.restart_music()
+	if g and g.audio and which == "amb_style" and g.audio.has_method("set_ambience"):
+		var cur: String = g.audio.ambience
+		g.audio.ambience = ""
+		g.audio.set_ambience(cur)                 # the new bed straight away
 	return str(settings[which])
 
 
@@ -70,13 +74,45 @@ const TOUCH_MODES := ["auto", "on", "off"]
 const TOUCH_LABEL := {"auto": "when there's a touch screen", "on": "on", "off": "off"}
 
 
+static func lite_art() -> bool:
+	## the phone export leaves out the photo-scanned art (export feature tag "lite_art"): the light look is the only look there
+	return OS.has_feature("lite_art")
+
+
 static func small_device() -> bool:
-	## a phone, a tablet, or the game in a web browser (round 29)
-	return OS.has_feature("web") or OS.has_feature("mobile")
+	## Browsers also use the lightweight package and Compatibility renderer.
+	return OS.has_feature("web") or OS.has_feature("mobile") or OS.has_feature("android")
+
+
+static func enforce_device_limits(lightweight: bool) -> void:
+	# Never trust restored PC settings or custom overrides on a phone.
+	if lightweight:
+		settings["preset"] = "low"
+		settings["custom"] = {}
+		settings["effects"] = "low"
+		if str(settings.get("fps", "auto")) not in ["30", "60"]:
+			settings["fps"] = "60"
+
+
+static func effects_level() -> String:
+	load_settings()
+	if small_device() or preset() == "low":
+		return "low"
+	return str(settings.get("effects", "high"))
+
+
+static func next_effects() -> String:
+	load_settings()
+	var levels := ["low", "medium", "high"]
+	settings["effects"] = levels[(levels.find(str(settings.get("effects", "high"))) + 1) % levels.size()]
+	save_settings()
+	return effects_level()
+
+
 static var _loaded := false
 
 const WORLD_MODES := ["auto", "lite", "full"]
-const WORLD_LABEL := {"auto": "Lite on a phone, Full on a computer", "lite": "Lite (the village and the dungeon)", "full": "Full (the valley, towers and the tech frontier too)"}
+const WORLD_LABEL := {"auto": "Full world on every device", "lite": "Lite (the village and the dungeon)", "full": "Full (the valley, towers and the tech frontier too)"}
 
 
 const CLOUD_WHEN := ["saves", "floor", "manual"]
@@ -91,14 +127,28 @@ static func next_cloud_when() -> String:
 
 
 static func world_lite() -> bool:
-	## round 124: Lite is the starting village and the dungeon only -- lighter on a phone's GPU, memory and battery.
-	## Auto means a phone (not a browser, not a computer) starts Lite.
-	var m := str(settings.get("world", "auto"))
-	if m == "lite":
-		return true
-	if m == "full":
-		return false
-	return OS.has_feature("mobile")
+	# Reduced content is opt-in, never a consequence of phone graphics.
+	return str(settings.get("world", "auto")) == "lite"
+
+
+## 2026-11-06 (Robert: "Yes, CC0 only" -- swap in free art, keep the old look as the backup):
+## "new" = the CC0 art packs (built houses, photo skies, land grounds, props, animals);
+## "previous" = exactly the look before them. Low graphics and phones keep the original either way.
+const ART_PACKS := ["new", "previous"]
+const ART_PACK_LABEL := {"new": "new art packs", "previous": "the previous look"}
+
+
+static func art_pack() -> String:
+	load_settings()
+	var v := str(settings.get("art_pack", "new"))
+	return v if v in ART_PACKS else "new"
+
+
+static func next_art_pack(tree: SceneTree = null) -> String:
+	load_settings()
+	settings["art_pack"] = ART_PACKS[(ART_PACKS.find(art_pack()) + 1) % ART_PACKS.size()]
+	save_settings()
+	return str(settings["art_pack"])
 
 
 static func next_world(tree: SceneTree = null) -> String:
@@ -110,24 +160,32 @@ static func next_world(tree: SceneTree = null) -> String:
 
 static func load_settings() -> Dictionary:
 	if _loaded:
+		enforce_device_limits(small_device())
 		return settings
 	_loaded = true
 	if small_device():
-		# a first start on a phone or in a browser: lighter, and no fullscreen
-		# (a browser only allows that from a tap)
-		settings["preset"] = "low" if OS.has_feature("android") else "medium"      # a phone's memory can't hold the photo-scanned look (it crashed)
+		settings["preset"] = "low"
 		settings["window"] = "windowed"
 	if FileAccess.file_exists(PATH):
 		var d = JSON.parse_string(FileAccess.get_file_as_string(PATH))
 		if d is Dictionary:
 			for k in settings:
 				if d.has(k):
-					if k == "preset" and OS.has_feature("android") and str(d.get("preset_user", "no")) != "yes":
-						continue                      # on a phone only a preset the player picked sticks
 					if k == "custom":
 						settings[k] = d[k] if d[k] is Dictionary else {}
 					else:
 						settings[k] = int(d[k]) if k in ["music", "sfx", "ambience"] else str(d[k])
+	if str(settings.get("res_v", "1")) != "2":
+		# round 192 (Robert: "very laggy ... quickness and snappy response"): 100% was the old default, not a choice --
+		# everyone on it moves to auto picture size once; any other size someone picked stays
+		if str(settings.get("scale", "1.0")) == "1.0":
+			settings["scale"] = "auto"
+		settings["res_v"] = "2"
+	if str(settings.get("music_v", "1")) != "2":
+		# round 183c (Robert: "make the music more refined and subtle"): everyone moves to the refined pieces once;
+		# the fuller ones stay in Sound > Music style
+		settings["music_style"] = "subtle"
+		settings["music_v"] = "2"
 	if not PRESETS.has(settings["preset"]):
 		settings["preset"] = "high"
 	if not (settings["camera"] in CAMERAS):
@@ -140,11 +198,15 @@ static func load_settings() -> Dictionary:
 		settings["touch"] = "auto"
 	if not (str(settings.get("vr", "off")) in ["off", "on"]):
 		settings["vr"] = "off"
+	if str(settings.get("effects", "high")) not in ["low", "medium", "high"]:
+		settings["effects"] = "high"
+	enforce_device_limits(small_device())
 	_sync_static()
 	return settings
 
 
 static func save_settings() -> void:
+	enforce_device_limits(small_device())
 	var f := FileAccess.open(PATH, FileAccess.WRITE)
 	if f:
 		f.store_string(JSON.stringify(settings, "  "))
@@ -152,6 +214,8 @@ static func save_settings() -> void:
 
 static func p() -> Dictionary:
 	## the preset, with whatever the player fine-tuned laid over it (round 123)
+	if lite_art():
+		return PRESETS["low"]
 	var base: Dictionary = PRESETS[str(load_settings()["preset"])]
 	var c = settings.get("custom", {})
 	if not (c is Dictionary) or c.is_empty():
@@ -168,12 +232,15 @@ static func p() -> Dictionary:
 
 
 static func preset() -> String:
+	if lite_art():
+		return "low"
 	return str(load_settings()["preset"])
 
 
 static func _sync_static() -> void:
 	var pr: Dictionary = p()
 	Art.style = str(pr["art"])
+	Art.full_detail = preset() == "ultra"           # round 186: the full photo scans only on Ultra
 	Look.detail = bool(pr["detail"])
 	Look.natural = str(pr["art"]) == "realistic"
 
@@ -194,7 +261,7 @@ static func next_preset(tree: SceneTree) -> String:
 	var i := PRESET_ORDER.find(preset())
 	var n: String = PRESET_ORDER[(i + 1) % PRESET_ORDER.size()]
 	set_preset(n, tree)
-	return n
+	return preset()
 
 
 # ---- round 123: fine-tune -- each effect on its own, over the chosen preset ------------------
@@ -217,7 +284,7 @@ const TUNE := [
 	["grade", "Colour grade", [false, true], {false: "off", true: "on"}],
 	["taa", "Temporal smoothing", [false, true], {false: "off", true: "on"}],
 ]
-const SCALES := ["0.5", "0.67", "0.75", "0.85", "1.0"]
+const SCALES := ["0.5", "0.67", "0.75", "0.85", "1.0", "auto"]          # round 192: auto follows the GPU (AutoRes.gd)
 const FPS_CAPS := ["auto", "30", "60", "120"]
 
 
@@ -251,7 +318,7 @@ static func tune_step(key: String, tree: SceneTree) -> void:
 static func tune_reset(tree: SceneTree) -> void:
 	load_settings()
 	settings["custom"] = {}
-	settings["scale"] = "1.0"
+	settings["scale"] = "auto"
 	settings["fps"] = "auto"
 	_sync_static()
 	save_settings()
@@ -260,7 +327,7 @@ static func tune_reset(tree: SceneTree) -> void:
 
 static func next_scale(tree: SceneTree) -> String:
 	load_settings()
-	var i := SCALES.find(str(settings.get("scale", "1.0")))
+	var i := SCALES.find(str(settings.get("scale", "auto")))
 	settings["scale"] = SCALES[(i + 1) % SCALES.size()]
 	settings["preset_user"] = "yes"
 	save_settings()
@@ -270,8 +337,9 @@ static func next_scale(tree: SceneTree) -> String:
 
 static func next_fps(tree: SceneTree) -> String:
 	load_settings()
-	var i := FPS_CAPS.find(str(settings.get("fps", "auto")))
-	settings["fps"] = FPS_CAPS[(i + 1) % FPS_CAPS.size()]
+	var caps: Array = ["30", "60"] if small_device() else FPS_CAPS
+	var i := caps.find(str(settings.get("fps", "auto")))
+	settings["fps"] = caps[(i + 1) % caps.size()]
 	save_settings()
 	apply(tree)
 	return str(settings["fps"])
@@ -339,9 +407,17 @@ static func apply(tree: SceneTree) -> void:
 	vp.use_taa = bool(pr["taa"])
 	if "anisotropic_filtering_level" in vp:
 		vp.anisotropic_filtering_level = int(pr["aniso"])
-	var sc := float(str(settings.get("scale", "1.0")))          # render resolution (round 123): a phone can draw fewer pixels and still look sharp UI-wise
+	var sc_s := str(settings.get("scale", "auto"))
 	if "scaling_3d_scale" in vp:
-		vp.scaling_3d_scale = clampf(sc, 0.4, 1.0)
+		if sc_s == "auto":
+			# round 192: AutoRes.gd moves it as the GPU allows; start from where it was (or full size)
+			var ar = tree.root.find_child("AutoRes", true, false)
+			vp.scaling_3d_scale = float(ar.scale) if ar != null else 1.0
+		else:
+			vp.scaling_3d_scale = clampf(float(sc_s), 0.4, 1.0)          # render resolution (round 123): a phone can draw fewer pixels and still look sharp UI-wise
+		if "scaling_3d_mode" in vp:
+			var fwd := str(ProjectSettings.get_setting("rendering/renderer/rendering_method", "forward_plus")) == "forward_plus" and DisplayServer.get_name() != "headless"
+			vp.scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR if fwd and vp.scaling_3d_scale < 0.999 or (fwd and sc_s == "auto") else Viewport.SCALING_3D_MODE_BILINEAR
 	Engine.max_fps = 0 if str(settings.get("fps", "auto")) == "auto" else int(str(settings.get("fps", "0")))
 	vp.positional_shadow_atlas_size = int(pr["pshadow"])
 	RenderingServer.directional_shadow_atlas_set_size(int(pr["shadow"]), true)
@@ -370,8 +446,10 @@ static func fit_small_window(tree: SceneTree) -> void:
 	if preload("res://scripts/ui/TouchUI.gd").wanted():
 		return
 	var ws := DisplayServer.window_get_size()
-	var small: bool = ws.x < 1100 or ws.y < 640
+	var small: bool = ws.x < 1100 or ws.y < 740      # 2026-10-31: was 1100 x 640 -- a normal window with a title bar fell just under the menus' height
 	var want_mode := Window.CONTENT_SCALE_MODE_CANVAS_ITEMS if small else Window.CONTENT_SCALE_MODE_DISABLED
+	w.content_scale_size = Vector2i(1067, 640)
+	w.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
 	if w.content_scale_mode != want_mode:
 		w.content_scale_mode = want_mode
 		w.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
@@ -388,8 +466,8 @@ static func tune_env(env: Environment, theme: String) -> void:
 	env.ssao_radius = 1.6
 	env.ssao_intensity = float(LK.get("ssao_intensity", 1.8))
 	env.ssil_enabled = bool(pr["ssil"])
-	if bool(pr["glow"]):          # (never switched off here: a cavern town's haze glows at any setting)
-		env.glow_enabled = true
+	env.glow_enabled = bool(pr["glow"])
+	if env.glow_enabled:
 		env.glow_intensity = float(LK.get("glow", 0.7))
 		env.glow_bloom = float(LK.get("bloom", 0.08))
 		env.glow_hdr_threshold = 1.1
@@ -411,9 +489,8 @@ static func tune_env(env: Environment, theme: String) -> void:
 		env.adjustment_contrast = float(LK.get("contrast", 1.07))
 		env.adjustment_saturation = float(LK.get("saturation_under", 0.9)) if underground else float(LK.get("saturation_sky", 0.95))
 		env.adjustment_brightness = 1.0
-	if bool(pr["grade"]):
-		env.tonemap_mode = Environment.TONE_MAPPER_AGX
-		env.tonemap_white = 6.0
+	env.tonemap_mode = Environment.TONE_MAPPER_AGX if bool(pr["grade"]) else Environment.TONE_MAPPER_FILMIC
+	env.tonemap_white = 6.0
 
 
 static func day_sky(dl: float) -> Sky:

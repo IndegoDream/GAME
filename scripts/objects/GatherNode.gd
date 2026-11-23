@@ -97,6 +97,9 @@ func _ready() -> void:
 			glow.omni_range = 3.0
 			glow.light_energy = 0.8
 			glow.position = Vector3(0, 0.6, 0)
+			glow.distance_fade_enabled = true         # 2026-11-06: a Land holds hundreds of these -- far ones are skipped
+			glow.distance_fade_begin = 32.0
+			glow.distance_fade_length = 8.0
 			add_child(glow)
 		"gem":
 			_model = preload("res://scripts/core/Art.gd").make("mini-dungeon/rocks.glb")
@@ -107,6 +110,9 @@ func _ready() -> void:
 			sparkle.omni_range = 2.6
 			sparkle.light_energy = 1.2
 			sparkle.position = Vector3(0, 0.8, 0)
+			sparkle.distance_fade_enabled = true         # 2026-11-06: a Land holds hundreds of these -- far ones are skipped
+			sparkle.distance_fade_begin = 32.0
+			sparkle.distance_fade_length = 8.0
 			add_child(sparkle)
 		"fish":
 			_model = Node3D.new()
@@ -127,6 +133,9 @@ func _ready() -> void:
 			ripple.omni_range = 2.5
 			ripple.light_energy = 0.7
 			ripple.position = Vector3(0, 0.5, 0)
+			ripple.distance_fade_enabled = true         # 2026-11-06: a Land holds hundreds of these -- far ones are skipped
+			ripple.distance_fade_begin = 32.0
+			ripple.distance_fade_length = 8.0
 			_model.add_child(ripple)
 		_:
 			_model = preload("res://scripts/core/Art.gd").make("mini-dungeon/rocks.glb")

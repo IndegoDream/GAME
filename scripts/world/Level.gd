@@ -48,6 +48,7 @@ var def := {}
 var level_id := ""
 var theme := "dungeon"
 var _sky_mat: ShaderMaterial          # round 37: the sky shader (outdoors)
+var sky_photo := ""                    # 2026-11-06: which photographed sky is laid in ("" = the drawn one)
 var sun_light: DirectionalLight3D      # round 44: the sun (or moon) under the sky
 var _stalactites: MultiMeshInstance3D  # round 37: shown only when the camera is under the roof
 var grid: Array[String] = []
@@ -255,6 +256,8 @@ func build(d: Dictionary) -> void:
 	if prof:
 		print("  place by char: ", _pc)
 	_pt("loop")
+	_flush_houses()
+	_pt("_flush_houses")
 	_place_lamps()
 	_pt("_place_lamps")
 	_auto_walls()
@@ -287,6 +290,215 @@ func build(d: Dictionary) -> void:
 	_pt("_place_dummy")
 	_place_landmark()
 	_pt("_place_landmark")
+	_flush_deco()
+	_flush_crags()
+	_pt("_flush_deco")
+
+
+# ---- 2026-11-06: ground tufts drawn in batches ----------------------------------------------------
+## The open ground's flowers and grass were one little model each -- a Land
+## twice the old size held ~5,400 of them (56,000 meshes, the bulk of its
+## memory and draw time). Now each kind is drawn as a MultiMesh per 32 m
+## patch of ground, and a patch past DECO_FAR metres isn't drawn at all.
+## Same places, same models, same look.
+
+const DECO_FAR := 85.0
+const DECO_CHUNK := 32.0
+var deco_batches := 0                # how many batched draws the tufts became (tests)
+var deco_count := 0                  # how many tufts went into them
+var _deco := {}                      # "path|pick" -> [Transform3D...]
+
+
+func _deco_prop(path: String, at: Vector3, s: float, yaw: float) -> void:
+	_art_pick += 1
+	var id := Art.stand_in(path, _art_pick)
+	var key := "%s|%s" % [path, id]
+	if not _deco.has(key):
+		_deco[key] = []
+	(_deco[key] as Array).append(Transform3D(Basis(Vector3.UP, yaw).scaled(Vector3.ONE * s), at))
+	deco_count += 1
+
+
+func _flush_deco() -> void:
+	for key in _deco:
+		var path := str(key).get_slice("|", 0)
+		var id := str(key).get_slice("|", 1)
+		var one: Mesh = _deco_mesh(str(key), path, id)
+		if one == null:
+			continue
+		var parts := [[one, Transform3D.IDENTITY]]
+		var chunks := {}
+		for xf in _deco[key]:
+			var t: Transform3D = xf
+			var ck := Vector2i(floori(t.origin.x / DECO_CHUNK), floori(t.origin.z / DECO_CHUNK))
+			if not chunks.has(ck):
+				chunks[ck] = []
+			(chunks[ck] as Array).append(t)
+		for ck in chunks:
+			var list: Array = chunks[ck]
+			for part in parts:
+				var mm := MultiMesh.new()
+				mm.transform_format = MultiMesh.TRANSFORM_3D
+				mm.mesh = part[0]
+				mm.instance_count = list.size()
+				for i in list.size():
+					mm.set_instance_transform(i, (list[i] as Transform3D) * (part[1] as Transform3D))
+				var mmi := MultiMeshInstance3D.new()
+				mmi.name = "Deco_%s" % path.get_file().get_basename()
+				mmi.multimesh = mm
+				mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF    # (ankle-high tufts: their shadows cost more than they show)
+				mmi.visibility_range_end = DECO_FAR
+				mmi.visibility_range_end_margin = 12.0
+				mmi.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
+				add_child(mmi)
+				deco_batches += 1
+	_deco.clear()
+
+
+static var _deco_meshes := {}          # "path|pick" -> the model as one mesh (shared by every level)
+
+
+func _deco_mesh(key: String, path: String, id: String) -> Mesh:
+	## the whole model folded into ONE mesh -- a surface per material -- so a
+	## patch of one kind of tuft is a single batched draw
+	if _deco_meshes.has(key):
+		return _deco_meshes[key]
+	var tmpl: Node3D
+	if path == "":
+		var ps := Art.scene(Art.real_path(id))                     # a stand-in by itself (the crags)
+		if ps == null:
+			_deco_meshes[key] = null
+			return null
+		tmpl = ps.instantiate()
+	else:
+		tmpl = Art.make(path, _pick_for(path, id)) if id != "" else _model(path)
+	var parts := []
+	_mesh_parts(tmpl, Transform3D.IDENTITY, parts)
+	tmpl.free()
+	var by_mat := {}                        # material -> SurfaceTool
+	var mats := []
+	for part in parts:
+		var m: Mesh = part[0]
+		for i in m.get_surface_count():
+			if m.surface_get_primitive_type(i) != Mesh.PRIMITIVE_TRIANGLES:
+				continue
+			var mat: Material = m.surface_get_material(i)
+			if not by_mat.has(mat):
+				var st := SurfaceTool.new()
+				st.begin(Mesh.PRIMITIVE_TRIANGLES)
+				by_mat[mat] = st
+				mats.append(mat)
+			(by_mat[mat] as SurfaceTool).append_from(m, i, part[1])
+	var am := ArrayMesh.new()
+	for mat in mats:
+		var st: SurfaceTool = by_mat[mat]
+		st.commit(am)
+		am.surface_set_material(am.get_surface_count() - 1, mat)
+	var out: Mesh = am if am.get_surface_count() > 0 else null
+	_deco_meshes[key] = out
+	return out
+
+
+# ---- 2026-11-06: the Lands' rock edges as photo-scanned boulders (CC0 art pack) -----------------
+## Every solid cell facing open ground in a Land was a 2 m cliff block -- rows of
+## them read as crates. With the pack on, each is a boulder (Poly Haven, CC0),
+## turned at random, a little wider than its cell so neighbours run together into
+## a ridge, a little sunk. Drawn in batches (one mesh per kind of rock, a MultiMesh
+## per 48 m patch, nothing past CRAG_FAR). The cell's collision box is unchanged.
+
+## low-poly copies (~2,000 triangles; the photo textures are the originals') made by
+## tools/gen/decimate_gltf.py -- a batch can't use the engine's own detail levels,
+## and the full scans are 15,000-98,000 triangles each
+const CRAGS := ["rk:boulder_01_lo", "rk:namaqualand_boulder_02_lo", "rk:rock_moss_set_01_lo", "rk:rock_moss_set_02_lo", "rk:rock_07_lo"]
+const CRAG_FAR := 170.0
+var crag_count := 0
+var _crags := {}                         # rock id -> [Transform3D...]
+
+
+func _crag(cell: Vector2i, at: Vector3, size := 1.0) -> void:
+	var h := absi(hash(cell) ^ hash(level_id))
+	var id: String = CRAGS[h % CRAGS.size()]
+	var m: Mesh = _deco_mesh("crag|" + id, "", id)
+	if m == null:
+		return
+	var bb := m.get_aabb()
+	var wide := (2.7 + float(h % 7) * 0.12) * size              # 2.7 - 3.4 m: a touch more than the cell
+	var tall := (2.1 + float((h / 7) % 9) * 0.17) * size        # 2.1 - 3.5 m
+	var sx: float = wide / maxf(0.05, maxf(bb.size.x, bb.size.z))
+	var sy: float = clampf(tall / maxf(0.05, bb.size.y), sx * 0.6, sx * 1.35)     # (stretched further, a rock turns into a spire)
+	var b := Basis(Vector3.UP, float(h % 360) * PI / 180.0).scaled(Vector3(sx, sy, sx))
+	var foot := -bb.position.y * sy - 0.25                       # set it down, a little sunk
+	var t := Transform3D(b, at + Vector3(0, foot, 0))
+	if not _crags.has(id):
+		_crags[id] = []
+	(_crags[id] as Array).append(t)
+	crag_count += 1
+
+
+func _flush_crags() -> void:
+	for id in _crags:
+		var m: Mesh = _deco_mesh("crag|" + str(id), "", str(id))
+		if m == null:
+			continue
+		var chunks := {}
+		for xf in _crags[id]:
+			var t: Transform3D = xf
+			var ck := Vector2i(floori(t.origin.x / 48.0), floori(t.origin.z / 48.0))
+			if not chunks.has(ck):
+				chunks[ck] = []
+			(chunks[ck] as Array).append(t)
+		for ck in chunks:
+			var list: Array = chunks[ck]
+			var mm := MultiMesh.new()
+			mm.transform_format = MultiMesh.TRANSFORM_3D
+			mm.mesh = m
+			mm.instance_count = list.size()
+			for i in list.size():
+				mm.set_instance_transform(i, list[i])
+			var mmi := MultiMeshInstance3D.new()
+			mmi.name = "Crags_%s" % str(id).replace(":", "_")
+			mmi.multimesh = mm
+			mmi.visibility_range_end = CRAG_FAR
+			mmi.visibility_range_end_margin = 20.0
+			mmi.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
+			add_child(mmi)
+	_crags.clear()
+
+
+func _pick_for(path: String, id: String) -> int:
+	## the pick number that gives this stand-in for this model
+	var opts: Array = Art.swap_list(path)
+	for i in opts.size():
+		var e = opts[i]
+		if (str(e[0]) if e is Array else str(e)) == id:
+			return i
+	return 0
+
+
+func _mesh_parts(n: Node, xf: Transform3D, out: Array) -> void:
+	## every mesh under a model, with where it sits in the model (and its own
+	## materials folded into the mesh, since a batch can't override per surface)
+	var here := xf
+	if n is Node3D:
+		here = xf * (n as Node3D).transform
+	if n is MeshInstance3D and (n as MeshInstance3D).mesh != null:
+		var mi := n as MeshInstance3D
+		var mesh: Mesh = mi.mesh
+		var over := false
+		for i in mesh.get_surface_count():
+			if mi.get_surface_override_material(i) != null:
+				over = true
+		if over or mi.material_override != null:
+			var am := (mesh as ArrayMesh).duplicate() as ArrayMesh if mesh is ArrayMesh else null
+			if am != null:
+				for i in am.get_surface_count():
+					var m: Material = mi.material_override if mi.material_override != null else mi.get_surface_override_material(i)
+					if m != null:
+						am.surface_set_material(i, m)
+				mesh = am
+		out.append([mesh, here])
+	for c in n.get_children():
+		_mesh_parts(c, here, out)
 
 
 func _place_dummy() -> void:
@@ -361,6 +573,10 @@ func _place_gate() -> void:
 	## round 125: the Gate to the shared world stands in the village and in the valley
 	if level_id != "village" and level_id != "valley":
 		return
+	if Game.store != null and Game.store.demo():
+		return          # 2026-11-03: the Steam demo has no shared world to step into -- no Gate that only says "can't connect"
+	if not load("res://scripts/net/Online.gd").open_to_players():
+		return          # round 194: a store build with no public server yet -- same reason
 	var anchor: Vector2i = fountain_cell() if level_id == "village" else Vector2i(width / 2, height / 2)
 	var pl: Array = spawns.get("P", [])
 	if level_id == "valley" and not pl.is_empty():
@@ -666,7 +882,10 @@ func _place_defined(ch: String, cell: Vector2i, at: Vector3) -> void:
 			warnings.append("'%s' at %s is enemy type '%s', which data/enemies.json doesn't define" % [ch, cell, etype])
 			return
 		# a boss that's already been killed stays dead
-		if bool(Game.enemies[etype].get("boss", false)) and Game.has_flag("%s:boss:%s" % [level_id, etype]):
+		if bool(Game.enemies[etype].get("world_boss", false)):
+			if Game.has_flag("%s:wb:%s:%d" % [level_id, etype, Game.sys("world").day()]):
+				return
+		elif bool(Game.enemies[etype].get("boss", false)) and Game.has_flag("%s:boss:%s" % [level_id, etype]):
 			return
 		# round 28: placed foes roll their style, a variant, and maybe an elite affix (foes.json)
 		_spawn_script("res://scripts/actors/HeartDemon.gd" if etype == "heart_demon" else "res://scripts/actors/Enemy.gd", at, {"type": etype, "cell": cell, "roll": etype != "heart_demon"})
@@ -715,7 +934,11 @@ func _prop(path: String, at: Vector3, s: float = 2.0, yaw: float = 0.0) -> Node3
 	m.scale = Vector3.ONE * s
 	m.rotation.y = yaw
 	add_child(m)
+	m.set_meta("pp", str(m.name))           # round 187: a plain prop -- may be drawn in a batch once the place is built
 	return m
+
+
+static var _tints := {}                # round 187: one tinted copy per material and colour (it was one per wall piece)
 
 
 func _tint(n: Node, c: Color) -> void:
@@ -723,9 +946,12 @@ func _tint(n: Node, c: Color) -> void:
 		for i in n.get_surface_override_material_count():
 			var m = n.get_active_material(i)
 			if m is StandardMaterial3D:
-				var mm: StandardMaterial3D = m.duplicate()
-				mm.albedo_color = mm.albedo_color * c
-				n.set_surface_override_material(i, mm)
+				var tk := "%d|%s" % [m.get_instance_id(), c.to_html()]
+				if not _tints.has(tk) or not is_instance_valid(_tints[tk]):
+					var mm: StandardMaterial3D = m.duplicate()
+					mm.albedo_color = mm.albedo_color * c
+					_tints[tk] = mm
+				n.set_surface_override_material(i, _tints[tk])
 	for ch in n.get_children():
 		_tint(ch, c)
 
@@ -798,7 +1024,9 @@ func _wall(cell: Vector2i) -> void:
 		_box_body(at + Vector3(0, 2.0, 0), Vector3(CELL, 4.0, CELL))
 		_count("walls")
 		return
-	if is_town() or theme == "wilds":
+	if theme == "wilds" and not is_town() and preload("res://scripts/core/ArtPack.gd").on():
+		_crag(cell, at, 1.3)                 # 2026-11-06: a ridge of real rock, not a row of blocks
+	elif is_town() or theme == "wilds":
 		var rock := _prop("nature-kit/cliff_block_rock.glb", at + Vector3(0, 0.1, 0), 2.0, (_rng.randi() % 4) * PI / 2)
 		rock.scale.y = 2.0 + _rng.randf() * 0.8
 		if theme == "settlement":
@@ -912,7 +1140,7 @@ func _floor_tile(cell: Vector2i, road: bool) -> void:
 			if _rng.randf() < 0.16 and str(def.get("deco", "")) != "none":
 				var deco := ["nature-kit/flower_redA.glb", "nature-kit/flower_yellowA.glb", "nature-kit/flower_purpleA.glb", "nature-kit/grass.glb",
 					"nature-kit/grass_large.glb", "nature-kit/plant_bushSmall.glb"]
-				_prop(deco[_rng.randi() % deco.size()], at + Vector3(_jit() * 2, 0.02, _jit() * 2), 2.0, _rng.randf() * TAU)
+				_deco_prop(deco[_rng.randi() % deco.size()], at + Vector3(_jit() * 2, 0.02, _jit() * 2), 2.0, _rng.randf() * TAU)
 	else:
 		_floor_cells[cell] = true
 
@@ -955,12 +1183,15 @@ func _glow_mushroom(at: Vector3) -> void:
 
 func _glow_tint(n: Node, c: Color) -> void:
 	if n is MeshInstance3D:
-		var mat := StandardMaterial3D.new()
-		mat.albedo_color = c * 0.6
-		mat.emission_enabled = true
-		mat.emission = c
-		mat.emission_energy_multiplier = 1.4
-		n.material_override = mat
+		var gk := "glow|" + c.to_html()
+		if not _tints.has(gk) or not is_instance_valid(_tints[gk]):
+			var mat := StandardMaterial3D.new()
+			mat.albedo_color = c * 0.6
+			mat.emission_enabled = true
+			mat.emission = c
+			mat.emission_energy_multiplier = 1.4
+			_tints[gk] = mat
+		n.material_override = _tints[gk]
 	for ch in n.get_children():
 		_glow_tint(ch, c)
 
@@ -1011,7 +1242,8 @@ func _lamp_spot(cell: Vector2i) -> Vector3:
 	## a lantern stands beside the road, not in it: of the spots a little way around its cell (the nearest first)
 	## take one the road's verge doesn't reach and that isn't a wall or a road cell; failing that, the one furthest from the road
 	var at := cell_to_world(cell)
-	if nearest_road_cell(at, 2).x < 0:
+	var by_door := _near_arrival(at)
+	if nearest_road_cell(at, 2).x < 0 and not by_door:
 		return at
 	var step := CELL * 0.55
 	var offs := [Vector3.ZERO, Vector3(step, 0, 0), Vector3(-step, 0, 0), Vector3(0, 0, step), Vector3(0, 0, -step),
@@ -1025,11 +1257,22 @@ func _lamp_spot(cell: Vector2i) -> Vector3:
 			continue
 		var rc := nearest_road_cell(to, 3)
 		var far: float = cell_to_world(rc).distance_to(to) if rc.x >= 0 else 99.0
-		var score: float = far - o.length() * 0.01 + (100.0 if not on_road(to) else 0.0)
+		var score: float = far - o.length() * 0.01 + (100.0 if not on_road(to) else 0.0) + (0.0 if _near_arrival(to) else 200.0)
 		if score > best_score:
 			best_score = score
 			best = to
 	return best
+
+
+func _near_arrival(p: Vector3) -> bool:
+	## 2026-11-03: a lantern never stands where you step off a stair (Shellhaven's stood on the arrival spot itself)
+	for ch in ["<", ">", "P"] + (def.get("exits", {}) as Dictionary).keys():
+		if spawns.get(str(ch), []).is_empty():
+			continue
+		var sp := spawn_point(str(ch))
+		if Vector2(sp.x - p.x, sp.z - p.z).length() < 1.4:
+			return true
+	return false
 
 
 func _place_lamps() -> void:
@@ -1084,11 +1327,76 @@ func _secret_wall(cell: Vector2i) -> void:
 func _house_block(cell: Vector2i) -> void:
 	_solid(cell)
 	var at := cell_to_world(cell)
+	_box_body(at + Vector3(0, 2.0, 0), Vector3(CELL, 4.0, CELL))
+	_count("houses")
+	if preload("res://scripts/core/ArtPack.gd").on() and preload("res://scripts/world/Houses.gd").available():
+		_house_cells.append(cell)            # 2026-11-06: built as whole houses after the map is read (_flush_houses)
+		return
+	_house_look(cell)
+
+
+func _house_look(cell: Vector2i) -> void:
+	## the old look: a toy block and a gable on every cell
+	var at := cell_to_world(cell)
 	var wood := (cell.x + cell.y) % 3 != 0
 	_prop("fantasy-town-kit/wall-wood-block.glb" if wood else "fantasy-town-kit/wall-block.glb", at, 2.0)
 	_prop("fantasy-town-kit/roof-gable.glb", at + Vector3(0, 2.0, 0), 2.0)
-	_box_body(at + Vector3(0, 2.0, 0), Vector3(CELL, 4.0, CELL))
-	_count("houses")
+
+
+var _house_cells: Array = []
+var house_chimneys: Array = []           # 2026-11-06: where the built houses' chimneys stand (smoke)
+var houses_built := 0
+
+
+func _flush_houses() -> void:
+	## every block of "H" cells becomes one house from the CC0 village kit (Houses.gd);
+	## a 1-cell-wide strip (no roof for it in the kit) keeps the old block
+	if _house_cells.is_empty():
+		return
+	var H := preload("res://scripts/world/Houses.gd")
+	for r in H.blocks(_house_cells):
+		var rect: Rect2i = r
+		if not H.roofable(rect):
+			for y in rect.size.y:
+				for x in rect.size.x:
+					_house_look(rect.position + Vector2i(x, y))
+			continue
+		var h: Dictionary = H.make(rect, _street_side(rect), hash(level_id) + rect.position.x * 7919 + rect.position.y * 104729, cell_to_world)
+		var node: Node3D = h["node"]
+		add_child(node)
+		house_chimneys.append(h["chimney"])
+		houses_built += 1
+	_house_cells.clear()
+
+
+func _street_side(r: Rect2i) -> Vector2i:
+	## which way the house faces: the side with the most road (then open ground) in front of it
+	var best := Vector2i(0, 1)
+	var best_score := -1
+	for dir in [Vector2i(0, 1), Vector2i(1, 0), Vector2i(0, -1), Vector2i(-1, 0)]:
+		var score := 0
+		var cells := []
+		if dir.y != 0:
+			var yy := r.position.y + (r.size.y if dir.y > 0 else -1)
+			for x in r.size.x:
+				cells.append(Vector2i(r.position.x + x, yy))
+		else:
+			var xx := r.position.x + (r.size.x if dir.x > 0 else -1)
+			for y in r.size.y:
+				cells.append(Vector2i(xx, r.position.y + y))
+		for c in cells:
+			var ch := char_at(c)
+			if ch == ",":
+				score += 3
+			elif WALKABLE.contains(ch) and ch != "H":
+				score += 1
+		if score > best_score:
+			best_score = score
+			best = dir
+	return best
+
+
+var _water_mats := {}
 
 
 func _water(cell: Vector2i) -> void:
@@ -1096,15 +1404,23 @@ func _water(cell: Vector2i) -> void:
 	var at := cell_to_world(cell)
 	var mi := MeshInstance3D.new()
 	mi.mesh = _pond_mesh(cell)
-	var mat := StandardMaterial3D.new()
-	mat.albedo_color = Color(0.15, 0.35, 0.55, 0.85)
-	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	mat.roughness = 0.1
-	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
-	mi.material_override = mat
+	var wk := "plain"
 	if reach_index(cell) >= 0:
-		mi.material_override = preload("res://scripts/world/ReachDress.gd").water(self, cell, reach_biome(cell))
+		wk = "reach|" + str(bool(reach_biome(cell).get("water", {}).get("frozen", false)))
+	if not _water_mats.has(wk):                # round 187: one water material, not one per cell (687 in the valley)
+		if wk == "plain":
+			var mat := StandardMaterial3D.new()
+			mat.albedo_color = Color(0.15, 0.35, 0.55, 0.85)
+			mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			mat.roughness = 0.1
+			mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+			_water_mats[wk] = mat
+		else:
+			_water_mats[wk] = preload("res://scripts/world/ReachDress.gd").water(self, cell, reach_biome(cell))
+	mi.material_override = _water_mats[wk]
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	mi.position = at + Vector3(0, 0.05, 0)
+	mi.set_meta("batch_water", true)
 	add_child(mi)
 	_box_body(at + Vector3(0, 1.5, 0), Vector3(CELL, 3.0, CELL))
 
@@ -1220,20 +1536,25 @@ func _build_environment() -> void:
 			shm.set_shader_parameter("cloud_cover", srng.randf_range(0.15, 0.85))
 			var sky2 := Sky.new()
 			sky2.sky_material = shm
+			_cheap_radiance(sky2)
 			env.sky = sky2
 			_sky_mat = shm
+			# 2026-11-06: the CC0 art pack's photographed sky by day (off = the drawn sky, as before)
+			var Wx = Game.sys("world")
+			var wid: String = str(Wx.weather_id()) if Wx and Wx.has_method("weather_id") else "clear"
+			sky_photo = preload("res://scripts/core/ArtPack.gd").dress_sky(shm, Look.key_for(def), wid, dusk, Game.today() + "|" + level_id)
 		env.background_mode = Environment.BG_SKY
 		# a fixed, neutral fill light: sky-coloured ambient turned every
 		# texture cyan (seen in the first screenshots)
 		env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-		env.ambient_light_color = Color(0.4, 0.45, 0.65).lerp(Color(0.62, 0.6, 0.58), dl)
-		env.ambient_light_energy = 0.3 + 0.25 * dl
+		env.ambient_light_color = Color(0.5, 0.58, 0.82).lerp(Color(0.62, 0.6, 0.58), dl)
+		env.ambient_light_energy = 0.48 + 0.07 * dl          # 2026-11-03: nights readable (a demo played at 10 pm opened nearly black)
 		# ...and no sky reflections: the low-poly materials are glossy
 		# enough that a blue sky mirrored in every flat surface
 		env.reflected_light_source = Environment.REFLECTION_SOURCE_DISABLED
 		var sun := DirectionalLight3D.new()
 		sun.rotation_degrees = Vector3(-52, -35, 0) if dl >= 1.0 else Vector3(-18 - 30 * dl, -35, 0)
-		sun.light_energy = 0.18 + 1.07 * dl         # at night it's the moon
+		sun.light_energy = 0.36 + 0.89 * dl         # at night it's the moon
 		sun.light_color = Color(0.6, 0.7, 1.0).lerp(Color(1.0, 0.97, 0.92), dl).lerp(Color(1.0, 0.7, 0.45), dusk * 0.6)
 		sun.shadow_enabled = true
 		add_child(sun)
@@ -1292,6 +1613,11 @@ func apply_atmos(env: Environment = null) -> void:
 	env.fog_enabled = true
 	env.fog_light_color = Look.color3(a.get("fog", []), Color(0.6, 0.6, 0.7))
 	env.fog_density = float(a.get("fog_density", 0.005))
+	if sky_photo != "":
+		# 2026-11-06: under a photographed sky the Land's haze thins, and the sky
+		# shows through it (the drawn sky was built to sit inside the fog)
+		env.fog_density *= 0.6
+		env.fog_sky_affect = 0.35
 	_amb_base = env.ambient_light_energy
 	_fog_base = env.fog_density
 
@@ -1340,10 +1666,340 @@ func _ready() -> void:
 				Game.message.emit("Under your feet the whole town rises... and, slowly, settles again."))
 
 
+# ---- round 186: trees drawn in batches -------------------------------------------------------------
+## Robert's play log showed Eliet at 3-4 frames a second on an RTX 5060 Ti: 1,658 trees, each its own handful
+## of draws, every one drawn again for each of the sun's shadow cascades. Once the place is built, the trees
+## are gathered by 32 m patch: all their bark becomes one mesh per patch and kind of bark, all their leaf
+## cards one MultiMesh per patch and kind of leaf. Same trees, same sway; ~1,700 draws become ~150.
+const TREE_CHUNK := 32.0
+var _trees_batched := false
+var _tree_jobs: Array = []        # chunk keys still to build
+var _tree_groups := {}            # chunk key -> [tree nodes]
+var tree_batches := 0             # (tests) batch nodes made
+var trees_in_batches := 0         # (tests)
+
+
+func _begin_tree_batch() -> void:
+	_trees_batched = true
+	for t in find_children("*", "Node3D", true, false):
+		if not (t as Node).has_meta("realistic_tree") or (t as Node).has_meta("batched"):
+			continue
+		if (t as Node3D).get_node_or_null("Bark") == null or (t as Node3D).get_node_or_null("Leaves") == null:
+			continue
+		var p: Vector3 = (t as Node3D).global_position
+		var key := Vector2i(floori(p.x / TREE_CHUNK), floori(p.z / TREE_CHUNK))
+		if not _tree_groups.has(key):
+			_tree_groups[key] = []
+			_tree_jobs.append(key)
+		_tree_groups[key].append(t)
+
+
+func _batch_tree_chunk(key: Vector2i) -> void:
+	var trees: Array = _tree_groups.get(key, [])
+	_tree_groups.erase(key)
+	var inv := global_transform.affine_inverse()
+	var barks := {}           # material -> SurfaceTool
+	var cards := {}           # [material, card mesh] key -> [mat, mesh, transforms, colors]
+	var n := 0
+	for t in trees:
+		if not is_instance_valid(t) or not (t as Node3D).is_inside_tree() or not (t as Node3D).is_visible_in_tree():
+			continue
+		var bark := (t as Node3D).get_node_or_null("Bark") as MeshInstance3D
+		var lv := (t as Node3D).get_node_or_null("Leaves") as MultiMeshInstance3D
+		if bark == null or lv == null or bark.mesh == null or lv.multimesh == null:
+			continue
+		var bx: Transform3D = inv * bark.global_transform
+		var bm: Material = bark.mesh.surface_get_material(0)
+		if not barks.has(bm):
+			var st0 := SurfaceTool.new()
+			st0.begin(Mesh.PRIMITIVE_TRIANGLES)
+			barks[bm] = st0
+		(barks[bm] as SurfaceTool).append_from(bark.mesh, 0, bx)
+		var lx: Transform3D = inv * lv.global_transform
+		var mm := lv.multimesh
+		var ck := "%d|%d" % [lv.material_override.get_instance_id() if lv.material_override else 0, mm.mesh.get_instance_id()]
+		if not cards.has(ck):
+			cards[ck] = [lv.material_override, mm.mesh, [], []]
+		var e: Array = cards[ck]
+		for i in mm.instance_count:
+			(e[2] as Array).append(lx * mm.get_instance_transform(i))
+			(e[3] as Array).append(mm.get_instance_color(i))
+		bark.queue_free()
+		lv.queue_free()
+		(t as Node).set_meta("batched", true)
+		n += 1
+	if n == 0:
+		return
+	for bm2 in barks:
+		var am: ArrayMesh = (barks[bm2] as SurfaceTool).commit()
+		if am.get_surface_count() > 0:
+			am.surface_set_material(0, bm2)
+		var mi := MeshInstance3D.new()
+		mi.name = "TreeBark"
+		mi.mesh = am
+		add_child(mi)
+		tree_batches += 1
+	for ck2 in cards:
+		var e2: Array = cards[ck2]
+		var mm2 := MultiMesh.new()
+		mm2.transform_format = MultiMesh.TRANSFORM_3D
+		mm2.use_colors = true
+		mm2.mesh = e2[1]
+		mm2.instance_count = (e2[2] as Array).size()
+		for i in mm2.instance_count:
+			mm2.set_instance_transform(i, e2[2][i])
+			mm2.set_instance_color(i, e2[3][i])
+		var mmi := MultiMeshInstance3D.new()
+		mmi.name = "TreeLeaves"
+		mmi.multimesh = mm2
+		mmi.material_override = e2[0]
+		add_child(mmi)
+		tree_batches += 1
+	trees_in_batches += n
+
+
+func batch_trees_now() -> void:
+	## (tests) do it all at once
+	if not _trees_batched:
+		_begin_tree_batch()
+	while not _tree_jobs.is_empty():
+		_batch_tree_chunk(_tree_jobs.pop_back())
+
+
+# ---- round 187: still props and ponds drawn in batches -------------------------------------------------
+## After the trees, the valley was still 4,266 draws a frame: every shrub (four pieces each), boulder, wall
+## block and roof cap its own draw, and every pond cell its own mesh with its own material. Once the place is
+## built, plain props (made by _prop, untouched since: no script, no group, no light or body inside, not
+## renamed) are gathered by 32 m patch into one MultiMesh per patch and kind of piece; pond cells into one
+## mesh per patch. Small pieces stop drawing past a distance (scaled by the graphics preset).
+const PROP_CHUNK := 32.0
+const PROP_FAR_SMALL := 150.0        # pieces under 3 m across (Medium; Low x0.75, High x1.4, Ultra x2)
+const PROP_FAR_MID := 260.0          # pieces under 7 m; bigger ones always draw
+var _props_batched := false
+var _prop_jobs: Array = []
+var _prop_groups := {}               # chunk -> [prop holders and pond meshes]
+var _prop_far := 1.0
+var prop_batches := 0                # (tests)
+var props_in_batches := 0            # (tests) props whose pieces all went into batches
+var water_in_batches := 0            # (tests)
+static var _folded := {}             # mesh + its per-surface materials -> one mesh with them folded in
+
+
+func _prop_chunk_key(p: Vector3) -> Vector2i:
+	return Vector2i(floori(p.x / PROP_CHUNK), floori(p.z / PROP_CHUNK))
+
+
+func prop_batchable(h: Node) -> bool:
+	## a plain prop nothing else will touch again
+	if not (h is Node3D) or h.get_parent() != self or h.get_script() != null or not (h as Node3D).visible:
+		return false
+	if not h.has_meta("pp") or str(h.name) != str(h.get_meta("pp")) or h.has_meta("realistic_tree") or h.has_meta("batched"):
+		return false
+	for g in h.get_groups():
+		if not str(g).begins_with("_"):
+			return false
+	var meshes := 0
+	for n in h.find_children("*", "", true, false):
+		if n.get_script() != null:
+			return false
+		for g2 in n.get_groups():
+			if not str(g2).begins_with("_"):
+				return false
+		if n is MeshInstance3D:
+			var mi := n as MeshInstance3D
+			if mi.mesh == null or mi.skin != null or not mi.visible or mi.transparency > 0.0 or mi.visibility_range_end > 0.0 \
+					or mi.get_meta_list().size() > 0 or (mi.mesh is ArrayMesh and (mi.mesh as ArrayMesh).get_blend_shape_count() > 0):
+				return false
+			meshes += 1
+		elif n.get_class() != "Node3D":
+			return false                    # a light, a body, an animation, particles... leave it be
+	return meshes > 0
+
+
+func _begin_prop_batch() -> void:
+	_props_batched = true
+	var pre := preload("res://scripts/core/Gfx.gd").preset()
+	_prop_far = {"low": 0.75, "medium": 1.0, "high": 1.4, "ultra": 2.0}.get(pre, 1.0)
+	_fade_far_lights()
+	for c in get_children():
+		var ok := false
+		if c is MeshInstance3D and c.has_meta("batch_water") and (c as MeshInstance3D).visible:
+			ok = true
+		elif prop_batchable(c):
+			ok = true
+		if not ok:
+			continue
+		var key := _prop_chunk_key((c as Node3D).global_position)
+		if not _prop_groups.has(key):
+			_prop_groups[key] = []
+			_prop_jobs.append(key)
+		(_prop_groups[key] as Array).append(c)
+
+
+func _fold_mesh(mi: MeshInstance3D) -> Mesh:
+	## the mesh with this instance's per-surface materials baked in (a MultiMesh has only one override)
+	var m: Mesh = mi.mesh
+	var ids := []
+	var any := false
+	for i in m.get_surface_count():
+		var o := mi.get_surface_override_material(i)
+		ids.append(o.get_instance_id() if o else 0)
+		any = any or o != null
+	if not any:
+		return m
+	var fk := "%d|%s" % [m.get_instance_id(), str(ids)]
+	if _folded.has(fk) and is_instance_valid(_folded[fk]):
+		return _folded[fk]
+	if not (m is ArrayMesh):
+		return null
+	var am := (m as ArrayMesh).duplicate() as ArrayMesh
+	for i in am.get_surface_count():
+		var o2 := mi.get_surface_override_material(i)
+		if o2:
+			am.surface_set_material(i, o2)
+	_folded[fk] = am
+	return am
+
+
+const LIGHT_FAR := 70.0                 # small lamps stop lighting past this (Medium; scaled like the props)
+var lights_faded := 0                    # (tests)
+
+
+func _fade_far_lights() -> void:
+	## round 187: a place's small lamps (lanterns, braziers, windows) each light every surface near them every
+	## frame however far off they are -- the valley holds 330. Past ~70 m they fade out (their glow is lost in the
+	## haze there anyway); lights that already fade, or are large, are left alone.
+	for l in find_children("*", "Light3D", true, false):
+		if l is DirectionalLight3D:
+			continue
+		var lt := l as Light3D
+		if lt.distance_fade_enabled:
+			continue
+		var r := (lt as OmniLight3D).omni_range if lt is OmniLight3D else ((lt as SpotLight3D).spot_range if lt is SpotLight3D else 99.0)
+		if r > 16.0:
+			continue
+		lt.distance_fade_enabled = true
+		lt.distance_fade_begin = LIGHT_FAR * _prop_far
+		lt.distance_fade_length = 15.0
+		lt.distance_fade_shadow = minf(lt.distance_fade_shadow, 40.0 * _prop_far)
+		lights_faded += 1
+
+
+func _batch_prop_chunk(key: Vector2i) -> void:
+	var items: Array = _prop_groups.get(key, [])
+	_prop_groups.erase(key)
+	var inv := global_transform.affine_inverse()
+	var groups := {}           # mesh|material|shadow|layers -> [mesh, material, shadow, layers, [xforms], [sources], size]
+	var waters := {}           # material -> [material, SurfaceTool, [sources]]
+	for h in items:
+		if not is_instance_valid(h) or not (h as Node).is_inside_tree():
+			continue
+		if h is MeshInstance3D and h.has_meta("batch_water"):
+			var w := h as MeshInstance3D
+			if not w.visible or w.mesh == null:
+				continue
+			var wm: Material = w.material_override
+			var wk := wm.get_instance_id() if wm else 0
+			if not waters.has(wk):
+				var st := SurfaceTool.new()
+				st.begin(Mesh.PRIMITIVE_TRIANGLES)
+				waters[wk] = [wm, st, []]
+			(waters[wk][1] as SurfaceTool).append_from(w.mesh, 0, inv * w.global_transform)
+			(waters[wk][2] as Array).append(w)
+			continue
+		if not prop_batchable(h):
+			continue
+		for n in (h as Node).find_children("*", "MeshInstance3D", true, false):
+			var mi := n as MeshInstance3D
+			var mesh := _fold_mesh(mi)
+			if mesh == null:
+				continue
+			var mat: Material = mi.material_override
+			var gk := "%d|%d|%d|%d" % [mesh.get_instance_id(), mat.get_instance_id() if mat else 0, mi.cast_shadow, mi.layers]
+			var xf: Transform3D = inv * mi.global_transform
+			if not groups.has(gk):
+				groups[gk] = [mesh, mat, mi.cast_shadow, mi.layers, [], [], 0.0]
+			var e: Array = groups[gk]
+			(e[4] as Array).append(xf)
+			(e[5] as Array).append(mi)
+			var sz: Vector3 = mesh.get_aabb().size * xf.basis.get_scale().abs()
+			e[6] = maxf(float(e[6]), maxf(sz.x, maxf(sz.y, sz.z)))
+	var moved := {}
+	for gk2 in groups:
+		var e2: Array = groups[gk2]
+		var srcs: Array = e2[5]
+		if srcs.size() < 2:
+			continue                        # a one-off piece gains nothing from a batch
+		var mm := MultiMesh.new()
+		mm.transform_format = MultiMesh.TRANSFORM_3D
+		mm.mesh = e2[0]
+		mm.instance_count = srcs.size()
+		for i in srcs.size():
+			mm.set_instance_transform(i, e2[4][i])
+		var mmi := MultiMeshInstance3D.new()
+		mmi.name = "Props"
+		mmi.multimesh = mm
+		mmi.material_override = e2[1]
+		mmi.cast_shadow = e2[2]
+		mmi.layers = e2[3]
+		var size: float = e2[6]
+		if size < 3.0:
+			mmi.visibility_range_end = PROP_FAR_SMALL * _prop_far
+		elif size < 7.0:
+			mmi.visibility_range_end = PROP_FAR_MID * _prop_far
+		if mmi.visibility_range_end > 0.0:
+			mmi.visibility_range_end_margin = 10.0
+		add_child(mmi)
+		prop_batches += 1
+		for s0 in srcs:
+			moved[(s0 as Node).get_instance_id()] = true
+			(s0 as Node).queue_free()
+	for h2 in items:
+		if not is_instance_valid(h2) or h2 is MeshInstance3D:
+			continue
+		var all := true
+		for n2 in (h2 as Node).find_children("*", "MeshInstance3D", true, false):
+			if not moved.has(n2.get_instance_id()):
+				all = false
+		if all and (h2 as Node).has_meta("pp"):
+			(h2 as Node).set_meta("batched", true)
+			props_in_batches += 1
+	for wk2 in waters:
+		var we: Array = waters[wk2]
+		if (we[2] as Array).size() < 2:
+			continue
+		var wmi := MeshInstance3D.new()
+		wmi.name = "Water"
+		wmi.mesh = (we[1] as SurfaceTool).commit()
+		wmi.material_override = we[0]
+		wmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		add_child(wmi)
+		prop_batches += 1
+		for w2 in we[2]:
+			(w2 as Node).queue_free()
+			water_in_batches += 1
+
+
+func batch_props_now() -> void:
+	## (tests) do it all at once
+	if not _props_batched:
+		_begin_prop_batch()
+	while not _prop_jobs.is_empty():
+		_batch_prop_chunk(_prop_jobs.pop_back())
+
+
 func _process(delta: float) -> void:
 	if not _stream.is_empty():
 		_stream_sort_t -= delta
 		_stream_step(STREAM_MS * (3.0 if _stream.size() > 400 and _stream_sort_t > 1.0 else 1.0))
+	elif not _trees_batched:
+		_begin_tree_batch()
+	elif _tree_jobs.is_empty() and not _props_batched:
+		_begin_prop_batch()
+	if not _tree_jobs.is_empty():
+		_batch_tree_chunk(_tree_jobs.pop_back())          # one patch a frame -- no hitch
+	elif not _prop_jobs.is_empty():
+		_batch_prop_chunk(_prop_jobs.pop_back())
 	if _stalactites:
 		var cam := get_viewport().get_camera_3d()
 		_stalactites.visible = cam != null and cam.global_position.y < WALL_H
@@ -1489,6 +2145,7 @@ func _build_surfaces() -> void:
 		plane.mesh = pm
 		plane.position = Vector3(width * CELL / 2.0, 0.02, height * CELL / 2.0)
 		plane.material_override = preload("res://scripts/world/Horizon.gd").land_material(self)
+		plane.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF      # round 187: its edge threw a long black line onto the land below it
 		add_child(plane)
 	elif not _floor_cells.is_empty():
 		var spec: Array = look.get("floor", ["stony_dirt_path", [0.8, 0.8, 0.8], 3.0])
@@ -1626,6 +2283,14 @@ func _build_road_mask() -> void:
 	road_mask_rect = Rect2(x0, z0, w, h)
 
 
+static func _cheap_radiance(sky: Sky) -> void:
+	## (round 192) the sky is only ever SEEN here -- the ambient light is a set colour and reflections are off, so the
+	## sky's lighting cubemap feeds nothing. Its shader reads TIME (drifting clouds, twinkling stars), which made Godot
+	## re-render that cubemap -- six faces at 256 px -- every frame. Smallest map, rebuilt only when the sky changes.
+	sky.radiance_size = Sky.RADIANCE_SIZE_32
+	sky.process_mode = Sky.PROCESS_MODE_QUALITY
+
+
 func _cave_vault(env: Environment, tint: Color, glow: Color, glow_amount: float = 0.8) -> void:
 	## the far roof of the deep, behind everything above the walls (cave_sky.gdshader)
 	var sh = load("res://assets/shaders/cave_sky.gdshader")
@@ -1638,6 +2303,7 @@ func _cave_vault(env: Environment, tint: Color, glow: Color, glow_amount: float 
 	m.set_shader_parameter("glow_amount", glow_amount)
 	var sky := Sky.new()
 	sky.sky_material = m
+	_cheap_radiance(sky)
 	env.sky = sky
 	env.background_mode = Environment.BG_SKY
 	env.fog_sky_affect = 0.25
@@ -2143,25 +2809,85 @@ func place_quests(only_qid: String = "") -> void:
 	## round 52: things a side quest sent you to find, and named foes to hunt --
 	## each somewhere out of the way on this floor, marked with a gold diamond
 	var Q = Game.sys("quests")
-	if Q == null or is_town() or bool(def.get("arena", false)):
+	if Q == null or bool(def.get("arena", false)):
 		return
 	var L = Game.sys("legacies")
 	for sp in Q.spawns_for(level_id):
 		if only_qid != "" and str(sp["qid"]) != only_qid:
 			continue
+		var near := str(sp.get("near", ""))
+		if is_town() and near == "":
+			continue            # (a town holds a quest's thing only where the quest says -- 2026-11-03 mysteries)
 		var salt := "quest|%s|%s|%d" % [sp["qid"], sp["kind"], int(sp["index"])]
-		var at: Vector2i = L.pick_spot(self, salt, Vector2i(-1, -1)) if L else Vector2i(-1, -1)
+		var at := quest_spot_near(near, salt) if near != "" else Vector2i(-1, -1)
+		if at.x < 0 and not is_town():
+			at = L.pick_spot(self, salt, Vector2i(-1, -1)) if L else Vector2i(-1, -1)
 		if at.x < 0:
 			var free := _free_area_cells(5)
 			if free.is_empty():
 				continue
 			at = free[absi(hash(salt)) % free.size()]
 		if str(sp["kind"]) == "find":
-			_spawn_script("res://scripts/objects/QuestObject.gd", cell_to_world(at), {"cell": at, "qid": sp["qid"], "item": sp["item"], "what": sp["what"], "look": sp["look"]})
+			_spawn_script("res://scripts/objects/QuestObject.gd", cell_to_world(at), {"cell": at, "qid": sp["qid"], "item": sp["item"], "what": sp["what"], "look": sp["look"], "subtle": bool(sp.get("subtle", false))})
 			_count("quest_finds")
 		else:
 			_quest_hunt(sp, at)
 			_count("quest_hunts")
+
+
+func quest_spot_near(near: String, salt: String) -> Vector2i:
+	## 2026-11-03 (mysteries, treasure hunts): a clue that sits where its words say -- "fountain", "spawn", "stairs",
+	## "water", or any map letter (an NPC's, a shrine's, a lore stone's). (-1, -1) when this place has no such thing.
+	var center := Vector2i(-1, -1)
+	match near:
+		"fountain":
+			if not spawns.get("f", []).is_empty():
+				center = fountain_cell()
+		"spawn":
+			for ch in ["P", "<"]:
+				if not spawns.get(ch, []).is_empty():
+					center = spawns[ch][0]
+					break
+		"stairs":
+			center = _down_stair_cell()
+		"water":
+			var ws: Array = spawns.get("~", []) + spawns.get("&", [])
+			if not ws.is_empty():
+				var best := -1
+				for i in ws.size():               # the water cell with the most open ground beside it
+					var c: Vector2i = ws[(absi(hash(salt)) + i * 7) % ws.size()]
+					if _open_around(c) >= 3:
+						best = (absi(hash(salt)) + i * 7) % ws.size()
+						break
+				center = ws[best if best >= 0 else 0]
+		"lore":
+			for ch in def.get("lore", {}):              # the place's lore stone (a Land's carved post, a floor's inscription)
+				if not spawns.get(str(ch), []).is_empty():
+					center = spawns[str(ch)][0]
+					break
+		_:
+			if near.begins_with("npc:"):                 # someone by name, wherever this place's map put their letter
+				var who := near.substr(4)
+				for ch in def.get("npcs", {}):
+					var nd = def["npcs"][ch]
+					var nm := str(nd.get("name", "")) if nd is Dictionary else str(nd)
+					if nm == who and not spawns.get(str(ch), []).is_empty():
+						center = spawns[str(ch)][0]
+						break
+			elif near.length() == 1 and not spawns.get(near, []).is_empty():
+				center = spawns[near][0]
+	if center.x < 0:
+		return center
+	var at := near_spot(center, 9, salt, 2)
+	return at if at.x >= 0 else near_spot(center, 16, salt + "|far", 1)
+
+
+func _down_stair_cell() -> Vector2i:
+	for ch in def.get("exits", {}):
+		var e = def["exits"][ch]
+		if e is Dictionary and bool(e.get("down", true)) and not spawns.get(ch, []).is_empty():
+			return spawns[ch][0]
+	return Vector2i(-1, -1)
 
 
 func _quest_hunt(sp: Dictionary, at: Vector2i) -> void:
@@ -2219,6 +2945,10 @@ func _place_valley() -> void:
 		_spawn_script("res://scripts/world/TowerTrial.gd", cell_to_world(cc), {"cell": cc, "tower": def["tower"]})
 	for gr in def.get("grounds", []):
 		_ground_sign(gr)
+	if def.get("own_seat", {}) is Dictionary and def.get("own_seat", {}).has("cell"):      # round 188: the Empty Seat (your sect, once founded)
+		var oc: Array = def["own_seat"]["cell"]
+		var ocell := Vector2i(int(oc[0]), int(oc[1]))
+		_spawn_script("res://scripts/world/OwnSectSite.gd", cell_to_world(ocell), {"cell": ocell, "site": def["own_seat"]})
 	if level_id == "village":
 		var gate := valley_gate_cell()
 		if gate.x >= 0:
@@ -2433,6 +3163,19 @@ func _place_round30() -> void:
 						_spawn_script("res://scripts/objects/GatherNode.gd", cell_to_world(c), {"kind": "ore", "cell": c, "yields": "star_iron" if k % 2 == 0 else "meteor_glass"})
 						k += 1
 				_count("event_meteor")
+		"merchant":
+			# 2026-11-06: a cart for the day -- goods from elsewhere, priced fairly, gone tomorrow
+			var cm := _event_cells(1, rng)
+			if cm.size() > 0:
+				var nm: String = ["Old Pao's Cart", "The Sister Traders", "Hesket and Mule", "A Lantern-Cart", "Mistress Ivo's Wagon"][rng.randi() % 5]
+				_spawn_script("res://scripts/actors/NPC.gd", cell_to_world(cm[0]), {"cell": cm[0], "role": "merchant", "name": nm,
+					"line": I18n.t("Here today, over the hill tomorrow. What you see is what I carried."), "def": {"role": "merchant", "name": nm, "stays": true, "stock": _cart_stock(rng)}})
+				_count("event_merchant")
+		"elite":
+			var ce := _event_cells(1, rng)
+			if ce.size() > 0:
+				_roaming_elite(ce[0], rng)
+				_count("event_elite")
 		"treasure":
 			var beasts := []
 			for e in Game.enemies:
@@ -2443,6 +3186,67 @@ func _place_round30() -> void:
 			if cs3.size() > 0 and beasts.size() > 0:
 				_spawn_script("res://scripts/actors/Enemy.gd", cell_to_world(cs3[0]), {"type": beasts[rng.randi() % beasts.size()], "cell": cs3[0], "treasure": true})
 				_count("event_treasure")
+
+
+func _cart_stock(rng: RandomNumberGenerator) -> Array:
+	## six things from far away: materials and remedies from other places, never one of a kind, never gear
+	var pool := []
+	for id in Game.items:
+		var it: Dictionary = Game.items[id]
+		var ty := str(it.get("type", ""))
+		if ty in ["material", "consumable"] and int(it.get("value", 0)) >= 20 and not Game.is_treasure(str(id)) and not bool(it.get("clue", false)) and not str(id).begins_with("c27_"):
+			pool.append(str(id))
+	pool.sort()
+	var out := []
+	for i in 6:
+		if pool.is_empty():
+			break
+		out.append(pool.pop_at(rng.randi() % pool.size()))
+	return out
+
+
+func _roaming_elite(at: Vector2i, rng: RandomNumberGenerator) -> void:
+	## 2026-11-06: one bigger thing walking this place today, with a name and something it took
+	var dep := maxi(int(def.get("depth", Game.depth)), 1)
+	var pool := []
+	for ch in (def.get("enemies", {}) as Dictionary):
+		var eid := str(def["enemies"][ch])
+		if Game.enemies.has(eid) and not bool(Game.enemies[eid].get("boss", false)) and not bool(Game.enemies[eid].get("passive", false)):
+			pool.append(eid)
+	if pool.is_empty():
+		for eid in Game.enemies:
+			var st: Dictionary = Game.enemies[eid]
+			if not bool(st.get("boss", false)) and not bool(st.get("passive", false)) and absi(int(st.get("floor", -99)) - dep) <= 2:
+				pool.append(str(eid))
+	if pool.is_empty():
+		return
+	pool.sort()
+	var kind: String = pool[rng.randi() % pool.size()]
+	var e = load("res://scripts/actors/Enemy.gd").new()
+	e.setup(self, {"type": kind, "cell": at})
+	e.stats = (e.stats as Dictionary).duplicate()
+	var title: String = ["Old Scar", "the Hollow-Eyed", "Ninefingers", "the Grey Widow", "Ash-Back", "the Patient One", "Blackmane", "the Unburied"][rng.randi() % 8]
+	e.stats["name"] = "%s, %s" % [str(e.stats.get("name", kind)), title]
+	e.stats["hp"] = int(float(e.stats.get("hp", 30)) * 5.0)
+	e.hp = int(e.stats["hp"])
+	e.stats["damage"] = int(float(e.stats.get("damage", 5)) * 1.3)
+	e.stats["boss"] = true
+	e.set_meta("roaming_elite", true)
+	add_child(e)
+	e.position = cell_to_world(at)
+	var gl: Dictionary = def.get("gather", {})
+	var mats := []
+	for k in gl:
+		for row in gl[k]:
+			mats.append(str(row.get("id", "")) if row is Dictionary else str(row))
+	mats = mats.filter(func(m): return Game.items.has(m))
+	mats.sort()
+	var prize: String = mats[rng.randi() % mats.size()] if not mats.is_empty() else "qi_pill"
+	e.tree_exiting.connect(func():
+		if is_instance_valid(e) and bool(e.get("_dead")):
+			Game.add_item(prize, 4)
+			Game.add_item("gold", dep * 60, false)
+			Game.message.emit(I18n.t("%s falls. It was carrying %s.") % [str(e.stats["name"]), Game.item_name(prize)]))
 
 
 func _place_critters() -> void:
@@ -2460,6 +3264,35 @@ func _place_critters() -> void:
 		var cell: Vector2i = cells[_rng.randi() % cells.size()]
 		_spawn_script("res://scripts/actors/Critter.gd", cell_to_world(cell), {"cell": cell, "kind": str(kinds[i % kinds.size()]), "seed": _rng.randi()})
 		_count("critters")
+	_place_livestock()
+
+
+const HERDS := ["sheep", "cow", "horse", "sheep", "pig", "llama"]
+
+
+func _place_livestock() -> void:
+	## 2026-11-06 (CC0 art pack): herds grazing the open ground of the village,
+	## the city's outskirts, the valley and your own world -- not the wild Lands
+	if not preload("res://scripts/core/ArtPack.gd").on() or not is_outdoor() or def.has("frontier"):
+		return
+	var C := preload("res://scripts/actors/Critter.gd")
+	var open: Array = _floor_cells.keys().filter(func(c): return char_at(c) == "." and _open_around(c) >= 9 and not on_road(cell_to_world(c), CELL * 2.5))
+	if open.size() < 40:
+		return
+	open.sort()
+	var herds := clampi(open.size() / 400 + 1, 1, 5)
+	for h in herds:
+		var k := str(HERDS[(h + absi(hash(level_id))) % HERDS.size()])
+		if not C.livestock_ok(k):
+			continue
+		var centre: Vector2i = open[_rng.randi() % open.size()]
+		var n := _rng.randi_range(2, 4)
+		for i in n:
+			var c: Vector2i = centre + Vector2i(_rng.randi_range(-2, 2), _rng.randi_range(-2, 2))
+			if not (c in _floor_cells) or char_at(c) != "." or on_road(cell_to_world(c), CELL * 1.5):
+				c = centre
+			_spawn_script("res://scripts/actors/Critter.gd", cell_to_world(c), {"cell": c, "kind": k, "seed": _rng.randi()})
+			_count("livestock")
 
 
 func _town_life() -> void:
@@ -2468,6 +3301,19 @@ func _town_life() -> void:
 	var houses: Array = spawns.get("H", [])
 	houses.sort()
 	var chimneys := 0
+	if not house_chimneys.is_empty():
+		# 2026-11-06: built houses have their own chimneys -- smoke rises from some of them
+		var step := maxi(1, house_chimneys.size() / 10)
+		for i in range(0, house_chimneys.size(), step):
+			if chimneys >= 10:
+				break
+			chimneys += 1
+			var sm2 = preload("res://scripts/fx/Motes.gd").new()
+			sm2.kind = "smoke"
+			sm2.position = house_chimneys[i]
+			add_child(sm2)
+			_count("chimneys")
+		houses = []
 	for c in houses:
 		var cell: Vector2i = c
 		if chimneys >= 10 or (cell.x * 7 + cell.y * 13) % 5 != 0:
@@ -2480,6 +3326,7 @@ func _town_life() -> void:
 		sm.position = at + Vector3(0.3, 4.6, 0.3)
 		add_child(sm)
 		_count("chimneys")
+	_workplaces()
 	for ch in def.get("npcs", {}):
 		var nd: Dictionary = def["npcs"][ch]
 		if str(nd.get("role", "")) != "merchant":
@@ -2495,6 +3342,45 @@ func _town_life() -> void:
 					_box_body(cell_to_world(n) + Vector3(0, 1.0, 0), Vector3(CELL * 0.8, 2.0, CELL * 0.8))
 					_count("stalls")
 					break
+
+
+## 2026-11-06 (CC0 art pack): a craftsperson works somewhere -- the smith at an
+## anvil, the alchemist over a cauldron, the innkeeper among barrels. Looks only,
+## on open ground beside them, never in the road; off with the pack.
+const WORKPLACE := {"smith": ["pk:Anvil_Log", "pk:Whetstone", "pk:WeaponStand"], "alchemist": ["pk:Cauldron", "pk:Shelf_Small_Bottles"],
+	"innkeeper": ["pk:Barrel", "pk:Barrel_Apples", "pk:Bench"], "merchant": ["pk:Crate_Wooden", "pk:FarmCrate_Apple"],
+	"guild": ["pk:Workbench", "pk:Crate_Wooden"], "academy": ["pk:Bookcase_2"]}
+var workplace_props := 0
+
+
+func _workplaces() -> void:
+	if not preload("res://scripts/core/ArtPack.gd").on():
+		return
+	for ch in def.get("npcs", {}):
+		var nd = def["npcs"][ch]
+		if not (nd is Dictionary) or not WORKPLACE.has(str(nd.get("role", ""))):
+			continue
+		var kit: Array = WORKPLACE[str(nd["role"])]
+		for cell in spawns.get(ch, []):
+			var placed := 0
+			for dir in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, -1), Vector2i(1, -1), Vector2i(-1, -1), Vector2i(1, 1), Vector2i(-1, 1)]:
+				if placed >= kit.size():
+					break
+				var n: Vector2i = cell + dir
+				if char_at(n) != "." or on_road(cell_to_world(n)) or _open_around(n) < 7:
+					continue
+				var path := Art.real_path(str(kit[placed]))
+				var ps := Art.scene(path)
+				if ps == null:
+					break
+				var m: Node3D = ps.instantiate()
+				var at := cell_to_world(n)
+				m.position = at + Vector3(-dir.x * 0.3, 0, -dir.y * 0.3)
+				m.rotation.y = atan2(float(-dir.x), float(-dir.y))
+				add_child(m)
+				dressing_spots.append(at)
+				placed += 1
+				workplace_props += 1
 
 
 const HOME_NEAR := Vector2i(6, 20)
@@ -2755,9 +3641,11 @@ func _place_village_memory(F, S) -> void:
 		tag.name = "LanternStoneWords"
 		tag.text = "\n".join(names)
 		tag.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		tag.pixel_size = 0.008
+		tag.pixel_size = 0.0035
 		tag.font_size = 30
-		tag.outline_size = 8
+		tag.outline_size = 4
+		tag.visibility_range_end = 18.0
+		tag.visibility_range_begin = 4.5          # 2026-11-03: right under it the words filled half the screen; read it from a step back
 		tag.modulate = Color(1.0, 0.9, 0.65)
 		tag.position = cell_to_world(lc) + Vector3(0, 3.4, 0)
 		add_child(tag)

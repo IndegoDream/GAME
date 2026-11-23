@@ -165,7 +165,7 @@ func _ready() -> void:
 	add_child(shape)
 	body_entered.connect(_on_body_entered)
 	# don't fire on the frame you arrive
-	get_tree().create_timer(1.0).timeout.connect(func(): _armed = true)
+	get_tree().create_timer(0.6).timeout.connect(func(): _armed = true)          # round 175 (was 1.0)
 
 
 func _on_body_entered(body: Node) -> void:

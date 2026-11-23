@@ -14,6 +14,8 @@ func _initialize() -> void:
 	G.playlog_path = "user://tool_playlog.jsonl"
 	G.save_path = "user://seek_save.json"
 	G.save_base = "user://seek_slots"
+	var _ff := FileAccess.open("user://seek_flavor.json", FileAccess.WRITE); _ff.store_string(JSON.stringify({"clean": true, "assist": false})); _ff.close()
+	load("res://scripts/systems/Tester.gd").flavor_path = "user://seek_flavor.json"      # round 177: the Assist build has unlimited stores, so the 20-cap rules are tested without it
 	G.new_game()
 	var S = G.sys("seek")
 	check("system exists", S != null)

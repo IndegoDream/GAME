@@ -129,7 +129,7 @@ func can_research(nid: String) -> String:
 		if G.count(str(it)) < int(n["cost"]["items"][it]):
 			return I18n.t("%s needs %d %s (you have %d).") % [n["name"], int(n["cost"]["items"][it]), G.item_name(str(it)), G.count(str(it))]
 	if G.qi < cost_qi(nid):
-		return I18n.t("%s needs %d qi to begin (you have %d).") % [n["name"], int(cost_qi(nid)), int(G.qi)]
+		return I18n.t("%s needs %s qi to begin (you have %s).") % [n["name"], G.big(cost_qi(nid)), G.big(G.qi)]
 	return ""
 
 
@@ -159,7 +159,7 @@ func stop() -> String:
 
 
 func speed() -> float:
-	return G.tech_effect("research_speed", 1.0) * G.tech_effect("focus_mult", 1.0)
+	return G.fx_now("research_speed", 1.0) * G.fx_now("focus_mult", 1.0)          # round 195: asked every frame -- the kept list
 
 
 func push(secs: float) -> bool:

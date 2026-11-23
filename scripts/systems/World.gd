@@ -257,18 +257,122 @@ func forecast(reg: String = "surface") -> Array:
 # ---- festivals ----------------------------------------------------------------------------
 
 func festival(d: int = -1) -> Dictionary:
-	## today's festival in Eliet ({} = an ordinary day)
+	## today's festival in Eliet ({} = an ordinary day): a real-calendar holiday first,
+	## then a world holiday (season + day), then the season's own festival
 	if d < 0:
 		d = day()
-	var f: Dictionary = data.get("festivals", {}).get(str(season(d).get("id", "")), {})
-	if f.is_empty() or day_of_season(d) != int(f.get("day", 0)):
+	var h := real_holiday(d)
+	if not h.is_empty():
+		return h
+	var sid := str(season(d).get("id", ""))
+	var dos := day_of_season(d)
+	for wh in data.get("world_holidays", []):
+		if str(wh.get("season", "")) == sid and int(wh.get("day", 0)) == dos:
+			var c: Dictionary = (wh as Dictionary).duplicate()
+			c["_year"] = year(d)
+			return c
+	var f: Dictionary = data.get("festivals", {}).get(sid, {})
+	if f.is_empty() or dos != int(f.get("day", 0)):
 		return {}
-	return f
+	var c2: Dictionary = f.duplicate()
+	c2["_year"] = year(d)
+	return c2
+
+
+func _noon(y: int, mo: int, da: int) -> int:
+	return int(Time.get_unix_time_from_datetime_dict({"year": y, "month": mo, "day": da, "hour": 12, "minute": 0, "second": 0}))
+
+
+func _date_of(d: int) -> Dictionary:
+	var e := str(data.get("epoch", "2026-01-01")).split("-")
+	var base := 0
+	if e.size() >= 3:
+		base = _noon(int(e[0]), int(e[1]), int(e[2]))
+	return Time.get_datetime_dict_from_unix_time(base + d * 86400)
+
+
+func _easter(y: int) -> Array:
+	var a := y % 19
+	var b := y / 100
+	var c := y % 100
+	var dd := b / 4
+	var e := b % 4
+	var f := (b + 8) / 25
+	var g := (b - f + 1) / 3
+	var h := (19 * a + b - dd - g + 15) % 30
+	var i := c / 4
+	var k := c % 4
+	var l := (32 + 2 * e + 2 * i - h - k) % 7
+	var m := (a + 11 * h + 22 * l) / 451
+	var mo := (h + l - 7 * m + 114) / 31
+	var da := ((h + l - 7 * m + 114) % 31) + 1
+	return [mo, da]
+
+
+func _holiday_start(rule: Dictionary, y: int) -> int:
+	## the unix day a rule starts in year y, or -1
+	var mo := 0
+	var da := 0
+	if rule.has("easter"):
+		var ea := _easter(y)
+		mo = int(ea[0])
+		da = int(ea[1]) + int(rule.get("easter", 0))
+	elif rule.has("table"):
+		var t: Array = rule["table"].get(str(y), [])
+		if t.size() < 2:
+			return -1
+		mo = int(t[0])
+		da = int(t[1])
+	elif rule.has("nth"):
+		mo = int(rule.get("month", 1))
+		var wd := int(Time.get_datetime_dict_from_unix_time(_noon(y, mo, 1)).get("weekday", 0))
+		da = 1 + ((int(rule.get("weekday", 0)) - wd + 7) % 7) + (int(rule.get("nth", 1)) - 1) * 7
+	else:
+		mo = int(rule.get("month", 1))
+		da = int(rule.get("day", 1))
+	return int(floor(float(_noon(y, mo, 1) + (da - 1) * 86400) / 86400.0))
+
+
+func real_holiday(d: int) -> Dictionary:
+	## the real-calendar holiday falling on world day d, if any
+	var dt := _date_of(d)
+	var y := int(dt.get("year", 2026))
+	var today := int(floor(float(_noon(y, int(dt["month"]), int(dt["day"]))) / 86400.0))
+	for h in data.get("holidays", []):
+		var rule: Dictionary = h.get("rule", {})
+		for yy in [y, y - 1]:
+			var st := _holiday_start(rule, int(yy))
+			if st < 0:
+				continue
+			if today >= st and today < st + int(rule.get("span", 1)):
+				var c: Dictionary = (h as Dictionary).duplicate()
+				c["_year"] = int(yy)
+				return c
+	return {}
+
+
+func world_boss_up(slot: int, d: int = -1) -> bool:
+	## each region's world boss stirs one day in five, staggered so something is always stirring somewhere
+	if d < 0:
+		d = day()
+	return (d + 2 * slot) % 5 == 0
+
+
+func world_bosses_today() -> Array:
+	## [[region name, boss name], ...] for the announcement
+	var out := []
+	var Fr = preload("res://scripts/world/Frontier.gd")
+	var regs: Dictionary = Fr.data().get("regions", {})
+	for rid in regs:
+		var r: Dictionary = regs[rid]
+		if r.has("world_boss") and world_boss_up(int(r.get("wb_slot", 0))) and G.expansion_open("wardens_hunt"):
+			out.append([str(r.get("name", rid)), str(G.enemies.get(str(r["world_boss"]), {}).get("name", ""))])
+	return out
 
 
 func festival_key() -> String:
 	var f := festival()
-	return "" if f.is_empty() else "%s:%d" % [str(f.get("id", "")), year()]
+	return "" if f.is_empty() else "%s:%d" % [str(f.get("id", "")), int(f.get("_year", year()))]
 
 
 func festival_discount() -> float:
@@ -359,6 +463,12 @@ func tick(_delta: float) -> void:
 		var s := season()
 		G.message.emit(I18n.t("THE SEASON HAS TURNED: it's %s now. %s") % [str(s.get("name", "")), str(s.get("desc", ""))])
 		G.log_event("season_turned", {"season": s.get("id", ""), "away_days": d - was})
+	var wbt := world_bosses_today()
+	if wbt.size() > 0:
+		var bits := []
+		for b in wbt:
+			bits.append("%s (%s)" % [str(b[1]), str(b[0])])
+		G.message.emit(I18n.t("Word on the road: a world boss stirs today -- %s.") % ", ".join(bits))
 	if not festival().is_empty():
 		G.message.emit(I18n.t("Today is the %s in Eliet. %s") % [str(festival().get("name", "")), str(festival().get("desc", ""))])
 

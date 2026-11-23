@@ -23,7 +23,7 @@ static func on() -> bool:
 
 
 static func _rich() -> bool:
-	return str(preload("res://scripts/core/Gfx.gd").settings.get("preset", "high")) != "low"
+	return preload("res://scripts/core/Gfx.gd").effects_level() == "high"
 
 
 static func _scene_root(n: Node) -> Node:
@@ -113,7 +113,9 @@ static func _burst(parent: Node, at: Vector3, n: int, life: float, mesh_size: fl
 	var p := CPUParticles3D.new()
 	p.one_shot = true
 	p.explosiveness = 0.95
-	p.amount = maxi(2, n if _rich() else n / 2)
+	var quality: String = preload("res://scripts/core/Gfx.gd").effects_level()
+	var fraction := 1.0 if quality == "high" else (0.7 if quality == "medium" else 0.5)
+	p.amount = maxi(2, int(n * fraction))
 	p.lifetime = life
 	p.mesh = _quad(mesh_size)
 	p.material_override = _solid_mat() if mat_kind == "solid" else _mat(mat_kind)
@@ -289,6 +291,62 @@ static func dust(where: Vector3, size: float = 1.0) -> void:
 	d.emission_ring_height = 0.02
 	d.color_ramp = _ramp(Color(0.55, 0.47, 0.38))
 	d.color_ramp.set_color(0, Color(0.55, 0.47, 0.38, 0.45))
+
+
+static func step_puff(where: Vector3, kind: String, running: bool = false) -> void:
+	## round 184b: what a footfall throws up -- powder off the snow, a little sand, a splash of water
+	if not on() or preload("res://scripts/core/Gfx.gd").effects_level() == "low":
+		return
+	var root := _scene_root(null)
+	if root == null:
+		return
+	var k := 1.3 if running else 1.0
+	match kind:
+		"snow", "sand":
+			var c := Color(0.93, 0.95, 1.0) if kind == "snow" else Color(0.78, 0.66, 0.48)
+			var d := _burst(root, where + Vector3(0, 0.04, 0), int(8 * k), 0.7, 0.28 * k, "smoke")
+			d.direction = Vector3.UP
+			d.spread = 70.0
+			d.initial_velocity_min = 0.3
+			d.initial_velocity_max = 0.9 * k
+			d.gravity = Vector3(0, -0.8, 0)
+			d.damping_min = 2.5
+			d.damping_max = 3.5
+			d.color_ramp = _ramp(c)
+			d.color_ramp.set_color(0, Color(c.r, c.g, c.b, 0.55 if kind == "snow" else 0.4))
+		"water", "puddle":
+			var drops := _burst(root, where + Vector3(0, 0.05, 0), int((10 if kind == "water" else 6) * k), 0.45, 0.08, "smoke")
+			drops.direction = Vector3.UP
+			drops.spread = 32.0
+			drops.initial_velocity_min = 1.0
+			drops.initial_velocity_max = (2.2 if kind == "water" else 1.4) * k
+			drops.gravity = Vector3(0, -9.0, 0)
+			drops.color_ramp = _ramp(Color(0.75, 0.85, 0.95))
+			drops.color_ramp.set_color(0, Color(0.8, 0.88, 1.0, 0.7))
+			if kind == "water":
+				ring(where + Vector3(0, 0.03, 0), Color(0.75, 0.85, 1.0, 0.5), 0.55, 0.5)
+
+
+static func breath(where: Vector3, fwd: Vector3) -> void:
+	## round 184b: a breath you can see in the cold
+	if not on() or preload("res://scripts/core/Gfx.gd").effects_level() == "low":
+		return
+	var root := _scene_root(null)
+	if root == null:
+		return
+	var b := _burst(root, where, 6, 1.6, 0.36, "smoke")
+	b.explosiveness = 0.6
+	b.direction = (fwd.normalized() + Vector3(0, 0.25, 0)).normalized()
+	b.spread = 14.0
+	b.initial_velocity_min = 0.35
+	b.initial_velocity_max = 0.6
+	b.gravity = Vector3(0, 0.12, 0)
+	b.damping_min = 0.4
+	b.damping_max = 0.8
+	b.scale_amount_min = 0.7
+	b.scale_amount_max = 1.6
+	b.color_ramp = _ramp(Color(0.95, 0.97, 1.0))
+	b.color_ramp.set_color(0, Color(0.95, 0.97, 1.0, 0.5))
 
 
 static func ring(where: Vector3, c: Color, radius: float = 2.5, secs: float = 0.4) -> void:
@@ -578,3 +636,172 @@ static func qi_stream(from: Vector3, to: Node3D, amount_scale: float = 1.0) -> v
 		tw.tween_interval(0.12 + 0.04 * i)
 		tw.tween_method(follow, 0.0, 1.0, t).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 		tw.tween_callback(mi.queue_free)
+
+
+
+# ---- round 188: Strike Styles (a look pack: how your blows look -- never what they do) -----------------------
+
+static func streak(a: Vector3, b: Vector3, c: Color, secs: float = 0.12, width: float = 0.05) -> void:
+	## a falling arrow or a bolt of light: a bright line from a to b that's gone in a blink
+	if not on():
+		return
+	var root := _scene_root(null)
+	if root == null:
+		return
+	var mi := MeshInstance3D.new()
+	var bm := BoxMesh.new()
+	var len := (b - a).length()
+	bm.size = Vector3(width, width, maxf(len, 0.1))
+	mi.mesh = bm
+	var m := StandardMaterial3D.new()
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.albedo_color = Color(c.r, c.g, c.b, 0.9)
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	m.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	mi.material_override = m
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	root.add_child(mi)
+	mi.global_position = (a + b) * 0.5
+	if len > 0.01:
+		mi.look_at(b, Vector3.UP if absf((b - a).normalized().dot(Vector3.UP)) < 0.98 else Vector3.RIGHT)
+	var tw := mi.create_tween()
+	tw.tween_property(m, "albedo_color:a", 0.0, secs)
+	tw.tween_callback(mi.queue_free)
+
+
+static func strike(who: Node3D, st: Dictionary, reach: float, yaw: float, height: float = 1.1) -> void:
+	## a blow's sweep in a Strike Style: a solid stroke in the style's colour with a glowing core, and what the style
+	## adds to it (looks only -- the blow itself is decided elsewhere)
+	if not on() or who == null or not who.is_inside_tree():
+		return
+	var c: Color = st.get("color", Color(0.9, 0.95, 1.0))
+	var kind := str(st.get("style", ""))
+	var fwd := Vector3(sin(yaw), 0, cos(yaw))
+	var at: Vector3 = who.global_position + Vector3(0, height, 0) + fwd * reach * 0.7
+	if kind == "ink":
+		_ink_slash(who, c, reach, yaw, height)
+		_drift(who, at, Color(0.04, 0.04, 0.06), 12, 0.1, Vector3(0, -7.0, 0), 0.6, "mix")
+		return
+	if kind == "":
+		slash(who, c, reach, yaw, height)
+		return
+	_style_arc(who, c, reach, yaw, height, true, 0.8, 1.35)
+	slash(who, c.lightened(0.55), reach * 0.94, yaw, height)
+	match kind:
+		"double":
+			who.get_tree().create_timer(0.07).timeout.connect(func():
+				if is_instance_valid(who) and who.is_inside_tree():
+					_style_arc(who, c, reach * 0.85, yaw + 0.3, height + 0.2, true, 0.75, 1.1)
+					slash(who, c.lightened(0.6), reach * 0.8, yaw + 0.3, height + 0.2))
+		"petals":
+			_drift(who, at, Color(1.0, 0.6, 0.8), 22, 0.18, Vector3(0, -0.5, 0), 1.5, "mix")
+			_drift(who, at, Color(1.0, 0.88, 0.94), 10, 0.1, Vector3(0, -0.4, 0), 1.3, "mix")
+		"flame":
+			_style_arc(who, Color(1.0, 0.22, 0.04), reach * 1.1, yaw, height + 0.14, false, 0.9, 1.6)
+			_drift(who, at, Color(1.0, 0.5, 0.12), 26, 0.14, Vector3(0, 2.6, 0), 0.7)
+			var root0 := _scene_root(who)
+			if root0 != null:
+				_flash(root0, at, Color(1.0, 0.5, 0.15), 1.6, 4.0, 0.12)
+		"lightning":
+			var root := _scene_root(who)
+			var side := Vector3(fwd.z, 0, -fwd.x)
+			for bolt in 2:
+				var p0: Vector3 = at - side * reach * 0.7 + Vector3(0, 0.15 * bolt, 0)
+				for i in 5:
+					var p1: Vector3 = p0 + side * reach * 0.28 + Vector3(0, randf_range(-0.3, 0.3), 0) + fwd * randf_range(-0.25, 0.25)
+					streak(p0, p1, c.lightened(0.5), 0.14, 0.09)
+					p0 = p1
+			if root != null:
+				_flash(root, at, c, 1.8, 4.0, 0.1)
+		"frost":
+			_style_arc(who, Color(0.92, 0.98, 1.0), reach * 1.05, yaw, height - 0.08, true, 0.5, 0.8)
+			_drift(who, at, Color(0.8, 0.95, 1.0), 18, 0.09, Vector3(0, -4.0, 0), 0.7)
+
+
+static func _style_arc(who: Node3D, c: Color, reach: float, yaw: float, height: float, solid: bool, alpha: float, thick: float) -> void:
+	## a coloured crescent: solid (mixed, so its colour reads on any ground) or glowing (added)
+	var mi := MeshInstance3D.new()
+	mi.mesh = _arc_mesh()
+	var m := StandardMaterial3D.new()
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.vertex_color_use_as_albedo = true
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	if not solid:
+		m.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	m.cull_mode = BaseMaterial3D.CULL_DISABLED
+	m.albedo_color = Color(c.r, c.g, c.b, alpha)
+	mi.material_override = m
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	who.add_child(mi)
+	mi.position = Vector3(0, height, 0)
+	mi.rotation = Vector3(0.0, yaw + 0.9, -0.25)
+	mi.scale = Vector3(reach, reach * thick, reach)
+	var tw := mi.create_tween()
+	tw.set_parallel(true)
+	tw.tween_property(mi, "rotation:y", yaw - 0.9, 0.16).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tw.tween_property(m, "albedo_color:a", 0.0, 0.3).set_delay(0.08)
+	tw.chain().tween_callback(mi.queue_free)
+
+
+static func impact(where: Vector3, st: Dictionary, big: bool = false) -> void:
+	## where a blow lands, in a Strike Style
+	if not on():
+		return
+	var c: Color = st.get("color", Color(1.0, 0.8, 0.45))
+	match str(st.get("style", "")):
+		"petals":
+			_drift(null, where, Color(1.0, 0.75, 0.88), 16 if big else 9, 0.1, Vector3(0, -0.8, 0), 1.2)
+		"flame":
+			_drift(null, where, Color(1.0, 0.5, 0.12), 18 if big else 10, 0.08, Vector3(0, 3.0, 0), 0.6)
+			hit(where, Color(1.0, 0.45, 0.1), big)
+		"lightning":
+			for i in 3:
+				streak(where, where + Vector3(randf_range(-1, 1), randf_range(0.2, 1.2), randf_range(-1, 1)), c.lightened(0.4), 0.09)
+			hit(where, c, big)
+		"ink":
+			_drift(null, where, Color(0.05, 0.05, 0.07), 14 if big else 8, 0.12, Vector3(0, -6.0, 0), 0.5, "mix")
+		"frost":
+			_drift(null, where, Color(0.8, 0.95, 1.0), 14 if big else 8, 0.07, Vector3(0, -5.0, 0), 0.5)
+			hit(where, Color(0.7, 0.9, 1.0), big)
+		_:
+			hit(where, c, big)
+
+
+static func _drift(who: Node, at: Vector3, c: Color, n: int, size: float, grav: Vector3, life: float, kind: String = "add") -> void:
+	var root := _scene_root(who)
+	if root == null:
+		return
+	var p := _burst(root, at, n, life, size, kind)
+	p.direction = Vector3.UP
+	p.spread = 180.0
+	p.initial_velocity_min = 0.6
+	p.initial_velocity_max = 2.4
+	p.gravity = grav
+	p.damping_min = 1.0
+	p.damping_max = 2.5
+	p.angular_velocity_min = -180.0
+	p.angular_velocity_max = 180.0
+	p.color_ramp = _ramp(c)
+
+
+static func _ink_slash(who: Node3D, c: Color, reach: float, yaw: float, height: float) -> void:
+	## a brush stroke: dark, not glowing
+	var mi := MeshInstance3D.new()
+	mi.mesh = _arc_mesh()
+	var m := StandardMaterial3D.new()
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.vertex_color_use_as_albedo = true
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	m.cull_mode = BaseMaterial3D.CULL_DISABLED
+	m.albedo_color = Color(c.r, c.g, c.b, 0.95)
+	mi.material_override = m
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	who.add_child(mi)
+	mi.position = Vector3(0, height, 0)
+	mi.rotation = Vector3(0.0, yaw + 0.9, -0.25)
+	mi.scale = Vector3(reach, reach * 1.6, reach)
+	var tw := mi.create_tween()
+	tw.set_parallel(true)
+	tw.tween_property(mi, "rotation:y", yaw - 0.9, 0.18).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tw.tween_property(m, "albedo_color:a", 0.0, 0.4).set_delay(0.12)
+	tw.chain().tween_callback(mi.queue_free)

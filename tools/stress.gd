@@ -118,9 +118,7 @@ func _begin_floor(id: String) -> void:
 		_flag("levels/%s.json is missing or isn't valid JSON" % id)
 		_phase = 3
 		return
-	var _LV = load("res://scripts/world/Level.gd")
-	_LV.stream_on = OS.get_environment("STREAM") != ""
-	_level = _LV.new()
+	_level = load("res://scripts/world/Level.gd").new()
 	_level.name = "Level"
 	_level.build(def)
 	root.add_child(_level)

@@ -1,5 +1,5 @@
 {
- "_note": "Round 123: the tech frontier. Regions are built by scripts/world/Frontier.gd from this file; tools/gen/frontier_gen.py writes it (and the frontier's items, crafting materials, formulas and foes). Words here are Dev's to rewrite.",
+ "_note": "Round 123: the tech frontier. Regions are built by scripts/world/Frontier.gd from this file; tools/gen/frontier_gen.py writes it (and the frontier's items, crafting materials, formulas and foes). Words here are Dev's to rewrite.  2026-11-06: tools/gen/world_gen.py grew the Lands ~3x and put a road between every two of them.",
  "regions": {
   "crash_site": {
    "name": "The Fallen Beacon",
@@ -141,7 +141,9 @@
      "title": "Scratched Into The Hull",
      "text": "SIGNAL STILL RUNNING. If you read this, the pads at the Yard will wake for whoever carries the card. Come out past the valley and look up."
     }
-   ]
+   ],
+   "world_boss": "wb_crash_site",
+   "wb_slot": 0
   },
   "launch_yard": {
    "name": "Skyhook Yard",
@@ -285,7 +287,9 @@
      "title": "The Pad Board",
      "text": "PAD 1  HALCYON RING - gardens, forges, shops.\nPAD 2  THE ASHEN MOON - cold, quiet, rich in iron.\nPAD 3  THE GLASS DESERT - hot. Bring water. Bring nerve."
     }
-   ]
+   ],
+   "world_boss": "wb_launch_yard",
+   "wb_slot": 1
   },
   "ring_station": {
    "name": "The Halcyon Ring",
@@ -552,7 +556,9 @@
      "title": "Survey Marker 7",
      "text": "HELIUM ICE FOUND IN SHADOWED RIM. HANDLE COLD. DO NOT CARRY NEAR FIRE. NOTE: THE BRIGHT THING IN THE SKY IS THE WORLD YOU CAME FROM."
     }
-   ]
+   ],
+   "world_boss": "wb_ashen_moon",
+   "wb_slot": 2
   },
   "glass_desert": {
    "name": "The Glass Desert",
@@ -691,7 +697,9 @@
      "title": "A Dune Etched With Words",
      "text": "THE SOVEREIGN WAS A MACHINE THAT LEARNED TO WANT. IT WANTED THE SUN. IT GOT IT."
     }
-   ]
+   ],
+   "world_boss": "wb_glass_desert",
+   "wb_slot": 3
   },
   "nanite_foundry": {
    "name": "The Nanite Foundry",
@@ -796,6 +804,3040 @@
      "text": "NANITES MAY BE CAST INTO ANY ALLOY. THEY WILL ARRANGE THEMSELVES TO ITS PURPOSE. THEY WILL ALSO ARRANGE THEMSELVES TO YOURS, IF ASKED KINDLY."
     }
    ]
+  },
+  "whisperwood": {
+   "name": "Whisperwood",
+   "kind": "open",
+   "w": 255,
+   "h": 201,
+   "depth": 9,
+   "theme": "wilds",
+   "look": "grove",
+   "blurb": "A wood so old the paths are older than the sects. Light comes down in coins. Something always walks a few steps behind you.",
+   "atmos": {
+    "daylight": 0.72,
+    "dusk": 0.5,
+    "clouds": 0.5,
+    "sun": [
+     1.0,
+     0.92,
+     0.7
+    ],
+    "sun_energy": 0.9,
+    "ambient": [
+     0.45,
+     0.58,
+     0.45
+    ],
+    "ambient_energy": 0.55,
+    "fog": [
+     0.55,
+     0.7,
+     0.55
+    ],
+    "fog_density": 0.012,
+    "horizon": [
+     0.45,
+     0.6,
+     0.45
+    ]
+   },
+   "rock": 0.1,
+   "freq": 0.06,
+   "gate_from": "valley",
+   "gate_back": "8",
+   "rim": "rocks",
+   "ground_tint": [
+    0.7,
+    0.85,
+    0.65
+   ],
+   "giants": {
+    "x": "nat:tree_pineTallA_detailed|tree_oak|tree_fat|tree_pineTallC:1.7",
+    "c": "nat:log_large|stump_roundDetailed|mushroom_redTall:1.6"
+   },
+   "lamp": "arc",
+   "motes": "spores",
+   "features": [
+    "camp",
+    "ruins",
+    "crater",
+    "camp",
+    "ruins",
+    "crater",
+    "ruins",
+    "grove",
+    "cave",
+    "camp",
+    "grove",
+    "ruins",
+    "cave",
+    "camp"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "glowcap",
+      "w": 5,
+      "color": [
+       0.6,
+       1.0,
+       0.8
+      ]
+     },
+     {
+      "id": "ghostmoth_wing",
+      "w": 2,
+      "color": [
+       0.85,
+       0.9,
+       1.0
+      ]
+     },
+     {
+      "id": "spirit_herb",
+      "w": 3,
+      "color": [
+       0.5,
+       1.0,
+       0.5
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "heartwood",
+      "w": 4
+     },
+     {
+      "id": "iron_ore",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "old_amber",
+      "w": 3
+     },
+     {
+      "id": "stag_antler",
+      "w": 2
+     }
+    ]
+   },
+   "density": {
+    "h": 70,
+    "o": 200,
+    "^": 200,
+    "x": 41,
+    "c": 102
+   },
+   "foes": [
+    [
+     "whisper_wolf",
+     52
+    ],
+    [
+     "thornling_ranger",
+     40
+    ],
+    [
+     "moss_ogre",
+     20
+    ],
+    [
+     "spirit_stag",
+     24
+    ],
+    [
+     "ghost_moth",
+     20
+    ]
+   ],
+   "boss": "elder_treant",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Warden Isolde",
+     "stays": true,
+     "persona": "Warden Isolde, who walks Whisperwood's paths and keeps count of the stags. Quiet, watchful, fond of the wolves.",
+     "line": "The wood is not hostile. It is attentive. There is a difference, and you will learn it."
+    },
+    {
+     "role": "alchemist",
+     "name": "Mossmother Ketta",
+     "stays": true,
+     "persona": "Mossmother Ketta, a forager-alchemist who lives in a hollow log. Brisk, smells of mushrooms, remembers every plant by name.",
+     "line": "Glowcap likes the oldest trunks. Heartwood, the dead ones. Bring me both and I'll make you something."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Blaze on a Tree",
+     "text": "THREE CUTS, A DOT. THAT MEANS: THE ROAD IS BEHIND YOU. FOLLOW IT WHEN YOU ARE READY TO LEAVE. IF YOU CANNOT FIND IT, THE WOOD HAS DECIDED YOU ARE NOT YET."
+    }
+   ],
+   "world_boss": "wb_whisperwood",
+   "wb_slot": 4,
+   "_grown": 2
+  },
+  "mistfen": {
+   "name": "Mistfen",
+   "kind": "open",
+   "w": 238,
+   "h": 190,
+   "depth": 11,
+   "theme": "wilds",
+   "look": "drowned",
+   "blurb": "A fen under permanent mist. Pale lights drift over the black water. Everything here is patient, and most of it is hungry.",
+   "atmos": {
+    "daylight": 0.55,
+    "dusk": 0.5,
+    "clouds": 0.9,
+    "sun": [
+     0.8,
+     0.9,
+     0.85
+    ],
+    "sun_energy": 0.6,
+    "ambient": [
+     0.42,
+     0.55,
+     0.5
+    ],
+    "ambient_energy": 0.55,
+    "fog": [
+     0.62,
+     0.72,
+     0.68
+    ],
+    "fog_density": 0.02,
+    "horizon": [
+     0.5,
+     0.6,
+     0.55
+    ]
+   },
+   "rock": 0.12,
+   "freq": 0.05,
+   "gate_from": "road_whisperwood_to_mistfen",
+   "gate_back": "1",
+   "rim": "rocks",
+   "ground_tint": [
+    0.55,
+    0.7,
+    0.6
+   ],
+   "giants": {
+    "x": "nat:tree_thin_dark|tree_blocks_dark|tree_default_dark:1.6",
+    "c": "nat:log|stump_squareDetailed|lily_small|hanging_moss:1.5"
+   },
+   "lamp": "arc",
+   "motes": "drips",
+   "features": [
+    "camp",
+    "ruins",
+    "crater",
+    "crater",
+    "ruins",
+    "camp",
+    "grove",
+    "cave",
+    "camp",
+    "grove",
+    "ruins",
+    "cave",
+    "camp"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "bog_lotus",
+      "w": 4,
+      "color": [
+       0.7,
+       0.85,
+       1.0
+      ]
+     },
+     {
+      "id": "venom_reed",
+      "w": 4,
+      "color": [
+       0.6,
+       0.8,
+       0.5
+      ]
+     },
+     {
+      "id": "toad_gland",
+      "w": 1,
+      "color": [
+       0.5,
+       0.7,
+       0.5
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "peat_core",
+      "w": 4
+     }
+    ],
+    "gem": [
+     {
+      "id": "will_o_oil",
+      "w": 2
+     },
+     {
+      "id": "drowned_pearl",
+      "w": 2
+     }
+    ]
+   },
+   "density": {
+    "h": 70,
+    "o": 170,
+    "^": 220,
+    "x": 44,
+    "c": 87
+   },
+   "foes": [
+    [
+     "fen_toad",
+     36
+    ],
+    [
+     "bog_wraith",
+     40
+    ],
+    [
+     "leech_swarm",
+     32
+    ],
+    [
+     "mire_hulk",
+     18
+    ]
+   ],
+   "boss": "hag_of_the_fen",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Ferryman Oss",
+     "stays": true,
+     "persona": "Ferryman Oss, who poles a flat boat nobody has seen him fill. Slow, dry, expects to be paid in news.",
+     "line": "Follow the pale lights if you want to be lost. Follow the reeds if you want to be somewhere."
+    }
+   ],
+   "lore": [
+    {
+     "title": "Written on a Bog-Post",
+     "text": "THE LIGHTS ARE NOT KIND, BUT THEY ARE HONEST. THEY GO WHERE THEY ARE STILL HUNGRY."
+    }
+   ],
+   "world_boss": "wb_mistfen",
+   "wb_slot": 5,
+   "_grown": 2
+  },
+  "bonefields": {
+   "name": "The Bonefields",
+   "kind": "open",
+   "w": 248,
+   "h": 197,
+   "depth": 11,
+   "theme": "wilds",
+   "look": "barrows",
+   "blurb": "Two armies met here and did not leave. The grass grows in rows. The banners still point toward the war.",
+   "atmos": {
+    "daylight": 0.6,
+    "dusk": 0.6,
+    "clouds": 0.8,
+    "sun": [
+     0.95,
+     0.85,
+     0.75
+    ],
+    "sun_energy": 0.7,
+    "ambient": [
+     0.5,
+     0.5,
+     0.55
+    ],
+    "ambient_energy": 0.5,
+    "fog": [
+     0.6,
+     0.58,
+     0.58
+    ],
+    "fog_density": 0.009,
+    "horizon": [
+     0.45,
+     0.42,
+     0.42
+    ]
+   },
+   "rock": 0.15,
+   "freq": 0.04,
+   "gate_from": "valley",
+   "gate_back": "9",
+   "rim": "rocks",
+   "ground_tint": [
+    0.78,
+    0.74,
+    0.7
+   ],
+   "giants": {
+    "x": "nat:statue_head|stone_tallC|stone_tallF|rock_tallA:1.6",
+    "c": "nat:fence_broken|statue_block|stone_largeA:1.4"
+   },
+   "lamp": "beacon",
+   "motes": "ash",
+   "features": [
+    "camp",
+    "ruins",
+    "ruins",
+    "crater",
+    "ruins",
+    "camp",
+    "ruins",
+    "grove",
+    "cave",
+    "camp",
+    "grove",
+    "ruins",
+    "cave",
+    "camp"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "grave_bloom",
+      "w": 5,
+      "color": [
+       0.95,
+       0.95,
+       1.0
+      ]
+     },
+     {
+      "id": "widow_shroud",
+      "w": 1,
+      "color": [
+       0.8,
+       0.8,
+       0.85
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "battle_iron",
+      "w": 4
+     },
+     {
+      "id": "marrow_salt",
+      "w": 2
+     },
+     {
+      "id": "bone_shard",
+      "w": 4
+     }
+    ],
+    "gem": [
+     {
+      "id": "war_standard",
+      "w": 1
+     },
+     {
+      "id": "silver_ore",
+      "w": 2
+     }
+    ]
+   },
+   "density": {
+    "h": 90,
+    "o": 110,
+    "^": 200,
+    "x": 58,
+    "c": 87
+   },
+   "foes": [
+    [
+     "bone_hound",
+     36
+    ],
+    [
+     "restless_soldier",
+     44
+    ],
+    [
+     "carrion_crow",
+     24
+    ],
+    [
+     "grave_knight",
+     18
+    ]
+   ],
+   "boss": "general_of_the_fallen",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Gravewalker Hesk",
+     "stays": true,
+     "persona": "Gravewalker Hesk, who buries what the field gives up. Grim, kind, has stopped being afraid.",
+     "line": "Bone shard for the marrow-forge, if you ask the swarm. Iron for the smith. Take what you need, leave the banners."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Standard, Planted",
+     "text": "THE FIELD WAS NOT LOST. IT WAS NEVER FOUGHT FOR. THEY JUST KEPT COMING."
+    }
+   ],
+   "world_boss": "wb_bonefields",
+   "wb_slot": 6,
+   "_grown": 2
+  },
+  "jadehill": {
+   "name": "Jadehill Terraces",
+   "kind": "open",
+   "w": 238,
+   "h": 190,
+   "depth": 15,
+   "theme": "wilds",
+   "look": "canopy",
+   "blurb": "Green stairs of farmed hillside climb into cloud. Everything is tended. Everyone is watching.",
+   "atmos": {
+    "daylight": 0.85,
+    "dusk": 0.3,
+    "clouds": 0.55,
+    "sun": [
+     1.0,
+     0.97,
+     0.85
+    ],
+    "sun_energy": 1.1,
+    "ambient": [
+     0.6,
+     0.7,
+     0.6
+    ],
+    "ambient_energy": 0.6,
+    "fog": [
+     0.8,
+     0.88,
+     0.85
+    ],
+    "fog_density": 0.006,
+    "horizon": [
+     0.7,
+     0.82,
+     0.78
+    ]
+   },
+   "rock": 0.12,
+   "freq": 0.045,
+   "gate_from": "road_whisperwood_to_jadehill",
+   "gate_back": "1",
+   "rim": "rocks",
+   "ground_tint": [
+    0.7,
+    0.9,
+    0.7
+   ],
+   "giants": {
+    "x": "nat:crops_bambooStageB|tree_plateau|tree_cone:1.7",
+    "c": "nat:statue_ring|stone_tallJ|crops_wheatStageA:1.5"
+   },
+   "lamp": "mirror",
+   "motes": "leaves",
+   "features": [
+    "camp",
+    "ruins",
+    "camp",
+    "crater",
+    "ruins",
+    "grove",
+    "cave",
+    "camp",
+    "grove",
+    "ruins",
+    "cave",
+    "camp"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "cloud_rice",
+      "w": 5,
+      "color": [
+       1.0,
+       1.0,
+       0.85
+      ]
+     },
+     {
+      "id": "sage_tea_leaf",
+      "w": 4,
+      "color": [
+       0.6,
+       0.9,
+       0.5
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "terrace_jade",
+      "w": 4
+     },
+     {
+      "id": "iron_ore",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "crane_feather",
+      "w": 2
+     },
+     {
+      "id": "monkey_charm",
+      "w": 1
+     },
+     {
+      "id": "rough_jade",
+      "w": 3
+     }
+    ]
+   },
+   "density": {
+    "h": 70,
+    "o": 150,
+    "^": 160,
+    "x": 52,
+    "c": 102
+   },
+   "foes": [
+    [
+     "monkey_bandit",
+     44
+    ],
+    [
+     "terrace_guardian",
+     20
+    ],
+    [
+     "white_crane",
+     24
+    ]
+   ],
+   "boss": "jade_hermit",
+   "npcs": [
+    {
+     "role": "merchant",
+     "name": "Rice-Factor Lin",
+     "stays": true,
+     "persona": "Rice-Factor Lin, who trades terrace harvests to anyone who climbs high enough. Cheerful, shrewd, never rushed.",
+     "line": "A bowl of cloud rice is a day's meditation, they say. I say it is a bowl of rice. But I sell a great deal of it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Tally on a Wall",
+     "text": "SEVEN HUNDRED TERRACES. FOUR HUNDRED TENDED. THE REST WAIT FOR THEIR PEOPLE."
+    }
+   ],
+   "world_boss": "wb_jadehill",
+   "wb_slot": 7,
+   "_grown": 2
+  },
+  "sunken_mere": {
+   "name": "The Sunken Mere",
+   "kind": "open",
+   "w": 248,
+   "h": 197,
+   "depth": 16,
+   "theme": "wilds",
+   "look": "drowned",
+   "blurb": "A drowned valley. Rooftops break the surface like islands. Something large turns slowly beneath them.",
+   "atmos": {
+    "daylight": 0.78,
+    "dusk": 0.4,
+    "clouds": 0.6,
+    "sun": [
+     0.9,
+     0.98,
+     1.0
+    ],
+    "sun_energy": 0.95,
+    "ambient": [
+     0.5,
+     0.65,
+     0.72
+    ],
+    "ambient_energy": 0.6,
+    "fog": [
+     0.7,
+     0.82,
+     0.88
+    ],
+    "fog_density": 0.008,
+    "horizon": [
+     0.55,
+     0.7,
+     0.8
+    ]
+   },
+   "rock": 0.12,
+   "freq": 0.04,
+   "gate_from": "road_mistfen_to_sunken_mere",
+   "gate_back": "1",
+   "rim": "rocks",
+   "ground_tint": [
+    0.6,
+    0.75,
+    0.8
+   ],
+   "giants": {
+    "x": "nat:tree_palm|tree_palmBend|rock_largeC:1.7",
+    "c": "nat:canoe_paddle|lily_small|statue_columnDamaged:1.6"
+   },
+   "lamp": "arc",
+   "motes": "drips",
+   "features": [
+    "camp",
+    "ruins",
+    "crater",
+    "crater",
+    "ruins",
+    "camp",
+    "grove",
+    "cave",
+    "camp",
+    "grove",
+    "ruins",
+    "cave",
+    "camp"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "kelp_silk",
+      "w": 4,
+      "color": [
+       0.4,
+       0.85,
+       0.6
+      ]
+     },
+     {
+      "id": "bog_lotus",
+      "w": 2,
+      "color": [
+       0.7,
+       0.85,
+       1.0
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "serpent_scale",
+      "w": 3
+     },
+     {
+      "id": "drowned_crown",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "pearl_oyster",
+      "w": 3
+     },
+     {
+      "id": "river_otter_pelt",
+      "w": 2
+     }
+    ]
+   },
+   "density": {
+    "h": 80,
+    "o": 160,
+    "^": 200,
+    "x": 41,
+    "c": 102
+   },
+   "foes": [
+    [
+     "mere_serpent",
+     36
+    ],
+    [
+     "drowned_one",
+     32
+    ],
+    [
+     "river_otter_pack",
+     24
+    ],
+    [
+     "kelp_horror",
+     16
+    ]
+   ],
+   "boss": "mere_matriarch",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Diver Maru",
+     "stays": true,
+     "persona": "Diver Maru, who works the rooftops and the deep. Wry, sunburnt, counts pearls like prayers.",
+     "line": "The big one does not hate you. It is simply very old and very annoyed."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Rooftop Etching",
+     "text": "WE LEFT BEFORE THE WATER CAME. WE LEFT THE KINGS BEHIND. THE KINGS DID NOT MIND."
+    }
+   ],
+   "world_boss": "wb_sunken_mere",
+   "wb_slot": 8,
+   "_grown": 2
+  },
+  "stormcliffs": {
+   "name": "The Stormcliffs",
+   "kind": "open",
+   "w": 248,
+   "h": 197,
+   "depth": 19,
+   "theme": "wilds",
+   "look": "storm",
+   "blurb": "Black cliffs that draw lightning. Rocs nest on the ledges. The thunder here is a language.",
+   "atmos": {
+    "daylight": 0.5,
+    "dusk": 0.6,
+    "clouds": 0.95,
+    "sun": [
+     0.75,
+     0.8,
+     0.95
+    ],
+    "sun_energy": 0.7,
+    "ambient": [
+     0.4,
+     0.45,
+     0.6
+    ],
+    "ambient_energy": 0.55,
+    "fog": [
+     0.45,
+     0.5,
+     0.62
+    ],
+    "fog_density": 0.01,
+    "horizon": [
+     0.3,
+     0.35,
+     0.5
+    ]
+   },
+   "rock": 0.28,
+   "freq": 0.05,
+   "gate_from": "road_jadehill_to_stormcliffs",
+   "gate_back": "1",
+   "rim": "rocks",
+   "ground_tint": [
+    0.6,
+    0.62,
+    0.72
+   ],
+   "giants": {
+    "x": "nat:rock_tallH|rock_tallJ|stone_tallI|cliff_rock:1.9",
+    "c": "nat:rock_largeA|stone_largeC|statue_obelisk:1.6"
+   },
+   "lamp": "beacon",
+   "motes": "sparks",
+   "features": [
+    "camp",
+    "pylons",
+    "crater",
+    "ruins",
+    "pylons",
+    "grove",
+    "cave",
+    "camp",
+    "grove",
+    "ruins",
+    "cave",
+    "camp"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "sky_lichen",
+      "w": 4,
+      "color": [
+       0.7,
+       0.8,
+       0.9
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "thunder_iron",
+      "w": 4
+     },
+     {
+      "id": "storm_glass",
+      "w": 2
+     }
+    ],
+    "gem": [
+     {
+      "id": "roc_quill",
+      "w": 3
+     },
+     {
+      "id": "tempest_heart",
+      "w": 1
+     },
+     {
+      "id": "sapphire",
+      "w": 1
+     }
+    ]
+   },
+   "density": {
+    "h": 80,
+    "o": 130,
+    "^": 140,
+    "x": 49,
+    "c": 116
+   },
+   "foes": [
+    [
+     "cliff_roc",
+     36
+    ],
+    [
+     "storm_sprite",
+     28
+    ],
+    [
+     "thunder_ram",
+     18
+    ]
+   ],
+   "boss": "storm_lord",
+   "npcs": [
+    {
+     "role": "smith",
+     "name": "Stormsmith Brae",
+     "stays": true,
+     "persona": "Stormsmith Brae, who works lightning into iron on an exposed ledge. Loud, singed, delighted.",
+     "line": "Strike when the sky does. Not before. Not after. I have a lot of burn scars."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Burned Stone",
+     "text": "HERE THE SKY SPOKE ITS OWN NAME. THE LISTENER WAS NOT HARMED. THE LISTENER WAS NOT THE SAME."
+    }
+   ],
+   "world_boss": "wb_stormcliffs",
+   "wb_slot": 9,
+   "_grown": 2
+  },
+  "emberwaste": {
+   "name": "The Emberwaste",
+   "kind": "open",
+   "w": 248,
+   "h": 197,
+   "depth": 21,
+   "theme": "wilds",
+   "look": "ash",
+   "blurb": "A caldera that never finished erupting. Rivers of slow fire. Drakes sleep in the warm stone.",
+   "atmos": {
+    "daylight": 0.7,
+    "dusk": 0.7,
+    "clouds": 0.9,
+    "sun": [
+     1.0,
+     0.6,
+     0.4
+    ],
+    "sun_energy": 0.9,
+    "ambient": [
+     0.6,
+     0.4,
+     0.3
+    ],
+    "ambient_energy": 0.6,
+    "fog": [
+     0.55,
+     0.3,
+     0.2
+    ],
+    "fog_density": 0.012,
+    "horizon": [
+     0.7,
+     0.35,
+     0.2
+    ]
+   },
+   "rock": 0.24,
+   "freq": 0.045,
+   "gate_from": "road_bonefields_to_emberwaste",
+   "gate_back": "1",
+   "rim": "rocks",
+   "ground_tint": [
+    0.55,
+    0.4,
+    0.35
+   ],
+   "giants": {
+    "x": "nat:rock_tallB|rock_tallE|rock_tallC:1.9",
+    "c": "nat:stone_largeC|rock_largeE|stone_tallF:1.6"
+   },
+   "lamp": "furnace",
+   "motes": "embers",
+   "features": [
+    "camp",
+    "crater",
+    "ruins",
+    "crater",
+    "camp",
+    "crater",
+    "grove",
+    "cave",
+    "camp",
+    "grove",
+    "ruins",
+    "cave",
+    "camp"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "ash_blossom",
+      "w": 4,
+      "color": [
+       1.0,
+       0.5,
+       0.3
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "firestone",
+      "w": 4
+     },
+     {
+      "id": "obsidian_edge",
+      "w": 2
+     }
+    ],
+    "gem": [
+     {
+      "id": "magma_crab_shell",
+      "w": 2
+     },
+     {
+      "id": "drake_ember",
+      "w": 1
+     },
+     {
+      "id": "rough_ruby",
+      "w": 2
+     }
+    ]
+   },
+   "density": {
+    "h": 90,
+    "o": 130,
+    "^": 150,
+    "x": 46,
+    "c": 116
+   },
+   "foes": [
+    [
+     "magma_crab",
+     36
+    ],
+    [
+     "cinder_imp_pack",
+     40
+    ],
+    [
+     "ash_drake",
+     16
+    ]
+   ],
+   "boss": "caldera_tyrant",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Cinder-Priest Vahl",
+     "stays": true,
+     "persona": "Cinder-Priest Vahl, who tends a shrine at the caldera's lip. Calm, dry-lipped, unafraid of the heat.",
+     "line": "The drake is not evil. The drake is hungry. That is the same thing for you, I know."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Shrine of Ash",
+     "text": "THE MOUNTAIN WAKES ONE DAY IN A HUNDRED YEARS. TODAY IS NOT THAT DAY. TODAY IS ONLY HOT."
+    }
+   ],
+   "world_boss": "wb_emberwaste",
+   "wb_slot": 10,
+   "_grown": 2
+  },
+  "frostmere": {
+   "name": "Frostmere",
+   "kind": "open",
+   "w": 248,
+   "h": 197,
+   "depth": 23,
+   "theme": "wilds",
+   "look": "frost",
+   "blurb": "A frozen lake ringed by white pines. The ice sings at night. Something very tall walks the shore.",
+   "atmos": {
+    "daylight": 0.8,
+    "dusk": 0.5,
+    "clouds": 0.7,
+    "sun": [
+     0.85,
+     0.92,
+     1.0
+    ],
+    "sun_energy": 0.85,
+    "ambient": [
+     0.6,
+     0.7,
+     0.85
+    ],
+    "ambient_energy": 0.65,
+    "fog": [
+     0.82,
+     0.9,
+     1.0
+    ],
+    "fog_density": 0.01,
+    "horizon": [
+     0.75,
+     0.85,
+     0.95
+    ]
+   },
+   "rock": 0.14,
+   "freq": 0.045,
+   "gate_from": "road_stormcliffs_to_frostmere",
+   "gate_back": "1",
+   "rim": "rocks",
+   "ground_tint": [
+    0.9,
+    0.95,
+    1.0
+   ],
+   "giants": {
+    "x": "nat:tree_pineTallD_detailed|tree_pineTallC|tree_pineRoundA|tree_pineSmallD:1.8",
+    "c": "nat:rock_largeB|stone_largeA|stump_old:1.5"
+   },
+   "lamp": "mirror",
+   "motes": "snow",
+   "features": [
+    "camp",
+    "crater",
+    "ruins",
+    "camp",
+    "crater",
+    "grove",
+    "cave",
+    "camp",
+    "grove",
+    "ruins",
+    "cave",
+    "camp"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "frost_lotus",
+      "w": 3,
+      "color": [
+       0.7,
+       0.9,
+       1.0
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "rime_crystal",
+      "w": 4
+     },
+     {
+      "id": "iron_ore",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "glacier_heart",
+      "w": 1
+     },
+     {
+      "id": "snow_lynx_pelt",
+      "w": 3
+     },
+     {
+      "id": "wendigo_horn",
+      "w": 1
+     }
+    ]
+   },
+   "density": {
+    "h": 90,
+    "o": 150,
+    "^": 160,
+    "x": 41,
+    "c": 116
+   },
+   "foes": [
+    [
+     "snow_lynx",
+     32
+    ],
+    [
+     "ice_wight",
+     32
+    ],
+    [
+     "wendigo",
+     16
+    ]
+   ],
+   "boss": "glacier_empress",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Ice-Fisher Torvald",
+     "stays": true,
+     "persona": "Ice-Fisher Torvald, who cuts holes in the lake and listens. Taciturn, kind, afraid only of the quiet.",
+     "line": "If the ice stops singing, run. That's the whole of my advice."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Frost-Written Warning",
+     "text": "HE WALKS THE SHORE BECAUSE HE IS WAITING. DO NOT ASK WHAT FOR."
+    }
+   ],
+   "world_boss": "wb_frostmere",
+   "wb_slot": 11,
+   "_grown": 2
+  },
+  "sandglass": {
+   "name": "The Sandglass Dunes",
+   "kind": "open",
+   "w": 255,
+   "h": 201,
+   "depth": 24,
+   "theme": "wilds",
+   "look": "glassdune",
+   "blurb": "Dunes that shift by the hour. Time does not keep its shape here. Old cities surface and sink.",
+   "atmos": {
+    "daylight": 1.0,
+    "dusk": 0.4,
+    "clouds": 0.05,
+    "sun": [
+     1.0,
+     0.85,
+     0.55
+    ],
+    "sun_energy": 1.5,
+    "ambient": [
+     0.75,
+     0.6,
+     0.45
+    ],
+    "ambient_energy": 0.65,
+    "fog": [
+     0.9,
+     0.75,
+     0.55
+    ],
+    "fog_density": 0.007,
+    "horizon": [
+     0.85,
+     0.65,
+     0.4
+    ]
+   },
+   "rock": 0.18,
+   "freq": 0.03,
+   "gate_from": "road_emberwaste_to_sandglass",
+   "gate_back": "1",
+   "dunes": true,
+   "rim": "rocks",
+   "ground_tint": [
+    1.0,
+    0.88,
+    0.66
+   ],
+   "giants": {
+    "x": "nat:tree_palm|tree_palmBend|rock_tallG:1.8",
+    "c": "nat:statue_obelisk|stone_tallJ|statue_columnDamaged:1.6"
+   },
+   "lamp": "mirror",
+   "motes": "dust",
+   "features": [
+    "dunes",
+    "ruins",
+    "ruins",
+    "camp",
+    "crater",
+    "ruins",
+    "grove",
+    "cave",
+    "camp",
+    "grove",
+    "ruins",
+    "cave",
+    "camp"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "desert_rose",
+      "w": 3,
+      "color": [
+       0.95,
+       0.75,
+       0.55
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "hourglass_sand",
+      "w": 3
+     },
+     {
+      "id": "scorpion_stinger",
+      "w": 2
+     }
+    ],
+    "gem": [
+     {
+      "id": "sun_scarab",
+      "w": 2
+     },
+     {
+      "id": "sand_giant_core",
+      "w": 1
+     },
+     {
+      "id": "rough_ruby",
+      "w": 1
+     }
+    ]
+   },
+   "density": {
+    "h": 90,
+    "o": 150,
+    "^": 150,
+    "x": 52,
+    "c": 116
+   },
+   "foes": [
+    [
+     "dune_scorpion",
+     36
+    ],
+    [
+     "sun_scarab_swarm",
+     32
+    ],
+    [
+     "sand_giant",
+     16
+    ]
+   ],
+   "boss": "pharaoh_of_hours",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Hourkeeper Isra",
+     "stays": true,
+     "persona": "Hourkeeper Isra, who counts the grains in an hourglass the size of a house. Patient, amused, never in a hurry.",
+     "line": "Three hours from now you will have been here for six. I do not recommend arguing with it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Time-Worn Slab",
+     "text": "THE KING ORDERED THE DESERT TO KEEP HIS HOURS. IT OBLIGED. IT HAS NOT STOPPED."
+    }
+   ],
+   "world_boss": "wb_sandglass",
+   "wb_slot": 12,
+   "_grown": 2
+  },
+  "blighted_wood": {
+   "name": "The Blighted Deep Wood",
+   "kind": "open",
+   "w": 272,
+   "h": 214,
+   "depth": 30,
+   "theme": "wilds",
+   "look": "fungal",
+   "blurb": "The wood past the wood. Trees that grew around machines. The swarm in your blood leans toward it and will not say why.",
+   "atmos": {
+    "daylight": 0.45,
+    "dusk": 0.7,
+    "clouds": 0.95,
+    "sun": [
+     0.6,
+     0.9,
+     0.8
+    ],
+    "sun_energy": 0.5,
+    "ambient": [
+     0.3,
+     0.5,
+     0.45
+    ],
+    "ambient_energy": 0.55,
+    "fog": [
+     0.3,
+     0.55,
+     0.45
+    ],
+    "fog_density": 0.02,
+    "horizon": [
+     0.25,
+     0.45,
+     0.4
+    ]
+   },
+   "rock": 0.12,
+   "freq": 0.05,
+   "gate_from": "road_whisperwood_to_blighted_wood",
+   "gate_back": "1",
+   "rim": "plates",
+   "ground_tint": [
+    0.5,
+    0.75,
+    0.65
+   ],
+   "giants": {
+    "x": "nat:tree_blocks_dark|tree_thin_dark|tree_default_dark|tree_cone_dark:2.1",
+    "c": "nat:mushroom_redTall|mushroom_tanTall|hanging_moss:1.8"
+   },
+   "lamp": "arc",
+   "motes": "spores",
+   "features": [
+    "camp",
+    "wreck",
+    "ruins",
+    "crater",
+    "pylons",
+    "ruins",
+    "crater",
+    "grove",
+    "cave",
+    "camp",
+    "grove",
+    "ruins",
+    "cave",
+    "camp"
+   ],
+   "gather": {
+    "herb": [
+     {
+      "id": "blight_bloom",
+      "w": 4,
+      "color": [
+       0.5,
+       1.0,
+       0.7
+      ]
+     },
+     {
+      "id": "nanite_sap",
+      "w": 2,
+      "color": [
+       0.6,
+       0.9,
+       1.0
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "warped_heartwood",
+      "w": 4
+     },
+     {
+      "id": "nanite_ingot",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "corrupted_antler",
+      "w": 2
+     },
+     {
+      "id": "root_king_seed",
+      "w": 1
+     },
+     {
+      "id": "ion_crystal",
+      "w": 1
+     }
+    ]
+   },
+   "density": {
+    "h": 80,
+    "o": 140,
+    "^": 170,
+    "x": 35,
+    "c": 87
+   },
+   "foes": [
+    [
+     "blight_stag",
+     40
+    ],
+    [
+     "spore_wraith",
+     36
+    ],
+    [
+     "wire_treant",
+     18
+    ]
+   ],
+   "boss": "root_king",
+   "npcs": [
+    {
+     "role": "villager",
+     "name": "Last Warden Ysolde",
+     "stays": true,
+     "persona": "Last Warden Ysolde, who held the line of the wood after the others fell. Tired, scarred, still pruning.",
+     "line": "I cut what I can and burn what I can't. Something under the roots is awake. It's very polite about it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Warden's Last Entry",
+     "text": "THE ROOT KING WAS NEVER A KING. IT WAS A SEED THE SWARM PLANTED, AND IT GREW UP BELIEVING IT WAS THE WORLD."
+    }
+   ],
+   "world_boss": "wb_blighted_wood",
+   "wb_slot": 13,
+   "_grown": 2
+  },
+  "road_whisperwood_to_mistfen": {
+   "name": "The Mosslight Track",
+   "kind": "open",
+   "w": 92,
+   "h": 214,
+   "depth": 10,
+   "theme": "wilds",
+   "look": "drowned",
+   "blurb": "Where the old trees thin and the ground starts to give. Lanterns on poles, most of them still lit.",
+   "atmos": {
+    "daylight": 0.55,
+    "dusk": 0.5,
+    "clouds": 0.9,
+    "sun": [
+     0.8,
+     0.9,
+     0.85
+    ],
+    "sun_energy": 0.6,
+    "ambient": [
+     0.42,
+     0.55,
+     0.5
+    ],
+    "ambient_energy": 0.55,
+    "fog": [
+     0.62,
+     0.72,
+     0.68
+    ],
+    "fog_density": 0.02,
+    "horizon": [
+     0.5,
+     0.6,
+     0.55
+    ]
+   },
+   "rock": 0.16,
+   "freq": 0.05,
+   "gate_from": "whisperwood",
+   "gate_back": "1",
+   "rim": "rocks",
+   "giants": {
+    "x": "nat:tree_pineTallA_detailed|tree_oak|tree_fat|tree_pineTallC:1.7",
+    "c": "nat:log_large|stump_roundDetailed|mushroom_redTall:1.6"
+   },
+   "lamp": "arc",
+   "motes": "drips",
+   "features": [
+    "camp",
+    "ruins",
+    "grove",
+    "camp",
+    "cave",
+    "ruins"
+   ],
+   "density": {
+    "h": 90,
+    "o": 190,
+    "^": 230,
+    "x": 44,
+    "c": 90
+   },
+   "gather": {
+    "herb": [
+     {
+      "id": "glowcap",
+      "w": 5,
+      "color": [
+       0.6,
+       1.0,
+       0.8
+      ]
+     },
+     {
+      "id": "ghostmoth_wing",
+      "w": 2,
+      "color": [
+       0.85,
+       0.9,
+       1.0
+      ]
+     },
+     {
+      "id": "bog_lotus",
+      "w": 4,
+      "color": [
+       0.7,
+       0.85,
+       1.0
+      ]
+     },
+     {
+      "id": "venom_reed",
+      "w": 4,
+      "color": [
+       0.6,
+       0.8,
+       0.5
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "heartwood",
+      "w": 4
+     },
+     {
+      "id": "iron_ore",
+      "w": 1
+     },
+     {
+      "id": "peat_core",
+      "w": 4
+     }
+    ],
+    "gem": [
+     {
+      "id": "old_amber",
+      "w": 3
+     },
+     {
+      "id": "stag_antler",
+      "w": 2
+     },
+     {
+      "id": "will_o_oil",
+      "w": 2
+     },
+     {
+      "id": "drowned_pearl",
+      "w": 2
+     }
+    ]
+   },
+   "foes": [
+    [
+     "whisper_wolf",
+     17
+    ],
+    [
+     "thornling_ranger",
+     13
+    ],
+    [
+     "fen_toad",
+     12
+    ],
+    [
+     "bog_wraith",
+     13
+    ]
+   ],
+   "road": true,
+   "_road": true,
+   "npcs": [
+    {
+     "role": "merchant",
+     "name": "Keeper Arn",
+     "stays": true,
+     "stock": [
+      "healing_salve",
+      "qi_pill",
+      "antidote",
+      "glowcap",
+      "bog_lotus"
+     ],
+     "line": "Coin for dry socks. Coin for anything, really -- the fen takes the rest.",
+     "persona": "Keeper Arn, who keeps the waystation on The Mosslight Track. Practical, tired, honest about prices."
+    },
+    {
+     "role": "villager",
+     "name": "Warden Sel",
+     "stays": true,
+     "line": "Stay on the boards where there are boards. Where there aren't, step where the moss is greenest.",
+     "persona": "Warden Sel, who walks The Mosslight Track and knows every bad stretch of it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Lantern Pole",
+     "text": "LIGHT ONE, LEAVE ONE. WHOEVER COMES AFTER YOU IS CARRYING THE SAME DARK."
+    }
+   ],
+   "ground_tint": [
+    0.55,
+    0.7,
+    0.6
+   ]
+  },
+  "road_whisperwood_to_jadehill": {
+   "name": "The Pilgrims' Stair",
+   "kind": "open",
+   "w": 92,
+   "h": 214,
+   "depth": 12,
+   "theme": "wilds",
+   "look": "canopy",
+   "blurb": "A climb of worn steps out of the wood and up toward the terraces. Shrines at every turn, offerings still fresh.",
+   "atmos": {
+    "daylight": 0.85,
+    "dusk": 0.3,
+    "clouds": 0.55,
+    "sun": [
+     1.0,
+     0.97,
+     0.85
+    ],
+    "sun_energy": 1.1,
+    "ambient": [
+     0.6,
+     0.7,
+     0.6
+    ],
+    "ambient_energy": 0.6,
+    "fog": [
+     0.8,
+     0.88,
+     0.85
+    ],
+    "fog_density": 0.006,
+    "horizon": [
+     0.7,
+     0.82,
+     0.78
+    ]
+   },
+   "rock": 0.16,
+   "freq": 0.05,
+   "gate_from": "whisperwood",
+   "gate_back": "2",
+   "rim": "rocks",
+   "giants": {
+    "x": "nat:tree_pineTallA_detailed|tree_oak|tree_fat|tree_pineTallC:1.7",
+    "c": "nat:log_large|stump_roundDetailed|mushroom_redTall:1.6"
+   },
+   "lamp": "arc",
+   "motes": "leaves",
+   "features": [
+    "camp",
+    "ruins",
+    "grove",
+    "camp",
+    "cave",
+    "ruins"
+   ],
+   "density": {
+    "h": 90,
+    "o": 190,
+    "^": 230,
+    "x": 44,
+    "c": 90
+   },
+   "gather": {
+    "herb": [
+     {
+      "id": "glowcap",
+      "w": 5,
+      "color": [
+       0.6,
+       1.0,
+       0.8
+      ]
+     },
+     {
+      "id": "ghostmoth_wing",
+      "w": 2,
+      "color": [
+       0.85,
+       0.9,
+       1.0
+      ]
+     },
+     {
+      "id": "cloud_rice",
+      "w": 5,
+      "color": [
+       1.0,
+       1.0,
+       0.85
+      ]
+     },
+     {
+      "id": "sage_tea_leaf",
+      "w": 4,
+      "color": [
+       0.6,
+       0.9,
+       0.5
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "heartwood",
+      "w": 4
+     },
+     {
+      "id": "iron_ore",
+      "w": 1
+     },
+     {
+      "id": "terrace_jade",
+      "w": 4
+     },
+     {
+      "id": "iron_ore",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "old_amber",
+      "w": 3
+     },
+     {
+      "id": "stag_antler",
+      "w": 2
+     },
+     {
+      "id": "crane_feather",
+      "w": 2
+     },
+     {
+      "id": "monkey_charm",
+      "w": 1
+     }
+    ]
+   },
+   "foes": [
+    [
+     "whisper_wolf",
+     17
+    ],
+    [
+     "thornling_ranger",
+     13
+    ],
+    [
+     "monkey_bandit",
+     14
+    ],
+    [
+     "terrace_guardian",
+     6
+    ]
+   ],
+   "road": true,
+   "_road": true,
+   "npcs": [
+    {
+     "role": "merchant",
+     "name": "Keeper Hui",
+     "stays": true,
+     "stock": [
+      "healing_salve",
+      "qi_pill",
+      "antidote",
+      "glowcap",
+      "cloud_rice"
+     ],
+     "line": "Tea, rice, rope. Pilgrims buy the first two going up and the third coming down.",
+     "persona": "Keeper Hui, who keeps the waystation on The Pilgrims' Stair. Practical, tired, honest about prices."
+    },
+    {
+     "role": "villager",
+     "name": "Warden Tamsin",
+     "stays": true,
+     "line": "The monkeys on this stair will rob you blind. Hold your bag in front, not behind.",
+     "persona": "Warden Tamsin, who walks The Pilgrims' Stair and knows every bad stretch of it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Shrine Step",
+     "text": "EVERY STEP IS A BOW. EVERY BOW IS A STEP. THE TERRACES ARE FOR THOSE WHO KEEP BOWING."
+    }
+   ],
+   "ground_tint": [
+    0.7,
+    0.9,
+    0.7
+   ]
+  },
+  "road_whisperwood_to_blighted_wood": {
+   "name": "The Rot Road",
+   "kind": "open",
+   "w": 92,
+   "h": 214,
+   "depth": 19,
+   "theme": "wilds",
+   "look": "fungal",
+   "blurb": "The wood goes wrong by degrees: first the colour, then the smell, then the silence. Someone keeps the road open anyway.",
+   "atmos": {
+    "daylight": 0.45,
+    "dusk": 0.7,
+    "clouds": 0.95,
+    "sun": [
+     0.6,
+     0.9,
+     0.8
+    ],
+    "sun_energy": 0.5,
+    "ambient": [
+     0.3,
+     0.5,
+     0.45
+    ],
+    "ambient_energy": 0.55,
+    "fog": [
+     0.3,
+     0.55,
+     0.45
+    ],
+    "fog_density": 0.02,
+    "horizon": [
+     0.25,
+     0.45,
+     0.4
+    ]
+   },
+   "rock": 0.16,
+   "freq": 0.05,
+   "gate_from": "whisperwood",
+   "gate_back": "3",
+   "rim": "plates",
+   "giants": {
+    "x": "nat:tree_pineTallA_detailed|tree_oak|tree_fat|tree_pineTallC:1.7",
+    "c": "nat:log_large|stump_roundDetailed|mushroom_redTall:1.6"
+   },
+   "lamp": "arc",
+   "motes": "spores",
+   "features": [
+    "camp",
+    "ruins",
+    "grove",
+    "camp",
+    "cave",
+    "ruins"
+   ],
+   "density": {
+    "h": 90,
+    "o": 190,
+    "^": 230,
+    "x": 44,
+    "c": 90
+   },
+   "gather": {
+    "herb": [
+     {
+      "id": "glowcap",
+      "w": 5,
+      "color": [
+       0.6,
+       1.0,
+       0.8
+      ]
+     },
+     {
+      "id": "ghostmoth_wing",
+      "w": 2,
+      "color": [
+       0.85,
+       0.9,
+       1.0
+      ]
+     },
+     {
+      "id": "blight_bloom",
+      "w": 4,
+      "color": [
+       0.5,
+       1.0,
+       0.7
+      ]
+     },
+     {
+      "id": "nanite_sap",
+      "w": 2,
+      "color": [
+       0.6,
+       0.9,
+       1.0
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "heartwood",
+      "w": 4
+     },
+     {
+      "id": "iron_ore",
+      "w": 1
+     },
+     {
+      "id": "warped_heartwood",
+      "w": 4
+     },
+     {
+      "id": "nanite_ingot",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "old_amber",
+      "w": 3
+     },
+     {
+      "id": "stag_antler",
+      "w": 2
+     },
+     {
+      "id": "corrupted_antler",
+      "w": 2
+     },
+     {
+      "id": "root_king_seed",
+      "w": 1
+     }
+    ]
+   },
+   "foes": [
+    [
+     "whisper_wolf",
+     17
+    ],
+    [
+     "thornling_ranger",
+     13
+    ],
+    [
+     "blight_stag",
+     13
+    ],
+    [
+     "spore_wraith",
+     12
+    ]
+   ],
+   "road": true,
+   "_road": true,
+   "npcs": [
+    {
+     "role": "merchant",
+     "name": "Keeper Vosh",
+     "stays": true,
+     "stock": [
+      "healing_salve",
+      "qi_pill",
+      "antidote",
+      "glowcap",
+      "blight_bloom"
+     ],
+     "line": "Masks, salves, burning-sticks. You'll want all three before the trees start breathing back.",
+     "persona": "Keeper Vosh, who keeps the waystation on The Rot Road. Practical, tired, honest about prices."
+    },
+    {
+     "role": "villager",
+     "name": "Warden Ilk",
+     "stays": true,
+     "line": "If a tree moves, it isn't a tree. If it doesn't move, it might still not be a tree.",
+     "persona": "Warden Ilk, who walks The Rot Road and knows every bad stretch of it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Burned Marker",
+     "text": "WE CUT THIS ROAD TO KEEP IT FROM SPREADING. IT SPREADS ALONG THE ROAD INSTEAD. KEEP CUTTING."
+    }
+   ],
+   "ground_tint": [
+    0.5,
+    0.75,
+    0.65
+   ]
+  },
+  "road_bonefields_to_emberwaste": {
+   "name": "The Ashwalk",
+   "kind": "open",
+   "w": 92,
+   "h": 214,
+   "depth": 16,
+   "theme": "wilds",
+   "look": "ash",
+   "blurb": "A grey road through grey fields, getting warmer underfoot with every mile, until the ground glows through the cracks.",
+   "atmos": {
+    "daylight": 0.7,
+    "dusk": 0.7,
+    "clouds": 0.9,
+    "sun": [
+     1.0,
+     0.6,
+     0.4
+    ],
+    "sun_energy": 0.9,
+    "ambient": [
+     0.6,
+     0.4,
+     0.3
+    ],
+    "ambient_energy": 0.6,
+    "fog": [
+     0.55,
+     0.3,
+     0.2
+    ],
+    "fog_density": 0.012,
+    "horizon": [
+     0.7,
+     0.35,
+     0.2
+    ]
+   },
+   "rock": 0.16,
+   "freq": 0.05,
+   "gate_from": "bonefields",
+   "gate_back": "1",
+   "rim": "rocks",
+   "giants": {
+    "x": "nat:statue_head|stone_tallC|stone_tallF|rock_tallA:1.6",
+    "c": "nat:fence_broken|statue_block|stone_largeA:1.4"
+   },
+   "lamp": "beacon",
+   "motes": "embers",
+   "features": [
+    "camp",
+    "ruins",
+    "grove",
+    "camp",
+    "cave",
+    "ruins"
+   ],
+   "density": {
+    "h": 90,
+    "o": 190,
+    "^": 230,
+    "x": 44,
+    "c": 90
+   },
+   "gather": {
+    "herb": [
+     {
+      "id": "grave_bloom",
+      "w": 5,
+      "color": [
+       0.95,
+       0.95,
+       1.0
+      ]
+     },
+     {
+      "id": "widow_shroud",
+      "w": 1,
+      "color": [
+       0.8,
+       0.8,
+       0.85
+      ]
+     },
+     {
+      "id": "ash_blossom",
+      "w": 4,
+      "color": [
+       1.0,
+       0.5,
+       0.3
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "battle_iron",
+      "w": 4
+     },
+     {
+      "id": "marrow_salt",
+      "w": 2
+     },
+     {
+      "id": "firestone",
+      "w": 4
+     },
+     {
+      "id": "obsidian_edge",
+      "w": 2
+     }
+    ],
+    "gem": [
+     {
+      "id": "war_standard",
+      "w": 1
+     },
+     {
+      "id": "silver_ore",
+      "w": 2
+     },
+     {
+      "id": "magma_crab_shell",
+      "w": 2
+     },
+     {
+      "id": "drake_ember",
+      "w": 1
+     }
+    ]
+   },
+   "foes": [
+    [
+     "bone_hound",
+     12
+    ],
+    [
+     "restless_soldier",
+     14
+    ],
+    [
+     "magma_crab",
+     12
+    ],
+    [
+     "cinder_imp_pack",
+     13
+    ]
+   ],
+   "road": true,
+   "_road": true,
+   "npcs": [
+    {
+     "role": "merchant",
+     "name": "Keeper Dusk",
+     "stays": true,
+     "stock": [
+      "healing_salve",
+      "qi_pill",
+      "antidote",
+      "grave_bloom",
+      "ash_blossom"
+     ],
+     "line": "Water costs more out here. So does everything. That's the heat talking.",
+     "persona": "Keeper Dusk, who keeps the waystation on The Ashwalk. Practical, tired, honest about prices."
+    },
+    {
+     "role": "villager",
+     "name": "Warden Brann",
+     "stays": true,
+     "line": "Walk at dawn or dusk. At noon the stones will cook your boots.",
+     "persona": "Warden Brann, who walks The Ashwalk and knows every bad stretch of it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Heat-Cracked Milestone",
+     "text": "THE DEAD LIE NORTH. THE FIRE LIES SOUTH. THE LIVING WALK BETWEEN, AND ARE GLAD OF IT."
+    }
+   ],
+   "ground_tint": [
+    0.55,
+    0.4,
+    0.35
+   ]
+  },
+  "road_mistfen_to_sunken_mere": {
+   "name": "The Drowned Causeway",
+   "kind": "open",
+   "w": 92,
+   "h": 214,
+   "depth": 13,
+   "theme": "wilds",
+   "look": "drowned",
+   "blurb": "An old stone causeway, half under water. Fish swim through what used to be its arches.",
+   "atmos": {
+    "daylight": 0.78,
+    "dusk": 0.4,
+    "clouds": 0.6,
+    "sun": [
+     0.9,
+     0.98,
+     1.0
+    ],
+    "sun_energy": 0.95,
+    "ambient": [
+     0.5,
+     0.65,
+     0.72
+    ],
+    "ambient_energy": 0.6,
+    "fog": [
+     0.7,
+     0.82,
+     0.88
+    ],
+    "fog_density": 0.008,
+    "horizon": [
+     0.55,
+     0.7,
+     0.8
+    ]
+   },
+   "rock": 0.16,
+   "freq": 0.05,
+   "gate_from": "mistfen",
+   "gate_back": "1",
+   "rim": "rocks",
+   "giants": {
+    "x": "nat:tree_thin_dark|tree_blocks_dark|tree_default_dark:1.6",
+    "c": "nat:log|stump_squareDetailed|lily_small|hanging_moss:1.5"
+   },
+   "lamp": "arc",
+   "motes": "drips",
+   "features": [
+    "camp",
+    "ruins",
+    "grove",
+    "camp",
+    "cave",
+    "ruins"
+   ],
+   "density": {
+    "h": 90,
+    "o": 190,
+    "^": 230,
+    "x": 44,
+    "c": 90
+   },
+   "gather": {
+    "herb": [
+     {
+      "id": "bog_lotus",
+      "w": 4,
+      "color": [
+       0.7,
+       0.85,
+       1.0
+      ]
+     },
+     {
+      "id": "venom_reed",
+      "w": 4,
+      "color": [
+       0.6,
+       0.8,
+       0.5
+      ]
+     },
+     {
+      "id": "kelp_silk",
+      "w": 4,
+      "color": [
+       0.4,
+       0.85,
+       0.6
+      ]
+     },
+     {
+      "id": "bog_lotus",
+      "w": 2,
+      "color": [
+       0.7,
+       0.85,
+       1.0
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "peat_core",
+      "w": 4
+     },
+     {
+      "id": "serpent_scale",
+      "w": 3
+     },
+     {
+      "id": "drowned_crown",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "will_o_oil",
+      "w": 2
+     },
+     {
+      "id": "drowned_pearl",
+      "w": 2
+     },
+     {
+      "id": "pearl_oyster",
+      "w": 3
+     },
+     {
+      "id": "river_otter_pelt",
+      "w": 2
+     }
+    ]
+   },
+   "foes": [
+    [
+     "fen_toad",
+     12
+    ],
+    [
+     "bog_wraith",
+     13
+    ],
+    [
+     "mere_serpent",
+     12
+    ],
+    [
+     "drowned_one",
+     10
+    ]
+   ],
+   "road": true,
+   "_road": true,
+   "npcs": [
+    {
+     "role": "merchant",
+     "name": "Keeper Nell",
+     "stays": true,
+     "stock": [
+      "healing_salve",
+      "qi_pill",
+      "antidote",
+      "bog_lotus",
+      "kelp_silk"
+     ],
+     "line": "Mind the third arch, it's gone soft. And buy a pole -- you'll want to test the water before you trust it.",
+     "persona": "Keeper Nell, who keeps the waystation on The Drowned Causeway. Practical, tired, honest about prices."
+    },
+    {
+     "role": "villager",
+     "name": "Warden Coll",
+     "stays": true,
+     "line": "When the water is still, something is watching. When it ripples, it's coming.",
+     "persona": "Warden Coll, who walks The Drowned Causeway and knows every bad stretch of it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Causeway Stone",
+     "text": "BUILT BY THE MERE-KINGS. DROWNED BY THE MERE-KINGS. THEY WANTED IT BOTH WAYS."
+    }
+   ],
+   "ground_tint": [
+    0.6,
+    0.75,
+    0.8
+   ]
+  },
+  "road_jadehill_to_stormcliffs": {
+   "name": "The Thunder Ledge",
+   "kind": "open",
+   "w": 92,
+   "h": 214,
+   "depth": 17,
+   "theme": "wilds",
+   "look": "storm",
+   "blurb": "A cliff path cut into the rock, wide enough for one cart, with the wind trying to take it from you the whole way.",
+   "atmos": {
+    "daylight": 0.5,
+    "dusk": 0.6,
+    "clouds": 0.95,
+    "sun": [
+     0.75,
+     0.8,
+     0.95
+    ],
+    "sun_energy": 0.7,
+    "ambient": [
+     0.4,
+     0.45,
+     0.6
+    ],
+    "ambient_energy": 0.55,
+    "fog": [
+     0.45,
+     0.5,
+     0.62
+    ],
+    "fog_density": 0.01,
+    "horizon": [
+     0.3,
+     0.35,
+     0.5
+    ]
+   },
+   "rock": 0.16,
+   "freq": 0.05,
+   "gate_from": "jadehill",
+   "gate_back": "1",
+   "rim": "rocks",
+   "giants": {
+    "x": "nat:crops_bambooStageB|tree_plateau|tree_cone:1.7",
+    "c": "nat:statue_ring|stone_tallJ|crops_wheatStageA:1.5"
+   },
+   "lamp": "mirror",
+   "motes": "sparks",
+   "features": [
+    "camp",
+    "ruins",
+    "grove",
+    "camp",
+    "cave",
+    "ruins"
+   ],
+   "density": {
+    "h": 90,
+    "o": 190,
+    "^": 230,
+    "x": 44,
+    "c": 90
+   },
+   "gather": {
+    "herb": [
+     {
+      "id": "cloud_rice",
+      "w": 5,
+      "color": [
+       1.0,
+       1.0,
+       0.85
+      ]
+     },
+     {
+      "id": "sage_tea_leaf",
+      "w": 4,
+      "color": [
+       0.6,
+       0.9,
+       0.5
+      ]
+     },
+     {
+      "id": "sky_lichen",
+      "w": 4,
+      "color": [
+       0.7,
+       0.8,
+       0.9
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "terrace_jade",
+      "w": 4
+     },
+     {
+      "id": "iron_ore",
+      "w": 1
+     },
+     {
+      "id": "thunder_iron",
+      "w": 4
+     },
+     {
+      "id": "storm_glass",
+      "w": 2
+     }
+    ],
+    "gem": [
+     {
+      "id": "crane_feather",
+      "w": 2
+     },
+     {
+      "id": "monkey_charm",
+      "w": 1
+     },
+     {
+      "id": "roc_quill",
+      "w": 3
+     },
+     {
+      "id": "tempest_heart",
+      "w": 1
+     }
+    ]
+   },
+   "foes": [
+    [
+     "monkey_bandit",
+     14
+    ],
+    [
+     "terrace_guardian",
+     6
+    ],
+    [
+     "cliff_roc",
+     12
+    ],
+    [
+     "storm_sprite",
+     9
+    ]
+   ],
+   "road": true,
+   "_road": true,
+   "npcs": [
+    {
+     "role": "merchant",
+     "name": "Keeper Bo",
+     "stays": true,
+     "stock": [
+      "healing_salve",
+      "qi_pill",
+      "antidote",
+      "cloud_rice",
+      "sky_lichen"
+     ],
+     "line": "Iron spikes for your boots. Copper rods for your pack. Trust me, you want the rods.",
+     "persona": "Keeper Bo, who keeps the waystation on The Thunder Ledge. Practical, tired, honest about prices."
+    },
+    {
+     "role": "villager",
+     "name": "Warden Rhian",
+     "stays": true,
+     "line": "If your hair stands up, lie flat. Not near the edge.",
+     "persona": "Warden Rhian, who walks The Thunder Ledge and knows every bad stretch of it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Lightning-Scarred Post",
+     "text": "STRUCK NINE TIMES. STILL STANDING. BE LIKE THE POST."
+    }
+   ],
+   "ground_tint": [
+    0.6,
+    0.62,
+    0.72
+   ]
+  },
+  "road_stormcliffs_to_frostmere": {
+   "name": "The White Pass",
+   "kind": "open",
+   "w": 92,
+   "h": 214,
+   "depth": 21,
+   "theme": "wilds",
+   "look": "frost",
+   "blurb": "Up out of the storms and into the cold. The snow is deep, the air is thin, and every sound carries for miles.",
+   "atmos": {
+    "daylight": 0.8,
+    "dusk": 0.5,
+    "clouds": 0.7,
+    "sun": [
+     0.85,
+     0.92,
+     1.0
+    ],
+    "sun_energy": 0.85,
+    "ambient": [
+     0.6,
+     0.7,
+     0.85
+    ],
+    "ambient_energy": 0.65,
+    "fog": [
+     0.82,
+     0.9,
+     1.0
+    ],
+    "fog_density": 0.01,
+    "horizon": [
+     0.75,
+     0.85,
+     0.95
+    ]
+   },
+   "rock": 0.16,
+   "freq": 0.05,
+   "gate_from": "stormcliffs",
+   "gate_back": "1",
+   "rim": "rocks",
+   "giants": {
+    "x": "nat:rock_tallH|rock_tallJ|stone_tallI|cliff_rock:1.9",
+    "c": "nat:rock_largeA|stone_largeC|statue_obelisk:1.6"
+   },
+   "lamp": "beacon",
+   "motes": "snow",
+   "features": [
+    "camp",
+    "ruins",
+    "grove",
+    "camp",
+    "cave",
+    "ruins"
+   ],
+   "density": {
+    "h": 90,
+    "o": 190,
+    "^": 230,
+    "x": 44,
+    "c": 90
+   },
+   "gather": {
+    "herb": [
+     {
+      "id": "sky_lichen",
+      "w": 4,
+      "color": [
+       0.7,
+       0.8,
+       0.9
+      ]
+     },
+     {
+      "id": "frost_lotus",
+      "w": 3,
+      "color": [
+       0.7,
+       0.9,
+       1.0
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "thunder_iron",
+      "w": 4
+     },
+     {
+      "id": "storm_glass",
+      "w": 2
+     },
+     {
+      "id": "rime_crystal",
+      "w": 4
+     },
+     {
+      "id": "iron_ore",
+      "w": 1
+     }
+    ],
+    "gem": [
+     {
+      "id": "roc_quill",
+      "w": 3
+     },
+     {
+      "id": "tempest_heart",
+      "w": 1
+     },
+     {
+      "id": "glacier_heart",
+      "w": 1
+     },
+     {
+      "id": "snow_lynx_pelt",
+      "w": 3
+     }
+    ]
+   },
+   "foes": [
+    [
+     "cliff_roc",
+     12
+    ],
+    [
+     "storm_sprite",
+     9
+    ],
+    [
+     "snow_lynx",
+     10
+    ],
+    [
+     "ice_wight",
+     10
+    ]
+   ],
+   "road": true,
+   "_road": true,
+   "npcs": [
+    {
+     "role": "merchant",
+     "name": "Keeper Yeva",
+     "stays": true,
+     "stock": [
+      "healing_salve",
+      "qi_pill",
+      "antidote",
+      "sky_lichen",
+      "frost_lotus"
+     ],
+     "line": "Furs, fire-oil, dried meat. And a bell -- ring it if you fall, someone may come.",
+     "persona": "Keeper Yeva, who keeps the waystation on The White Pass. Practical, tired, honest about prices."
+    },
+    {
+     "role": "villager",
+     "name": "Warden Oskar",
+     "stays": true,
+     "line": "Follow the poles. When you can't see the next pole, stop and wait for it.",
+     "persona": "Warden Oskar, who walks The White Pass and knows every bad stretch of it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Frozen Cairn",
+     "text": "EACH STONE IS ONE WHO MADE IT. ADD YOURS WHEN YOU COME BACK DOWN."
+    }
+   ],
+   "ground_tint": [
+    0.9,
+    0.95,
+    1.0
+   ]
+  },
+  "road_emberwaste_to_sandglass": {
+   "name": "The Glassblow Flats",
+   "kind": "open",
+   "w": 92,
+   "h": 214,
+   "depth": 22,
+   "theme": "wilds",
+   "look": "glassdune",
+   "blurb": "Where the fire cooled into sand and the sand into glass. The wind sings across it, high and thin.",
+   "atmos": {
+    "daylight": 1.0,
+    "dusk": 0.4,
+    "clouds": 0.05,
+    "sun": [
+     1.0,
+     0.85,
+     0.55
+    ],
+    "sun_energy": 1.5,
+    "ambient": [
+     0.75,
+     0.6,
+     0.45
+    ],
+    "ambient_energy": 0.65,
+    "fog": [
+     0.9,
+     0.75,
+     0.55
+    ],
+    "fog_density": 0.007,
+    "horizon": [
+     0.85,
+     0.65,
+     0.4
+    ]
+   },
+   "rock": 0.16,
+   "freq": 0.05,
+   "gate_from": "emberwaste",
+   "gate_back": "1",
+   "rim": "rocks",
+   "giants": {
+    "x": "nat:rock_tallB|rock_tallE|rock_tallC:1.9",
+    "c": "nat:stone_largeC|rock_largeE|stone_tallF:1.6"
+   },
+   "lamp": "furnace",
+   "motes": "dust",
+   "features": [
+    "camp",
+    "ruins",
+    "grove",
+    "camp",
+    "cave",
+    "ruins"
+   ],
+   "density": {
+    "h": 90,
+    "o": 190,
+    "^": 230,
+    "x": 44,
+    "c": 90
+   },
+   "gather": {
+    "herb": [
+     {
+      "id": "ash_blossom",
+      "w": 4,
+      "color": [
+       1.0,
+       0.5,
+       0.3
+      ]
+     },
+     {
+      "id": "desert_rose",
+      "w": 3,
+      "color": [
+       0.95,
+       0.75,
+       0.55
+      ]
+     }
+    ],
+    "ore": [
+     {
+      "id": "firestone",
+      "w": 4
+     },
+     {
+      "id": "obsidian_edge",
+      "w": 2
+     },
+     {
+      "id": "hourglass_sand",
+      "w": 3
+     },
+     {
+      "id": "scorpion_stinger",
+      "w": 2
+     }
+    ],
+    "gem": [
+     {
+      "id": "magma_crab_shell",
+      "w": 2
+     },
+     {
+      "id": "drake_ember",
+      "w": 1
+     },
+     {
+      "id": "sun_scarab",
+      "w": 2
+     },
+     {
+      "id": "sand_giant_core",
+      "w": 1
+     }
+    ]
+   },
+   "foes": [
+    [
+     "magma_crab",
+     12
+    ],
+    [
+     "cinder_imp_pack",
+     13
+    ],
+    [
+     "dune_scorpion",
+     12
+    ],
+    [
+     "sun_scarab_swarm",
+     10
+    ]
+   ],
+   "road": true,
+   "_road": true,
+   "npcs": [
+    {
+     "role": "merchant",
+     "name": "Keeper Zahir",
+     "stays": true,
+     "stock": [
+      "healing_salve",
+      "qi_pill",
+      "antidote",
+      "ash_blossom",
+      "desert_rose"
+     ],
+     "line": "Veils for the glare, wraps for the cuts. The flats are beautiful and they want your skin.",
+     "persona": "Keeper Zahir, who keeps the waystation on The Glassblow Flats. Practical, tired, honest about prices."
+    },
+    {
+     "role": "villager",
+     "name": "Warden Ama",
+     "stays": true,
+     "line": "If the wind starts singing low, find shelter. The low song strips flesh.",
+     "persona": "Warden Ama, who walks The Glassblow Flats and knows every bad stretch of it."
+    }
+   ],
+   "lore": [
+    {
+     "title": "A Glass Obelisk",
+     "text": "THE SAND REMEMBERS THE FIRE. THE GLASS REMEMBERS THE SAND. YOU WILL REMEMBER THIS ROAD."
+    }
+   ],
+   "ground_tint": [
+    1.0,
+    0.88,
+    0.66
+   ]
   }
  },
  "sites": [
@@ -826,6 +3868,34 @@
     0.2
    ],
    "blurb": "gantries and a cold white floodlight"
+  },
+  {
+   "char": "8",
+   "to": "whisperwood",
+   "arrive": "<",
+   "label": "Whisperwood",
+   "style": "hatch",
+   "box": [
+    0.04,
+    0.4,
+    0.22,
+    0.66
+   ],
+   "blurb": "a dark line of very old trees"
+  },
+  {
+   "char": "9",
+   "to": "bonefields",
+   "arrive": "<",
+   "label": "The Bonefields",
+   "style": "hatch",
+   "box": [
+    0.74,
+    0.05,
+    0.96,
+    0.3
+   ],
+   "blurb": "white banners on a grey plain"
   }
  ],
  "extra_gates": {
@@ -835,6 +3905,146 @@
    "arrive": "<",
    "label": "The Nanite Foundry",
    "style": "hatch"
-  }
+  },
+  "whisperwood": [
+   {
+    "char": "1",
+    "to": "road_whisperwood_to_mistfen",
+    "arrive": "<",
+    "label": "The Mosslight Track",
+    "style": "hatch"
+   },
+   {
+    "char": "2",
+    "to": "road_whisperwood_to_jadehill",
+    "arrive": "<",
+    "label": "The Pilgrims' Stair",
+    "style": "hatch"
+   },
+   {
+    "char": "3",
+    "to": "road_whisperwood_to_blighted_wood",
+    "arrive": "<",
+    "label": "The Rot Road",
+    "style": "hatch"
+   }
+  ],
+  "bonefields": [
+   {
+    "char": "1",
+    "to": "road_bonefields_to_emberwaste",
+    "arrive": "<",
+    "label": "The Ashwalk",
+    "style": "hatch"
+   }
+  ],
+  "mistfen": [
+   {
+    "char": "1",
+    "to": "road_mistfen_to_sunken_mere",
+    "arrive": "<",
+    "label": "The Drowned Causeway",
+    "style": "hatch"
+   }
+  ],
+  "jadehill": [
+   {
+    "char": "1",
+    "to": "road_jadehill_to_stormcliffs",
+    "arrive": "<",
+    "label": "The Thunder Ledge",
+    "style": "hatch"
+   }
+  ],
+  "stormcliffs": [
+   {
+    "char": "1",
+    "to": "road_stormcliffs_to_frostmere",
+    "arrive": "<",
+    "label": "The White Pass",
+    "style": "hatch"
+   }
+  ],
+  "emberwaste": [
+   {
+    "char": "1",
+    "to": "road_emberwaste_to_sandglass",
+    "arrive": "<",
+    "label": "The Glassblow Flats",
+    "style": "hatch"
+   }
+  ],
+  "road_whisperwood_to_mistfen": [
+   {
+    "char": "1",
+    "to": "mistfen",
+    "arrive": "<",
+    "label": "Mistfen",
+    "style": "hatch"
+   }
+  ],
+  "road_whisperwood_to_jadehill": [
+   {
+    "char": "1",
+    "to": "jadehill",
+    "arrive": "<",
+    "label": "Jadehill Terraces",
+    "style": "hatch"
+   }
+  ],
+  "road_whisperwood_to_blighted_wood": [
+   {
+    "char": "1",
+    "to": "blighted_wood",
+    "arrive": "<",
+    "label": "The Blighted Deep Wood",
+    "style": "hatch"
+   }
+  ],
+  "road_bonefields_to_emberwaste": [
+   {
+    "char": "1",
+    "to": "emberwaste",
+    "arrive": "<",
+    "label": "The Emberwaste",
+    "style": "hatch"
+   }
+  ],
+  "road_mistfen_to_sunken_mere": [
+   {
+    "char": "1",
+    "to": "sunken_mere",
+    "arrive": "<",
+    "label": "The Sunken Mere",
+    "style": "hatch"
+   }
+  ],
+  "road_jadehill_to_stormcliffs": [
+   {
+    "char": "1",
+    "to": "stormcliffs",
+    "arrive": "<",
+    "label": "The Stormcliffs",
+    "style": "hatch"
+   }
+  ],
+  "road_stormcliffs_to_frostmere": [
+   {
+    "char": "1",
+    "to": "frostmere",
+    "arrive": "<",
+    "label": "Frostmere",
+    "style": "hatch"
+   }
+  ],
+  "road_emberwaste_to_sandglass": [
+   {
+    "char": "1",
+    "to": "sandglass",
+    "arrive": "<",
+    "label": "The Sandglass Dunes",
+    "style": "hatch"
+   }
+  ]
  }
 }

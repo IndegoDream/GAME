@@ -3498,5 +3498,568 @@
     "text": "Charred bone drinks poison; the herb mends what it touched."
    }
   ]
+ },
+ "hide_barding": {
+  "name": "Hide Barding",
+  "type": "pet_armor",
+  "value": 40,
+  "pet": {
+   "effect": 0.08,
+   "guard": 0.1
+  },
+  "desc": "Boiled beast hide cut to an animal's frame. Your animal gives 8% more and turns some blows aside. Fit it from the animal's menu."
+ },
+ "iron_barding": {
+  "name": "Iron Barding",
+  "type": "pet_armor",
+  "value": 95,
+  "pet": {
+   "effect": 0.1,
+   "bite": 0.15,
+   "guard": 0.18
+  },
+  "desc": "Riveted iron plates for a beast. A harder bite, 10% more given, and it turns blows aside. Fit it from the animal's menu."
+ },
+ "jade_barding": {
+  "name": "Jade Barding",
+  "type": "pet_armor",
+  "value": 190,
+  "pet": {
+   "effect": 0.18,
+   "bite": 0.1,
+   "guard": 0.14
+  },
+  "desc": "Jade scales strung on silk. What your animal gives you grows by 18%. Fit it from the animal's menu."
+ },
+ "spiritsilk_barding": {
+  "name": "Spirit-Silk Barding",
+  "type": "pet_armor",
+  "value": 320,
+  "pet": {
+   "effect": 0.25,
+   "bite": 0.2,
+   "guard": 0.22
+  },
+  "desc": "Woven spirit silk, light as a thought and tougher than steel. The best an animal can wear. Fit it from the animal's menu."
+ },
+ "glowcap": {
+  "name": "Glowcap",
+  "type": "material",
+  "value": 60,
+  "element": "wood",
+  "desc": "A fungus that glows the colour of a held breath. It grows only where the trees are oldest.",
+  "land": true
+ },
+ "ghostmoth_wing": {
+  "name": "Ghost-Moth Wing",
+  "type": "material",
+  "value": 72,
+  "element": "wood",
+  "desc": "A wing like frosted glass. It trembles toward anything hidden.",
+  "land": true
+ },
+ "stag_antler": {
+  "name": "Spirit-Stag Antler",
+  "type": "material",
+  "value": 96,
+  "element": "wood",
+  "desc": "Shed in autumn, left where the stag was sure no one would find it.",
+  "land": true
+ },
+ "wolf_pelt": {
+  "name": "Whisper-Wolf Pelt",
+  "type": "material",
+  "value": 70,
+  "element": "wood",
+  "desc": "Grey, thick, and almost silent when it moves.",
+  "land": true
+ },
+ "old_amber": {
+  "name": "Old Amber",
+  "type": "material",
+  "value": 110,
+  "element": "earth",
+  "desc": "Sap that set while something was still thinking. You can see it, small, inside.",
+  "land": true
+ },
+ "bog_lotus": {
+  "name": "Bog Lotus",
+  "type": "material",
+  "value": 76,
+  "element": "water",
+  "desc": "Opens at dusk on black water. The petals taste of iron and honey.",
+  "land": true
+ },
+ "venom_reed": {
+  "name": "Venom Reed",
+  "type": "material",
+  "value": 62,
+  "element": "wood",
+  "desc": "A hollow reed with a bitter milk in it. Handle the cut end with care.",
+  "land": true
+ },
+ "peat_core": {
+  "name": "Peat Core",
+  "type": "material",
+  "value": 58,
+  "element": "earth",
+  "desc": "A black brick of centuries of moss, still faintly alive.",
+  "land": true
+ },
+ "will_o_oil": {
+  "name": "Will-o'-Wisp Oil",
+  "type": "material",
+  "value": 118,
+  "element": "fire",
+  "desc": "A drop of pale fire in a skin of marsh gas. It wants to lead you somewhere.",
+  "land": true
+ },
+ "toad_gland": {
+  "name": "Fen-Toad Gland",
+  "type": "material",
+  "value": 54,
+  "element": "water",
+  "desc": "Slick, cold, and powerfully medicinal if you can stomach it.",
+  "land": true
+ },
+ "drowned_pearl": {
+  "name": "Drowned Pearl",
+  "type": "material",
+  "value": 125,
+  "element": "water",
+  "desc": "Dull on the outside. Held to a lamp, it holds a small moon.",
+  "land": true
+ },
+ "grave_bloom": {
+  "name": "Grave Bloom",
+  "type": "material",
+  "value": 70,
+  "element": "earth",
+  "desc": "White flowers that grow in rows, exactly where someone was buried.",
+  "land": true
+ },
+ "battle_iron": {
+  "name": "Battle Iron",
+  "type": "material",
+  "value": 92,
+  "element": "metal",
+  "desc": "Iron that was swung in anger and survived it. It remembers the weight.",
+  "land": true
+ },
+ "marrow_salt": {
+  "name": "Marrow Salt",
+  "type": "material",
+  "value": 88,
+  "element": "earth",
+  "desc": "A pale crust on old bone. The swarm in your blood is curious about it.",
+  "land": true
+ },
+ "widow_shroud": {
+  "name": "Widow's Shroud",
+  "type": "material",
+  "value": 100,
+  "element": "wood",
+  "desc": "Grave-cloth that never rotted. Whoever it covered is long gone; the cloth stays.",
+  "land": true
+ },
+ "war_standard": {
+  "name": "Torn War Standard",
+  "type": "material",
+  "value": 130,
+  "element": "metal",
+  "desc": "A banner worn to threads. It still points the way an army went.",
+  "land": true
+ },
+ "terrace_jade": {
+  "name": "Terrace Jade",
+  "type": "material",
+  "value": 120,
+  "element": "earth",
+  "desc": "Green stone cut from a farmed hillside. Tended, not mined.",
+  "land": true
+ },
+ "cloud_rice": {
+  "name": "Cloud Rice",
+  "type": "material",
+  "value": 74,
+  "element": "wood",
+  "desc": "A pale grain grown above the mist. A bowl is worth a day of meditation.",
+  "land": true
+ },
+ "crane_feather": {
+  "name": "Crane Feather",
+  "type": "material",
+  "value": 98,
+  "element": "wood",
+  "desc": "White as paper, light as a thought, and never wet.",
+  "land": true
+ },
+ "sage_tea_leaf": {
+  "name": "Sage Tea Leaf",
+  "type": "material",
+  "value": 82,
+  "element": "wood",
+  "desc": "Picked at dawn from terraces older than the sects.",
+  "land": true
+ },
+ "monkey_charm": {
+  "name": "Monkey King's Charm",
+  "type": "material",
+  "value": 140,
+  "element": "metal",
+  "desc": "A trinket the bandits steal from each other. It is always warm.",
+  "land": true
+ },
+ "pearl_oyster": {
+  "name": "Mere Pearl",
+  "type": "material",
+  "value": 130,
+  "element": "water",
+  "desc": "Grown slowly in cold, clear water. Perfectly round.",
+  "land": true
+ },
+ "serpent_scale": {
+  "name": "Serpent Scale",
+  "type": "material",
+  "value": 112,
+  "element": "water",
+  "desc": "A scale as wide as a palm. Cool, flexible, and extremely tough.",
+  "land": true
+ },
+ "kelp_silk": {
+  "name": "Kelp Silk",
+  "type": "material",
+  "value": 78,
+  "element": "water",
+  "desc": "Fibres drawn from deep kelp. Spun, they make a cloth that sheds blows.",
+  "land": true
+ },
+ "drowned_crown": {
+  "name": "Drowned Crown Shard",
+  "type": "material",
+  "value": 150,
+  "element": "metal",
+  "desc": "A fragment of something worn by a king who is now fish food.",
+  "land": true
+ },
+ "river_otter_pelt": {
+  "name": "Otter Pelt",
+  "type": "material",
+  "value": 66,
+  "element": "water",
+  "desc": "Dense, oily, and exactly as warm as it looks.",
+  "land": true
+ },
+ "roc_quill": {
+  "name": "Roc Quill",
+  "type": "material",
+  "value": 118,
+  "element": "wood",
+  "desc": "A feather as long as your arm. It slices the wind like a blade.",
+  "land": true
+ },
+ "sky_lichen": {
+  "name": "Sky Lichen",
+  "type": "material",
+  "value": 80,
+  "element": "wood",
+  "desc": "Clings to cliffs no one has climbed.",
+  "land": true
+ },
+ "tempest_heart": {
+  "name": "Tempest Heart",
+  "type": "material",
+  "value": 180,
+  "element": "fire",
+  "desc": "A knot of storm in a stone shell. It will not stay still.",
+  "land": true
+ },
+ "ash_blossom": {
+  "name": "Ash Blossom",
+  "type": "material",
+  "value": 88,
+  "element": "fire",
+  "desc": "Grows from cooled lava. The petals are grey, the heart is red.",
+  "land": true
+ },
+ "magma_crab_shell": {
+  "name": "Magma-Crab Shell",
+  "type": "material",
+  "value": 132,
+  "element": "fire",
+  "desc": "Plate that has been molten and cooled a hundred times.",
+  "land": true
+ },
+ "drake_ember": {
+  "name": "Drake Ember",
+  "type": "material",
+  "value": 190,
+  "element": "fire",
+  "desc": "A coal from something that breathes fire. It never quite goes out.",
+  "land": true
+ },
+ "obsidian_edge": {
+  "name": "Obsidian Edge",
+  "type": "material",
+  "value": 116,
+  "element": "earth",
+  "desc": "A sliver of volcanic glass. You can shave with it.",
+  "land": true
+ },
+ "frost_lotus": {
+  "name": "Frost Lotus",
+  "type": "material",
+  "value": 118,
+  "element": "water",
+  "desc": "Blooms through ice. The petals are cold enough to burn.",
+  "land": true
+ },
+ "rime_crystal": {
+  "name": "Rime Crystal",
+  "type": "material",
+  "value": 134,
+  "element": "water",
+  "desc": "A crystal grown in a single winter night. It rings when touched.",
+  "land": true
+ },
+ "snow_lynx_pelt": {
+  "name": "Snow-Lynx Pelt",
+  "type": "material",
+  "value": 108,
+  "element": "water",
+  "desc": "White and soft as breath. It keeps in all heat.",
+  "land": true
+ },
+ "wendigo_horn": {
+  "name": "Wendigo Horn",
+  "type": "material",
+  "value": 176,
+  "element": "water",
+  "desc": "A horn from something that was once a man. It carries a cold hunger.",
+  "land": true
+ },
+ "glacier_heart": {
+  "name": "Glacier Heart",
+  "type": "material",
+  "value": 200,
+  "element": "water",
+  "desc": "Blue and blind-bright. It makes a perfect cold.",
+  "land": true
+ },
+ "desert_rose": {
+  "name": "Desert Rose",
+  "type": "material",
+  "value": 96,
+  "element": "earth",
+  "desc": "A crystal flower of sand and mineral, edges like petals.",
+  "land": true
+ },
+ "scorpion_stinger": {
+  "name": "Dune-Scorpion Stinger",
+  "type": "material",
+  "value": 110,
+  "element": "earth",
+  "desc": "A curved black barb, still wet at the tip.",
+  "land": true
+ },
+ "hourglass_sand": {
+  "name": "Hourglass Sand",
+  "type": "material",
+  "value": 150,
+  "element": "earth",
+  "desc": "Sand that remembers falling. Hold it and the hour slips by differently.",
+  "land": true
+ },
+ "sun_scarab": {
+  "name": "Sun Scarab",
+  "type": "material",
+  "value": 128,
+  "element": "fire",
+  "desc": "A gold beetle shell the size of a fist. It's warm all night.",
+  "land": true
+ },
+ "sand_giant_core": {
+  "name": "Sand-Giant Core",
+  "type": "material",
+  "value": 195,
+  "element": "earth",
+  "desc": "A fist of packed stone from the heart of a giant of sand.",
+  "land": true
+ },
+ "blight_bloom": {
+  "name": "Blight Bloom",
+  "type": "material",
+  "value": 170,
+  "element": "wood",
+  "desc": "A flower grown wrong. The swarm in your blood leans toward it.",
+  "land": true
+ },
+ "nanite_sap": {
+  "name": "Nanite Sap",
+  "type": "material",
+  "value": 190,
+  "element": "wood",
+  "desc": "Sap with a glitter in it. It moves when you aren't looking.",
+  "land": true
+ },
+ "warped_heartwood": {
+  "name": "Warped Heartwood",
+  "type": "material",
+  "value": 180,
+  "element": "wood",
+  "desc": "Wood that grew around a machine and learned its shape.",
+  "land": true
+ },
+ "corrupted_antler": {
+  "name": "Corrupted Antler",
+  "type": "material",
+  "value": 200,
+  "element": "wood",
+  "desc": "An antler with wire in it. It twitches.",
+  "land": true
+ },
+ "root_king_seed": {
+  "name": "Root King's Seed",
+  "type": "material",
+  "value": 260,
+  "element": "wood",
+  "desc": "The seed of something that is still growing, a very long way down.",
+  "land": true
+ },
+ "worldboss_core": {
+  "name": "World-Boss Core",
+  "type": "material",
+  "value": 400,
+  "element": "metal",
+  "desc": "The still-warm heart of something that only stirs now and then. Rare crafters pay dearly."
+ },
+ "relic_crash_site": {
+  "name": "Signal Ring",
+  "type": "ring",
+  "value": 900,
+  "effect": {
+   "qi_mult": 1.08
+  },
+  "desc": "Dropped by Beacon Prime -- a ring humming the beacon's last call."
+ },
+ "relic_launch_yard": {
+  "name": "Pad-Lock Amulet",
+  "type": "amulet",
+  "value": 900,
+  "effect": {
+   "hp_mult": 1.1
+  },
+  "desc": "Dropped by The Skyhook Colossus -- a clamp that once held a ship to the sky."
+ },
+ "relic_ashen_moon": {
+  "name": "Ashglass Ring",
+  "type": "ring",
+  "value": 900,
+  "effect": {
+   "loot_luck": 1.1
+  },
+  "desc": "Dropped by Moonwake Sovereign -- grey glass that remembers a warmer light."
+ },
+ "relic_glass_desert": {
+  "name": "Prism Amulet",
+  "type": "amulet",
+  "value": 900,
+  "effect": {
+   "damage_mult": 1.08
+  },
+  "desc": "Dropped by The Shard Emperor -- a shard that bends every blow toward its mark."
+ },
+ "relic_whisperwood": {
+  "name": "Heartwood Ring",
+  "type": "ring",
+  "value": 900,
+  "effect": {
+   "hp_mult": 1.08,
+   "regen": 0.5
+  },
+  "desc": "Dropped by Ancient of Whispers -- a ring that grows a leaf each spring."
+ },
+ "relic_mistfen": {
+  "name": "Fenlight Amulet",
+  "type": "amulet",
+  "value": 900,
+  "effect": {
+   "gather_chance": 0.12
+  },
+  "desc": "Dropped by The Drowned Queen -- a bottled marsh-light that points to herbs."
+ },
+ "relic_bonefields": {
+  "name": "Marshal's Signet",
+  "type": "ring",
+  "value": 900,
+  "effect": {
+   "damage_mult": 1.1
+  },
+  "desc": "Dropped by Marshal of the Unburied -- a signet pressed in grave-wax."
+ },
+ "relic_jadehill": {
+  "name": "Jade Sage Amulet",
+  "type": "amulet",
+  "value": 900,
+  "effect": {
+   "meditate_mult": 1.25
+  },
+  "desc": "Dropped by The Terrace Warden -- carved by someone who sat very still."
+ },
+ "relic_sunken_mere": {
+  "name": "Tidepearl Ring",
+  "type": "ring",
+  "value": 900,
+  "effect": {
+   "qi_mult": 1.1
+  },
+  "desc": "Dropped by Leviathan of the Mere -- a pearl with a slow tide inside."
+ },
+ "relic_stormcliffs": {
+  "name": "Stormcoil Amulet",
+  "type": "amulet",
+  "value": 900,
+  "effect": {
+   "attack_speed": 1.1
+  },
+  "desc": "Dropped by The Thunder Regent -- copper wound around a trapped storm."
+ },
+ "relic_emberwaste": {
+  "name": "Cinder Crown Ring",
+  "type": "ring",
+  "value": 900,
+  "effect": {
+   "damage_mult": 1.12
+  },
+  "desc": "Dropped by The Magma Sovereign -- a ring that is always slightly too warm."
+ },
+ "relic_frostmere": {
+  "name": "Rimeheart Amulet",
+  "type": "amulet",
+  "value": 900,
+  "effect": {
+   "hp_mult": 1.14
+  },
+  "desc": "Dropped by The Winter Throne -- a frozen heart that beats once an hour."
+ },
+ "relic_sandglass": {
+  "name": "Hourglass Amulet",
+  "type": "amulet",
+  "value": 900,
+  "effect": {
+   "meditate_mult": 1.35,
+   "qi_mult": 1.05
+  },
+  "desc": "Dropped by Khet, Keeper of Hours -- sand that falls upward when you rest."
+ },
+ "relic_blighted_wood": {
+  "name": "Blightroot Ring",
+  "type": "ring",
+  "value": 900,
+  "effect": {
+   "damage_mult": 1.15,
+   "hp_mult": 1.05
+  },
+  "desc": "Dropped by The Rot King's Shadow -- a root-ring that bites back."
  }
 }

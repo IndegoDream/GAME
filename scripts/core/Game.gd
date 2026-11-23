@@ -27,8 +27,10 @@ const FrontierGen := preload("res://scripts/world/Frontier.gd")          # round
 const Gfx := preload("res://scripts/core/Gfx.gd")
 const CloudSaveScript := preload("res://scripts/core/CloudSave.gd")
 const Hook := preload("res://scripts/systems/Hook.gd")          # round 126: chains, luck, the daily pull
-const Comfort := preload("res://scripts/systems/Comfort.gd")      # round 127: convenience and style, never power
-const OnlineGen := preload("res://scripts/world/OnlineGen.gd")          # round 125: the Gate (shared world)
+const Comfort := preload("res://scripts/systems/Comfort.gd")
+const Mods := preload("res://scripts/core/Mods.gd")              # round 182: data mods (Menu > Mods)      # round 127: convenience and style, never power
+const OnlineGen := preload("res://scripts/world/OnlineGen.gd")
+const KeeperGen := preload("res://scripts/world/KeeperGen.gd")          # 2026-11-06: your own world          # round 125: the Gate (shared world)
 const OnlineScript := preload("res://scripts/net/Online.gd")
 var online = null                       # round 125: the online client (a node), made in _ready
 var online_from := "village"            # where the Gate was entered from (a save made inside the Gate is written as this place)
@@ -266,6 +268,7 @@ var _autosave_timer := 0.0
 
 
 func _ready() -> void:
+	stats_changed.connect(fx_dirty)         # round 195: the once-a-frame effect list is rebuilt after any change
 	migrate_user_dir()                      # round 56: saves from when the game was "Dungeon Crawl Eliet"
 	items = _load_json("res://data/items.json", {})
 	enemies = _load_json("res://data/enemies.json", {})
@@ -345,6 +348,20 @@ func realm_info(i: int) -> Dictionary:
 	return {"name": I18n.t("Immortal Realm ") + tag, "nanite": I18n.t("Nanite Infinity ") + tag}
 
 
+static func big(v: float) -> String:
+	## 2026-11-06: numbers past what an int holds (late swarms reach 10^19 integration) were cast with int() and showed as
+	## -9223372036854775808. Every display of qi and integration goes through this: plain below a million, then M / B / T, then 1.23e15.
+	var a := absf(v)
+	if a < 1000000.0:
+		return str(int(v))
+	if a < 1e15:
+		for row in [[1e12, "T"], [1e9, "B"], [1e6, "M"]]:
+			if a >= float(row[0]):
+				return "%.2f%s" % [v / float(row[0]), row[1]]
+	var e := int(floor(log(a) / log(10.0)))
+	return "%.2fe%d" % [v / pow(10.0, e), e]
+
+
 func qi_to_next() -> float:
 	## x1.16 a step (2026-10-02; was x1.28, which put Core Formation tens of
 	## thousands of qi a step away -- out of reach of floor 9's inheritance,
@@ -397,22 +414,24 @@ func add_qi(amount: float, source: String = "") -> void:
 	stats_changed.emit()
 
 
-func max_hp() -> int:
+func max_hp(now: bool = false) -> int:
+	## now=true (round 195): the per-frame readers (HP bar, regeneration) -- the kept effect list, see fx_now()
 	var bonus := worn_hp()
-	return int(round((100 + step_index() * 14 + realm * 40 + bonus) * tech_effect("hp_mult", 1.0) * Hook.power("hp")))
+	return int(round((100 + step_index() * 14 + realm * 40 + bonus) * (fx_now("hp_mult", 1.0) if now else tech_effect("hp_mult", 1.0)) * Hook.power("hp")))
 
 
-func damage() -> int:
-	return weapon_damage(weapon)
+func damage(now: bool = false) -> int:
+	## now=true (round 196): for display every refresh -- the kept effect list (see fx_now)
+	return weapon_damage(weapon, now)
 
 
-func weapon_damage(id: String) -> int:
+func weapon_damage(id: String, now: bool = false) -> int:
 	## What a strike deals with this weapon in hand ("" = bare hands): your
 	## cultivation plus the weapon, times how well you know its kind.
 	var bonus := 0
 	if id != "" and has_item_def(id):
 		bonus = int(item_def(id).get("damage", 0))
-	return maxi(1, int(round((9 + step_index() * 2 + realm * 6 + bonus) * tech_effect("damage_mult", 1.0) * proficiency_mult(id) * Hook.power("dmg"))))
+	return maxi(1, int(round((9 + step_index() * 2 + realm * 6 + bonus) * (fx_now("damage_mult", 1.0) if now else tech_effect("damage_mult", 1.0)) * proficiency_mult(id) * Hook.power("dmg"))))
 
 
 # ---- weapon proficiency: every kind is its own skill -------------------------
@@ -476,7 +495,7 @@ func survival_heal_mult() -> float:
 
 func survival_regen() -> float:
 	## HP a second that your wounds close on their own between fights.
-	return float(max_hp()) * 0.0008 * skill_level("survival")
+	return float(max_hp(true)) * 0.0008 * skill_level("survival")          # (asked every physics tick while healing)
 
 
 # ======================================================================
@@ -594,9 +613,14 @@ func count(id: String) -> int:
 	return int(inventory.get(id, 0))
 
 
+var _overflow_said := {}      # round 186: id -> when the "went to your chest" line was last said
+
+
 func add_item(id: String, n: int = 1, announce: bool = true) -> void:
 	if n <= 0:
 		return
+	if systems.has("looks"):
+		systems["looks"].saw(id)                     # round 183b: the wardrobe remembers wearables you've held
 	if id == "gold":
 		gold += n
 	else:
@@ -624,7 +648,11 @@ func add_item(id: String, n: int = 1, announce: bool = true) -> void:
 				var st0: Dictionary = stash_ref()
 				st0[id] = int(st0.get(id, 0)) + extra
 				home["stash"] = st0
-				message.emit(I18n.t("Your pouch is full of %s (%d) -- %d went to your chest at home.") % [item_name(id), pouch_cap(), extra])
+				# round 186: said once a while per kind (his log had 790 of these) -- nothing is lost either way
+				var nowm := Time.get_ticks_msec()
+				if nowm - int(_overflow_said.get(id, -999999)) > 120000:
+					_overflow_said[id] = nowm
+					message.emit(I18n.t("Your pouch is full of %s (%d) -- %d went to your chest at home.") % [item_name(id), pouch_cap(), extra])
 			else:
 				message.emit(I18n.t("Your pouch is full of %s (%d) -- the rest is left behind. A storage ring would hold more.") % [item_name(id), pouch_cap()])
 			log_event("pouch_full", {"id": id})
@@ -667,6 +695,8 @@ func remove_item(id: String, n: int = 1) -> bool:
 			inventory.erase(id)
 			inscriptions.erase(id)         # round 38: the runes went with it
 		_fix_equipment(id)
+		if sys("auction") != null:
+			sys("auction")._trim_bought(id)   # bought-at-the-house marks leave with the pieces
 	stats_changed.emit()
 	return true
 
@@ -708,8 +738,10 @@ func use_item(id: String) -> bool:
 		attune(str(e), float(def["attune"][e]))
 	if def.has("blood"):
 		blood_essence(str(def["blood"]))       # a drop of old blood (round 30)
+		_fx_bump += 1
 	if def.has("cleanse") and sys("cleansing"):
 		message.emit(sys("cleansing").use_pill(float(def["cleanse"])))      # round 40
+		_fx_bump += 1                  # (round 198: cleansing changes its effects -- a held list rebuilds)
 	if def.get("coat", null) is Dictionary and sys("poison") != null:                   # round 138: a weapon coating
 		var ct: String = sys("poison").apply_coating(def["coat"], item_name(id))
 		if ct != "":
@@ -725,6 +757,67 @@ func use_item(id: String) -> bool:
 		add_buff(base_id(id), b.get("effect", {}), secs)
 		message.emit(I18n.t("%s: %s for %s.") % [item_name(id), str(def.get("desc", "")).get_slice(":", 1).strip_edges() if str(def.get("desc", "")).contains(":") else I18n.t("its effect"), _dur(secs)])
 	return true
+
+
+## round 186: Robert's play log -- 831 of his 881 item uses were the same pill again within a few seconds.
+## Pills whose good simply adds up (qi, an element's attunement, cleansing) can be taken all at once.
+const STACKING_USE := ["qi", "attune", "cleanse"]
+const ONE_AT_A_TIME := ["heal", "buff", "aid", "coat", "antidote", "blood", "meal", "gate"]
+var msg_hold := false          # (use_many: the HUD keeps the per-pill lines to itself)
+
+
+func can_use_many(id: String) -> bool:
+	var def: Dictionary = item_def(id)
+	if str(def.get("type", "")) != "consumable" or count(id) < 2:
+		return false
+	for k in ONE_AT_A_TIME:
+		if def.has(k):
+			return false
+	for k in STACKING_USE:
+		if def.has(k):
+			return true
+	return false
+
+
+func use_many(id: String, n: int = -1) -> int:
+	## take up to n (all, if -1) -- one summary line instead of one line a pill
+	if not can_use_many(id):
+		return 0
+	var want := count(id) if n < 0 else mini(n, count(id))
+	var qi0 := qi
+	var realm0 := realm
+	var sub0 := sublevel
+	var used := 0
+	msg_hold = true
+	fx_hold(true)              # round 198: the effect list is built once for the batch, not once a pill (4 ms a pill on Robert's save)
+	log_hold(true)             # and the play log is written once, not opened 999 times
+	for i in want:
+		if count(id) <= 0 or not use_item(id):
+			break
+		used += 1
+	log_hold(false)
+	fx_hold(false)
+	msg_hold = false
+	if used > 0:
+		var gained := qi - qi0
+		var txt := I18n.t("Took %d × %s.") % [used, item_name(id)]
+		if gained > 0.5:
+			txt += " " + I18n.t("+%s qi.") % _short_num(gained)
+		if realm != realm0 or sublevel != sub0:
+			txt += " " + I18n.t("Cultivation rises: %s") % cultivation_label()
+		message.emit(txt)
+	return used
+
+
+static func _short_num(v: float) -> String:
+	var a := absf(v)
+	if a >= 1e9:
+		return "%.1fB" % (v / 1e9)
+	if a >= 1e6:
+		return "%.1fM" % (v / 1e6)
+	if a >= 1e4:
+		return "%.1fk" % (v / 1e3)
+	return str(int(round(v)))
 
 
 func use_best(base: String) -> bool:
@@ -758,7 +851,14 @@ func craft(recipe: Dictionary, intent: String = "balanced") -> bool:
 	return bool(craft_attempt(recipe, intent).get("ok", false))
 
 
+func _god_craft() -> bool:
+	var t = sys("tester")
+	return t != null and t.god_craft()
+
+
 func craft_chance(recipe: Dictionary, intent: String = "balanced") -> float:
+	if _god_craft():
+		return 1.0                        # round 179: god mode never fails a craft
 	## The odds you see before you commit: your skill against the work,
 	## how you approach it, and what your affinities and techniques add.
 	var lvl := skill_level(str(recipe.get("skill", "smithing")))
@@ -788,7 +888,7 @@ func craft_attempt(recipe: Dictionary, intent: String = "balanced", roll: float 
 	var r := float(pl["roll"]) if float(pl["roll"]) >= 0.0 else randf()
 	gold -= int(recipe.get("gold", 0))
 	var xp := (10.0 + diff * 4.0) * float(pl["xp"])
-	if r >= chance:
+	if r >= chance and not _god_craft():
 		var lost := []
 		for need in recipe.get("needs", {}):
 			var n := int(ceil(int(recipe["needs"][need]) / 2.0))
@@ -1080,8 +1180,16 @@ func has_treasure(id: String) -> bool:
 	return is_treasure(id) and count(id) > 0
 
 
+func unlimited_stores() -> bool:
+	## round 177 (Robert: "unlimited stores of stuff"): the Assist build holds any amount of anything
+	var t = sys("tester")
+	return t != null and t.assist_ok()
+
+
 func pouch_cap() -> int:
 	## 20 of each material -- until a storage ring makes it 99.
+	if unlimited_stores():
+		return 999999
 	var cap := POUCH_CAP
 	for id in inventory:
 		if is_treasure(id):
@@ -1225,6 +1333,8 @@ func gathered_recently(key: String, regrow_seconds: float) -> bool:
 # ======================================================================
 
 func load_level_def(level_id: String) -> Dictionary:
+	if KeeperGen.is_keeper(level_id):
+		return KeeperGen.make_def(sys("worldkeeper"), realm) if sys("worldkeeper") != null else {}
 	if OnlineGen.is_online(level_id):
 		return OnlineGen.make_def(level_id, float(online.inst.get("radius", 24.0)) if online != null else 24.0)
 	if Arena.is_arena(level_id):
@@ -1251,7 +1361,7 @@ func load_level_def(level_id: String) -> Dictionary:
 	if TrialGen.is_trial(level_id):
 		return trial_level_def(level_id)          # round 30: the daily trial
 	if level_id == "valley":
-		return ValleyGen.make_def(valley_data(), enemies)          # round 24: drawn from data/valley.json
+		return ValleyGen.make_def(valley_data(), enemies, sys("own_sect").site() if sys("own_sect") != null else {})          # round 24: drawn from data/valley.json (r188: and the Empty Seat)
 	if FrontierGen.is_frontier(level_id):
 		return FrontierGen.make_def(level_id, enemies)          # round 123: the Fallen Beacon, the Ring, the Moon ...
 	if TowerGen.is_tower(level_id):
@@ -1277,6 +1387,8 @@ func lite_blocked(level_id: String) -> bool:
 
 func online_blocked() -> String:
 	## round 125: "" if this copy may use the Gate, else why not (data/online.json: require_full_game)
+	if store != null and store.demo():
+		return I18n.t("Elite Online opens in the full game.")
 	var d = JSON.parse_string(FileAccess.get_file_as_string("res://data/online.json")) if FileAccess.file_exists("res://data/online.json") else {}
 	if d is Dictionary and bool(d.get("require_full_game", false)) and store != null and not store.full_game():
 		return I18n.t("The Gate is a place of the full game. (Menu -> Unlock the full game.)")
@@ -1287,18 +1399,26 @@ func lite_message() -> String:
 	return I18n.t("That road is only in the Full world. (Pause menu -> Graphics fine-tune -> World: Full. Your character and save are the same either way.)")
 
 
+var warp_pass := false          # round 176: the Assist floor warp walks past the paywall / Lite checks for ONE go_to
+
+
 func go_to(level_id: String, arrive_at: String) -> void:
-	if lite_blocked(level_id):
+	var wp := warp_pass
+	warp_pass = false
+	if lite_blocked(level_id) and not wp:
 		message.emit(lite_message())
 		return
 	var stop: String = store.travel_check(level_id) if store else ""
-	if stop != "" and tester_unlocked() and not load_level_def(level_id).is_empty():
+	if stop != "" and (tester_unlocked() or wp) and not load_level_def(level_id).is_empty():
 		stop = ""                       # round 159: the test kit opens every road
 	if stop != "":
 		# round 58: a word first (the free tier's ads, once), the full game
 		# (model "locked"), or an expansion that isn't yours -- the HUD's window
 		if stop == "locked":
-			message.emit("Below floor %d is the full game." % store.free_depth())
+			if level_id.begins_with("floor") or ScavengeGen.is_scavenge(level_id):
+				message.emit("Below floor %d is the full game." % store.free_depth())
+			else:
+				message.emit("%s lies beyond the demo -- it is part of the full game." % FrontierGen.name_of(level_id) if FrontierGen.is_frontier(level_id) else "That road is part of the full game.")
 		log_event("paywall", {"to": level_id, "why": stop})
 		unlock_wanted.emit(level_id, arrive_at)
 		return
@@ -1493,6 +1613,7 @@ func _migrate_save(d: Dictionary) -> Dictionary:
 func save_game() -> void:
 	var data := {
 		"save_version": SAVE_VERSION,
+		"mods": Mods.active_ids(),                 # round 182: which mods this save was played with
 		"realm": realm, "sublevel": sublevel, "qi": qi, "hp": hp, "gold": gold,
 		"inventory": inventory, "weapon": weapon, "armor": armor, "ring": ring, "amulet": amulet,
 		"equipment": equipment, "formulas_known": formulas_known, "nano_nodes": nano_nodes, "mat_known": mat_known,
@@ -1527,20 +1648,27 @@ func save_game() -> void:
 # won't read, load_game tries the .bak -- and a file that won't read is never
 # written over: it's kept aside as "<slot>.broken-<time>.json".
 
+var _wrote_good := {}          # round 195: path -> the text this run last wrote there and checked (no need to parse it again)
+
+
 func _write_safely(path: String, text: String) -> bool:
+	## Round 195: the autosave every minute took ~65 ms on his save (730 KB) -- a hitch a minute. Two of its three JSON
+	## passes were checks: the new file is now checked by reading it back and comparing (2 ms instead of a 21 ms parse),
+	## and the old file is only parsed when this run didn't write it itself.
 	var tmp := path + ".tmp"
 	var f := FileAccess.open(tmp, FileAccess.WRITE)
 	if f == null:
 		return false
 	f.store_string(text)
 	f.close()
-	if JSON.parse_string(FileAccess.get_file_as_string(tmp)) == null:
+	if FileAccess.get_file_as_string(tmp) != text or (text.length() > 0 and not (text.begins_with("{") or text.begins_with("["))):
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(tmp))
 		return false                      # (the disk didn't keep what we wrote: leave the old save alone)
 	var g_path := ProjectSettings.globalize_path(path)
 	var g_bak := ProjectSettings.globalize_path(path + ".bak")
 	if FileAccess.file_exists(path):
-		if JSON.parse_string(FileAccess.get_file_as_string(path)) != null:
+		var known: bool = _wrote_good.has(path) and FileAccess.get_file_as_string(path).length() == int(_wrote_good[path])
+		if known or JSON.parse_string(FileAccess.get_file_as_string(path)) != null:
 			if FileAccess.file_exists(path + ".bak"):
 				DirAccess.remove_absolute(g_bak)
 			DirAccess.rename_absolute(g_path, g_bak)          # the last good save, one step back
@@ -1548,7 +1676,10 @@ func _write_safely(path: String, text: String) -> bool:
 			_keep_broken(path)
 	if FileAccess.file_exists(path):
 		DirAccess.remove_absolute(g_path)
-	return DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), g_path) == OK
+	var ok := DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), g_path) == OK
+	if ok:
+		_wrote_good[path] = text.length()
+	return ok
 
 
 func _keep_broken(path: String) -> void:
@@ -1902,9 +2033,58 @@ func has_tech(tid: String) -> bool:
 	return techniques.has(tid)
 
 
+var _fx_cache: Array = []
+var _fx_frame := -1
+var _fx_sig := ""
+var _fx_at := 0
+const FX_KEEP_MS := 250
+var fx_builds := 0                     # (tools) how many times _effects() was really rebuilt
+
+
+func fx_dirty() -> void:
+	## round 195: anything that changes what the player has can call this; stats_changed does it too
+	_fx_frame = -1
+
+
+func _fx_signature() -> String:
+	## cheap things that move when an effect source changes -- a second guard beside stats_changed for code (and tests)
+	## that change state directly within one frame
+	## round 198: + the elements' attunement and _fx_bump (a pill that changes a system's effects bumps it), so a held list
+	## can't go stale through "Use all"
+	return "%d|%d|%d|%d|%d|%d|%s|%s|%s|%d|%d|%d|%s|%s|%d" % [techniques.size(), inventory.size(), buffs.size(), lattice.size(), guilds.size(),
+		contracts.size(), weapon, partner, str(current_level), realm, sublevel, sect.size(), str(equipment.hash()), str(affinity.hash()), _fx_bump]
+
+
 func _effects() -> Array:
 	## Every passive effect the player has: learned techniques AND owned
-	## treasures (a jade pendant works the same way a technique does).
+	## treasures (a jade pendant works the same way a technique does). Always exact (built now); it also refreshes the
+	## kept copy fx_now() reads.
+	_fx_cache = _build_effects()
+	_fx_frame = Engine.get_process_frames()
+	_fx_at = Time.get_ticks_msec()
+	_fx_sig = _fx_signature()
+	fx_builds += 1
+	return _fx_cache
+
+
+func _effects_kept() -> Array:
+	## Round 195: the same list, kept for up to FX_KEEP_MS -- for the per-frame readers only (movement, regeneration,
+	## the HP bar, research and cleansing speed). Robert's village ran at 26 fps with the graphics card idle: building
+	## the list (131 entries -- every pack item, every system) took 2.2 ms, and those readers asked for it several
+	## times a frame. Rebuilt when stats_changed fires, when the signature moves, or after FX_KEEP_MS.
+	## Anything that must see a change made a moment ago (rules, tests, menus) uses tech_effect(), which is exact.
+	var now := Time.get_ticks_msec()
+	if _fx_frame >= 0 and now - _fx_at < FX_KEEP_MS and _fx_signature() == _fx_sig:
+		return _fx_cache
+	return _effects()
+
+
+func fx_now(key: String, default_value: float) -> float:
+	## tech_effect() for code that runs every frame: the kept list (at most FX_KEEP_MS old)
+	return _fx_value(_effects_kept(), key, default_value)
+
+
+func _build_effects() -> Array:
 	var out := []
 	for tid in techniques:
 		out.append(technique_defs.get(tid, {}).get("effect", {}))
@@ -1946,13 +2126,43 @@ func _effects() -> Array:
 	return out
 
 
+var _fx_hold := 0
+var _fx_bump := 0             # round 198: see _fx_signature
+var _fx_hold_list: Array = []
+var _fx_hold_sig := ""
+
+
+func fx_hold(on: bool) -> void:
+	## Round 197: one event that asks tech_effect() many times -- a kill asked ~10 times, 2 ms each (25-40 ms a kill on
+	## Robert's save) -- can hold the list: built once for the event, rebuilt only if the signature moves (an item
+	## gained, a technique learned, the realm). Nested holds count; always pair with fx_hold(false).
+	if on:
+		if _fx_hold == 0:
+			_fx_hold_list = []
+		_fx_hold += 1
+	else:
+		_fx_hold = maxi(0, _fx_hold - 1)
+		if _fx_hold == 0:
+			_fx_hold_list = []
+
+
 func tech_effect(key: String, default_value: float) -> float:
 	## Multiplies together every learned technique's (and owned treasure's)
 	## value for `key` (damage_taken 0.85 x ...), or adds for additive keys.
+	if _fx_hold > 0:
+		var sg := _fx_signature()
+		if _fx_hold_list.is_empty() or sg != _fx_hold_sig:
+			_fx_hold_list = _effects()
+			_fx_hold_sig = sg
+		return _fx_value(_fx_hold_list, key, default_value)
+	return _fx_value(_effects(), key, default_value)
+
+
+func _fx_value(list: Array, key: String, default_value: float) -> float:
 	var additive := key in ADDITIVE_KEYS or key.begins_with("craft_")
 	var v := 0.0 if additive else default_value
 	var found := false
-	for e in _effects():
+	for e in list:
 		if e.has(key) and not (e[key] is Dictionary):
 			found = true
 			if additive:
@@ -1982,7 +2192,8 @@ func tech_effect_dict(key: String) -> Dictionary:
 	return out
 
 
-func learn(tid: String, source: String = "") -> bool:
+func learn(tid: String, source: String = "", quiet: bool = false) -> bool:
+	## quiet (round 190): learned with others at once -- the caller says it in one line
 	if techniques.has(tid) or not technique_defs.has(tid):
 		return false
 	techniques[tid] = true
@@ -1990,7 +2201,8 @@ func learn(tid: String, source: String = "") -> bool:
 	var how := ""
 	if t.get("kind") == "active":
 		how = " (press %s)" % t.get("key", "?")
-	message.emit(I18n.t("TECHNIQUE LEARNED: %s%s -- %s") % [t.get("name", tid), how, t.get("desc", "")])
+	if not quiet:
+		message.emit(I18n.t("TECHNIQUE LEARNED: %s%s -- %s") % [t.get("name", tid), how, t.get("desc", "")])
 	log_event("technique", {"id": tid, "source": source})
 	if lattice_data().get("arts", {}).has(tid):
 		# an active art: it lives in the lattice -- start learning it, and if
@@ -2003,7 +2215,8 @@ func learn(tid: String, source: String = "") -> bool:
 			if not lattice.has(str(pid)):
 				if lattice_focus == "" or can_focus(lattice_focus) != "":
 					lattice_focus = str(pid)
-				message.emit(I18n.t("MERIDIAN: %s runs through your %s point, still sealed -- meditate with it as your focus (K).") % [t.get("name", tid), lattice_point(str(pid)).get("name", pid)])
+				if not quiet:
+					message.emit(I18n.t("MERIDIAN: %s runs through your %s point, still sealed -- meditate with it as your focus (K).") % [t.get("name", tid), lattice_point(str(pid)).get("name", pid)])
 				break
 	add_qi(25.0, "insight")
 	stats_changed.emit()
@@ -2086,6 +2299,29 @@ func log_event(kind: String, data: Dictionary = {}) -> void:
 		sy.on_event(kind, data)
 	if kind != "chapter_done":
 		mq_auto()                                    # round 34: a chapter nobody reports completes itself
+	if _log_hold > 0:
+		_log_buf.append(JSON.stringify(row))         # round 198: a batch (Use all) writes its lines together
+		return
+	_log_write([JSON.stringify(row)])
+
+
+var _log_hold := 0
+var _log_buf: Array = []
+
+
+func log_hold(on: bool) -> void:
+	## round 198: hold the play log's lines and write them in one go (nested holds count; always pair with log_hold(false))
+	if on:
+		_log_hold += 1
+		return
+	_log_hold = maxi(0, _log_hold - 1)
+	if _log_hold == 0 and not _log_buf.is_empty():
+		var lines := _log_buf
+		_log_buf = []
+		_log_write(lines)
+
+
+func _log_write(lines: Array) -> void:
 	if FileAccess.file_exists(playlog_path):
 		var f0 := FileAccess.open(playlog_path, FileAccess.READ)
 		if f0 and f0.get_length() > PLAYLOG_MAX_BYTES:
@@ -2095,7 +2331,8 @@ func log_event(kind: String, data: Dictionary = {}) -> void:
 	var f := FileAccess.open(playlog_path, FileAccess.READ_WRITE if FileAccess.file_exists(playlog_path) else FileAccess.WRITE)
 	if f:
 		f.seek_end()
-		f.store_line(JSON.stringify(row))
+		for ln in lines:
+			f.store_line(str(ln))
 
 
 func mark_level_entered(level_id: String, info: Dictionary) -> void:
@@ -2141,7 +2378,7 @@ func _load_json(path: String, fallback):
 	if parsed == null:
 		push_error("Could not parse JSON in %s" % path)
 		return fallback
-	return parsed
+	return Mods.overlay(path, parsed)               # round 182: data mods laid over (unchanged with none on)
 
 
 func _setup_input() -> void:
@@ -2156,7 +2393,7 @@ func _setup_input() -> void:
 		"use_salve": [KEY_1], "use_pill": [KEY_2], "pause": [KEY_ESCAPE],
 		"wind_step": [KEY_V], "qi_burst": [KEY_F],
 		"flying_sword": [KEY_G], "use_gourd": [KEY_3], "journal": [KEY_N],
-		"cam_left": [KEY_Q, KEY_COMMA], "cam_right": [KEY_PERIOD], "vault_dump": [KEY_APOSTROPHE], "moment": [KEY_T], "help": [KEY_H], "camera_view": [KEY_C], "lattice": [KEY_K],
+		"cam_left": [KEY_Q, KEY_COMMA], "cam_right": [KEY_PERIOD], "vault_dump": [KEY_APOSTROPHE], "moment": [KEY_T], "help": [KEY_H], "camera_view": [KEY_C], "lattice": [KEY_K], "zoom_in": [KEY_EQUAL, KEY_KP_ADD], "zoom_out": [KEY_BRACKETLEFT, KEY_KP_SUBTRACT],
 		"guard": [KEY_B], "art_cycle": [KEY_X],
 		"dodge": [KEY_CTRL, KEY_ALT], "lock_on": [KEY_Z],          # round 32
 		"character": [KEY_P],                                      # round 36: the character sheet
@@ -2168,6 +2405,8 @@ func _setup_input() -> void:
 		"flow": [KEY_BRACKETRIGHT, KEY_QUOTELEFT], "mech": [KEY_BACKSLASH],                                # round 146: active meditation (or M while walking)
 		"map": [KEY_F2],                                           # round 75: the map (every letter was taken)
 		"photo": [KEY_F9],                                         # round 165: photo mode
+		"guild": [KEY_F6],                                         # round 188: the Guild page (chat, guild, sect)
+		"chat_open": [KEY_ENTER, KEY_KP_ENTER],                    # round 188: type to the guild
 	}
 	for action in keys:
 		if not InputMap.has_action(action):
@@ -2234,7 +2473,8 @@ func _setup_pad() -> void:
 
 # ---- round 166: the pad's quick layer -----------------------------------------------------------------------
 # Hold Back and the face buttons become the four quick arts (A B X Y = 1 2 3 4); let go of Back with nothing pressed and it is the bag, as before.
-const PAD_FACE := {JOY_BUTTON_A: ["jump", "quick1"], JOY_BUTTON_B: ["wind_step", "quick2"], JOY_BUTTON_X: ["attack", "quick3"], JOY_BUTTON_Y: ["interact", "quick4"]}
+const PAD_FACE := {JOY_BUTTON_A: ["jump", "quick1"], JOY_BUTTON_B: ["wind_step", "quick2"], JOY_BUTTON_X: ["attack", "quick3"], JOY_BUTTON_Y: ["interact", "quick4"],
+	JOY_BUTTON_LEFT_SHOULDER: ["guard", "path_art"], JOY_BUTTON_RIGHT_SHOULDER: ["qi_burst", "path_cycle"]}     # round 183: the path art had no pad button
 var pad_layer := false
 var _pad_used := false
 
@@ -2268,10 +2508,9 @@ func _pad_swap(on: bool) -> void:
 		nb.button_index = bi
 		InputMap.action_add_event(to_a, nb)
 	if not on:
-		for q in ["quick1", "quick2", "quick3", "quick4"]:
-			Input.action_release(q)
-		for a in ["jump", "wind_step", "attack", "interact"]:
-			Input.action_release(a)
+		for bi in PAD_FACE:
+			for a in PAD_FACE[bi]:
+				Input.action_release(str(a))
 
 
 func _pad_tap(action: String) -> void:
@@ -4282,6 +4521,30 @@ func stash_all_materials() -> int:
 	return moved
 
 
+func stash_everything() -> int:
+	## round 179 (god mode): the chest holds anything -- gear, potions, treasures, all of it (gold and what you wear stay with you)
+	var st: Dictionary = stash_ref()
+	var moved := 0
+	for id in inventory.keys():
+		var n := count(id)
+		if n <= 0 or str(items.get(id, {}).get("type", "")) == "quest":
+			continue
+		st[id] = int(st.get(id, 0)) + n
+		inventory.erase(id)
+		moved += n
+	home["stash"] = st
+	stats_changed.emit()
+	return moved
+
+
+func take_everything() -> int:
+	var st: Dictionary = stash_ref()
+	var moved := 0
+	for id in st.keys():
+		moved += take_from_stash(str(id))
+	return moved
+
+
 func take_from_stash(id: String) -> int:
 	var st: Dictionary = stash_ref()
 	var n := int(st.get(id, 0))
@@ -5160,7 +5423,7 @@ func quick_key_label(i: int) -> String:
 	var ks: Array = C.keys("quick%d" % (clampi(i, 0, 3) + 1))
 	if ks.is_empty():
 		return "Q%d" % (clampi(i, 0, 3) + 1)
-	return OS.get_keycode_string(DisplayServer.keyboard_get_keycode_from_physical(int(ks[0]))) if DisplayServer.get_name() != "headless" else ["R", "F3", "F4", "F5"][clampi(i, 0, 3)]
+	return C.key_name(int(ks[0]))
 
 
 var art_slots := {}              # family -> the art wired to its key (F strike / V step / guard)
@@ -5940,7 +6203,7 @@ func absorb(id: String, sitting: bool = false) -> String:
 		g *= 2.0
 	integrate(g, "absorb")
 	bump("absorbed")
-	return I18n.t("The %s dissolves into you; the swarm hums. (%s, %d / %d)") % [item_name(id), tier_name(), int(integration), int(integration_next())]
+	return I18n.t("The %s dissolves into you; the swarm hums. (%s, %s / %s)") % [item_name(id), tier_name(), big(integration), big(integration_next()) if integration_next() > 0.0 else I18n.t("the summit")]
 
 
 # ---- discoveries ---------------------------------------------------------------
@@ -6147,7 +6410,14 @@ func take_lesson(npc_name: String, role: String) -> String:
 
 # ---- trade ---------------------------------------------------------------------
 
+func is_heirloom(id: String) -> bool:
+	## 2026-11-06: a piece of the Heirloom set (Robert lost five: four went to a trader and one into a brew at the bench)
+	return has_item_def(id) and item_def(id).has("heirloom")
+
+
 func sell_price(id: String) -> int:
+	if is_heirloom(id):
+		return 0          # the heirloom is never for sale (and so never in "sell spare" or a trader's list)
 	## what a trader gives you for one (0 = they won't take it)
 	var d := item_def(id)
 	if d.is_empty() or is_treasure(id):
@@ -6311,6 +6581,8 @@ func valley_data() -> Dictionary:
 
 
 func sect_def(id: String) -> Dictionary:
+	if id == "own":
+		return sys("own_sect").def() if sys("own_sect") != null else {}     # round 188: the sect you founded
 	for s in valley_data().get("sects", []):
 		if str(s.get("id", "")) == id:
 			return s
@@ -6392,6 +6664,8 @@ func sect_ranks() -> Array:
 func sect_rank_name(r: int = -1) -> String:
 	if r < 0:
 		r = int(sect.get("rank", 0))
+		if str(sect.get("id", "")) == "own":
+			return I18n.t("Sect Master")
 	var rows := sect_ranks()
 	return str(rows[clampi(r, 0, rows.size() - 1)][0])
 
@@ -6472,6 +6746,8 @@ func sect_next_text() -> String:
 func leave_sect() -> String:
 	if sect.is_empty():
 		return I18n.t("You belong to no sect.")
+	if str(sect.get("id", "")) == "own":
+		return I18n.t("A master doesn't walk out of their own sect. (To end it: menu > Guild > Sect > Disband.)")
 	var nm := str(sect_def(str(sect["id"])).get("name", ""))
 	log_event("sect_leave", {"sect": sect["id"]})
 	sect = {}
@@ -6499,6 +6775,8 @@ func sect_donate() -> String:
 
 
 func sect_effect() -> Dictionary:
+	if str(sect.get("id", "")) == "own":
+		return sys("own_sect").mature_effect() if sys("own_sect") != null else {}     # round 188: a founded sect gives it once its hall is grown
 	if not sect.is_empty() and int(sect.get("rank", 0)) >= sect_ranks().size() - 1:
 		return {"meditate_mult": 1.15}
 	return {}
@@ -6510,6 +6788,8 @@ func level_exists(level_id: String) -> bool:
 	## a file in levels/, or one of the places drawn when entered
 	if level_id == "valley" or level_id.begins_with("tribulation:") or FrontierGen.exists(level_id) or OnlineGen.is_online(level_id):
 		return true
+	if KeeperGen.is_keeper(level_id):
+		return sys("worldkeeper") != null and sys("worldkeeper").unlocked()
 	if TowerGen.is_tower(level_id):
 		return not tower_def(str(TowerGen.parse(level_id).get("id", ""))).is_empty()
 	return ScavengeGen.is_scavenge(level_id) or FileAccess.file_exists("res://levels/%s.json" % level_id)
@@ -7151,6 +7431,86 @@ func wear(id: String, slot: String = "") -> String:
 	return I18n.t("You put on the %s (%s).") % [item_name(id), slot_name(slot).to_lower()]
 
 
+func _plain_piece(id: String) -> bool:
+	## nothing on it you made it for: not worked at the bench or made for you, no affixes, no runes cut into it.
+	## (Ordinary pieces carry a small gift from their material -- that alone doesn't make one special.)
+	var d := item_def(id)
+	return not custom_items.has(id) and not custom_items.has(base_id(id)) and (d.get("affixes", []) as Array).is_empty() and inscription_text(id) == ""
+
+
+func better_piece(cur: String, cand: String) -> bool:
+	## (round 190) a clear-cut upgrade: at least as much health AND ward, more of one, and nothing special lost
+	if cand == "" or cand == cur or gear_family(cand) not in WEAR_TYPES:
+		return false
+	if cur == "":
+		return true
+	if not _plain_piece(cur):
+		return false
+	var hc := int(item_def(cur).get("hp", 0))
+	var hn := int(item_def(cand).get("hp", 0))
+	var wc := piece_ward(cur)
+	var wn := piece_ward(cand)
+	return hn >= hc and wn >= wc - 0.001 and (hn > hc or wn > wc + 0.001)
+
+
+func better_pieces_count() -> int:
+	## (round 190) how many armour slots "Wear the better pieces" would change -- for the menu's dot
+	var by_fam := {}
+	for id in inventory.keys():
+		var f := gear_family(str(id))
+		if f in WEAR_TYPES and count(str(id)) > 0:
+			if not by_fam.has(f):
+				by_fam[f] = []
+			by_fam[f].append(str(id))
+	var n := 0
+	for s in gear_slots():
+		var fam := str(s[2])
+		if not by_fam.has(fam):
+			continue
+		var cur := worn(str(s[0]))
+		for iid in by_fam[fam]:
+			if equipped_count(iid) - (1 if cur == iid else 0) >= count(iid):
+				continue
+			if better_piece(cur, iid):
+				n += 1
+				break
+	return n
+
+
+func wear_better() -> String:
+	## (round 190) his log: 54 pieces put on one after another, a new set at a time. Armour only -- jewellery,
+	## weapons and anything with an effect, affixes or runes are yours to choose.
+	var changed := []
+	for s in gear_slots():
+		var slot := str(s[0])
+		var fam := str(s[2])
+		if fam not in WEAR_TYPES:
+			continue
+		var cur := worn(slot)
+		var best := cur
+		var best_score := -1.0
+		for id in inventory.keys():
+			var iid := str(id)
+			if count(iid) <= 0 or gear_family(iid) != fam:
+				continue
+			if equipped_count(iid) - (1 if cur == iid else 0) >= count(iid):
+				continue          # every one you have is already on somewhere
+			if not better_piece(cur, iid):
+				continue
+			var sc := float(item_def(iid).get("hp", 0)) + piece_ward(iid) * 12.0
+			if sc > best_score:
+				best_score = sc
+				best = iid
+		if best != cur and best != "":
+			equipment[slot] = best
+			changed.append(item_name(best))
+			log_event("equip", {"id": best, "slot": slot, "auto": true})
+	if changed.is_empty():
+		return I18n.t("Nothing you carry is plainly better than what you wear.")
+	stats_changed.emit()
+	return I18n.t("You put on %d better pieces: %s.") % [changed.size(), ", ".join(changed)] if changed.size() > 1 else I18n.t("You put on the %s.") % changed[0]
+
+
 func unequip(slot: String) -> String:
 	var id := worn(slot)
 	if id == "":
@@ -7161,6 +7521,27 @@ func unequip(slot: String) -> String:
 		equipment.erase(slot)
 	stats_changed.emit()
 	return I18n.t("You take off the %s.") % item_name(id)
+
+
+func unequip_all() -> String:
+	## 2026-11-06: Robert had to take off a full set one piece at a time
+	var n := 0
+	if weapon != "":
+		weapon = ""
+		n += 1
+	n += equipment.size()
+	equipment.clear()
+	# 2026-11-06 (Robert: "my qi is still draining i took everything off but it looks like im still wearing
+	# some"): the power frame is worn too, and it was the thing drinking his qi -- this takes it off as well
+	var frame := ""
+	var CN = sys("constructs")
+	if CN != null and CN.mech_on:
+		CN.toggle_mech()
+		frame = I18n.t(" The power frame opens and lets you out -- it stops drinking your qi.")
+	stats_changed.emit()
+	if n == 0 and frame == "":
+		return I18n.t("You aren't wearing anything.")
+	return (I18n.t("You take everything off (%d pieces).") % n if n > 0 else I18n.t("Nothing else on you.")) + frame
 
 
 func _fix_equipment(id: String) -> void:
@@ -7279,6 +7660,8 @@ func carry_capacity() -> float:
 
 
 func weight_penalty() -> float:
+	if unlimited_stores() and sys("tester") != null and sys("tester").god():
+		return 0.0                        # round 179: god mode carries anything without slowing
 	## 0 .. slow: how much slower all that weight makes you
 	var over := total_weight() - carry_capacity()
 	if over <= 0.0:
@@ -7642,6 +8025,9 @@ func combine_check(base: String, adds: Array) -> String:
 	var need := {base: 1}
 	for a in adds:
 		need[str(a)] = int(need.get(str(a), 0)) + 1
+	for a in adds:
+		if is_heirloom(str(a)):
+			return I18n.t("%s is part of the Heirloom -- it can be worked on, but never worked into something else.") % item_name(str(a))
 	for id in need:
 		if is_treasure(id) or str(item_def(id).get("type", "")) in ["currency", "formula", "treasure"] or not has_item_def(id):
 			return I18n.t("%s can't be worked.") % item_name(id)
@@ -7709,6 +8095,8 @@ func combine_preview(base: String, adds: Array) -> Dictionary:
 	c += nano_gift("combine_success") + tech_effect("craft_success", 0.0) + tech_effect("craft_success_" + sk, 0.0)
 	c += 0.05 * focus_bonus(sk)
 	c = clampf(c, float(o.get("min", 0.08)), float(o.get("max", 0.96)))
+	if _god_craft():
+		c = 1.0
 	var luck := float(o.get("luck_base", 0.05)) + float(o.get("luck_volatile", 0.03)) * int(t.get("volatile", 0))
 	luck += float(o.get("luck_resonant", 0.015)) * int(t.get("resonant", 0)) + float(o.get("luck_overcomes", 0.04)) * over + nano_gift("luck")
 	luck = clampf(luck, 0.0, 0.4)
@@ -7762,7 +8150,7 @@ func combine_attempt(base: String, adds: Array, roll: float = -1.0, lroll: float
 	var all_ids := [base] + adds
 	for id in all_ids:
 		mat_known[base_id(str(id))] = true          # you learn what things are by working them
-	var success := r < float(pv["chance"])
+	var success := r < float(pv["chance"]) or _god_craft()
 	var lucky := lr < float(pv["luck"])
 	var was_slot := ""
 	for s in gear_slots():
@@ -8085,6 +8473,8 @@ func forge_chance(fam: String, stock: String, gem: String = "") -> float:
 	if (at_bench == "forge" or field_forge()) and sk == "smithing":
 		c += 0.05
 	c += 0.05 * focus_bonus(sk)
+	if _god_craft():
+		return 1.0
 	return clampf(c, 0.1, 0.97)
 
 
@@ -8127,7 +8517,7 @@ func forge_piece(fam: String, stock: String, gem: String = "", roll: float = -1.
 	gold -= t * 3
 	var pl := craft_play_apply(roll, qroll)                # round 141c
 	var r := float(pl["roll"]) if float(pl["roll"]) >= 0.0 else randf()
-	if r >= chance:
+	if r >= chance and not _god_craft():
 		remove_item(stock, int(ceil(need / 2.0)))
 		add_skill_xp(sk, 5.0 + t, "a piece that went wrong")
 		var tx := I18n.t("The %s goes wrong in the making -- %d %s spoiled.") % [str(fd.get("name", fam)).to_lower(), int(ceil(need / 2.0)), item_name(stock)]
@@ -8345,13 +8735,24 @@ func piece_look(id: String) -> Dictionary:
 
 
 func worn_looks() -> Array:
+	## what's DRAWN on you (looks only -- nothing here is read by a number). Round 183b: the wardrobe (Looks.gd)
+	## can draw a slot as another piece you've held, or hide it.
 	var out := []
+	var LKw = sys("looks")
 	for s in gear_slots():
 		var sl := str(s[0])
 		if sl == "weapon":
 			continue
 		var id := worn(sl)
-		if id == "" or count(id) <= 0 or not has_item_def(id):
+		var real_ok := id != "" and count(id) > 0 and has_item_def(id)
+		if LKw != null:
+			var lid: String = LKw.look_id_for(sl, id if real_ok else "")
+			if lid == "-":
+				continue
+			if lid != "" and lid != id:
+				id = lid
+				real_ok = has_item_def(id)
+		if not real_ok:
 			continue
 		var lk := piece_look(id)
 		lk["slot"] = sl
@@ -8567,7 +8968,7 @@ var buff_names := {}              # buff id -> its name, for buffs that aren't i
 
 func expansion_open(id: String) -> bool:
 	## what an expansion's content checks (data/store.json "expansions")
-	return store != null and store.owns_expansion(id)
+	return tester_unlocked() or (store != null and store.owns_expansion(id))
 
 
 func free_haven() -> String:
@@ -9116,6 +9517,8 @@ func roll_world_event(level_id: String, level_def: Dictionary) -> Dictionary:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash("event|%s|%s|%d" % [level_id, today(), int(counters.get("event_pity", 0.0))])
 	var ch := minf(float(E.get("base_chance", 0.05)) + float(E.get("pity_step", 0.012)) * float(counters.get("event_pity", 0.0)), float(E.get("max_chance", 0.3)))
+	if FrontierGen.is_frontier(level_id):
+		ch = minf(ch * float(E.get("wild_mult", 4.0)), 0.6)          # 2026-11-06: the open Lands and roads are where things roam
 	var pick := ""
 	if rng.randf() < ch:
 		var pool := []
@@ -10195,6 +10598,7 @@ func set_companion_style(id: String, slot: int = 0) -> bool:
 	if cc.is_empty() or not (companions_data().get("styles", {}) as Dictionary).has(id):
 		return false
 	comp_bond(slot)["style"] = id
+	stats_changed.emit()                                  # (their style's gift changes what you have)
 	log_event("companion_style", {"npc": cc.get("name", ""), "style": id})
 	message.emit(I18n.t("%s will fight as a %s from now on.") % [cc.get("name", ""), style_def(id).get("name", id)])
 	companion_changed.emit()
@@ -10426,8 +10830,68 @@ func familiar_title(beast: Dictionary = {}) -> String:
 
 
 func familiar_effect_mult(beast: Dictionary = {}) -> float:
-	## how much more a grown familiar gives (its stage, its contract, and Thick Hide)
-	return float(familiar_stage_def(beast).get("effect", 1.0)) * (1.34 if has_perk("thick_hide") else 1.0) * float(contract_tier_def(beast).get("mult", 1.0))
+	## how much more a grown familiar gives (its stage, its contract, Thick Hide, and its armour)
+	return float(familiar_stage_def(beast).get("effect", 1.0)) * (1.34 if has_perk("thick_hide") else 1.0) * float(contract_tier_def(beast).get("mult", 1.0)) * (1.0 + pet_armor_stat("effect", beast))
+
+
+# ---- round 182: armour for animals (barding) -- Robert: "allow for armor for pets" ------------------------
+func pet_armor_id(beast: Dictionary = {}) -> String:
+	return str(_bst(beast).get("barding", ""))
+
+
+func pet_armor_stat(key: String, beast: Dictionary = {}) -> float:
+	var id := pet_armor_id(beast)
+	if id == "" or not has_item_def(id):
+		return 0.0
+	return float((item_def(id).get("pet", {}) as Dictionary).get(key, 0.0))
+
+
+func fit_pet_armor(id: String, beast: Dictionary = {}) -> String:
+	## put barding from your pouch on an animal; what it wore comes back to you
+	var f := _bst(beast)
+	if f.is_empty():
+		return I18n.t("You have no animal at your heel.")
+	if count(id) <= 0 or not has_item_def(id) or str(item_def(id).get("type", "")) != "pet_armor":
+		return I18n.t("That is not armour for an animal.")
+	var old := str(f.get("barding", ""))
+	remove_item(id, 1)
+	if old != "":
+		add_item(old, 1, false)
+	f["barding"] = id
+	log_event("pet_armor", {"id": id, "species": str(f.get("species", ""))})
+	familiar_changed.emit()
+	stats_changed.emit()
+	return I18n.t("%s wears the %s%s.") % [str(f.get("name", "It")), item_name(id), (I18n.t(" (you take back the %s)") % item_name(old)) if old != "" else ""]
+
+
+func take_pet_armor(beast: Dictionary = {}) -> String:
+	var f := _bst(beast)
+	var old := str(f.get("barding", ""))
+	if f.is_empty() or old == "":
+		return I18n.t("It wears no armour.")
+	f.erase("barding")
+	add_item(old, 1, false)
+	familiar_changed.emit()
+	stats_changed.emit()
+	return I18n.t("You take the %s off %s.") % [item_name(old), str(f.get("name", "it"))]
+
+
+func pet_intercept(amount: int) -> int:
+	## an armoured animal turns part of a blow aside (so much of the time): returns what still reaches you
+	var best := 0.0
+	var who := ""
+	for b in beasts_out():
+		var g := pet_armor_stat("guard", b)
+		if g > best:
+			best = g
+			who = str(b.get("name", "Your animal"))
+	if best <= 0.0 or randf() >= best:
+		return amount
+	var cut := int(round(amount * 0.4))
+	if cut <= 0:
+		return amount
+	message.emit(I18n.t("%s's armour turns part of the blow aside (-%d).") % [who, cut])
+	return amount - cut
 
 
 func familiar_bite(beast: Dictionary = {}) -> int:
@@ -10435,7 +10899,7 @@ func familiar_bite(beast: Dictionary = {}) -> int:
 	var frac := float(familiar_stage_def(beast).get("bite", 0.0))
 	if frac <= 0.0:
 		return 0
-	return maxi(1, int(round(damage() * frac * (1.5 if has_perk("sharp_fangs") else 1.0) * float(contract_tier_def(beast).get("bite", 1.0)) * _ally_dmg())))
+	return maxi(1, int(round(damage() * frac * (1.5 if has_perk("sharp_fangs") else 1.0) * float(contract_tier_def(beast).get("bite", 1.0)) * (1.0 + pet_armor_stat("bite", beast)) * _ally_dmg())))
 
 
 func familiar_find_seconds(base: float) -> float:
@@ -10811,6 +11275,8 @@ func mq_goal_done(g: Dictionary) -> bool:
 		return reach_depth() >= int(g["floor"])
 	if g.has("boss"):
 		return float(counters.get("boss_floor:%d" % int(g["boss"]), 0.0)) > 0.0
+	if g.has("kill"):
+		return int(kills.get(str(g["kill"]), 0)) > 0          # 2026-11-03: the Lands -- fell a named foe
 	if g.has("realm"):
 		return realm >= int(g["realm"])
 	if g.has("craft"):
@@ -10939,9 +11405,23 @@ func mq_line() -> String:
 
 # ---- Elder Mo's errands ----------------------------------------------------------
 
+var _errand_cache := {}
+var _errand_key := ""
+
+
 func errand_defs() -> Dictionary:
 	## one kill errand and one gather errand per floor you've reached, from
 	## the floor's own foes and materials (quest ids errand:kill:N / errand:gather:N)
+	## Round 198: made once per depth reached (and language) -- it read every floor's file each call, 20-30 ms, and the
+	## Road page asked twice per errand: 1.3 s to draw it on Robert's save. Read-only: don't change what it returns.
+	var key := "%d|%s|%d|%d" % [reach_depth(), I18n.current, items.size(), enemies.size()]
+	if key != _errand_key:
+		_errand_cache = _errand_defs_build()
+		_errand_key = key
+	return _errand_cache
+
+
+func _errand_defs_build() -> Dictionary:
 	var E: Dictionary = mq_data().get("errands", {})
 	var out := {}
 	var kc: Array = E.get("kill_count", [6, 0.5])
@@ -11066,6 +11546,21 @@ func curve_mult(d: int, key: String) -> float:
 		return 1.0
 	var steps := mini(d, int(C.get("cap_floor", 60))) - from + 1
 	return 1.0 + float(C.get(key + "_per_floor", 0.0)) * steps
+
+
+func boss_ease(d: int, key: String) -> float:
+	## round 200: a floor master's health ("hp") or damage ("damage") multiplier at depth d (combat.json "boss_ease")
+	var B: Dictionary = combat_data().get("boss_ease", {})
+	if B.is_empty():
+		return 1.0
+	if d >= int(B.get("final_floor", 50)):
+		return float(B.get("final_" + key, 1.0))
+	var from := int(B.get("from", 25))
+	var to := maxi(int(B.get("to", 49)), from + 1)
+	if d <= from:
+		return 1.0
+	var t := clampf(float(d - from) / float(to - from), 0.0, 1.0)
+	return lerpf(1.0, float(B.get(key, 1.0)), t)
 
 
 # ======================================================================
@@ -11453,6 +11948,23 @@ func attr_spend(id: String, n: int = 1) -> bool:
 	log_event("attr_spend", {"attr": id, "n": n})
 	stats_changed.emit()
 	return true
+
+
+func attr_spread() -> int:
+	## (round 190) every free point to whichever attribute is lowest (counting what you were born with), one at a time
+	var n := 0
+	var ids: Array = attr_ids()
+	while attr_points_free() > 0 and n < 10000 and not ids.is_empty():
+		var low: String = str(ids[0])
+		for id in ids:
+			if attr_total(str(id)) < attr_total(low):
+				low = str(id)
+		attrs[low] = int(attrs.get(low, 0)) + 1
+		n += 1
+	if n > 0:
+		log_event("attr_spend", {"attr": "spread", "n": n})
+		stats_changed.emit()
+	return n
 
 
 func attr_respec_cost() -> int:
@@ -12050,6 +12562,8 @@ func skill_known(sid: String) -> bool:
 	## most skills anyone can pick up; rune craft and talismans must be taught
 	if not bool(skill_defs.get(sid, {}).get("teach", false)):
 		return true
+	if _god_craft():
+		return true                   # round 181: god mode can do every craft, taught or not
 	return skills.has(sid)
 
 
@@ -12126,7 +12640,7 @@ func inscribe(gear: String, rune: String, roll: float = -1.0) -> Dictionary:
 	var r := randf() if roll < 0.0 else roll
 	var diff := int(rune_info(rune).get("difficulty", 0))
 	remove_item(rune, 1)
-	if r >= chance:
+	if r >= chance and not _god_craft():
 		add_skill_xp("runecraft", (8.0 + diff * 3.0) * 0.4, "a cracked rune")
 		log_event("inscribe", {"gear": gear, "rune": rune, "success": false})
 		sfx("thud", 0.6)
@@ -12749,6 +13263,7 @@ func beast_rows(c: Dictionary) -> Array:
 		["Gives", effect_text(scaled) + ("" if is_same(c, familiar) else " (x%.1f while it follows the lead)" % float(beast_data().get("second_share", 0.6)))]]
 	if familiar_bite(c) > 0:
 		out.append(["Bite", str(familiar_bite(c))])
+	out.append(["Armour", item_name(pet_armor_id(c)) if pet_armor_id(c) != "" else "none"])
 	return out
 
 
@@ -12820,6 +13335,8 @@ const SYSTEM_SCRIPTS := [
 	["travel", "res://scripts/systems/Travel.gd"],         # round 63: waystones and quick travel
 	["pursuit", "res://scripts/systems/Pursuit.gd"],       # round 63: downtime -- goals pursued while you're away, regulated
 	["heirloom", "res://scripts/systems/Heirloom.gd"],        # round 120: the Heirloom set
+	["auction", "res://scripts/systems/Auction.gd"],          # 2026-11-06: the Common City's auction house
+	["worldkeeper", "res://scripts/systems/Worldkeeper.gd"],  # 2026-11-06: your own world
 	["balance", "res://scripts/systems/Balance.gd"],       # round 119: the two roads, Imbalance, the Even Road
 	["lives", "res://scripts/systems/Lives.gd"],           # round 121: the end-of-life card
 	["opening", "res://scripts/systems/Opening.gd"],       # round 121: the first half hour -- first blood, first road, first floor
@@ -12830,6 +13347,14 @@ const SYSTEM_SCRIPTS := [
 	["cooking", "res://scripts/systems/Cooking.gd"],           # round 164: meals with buffs
 	["firsthour", "res://scripts/systems/FirstHour.gd"],       # round 163: the guided first hour
 	["goals", "res://scripts/systems/DailyGoals.gd"],         # round 162: today's three goals
+	["genome", "res://scripts/systems/Genome.gd"],           # round 177: genes, aptitude, synergy, the gene splicer
+	["eggs", "res://scripts/systems/Eggs.gd"],               # round 177: beast eggs, bloodlines, bloodline essence
+	["crew", "res://scripts/systems/Crew.gd"],               # round 179: each beast, construct and companion unique, steerable, with a job at home
+	["bionics", "res://scripts/systems/Bionics.gd"],         # round 178: augments and bionics -- built or found, synchronised by the swarm to full power
+	["foundry", "res://scripts/systems/Foundry.gd"],         # round 177: modular golems, power frame and skiff; runes on constructs
+	["tattoos", "res://scripts/systems/Tattoos.gd"],         # round 177: runes cut into beasts
+	["farm", "res://scripts/systems/NaniteFarm.gd"],         # round 177: the nanite farm -- vats, replication, strains, anti-stagnation
+	["tailor", "res://scripts/systems/Tailor.gd"],           # round 177: pick a goal, see ranked bench choices with the odds of good and bad
 	["breeding", "res://scripts/systems/Breeding.gd"],       # round 161: the stable -- pair two beasts, hatch a young one with a lineage
 	["menagerie", "res://scripts/systems/Menagerie.gd"],   # round 141b: beast roles and deeds, wayfarers (human companions who can swear to you)
 	["tester", "res://scripts/systems/Tester.gd"],   # round 156: account-wide test kit (vault, portable table, god mode)
@@ -12846,6 +13371,10 @@ const SYSTEM_SCRIPTS := [
 	["collection", "res://scripts/systems/Collection.gd"],     # round 145: completion percentages and silhouettes (menu > Road)
 	["boons", "res://scripts/systems/Boons.gd"],               # round 144: a blessing and a hardship per trip, the pedlar, the shrine, the quarry (menu > Road)
 	["atlas", "res://scripts/systems/Atlas.gd"],           # round 75: where you've been, and what you found there (the Map page)
+	["playstats", "res://scripts/systems/PlayStats.gd"],   # round 182: opt-in anonymous play stats (balance from real players)
+	["looks", "res://scripts/systems/Looks.gd"],           # round 183: the store's look packs (coats, skies, seats, strike glows) -- looks only
+	["fellowship", "res://scripts/systems/Fellowship.gd"], # round 188: your guild and its group chat -- support, never power
+	["own_sect", "res://scripts/systems/OwnSect.gd"],      # round 188: the sect you found at the valley's Empty Seat
 ]
 var systems := {}
 var sitting := false             # sitting to meditate (anywhere -- not just at a shrine)
@@ -13019,7 +13548,7 @@ func crystal_ready(id: String) -> String:
 		return I18n.t("You don't have that crystal.")
 	var c := crystal_info(id)
 	var need := int(c.get("need", 0))
-	if realm < need:
+	if realm < need and not _god_craft():          # round 181: god mode absorbs any crystal
 		return I18n.t("The crystal is cold in your hand. It opens to %s -- you're %s.") % [realm_name_of(need), realm_name_of(realm)]
 	return ""
 

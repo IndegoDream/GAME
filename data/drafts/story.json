@@ -6,120 +6,120 @@
   "items": [
     {
       "act": "seeding",
-      "told": "You find Elder Mo at the edge of the village, near the old well, where he has gathered a small crowd of curious villagers. He looks to you, nodding.",
-      "say": "For years, the Deep has whispered truths to me. Now, I believe it's time to speak. The Deep seeded us with something long ago - a gift and a curse: nanites. They live in our blood, our bones, and the very earth beneath us. Some say it brings power, others, madness. What do you think should be done with this knowledge?",
+      "told": "Elder Mo found the first shard of nanite dust in your blood tonight. He stands by the fire, waiting for your answer.",
+      "say": "The world beneath our feet is not rock and root. It is a machine we do not control.\n\nEvery child born here has these tiny tools running in their veins. We are living inside a cage built by something ancient.\n\nDo I tell the villagers? They will panic, or they might try to tear us down before we even understand what this is.",
       "choice_a": "The village should know the truth.",
       "choice_b": "Keep it between us.",
-      "after_a": "The crowd listens intently as you echo Elder Mo's words. A murmur of wonder and fear ripples through Eliet. The village begins to whisper about the Deep's secrets (Eliet Knowledge: Deep Secrets Gained).",
-      "after_b": "Elder Mo nods, his eyes clouding with sorrow. 'I understand. Sometimes, it's best to keep the world as it is, even if we know the truth (Eliet Harmony: Peace Maintained).'"
+      "after_a": "Mo nods grimly. He walks out to敲响 the bell that calls the whole town together.\n(Trust is fragile, but transparency is safer.)",
+      "after_b": "Mo lights a candle for you alone. The secret stays heavy in your chest.\n(Panic can be avoided, but fear grows quietly.)"
     },
     {
-      "act": "first_master",
-      "told": "You earned Smith Hale's respect in a day of hammer and fire, and now he stands by the forges with a look of quiet pride and a question in his eyes.",
-      "say": "The forge is a place of both toil and transformation. Smith Hale, with the glow of the fires and the hum of the hammers in the background, says, \n\n\"You've shown skill and spirit. But what now? The way to the top of the tower is lined with tests, and the path of a true master is not easy.\"\n\nHe holds up a key, worn and blackened by smoke and fire, as if it holds the answer.",
-      "choice_a": "The village gets its share.",
-      "choice_b": "I earned it. I keep it.",
-      "after_a": "Smith Hale nods, a proud smile on his face. \n\n\"Well done, then. I'll see the village's share is met. The key is yours to bear as a gift of Eliet's unity.\" (Smith Hale gives the village a generous share of the reward.)",
-      "after_b": "Hale's expression turns steely. \n\n\"Then you'll need to hold it tight.\"\n\nHe gives you a hard look, then hands over the key. (The key becomes a symbol of your dedication to your personal path.)"
+      "act": "seeding",
+      "told": "Elder Mo stands in the candlelight of his small room, waiting for your decision. He holds a vial of swirling black fluid he calls nanite seed.",
+      "say": "The deep put something inside every child born here forty years ago. They sleep in our blood and grow in our stone. I can tell them the truth about it, or I can keep us all asleep.",
+      "choice_a": "The village should know the truth.",
+      "choice_b": "Keep it between us.",
+      "after_a": "Mo pours half the vial into the well; the villagers stare at the black water with wide eyes.",
+      "after_b": "Mo locks the door and wipes his hands; the fear in Eliet goes deeper, but we sleep."
     },
     {
-      "act": "wens_debt",
-      "told": "Trader Wen had you come to his shop, his eyes heavy with the weight of a debt to be settled.",
-      "say": "The village is not just a place to pass through, it is our home. But debts are debts, and the mines have a memory of their own. They remember what they are owed.\n\nYour choice could ease the burden or add to it.",
-      "choice_a": "Clear Wen's debt (200 gold).",
-      "choice_b": "That's your debt, Wen.",
-      "after_a": "Wen's gratitude warms your chest, and the village feels a little lighter (Village Loyalty +1).",
-      "after_b": "Wen leaves with a heavy heart, the weight of the debt unchanged (Village Loyalty -1)."
+      "act": "seeding",
+      "told": "Elder Mo sat by the fire, his hands shaking from the chill in the valley air. He waited for a word to settle the fear of what lies beneath Eliet.",
+      "say": "The deep is not empty. Nanites sleep in your blood since before we drew breath, and they grow hungry if left unspoken. The first expedition found them forty years ago, yet we treat this gift like poison every day. I ask you to decide: does the village know the truth of their own veins, or do we keep our peace by pretending?",
+      "choice_a": "The village should know the truth.",
+      "choice_b": "Keep it between us.",
+      "after_a": "Mo lit a lantern for everyone, and Elder Lin began teaching the children how to feel the hum in their bones. Fear turned to purpose.",
+      "after_b": "Mo tucked the lantern under his arm and walked to the edge of town alone. The silence around Eliet grew heavy again."
     },
     {
-      "act": "envoy",
-      "told": "An envoy from the Lotus Ascent Academy has arrived in Eliet, bearing a message for Elder Mo. The village square buzzes with whispers and anticipation.",
-      "say": "A messenger has come from the hills. The Lotus Ascent Academy wants to see you. They know of your talents and the trials you've faced. Do you wish to be seen as one of their own, or will Eliet be your sect?",
-      "choice_a": "I'll go to the hills and choose.",
-      "choice_b": "Eliet is my sect.",
-      "after_a": "You depart for the hills, leaving behind the village's gaze. (Your path diverges from Eliet's.)",
-      "after_b": "You thank the messenger, but your heart remains with Eliet. (Eliet remains your focus.)"
+      "act": "seeding",
+      "told": "The village waits for Elder Mo to speak of the deep things beneath Eliet. The wind howls through the hills, but the truth is colder than any storm.",
+      "say": "The nanites in your blood did not grow by accident. They were planted here when the world was young. Some say we are machines made flesh; others say we are souls given steel. Do you wish to keep the fear? Or do you wish to know what drives our bones?",
+      "choice_a": "The village should know the truth.",
+      "choice_b": "Keep it between us.",
+      "after_a": "You tell the people that their bodies hold the secret of survival, and trust grows in the square.",
+      "after_b": "You whisper the secret to Elder Mo alone, and the village sleeps easier though the fear remains."
     },
     {
-      "act": "blood",
-      "told": "Apothecary Lin waited quietly for you in the dim light of her apothecary, the scent of herbs and medicines filling the air.",
-      "say": "The deep has whispered secrets to me, but they are not for all ears. Do you dare to know what runs in your veins?\n\nYour blood tells a story, young cultivator. Shall I draw it and show you its truth, or do you keep it hidden?",
-      "choice_a": "Draw it.",
-      "choice_b": "No. It's mine.",
-      "after_a": "Apothecary Lin carefully draws your blood, the truth of your lineage revealed (you have learned your bloodline's secrets).",
-      "after_b": "She nods, understanding the weight of your decision (Apothecary Lin's respect for your privacy grows)."
+      "act": "seeding",
+      "told": "The deep hummed below Eliet as if breathing a secret. Elder Mo waits by the fire, his eyes dim with the knowledge of nanites in every child.",
+      "say": "Nanites sleep in our blood since the world was seeded long ago. They are not magic, just tools the Deep left us. I saw them bloom in my veins when I first touched the dungeon floor. Some say they save us from the dark things below. Others fear we are already changed by the metal within.",
+      "choice_a": "The village should know the truth.",
+      "choice_b": "Keep it between us.",
+      "after_a": "Mo nods slowly, knowing the people must understand their own bodies to survive. He will teach them how to feel the machines pulse in their veins.",
+      "after_b": "Mo looks away into the cold fire, hoping the fear of the unknown keeps everyone sleeping soundly."
     },
     {
       "act": "rival",
-      "told": "Captain Rhee approaches, a stern look on his face, telling you that a new challenger has emerged in the village, testing your mettle and claiming to be your equal. You head to the town square to meet him.",
-      "say": "Rhee's jaw is set tight as he faces you, eyes sharp and questioning. 'I've seen you rise through the ranks, but every hero has a story that needs to be told, and every champion has a rival who tests them.'\n\nThe cold wind nips at your neck, but you can feel the heat of competition in his voice.",
+      "told": "Captain Rhee waits for your answer in the creaking guardhouse. The rival squad stands ready at the gate.",
+      "say": "A messenger from Ironroot Hold asks for your permission to enter Eliet. They bring steel and hunger. I have my eyes on them all, but they outnumber me by two. Do you wish me to open the gates? Or do I tell them we hold nothing for traitors?",
       "choice_a": "Let him come.",
       "choice_b": "Send word. I've nothing to prove.",
-      "after_a": "You step forward and accept the challenge. The village watches as you and your rival face off, a test of skill and will that leaves both of you breathless.",
-      "after_b": "You decline the challenge, and Rhee nods slowly, respect in his eyes. The village whispers about your refusal, but the air of mystery only adds to your reputation (Rhee's respect grows)."
+      "after_a": "The gates creak open; the rival squad enters, and Captain Rhee watches their leader with a cold nod.",
+      "after_b": "Rhee sends a rider away with a warning note; the rival force retreats into the hills without striking."
     },
     {
       "act": "pagoda",
-      "told": "Elder Mo pulls you aside after the full moon festival, the lanterns still hanging in the cold night air. He looks grave and aged, and you know the moment is here.",
-      "say": "The elder speaks, his voice a whisper against the chill wind. \n\n‘The jade pagoda lies deep below Eliet, but there is something more there, something older and stranger. The deep put something in me, and I’ve kept it secret too long. Choose now, for Eliet or the truth of the deep.’",
+      "told": "You stood before Elder Mo in the quiet garden. He confessed the cost of your victory at the Jade Pagoda, waiting for your judgment on his words.",
+      "say": "The pagoda is silent now. I brought you back what saved us, yet the town fears my face. Do you think a man should bear this secret alone? Or do we share the burden?",
       "choice_a": "I forgive you. You brought back what saved us.",
       "choice_b": "You should have told us.",
-      "after_a": "The elder’s shoulders relax, and a faint smile graces his lips. The weight of the secret lifts from the village (Eliet learns the truth about the deep).",
-      "after_b": "Elder Mo’s face darkens, and a storm of silence passes between you. The elder’s burden remains (Eliet remains in the dark about the deep’s secrets)"
+      "after_a": "The tension leaves his shoulders; he thanks you and offers to teach the next generation.",
+      "after_b": "He looks away, ashamed, as the village gossip begins to spread before the sun rises."
     },
     {
-      "act": "mirror",
-      "told": "The shaft to the deep has grown strange and unsettling, and you have found Elder Mo waiting, his eyes reflecting the eerie light from below.",
-      "say": "The deep isn't just another part of the mountain; it's a whisper of something ancient and profound. It's called you down, down, down, into its depths. What do you see when you look into the deep's mirror?",
-      "choice_a": "Seal the shaft. Eliet comes first.",
-      "choice_b": "I go on. The deep isn't finished with me.",
-      "after_a": "You hammer a seal into the shaft, cutting off the deep's call. People are safer, but some sense an emptiness (Eliet's safety is now paramount).",
-      "after_b": "You descend into the dark, leaving Eliet's worries behind. The deep's grip tightens (your path to power is set)."
+      "act": "pagoda",
+      "told": "The elder stands before the broken entrance to the Jade Pagoda, his hand trembling on the stone. You have brought him the proof from the deep: the truth that saved Eliet is now in your hands.",
+      "say": "You hold the confession of the first descent. They say I must choose between our safety and our pride. The town watches my face like a hawk. Tell me what you would do if you stood where I stand.\n\nIf I speak the truth, the village knows the cost of power. If I keep it quiet, we live in fear but sleep without nightmares. What is better for Eliet?",
+      "choice_a": "I forgive you. You brought back what saved us.",
+      "choice_b": "You should have told us.",
+      "after_a": "Elder Mo nods once, tears mixing with the dust on his face. 'Then we carry this burden together,' he says before disappearing into the dark to heal the town.",
+      "after_b": "Mo's shoulders slump, and he turns away from the Pagoda entrance. 'Pride will kill us all in the end,' a voice whispers from the wind as you walk toward the village square."
     },
     {
       "act": "expedition",
-      "told": "Captain Rhee approaches you with a heavy gaze. The village is preparing to send a group into the deep dungeon, and she seeks your guidance on who should lead them.",
-      "say": "Eliet has a tradition of sending its bravest to the depths. Now, they look to you, the one who's journeyed so far. Will you lead them down, or will you keep them here?",
+      "told": "Captain Rhee stands by the heavy iron doors of the Lodge. The nine survivors of the first descent wait below.",
+      "say": "The deep has claimed seven more souls this season. I have picked six new faces from our list to go down with me. They are eager, but perhaps too eager for a place that eats hope. Do you want them sent to their deaths? Or do you keep them safe in Eliet?\n\nI will lead them myself. Pick your six companions for the trip.",
       "choice_a": "I'll lead them. Pick your six.",
       "choice_b": "Keep them home. The deep is mine to carry.",
-      "after_a": "Captain Rhee nods solemnly and begins to assemble your chosen group for the expedition, the village's fate intertwined with your choice.",
-      "after_b": "Rhee respects your decision, and the villagers prepare for another winter without the usual dungeon treasures. (The expedition is canceled)"
+      "after_a": "The expedition leaves with fresh blood and new hope. Captain Rhee nods, satisfied that his name remains known among the living.",
+      "after_b": "You keep the newcomers safe in the village. Captain Rhee sighs, watching the door you closed behind the new recruits."
     },
     {
       "act": "last_steel",
-      "told": "Captain Rhee has been working tirelessly at the forge, crafting the last piece of steel needed for the expedition into the depths.",
-      "say": "We've been hammering away at this for weeks now, and it's time to lay down our hammers. \n\nThe last piece, the one that will see us through the darkness, is yours to make. Finish it your way, or let it rest on your shoulders as you did the rest.",
+      "told": "Smith Hale stands by the forge, the last ingot glowing blue against the dark. The village waits to see if we can finish the seal tonight.",
+      "say": "The deep below has taken its toll, but the nanites in our blood still hold fast. If we do not pour this steel now, the dungeon will swallow Eliet whole again. You have done well enough to stand here, traveler. Now tell me: are you ready to walk into the dark one more time?",
       "choice_a": "Through the night, then. Let's make it.",
       "choice_b": "Finish it your way. I'll rest.",
-      "after_a": "You stay up all night, pushing through the final stages of the steel's creation, with the forge glowing red and the village asleep.",
-      "after_b": "You set the last piece aside, allowing the steel to cool and harden as the sun rises over the hills, granting you rest (Captain Rhee's respect increases)."
+      "after_a": "Hale nods and begins hammering the final seal while you guard the door, the cold air biting at your clothes.",
+      "after_b": "He sighs heavily, leaving the forge to cool as he steps out into the valley wind."
     },
     {
       "act": "sickness",
-      "told": "The sickness spread through the mines after the deep's strange gifts, and Apothecary Lin waits at the village clinic.",
-      "say": "Lin stands beside her ancient wooden counter, a vial of dark green liquid in hand. The air is thick with the scent of herbs and the low muttering of the sick. 'This draught will cleanse the nanite seed of the deep's touch. But if they see you take it, the village will know the truth of what you've brought back from below.'\n\nThe weight of that truth pulls at you like the deep itself.",
+      "told": "Apothecary Lin stares at his mortar, waiting for your decision on the bitter draught. The coughing fits in Eliet have grown louder since the expedition returned.",
+      "say": "The deep sickness burns like fire in cold water, yet it is our own blood that feeds it. I made this medicine from the nanite dust collected from the deepest floors. It will clear your lungs if you can swallow the taste of iron. Do not waste my work on pride or fear.\n\nSome say the village knows best, but truth often tastes bitter before it heals.",
       "choice_a": "Make the draught. I'll drink it with them.",
+      "after_a": "Lin mixes the powder and hands you the vial; you swallow the metallic taste together as Eliet's coughing eases.",
       "choice_b": "No. They'll learn. I did.",
-      "after_a": "The draught is shared, and the truth is out. The village is wary but respects your courage (TRUST +1).",
-      "after_b": "You keep the draught for yourself, and the secret remains hidden (SECRECY +1)."
+      "after_b": "Lin pockets the ingredients, leaving the cure for others to find on their own while you walk away with silence."
     },
     {
-      "act": "last_letter",
-      "told": "You found a small envelope on the edge of town, addressed to you in a familiar but distant handwriting. The village elder, Mo, is waiting for you in the square.",
-      "say": "He looks weary but his eyes are steady as he hands you the envelope. \n\n'This is Wen's last letter to us. He asked for it to be given to you when the time was right. Choose, my child. Will you open it here, or take it with you to the east?'",
-      "choice_a": "Open it. I'll stay.",
-      "choice_b": "It's his. It's yours. I'll go.",
-      "after_a": "You open the letter and read it aloud to the village. (The village learns of Wen's final message and his sacrifice.)",
-      "after_b": "You thank Mo and place the letter carefully in your pack. (The letter's contents remain a mystery to Eliet.)"
+      "act": "seeding",
+      "told": "Elder Mo stands by your door, holding a sealed jar of nanites. The village waits for his verdict on what they are.",
+      "say": "You carry the Deep's gift now. But do you let Eliet know? Or does the secret keep us safe from panic?\n\nThe first expedition died so this blood could live. If we tell the truth, fear spreads like fire in dry grass.\n\nIf we hide it, the people sleep easier, but they carry a poison they cannot name.\n\nWhat is your choice?",
+      "choice_a": "The village should know the truth.",
+      "choice_b": "Keep it between us.",
+      "after_a": "Mo opens the jar for all to see. The townsfolk whisper, their faces pale as snow.",
+      "after_b": "Mo seals the lid tight again. He nods to you, and the silence returns to the valley."
     },
     {
-      "act": "after",
-      "told": "Elder Mo has just returned from the hills after a long journey, his presence felt around the village as he approaches you.",
-      "say": "I've seen things that make Eliet's stories seem like whispers from a calm dawn. The hills are hungry, but they are not our home. The path I took, it was for the deep's secrets, not your dreams of glory. \n\nBut now I must choose: return to Eliet, to its warmth, or go east, where the cold burns and the path is unknown.",
-      "choice_a": "I'll stay. Eliet is home.",
-      "choice_b": "I'll go east. The letters can stop.",
-      "after_a": "You feel the gratitude of the village, a sense of belonging, as Elder Mo decides to remain in Eliet (Elder Mo stays in Eliet).",
-      "after_b": "The horizon beckons, a new journey, as Elder Mo sets off east, leaving behind the letters that once connected him to the village (Elder Mo leaves Eliet)."
+      "act": "seeding",
+      "told": "Elder Mo waits by the hearth, his eyes dark with what he saw in the deep. The town sleeps, unaware that nanites swim in our blood and stone.",
+      "say": "We found the truth down there. It is heavy to carry, but hiding it will rot us from within. Do we tell the villagers what lives beneath their feet? Or do we let fear keep them safe? Speak now, before the night claims another soul.",
+      "choice_a": "The village should know the truth.",
+      "choice_b": "Keep it between us.",
+      "after_a": "Mo nods slowly, a grim resolve settling on his face. He steps out into the dark to warn the sleeping town. (Trust is fragile, but honesty is stronger.)",
+      "after_b": "Mo looks away, closing his eyes tight against the weight of silence. He vows no one else will hear the secrets of the deep again. (Fear keeps us safe, for now.)"
     }
   ],
   "helped": []

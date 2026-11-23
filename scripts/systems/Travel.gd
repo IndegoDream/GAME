@@ -62,6 +62,8 @@ func _n(key: String, dflt: float) -> float:
 
 static func eligible(level_id: String, theme: String) -> bool:
 	## a place a waystone stands in: Eliet, the valley, the towns, the dungeon floors
+	if level_id in ["city", "realm:own"]:
+		return true          # 2026-11-06: the Common City and your own world have waystones too
 	if level_id.contains(":") or level_id == "":
 		return false
 	if level_id in ["village", "valley"]:
@@ -70,7 +72,7 @@ static func eligible(level_id: String, theme: String) -> bool:
 
 
 func is_town(level_id: String) -> bool:
-	if level_id in ["village", "valley"]:
+	if level_id in ["village", "valley", "city", "realm:own"]:
 		return true
 	var d: Dictionary = G.load_level_def(level_id) if G.level_exists(level_id) else {}
 	return str(d.get("theme", "")) in ["settlement", "village"]

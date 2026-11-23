@@ -192,6 +192,7 @@ class Session:
         self.tokens = server.cfg.rate * 2
         self.t_tokens = time.time()
         self.chat_times = []
+        self.guild_key = ""           # round 188: the guild chat channel this player is in ("" = none)
         self.last_seen = time.time()
         self.closed = False
         self.strikes = 0
@@ -248,10 +249,11 @@ class Party:
         self.leader = leader
         self.members = [leader]
         self.invites = set()
+        self.code = ""                    # round 182: a short join code a friend can type (h_p_code / h_p_join)
 
     def state(self):
         return {"t": "party", "id": self.id, "leader": self.leader.char["char_id"],
-                "members": [s.pub() for s in self.members]}
+                "members": [s.pub() for s in self.members], "code": self.code}
 
 
 class Server:
@@ -554,6 +556,14 @@ class Server:
             if rec:
                 for o in rec["sessions"].values():
                     o.send(msg)
+        elif ch == "guild":
+            # round 188: everyone online in the same guild (the key the game sends: "npc:<id>" or "own:<TAG>:<code>")
+            if not s.guild_key:
+                s.send({"t": "chat_error", "msg": "You're in no guild."})
+                return
+            for o in list(self.sessions.values()):
+                if o.guild_key == s.guild_key:
+                    o.send(msg)
         elif ch == "whisper":
             to = self.store.char_by_name(str(m.get("to", "")))
             o = self.sessions.get(to["char_id"]) if to else None
@@ -563,6 +573,17 @@ class Server:
                 msg["to"] = o.char["name"]
                 o.send(msg)
                 s.send(msg)
+
+    def h_guild_key(self, s, m):
+        """round 188: which guild chat this player hears (the game sends it on joining, founding or leaving a guild)"""
+        if not s.char:
+            return
+        key = str(m.get("key", ""))[:64]
+        if key and not all(c.isalnum() or c in ":_-" for c in key):
+            s.send({"t": "chat_error", "msg": "Bad guild key."})
+            return
+        s.guild_key = key
+        s.send({"t": "guild_ok", "key": key, "online": sum(1 for o in self.sessions.values() if key and o.guild_key == key)})
 
     def h_report(self, s, m):
         if s.char:
@@ -595,6 +616,55 @@ class Server:
         s.party.invites.add(o.char["char_id"])
         o.send({"t": "p_invited", "pid": s.party.id, "from": s.char["name"]})
         s.send(s.party.state())
+
+    # round 182: join codes -- tell a friend six letters instead of hunting for them in the hub
+    CODE_ABC = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"        # no 0/O, 1/I: easy to read out loud
+
+    def _new_code(self):
+        import secrets
+        while True:
+            c = "".join(secrets.choice(self.CODE_ABC) for _ in range(6))
+            if not any(p.code == c for p in self.parties.values()):
+                return c
+
+    def h_p_code(self, s, m):
+        """the leader asks for (or renews) the party's join code; makes a party of one if there is none"""
+        if s.where not in ("hub",) or not s.char:
+            return
+        if s.party is None:
+            s.party = Party(s)
+            self.parties[s.party.id] = s.party
+        if s.party.leader is not s:
+            s.send({"t": "party_error", "msg": "Only the leader shares the join code."})
+            return
+        if not s.party.code or bool(m.get("renew", False)):
+            s.party.code = self._new_code()
+        s.send({"t": "p_code", "code": s.party.code})
+        s.send(s.party.state())
+
+    def h_p_join(self, s, m):
+        """a friend types the code: in the party, if there is room and they are free"""
+        if s.where not in ("hub",) or not s.char:
+            return
+        code = "".join(ch for ch in str(m.get("code", "")).upper() if ch.isalnum())[:6]
+        p = next((p for p in self.parties.values() if p.code and p.code == code), None)
+        if p is None or len(code) != 6:
+            s.send({"t": "party_error", "msg": "No party has that code (codes end when the party breaks up)."})
+            return
+        if s.party is not None:
+            s.send({"t": "party_error", "msg": "Leave your party first."})
+            return
+        if len(p.members) >= 8:
+            s.send({"t": "party_error", "msg": "The party is full."})
+            return
+        if any(o.where != "hub" for o in p.members):
+            s.send({"t": "party_error", "msg": "That party is out on a run -- try again when they're back."})
+            return
+        p.members.append(s)
+        s.party = p
+        self.leave_queue(s)
+        for o in p.members:
+            o.send(p.state())
 
     def h_p_accept(self, s, m):
         p = self.parties.get(int(m.get("pid", 0)))

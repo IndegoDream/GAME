@@ -1,0 +1,581 @@
+{
+ "_about": "Round 178 (Robert, 2026-10-25): 'i want to be able to build or find my own augments and bionics ... and then you can have a nanite synchronization until full power and function.' Nine body slots; parts are built from materials (and scrap) or found as salvage; installed in a town against a strain budget; once in, the swarm SYNCHRONISES the part from 25% up to full power and function over time (faster while you sit, and with nanite tier; a Nanite Shard sets it on faster). scripts/systems/Bionics.gd reads this.",
+ "slots": [
+  "eye",
+  "ear",
+  "arm",
+  "hand",
+  "spine",
+  "heart",
+  "skin",
+  "legs",
+  "mind"
+ ],
+ "slot_names": {
+  "eye": "Eyes",
+  "ear": "Ears",
+  "arm": "Arm",
+  "hand": "Hand",
+  "spine": "Spine",
+  "heart": "Heart",
+  "skin": "Skin",
+  "legs": "Legs",
+  "mind": "Mind"
+ },
+ "item": {
+  "id": "bionic_scrap",
+  "name": "Bionic Scrap",
+  "type": "material",
+  "value": 40,
+  "desc": "Salvaged wire, bearings and living metal. Everything bionic is built from it."
+ },
+ "strain": {
+  "base": 6,
+  "per_realm": 2,
+  "per_tier": 2
+ },
+ "sync": {
+  "floor": 0.25,
+  "sitting_mult": 2.0,
+  "per_nanite_tier": 0.15,
+  "shard_gain": 0.25,
+  "offline_cap_hours": 24
+ },
+ "install": {
+  "base": 0.78,
+  "per_realm": 0.02,
+  "cap": 0.96,
+  "shard": 0.12
+ },
+ "swap_gold": 15,
+ "find": {
+  "chest": 0.06,
+  "kill": 0.012,
+  "elite": 0.05,
+  "scrap_chest": 0.25,
+  "scrap_kill": 0.05,
+  "harvest": 0.0
+ },
+ "parts": {
+  "glass_lens": {
+   "name": "Glass Lens",
+   "slot": "eye",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "scrap_alloy": 1,
+    "bionic_scrap": 2
+   },
+   "gold": 40,
+   "strain": 2,
+   "sync_hours": 1.0,
+   "desc": "A cut lens behind the eye.",
+   "effect": {
+    "sight": 0.4
+   }
+  },
+  "hawk_optic": {
+   "name": "Hawk Optic",
+   "slot": "eye",
+   "tier": 2,
+   "realm": 3,
+   "needs": {
+    "mirror_silver": 2,
+    "bionic_scrap": 4,
+    "nanite_shard": 1
+   },
+   "gold": 160,
+   "strain": 4,
+   "sync_hours": 2.5,
+   "desc": "Sees the weak point first.",
+   "effect": {
+    "sight": 0.7,
+    "crit_chance": 0.02
+   }
+  },
+  "star_eye": {
+   "name": "Star-Eye",
+   "slot": "eye",
+   "tier": 3,
+   "realm": 6,
+   "needs": {
+    "meteor_glass": 2,
+    "mirror_silver": 2,
+    "bionic_scrap": 6,
+    "nanite_shard": 2
+   },
+   "gold": 480,
+   "strain": 6,
+   "sync_hours": 5.0,
+   "desc": "Sees through dark and lies.",
+   "effect": {
+    "sight": 1.0,
+    "crit_chance": 0.04,
+    "loot_luck": 0.01
+   }
+  },
+  "echo_drum": {
+   "name": "Echo Drum",
+   "slot": "ear",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "iron_ore": 3,
+    "bionic_scrap": 2
+   },
+   "gold": 40,
+   "strain": 2,
+   "sync_hours": 1.0,
+   "desc": "Hears footsteps through stone.",
+   "effect": {
+    "sense_radius": 0.6
+   }
+  },
+  "wire_cochlea": {
+   "name": "Wire Cochlea",
+   "slot": "ear",
+   "tier": 2,
+   "realm": 3,
+   "needs": {
+    "wire_thistle": 2,
+    "bionic_scrap": 4,
+    "nanite_shard": 1
+   },
+   "gold": 160,
+   "strain": 4,
+   "sync_hours": 2.5,
+   "desc": "Every sound becomes a map.",
+   "effect": {
+    "sense_radius": 1.0,
+    "timing": 0.01
+   }
+  },
+  "tuning_lattice": {
+   "name": "Tuning Lattice",
+   "slot": "ear",
+   "tier": 3,
+   "realm": 6,
+   "needs": {
+    "singing_crystal": 2,
+    "bionic_scrap": 6,
+    "nanite_shard": 2
+   },
+   "gold": 480,
+   "strain": 6,
+   "sync_hours": 5.0,
+   "desc": "Hears the swing before it lands.",
+   "effect": {
+    "sense_radius": 1.4,
+    "timing": 0.025
+   }
+  },
+  "piston_arm": {
+   "name": "Piston Arm",
+   "slot": "arm",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "iron_ore": 4,
+    "brass_cog": 1,
+    "bionic_scrap": 3
+   },
+   "gold": 40,
+   "strain": 2,
+   "sync_hours": 1.0,
+   "desc": "A hard, honest push.",
+   "effect": {
+    "damage_mult": 1.04
+   }
+  },
+  "servo_arm": {
+   "name": "Servo Arm",
+   "slot": "arm",
+   "tier": 2,
+   "realm": 3,
+   "needs": {
+    "scrap_alloy": 3,
+    "brass_cog": 2,
+    "bionic_scrap": 5,
+    "nanite_shard": 1
+   },
+   "gold": 160,
+   "strain": 4,
+   "sync_hours": 2.5,
+   "desc": "Quick and exact.",
+   "effect": {
+    "damage_mult": 1.08,
+    "crit_chance": 0.01
+   }
+  },
+  "storm_arm": {
+   "name": "Storm Arm",
+   "slot": "arm",
+   "tier": 3,
+   "realm": 6,
+   "needs": {
+    "thunder_iron": 3,
+    "storm_glass": 2,
+    "bionic_scrap": 8,
+    "nanite_shard": 2
+   },
+   "gold": 480,
+   "strain": 6,
+   "sync_hours": 5.0,
+   "desc": "Lightning in the elbow.",
+   "effect": {
+    "damage_mult": 1.13,
+    "burn_on_hit": 0.03
+   }
+  },
+  "deft_fingers": {
+   "name": "Deft Fingers",
+   "slot": "hand",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "bone_shard": 3,
+    "bionic_scrap": 2
+   },
+   "gold": 40,
+   "strain": 2,
+   "sync_hours": 1.0,
+   "desc": "Finer work, finer finds.",
+   "effect": {
+    "gather_chance": 0.02
+   }
+  },
+  "tool_hand": {
+   "name": "Tool Hand",
+   "slot": "hand",
+   "tier": 2,
+   "realm": 3,
+   "needs": {
+    "scrap_alloy": 2,
+    "oil_of_motion": 1,
+    "bionic_scrap": 4,
+    "nanite_shard": 1
+   },
+   "gold": 160,
+   "strain": 4,
+   "sync_hours": 2.5,
+   "desc": "A hand with a dozen small hands.",
+   "effect": {
+    "gather_chance": 0.04,
+    "gather_bonus": 0.1
+   }
+  },
+  "master_hand": {
+   "name": "Master Hand",
+   "slot": "hand",
+   "tier": 3,
+   "realm": 6,
+   "needs": {
+    "star_iron": 2,
+    "spirit_silk": 2,
+    "bionic_scrap": 6,
+    "nanite_shard": 2
+   },
+   "gold": 480,
+   "strain": 6,
+   "sync_hours": 5.0,
+   "desc": "Never fumbles.",
+   "effect": {
+    "gather_chance": 0.065,
+    "gather_bonus": 0.25,
+    "keep_gold": 0.02
+   }
+  },
+  "spring_spine": {
+   "name": "Spring Spine",
+   "slot": "spine",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "beast_hide": 3,
+    "iron_ore": 2,
+    "bionic_scrap": 3
+   },
+   "gold": 40,
+   "strain": 2,
+   "sync_hours": 1.0,
+   "desc": "Bends instead of breaking.",
+   "effect": {
+    "dodge_chance": 0.02
+   }
+  },
+  "flex_column": {
+   "name": "Flex Column",
+   "slot": "spine",
+   "tier": 2,
+   "realm": 3,
+   "needs": {
+    "oil_of_motion": 2,
+    "scrap_alloy": 2,
+    "bionic_scrap": 5,
+    "nanite_shard": 1
+   },
+   "gold": 160,
+   "strain": 4,
+   "sync_hours": 2.5,
+   "desc": "Rolls with the blow.",
+   "effect": {
+    "dodge_chance": 0.04,
+    "move_mult": 1.02
+   }
+  },
+  "ghost_spine": {
+   "name": "Ghost Spine",
+   "slot": "spine",
+   "tier": 3,
+   "realm": 6,
+   "needs": {
+    "ghost_lantern_oil": 2,
+    "spirit_silk": 2,
+    "bionic_scrap": 8,
+    "nanite_shard": 2
+   },
+   "gold": 480,
+   "strain": 6,
+   "sync_hours": 5.0,
+   "desc": "Not quite where you were.",
+   "effect": {
+    "dodge_chance": 0.07,
+    "move_mult": 1.04,
+    "dash": 0.15
+   }
+  },
+  "pump_heart": {
+   "name": "Pump Heart",
+   "slot": "heart",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "beast_hide": 2,
+    "brass_cog": 1,
+    "bionic_scrap": 3
+   },
+   "gold": 40,
+   "strain": 2,
+   "sync_hours": 1.0,
+   "desc": "A second, steadier beat.",
+   "effect": {
+    "hp_mult": 1.04
+   }
+  },
+  "reactor_heart": {
+   "name": "Reactor Heart",
+   "slot": "heart",
+   "tier": 2,
+   "realm": 3,
+   "needs": {
+    "firestone": 3,
+    "brass_cog": 2,
+    "bionic_scrap": 5,
+    "nanite_shard": 1
+   },
+   "gold": 160,
+   "strain": 4,
+   "sync_hours": 2.5,
+   "desc": "Warm, tireless, mending.",
+   "effect": {
+    "hp_mult": 1.08,
+    "regen": 0.15
+   }
+  },
+  "swarm_heart": {
+   "name": "Swarm Heart",
+   "slot": "heart",
+   "tier": 3,
+   "realm": 6,
+   "needs": {
+    "immortal_dust": 2,
+    "drake_blood": 2,
+    "bionic_scrap": 8,
+    "nanite_shard": 3
+   },
+   "gold": 480,
+   "strain": 6,
+   "sync_hours": 5.0,
+   "desc": "The swarm keeps its own time here.",
+   "effect": {
+    "hp_mult": 1.13,
+    "regen": 0.3,
+    "heal_on_kill": 1.0
+   }
+  },
+  "weave_skin": {
+   "name": "Weave Skin",
+   "slot": "skin",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "beast_hide": 3,
+    "slag_iron": 2,
+    "bionic_scrap": 3
+   },
+   "gold": 40,
+   "strain": 2,
+   "sync_hours": 1.0,
+   "desc": "A mesh under the skin.",
+   "effect": {
+    "damage_taken": 0.97
+   }
+  },
+  "plate_skin": {
+   "name": "Plate Skin",
+   "slot": "skin",
+   "tier": 2,
+   "realm": 3,
+   "needs": {
+    "grave_steel": 3,
+    "dragon_scale_shard": 1,
+    "bionic_scrap": 5,
+    "nanite_shard": 1
+   },
+   "gold": 160,
+   "strain": 4,
+   "sync_hours": 2.5,
+   "desc": "Scales that sit flat.",
+   "effect": {
+    "damage_taken": 0.94,
+    "ward": 0.02
+   }
+  },
+  "null_skin": {
+   "name": "Null Skin",
+   "slot": "skin",
+   "tier": 3,
+   "realm": 6,
+   "needs": {
+    "moon_dust_glass": 2,
+    "dragon_scale_shard": 3,
+    "bionic_scrap": 8,
+    "nanite_shard": 2
+   },
+   "gold": 480,
+   "strain": 6,
+   "sync_hours": 5.0,
+   "desc": "Blows land softer than they should.",
+   "effect": {
+    "damage_taken": 0.9,
+    "ward": 0.05
+   }
+  },
+  "coil_legs": {
+   "name": "Coil Legs",
+   "slot": "legs",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "iron_ore": 3,
+    "brass_cog": 1,
+    "bionic_scrap": 3
+   },
+   "gold": 40,
+   "strain": 2,
+   "sync_hours": 1.0,
+   "desc": "Springs in the shins.",
+   "effect": {
+    "move_mult": 1.03
+   }
+  },
+  "sprint_legs": {
+   "name": "Sprint Legs",
+   "slot": "legs",
+   "tier": 2,
+   "realm": 3,
+   "needs": {
+    "oil_of_motion": 2,
+    "scrap_alloy": 2,
+    "bionic_scrap": 5,
+    "nanite_shard": 1
+   },
+   "gold": 160,
+   "strain": 4,
+   "sync_hours": 2.5,
+   "desc": "Long strides, short breath.",
+   "effect": {
+    "move_mult": 1.06,
+    "dash": 0.1
+   }
+  },
+  "wind_legs": {
+   "name": "Wind Legs",
+   "slot": "legs",
+   "tier": 3,
+   "realm": 6,
+   "needs": {
+    "beacon_glass": 2,
+    "spirit_silk": 2,
+    "bionic_scrap": 8,
+    "nanite_shard": 2
+   },
+   "gold": 480,
+   "strain": 6,
+   "sync_hours": 5.0,
+   "desc": "Hardly touches the ground.",
+   "effect": {
+    "move_mult": 1.1,
+    "dash": 0.25
+   }
+  },
+  "memory_coil": {
+   "name": "Memory Coil",
+   "slot": "mind",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "silver_ore": 3,
+    "bionic_scrap": 3
+   },
+   "gold": 40,
+   "strain": 2,
+   "sync_hours": 1.0,
+   "desc": "Holds what it learns.",
+   "effect": {
+    "insight_mult": 1.04
+   }
+  },
+  "qi_lattice": {
+   "name": "Qi Lattice",
+   "slot": "mind",
+   "tier": 2,
+   "realm": 3,
+   "needs": {
+    "singing_crystal": 2,
+    "mirror_silver": 2,
+    "bionic_scrap": 5,
+    "nanite_shard": 1
+   },
+   "gold": 160,
+   "strain": 4,
+   "sync_hours": 2.5,
+   "desc": "Channels the flow evenly.",
+   "effect": {
+    "qi_mult": 1.05,
+    "insight_mult": 1.05
+   }
+  },
+  "swarm_cortex": {
+   "name": "Swarm Cortex",
+   "slot": "mind",
+   "tier": 3,
+   "realm": 6,
+   "needs": {
+    "true_reflection": 2,
+    "star_iron": 2,
+    "bionic_scrap": 8,
+    "nanite_shard": 3
+   },
+   "gold": 480,
+   "strain": 6,
+   "sync_hours": 5.0,
+   "desc": "Thinks alongside the swarm.",
+   "effect": {
+    "qi_mult": 1.1,
+    "insight_mult": 1.1,
+    "loot_luck": 0.01
+   }
+  }
+ }
+}

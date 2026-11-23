@@ -499,6 +499,99 @@ def piece(name, folder, seed, style):
     finish(mix, name, folder, target_rms=style.get("rms", 0.06))
 
 
+def sketch(name, folder, seed, style):
+    """Round 183c (Robert: "make the music more refined and subtle -- it doesn't need to be a lot, just add flavor and
+    substance"): a short, sparse piece instead of a full arrangement. A soft bed (a low drone and a dark, slow pad that
+    breathes), ONE voice that says the motif and its answer with rests between the phrases, a low pluck now and then
+    on the chord's root, a single bell or harmonic at the turn, a long tail of room. No drums, no busy accompaniment,
+    no counter-melody; quieter and darker than the full pieces. About a minute; the quiet between pieces does the rest."""
+    rng = np.random.default_rng(seed)
+    bpm = style["bpm"] * 0.85
+    beat = 60.0 / bpm
+    bar = beat * 4
+    key = style["key"]
+    scale = style["scale"]
+    prog = style["prog"]
+    voice = style["leads"][0] if style["leads"][0] not in ("synth", "bell") else style["leads"][1]
+    voice2 = style["leads"][1] if style["leads"][1] not in ("synth", "bell") else voice
+    motif = make_motif(rng, 2, start=int(rng.integers(5, 9)), calm=True)
+    ans = answer(motif, rng, end_deg=5)
+    if HARMONISE:
+        motif = harmonise(motif, scale, prog, key)
+        ans = harmonise(ans, scale, prog, key)
+    # thin the tune: drop some short notes into their neighbours (fewer notes, longer ones)
+    def thin(ph):
+        out = []
+        for d, dur in ph:
+            if out and dur <= 0.5 and rng.random() < 0.6:
+                out[-1][1] += dur
+            else:
+                out.append([d, dur])
+        return out
+    motif, ans = thin(motif), thin(ans)
+    intro, rest1, rest2, outro = 3, 2, 3, 3
+    total_bars = intro + bars_of(motif) + rest1 + bars_of(ans) + rest2 + bars_of(motif) + outro
+    secs = total_bars * bar + 12.0
+    mix = Mix(secs)
+    # the bed: a low drone that breathes, and a dark pad that changes chord every two bars, never loud
+    n = int((total_bars * bar + 6) * SR)
+    tt = np.arange(n) / SR
+    hz = midi_hz(key - 24)
+    dr = np.sin(2 * np.pi * hz * tt) + 0.3 * np.sin(2 * np.pi * hz * 1.5 * tt) + 0.12 * np.sin(2 * np.pi * hz * 2 * tt)
+    dr *= env_adsr(n, 5.0, 1.0, 1.0, 6.0) * (0.75 + 0.25 * np.sin(2 * np.pi * tt / 23.0))
+    mix.add(dr * 0.045 * style.get("drone", 1.0), 0.0)
+    i = 0
+    tb = 0.0
+    while tb < total_bars * bar:
+        r = prog[(i // 2) % len(prog)]
+        mix.add(pad([key - 24 + r, key - 17 + r, key - 12 + r], bar * 2 + 2.5, rng, amp=0.09, dark=min(0.95, style.get("dark", 0.5) + 0.25)), tb, pan=rng.uniform(-0.2, 0.2))
+        if rng.random() < 0.55:
+            mix.add(pluck(midi_hz(key - 12 + r), 4.0, rng, bright=0.2, amp=0.16), tb + rng.uniform(0, beat), pan=rng.uniform(-0.4, 0.4))
+        tb += bar * 2
+        i += 2
+    def soft_line(phrase, t0, v, pan, gain):
+        """the tune, gently: flutes pure (little breath, no buzz), the zither darker, the erhu eased in"""
+        tl = t0
+        last = None
+        for d, dur in phrase:
+            hz2 = midi_hz(key + degree_semis(scale, d))
+            sc = dur * beat
+            if v == "guzheng":
+                sg = pluck(hz2, max(sc, 1.8) + 1.8, rng, bright=0.38, amp=0.45, bend=0.05 if (dur >= 2 and rng.random() < 0.3) else 0.0)
+            elif v in ("dizi", "xiao"):
+                sg = flute(hz2, sc * 0.97 + 0.25, rng, amp=0.4, low=True, breath=0.012)
+            else:
+                sg = erhu(hz2, sc * 0.98 + 0.2, rng, amp=0.3, from_hz=last if (last and rng.random() < 0.35) else None)
+                sg *= env_adsr(len(sg), 0.18, 0.1, 1.0, 0.05)
+            mix.add(sg, max(0.0, tl + rng.normal(0, 0.02)), pan=pan, gain=gain * rng.uniform(0.85, 1.0))
+            last = hz2
+            tl += sc
+    t = intro * bar
+    soft_line(motif, t, voice, 0.12, 0.62)
+    t += (bars_of(motif) + rest1) * bar
+    soft_line(ans, t, voice2, -0.15, 0.55)
+    t += bars_of(ans) * bar
+    # at the turn: one bell (or a harmonic pluck, where bells don't belong)
+    if style.get("bells", 0) or style.get("dark", 0.5) > 0.6:
+        mix.add(bell(midi_hz(key + 24 + prog[0]), 5.0, rng, amp=0.07), t + beat, pan=rng.uniform(-0.6, 0.6))
+    else:
+        mix.add(pluck(midi_hz(key + 12), 4.0, rng, bright=0.45, amp=0.2), t + beat, pan=0.3)
+    t += rest2 * bar
+    # the motif once more, softer, a little changed -- then home
+    soft_line(vary(motif, rng, 0.25), t, voice, 0.08, 0.45)
+    t += bars_of(motif) * bar
+    mix.add(pad([key - 24, key - 17, key - 12], 9.0, rng, amp=0.1, dark=0.8), t)
+    mix.add(pluck(midi_hz(key), 7.0, rng, bright=0.35, amp=0.28), t + beat, pan=0.1)
+    reverb(mix, max(3.0, style.get("verb", 2.4) + 1.0), min(0.55, style.get("wet", 0.3) + 0.12), rng)
+    fi = int(3.0 * SR)
+    for ch in (mix.L, mix.R):
+        ch[:fi] *= np.linspace(0, 1, fi)
+        fo = int(7 * SR)
+        ch[-fo:] *= np.linspace(1, 0, fo) ** 2
+        ch[:] = sosfilt(lp(6500, 2), ch)
+    finish(mix, name, folder, target_rms=style.get("rms", 0.06) * 0.62)
+
+
 def combat(name, seed, key, bpm, boss=False, deep=False):
     """a fight's loop: drums first, a low ostinato, a drone; 16 bars, seamless"""
     rng = np.random.default_rng(seed)
@@ -570,6 +663,17 @@ def drip(rng, amp=0.3):
     return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.045) * amp
 
 
+def far_drip(rng, amp=0.05):
+    """2026-11-06 (Robert: "the dungeon track with the dripping sounds is a bit much"): a drop
+    landing somewhere off in the dark -- lower, rounder, softer at the front, dulled by distance"""
+    n = int(SR * 0.5)
+    t = np.arange(n) / SR
+    f0 = rng.uniform(650, 1400)
+    f = f0 * (1 + 0.35 * np.exp(-t / 0.02))
+    s = np.sin(2 * np.pi * np.cumsum(f) / SR) * (1 - np.exp(-t / 0.004)) * np.exp(-t / 0.07)
+    return sosfilt(lp(2200, 2), s) * amp
+
+
 def chirp(rng, amp=0.2):
     """a small bird: a few quick up-and-down whistles"""
     notes = []
@@ -578,7 +682,7 @@ def chirp(rng, amp=0.2):
         t = np.arange(n) / SR
         f0 = rng.uniform(2800, 5200)
         f = f0 * (1 + rng.uniform(-0.25, 0.35) * t / t[-1])
-        s = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * t / t[-1]) ** 0.7
+        s = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.clip(np.sin(np.pi * t / t[-1]), 0, None) ** 0.7      # (r184: clipped -- a hair below zero at the end made NaN, and the day beds came out silent)
         notes.append(s)
         notes.append(np.zeros(int(SR * rng.uniform(0.02, 0.09))))
     return np.concatenate(notes) * amp
@@ -660,10 +764,20 @@ def ambience(name, kind, secs=64, seed=0):
 
     if kind in ("cave", "crypt", "deep", "water", "silk", "machine"):
         bed(brown(rng, secs, 140) * lfo(secs, 0.03, 0.3), gain=0.35, spread=1.0)
-    if kind == "cave":
+    if kind == "cave_classic":
         wind(150, 600, 0.10)
         scatter(mix, secs, rng, 0.45, lambda: drip(rng, rng.uniform(0.08, 0.25)))
         scatter(mix, secs, rng, 0.04, lambda: groan(rng, 0.05), pan=(-0.4, 0.4))
+    elif kind == "cave":
+        # 2026-11-06: the warrens breathe instead of dripping: warm room tone (above), slow air
+        # moving through the tunnels, a stream somewhere far below, the stone settling, and
+        # now and then one soft drop far off
+        wind(120, 450, 0.12, rate=0.025, gust=0.45)
+        wind(300, 900, 0.035, rate=0.04, gust=0.6)
+        stream = seamless_noise(rng, secs, bp(250, 1100))
+        bed(stream * lfo(secs, 0.06, 0.3), gain=0.035, spread=1.0)
+        scatter(mix, secs, rng, 0.05, lambda: groan(rng, 0.045), pan=(-0.5, 0.5))
+        scatter(mix, secs, rng, 0.08, lambda: far_drip(rng, rng.uniform(0.025, 0.06)), pan=(-0.7, 0.7))
     elif kind == "crypt":
         wind(220, 900, 0.16, rate=0.04, gust=0.7)
         scatter(mix, secs, rng, 0.15, lambda: drip(rng, rng.uniform(0.05, 0.14)))
@@ -673,10 +787,17 @@ def ambience(name, kind, secs=64, seed=0):
         wind(100, 400, 0.1, rate=0.02)
         scatter(mix, secs, rng, 0.08, lambda: groan(rng, 0.12), pan=(-0.6, 0.6))
         scatter(mix, secs, rng, 0.2, lambda: drip(rng, 0.1))
-    elif kind == "water":
+    elif kind == "water_classic":
         lap = seamless_noise(rng, secs, bp(200, 1400))
         bed(lap * np.clip(lfo(secs, 0.3, 0.8), 0, None) ** 1.5 * 0.5, gain=0.25, spread=1.0)
         scatter(mix, secs, rng, 1.4, lambda: drip(rng, rng.uniform(0.06, 0.2)))
+    elif kind == "water":
+        # 2026-11-06: still water lapping at stone, a slow trickle, the odd soft drop (it was 1.4 drips a second)
+        lap = seamless_noise(rng, secs, bp(180, 1000))
+        bed(lap * np.clip(lfo(secs, 0.25, 0.8), 0, None) ** 1.5 * 0.5, gain=0.28, spread=1.0)
+        trickle = seamless_noise(rng, secs, bp(900, 3000))
+        bed(trickle * lfo(secs, 0.5, 0.4), gain=0.012, spread=1.0)
+        scatter(mix, secs, rng, 0.18, lambda: far_drip(rng, rng.uniform(0.03, 0.07)))
     elif kind == "arcane":
         wind(800, 3000, 0.05, rate=0.03, gust=0.3)
         bed(brown(rng, secs, 120), gain=0.18, spread=1.0)
@@ -747,9 +868,10 @@ def ambience(name, kind, secs=64, seed=0):
             n = int(SR * 0.5); t = np.arange(n) / SR
             return np.sin(2 * np.pi * 380 * (1 - 0.08 * t) * t) * np.sin(np.pi * t / t[-1]) ** 2 * 0.05
         scatter(mix, secs, rng, 0.03, owl)
-    reverb(mix, 1.8 if kind in ("cave", "crypt", "deep", "water", "machine") else 0.9,
-           0.35 if kind in ("cave", "crypt", "deep", "water") else 0.15, rng, loop=True)
-    finish(mix, name, "ambience", target_rms=0.05, quality="0")
+    reverb(mix, 1.8 if kind in ("cave", "crypt", "deep", "water", "machine", "cave_classic", "water_classic") else 0.9,
+           (0.42 if kind in ("cave", "water") else 0.35) if kind in ("cave", "crypt", "deep", "water", "cave_classic", "water_classic") else 0.15, rng, loop=True)
+    # (the calmer beds sit a little lower: under the music, not on top of it)
+    finish(mix, name, "ambience", target_rms=0.038 if kind in ("cave", "water") else 0.05, quality="0")
 
 
 # ---------------------------------------------------------------- sfx
@@ -855,7 +977,10 @@ if __name__ == "__main__":
     for i, (name, st) in enumerate(STYLES.items()):
         if ONLY and name not in ONLY:
             continue
-        piece(name, MUSIC_FOLDER, 5900 + i * 13, st)
+        if os.environ.get("MUSIC_SUBTLE", "") == "1":
+            sketch(name, MUSIC_FOLDER, 7700 + i * 17, st)       # round 183c: the refined, subtle pieces
+        else:
+            piece(name, MUSIC_FOLDER, 5900 + i * 13, st)
     for name, seed, key, bpm, boss, deep in (("combat_1", 1, 50, 118, False, False), ("combat_2", 2, 52, 126, False, False),
                                              ("combat_deep_1", 3, 47, 112, False, True), ("combat_deep_2", 4, 45, 120, False, True),
                                              ("boss_1", 5, 48, 104, True, False), ("boss_2", 6, 46, 112, True, True)):

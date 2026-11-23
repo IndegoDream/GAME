@@ -1,0 +1,148 @@
+{
+ "_note": "round 184: what folk say as you pass (NPC.gd greeting_for). Picked by: hurt first, then the weather, the person's trade, the season, else the hour.",
+ "hours": {
+  "dawn": [
+   5,
+   8
+  ],
+  "morning": [
+   8,
+   12
+  ],
+  "afternoon": [
+   12,
+   17
+  ],
+  "evening": [
+   17,
+   21
+  ],
+  "night": [
+   21,
+   5
+  ]
+ },
+ "chance": {
+  "weather": 0.5,
+  "role": 0.4,
+  "season": 0.2
+ },
+ "near": 4.5,
+ "cooldown": 150,
+ "between": 6,
+ "show": 3.6,
+ "lines": {
+  "dawn": [
+   "Up with the sun, I see.",
+   "Morning mist's still on the fields.",
+   "Early. The dew's not off the grass yet."
+  ],
+  "morning": [
+   "Good morning.",
+   "Fair morning to you.",
+   "Another day on the stair, is it?",
+   "Morning. Mind the carts."
+  ],
+  "afternoon": [
+   "Afternoon.",
+   "Warm one today.",
+   "Back from below already?",
+   "Don't let me keep you."
+  ],
+  "evening": [
+   "Evening. The lamps are lit.",
+   "Long day?",
+   "Supper's on somewhere. You can smell it."
+  ],
+  "night": [
+   "Late to be about.",
+   "Quiet night. Let's keep it that way.",
+   "Can't sleep either?"
+  ],
+  "rain": [
+   "Rain again. Good for the fields.",
+   "You're soaked through.",
+   "Get under a roof, friend."
+  ],
+  "storm": [
+   "Hear that thunder? Stay off the high road.",
+   "Wild weather. Mind yourself."
+  ],
+  "snow": [
+   "Cold enough to crack stone.",
+   "Snow on the roofs. Pretty, for a day."
+  ],
+  "fog": [
+   "Can't see the end of the street in this.",
+   "Fog's in. Things walk in fog."
+  ],
+  "heat": [
+   "Too hot to work. Too hot to sit.",
+   "Find some shade."
+  ],
+  "leaves": [
+   "The wind's carrying the leaves everywhere."
+  ],
+  "thaw": [
+   "Smells like spring.",
+   "The river's running high with the melt."
+  ],
+  "blaze": [
+   "Long days. Good for drying herbs."
+  ],
+  "harvest": [
+   "Harvest's in, near enough.",
+   "Good year for the orchards."
+  ],
+  "frost": [
+   "Frost on the well this morning.",
+   "Wrap up warm."
+  ],
+  "hurt": [
+   "You're bleeding. Sit down a moment.",
+   "You look half-dead. See the healer.",
+   "Easy now. You've taken a beating."
+  ],
+  "deep_town": [
+   "Rare to see a face from the surface.",
+   "Keep your lamp lit down here.",
+   "Welcome to the deep, cultivator."
+  ],
+  "merchant": [
+   "Fresh stock today.",
+   "Coin's good here, friend.",
+   "Looking, or buying?"
+  ],
+  "smith": [
+   "Steel need work? Bring it by.",
+   "Mind the sparks."
+  ],
+  "innkeeper": [
+   "Bed's warm and the soup's hot.",
+   "There's a room free if you need it."
+  ],
+  "alchemist": [
+   "Careful. Some of these jars bite.",
+   "Need a salve? You look like you might."
+  ],
+  "elder": [
+   "The village is glad of you.",
+   "Walk well, young one."
+  ],
+  "guild": [
+   "The guild has work, if you've the nerve."
+  ],
+  "lanterns": [
+   "Lantern night. Make a wish.",
+   "Look up -- the whole village is out.",
+   "Mine's the crooked one. Still flying!"
+  ],
+  "aurora": [
+   "The sky's alight tonight.",
+   "Lights in the north. Old folk say the immortals are feasting."
+  ],
+  "meteors": [
+   "Stars are falling. Count them -- it's luck."
+  ]
+ }
+}

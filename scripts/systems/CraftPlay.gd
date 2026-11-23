@@ -16,6 +16,8 @@ var data := {}
 var enabled := true
 var pending := -1.0          # the score of the game just played; Game.craft_play_apply() takes it
 var last := {}               # {"kind", "score", "text"} for the Craft page
+var master := false          # Master mode (opt-in): three harder passes of the craft's game, a bigger payoff, a Masterwork mark
+var _master_now := false     # the game just played was a Master run
 
 
 func setup(game) -> void:
@@ -25,17 +27,20 @@ func setup(game) -> void:
 
 func reset() -> void:
 	enabled = true
+	master = false
+	_master_now = false
 	pending = -1.0
 	last = {}
 
 
 func save_state() -> Dictionary:
-	return {"enabled": enabled}
+	return {"enabled": enabled, "master": master}
 
 
 func load_state(d: Dictionary) -> void:
 	reset()
 	enabled = bool(d.get("enabled", true))
+	master = bool(d.get("master", false))
 
 
 func kind_for(skill: String) -> String:
@@ -55,6 +60,8 @@ func take() -> float:
 func bonus(score: float) -> Dictionary:
 	## what a score is worth: a shift on the success roll and the quality roll (lower rolls are better), and skill xp
 	var b: Dictionary = data.get("bonus", {})
+	if _master_now:
+		b = data.get("master_bonus", b)
 	var s := clampf(score, 0.0, 1.0)
 	return {"chance": lerpf(float(b.get("chance_lo", -0.04)), float(b.get("chance_hi", 0.12)), s),
 		"quality": lerpf(float(b.get("quality_lo", -0.05)), float(b.get("quality_hi", 0.15)), s),
@@ -80,12 +87,54 @@ func begin(skill: String, recipe: Dictionary, then: Callable) -> void:
 		return
 	var lvl: int = G.skill_level(skill)
 	var diff := int(recipe.get("difficulty", 0))
+	if master:
+		_begin_master(hud, skill, lvl - diff, then)
+		return
 	hud.open_craftplay(kind_for(skill), skill, lvl - diff, func(score: float):
 		pending = score
 		if score >= 0.0:
 			last = {"kind": kind_for(skill), "score": score, "text": grade(score)}
 		then.call()
 		pending = -1.0)
+
+
+func _begin_master(hud, skill: String, edge: int, then: Callable) -> void:
+	## Master mode: `passes` rounds of the same game, each harder than the last (the window narrows, the pace quickens).
+	## Skip any pass and the whole run is skipped, at no cost. Every pass at 70% or better is a Masterwork.
+	_master_pass(hud, skill, edge, then, [])
+
+
+func _master_pass(hud, skill: String, edge: int, then: Callable, scores: Array) -> void:
+	var m: Dictionary = data.get("master", {})
+	var passes := int(m.get("passes", 3))
+	if scores.size() >= passes:
+		var tot := 0.0
+		var all_fine := true
+		for sc in scores:
+			tot += float(sc)
+			if float(sc) < float(m.get("fine", 0.7)):
+				all_fine = false
+		var avg := tot / float(passes)
+		pending = avg
+		_master_now = true
+		last = {"kind": kind_for(skill), "score": avg, "text": grade(avg) + (I18n.t(" -- MASTERWORK") if all_fine else ""), "master": all_fine}
+		if all_fine:
+			G.counters["masterworks"] = float(G.counters.get("masterworks", 0.0)) + 1.0
+			G.message.emit(I18n.t("Masterwork! Every pass was clean."))
+		then.call()
+		pending = -1.0
+		_master_now = false
+		return
+	var n := scores.size()
+	hud.open_craftplay_pass(I18n.t("Master pass %d of %d") % [n + 1, passes])
+	hud.open_craftplay(kind_for(skill), skill, edge - int(m.get("edge_per_pass", 3)) * n, func(score: float):
+		hud.open_craftplay_pass("")
+		if score < 0.0:
+			pending = -1.0
+			then.call()
+			return
+		scores.append(score)
+		_master_pass(hud, skill, edge, then, scores))
 
 
 # ---- the rules of each game: pure functions ------------------------------------------------------------------------------------

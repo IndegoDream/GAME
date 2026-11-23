@@ -1,0 +1,123 @@
+{
+ "_about": "Round 182 (Robert, 2026-10-31): 'a system that can be discovered in how to properly use items on the bench and forge to make the items have more aspects of what we chose'. Handle enough materials of an element and you learn to INFUSE that aspect (scripts/systems/Design.gd). The right METHOD for each craft and element is never told: try them, read what the piece says, and the journal remembers the fit. Harmony beats clash; the element you chose as your own aspect (Aspect page) gives a bonus.",
+ "discover": {
+  "uses": 6,
+  "kinds": 2,
+  "hint_at": 3
+ },
+ "harmony_mult": 1.6,
+ "clash_mult": 0.6,
+ "bare_mult": 0.85,
+ "attuned_mult": 1.25,
+ "elements": {
+  "fire": {
+   "name": "Fire",
+   "effect": {
+    "damage_mult": 1.04,
+    "burn_on_hit": 0.04
+   },
+   "harmony_effect": {
+    "crit_chance": 0.02
+   },
+   "glow": [
+    1.0,
+    0.5,
+    0.2
+   ]
+  },
+  "water": {
+   "name": "Water",
+   "effect": {
+    "regen": 0.5,
+    "dodge_chance": 0.02
+   },
+   "harmony_effect": {
+    "damage_taken": 0.98
+   },
+   "glow": [
+    0.4,
+    0.7,
+    1.0
+   ]
+  },
+  "earth": {
+   "name": "Earth",
+   "effect": {
+    "damage_taken": 0.97,
+    "ward": 0.5
+   },
+   "harmony_effect": {
+    "ward": 0.5
+   },
+   "glow": [
+    0.8,
+    0.65,
+    0.35
+   ]
+  },
+  "metal": {
+   "name": "Metal",
+   "effect": {
+    "crit_chance": 0.03,
+    "damage_mult": 1.02
+   },
+   "harmony_effect": {
+    "timing": 0.02
+   },
+   "glow": [
+    0.85,
+    0.9,
+    1.0
+   ]
+  },
+  "wood": {
+   "name": "Wood",
+   "effect": {
+    "heal_on_kill": 1.5,
+    "regen": 0.3
+   },
+   "harmony_effect": {
+    "gather_bonus": 1.0
+   },
+   "glow": [
+    0.5,
+    0.95,
+    0.5
+   ]
+  }
+ },
+ "consumable_crafts": [
+  "alchemy",
+  "medicine"
+ ],
+ "fit": {
+  "forge": {
+   "fire": "fold",
+   "water": "quench",
+   "earth": "bed",
+   "metal": "layer",
+   "wood": "bind"
+  },
+  "jewel": {
+   "fire": "anneal",
+   "water": "soak",
+   "earth": "bury",
+   "metal": "foil",
+   "wood": "wrap"
+  },
+  "alchemy": {
+   "fire": "sear",
+   "water": "steep",
+   "earth": "grind",
+   "metal": "fume",
+   "wood": "ferment"
+  },
+  "medicine": {
+   "fire": "warm",
+   "water": "cool",
+   "earth": "press",
+   "metal": "strain",
+   "wood": "mash"
+  }
+ }
+}

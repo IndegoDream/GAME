@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends BoxContainer          # (2026-10-31: was HBoxContainer -- a short window stacks its two columns)
 ## The pack (I), round 27. Robert, 2026-10-03: "I need an actual inventory
 ## with an equipment dummy or screen with armour on it".
 ##
@@ -20,6 +20,7 @@ extends HBoxContainer
 var hud                         # HUD.gd, for its label/button helpers
 var tabs: TabContainer
 var pack_body: VBoxContainer
+var _card_holder: VBoxContainer          # the tapped item's Use/Wear card: pinned above the scrolling grid, so it can never scroll out of reach
 var _summary: Label
 var _detail: Label
 var _view: SubViewport
@@ -75,8 +76,34 @@ func setup(h) -> void:
 	var left := VBoxContainer.new()
 	left.custom_minimum_size = Vector2(500, 0)          # (round 39: it sits beside the menu's sections now)
 	left.add_theme_constant_override("separation", 6)
-	add_child(left)
-	hud._label(left, I18n.t("What you wear"), 22, Color(0.7, 0.9, 1.0))
+	var col_h := minf(860.0, vh - 120.0)               # both columns share one height that fits the window; each scrolls inside it
+	var left_scroll := ScrollContainer.new()
+	var vw: float = h.get_viewport().get_visible_rect().size.x if h.is_inside_tree() else 1280.0
+	var avail_w := vw - 230.0                          # (the Hub's rail and frame take the rest)
+	var left_w := clampf(avail_w - 430.0, 300.0, 546.0)
+	var tabs_w := clampf(avail_w - left_w - 14.0, 330.0, 500.0)
+	left_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO if left_w < 546.0 else ScrollContainer.SCROLL_MODE_DISABLED
+	left_scroll.custom_minimum_size = Vector2(left_w, col_h)
+	add_child(left_scroll)
+	left_scroll.add_child(left)
+	var wear_head := HBoxContainer.new()
+	wear_head.add_theme_constant_override("separation", 10)
+	left.add_child(wear_head)
+	hud._label(wear_head, I18n.t("What you wear"), 22, Color(0.7, 0.9, 1.0))
+	var wb := _small(wear_head, I18n.t("Wear the better pieces"), func(): _say(Game.wear_better()))          # round 190
+	wb.tooltip_text = I18n.t("Armour only, and only where a piece you carry has at least as much health and ward. Jewellery, weapons, and pieces you worked at the bench or cut runes into stay as you chose.")
+	_small(wear_head, I18n.t("Take everything off"), func(): _say(Game.unequip_all()))          # 2026-11-06
+	# 2026-11-06: the power frame is worn too, and it drinks qi -- say so where you look at what you wear
+	_frame_row = HBoxContainer.new()
+	_frame_row.add_theme_constant_override("separation", 10)
+	left.add_child(_frame_row)
+	_frame_label = hud._label(_frame_row, "", 14, Color(1.0, 0.62, 0.35))
+	_frame_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_frame_label.custom_minimum_size = Vector2(300, 0)
+	_small(_frame_row, I18n.t("Leave the frame"), func():
+		var CNk = Game.sys("constructs")
+		_say(CNk.toggle_mech() if CNk != null and CNk.mech_on else ""))
+	_show_frame()
 	_summary = hud._label(left, "", 13, Color(0.85, 0.88, 0.9))
 	_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_summary.custom_minimum_size = Vector2(490, 0)
@@ -95,7 +122,7 @@ func setup(h) -> void:
 	_view.own_world_3d = true
 	_view.transparent_bg = true
 	_view.size = Vector2i(196, int(doll_h))
-	_view.msaa_3d = Viewport.MSAA_4X
+	_view.msaa_3d = Viewport.MSAA_DISABLED if preload("res://scripts/core/Gfx.gd").preset() == "low" else Viewport.MSAA_4X
 	_view_box.add_child(_view)
 	_build_stage()
 	_right_slots = VBoxContainer.new()
@@ -111,10 +138,25 @@ func setup(h) -> void:
 	_detail.custom_minimum_size = Vector2(490, 60 if not short else 40)
 	# ---- right: tabs ----
 	tabs = TabContainer.new()
-	tabs.custom_minimum_size = Vector2(500, minf(600.0, vh - 120.0))
+	tabs.custom_minimum_size = Vector2(tabs_w, col_h)
 	tabs.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	add_child(tabs)
-	pack_body = _tab("Pack")
+	var pack_col := VBoxContainer.new()
+	pack_col.name = "Pack"
+	pack_col.add_theme_constant_override("separation", 4)
+	tabs.add_child(pack_col)
+	_card_holder = VBoxContainer.new()
+	_card_holder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	pack_col.add_child(_card_holder)
+	var pack_scroll := ScrollContainer.new()
+	pack_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	pack_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	pack_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	pack_col.add_child(pack_scroll)
+	pack_body = VBoxContainer.new()
+	pack_body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	pack_body.add_theme_constant_override("separation", 4)
+	pack_scroll.add_child(pack_body)
 	_bench_body = _tab("Bench")
 	_forge_body = _tab("Forge")
 	var nano_scroll := ScrollContainer.new()
@@ -158,7 +200,7 @@ func _build_stage() -> void:
 	e.ambient_light_color = Color(0.6, 0.62, 0.7)
 	e.ambient_light_energy = 0.55
 	e.tonemap_mode = Environment.TONE_MAPPER_FILMIC
-	e.glow_enabled = true
+	e.glow_enabled = bool(preload("res://scripts/core/Gfx.gd").p()["glow"])
 	e.glow_intensity = 0.5
 	env.environment = e
 	_view.add_child(env)
@@ -219,7 +261,13 @@ func _process(delta: float) -> void:
 		_spin += delta * 0.35
 	_pivot.rotation.y = _spin
 	if _dirty:
+		if preload("res://scripts/core/UiStyle.gd").input_busy(tabs):
+			return                       # round 181: a dropdown is open -- wait, it would be freed under the player's finger
+		if _soft_only and Time.get_ticks_msec() - _last_soft_ms < 700:
+			return
 		_dirty = false
+		_soft_only = false
+		_last_soft_ms = Time.get_ticks_msec()
 		_refresh_now()
 
 
@@ -361,8 +409,36 @@ static func _circle(img: Image, cx: int, cy: int, r: int, w: int, c: Color) -> v
 
 # ---- refresh ---------------------------------------------------------------------------
 
+var _soft_only := false          # round 181: the redraw was only asked for by a passive tick (qi, hp, a craft finishing)
+var _last_soft_ms := 0
+
+
+var _frame_row: HBoxContainer
+var _frame_label: Label
+
+
+func _show_frame() -> void:
+	if _frame_row == null:
+		return
+	var CNk = Game.sys("constructs")
+	var on: bool = CNk != null and CNk.mech_on
+	_frame_row.visible = on
+	if on:
+		_frame_label.text = I18n.t("Power frame ON -- drinking %s qi a minute") % Game.big(CNk.mech_drain_per_min())
+
+
 func refresh() -> void:
 	## coalesced: many stat changes in a frame, one rebuild
+	_dirty = true
+	_soft_only = false
+	if not is_inside_tree() or not is_processing():
+		_refresh_now()
+
+
+func refresh_soft() -> void:
+	## round 181: the HUD's stat ticks -- redraw later, and never while a dropdown is open
+	if not _dirty:
+		_soft_only = true
 	_dirty = true
 	if not is_inside_tree() or not is_processing():
 		_refresh_now()
@@ -370,6 +446,13 @@ func refresh() -> void:
 
 func _refresh_now() -> void:
 	_dirty = false
+	Game.fx_hold(true)                 # round 198: one effect list for the whole redraw (see Hub._fill)
+	_refresh_inner()
+	Game.fx_hold(false)
+
+
+func _refresh_inner() -> void:
+	_show_frame()
 	var gs := Game.gear_summary()
 	_summary.text = I18n.t("Health %d  ·  damage %d  ·  ward %.1f (blows %d%% weaker)  ·  carrying %.1f of %.1f%s%s") % [
 		Game.max_hp(), Game.damage(), float(gs["ward"]), int(gs["cut"]), float(gs["weight"]), float(gs["carry"]),
@@ -404,12 +487,15 @@ func _clear(box: Node) -> void:
 		c.free()
 
 
-func _row(parent: Node, text: String, tip: String = "", col: Color = Color(0.92, 0.92, 0.9)) -> HBoxContainer:
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 6)
+func _row(parent: Node, text: String, tip: String = "", col: Color = Color(0.92, 0.92, 0.9)) -> Container:
+	## 2026-11-03: a flow row -- when the buttons do not fit beside the name they drop to the next line instead of off the edge
+	var row := HFlowContainer.new()
+	row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_theme_constant_override("h_separation", 6)
+	row.add_theme_constant_override("v_separation", 3)
 	parent.add_child(row)
 	var l: Label = hud._label(row, text, 14, col)
-	l.custom_minimum_size = Vector2(300, 0)
+	l.custom_minimum_size = Vector2(230, 0)
 	l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	l.tooltip_text = tip
@@ -436,7 +522,14 @@ func _say(t: String) -> void:
 # ---- Pack --------------------------------------------------------------------------------
 
 func fill_pack() -> void:
-	_clear(pack_body)
+	# round 198: the slot grid stays in the page between redraws and its slots are re-dressed in place -- making and
+	# placing ~500 buttons again took 80-150 ms on Robert's bag every tap (picking a slot, Use, Wear)
+	for c in pack_body.get_children():
+		if c != _grid:
+			c.free()
+	_clear(_card_holder)
+	if _choose_slot != "" or float(Game.counters.get("bag_view", 0.0)) > 0.0:
+		_drop_grid()
 	if _choose_slot != "":
 		var fam := Game.slot_family(_choose_slot)
 		hud._label(pack_body, I18n.t("%s -- choose what to wear there") % Game.slot_name(_choose_slot), 17, Color(1.0, 0.85, 0.45))
@@ -458,7 +551,7 @@ func fill_pack() -> void:
 			refresh())
 		return
 	bag_view = "list" if float(Game.counters.get("bag_view", 0.0)) > 0.0 else "grid"
-	hud._label(pack_body, I18n.t("Gold %d  ·  pouch holds %d of each material") % [Game.gold, Game.pouch_cap()], 14, Color(1.0, 0.85, 0.45))
+	hud._label(pack_body, (I18n.t("Gold %d  ·  the pouch holds any amount") % Game.gold) if Game.unlimited_stores() else (I18n.t("Gold %d  ·  pouch holds %d of each material") % [Game.gold, Game.pouch_cap()]), 14, Color(1.0, 0.85, 0.45))
 	var groups := {"Gear": [], "Jewellery": [], "Materials": [], "Consumables": [], "Runes": [], "Talismans": [], "Crystals": [], "Relics": [], "Other": []}
 	for id in Game.inventory.keys():
 		if Game.is_treasure(id) or Game.count(id) <= 0:
@@ -493,7 +586,9 @@ func fill_pack() -> void:
 		for id in tre:
 			var td: Dictionary = Game.items.get(id, {})
 			var extra := " (%d sips)" % Game.gourd_sips() if id == "spirit_gourd" else ""
-			_row(pack_body, "%s%s%s -- %s" % [Game.item_name(id), (" [" + str(td.get("key")) + "]") if td.get("active", false) else "", extra, td.get("desc", "")], "", Color(0.85, 1.0, 0.9))
+			var trow := _row(pack_body, "%s%s%s -- %s" % [Game.item_name(id), (" [" + str(td.get("key")) + "]") if td.get("active", false) else "", extra, td.get("desc", "")], "", Color(0.85, 1.0, 0.9))
+			if id == "spirit_gourd":
+				_small(trow, "Drink", func(): Game.drink_gourd())       # round 181: use it from the bag too
 	hud._label(pack_body, I18n.t("Techniques"), 17, Color(0.6, 0.95, 1.0))
 	if Game.techniques.is_empty():
 		_row(pack_body, "None yet. They're out there -- in old stones, in what you do, in who you listen to.", "", Color(0.65, 0.65, 0.7))
@@ -504,6 +599,14 @@ func fill_pack() -> void:
 	if unknown > 0:
 		hud._label(pack_body, I18n.t("%d more undiscovered.") % unknown, 13, Color(0.6, 0.6, 0.65))
 	hud._label(pack_body, I18n.t("Kills: %s") % hud._kills_text(), 13, Color(0.7, 0.7, 0.7))
+	# 2026-11-06: THE lost-buttons bug. The kills line never wrapped -- with a long career it was 9,666 px of one line --
+	# and a label's width is the pane's minimum, so the whole Pack tab grew ten screens wide and the frame cut off
+	# every slot and button on the right. Every plain line in the pack wraps now.
+	for ch in pack_body.get_children():
+		if ch is Label:
+			(ch as Label).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			(ch as Label).custom_minimum_size.x = 0.0
+			(ch as Label).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
 
 func _bag_list(groups: Dictionary) -> void:
@@ -530,6 +633,11 @@ func _item_actions(row: Control, id: String) -> void:
 	match str(d.get("type", "")):
 		"consumable":
 			_small(row, "Use", func(): Game.use_item(id))
+			if Game.can_use_many(id):          # round 186: pills whose good adds up -- all at once
+				var ub := _small(row, I18n.t("Use all (%d)") % Game.count(id), func():
+					Game.use_many(id)
+					refresh())
+				ub.tooltip_text = I18n.t("Take every one you carry -- their qi, attunement and cleansing add up.")
 		"rune":
 			_small(row, "Inscribe...", func(): show_tab("Runes"))
 		"relic":
@@ -637,6 +745,35 @@ func bench_go() -> Dictionary:
 	return r
 
 
+func bench_go_many(n: int) -> int:
+	## (round 190) repeat a sure-thing working: stops as soon as it isn't ok, isn't certain, or fails
+	var done := 0
+	var logs := []
+	for i in n:
+		if bench_base == "" or bench_adds.is_empty():
+			break
+		var pv := Game.combine_preview(bench_base, bench_adds)
+		if not bool(pv["ok"]) or float(pv["chance"]) < 0.95:
+			break
+		var r := Game.combine_attempt(bench_base, bench_adds)
+		logs.append(str(r.get("text", "")))
+		if not bool(r.get("ok", false)):
+			break
+		done += 1
+		var made := str(r.get("item", ""))
+		if made != "" and Game.count(made) > 0 and Game.gear_family(made) != "":
+			bench_base = made
+		elif Game.count(bench_base) <= 0:
+			bench_base = ""
+		var had := bench_adds.size()
+		bench_adds = bench_adds.filter(func(a): return Game.count(str(a)) > 0)
+		if bench_adds.size() < had or str(r.get("item", "")) != "" and Game.gear_family(str(r.get("item", ""))) == "":
+			break          # something ran out, or it made a new thing rather than improving the piece
+	bench_log = (I18n.t("Worked %d times.") % done + " " if done > 1 else "") + (str(logs[-1]) if not logs.is_empty() else "")
+	refresh()
+	return done
+
+
 func fill_bench() -> void:
 	if Game.sys("tester") != null:
 		Game.sys("tester").pull_all()           # round 156: the vault's materials are on the bench
@@ -678,8 +815,16 @@ func fill_bench() -> void:
 				lines.append("(" + "; ".join(pv["notes"]) + ")")
 		var l: Label = hud._label(_bench_body, "\n".join(lines), 14, Color(0.95, 0.9, 0.75))
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		var b := _small(_bench_body, "Work it", func(): bench_go(), not bool(pv["ok"]))
+		var go_row := HBoxContainer.new()
+		go_row.add_theme_constant_override("separation", 8)
+		_bench_body.add_child(go_row)
+		var b := _small(go_row, "Work it", func(): bench_go(), not bool(pv["ok"]))
 		b.custom_minimum_size = Vector2(160, 36)
+		if bool(pv["ok"]) and float(pv["chance"]) >= 0.95:
+			# round 190: his log -- 240 sure-thing workings clicked one at a time, the same mix into the same piece (95%+ only)
+			var b5 := _small(go_row, I18n.t("Work it again and again (up to 5)"), func(): bench_go_many(5))
+			b5.custom_minimum_size = Vector2(160, 36)
+			b5.tooltip_text = I18n.t("Only while the odds stay at 95% or better and you have what it takes. Stops at the first failure or change.")
 	if bench_log != "":
 		var ll: Label = hud._label(_bench_body, bench_log, 14, Color(0.7, 1.0, 0.8))
 		ll.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -688,15 +833,26 @@ func fill_bench() -> void:
 		bench_adds = []
 		bench_log = ""
 		refresh())
+	# 2026-11-03: everything you carry, in plain view, each with a "Bench" button -- nothing hides inside a drop-down
+	hud._label(_bench_body, I18n.t("Everything in your pack"), 16, Color(0.6, 0.9, 1.0))
+	var shown := 0
+	for id in opts:
+		var brow := _row(_bench_body, "%d x %s%s" % [Game.count(id), Game.item_name(id), ("  · " + Game.traits_text(id)) if str(Game.item_def(id).get("type", "")) == "material" and Game.knows_material(id) else ""], Game.item_desc(id), QCOL[clampi(Game.quality_index(id), 0, 4)])
+		_small(brow, "Bench", func(): bench_put(id))
+		shown += 1
+	if shown == 0:
+		hud._label(_bench_body, I18n.t("Your pack is empty."), 13, Color(0.65, 0.65, 0.7))
 
 
 func _picker(parent: Node, label: String, current: String, ids: Array, on_pick: Callable) -> OptionButton:
 	var h := HBoxContainer.new()
 	parent.add_child(h)
 	var l: Label = hud._label(h, label, 13, Color(0.8, 0.85, 0.9))
-	l.custom_minimum_size = Vector2(110, 0)
+	l.custom_minimum_size = Vector2(90, 0)
 	var ob := OptionButton.new()
-	ob.custom_minimum_size = Vector2(380, 30)
+	ob.custom_minimum_size = Vector2(200, 30)
+	ob.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	ob.clip_text = true
 	ob.add_item("(nothing)")
 	ob.set_item_metadata(0, "")
 	var sel := 0
@@ -745,7 +901,8 @@ func fill_forge() -> void:
 	_forge_body.add_child(h)
 	hud._label(h, I18n.t("Make"), 13, Color(0.8, 0.85, 0.9)).custom_minimum_size = Vector2(110, 0)
 	var fam_ob := OptionButton.new()
-	fam_ob.custom_minimum_size = Vector2(380, 30)
+	fam_ob.custom_minimum_size = Vector2(200, 30)
+	fam_ob.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var fams: Array = Game.forge_families()
 	for i in fams.size():
 		fam_ob.add_item(str(Game.gear_data()["families"][fams[i]].get("name", fams[i])))
@@ -800,7 +957,7 @@ func _design_pickers() -> void:
 		_forge_body.add_child(h)
 		hud._label(h, str(gr[0]), 13, Color(0.8, 0.85, 0.9)).custom_minimum_size = Vector2(110, 0)
 		var ob := OptionButton.new()
-		ob.custom_minimum_size = Vector2(380, 30)
+		ob.custom_minimum_size = Vector2(200, 30)
 		var cur := str(forge_design.get(gr[2], ""))
 		var opts: Array = D.options(dc, gr[1])
 		for i in opts.size():
@@ -1123,29 +1280,55 @@ func _bag_grid(groups: Dictionary) -> void:
 			ids.append_array(groups[g])
 	ids = _bag_order(ids, groups)
 	var total := maxi(cols * 4, int(ceil(float(ids.size()) / cols)) * cols + (cols if ids.size() > 0 else 0))     # (cols: a hint for how many empty ones to show)
-	var grid := HFlowContainer.new()                  # wraps to whatever width the pane has
-	grid.add_theme_constant_override("h_separation", 6)
-	grid.add_theme_constant_override("v_separation", 6)
-	pack_body.add_child(grid)
 	var sz := Vector2(56, 56) if _short_screen else Vector2(66, 66)
+	# 2026-11-06: was an HFlowContainer. With hundreds of items a flow box reports a minimum width of most of a row of
+	# everything (9,672 px with Robert's 706-item bag), the tab grew to fit, and the scroll box -- which can't scroll
+	# sideways -- cut off every slot and button past the frame ("the buttons continue to get lost"). A grid with the
+	# columns worked out from the pane's own width can't grow past it.
+	var sc_w: float = (pack_body.get_parent() as Control).size.x if pack_body.get_parent() is Control else 0.0
+	var pane_w: float = (sc_w if sc_w > 200.0 and sc_w < 3000.0 else maxf(tabs.custom_minimum_size.x, 330.0)) - 30.0
+	cols = clampi(int(floor((pane_w + 6.0) / (sz.x + 6.0))), 3, 12)
+	total = maxi(maxi(cols * 4, 24), int(ceil(float(ids.size()) / cols)) * cols + (cols if ids.size() > 0 else 0))
+	var fresh := _grid == null or not is_instance_valid(_grid) or _grid.get_parent() != pack_body
+	if fresh:
+		_grid = GridContainer.new()
+		_grid.add_theme_constant_override("h_separation", 6)
+		_grid.add_theme_constant_override("v_separation", 6)
+	var grid: GridContainer = _grid
+	grid.columns = cols
+	var have := grid.get_child_count()
 	for i in total:
-		if i < ids.size():
-			grid.add_child(_slot_for(str(ids[i]), sz))
+		var want_slot := i < ids.size()
+		var c: Control = grid.get_child(i) if i < have else null
+		if c != null and (c is Button) != want_slot:
+			c.free()                          # (the wrong kind of cell here -- an item where an empty one was, or back)
+			c = null
+			have = grid.get_child_count()
+		if c == null:
+			c = _new_slot() if want_slot else _new_empty()
+			grid.add_child(c)
+			grid.move_child(c, i)
+			have = grid.get_child_count()
+		if want_slot:
+			_dress_slot(c as Button, str(ids[i]), sz)
 		else:
-			var e := Panel.new()
-			e.custom_minimum_size = sz
-			e.add_theme_stylebox_override("panel", _slot_style(Color(0.2, 0.22, 0.28, 0.6), false))
-			e.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			grid.add_child(e)
+			c.custom_minimum_size = sz
+	while grid.get_child_count() > total:
+		grid.get_child(grid.get_child_count() - 1).free()
+	if fresh:
+		pack_body.add_child(grid)             # (filled first, then put in the page -- one layout, not one per slot)
+	pack_body.move_child(grid, fr.get_index() + 1)
 	if ids.is_empty():
 		hud._label(pack_body, I18n.t("Nothing here."), 14, Color(0.6, 0.6, 0.65))
 	# ---- the tapped one
 	if bag_sel != "" and Game.count(bag_sel) > 0:
 		var id := bag_sel
 		var card := PanelContainer.new()
-		card.add_theme_stylebox_override("panel", _slot_style(QCOL[clampi(Game.quality_index(id), 0, 4)], false))
-		pack_body.add_child(card)
-		pack_body.move_child(card, grid.get_index())          # the actions sit ABOVE the grid, so they are never below the fold
+		var card_style := _slot_style(QCOL[clampi(Game.quality_index(id), 0, 4)], false)
+		card_style.set_content_margin_all(8 if _short_screen else 12)
+		card_style.border_width_left = 4
+		card.add_theme_stylebox_override("panel", card_style)
+		_card_holder.add_child(card)                          # pinned OUTSIDE the scroll: the actions are always in reach
 		var v := VBoxContainer.new()
 		v.add_theme_constant_override("separation", 6)
 		card.add_child(v)
@@ -1154,20 +1337,27 @@ func _bag_grid(groups: Dictionary) -> void:
 		v.add_child(head)
 		var tr_ := TextureRect.new()
 		tr_.texture = Icons.item(Game.base_id(id))
-		tr_.custom_minimum_size = Vector2(64, 64)
+		tr_.custom_minimum_size = Vector2(44, 44) if _short_screen else Vector2(56, 56)
 		tr_.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		tr_.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		head.add_child(tr_)
 		var tb := VBoxContainer.new()
+		tb.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		head.add_child(tb)
-		hud._label(tb, "%d × %s%s" % [Game.count(id), Game.item_name(id), (I18n.t("  [worn]") if Game.equipped_count(id) > 0 else "")], 16, QCOL[clampi(Game.quality_index(id), 0, 4)])
-		var dl: Label = hud._label(tb, str(Game.item_desc(id)).get_slice("\n", 0), 12, Color(0.78, 0.82, 0.88))
+		var item_title: Label = hud._label(tb, "%d × %s%s" % [Game.count(id), Game.item_name(id), (I18n.t("  [worn]") if Game.equipped_count(id) > 0 else "")], 19, QCOL[clampi(Game.quality_index(id), 0, 4)])
+		item_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		var quality_name := str(Game.QUALITY[Game.quality_index(id)]["name"])
+		hud._label(tb, I18n.t("Standard") if quality_name.is_empty() else I18n.t(quality_name), 13, Color(0.69, 0.76, 0.73))
+		var dl: Label = hud._label(tb, str(Game.item_desc(id)).get_slice("\n", 0), 14, Color(0.82, 0.85, 0.82))
 		dl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		dl.custom_minimum_size = Vector2(260, 0)
 		var ar := HFlowContainer.new()
 		ar.add_theme_constant_override("h_separation", 6)
 		v.add_child(ar)
 		_item_actions(ar, id)
+		for action_button in ar.get_children():
+			if action_button is Button:
+				action_button.custom_minimum_size.y = maxf(48, action_button.custom_minimum_size.y)
 		show_detail(id)
 
 
@@ -1179,62 +1369,120 @@ func _bag_order(ids: Array, groups: Dictionary) -> Array:
 		for id in groups[g]:
 			rank[id] = i
 		i += 1
-	var a := ids.duplicate()
-	a.sort_custom(func(x, y):
-		var wx := 0 if Game.equipped_count(x) > 0 else 1
-		var wy := 0 if Game.equipped_count(y) > 0 else 1
-		if wx != wy:
-			return wx < wy
-		if rank.get(x, 0) != rank.get(y, 0):
-			return rank.get(x, 0) < rank.get(y, 0)
-		return Game.item_name(x) < Game.item_name(y))
+	# round 198: the keys are worked out once each, not inside the comparison (47 ms -> a few on Robert's 500-item bag)
+	var keyed := []
+	for id in ids:
+		keyed.append([0 if Game.equipped_count(id) > 0 else 1, int(rank.get(id, 0)), Game.item_name(id), id])
+	keyed.sort_custom(func(x, y):
+		if x[0] != y[0]:
+			return x[0] < y[0]
+		if x[1] != y[1]:
+			return x[1] < y[1]
+		return x[2] < y[2])
+	var a := []
+	for k in keyed:
+		a.append(k[3])
 	return a
 
 
-func _slot_for(id: String, sz: Vector2) -> Control:
-	var col: Color = QCOL[clampi(Game.quality_index(id), 0, 4)]
+var _grid: GridContainer = null        # round 198: the bag's slot grid, kept between redraws (see fill_pack)
+var _style_cache := {}
+
+
+func _drop_grid() -> void:
+	if _grid != null and is_instance_valid(_grid):
+		_grid.free()
+	_grid = null
+
+
+func _new_empty() -> Control:
+	var e := Panel.new()
+	e.add_theme_stylebox_override("panel", _shared_style(Color(0.2, 0.22, 0.28, 0.6), false))
+	e.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return e
+
+
+func _shared_style(col: Color, selected: bool) -> StyleBoxFlat:
+	## the slots' looks are shared, not made new for every slot (they're never changed after)
+	var k := "%s|%s" % [col.to_html(), selected]
+	if not _style_cache.has(k):
+		_style_cache[k] = _slot_style(col, selected)
+	return _style_cache[k]
+
+
+func _new_slot() -> Button:
+	## a slot button whose item is read from its meta when it's used -- so it can be re-dressed for another item
 	var b := Button.new()
-	b.custom_minimum_size = sz
-	b.focus_mode = Control.FOCUS_NONE
+	b.focus_mode = Control.FOCUS_ALL
 	b.clip_contents = true
-	b.icon = Icons.item(Game.base_id(id))
 	b.expand_icon = true
 	b.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	b.vertical_icon_alignment = VERTICAL_ALIGNMENT_CENTER
-	var sel: bool = bag_sel == id
-	for st in ["normal", "hover", "pressed", "focus"]:
-		b.add_theme_stylebox_override(st, _slot_style(col, sel or st == "hover"))
-	b.tooltip_text = "%s%s" % [Game.item_name(id), (I18n.t("  [worn]") if Game.equipped_count(id) > 0 else "")]
-	var n := Game.count(id)
-	if n > 1:
-		var l := Label.new()
-		l.text = str(n)
-		l.add_theme_font_size_override("font_size", 12)
-		l.add_theme_color_override("font_color", Color(1, 1, 1))
-		l.add_theme_color_override("font_outline_color", Color(0, 0, 0))
-		l.add_theme_constant_override("outline_size", 4)
-		l.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
-		l.grow_horizontal = Control.GROW_DIRECTION_BEGIN
-		l.grow_vertical = Control.GROW_DIRECTION_BEGIN
-		l.offset_right = -4
-		l.offset_bottom = -2
-		l.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		b.add_child(l)
-	if Game.equipped_count(id) > 0:
-		var w := Label.new()
-		w.text = "worn"
-		w.add_theme_font_size_override("font_size", 10)
-		w.add_theme_color_override("font_color", Color(0.6, 1.0, 0.7))
-		w.add_theme_color_override("font_outline_color", Color(0, 0, 0))
-		w.add_theme_constant_override("outline_size", 3)
-		w.position = Vector2(4, 1)
-		w.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		b.add_child(w)
-	b.pressed.connect(_pick_slot.bind(id))
-	b.mouse_entered.connect(show_detail.bind(id))
+	b.set_meta("id", "")
+	var l := Label.new()
+	l.name = "N"
+	l.add_theme_font_size_override("font_size", 12)
+	l.add_theme_color_override("font_color", Color(1, 1, 1))
+	l.add_theme_color_override("font_outline_color", Color(0, 0, 0))
+	l.add_theme_constant_override("outline_size", 4)
+	l.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+	l.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+	l.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	l.offset_right = -4
+	l.offset_bottom = -2
+	l.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	b.add_child(l)
+	var w := Label.new()
+	w.name = "W"
+	w.text = "worn"
+	w.add_theme_font_size_override("font_size", 10)
+	w.add_theme_color_override("font_color", Color(0.6, 1.0, 0.7))
+	w.add_theme_color_override("font_outline_color", Color(0, 0, 0))
+	w.add_theme_constant_override("outline_size", 3)
+	w.position = Vector2(4, 1)
+	w.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	b.add_child(w)
+	b.pressed.connect(func():
+		var id := str(b.get_meta("id", ""))
+		if id != "":
+			_pick_slot(id))
+	b.mouse_entered.connect(func():
+		var id := str(b.get_meta("id", ""))
+		if id != "":
+			show_detail(id))
 	b.gui_input.connect(func(ev: InputEvent):                # double-click or right-click does the obvious thing
 		if ev is InputEventMouseButton and (ev as InputEventMouseButton).pressed:
 			var mb := ev as InputEventMouseButton
-			if mb.button_index == MOUSE_BUTTON_RIGHT or (mb.button_index == MOUSE_BUTTON_LEFT and mb.double_click):
+			var id := str(b.get_meta("id", ""))
+			if id != "" and (mb.button_index == MOUSE_BUTTON_RIGHT or (mb.button_index == MOUSE_BUTTON_LEFT and mb.double_click)):
 				_quick(id))
 	return b
+
+
+func _dress_slot(b: Button, id: String, sz: Vector2) -> void:
+	var col: Color = QCOL[clampi(Game.quality_index(id), 0, 4)]
+	var sel: bool = bag_sel == id
+	var worn := Game.equipped_count(id) > 0
+	b.custom_minimum_size = sz
+	b.set_meta("id", id)
+	var ic: Texture2D = Icons.item(Game.base_id(id))
+	if b.icon != ic:
+		b.icon = ic
+	var sk := "%s|%s" % [col.to_html(), sel]
+	if str(b.get_meta("sk", "")) != sk:
+		b.set_meta("sk", sk)
+		var plain := _shared_style(col, sel)
+		var lit := _shared_style(col, true)
+		b.add_theme_stylebox_override("normal", plain)
+		b.add_theme_stylebox_override("hover", lit)
+		b.add_theme_stylebox_override("pressed", plain)
+		b.add_theme_stylebox_override("focus", plain)
+	var tip := "%s%s" % [Game.item_name(id), (I18n.t("  [worn]") if worn else "")]
+	if b.tooltip_text != tip:
+		b.tooltip_text = tip
+	var n := Game.count(id)
+	var nl := b.get_node("N") as Label
+	nl.visible = n > 1
+	if n > 1 and nl.text != str(n):
+		nl.text = str(n)
+	(b.get_node("W") as Label).visible = worn

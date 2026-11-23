@@ -14,6 +14,7 @@ const ROWS := [
 	["support_art", "Support art", "Quick arts"], ["support2_art", "Second support art", "Quick arts"], ["path_art", "Path art", "Quick arts"], ["flying_sword", "Flying sword", "Quick arts"],
 	["use_salve", "Use salve", "Items"], ["use_pill", "Use qi pill", "Items"], ["use_gourd", "Use gourd", "Items"], ["talisman", "Burn talisman", "Items"], ["vault_dump", "Dump into vault", "Items"],
 	["interact", "Interact / talk", "World"], ["meditate", "Meditate", "World"], ["flow", "Flow (active meditation)", "World"], ["mech", "Mech", "World"], ["camera_view", "Camera view", "World"],
+	["zoom_in", "Zoom camera in", "World"], ["zoom_out", "Zoom camera out", "World"],
 	["menu", "Menu", "Menus"], ["inventory", "Bag", "Menus"], ["map", "Map", "Menus"], ["journal", "Journal", "Menus"], ["lattice", "Meridians", "Menus"], ["character", "Character", "Menus"], ["pause", "Pause", "Menus"], ["photo", "Photo mode", "Menus"],
 ]
 
@@ -71,11 +72,18 @@ static func keys(action: String) -> Array:
 	return chosen[action] if chosen.has(action) else defaults.get(action, [])
 
 
+static func key_name(code: int) -> String:
+	# Web and mobile display servers cannot translate physical keyboard layouts.
+	if DisplayServer.get_name() != "headless" and not OS.has_feature("web") and not OS.has_feature("mobile"):
+		code = DisplayServer.keyboard_get_keycode_from_physical(code)
+	return OS.get_keycode_string(code)
+
+
 static func key_text(action: String) -> String:
 	var ks := keys(action)
 	if ks.is_empty():
 		return I18n.t("(none)")
-	return " / ".join(ks.map(func(k): return OS.get_keycode_string(DisplayServer.keyboard_get_keycode_from_physical(k)) if DisplayServer.get_name() != "headless" else OS.get_keycode_string(k)))
+	return " / ".join(ks.map(func(k): return key_name(int(k))))
 
 
 static func owner_of(code: int, except_action: String = "") -> String:
@@ -108,7 +116,7 @@ static func bind(action: String, code: int) -> String:
 	chosen[action] = [code]
 	_apply(action, [code])
 	save()
-	return I18n.t("%s is now on %s.") % [label_of(action), OS.get_keycode_string(DisplayServer.keyboard_get_keycode_from_physical(code)) if DisplayServer.get_name() != "headless" else str(code)] + note
+	return I18n.t("%s is now on %s.") % [label_of(action), key_name(code)] + note
 
 
 static func reset_one(action: String) -> void:

@@ -1,0 +1,16 @@
+{
+ "_note": "The Common City's auction house (scripts/systems/Auction.gd). Prices are multiples of an item's value. Offline the buyers and sellers are simulated; online, real players replace them.",
+ "max_lots": 8,
+ "listing_fee": 0.02,
+ "sale_fee": 0.08,
+ "daily_sales": 10,
+ "quick_mult": 0.75,
+ "quick_rate": 0.9,
+ "fair_mult": 1.0,
+ "fair_rate": 0.45,
+ "dear_mult": 1.3,
+ "dear_rate": 0.15,
+ "market_lots": 12,
+ "market_min": 1.0,
+ "market_max": 1.45
+}

@@ -95,18 +95,75 @@ static func _card(conifer: bool) -> QuadMesh:
 	return _cards[k]
 
 
+## round 186 (Robert's own play log: 3-4 frames a second in Eliet on an RTX 5060 Ti): every limb used to be
+## its own MeshInstance3D with its own CylinderMesh -- ~5 per tree, 1,658 trees in the village = 8,297 draws,
+## times the sun's shadow cascades. Now a tree is ONE bark mesh (the limbs merged) and one leaf MultiMesh, and
+## trees of the same kind, season and height share a few dozen built variants (the shapes are reused, not
+## rebuilt -- loading is faster too). Same look; a fifth of the draws.
+const VARIANTS := 24
+static var _built := {}          # variant key -> [ArrayMesh bark, MultiMesh leaves]
+
+
+static func variant_key(conifer: bool, height: float, seed_v: int, season: String) -> String:
+	return "%s|%s|%d|%d" % [conifer, season, int(round(height * 4.0)), absi(seed_v) % VARIANTS]
+
+
 static func make(conifer: bool, height: float, seed_v: int, season: String = "") -> Node3D:
 	## a tree `height` tall, standing at the origin
 	var root := Node3D.new()
 	root.name = "Tree"
 	root.set_meta("realistic_tree", true)
-	var cards := []           # [Transform3D, Color]
-	var limbs := []           # [from, dir, length, r0, r1]
-	grow(conifer, height, seed_v, season, cards, limbs)
-	for lb in limbs:
-		_limb(root, lb[0], lb[1], lb[2], lb[3], lb[4], _bark(conifer))
-	root.add_child(leaves(cards, conifer, season, false))
+	var key := variant_key(conifer, height, seed_v, season)
+	var e: Array = _built.get(key, [])
+	if e.is_empty():
+		var cards := []           # [Transform3D, Color]
+		var limbs := []           # [from, dir, length, r0, r1]
+		grow(conifer, height, absi(seed_v) % VARIANTS * 7919 + int(round(height * 4.0)), season, cards, limbs)
+		e = [limbs_mesh(limbs, _bark(conifer)), leaf_multimesh(cards, conifer)]
+		_built[key] = e
+	var bark_mi := MeshInstance3D.new()
+	bark_mi.name = "Bark"
+	bark_mi.mesh = e[0]
+	root.add_child(bark_mi)
+	var mmi := MultiMeshInstance3D.new()
+	mmi.name = "Leaves"
+	mmi.multimesh = e[1]
+	mmi.material_override = _leaf_mat(conifer, season, false)
+	root.add_child(mmi)
 	return root
+
+
+static func limbs_mesh(limbs: Array, mat: Material) -> ArrayMesh:
+	## every limb in one mesh (one draw): tapered cylinders, as before
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for lb in limbs:
+		var cm := CylinderMesh.new()
+		cm.top_radius = float(lb[4])
+		cm.bottom_radius = float(lb[3])
+		cm.height = float(lb[2])
+		cm.radial_segments = 10
+		cm.rings = 2
+		var d: Vector3 = (lb[1] as Vector3).normalized()
+		var b := Basis(Quaternion(Vector3.UP, d)) if d.cross(Vector3.UP).length() > 0.001 else Basis()
+		st.append_from(cm, 0, Transform3D(b, (lb[0] as Vector3) + d * float(lb[2]) * 0.5))
+	st.set_material(mat)
+	var am := st.commit()
+	if am.get_surface_count() > 0:
+		am.surface_set_material(0, mat)
+	return am
+
+
+static func leaf_multimesh(cards: Array, conifer: bool) -> MultiMesh:
+	var mm := MultiMesh.new()
+	mm.transform_format = MultiMesh.TRANSFORM_3D
+	mm.use_colors = true
+	mm.mesh = _card(conifer)
+	mm.instance_count = cards.size()
+	for i in cards.size():
+		mm.set_instance_transform(i, cards[i][0])
+		mm.set_instance_color(i, cards[i][1])
+	return mm
 
 
 static func leaves(cards: Array, conifer: bool, season: String, far: bool) -> MultiMeshInstance3D:

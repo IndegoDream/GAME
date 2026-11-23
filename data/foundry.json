@@ -1,0 +1,821 @@
+{
+ "_about": "Round 177 (Robert, 2026-10-25): 'same with constructs and ships i want them to be modifiable and modular ... allow runes to be used on constructs.' Golems, the mech and the skiff are built from PARTS in slots. Craft a part from materials, fit it in a town, swap it any time (the old one goes back to your bin). Parts add to the construct's gifts and its aptitude (what it is good at). Runes can be set into golems and the mech.",
+ "slots": {
+  "golem": [
+   "core",
+   "frame",
+   "limbs",
+   "senses",
+   "engine"
+  ],
+  "mech": [
+   "plating",
+   "servos",
+   "reactor",
+   "optics"
+  ],
+  "ship": [
+   "hull",
+   "sails",
+   "hold",
+   "charts"
+  ]
+ },
+ "slot_names": {
+  "core": "Core",
+  "frame": "Frame",
+  "limbs": "Limbs",
+  "senses": "Senses",
+  "engine": "Engine",
+  "plating": "Plating",
+  "servos": "Servos",
+  "reactor": "Reactor",
+  "optics": "Optics",
+  "hull": "Hull",
+  "sails": "Sails",
+  "hold": "Hold",
+  "charts": "Charts"
+ },
+ "rune_sockets": [
+  [
+   0,
+   1
+  ],
+  [
+   8,
+   2
+  ],
+  [
+   15,
+   3
+  ]
+ ],
+ "swap_gold": 20,
+ "role_share": 0.45,
+ "parts": {
+  "clay_heart": {
+   "name": "Clay Heart",
+   "kind": "golem",
+   "slot": "core",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "ancient_clay": 2,
+    "spirit_resin": 1
+   },
+   "gold": 30,
+   "desc": "A slow, warm beat that mends it.",
+   "apt": {
+    "mend": 14,
+    "guard": 6
+   },
+   "effect": {
+    "regen": 0.1
+   }
+  },
+  "ember_core": {
+   "name": "Ember Core",
+   "kind": "golem",
+   "slot": "core",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "firestone": 3,
+    "brass_cog": 1
+   },
+   "gold": 120,
+   "desc": "A coal that wants to be used.",
+   "apt": {
+    "combat": 20,
+    "arcana": 6
+   },
+   "effect": {
+    "damage_mult": 1.04,
+    "burn_on_hit": 0.03
+   }
+  },
+  "spirit_core": {
+   "name": "Spirit Core",
+   "kind": "golem",
+   "slot": "core",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "cloud_jade": 1,
+    "singing_crystal": 1,
+    "spirit_resin": 2
+   },
+   "gold": 270,
+   "desc": "Qi pools in it like water in a bowl.",
+   "apt": {
+    "arcana": 24,
+    "mend": 8
+   },
+   "effect": {
+    "qi_mult": 1.06,
+    "regen": 0.2
+   }
+  },
+  "clay_frame": {
+   "name": "Clay Frame",
+   "kind": "golem",
+   "slot": "frame",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "ancient_clay": 3
+   },
+   "gold": 30,
+   "desc": "Thick, forgiving, soft at the edges.",
+   "apt": {
+    "guard": 14
+   },
+   "effect": {
+    "damage_taken": 0.97
+   }
+  },
+  "iron_frame": {
+   "name": "Iron Frame",
+   "kind": "golem",
+   "slot": "frame",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "iron_ore": 5,
+    "brass_cog": 1
+   },
+   "gold": 120,
+   "desc": "Heavier than it looks.",
+   "apt": {
+    "guard": 22
+   },
+   "effect": {
+    "damage_taken": 0.94,
+    "move_mult": 0.98
+   }
+  },
+  "jade_frame": {
+   "name": "Jade Frame",
+   "kind": "golem",
+   "slot": "frame",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "rough_jade": 4,
+    "cloud_jade": 1
+   },
+   "gold": 270,
+   "desc": "Cool green armour that does not chip.",
+   "apt": {
+    "guard": 26,
+    "mend": 6
+   },
+   "effect": {
+    "damage_taken": 0.93,
+    "hp_mult": 1.04
+   }
+  },
+  "stone_fists": {
+   "name": "Stone Fists",
+   "kind": "golem",
+   "slot": "limbs",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "iron_ore": 3
+   },
+   "gold": 30,
+   "desc": "It hits with the whole arm.",
+   "apt": {
+    "combat": 14
+   },
+   "effect": {
+    "damage_mult": 1.03
+   }
+  },
+  "spring_legs": {
+   "name": "Spring Legs",
+   "kind": "golem",
+   "slot": "limbs",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "brass_cog": 3,
+    "spirit_herb": 2
+   },
+   "gold": 120,
+   "desc": "Coiled brass under the knee.",
+   "apt": {
+    "haul": 20,
+    "scout": 6
+   },
+   "effect": {
+    "move_mult": 1.05
+   }
+  },
+  "hauler_arms": {
+   "name": "Hauler Arms",
+   "kind": "golem",
+   "slot": "limbs",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "star_iron": 2,
+    "brass_cog": 3
+   },
+   "gold": 270,
+   "desc": "Made to lift, made to carry, made to dig.",
+   "apt": {
+    "haul": 24,
+    "gather": 10
+   },
+   "effect": {
+    "gather_chance": 0.03
+   }
+  },
+  "glass_eyes": {
+   "name": "Glass Eyes",
+   "kind": "golem",
+   "slot": "senses",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "iron_ore": 1,
+    "spirit_herb": 2
+   },
+   "gold": 30,
+   "desc": "Two ground lenses, patient.",
+   "apt": {
+    "scout": 14
+   },
+   "effect": {
+    "sight": 0.5
+   }
+  },
+  "hound_nose": {
+   "name": "Hound Nose",
+   "kind": "golem",
+   "slot": "senses",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "moonpetal": 3,
+    "brass_cog": 1
+   },
+   "gold": 120,
+   "desc": "A bellows that smells for you.",
+   "apt": {
+    "scout": 22
+   },
+   "effect": {
+    "sense_radius": 0.5
+   }
+  },
+  "lucky_charm": {
+   "name": "Lucky Charm",
+   "kind": "golem",
+   "slot": "senses",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "mirror_silver": 2,
+    "star_iron": 1
+   },
+   "gold": 270,
+   "desc": "A tiny mirror in the brow. Things fall its way.",
+   "apt": {
+    "fortune": 24,
+    "scout": 6
+   },
+   "effect": {
+    "loot_luck": 0.02
+   }
+  },
+  "bellows": {
+   "name": "Bellows",
+   "kind": "golem",
+   "slot": "engine",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "iron_ore": 2,
+    "spirit_resin": 1
+   },
+   "gold": 30,
+   "desc": "Breathes warmth into the joints.",
+   "apt": {
+    "mend": 10,
+    "haul": 6
+   },
+   "effect": {
+    "regen": 0.15
+   }
+  },
+  "nanite_lattice": {
+   "name": "Nanite Lattice",
+   "kind": "golem",
+   "slot": "engine",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "nanite_shard": 3,
+    "brass_cog": 2
+   },
+   "gold": 120,
+   "desc": "The swarm's own weave, set in its chest.",
+   "apt": {
+    "arcana": 14,
+    "gather": 8
+   },
+   "effect": {
+    "swarm_mult": 1.05
+   }
+  },
+  "star_engine": {
+   "name": "Star Engine",
+   "kind": "golem",
+   "slot": "engine",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "meteor_glass": 2,
+    "star_iron": 2,
+    "nanite_shard": 3
+   },
+   "gold": 270,
+   "desc": "A fallen star, harnessed.",
+   "apt": {
+    "combat": 14,
+    "arcana": 16
+   },
+   "effect": {
+    "damage_mult": 1.05,
+    "qi_mult": 1.04
+   }
+  },
+  "scrap_plates": {
+   "name": "Scrap Plates",
+   "kind": "mech",
+   "slot": "plating",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "iron_ore": 3
+   },
+   "gold": 30,
+   "desc": "Riveted and ugly and fine.",
+   "apt": {
+    "guard": 12
+   },
+   "effect": {
+    "damage_taken": 0.97
+   }
+  },
+  "iron_plates": {
+   "name": "Iron Plates",
+   "kind": "mech",
+   "slot": "plating",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "iron_ore": 6,
+    "brass_cog": 2
+   },
+   "gold": 120,
+   "desc": "Heavy. Hard to wear down.",
+   "apt": {
+    "guard": 20
+   },
+   "effect": {
+    "damage_taken": 0.95,
+    "move_mult": 0.98
+   }
+  },
+  "star_plates": {
+   "name": "Star Plates",
+   "kind": "mech",
+   "slot": "plating",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "star_iron": 3,
+    "meteor_glass": 1
+   },
+   "gold": 270,
+   "desc": "Light and strong.",
+   "apt": {
+    "guard": 26
+   },
+   "effect": {
+    "damage_taken": 0.93,
+    "hp_mult": 1.03
+   }
+  },
+  "basic_servos": {
+   "name": "Basic Servos",
+   "kind": "mech",
+   "slot": "servos",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "brass_cog": 2
+   },
+   "gold": 30,
+   "desc": "Smooth enough.",
+   "apt": {
+    "haul": 10
+   },
+   "effect": {
+    "move_mult": 1.03
+   }
+  },
+  "quick_servos": {
+   "name": "Quick Servos",
+   "kind": "mech",
+   "slot": "servos",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "brass_cog": 4,
+    "spirit_resin": 1
+   },
+   "gold": 120,
+   "desc": "It dodges like it means it.",
+   "apt": {
+    "haul": 16,
+    "guard": 8
+   },
+   "effect": {
+    "move_mult": 1.05,
+    "dodge_chance": 0.02
+   }
+  },
+  "power_servos": {
+   "name": "Power Servos",
+   "kind": "mech",
+   "slot": "servos",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "star_iron": 2,
+    "nanite_shard": 2
+   },
+   "gold": 270,
+   "desc": "Every punch lands with weight.",
+   "apt": {
+    "combat": 24
+   },
+   "effect": {
+    "damage_mult": 1.05
+   }
+  },
+  "qi_cell": {
+   "name": "Qi Cell",
+   "kind": "mech",
+   "slot": "reactor",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "spirit_resin": 2,
+    "iron_ore": 2
+   },
+   "gold": 30,
+   "desc": "Drinks qi a little more slowly.",
+   "apt": {
+    "arcana": 10
+   },
+   "mods": {
+    "drain": 0.85
+   }
+  },
+  "nanite_reactor": {
+   "name": "Nanite Reactor",
+   "kind": "mech",
+   "slot": "reactor",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "nanite_shard": 4,
+    "brass_cog": 2
+   },
+   "gold": 120,
+   "desc": "The swarm feeds it, and spares you.",
+   "apt": {
+    "arcana": 18
+   },
+   "mods": {
+    "drain": 0.7
+   }
+  },
+  "star_reactor": {
+   "name": "Star Reactor",
+   "kind": "mech",
+   "slot": "reactor",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "meteor_glass": 2,
+    "nanite_shard": 4,
+    "cloud_jade": 1
+   },
+   "gold": 270,
+   "desc": "Almost no drain at all.",
+   "apt": {
+    "arcana": 26
+   },
+   "effect": {
+    "qi_mult": 1.03
+   },
+   "mods": {
+    "drain": 0.55
+   }
+  },
+  "scope": {
+   "name": "Scope",
+   "kind": "mech",
+   "slot": "optics",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "iron_ore": 1,
+    "spirit_herb": 2
+   },
+   "gold": 30,
+   "desc": "A good long look.",
+   "apt": {
+    "scout": 12
+   },
+   "effect": {
+    "sight": 0.5
+   }
+  },
+  "tracker_optics": {
+   "name": "Tracker Optics",
+   "kind": "mech",
+   "slot": "optics",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "moonpetal": 3,
+    "brass_cog": 1
+   },
+   "gold": 120,
+   "desc": "Sees warmth through walls.",
+   "apt": {
+    "scout": 20
+   },
+   "effect": {
+    "sense_radius": 0.5
+   }
+  },
+  "war_optics": {
+   "name": "War Optics",
+   "kind": "mech",
+   "slot": "optics",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "mirror_silver": 2,
+    "star_iron": 1
+   },
+   "gold": 270,
+   "desc": "Finds the soft place.",
+   "apt": {
+    "combat": 16,
+    "scout": 10
+   },
+   "effect": {
+    "crit_chance": 0.03
+   }
+  },
+  "plank_hull": {
+   "name": "Plank Hull",
+   "kind": "ship",
+   "slot": "hull",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "ancient_clay": 2,
+    "iron_ore": 2
+   },
+   "gold": 30,
+   "desc": "Wide enough for a little more.",
+   "apt": {
+    "haul": 14
+   },
+   "mods": {
+    "loot": 1.05
+   }
+  },
+  "ribbed_hull": {
+   "name": "Ribbed Hull",
+   "kind": "ship",
+   "slot": "hull",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "iron_ore": 5,
+    "brass_cog": 2
+   },
+   "gold": 120,
+   "desc": "A proper keel.",
+   "apt": {
+    "haul": 22
+   },
+   "mods": {
+    "loot": 1.15
+   }
+  },
+  "ironbound_hull": {
+   "name": "Ironbound Hull",
+   "kind": "ship",
+   "slot": "hull",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "star_iron": 3,
+    "brass_cog": 3
+   },
+   "gold": 270,
+   "desc": "It would carry a mountain.",
+   "apt": {
+    "haul": 30
+   },
+   "mods": {
+    "loot": 1.3
+   }
+  },
+  "rag_sail": {
+   "name": "Rag Sail",
+   "kind": "ship",
+   "slot": "sails",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "spirit_herb": 2
+   },
+   "gold": 30,
+   "desc": "Patched, and it pulls.",
+   "apt": {
+    "scout": 10
+   },
+   "mods": {
+    "hours": 0.92
+   }
+  },
+  "canvas_sail": {
+   "name": "Canvas Sail",
+   "kind": "ship",
+   "slot": "sails",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "spirit_herb": 4,
+    "brass_cog": 1
+   },
+   "gold": 120,
+   "desc": "Tight and wind-hungry.",
+   "apt": {
+    "scout": 16
+   },
+   "mods": {
+    "hours": 0.85
+   }
+  },
+  "star_sail": {
+   "name": "Star Sail",
+   "kind": "ship",
+   "slot": "sails",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "mirror_silver": 2,
+    "cloud_jade": 1
+   },
+   "gold": 270,
+   "desc": "The wind itself leans on it.",
+   "apt": {
+    "scout": 22
+   },
+   "mods": {
+    "hours": 0.75
+   }
+  },
+  "crates": {
+   "name": "Cargo Crates",
+   "kind": "ship",
+   "slot": "hold",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "iron_ore": 2
+   },
+   "gold": 30,
+   "desc": "Everything tied down.",
+   "apt": {
+    "haul": 8,
+    "fortune": 6
+   },
+   "mods": {
+    "gold": 1.1
+   }
+  },
+  "lined_hold": {
+   "name": "Lined Hold",
+   "kind": "ship",
+   "slot": "hold",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "ancient_clay": 3,
+    "brass_cog": 2
+   },
+   "gold": 120,
+   "desc": "Dry, and the cargo fetches more.",
+   "apt": {
+    "fortune": 14
+   },
+   "mods": {
+    "gold": 1.2
+   }
+  },
+  "vault_hold": {
+   "name": "Vault Hold",
+   "kind": "ship",
+   "slot": "hold",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "star_iron": 2,
+    "spirit_resin": 2
+   },
+   "gold": 270,
+   "desc": "A cabin that is half strongbox.",
+   "apt": {
+    "fortune": 22,
+    "guard": 8
+   },
+   "mods": {
+    "gold": 1.35
+   }
+  },
+  "sketch_chart": {
+   "name": "Sketch Chart",
+   "kind": "ship",
+   "slot": "charts",
+   "tier": 1,
+   "realm": 0,
+   "needs": {
+    "spirit_herb": 1
+   },
+   "gold": 30,
+   "desc": "Half remembered shores.",
+   "apt": {
+    "scout": 8
+   },
+   "mods": {
+    "insight": 1.2
+   }
+  },
+  "navigator_chart": {
+   "name": "Navigator's Charts",
+   "kind": "ship",
+   "slot": "charts",
+   "tier": 2,
+   "realm": 4,
+   "needs": {
+    "moonpetal": 3,
+    "mirror_silver": 1
+   },
+   "gold": 120,
+   "desc": "Marked by someone who came back.",
+   "apt": {
+    "scout": 14,
+    "arcana": 8
+   },
+   "mods": {
+    "insight": 1.5
+   }
+  },
+  "star_charts": {
+   "name": "Star Charts",
+   "kind": "ship",
+   "slot": "charts",
+   "tier": 3,
+   "realm": 8,
+   "needs": {
+    "singing_crystal": 1,
+    "mirror_silver": 2
+   },
+   "gold": 270,
+   "desc": "The sky as a map.",
+   "apt": {
+    "scout": 20,
+    "arcana": 14
+   },
+   "mods": {
+    "insight": 2.0
+   }
+  }
+ }
+}

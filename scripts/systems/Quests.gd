@@ -43,6 +43,7 @@ func setup(game) -> void:
 	super.setup(game)
 	data = load_json("res://data/sidequests.json")
 	_sect_roads()
+	_mysteries()
 	var dr = G._load_json("res://data/drafts/side_quests.json", {})
 	if dr is Dictionary:
 		for it in dr.get("items", []):
@@ -66,6 +67,76 @@ func _register() -> void:
 		if not G.items.has(id):
 			var u: Dictionary = data["uniques"][id]
 			G.items[id] = {"name": u.get("name", id), "type": "treasure", "value": int(u.get("value", 100)), "effect": (u.get("effect", {}) as Dictionary).duplicate(), "desc": u.get("desc", ""), "quest_reward": true}
+
+
+# ---- 2026-11-03: mysteries and treasure hunts (data/mysteries.json) ------------------------------
+## Robert, 2026-11-03: "more mystery and intrigue -- a treasure hunt, a whodunit, conspiracies, secret societies".
+## They are side quests with three more things the engine now understands:
+##   find.place  a clue can sit in any place (the village, the valley, a Land), not only on a floor
+##   find.near   ...and where its words say: "fountain", "water", "stairs", "spawn", or a map letter (an NPC's door)
+##   find.subtle a treasure hunt's find: no diamond until you're almost on it -- the riddle in the log is the map
+## Every clue is an item you keep and can read in the bag ("clues"), and a whodunit ends with an accusation:
+## a choice with "needs" is only open to someone holding that proof -- guess without it and you may guess wrong.
+
+const MYSTERY_FILE := "res://data/mysteries.json"
+
+
+func _mysteries() -> void:
+	var md = G._load_json(MYSTERY_FILE, {})
+	if not (md is Dictionary):
+		return
+	if not (data.get("quests", null) is Array):
+		data["quests"] = []
+	var have := {}
+	for q in data["quests"]:
+		have[str(q.get("id", ""))] = true
+	for q in md.get("quests", []):
+		if q is Dictionary and not have.has(str(q.get("id", ""))):
+			data["quests"].append(q)
+	for id in md.get("clues", {}):
+		var c: Dictionary = md["clues"][id]
+		G.items[str(id)] = {"name": str(c.get("name", id)), "type": "quest", "value": 0, "clue": true,
+			"desc": I18n.t("A clue. ") + str(c.get("text", ""))}
+		if not data.has("quest_items"):
+			data["quest_items"] = {}
+		data["quest_items"][str(id)] = str(c.get("name", id))
+	for id in md.get("uniques", {}):
+		if not data.has("uniques"):
+			data["uniques"] = {}
+		data["uniques"][str(id)] = md["uniques"][id]
+
+
+func clue_text(id: String) -> String:
+	return str(G.items.get(id, {}).get("desc", ""))
+
+
+func is_mystery(qid: String) -> bool:
+	return kind_of(qid) in ["mystery", "treasure"]
+
+
+func casebook(qid: String) -> Array:
+	## the clues you hold for a mystery: [[name, text], ...] (the Quests page and the accusation show them)
+	var out := []
+	var seen := {}
+	for stg in qdef(qid).get("stages", []):
+		var f: Dictionary = stg.get("goal", {}).get("find", {}) if stg is Dictionary else {}
+		var it := str(f.get("item", ""))
+		if it != "" and not seen.has(it) and G.count(it) > 0:
+			seen[it] = true
+			out.append([G.item_name(it), clue_text(it).trim_prefix(I18n.t("A clue. "))])
+	return out
+
+
+func _choice_open(c: Dictionary) -> bool:
+	var nd: Dictionary = c.get("needs", {})
+	for id in nd:
+		if _have(str(id)) < int(nd[id]):
+			return false
+	return true
+
+
+func _have(id: String) -> int:
+	return int(G.gold) if id == "gold" else G.count(id)          # (gold is a purse, not a bag item)
 
 
 # ---- round 55: a road for any sect without one --------------------------------------------
@@ -179,11 +250,40 @@ func all() -> Array:
 	return base + legacy_defs.values()
 
 
+var _qidx := {}             # round 198: quest id -> its place in data["quests"] (qdef was a walk through every quest, on every event:
+var _qidx_n := -1           # 0.8 ms an event on Robert's save -- a kill, a pill, anything that's logged)
+var _qidx_of: Variant = null
+
+
 func qdef(qid: String) -> Dictionary:
-	for q in all():
-		if str(q.get("id", "")) == qid:
+	## the first quest with this id: the base list first, then the inheritances' lines (as all() orders them)
+	var base: Array = data.get("quests", [])
+	if base.size() != _qidx_n or not is_same(base, _qidx_of):
+		_qindex(base)
+	if _qidx.has(qid):
+		var q = base[int(_qidx[qid])]
+		if q is Dictionary and str(q.get("id", "")) == qid:
+			return q
+		_qindex(base)                        # (an id changed under us -- look again, the slow way)
+		for b in base:
+			if b is Dictionary and str(b.get("id", "")) == qid:
+				return b
+	for q in legacy_defs.values():
+		if q is Dictionary and str(q.get("id", "")) == qid:
 			return q
 	return {}
+
+
+func _qindex(base: Array) -> void:
+	_qidx = {}
+	for i in base.size():
+		var q = base[i]
+		if q is Dictionary:
+			var id := str(q.get("id", ""))
+			if not _qidx.has(id):
+				_qidx[id] = i
+	_qidx_n = base.size()
+	_qidx_of = base
 
 
 func unlocked(qid: String) -> bool:
@@ -291,6 +391,15 @@ func goal_floor(qid: String) -> int:
 	return _floor_of(goal(qid))
 
 
+func goal_place(qid: String) -> String:
+	## where the current stage's thing is: "floorN", or the place a find names (the village, the valley, a Land)
+	var g := goal(qid)
+	for k in ["find", "hunt"]:
+		if g.has(k) and str(g[k].get("place", "")) != "":
+			return str(g[k]["place"])
+	return "floor%d" % goal_floor(qid)
+
+
 func deepest_floor(qid: String) -> int:
 	## round 58: the deepest any stage of a quest goes (for one not yet taken)
 	var best := 0
@@ -303,6 +412,8 @@ func deepest_floor(qid: String) -> int:
 func _floor_of(g: Dictionary) -> int:
 	for k in ["find", "hunt", "kill_floor"]:
 		if g.has(k):
+			if str(g[k].get("place", "")) != "" and G.store != null:
+				return G.store.depth_of(str(g[k]["place"]))          # (a Land's clue is as deep as the Land)
 			return int(g[k].get("floor", 0))
 	if g.has("reach"):
 		return int(g["reach"])
@@ -317,7 +428,8 @@ func kind_of(qid: String) -> String:
 
 const KINDS := [["side", "Side quests"], ["sect", "Sects"], ["gathering", "Gathering"], ["social", "People"], ["master", "Masters"],
 	["smithing", "Blacksmithing"], ["alchemy", "Alchemy"], ["medicine", "Medicine"], ["jewelcrafting", "Jewelcrafting"],
-	["hunting", "Hunting and taming"], ["exploration", "Exploration"], ["legacy", "Legacy tasks"], ["heirloom", "Heirloom"]]
+	["hunting", "Hunting and taming"], ["exploration", "Exploration"], ["legacy", "Legacy tasks"], ["heirloom", "Heirloom"],
+	["mystery", "Mysteries"], ["treasure", "Treasure hunts"]]
 
 
 func kind_name(k: String) -> String:
@@ -391,6 +503,7 @@ func _talk_stage(qid: String, hud, after: Callable) -> void:
 	var body := str(st.get("say", ""))
 	var choices: Array = st.get("choices", [])
 	var opts := []
+	var shut := 0
 	if choices.is_empty():
 		opts.append(["Go on", func():
 			hud.close_dialog()
@@ -398,9 +511,21 @@ func _talk_stage(qid: String, hud, after: Callable) -> void:
 	else:
 		for c in choices:
 			var cc: Dictionary = c
+			if not _choice_open(cc):
+				shut += 1              # (a charge you can't prove isn't offered -- 2026-11-03 mysteries)
+				continue
 			opts.append([str(cc.get("text", "")), func():
 				hud.close_dialog()
 				advance(qid, str(cc.get("ending", "")))])
+	if is_mystery(qid) and not choices.is_empty():
+		var cb := casebook(qid)
+		if not cb.is_empty():
+			var lines := []
+			for row in cb:
+				lines.append("- %s: %s" % [row[0], row[1]])
+			body += I18n.t("\n\nWhat you hold:\n") + "\n".join(lines)
+		if shut > 0:
+			body += I18n.t("\n\n(Something you haven't found yet would let you say more.)")
 	hud.open_dialog(str(q.get("name", "")), (body + "\n\n" if body != "" else "") + "(%s)" % str(st.get("log", "")), opts)
 
 
@@ -445,7 +570,7 @@ func _spawn_here(qid: String) -> void:
 	if not G.is_inside_tree():
 		return
 	var lv = G.get_tree().get_first_node_in_group("level")
-	if lv and lv.has_method("place_quests") and str(lv.level_id) == "floor%d" % goal_floor(qid):
+	if lv and lv.has_method("place_quests") and str(lv.level_id) == goal_place(qid):
 		lv.place_quests.call_deferred(qid)
 
 
@@ -454,6 +579,9 @@ func _stage_done(qid: String) -> void:
 	var line := str(stage(qid).get("say", ""))
 	if line != "":
 		G.message.emit(line)
+		var hud = G.get_tree().get_first_node_in_group("hud") if (is_mystery(qid) and G.is_inside_tree()) else null
+		if hud and hud.has_method("open_dialog"):
+			hud.open_dialog(str(qdef(qid).get("name", "")), line, [["Go on", hud.close_dialog]])          # a clue is read, not flashed past
 	advance(qid)
 
 
@@ -530,7 +658,9 @@ func reward_text(qid: String, rw: Dictionary) -> String:
 	for sk in rw.get("skill_xp", {}):
 		parts.append(I18n.t("practice in %s") % str(sk))
 	for npc in rw.get("bond", {}):
-		parts.append(I18n.t("%s's friendship") % str(npc))
+		parts.append((I18n.t("%s's friendship") if float(rw["bond"][npc]) >= 0.0 else I18n.t("%s trusts you less")) % str(npc))
+	if int(rw.get("pay", 0)) > 0:
+		parts.append(I18n.t("%d gold of your own, paid") % int(rw["pay"]))
 	if float(rw.get("contrib", 0)) > 0:
 		parts.append(I18n.t("%d sect contribution") % int(rw["contrib"]))
 	for el in rw.get("affinity", {}):
@@ -547,6 +677,8 @@ func reward_text(qid: String, rw: Dictionary) -> String:
 func _reward(qid: String, rw: Dictionary) -> void:
 	if int(rw.get("gold", 0)) > 0:
 		G.add_item("gold", int(rw["gold"]))
+	if int(rw.get("pay", 0)) > 0:
+		G.remove_item("gold", mini(int(rw["pay"]), int(G.gold)))          # 2026-11-03: an ending you pay for (making a theft good yourself)
 	var qi := reward_qi(qid, rw)
 	if qi > 0:
 		G.add_qi(qi, I18n.t("quest: ") + str(qdef(qid).get("name", "")))
@@ -703,15 +835,21 @@ func spawns_for(level_id: String) -> Array:
 	var out := []
 	for qid in active:
 		var g := goal(str(qid))
-		if g.has("find") and level_id == "floor%d" % int(g["find"].get("floor", 0)):
+		if g.has("find") and level_id == _where(g["find"]):
 			var f: Dictionary = g["find"]
 			var left: int = int(f.get("count", 1)) - int(G.count(str(f.get("item", ""))))
 			for i in maxi(left, 0):
-				out.append({"qid": qid, "kind": "find", "item": f.get("item", ""), "what": f.get("what", "something"), "look": f.get("look", "satchel"), "index": i})
-		elif g.has("hunt") and level_id == "floor%d" % int(g["hunt"].get("floor", 0)):
+				out.append({"qid": qid, "kind": "find", "item": f.get("item", ""), "what": f.get("what", "something"), "look": f.get("look", "satchel"), "index": i,
+					"near": str(f.get("near", "")), "subtle": bool(f.get("subtle", false))})
+		elif g.has("hunt") and level_id == _where(g["hunt"]):
 			var h: Dictionary = g["hunt"]
-			out.append({"qid": qid, "kind": "hunt", "name": h.get("name", I18n.t("a named foe")), "type": h.get("type", "strongest"), "hp_mult": float(h.get("hp_mult", 3.0)), "index": 0})
+			out.append({"qid": qid, "kind": "hunt", "name": h.get("name", I18n.t("a named foe")), "type": h.get("type", "strongest"), "hp_mult": float(h.get("hp_mult", 3.0)), "index": 0,
+				"near": str(h.get("near", ""))})
 	return out
+
+
+func _where(g: Dictionary) -> String:
+	return str(g["place"]) if str(g.get("place", "")) != "" else "floor%d" % int(g.get("floor", 0))
 
 
 # ---- the lines the HUD and the menu show -----------------------------------------------------------

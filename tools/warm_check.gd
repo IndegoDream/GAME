@@ -32,9 +32,12 @@ func _initialize() -> void:
 	var W = load("res://scripts/core/Warm.gd").new()
 	W.start()
 	var n := 0
-	while W.pending() > 0 and n < 6000:
+	# Threaded disk reads follow wall time, not accelerated simulation frames.
+	var deadline := Time.get_ticks_msec() + 100000
+	while W.pending() > 0 and Time.get_ticks_msec() < deadline:
 		W.tick()
 		await process_frame
+		OS.delay_msec(1)
 		n += 1
 	t(W.pending() == 0, "warmer drains (%d frames, %d/%d)" % [n, W.done, W.total])
 	print("warm_check: %d passed, %d failed" % [ok, bad])

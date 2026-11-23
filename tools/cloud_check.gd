@@ -190,11 +190,36 @@ func _run() -> void:
 	# ---- sign out
 	await cs.sign_out()
 	check("signed out", not cs.signed_in() and not FileAccess.get_file_as_string("user://cloud_session.json").contains("tok"))
+	# ---- round 194: deleting the account (Google Play's rule), from the game
+	var rd: Dictionary = await cs.delete_account()
+	check("signed out: delete is refused, nothing sent", not rd["ok"] and str(rd["message"]).begins_with("Sign in first"), str(rd))
+	var rs: Dictionary = await cs.sign_in("robert@example.com", "correct horse")
+	check("signed in again to delete", rs["ok"] and cs.signed_in(), str(rs))
+	var had_local := FileAccess.file_exists(G.save_path)
+	var mine0 := await _mine(cs)
+	rd = await cs.delete_account()
+	check("the account is deleted", rd["ok"] and str(rd["message"]).contains("deleted"), str(rd))
+	check("...and this device is signed out", not cs.signed_in() and not FileAccess.get_file_as_string("user://cloud_session.json").contains("tok"))
+	var mine1 := await _mine(cs)
+	check("every cloud save of the account is gone from the server", mine0 > 0 and mine1 == 0, "%d -> %d" % [mine0, mine1])
+	rs = await cs.sign_in("robert@example.com", "correct horse")
+	check("the old email and password no longer sign in", not rs["ok"], str(rs))
+	check("the save on this device is untouched", FileAccess.file_exists(G.save_path) == had_local)
 	for f in DirAccess.get_files_at("user://"):
 		if f.begins_with("cloudtest") or f.begins_with("cloud_session"):
 			DirAccess.remove_absolute("user://" + f)
 	print("CLOUD CHECK %d passed, %d failed" % [passed, failed])
 	quit(1 if failed > 0 else 0)
+
+func _mine(cs) -> int:
+	var r: Dictionary = await cs._call(HTTPClient.METHOD_GET, "/__state")
+	var n := 0
+	if r["data"] is Dictionary:
+		for k in (r["data"].get("rows", {}) as Dictionary):
+			if str(k).begins_with("u-1|"):
+				n += 1
+	return n
+
 
 func _raw_push(cs, row: Dictionary) -> void:
 	await cs._call(HTTPClient.METHOD_POST, "/rest/v1/game_saves?on_conflict=user_id,game,slot", row, PackedStringArray(["Prefer: resolution=merge-duplicates,return=minimal"]))

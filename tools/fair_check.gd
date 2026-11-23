@@ -52,6 +52,14 @@ func _process(_d: float) -> bool:
 	S.owned = {}
 	S.backend = "demo"
 	check("the demo has no comforts", not G.Comfort.comfort())
+	check("the demo keeps floor 5, the village and the valley open", S.travel_check("floor5") == "" and S.travel_check("village") == "" and S.travel_check("valley") == "")
+	check("the demo stops at floor 6", S.travel_check("floor6") == "locked")
+	var leaks := []
+	for rid in G.FrontierGen.data().get("regions", {}):
+		var d := int(G.FrontierGen.region(rid).get("depth", 0))
+		if (d > S.free_depth()) != (S.travel_check("frontier:" + rid) == "locked"):
+			leaks.append(rid)
+	check("the demo stops at every Land deeper than its floors", leaks.is_empty(), str(leaks))
 	S.backend = "full"
 	check("the paid game has comforts and style from the start", G.Comfort.comfort() and G.Comfort.style())
 	var steam: Dictionary = snap(G)
@@ -135,6 +143,60 @@ func _process(_d: float) -> bool:
 	check("the promise is written", str(d["fair_play"]["promise"]).contains("never power"))
 	for c in G.Comfort.COMFORTS:
 		check("comfort %s is not a power word" % c[0], not (str(c[0]) in d["fair_play"]["never_sold"]))
+	# round 182: rewarded ads count too -- an ad you watch is a price paid in time, so it buys looks only
+	var never: Array = d["fair_play"]["never_sold"]
+	for gid in d.get("ads", {}).get("gifts", {}):
+		var gg: Dictionary = d["ads"]["gifts"][gid]
+		check("ad gift %s carries no effect numbers" % gid, not gg.has("effect"), str(gg.get("effect", "")))
+		var ask := str(gg.get("ask", "")).to_lower()
+		for w in ["insight", "luck", "gold", "damage", "health", "qi ", "experience", "drop"]:
+			if ask.contains(w) and not ask.contains("stay exactly the same"):
+				check("ad gift %s doesn't offer %s" % [gid, w], false, ask)
+	var ads_src := FileAccess.get_file_as_string("res://scripts/core/Ads.gd")
+	var give := body(ads_src, "_give")
+	check("Ads._give exists", give != "")
+	for w in ["Game.gold", "add_buff", "add_item", "add_qi", "gain_insight", "loot_luck", "insight_mult", "add_skill_xp"]:
+		check("an ad gift never touches %s" % w, not give.contains(w))
+	S.owned = {}
+	S.backend = "test"
+	var A = G.ads
+	A.file_path = "user://fair_ads.json"
+	A.reset_record()
+	var before: Dictionary = snap(G)
+	check("no style before the ad", not G.Comfort.style())
+	A._give("try_style")
+	check("an ad's day of the Style pack: auras on", G.Comfort.style() and A.style_trial_left() > 86000.0)
+	var after: Dictionary = snap(G)
+	for k in before:
+		check("an ad gift changes no '%s'" % k, before[k] == after[k], "%s -> %s" % [str(before[k]), str(after[k])])
+	A._rec["style_until"] = 0.0
+	check("and it ends", not G.Comfort.style())
+	A.reset_record()
+	# round 183: the look packs -- every pack owned and every look chosen changes no number
+	var LK = G.sys("looks")
+	check("the looks system is there", LK != null)
+	S.owned = {}
+	S.backend = "test"
+	var lbase: Dictionary = snap(G)
+	for pk in LK.packs():
+		check("look pack %s is a cosmetic product" % pk, str(d["products"].get(pk, {}).get("kind", "")) == "cosmetic")
+		S.grant(str(pk), "fair_check")
+	S.grant("look_collection", "fair_check")
+	for kind in ["coats", "skies", "seats", "spirits", "trinkets"]:
+		LK.cycle(kind)
+	for sl in ["chest", "cowl", "boots"]:                 # round 183b: the wardrobe changes what's drawn, never a number
+		LK.set_wardrobe(sl, "-")
+	check("every look chosen", not LK.current("coats").is_empty() and not LK.current("seats").is_empty() and not LK.current("skies").is_empty() and not LK.current("spirits").is_empty())
+	var lafter: Dictionary = snap(G)
+	for k in lbase:
+		check("every look on changes no '%s'" % k, lbase[k] == lafter[k], "%s -> %s" % [str(lbase[k]), str(lafter[k])])
+	var lsrc := FileAccess.get_file_as_string("res://scripts/systems/Looks.gd")
+	for w in ["add_qi", "gain_insight", "add_buff", "Game.gold", "G.gold", "add_item", "loot_luck", "damage_mult", "max_hp"]:
+		check("Looks never touches %s" % w, not lsrc.contains(w))
+	for fn in ["max_hp", "damage", "weapon_damage", "kill_qi_at", "add_qi", "gain_insight"]:
+		check("Game.%s never mentions the looks" % fn, not body(src, fn).contains("looks"))
+	LK.reset()
+	S.owned = {}
 	for fn in DirAccess.get_files_at("user://"):
 		if fn.begins_with("fair_"):
 			DirAccess.remove_absolute("user://" + fn)

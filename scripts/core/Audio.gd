@@ -24,6 +24,8 @@ extends Node
 ##   sounds    Kenney's effects with more takes of the common ones, never quite
 ##             the same twice (pitch and loudness vary a little).
 ##   classic   the round-31 loops are kept: Menu -> Sound -> "Music: classic".
+##   world     round 184 (WorldSound.gd, a child): spots placed around you, rain you can hear, the room's echo
+##             on the world's sounds, what your feet say on each ground. at() plays in 3D.
 ## Volumes: music, sounds and ambience, 0-10 each (Gfx.settings).
 ## The director runs headless too (tests check what it would play); only the
 ## players are skipped.
@@ -41,6 +43,10 @@ signal now_playing(title: String)
 
 static var _streams := {}
 var _pool: Array = []
+var _wpool: Array = []        # round 184: the same, on the "World" bus (echo) -- blows, steps, the world's sounds
+var world: Node               # round 184: WorldSound.gd
+## round 184: these stay dry (no room echo) -- the menus, fanfares and what happens in your hands
+const DRY := ["ui_", "jingle_", "loot_", "page", "coins", "pickup", "equip", "floor_clear"]
 var _music_a: AudioStreamPlayer
 var _music_b: AudioStreamPlayer
 var _combat: AudioStreamPlayer
@@ -83,6 +89,10 @@ func data() -> Dictionary:
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	world = preload("res://scripts/core/WorldSound.gd").new()      # round 184: spots, weather, echo, ground
+	world.name = "WorldSound"
+	world.setup(self)
+	add_child(world)
 	if not on():
 		return
 	for i in POOL:
@@ -90,6 +100,11 @@ func _ready() -> void:
 		p.bus = "Master"
 		add_child(p)
 		_pool.append(p)
+	for i in POOL:
+		var wp := AudioStreamPlayer.new()
+		wp.bus = world.bus_name()              # the world's own sounds carry the place's echo
+		add_child(wp)
+		_wpool.append(wp)
 	_music_a = AudioStreamPlayer.new()
 	_music_b = AudioStreamPlayer.new()
 	_combat = AudioStreamPlayer.new()
@@ -122,6 +137,25 @@ static func amb_vol() -> float:
 
 static func classic() -> bool:
 	return str(_gfx().settings.get("music_style", "new")) == "classic"
+
+
+const PIECE_DIR_HARMONISED := "res://assets/audio/music2_new/"
+
+
+const PIECE_DIR_SUBTLE := "res://assets/audio/music3_subtle/"
+
+
+static func piece_dir() -> String:
+	## 2026-11-07: "subtle" (the default) = short, sparse pieces -- one quiet voice over a soft bed, lots of air
+	## (tools/music_gen2.py sketch(), MUSIC_SUBTLE=1); "new" = the full harmonised pieces (r117: the tunes'
+	## strong-beat notes moved onto notes that agree with the chord); "original" = the pieces as first made;
+	## "classic" = round 31's loops. Every style is kept.
+	var st := str(_gfx().settings.get("music_style", "subtle"))
+	if st == "subtle" and ResourceLoader.exists(PIECE_DIR_SUBTLE + "village_1.ogg"):
+		return PIECE_DIR_SUBTLE
+	if st == "original":
+		return PIECE_DIR
+	return PIECE_DIR_HARMONISED if ResourceLoader.exists(PIECE_DIR_HARMONISED + "village_1.ogg") else PIECE_DIR
 
 
 static func fight_music() -> bool:
@@ -180,6 +214,13 @@ static func _pick(name: String) -> AudioStream:
 	return opts[randi() % opts.size()] if opts.size() > 0 else null
 
 
+static func is_dry(name: String) -> bool:
+	for p in DRY:
+		if name.begins_with(p):
+			return true
+	return false
+
+
 static func has_sound(name: String) -> bool:
 	return _pick(name) != null
 
@@ -193,7 +234,7 @@ func play(name: String, vol: float = 1.0, pitch_var: float = 0.08) -> void:
 	var s := _pick(name)
 	if s == null:
 		return
-	for p in _pool:
+	for p in (_pool if is_dry(name) or _wpool.is_empty() else _wpool):
 		var ap := p as AudioStreamPlayer
 		if not ap.playing:
 			ap.stream = s
@@ -215,6 +256,9 @@ func at(name: String, pos: Vector3, vol: float = 1.0, max_dist: float = 22.0) ->
 	var d: float = pl.global_position.distance_to(pos)
 	if d > max_dist:
 		return
+	# round 184: heard from where it happened -- left or right, behind you, dulled by distance
+	if world and world.place3d(name, pos, vol, max_dist * 1.2, false):
+		return
 	play(name, vol * clampf(1.0 - d / max_dist, 0.15, 1.0))
 
 
@@ -226,7 +270,13 @@ func footstep(outdoor: bool, running: bool, delta: float) -> void:
 	_step_t -= delta
 	if _step_t <= 0.0:
 		_step_t = (0.3 if running else 0.46) * randf_range(0.94, 1.06)
-		play("step_grass" if outdoor else "step_stone", (0.3 if not running else 0.4) * float(data().get("levels", {}).get("steps", 1.0)), 0.15)
+		var lvl := float(data().get("levels", {}).get("steps", 1.0))
+		if world == null:
+			play("step_grass" if outdoor else "step_stone", (0.3 if not running else 0.4) * lvl, 0.15)
+			return
+		for st in world.step_sounds(running):          # round 184: snow, water, sand, metal, wood -- and a splash in the rain
+			play(str(st[0]), float(st[1]) * lvl, 0.15)
+		world.step_fx(running)                        # round 184b: and what the step throws up
 
 
 # ---- music: which set a place has ----------------------------------------------------
@@ -239,6 +289,15 @@ func music_for(level_id: String, def: Dictionary) -> String:
 	var night: bool = Game.daylight() < 0.35
 	if level_id == "village":
 		return "village_night" if night else "village"
+	if level_id == "city" or level_id == "realm:own":
+		return "village_night" if night else "village"
+	if level_id.begins_with("frontier:") or def.has("frontier"):
+		# 2026-11-06: the open Lands and the roads between them -- a green Land the valley's
+		# music, a strange or ruined one the deep's (they all used to get the deep's)
+		var fm: Dictionary = data().get("frontier_music", {})
+		var lk := str(def.get("look", ""))
+		if fm.has(lk):
+			return str(fm[lk])
 	var depth := int(def.get("depth", 0))
 	if level_id.begins_with("floor") and depth == 0:
 		depth = int(level_id.trim_prefix("floor").get_slice(":", 0))
@@ -279,9 +338,47 @@ func _fallback_set(set_name: String) -> String:
 	return {"village_night": "village", "haven": "village", "abyss": "deep"}.get(set_name, "dungeon")
 
 
+var pin_set := ""          # round 183b: the music room -- a set the player chose plays everywhere until they let the places choose
+
+
+func play_now(p: String) -> void:
+	## the music room: this piece now, and its set from then on (wherever you go)
+	var set_name := set_of(p)
+	if set_name == "":
+		return
+	pin_set = set_name
+	_end_piece(1.2)
+	start_piece(p)
+
+
+func unpin() -> void:
+	pin_set = ""
+	_end_piece(2.0)
+	wait_left = 1.5
+
+
+func set_of(p: String) -> String:
+	var sets: Dictionary = data().get("sets", {})
+	for k in sets:
+		if sets[k] is Array and p in sets[k]:
+			return str(k)
+	return ""
+
+
+func all_pieces() -> Array:
+	## [set, piece, title] for the music room, in the data's order
+	var out := []
+	var sets: Dictionary = data().get("sets", {})
+	for k in sets:
+		if sets[k] is Array:
+			for p in sets[k]:
+				out.append([str(k), str(p), title_of(str(p))])
+	return out
+
+
 func next_piece() -> String:
-	## a piece from this place's set, never the one just heard
-	var opts := pieces_of(context).duplicate()
+	## a piece from this place's set (or the music room's pinned set), never the one just heard
+	var opts := pieces_of(pin_set if pin_set != "" else context).duplicate()
 	if opts.is_empty():
 		return ""
 	if opts.size() > 1:
@@ -301,7 +398,7 @@ func start_piece(p: String) -> void:
 		return
 	piece = p
 	last_piece[context] = p
-	var s := _stream(PIECE_DIR + p + ".ogg")
+	var s := _stream(piece_dir() + p + ".ogg")
 	_piece_left = s.get_length() if s else 150.0
 	if on() and s:
 		if s is AudioStreamOggVorbis:
@@ -372,6 +469,17 @@ func ambience_for(level) -> String:
 		return "village_day" if day else "village_night"
 	if lid == "valley" or Game.TowerGen.is_tower(lid):
 		return "valley_day" if day else "valley_night"
+	if lid == "city":
+		return "town" if day else "village_night"
+	if lid == "realm:own":
+		return "valley_day" if day else "valley_night"
+	if lid.begins_with("frontier:") and level.has_method("is_outdoor") and level.is_outdoor():
+		# 2026-11-06: an open Land under the sky -- its own air, else birds and wind
+		var lk0 := str(level.get("look_key")) if level.get("look_key") != null else ""
+		var ol: Dictionary = a.get("outdoor_look", {})
+		if ol.has(lk0):
+			return str(ol[lk0])
+		return "valley_day" if day else "valley_night"
 	if level.has_method("is_town") and level.is_town():
 		return "town"
 	var lk := str(level.get("look_key")) if level.get("look_key") != null else ""
@@ -380,6 +488,14 @@ func ambience_for(level) -> String:
 		return str(by_look[lk])
 	var depth := int(level.def.get("depth", 0)) if level.get("def") is Dictionary else 0
 	return "deep" if depth >= 10 else "cave"
+
+
+static func amb_file(name: String) -> String:
+	## 2026-11-06 (Robert: "the dungeon track with the dripping sounds is a bit much"): the cave and
+	## the flooded halls have calmer beds now; Sound -> "Ambience: classic" brings back the drippy ones
+	if str(_gfx().settings.get("amb_style", "new")) == "classic" and ResourceLoader.exists(AMB_DIR + name + "_classic.ogg"):
+		return AMB_DIR + name + "_classic.ogg"
+	return AMB_DIR + name + ".ogg"
 
 
 func ambience_for_look(look: String) -> String:
@@ -392,7 +508,7 @@ func set_ambience(name: String) -> void:
 	ambience = name
 	if not on():
 		return
-	var s: AudioStream = _stream(AMB_DIR + name + ".ogg") if name != "" else null
+	var s: AudioStream = _stream(amb_file(name)) if name != "" else null
 	var nxt := _amb_b if _amb_to == _amb_a else _amb_a
 	if s:
 		if s is AudioStreamOggVorbis:
@@ -494,7 +610,7 @@ func _process(delta: float) -> void:
 	elif _amb_to:
 		_amb_to.volume_db = _db(_amb_level())
 	if _combat:
-		var cv := music_vol() * float(data().get("levels", {}).get("combat", 0.9)) * combat_level
+		var cv := music_vol() * float(data().get("levels", {}).get("combat", 0.9)) * combat_level * (0.6 if str(_gfx().settings.get("music_style", "subtle")) == "subtle" else 1.0)     # (the refined style keeps the fight drums low too)
 		_combat.volume_db = _db(cv)
 		if combat_level <= 0.001 and _combat.playing:
 			_combat.stop()

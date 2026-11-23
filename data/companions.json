@@ -9,7 +9,36 @@
    "cooldown": 1.2,
    "guard": 0.0,
    "finds": 0.0,
-   "sense": 0.0
+   "sense": 0.0,
+   "gift": {
+    "damage_mult": 1.03
+   },
+   "tricks": [
+    {
+     "level": 3,
+     "name": "Opening Blow",
+     "desc": "You hit a little harder while they fight beside you.",
+     "gift": {
+      "damage_mult": 1.03
+     }
+    },
+    {
+     "level": 6,
+     "name": "Finishing Habit",
+     "desc": "Foes they bring low drop you a little life.",
+     "gift": {
+      "heal_on_kill": 2.0
+     }
+    },
+    {
+     "level": 9,
+     "name": "Killing Rhythm",
+     "desc": "Your strikes find weak spots more often.",
+     "gift": {
+      "crit_chance": 0.03
+     }
+    }
+   ]
   },
   "guard": {
    "name": "Guard",
@@ -19,7 +48,37 @@
    "cooldown": 1.5,
    "guard": 0.5,
    "finds": 0.0,
-   "sense": 0.0
+   "sense": 0.0,
+   "gift": {
+    "damage_taken": 0.98
+   },
+   "tricks": [
+    {
+     "level": 3,
+     "name": "Hold the Line",
+     "desc": "Blows land softer while they stand with you.",
+     "gift": {
+      "damage_taken": 0.97
+     }
+    },
+    {
+     "level": 6,
+     "name": "Shoulder Check",
+     "desc": "A steadier stance: a little ward.",
+     "gift": {
+      "ward": 1.0
+     }
+    },
+    {
+     "level": 9,
+     "name": "Unbroken",
+     "desc": "Hard to hurt, harder to knock down.",
+     "gift": {
+      "damage_taken": 0.96,
+      "dodge_chance": 0.02
+     }
+    }
+   ]
   },
   "scout": {
    "name": "Scout",
@@ -29,7 +88,240 @@
    "cooldown": 1.6,
    "guard": 0.0,
    "finds": 80.0,
-   "sense": 4.0
+   "sense": 4.0,
+   "gift": {
+    "sense_radius": 1.0
+   },
+   "tricks": [
+    {
+     "level": 3,
+     "name": "Eyes Ahead",
+     "desc": "You see further.",
+     "gift": {
+      "sight": 1.0
+     }
+    },
+    {
+     "level": 6,
+     "name": "Pathfinder",
+     "desc": "Gathering turns up more.",
+     "gift": {
+      "gather_bonus": 1.0
+     }
+    },
+    {
+     "level": 9,
+     "name": "Hidden Ways",
+     "desc": "You notice more of what is hidden.",
+     "gift": {
+      "sense_radius": 2.0,
+      "loot_luck": 0.02
+     }
+    }
+   ]
+  },
+  "healer": {
+   "name": "Mender",
+   "desc": "Stays back and tends you. Hits softly, but you mend as you walk and after every kill.",
+   "damage": 0.6,
+   "hunt": 4.0,
+   "cooldown": 1.8,
+   "guard": 0.15,
+   "finds": 0.0,
+   "sense": 0.0,
+   "gift": {
+    "regen": 0.8,
+    "heal_on_kill": 1.5
+   },
+   "tricks": [
+    {
+     "level": 3,
+     "name": "Clean Bandage",
+     "desc": "You mend faster on your feet.",
+     "gift": {
+      "regen": 0.8
+     }
+    },
+    {
+     "level": 6,
+     "name": "Second Wind",
+     "desc": "Blows land softer.",
+     "gift": {
+      "damage_taken": 0.97
+     }
+    },
+    {
+     "level": 9,
+     "name": "Triage",
+     "desc": "Every kill gives back much more life.",
+     "gift": {
+      "heal_on_kill": 3.0
+     }
+    }
+   ]
+  },
+  "attendant": {
+   "name": "Attendant",
+   "desc": "Keeps your sitting quiet and your thoughts clear. Barely fights; qi and insight come easier.",
+   "damage": 0.5,
+   "hunt": 3.0,
+   "cooldown": 2.0,
+   "guard": 0.0,
+   "finds": 0.0,
+   "sense": 2.0,
+   "gift": {
+    "qi_mult": 1.04,
+    "meditate_mult": 1.04
+   },
+   "tricks": [
+    {
+     "level": 3,
+     "name": "Steady Breath",
+     "desc": "Sitting is deeper.",
+     "gift": {
+      "meditate_mult": 1.04
+     }
+    },
+    {
+     "level": 6,
+     "name": "Quiet Margin",
+     "desc": "Insight comes easier.",
+     "gift": {
+      "insight_mult": 1.05
+     }
+    },
+    {
+     "level": 9,
+     "name": "Shared Stillness",
+     "desc": "A fuller sea of qi from everything you do.",
+     "gift": {
+      "qi_mult": 1.04,
+      "timing": 0.02
+     }
+    }
+   ]
+  },
+  "tracker": {
+   "name": "Tracker",
+   "desc": "Hunts ahead of you and reads the ground: better loot, more gathered, a wide sense of what is near.",
+   "damage": 1.0,
+   "hunt": 8.0,
+   "cooldown": 1.4,
+   "guard": 0.0,
+   "finds": 45.0,
+   "sense": 3.0,
+   "gift": {
+    "loot_luck": 0.03,
+    "gather_bonus": 1.0
+   },
+   "tricks": [
+    {
+     "level": 3,
+     "name": "Cut Sign",
+     "desc": "You sense much further.",
+     "gift": {
+      "sense_radius": 2.0
+     }
+    },
+    {
+     "level": 6,
+     "name": "Lucky Trail",
+     "desc": "Better finds from every foe.",
+     "gift": {
+      "loot_luck": 0.03
+     }
+    },
+    {
+     "level": 9,
+     "name": "Quarry Eye",
+     "desc": "A hunter's aim: you strike truer.",
+     "gift": {
+      "crit_chance": 0.03,
+      "gather_chance": 0.05
+     }
+    }
+   ]
+  },
+  "bulwark": {
+   "name": "Bulwark",
+   "desc": "Plants a shield in front of you. Takes the blow for you most of the time; hits little.",
+   "damage": 0.7,
+   "hunt": 3.0,
+   "cooldown": 1.8,
+   "guard": 0.7,
+   "finds": 0.0,
+   "sense": 0.0,
+   "gift": {
+    "damage_taken": 0.96,
+    "ward": 1.0
+   },
+   "tricks": [
+    {
+     "level": 3,
+     "name": "Iron Stance",
+     "desc": "More ward.",
+     "gift": {
+      "ward": 1.5
+     }
+    },
+    {
+     "level": 6,
+     "name": "Turn the Blade",
+     "desc": "You slip some blows entirely.",
+     "gift": {
+      "dodge_chance": 0.03
+     }
+    },
+    {
+     "level": 9,
+     "name": "Last Wall",
+     "desc": "Blows land far softer.",
+     "gift": {
+      "damage_taken": 0.94
+     }
+    }
+   ]
+  },
+  "duelist": {
+   "name": "Duelist",
+   "desc": "Quick, precise, always one step ahead of the foe. Strikes fast and teaches you the timing of a blow.",
+   "damage": 1.1,
+   "hunt": 6.0,
+   "cooldown": 0.9,
+   "guard": 0.0,
+   "finds": 0.0,
+   "sense": 0.0,
+   "gift": {
+    "crit_chance": 0.03,
+    "timing": 0.02
+   },
+   "tricks": [
+    {
+     "level": 3,
+     "name": "Riposte Eye",
+     "desc": "A wider moment to parry.",
+     "gift": {
+      "timing": 0.03
+     }
+    },
+    {
+     "level": 6,
+     "name": "Light Feet",
+     "desc": "You move quicker.",
+     "gift": {
+      "move_mult": 1.04
+     }
+    },
+    {
+     "level": 9,
+     "name": "Perfect Line",
+     "desc": "Telling blows land often.",
+     "gift": {
+      "crit_chance": 0.04,
+      "damage_mult": 1.04
+     }
+    }
+   ]
   }
  },
  "levels": {
@@ -106,7 +398,59 @@
   ],
   "bite_cooldown": 1.6,
   "bite_reach": 2.6,
-  "bite_hunt": 4.0
+  "bite_hunt": 4.0,
+  "tricks": [
+   {
+    "bond": 25,
+    "name": "Sniff Out",
+    "desc": "It points you toward what is hidden near you.",
+    "gift": {
+     "sense_radius": 1.0
+    }
+   },
+   {
+    "bond": 60,
+    "name": "Guard Stance",
+    "desc": "It stands between you and the dark; blows land a little softer.",
+    "gift": {
+     "damage_taken": 0.98
+    }
+   },
+   {
+    "bond": 100,
+    "name": "Pounce",
+    "desc": "It hits foes as you do: a keener edge.",
+    "gift": {
+     "crit_chance": 0.02
+    }
+   },
+   {
+    "bond": 140,
+    "name": "Lick Wounds",
+    "desc": "You mend as you walk with it.",
+    "gift": {
+     "regen": 0.5
+    }
+   },
+   {
+    "bond": 170,
+    "name": "Spirit Sense",
+    "desc": "The deep's light in it sharpens your own sight and luck.",
+    "gift": {
+     "sight": 1.0,
+     "loot_luck": 0.02
+    }
+   },
+   {
+    "bond": 200,
+    "name": "One Pack",
+    "desc": "Fully bonded: it fights, feels and finds as part of you.",
+    "gift": {
+     "damage_mult": 1.03,
+     "gather_bonus": 1.0
+    }
+   }
+  ]
  },
  "taming": {
   "tiers": [
@@ -147,6 +491,90 @@
      "id": "wild_call",
      "name": "Wild Call",
      "desc": "Animals come to trust you in half the feedings; the bond grows half again as fast."
+    }
+   },
+   {
+    "skill": 7,
+    "a": {
+     "id": "scent_trail",
+     "name": "Scent Trail",
+     "desc": "Better loot while it travels with you.",
+     "gift": {
+      "loot_luck": 0.03
+     }
+    },
+    "b": {
+     "id": "guarded_flank",
+     "name": "Guarded Flank",
+     "desc": "Blows land softer; you also slip a few.",
+     "gift": {
+      "damage_taken": 0.97,
+      "dodge_chance": 0.02
+     }
+    }
+   },
+   {
+    "skill": 9,
+    "a": {
+     "id": "hunters_rush",
+     "name": "Hunter's Rush",
+     "desc": "You hit harder and more precisely beside it.",
+     "gift": {
+      "damage_mult": 1.03,
+      "crit_chance": 0.02
+     }
+    },
+    "b": {
+     "id": "gentle_paws",
+     "name": "Gentle Paws",
+     "desc": "Steady mending as you walk, and more life from kills.",
+     "gift": {
+      "regen": 0.6,
+      "heal_on_kill": 1.5
+     }
+    }
+   },
+   {
+    "skill": 12,
+    "a": {
+     "id": "wild_instinct",
+     "name": "Wild Instinct",
+     "desc": "You sense and gather much more.",
+     "gift": {
+      "sense_radius": 2.0,
+      "gather_bonus": 1.0,
+      "gather_chance": 0.05
+     }
+    },
+    "b": {
+     "id": "spirit_bond",
+     "name": "Spirit Bond",
+     "desc": "Qi and insight flow easier while it is near.",
+     "gift": {
+      "qi_mult": 1.04,
+      "insight_mult": 1.04
+     }
+    }
+   },
+   {
+    "skill": 15,
+    "a": {
+     "id": "alpha_call",
+     "name": "Alpha's Call",
+     "desc": "Its whole pack's strength joins yours.",
+     "gift": {
+      "damage_mult": 1.05,
+      "damage_taken": 0.96
+     }
+    },
+    "b": {
+     "id": "deep_kinship",
+     "name": "Deep Kinship",
+     "desc": "You move quicker and the bond grows faster.",
+     "gift": {
+      "move_mult": 1.04,
+      "bond_mult": 1.1
+     }
     }
    }
   ],

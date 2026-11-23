@@ -1,0 +1,99 @@
+{
+  "_about": "Round 177 (Robert, 2026-10-25): 'the pet actions and abilities section needs work, maybe a skill breakdown toward what they would be good at ... allow for pairs to be from different species and randomized results for synergistic effects ... a gene splicer with the ability to modify the genes of pets.' Every beast has a GENOME (ten genes, level 0-5), an innate ROLE, and from those an APTITUDE breakdown (eight skills, 0-100, graded E..S). scripts/systems/Genome.gd reads this.",
+  "skills": {
+    "combat":  {"name": "Fighting",  "gene": "fang",  "good_for": "taking on foes beside you",           "effect": {"damage_mult": 1.006}},
+    "guard":   {"name": "Guarding",  "gene": "hide",  "good_for": "holding the line while you work",     "effect": {"damage_taken": 0.994}},
+    "scout":   {"name": "Scouting",  "gene": "nose",  "good_for": "finding hidden things, nests and eggs", "effect": {"sense_radius": 0.4}},
+    "gather":  {"name": "Gathering", "gene": "root",  "good_for": "herbs, roots and ore",                "effect": {"gather_chance": 0.012}},
+    "haul":    {"name": "Hauling",   "gene": "back",  "good_for": "long roads, carrying and trade runs", "effect": {"move_mult": 1.004}},
+    "mend":    {"name": "Mending",   "gene": "balm",  "good_for": "keeping you on your feet",            "effect": {"regen": 0.12}},
+    "fortune": {"name": "Fortune",   "gene": "fate",  "good_for": "luck in drops and finds",             "effect": {"loot_luck": 0.006}},
+    "arcana":  {"name": "Spirit",    "gene": "spark", "good_for": "qi and ki work",                      "effect": {"qi_mult": 1.006}}
+  },
+  "genes": {
+    "fang":  {"name": "Fang",  "skill": "combat",  "desc": "bite and nerve: more of its fight"},
+    "hide":  {"name": "Hide",  "skill": "guard",   "desc": "thick skin and a stubborn stance"},
+    "nose":  {"name": "Nose",  "skill": "scout",   "desc": "smells what is hidden"},
+    "root":  {"name": "Root",  "skill": "gather",  "desc": "knows where good things grow"},
+    "back":  {"name": "Back",  "skill": "haul",    "desc": "long legs, a strong back"},
+    "balm":  {"name": "Balm",  "skill": "mend",    "desc": "its presence soothes"},
+    "fate":  {"name": "Fate",  "skill": "fortune", "desc": "things fall its way"},
+    "spark": {"name": "Spark", "skill": "arcana",  "desc": "qi runs through it"},
+    "temper": {"name": "Temper", "skill": "", "desc": "easy to love: bonds grow faster", "effect": {"bond_mult": 1.012}},
+    "brood": {"name": "Brood", "skill": "", "desc": "fertile: finer odds when it is paired and spliced"}
+  },
+  "max_level": 5,
+  "base_points": 8,
+  "points_per_tier": 2,
+  "points_per_blood": 1,
+  "role_weights": {
+    "tracker":  {"scout": 70, "gather": 20, "fortune": 10},
+    "forager":  {"gather": 70, "scout": 25, "mend": 15},
+    "digger":   {"gather": 60, "haul": 35, "guard": 15},
+    "hunter":   {"combat": 55, "scout": 45},
+    "healer":   {"mend": 75, "arcana": 25},
+    "guardian": {"guard": 75, "combat": 20},
+    "striker":  {"combat": 75, "guard": 15},
+    "lantern":  {"scout": 50, "arcana": 40},
+    "scholar":  {"arcana": 65, "fortune": 25},
+    "courier":  {"haul": 70, "scout": 30},
+    "charmer":  {"fortune": 40, "mend": 30, "arcana": 25},
+    "lucky":    {"fortune": 75, "gather": 15},
+    "warden":   {"guard": 55, "combat": 35, "scout": 15},
+    "ember":    {"combat": 45, "arcana": 45},
+    "hoarder":  {"haul": 60, "fortune": 35},
+    "brewer":   {"mend": 50, "arcana": 40, "gather": 15},
+    "fury":     {"combat": 80},
+    "mystic":   {"arcana": 75, "fortune": 20},
+    "sentinel": {"guard": 70, "scout": 35},
+    "marksman": {"combat": 60, "scout": 40}
+  },
+  "per_gene_level": 9.0,
+  "grades": [[80, "S"], [65, "A"], [50, "B"], [35, "C"], [20, "D"], [0, "E"]],
+  "synergy": {
+    "mixed_base": 0.35,
+    "per_diverse": 0.08,
+    "per_brood": 0.04,
+    "cap": 0.8,
+    "quirk": 0.25,
+    "strengths": [["weak", "Faint", 0.7, 0.25], ["solid", "Solid", 1.0, 0.5], ["brilliant", "Brilliant", 1.5, 0.2], ["wondrous", "Wondrous", 2.2, 0.05]],
+    "hybrid_vigor": 0.2,
+    "names": {
+      "combat+guard": "Bulwark Fang", "combat+scout": "Hunter's Eye", "combat+gather": "Butcher's Eye", "combat+haul": "Charging Strength",
+      "combat+mend": "Battle-Balm", "combat+fortune": "Reckless Luck", "combat+arcana": "Fang of the Spark",
+      "guard+scout": "Watchtower", "guard+gather": "Stoneroot", "guard+haul": "Pack-Mule Stubbornness", "guard+mend": "Living Wall",
+      "guard+fortune": "Charmed Hide", "guard+arcana": "Warded Skin",
+      "scout+gather": "Forager's Nose", "scout+haul": "Pathfinder", "scout+mend": "Scent of Sickness", "scout+fortune": "Treasure-Nose", "scout+arcana": "Spirit-Sight",
+      "gather+haul": "Harvest-Hauler", "gather+mend": "Herb-Wise", "gather+fortune": "Green Fortune", "gather+arcana": "Spirit-Root",
+      "haul+mend": "Steady Bearer", "haul+fortune": "Lucky Courier", "haul+arcana": "Wind-Runner",
+      "mend+fortune": "Kindly Fate", "mend+arcana": "Healing Spark", "fortune+arcana": "Starlit Luck"
+    },
+    "quirks": {
+      "skittish": {"name": "Skittish", "desc": "jumps at shadows", "effect": {"damage_taken": 1.008}},
+      "ravenous": {"name": "Ravenous", "desc": "always hungry, a little hard to bond with", "effect": {"bond_mult": 0.99}},
+      "stubborn": {"name": "Stubborn", "desc": "goes its own pace", "effect": {"move_mult": 0.994}},
+      "frail":    {"name": "Frail", "desc": "lighter-boned", "effect": {"hp_mult": 0.992}},
+      "wild":     {"name": "Wild-eyed", "desc": "dreams of the deep", "effect": {"insight_mult": 0.992}}
+    }
+  },
+  "splicer": {
+    "min_taming": 4,
+    "min_bond": 25,
+    "base": 0.5,
+    "per_taming": 0.02,
+    "per_bond": 0.0025,
+    "per_target_level": 0.07,
+    "mixed_penalty": 0.06,
+    "per_brood": 0.03,
+    "unstable_share": 0.5,
+    "reject_share": 0.25,
+    "gold_per_level": 25,
+    "sample_cool_hours": 2.0,
+    "max_samples": 12,
+    "catalysts": {
+      "nanite_shard": {"name": "Nanite Shard", "success": 0.12, "desc": "the swarm steadies the edit (+12% success)"},
+      "bloodsap":     {"name": "Bloodsap", "reject_half": true, "desc": "its own blood eases the graft (rejection halved)"},
+      "spirit_resin": {"name": "Spirit Resin", "no_unstable": true, "desc": "binds the edit tight (no unstable results)"}
+    }
+  }
+}

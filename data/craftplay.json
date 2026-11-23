@@ -46,5 +46,17 @@
  "trace": {
   "steps_base": 3,
   "max": 7
+ },
+ "master": {
+  "passes": 4,
+  "edge_per_pass": 3,
+  "fine": 0.75
+ },
+ "master_bonus": {
+  "chance_lo": -0.06,
+  "chance_hi": 0.25,
+  "quality_lo": -0.05,
+  "quality_hi": 0.45,
+  "xp_hi": 1.5
  }
 }

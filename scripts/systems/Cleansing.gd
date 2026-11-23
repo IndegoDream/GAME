@@ -157,7 +157,7 @@ func current() -> String:
 
 
 func speed() -> float:
-	return G.tech_effect("cleanse_speed", 1.0) * G.tech_effect("focus_mult", 1.0)
+	return G.fx_now("cleanse_speed", 1.0) * G.fx_now("focus_mult", 1.0)          # round 195: asked every frame -- the kept list
 
 
 func push(secs: float, scaled: bool = true) -> int:

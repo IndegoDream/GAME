@@ -219,7 +219,7 @@ func place(lvl) -> void:
 	lvl._count("omens")
 	var P: Array = lvl.spawns.get("P", [])
 	var hint := ""
-	if not P.is_empty():
+	if not P.is_empty() and not preload("res://scripts/world/FogOfWar.gd").wanted(lvl):        # 2026-11-16: on a fogged floor nothing points the way
 		hint = _compass(Vector2(cell - (P[0] as Vector2i)))
 	G.message.emit.call_deferred(I18n.t("Something glows in the distance%s.") % ((I18n.t(" -- to the %s") % hint) if hint != "" else ""))
 

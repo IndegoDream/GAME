@@ -133,6 +133,20 @@ func cast(aid: String, dir: Vector3 = Vector3.ZERO) -> int:
 			return _boon(aid)
 		"refill":
 			return _refill(aid)
+		"flurry":
+			return _flurry(aid)
+		"whirlwind":
+			return _whirl(aid)
+		"throw":
+			return _throw(aid)
+		"volley":
+			return _volley(aid)
+		"counter_stance":
+			return _counter(aid)
+		"multi_bolt":
+			return _multi(aid)
+		"pin":
+			return _pin(aid)
 		"hex_mark":
 			return _hex_mark(aid)
 		"hex_weaken":
@@ -206,6 +220,7 @@ func _sweep(aid: String) -> int:
 			e.burn(int(round(dmg * _prm(aid, "burn", 0.0))), _prm(aid, "burn_secs", 4.0))
 		hit += 1
 	p._burst_fx(r)
+	_blade_arc(aid, r)
 	p._shake(0.22)
 	p._play("cast", true)
 	p._strike_practice(aid, hit)
@@ -312,6 +327,7 @@ func _shatter(aid: String) -> int:
 			_word("SPLIT", Color(1.0, 0.8, 0.4))
 		p._strike_hit(aid, e, _dmg(aid, m, pw), hit, _src(aid))
 		hit += 1
+	_blade_arc(aid, reach, Color(1.0, 0.85, 0.55))
 	p._shake(0.25)
 	p._play("cast", true)
 	p._strike_practice(aid, hit)
@@ -336,7 +352,27 @@ func _blink(aid: String, dir: Vector3) -> int:
 	var rng := _prm(aid, "range", 7.0) * clampf(pw, 0.9, 1.25)
 	if FX.on():
 		FX.puff(p.global_position + Vector3(0, 1.0, 0), Color(0.7, 0.9, 1.0), 1.2)
-	p.move_and_collide(d * rng)                # walls stop it
+	var foe = null
+	if _prm(aid, "behind", 0.0) > 0.0:
+		var near := _close_first(_foes())
+		if not near.is_empty() and _flat(near[0].global_position - p.global_position).length() <= rng:
+			foe = near[0]
+	if foe != null and is_instance_valid(foe):
+		# step to the far side of the nearest foe, facing it
+		var fp: Vector3 = foe.global_position
+		var away: Vector3 = fp - p.global_position
+		away.y = 0.0
+		if away.length() < 0.05:
+			away = d
+		var goal: Vector3 = fp + away.normalized() * 1.4
+		p.move_and_collide(goal - p.global_position)
+		var look: Vector3 = fp - p.global_position
+		look.y = 0.0
+		if look.length() > 0.05 and p._model != null:
+			p._model.rotation.y = atan2(look.x, look.z)
+			p._want_yaw = p._model.rotation.y
+	else:
+		p.move_and_collide(d * rng)                # walls stop it
 	if FX.on():
 		FX.puff(p.global_position + Vector3(0, 1.0, 0), Color(0.7, 0.9, 1.0), 1.2)
 	p._hurt_cool = maxf(p._hurt_cool, _prm(aid, "iframes", 0.25))
@@ -749,3 +785,354 @@ func _hex_root(aid: String) -> int:
 	_ring(p.global_position, Color(0.4, 0.8, 0.3), _prm(aid, "radius", 6.0))
 	_support_done(aid, true)
 	return t.size()
+
+
+
+# ---- round 188: the weapon arts' own ways of fighting (data/weapon_arts.json) -----------------------------------
+
+func _name(aid: String) -> String:
+	return I18n.t(str(Game.technique_defs.get(aid, {}).get("name", aid)))
+
+
+func _style_col(dflt: Color) -> Color:
+	## a Strike Style look (if one is worn) colours the weapon arts too -- looks only
+	var LK = Game.sys("looks")
+	return LK.strike_color(dflt) if LK != null and LK.has_method("strike_color") else dflt
+
+
+func _need_foe(aid: String, ok: bool) -> bool:
+	if ok:
+		return true
+	if p._art_ok(aid):
+		Game.message.emit(I18n.t("%s needs a foe within reach.") % _name(aid))
+		p._cool[aid] = 0.5
+	return false
+
+
+func _close_first(list: Array) -> Array:
+	var pl = p
+	list.sort_custom(func(a, b): return _flat(a.global_position - pl.global_position).length() < _flat(b.global_position - pl.global_position).length())
+	return list
+
+
+func _flurry(aid: String) -> int:
+	## many quick blows on the nearest one or two in front
+	var reach := _prm(aid, "reach", 3.0)
+	var arc := _prm(aid, "arc", 110.0)
+	var any := false
+	for e in _foes():
+		if _in_cone(e, reach + 0.6, arc):
+			any = true
+	if not _need_foe(aid, any):
+		return -1
+	var pw := _begin(aid, 6.0)
+	if pw <= 0.0:
+		return -1
+	var hits := int(_prm(aid, "hits", 5))
+	var gap := _prm(aid, "interval", 0.08)
+	var pl = p
+	var col := _style_col(Color(0.9, 0.95, 1.0))
+	var acc := {"dmg": 0, "n": 0, "last": null}
+	p._hurt_cool = maxf(p._hurt_cool, 0.12)
+	p._play("cast", true)
+	for i in hits:
+		var nth := i
+		p.get_tree().create_timer(gap * i + 0.02).timeout.connect(func():
+			if not is_instance_valid(pl) or pl.dead:
+				return
+			var tg := []
+			for e in _foes():
+				if _in_cone(e, reach + 0.6, arc):
+					tg.append(e)
+			tg = _close_first(tg).slice(0, 2)
+			for e in tg:
+				var m := _prm(aid, "mult", 0.5)
+				if _prm(aid, "crit", 0.0) > 0.0 and randf() < _prm(aid, "crit", 0.0):
+					m *= 1.6
+					if FX.on():
+						FX.word(e.global_position + Vector3(0, 2.2, 0), I18n.t("TRUE"), Color(1.0, 0.9, 0.5), 30)
+				var dmg := _dmg(aid, m, pw)
+				pl._strike_hit(aid, e, dmg, int(acc["n"]), _src(aid))
+				if _prm(aid, "stagger", 0.0) > 0.0:
+					e.stagger(_prm(aid, "stagger", 0.0))
+				acc["dmg"] = int(acc["dmg"]) + dmg
+				acc["n"] = int(acc["n"]) + 1
+				acc["last"] = e
+			if FX.on():
+				FX.slash(pl, col, reach * 0.55 + 0.6, pl._model.rotation.y + (0.5 if nth % 2 == 0 else -0.5), 0.9 + 0.12 * (nth % 3))
+			if nth == hits - 1:
+				var last = acc["last"]
+				if _prm(aid, "bleed", 0.0) > 0.0 and last != null and is_instance_valid(last) and not last._dead:
+					last.burn(int(round(float(acc["dmg"]) * _prm(aid, "bleed", 0.0))), 4.0)
+					if FX.on():
+						FX.word(last.global_position + Vector3(0, 2.4, 0), I18n.t("BLEEDING"), Color(0.9, 0.25, 0.25), 32)
+				pl._strike_practice(aid, int(acc["n"]))
+				Game.log_event("art_used", {"hit": int(acc["n"]), "art": aid}))
+	return 1
+
+
+func _whirl(aid: String) -> int:
+	## a spin with the weapon out: several turns, everything round you each turn, still on your feet
+	var pw := _begin(aid, 8.0)
+	if pw <= 0.0:
+		return -1
+	var r := _prm(aid, "radius", 3.2)
+	var ticks := int(_prm(aid, "ticks", 4))
+	var gap := _prm(aid, "interval", 0.24)
+	if absf(_prm(aid, "move", 1.0) - 1.0) > 0.01:
+		Game.add_buff(aid, {"move_mult": _prm(aid, "move", 1.0)}, gap * ticks + 0.1)
+	var pl = p
+	var col := _style_col(Color(0.95, 0.9, 0.8))
+	var tot := {"n": 0}
+	p._hurt_cool = maxf(p._hurt_cool, 0.1)
+	for i in ticks:
+		var nth := i
+		p.get_tree().create_timer(gap * i).timeout.connect(func():
+			if not is_instance_valid(pl) or pl.dead:
+				return
+			pl._play("cast", true)
+			if FX.on():
+				FX.slash(pl, col, r * 0.7, pl._model.rotation.y + PI * nth, 0.9)
+				FX.slash(pl, col, r * 0.7, pl._model.rotation.y + PI * nth + PI, 1.0)
+			for e in _foes():
+				if _flat(e.global_position - pl.global_position).length() <= r:
+					var dmg := _dmg(aid, _prm(aid, "mult", 0.7), pw)
+					pl._strike_hit(aid, e, dmg, int(tot["n"]), _src(aid))
+					if _prm(aid, "bleed", 0.0) > 0.0:
+						e.burn(int(round(dmg * _prm(aid, "bleed", 0.0))), 3.0)
+					if _prm(aid, "knock", 0.0) > 0.0 and not bool(e.stats.get("boss", false)):
+						var away: Vector3 = _flat(e.global_position - pl.global_position)
+						e._knock = (away.normalized() if away.length() > 0.1 else _fwd()) * _prm(aid, "knock", 0.0) * 2.0
+					tot["n"] = int(tot["n"]) + 1
+			if nth == ticks - 1:
+				_ring(pl.global_position, col, r)
+				pl._shake(0.18)
+				pl._strike_practice(aid, int(tot["n"]))
+				Game.log_event("art_used", {"hit": int(tot["n"]), "art": aid}))
+	return 1
+
+
+func _line_hits(from: Vector3, fwd: Vector3, rng: float, wid: float) -> Array:
+	var out := []
+	for e in _foes():
+		var to: Vector3 = _flat(e.global_position - from)
+		var along := to.dot(fwd)
+		if along < -0.4 or along > rng:
+			continue
+		if (to - fwd * along).length() <= wid * 0.5 + 0.7:
+			out.append(e)
+	return out
+
+
+func _throw(aid: String) -> int:
+	## the weapon (or a fan of blades) flies out along a line -- and, for some, spins home again
+	var pw := _begin(aid, 7.0)
+	if pw <= 0.0:
+		return -1
+	var rng := _prm(aid, "range", 10.0)
+	var wid := _prm(aid, "width", 1.6)
+	var fwd := _fwd()
+	var from: Vector3 = p.global_position
+	var col := _style_col(Color(0.85, 0.85, 0.9))
+	var back := _prm(aid, "returns", 0.0) > 0.0
+	var pl = p
+	p._play("cast", true)
+	if FX.on():
+		_flyer(from + Vector3(0, 1.2, 0), from + Vector3(0, 1.2, 0) + fwd * rng, col, back, wid > 2.5)
+	var pass_hit := func(tag: int) -> int:
+		if not is_instance_valid(pl) or pl.dead:
+			return 0
+		var n := 0
+		for e in _line_hits(from, fwd, rng, wid):
+			var dmg := _dmg(aid, _prm(aid, "mult", 1.2), pw)
+			pl._strike_hit(aid, e, dmg, n + tag, _src(aid))
+			if _prm(aid, "bleed", 0.0) > 0.0:
+				e.burn(int(round(dmg * _prm(aid, "bleed", 0.0))), 4.0)
+			if _prm(aid, "stagger", 0.0) > 0.0:
+				e.stagger(_prm(aid, "stagger", 0.0))
+			n += 1
+		return n
+	var first: int = pass_hit.call(0)
+	if back:
+		p.get_tree().create_timer(0.55).timeout.connect(func():
+			var n2: int = pass_hit.call(10)
+			if is_instance_valid(pl):
+				pl._strike_practice(aid, first + n2))
+	else:
+		p._strike_practice(aid, first)
+	Game.log_event("art_used", {"hit": first, "art": aid})
+	return first
+
+
+func _flyer(a: Vector3, b: Vector3, col: Color, back: bool, fan: bool) -> void:
+	## what you throw, seen: a spinning blade out (and home), or a fan of three
+	var root: Node = p.get_tree().current_scene if p.get_tree().current_scene != null else p.get_parent()
+	if root == null:
+		return
+	var dirs := [0.0] if not fan else [-0.22, 0.0, 0.22]
+	for off in dirs:
+		var mi := MeshInstance3D.new()
+		var bm := BoxMesh.new()
+		bm.size = Vector3(0.7, 0.05, 0.16)
+		mi.mesh = bm
+		var m := StandardMaterial3D.new()
+		m.albedo_color = col
+		m.emission_enabled = true
+		m.emission = col
+		m.emission_energy_multiplier = 1.5
+		mi.material_override = m
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		root.add_child(mi)
+		mi.global_position = a
+		var to: Vector3 = (b - a).rotated(Vector3.UP, off)
+		var tw := mi.create_tween()
+		tw.set_parallel(true)
+		tw.tween_property(mi, "global_position", a + to, 0.3).set_ease(Tween.EASE_OUT)
+		tw.tween_property(mi, "rotation:y", TAU * 3.0, 0.3)
+		if back:
+			tw.chain().set_parallel(true)
+			tw.tween_property(mi, "global_position", a, 0.3).set_ease(Tween.EASE_IN)
+			tw.tween_property(mi, "rotation:y", TAU * 6.0, 0.3)
+		tw.chain().tween_callback(mi.queue_free)
+
+
+func _volley(aid: String) -> int:
+	## arrows (or bolts) loosed high, falling round the foe you face
+	var tgt = _nearest_front(_prm(aid, "range", 20.0), 0.3)
+	if not _need_foe(aid, tgt != null):
+		return -1
+	var pw := _begin(aid, 8.0)
+	if pw <= 0.0:
+		return -1
+	var centre: Vector3 = tgt.global_position
+	var r := _prm(aid, "radius", 3.2)
+	var n := int(_prm(aid, "arrows", 8))
+	var pl = p
+	var col := _style_col(Color(0.95, 0.9, 0.7))
+	var tot := {"n": 0}
+	p._play("cast", true)
+	_ring(centre, col, r)
+	for i in n:
+		var nth := i
+		p.get_tree().create_timer(0.35 + 0.07 * i).timeout.connect(func():
+			if not is_instance_valid(pl) or pl.dead:
+				return
+			var near := []
+			for e in _foes():
+				if _flat(e.global_position - centre).length() <= r:
+					near.append(e)
+			var spot: Vector3 = centre + Vector3(randf_range(-r, r), 0, randf_range(-r, r)) * 0.7
+			if near.size() > 0:
+				var e = near[randi() % near.size()]
+				spot = e.global_position
+				pl._strike_hit(aid, e, _dmg(aid, _prm(aid, "mult", 0.6), pw), int(tot["n"]), _src(aid))
+				tot["n"] = int(tot["n"]) + 1
+			if FX.on():
+				FX.streak(spot + Vector3(0.6, 9.0, -0.4), spot + Vector3(0, 0.6, 0), col)
+				FX.hit(spot + Vector3(0, 0.5, 0), col, false)
+			if nth == n - 1:
+				pl._strike_practice(aid, int(tot["n"]))
+				Game.log_event("art_used", {"hit": int(tot["n"]), "art": aid}))
+	return 1
+
+
+func _counter(aid: String) -> int:
+	## a stance: the next blow in a moment is turned aside and answered (Player.take_damage)
+	var pw := _begin(aid, 8.0)
+	if pw <= 0.0:
+		return -1
+	p._counter_t = _prm(aid, "secs", 1.5)
+	p._counter = {"aid": aid, "mult": _prm(aid, "mult", 3.0) * pw, "stagger": _prm(aid, "stagger", 1.4), "cool_heat": _prm(aid, "cool_heat", 0.0)}
+	_ring(p.global_position, _style_col(Color(0.7, 0.9, 1.0)), 1.6)
+	_word(I18n.t("STANCE"), Color(0.7, 0.9, 1.0))
+	p._play("guard", true)
+	return 0
+
+
+func counter_strike(from) -> void:
+	## (Player.take_damage, while the stance holds) the blow meets nothing; they meet the answer
+	var c: Dictionary = p._counter
+	var aid := str(c.get("aid", ""))
+	if from == null or not is_instance_valid(from) or not from.has_method("take_damage"):
+		return
+	var dmg := maxi(1, int(round(Game.damage() * float(c.get("mult", 3.0)) * Game.branch_damage_mult(aid))))
+	p._strike_hit(aid, from, dmg, 0, _src(aid))
+	if from.has_method("stagger"):
+		from.stagger(float(c.get("stagger", 1.4)))
+	if float(c.get("cool_heat", 0.0)) > 0.0:
+		Game.heat = maxf(0.0, Game.heat - float(c["cool_heat"]))
+	if FX.on():
+		FX.word(p.global_position + Vector3(0, 2.4, 0), I18n.t("COUNTER"), Color(0.75, 0.95, 1.0), 44)
+		FX.slash(p, _style_col(Color(0.8, 0.95, 1.0)), 2.4, p._model.rotation.y, 1.1)
+	p._shake(0.2)
+	p.hit_stop(0.06)
+	p._strike_practice(aid, 1)
+	Game.log_event("art_used", {"hit": 1, "art": aid, "counter": true})
+
+
+func _multi(aid: String) -> int:
+	## a shot (or an orb) for each of several foes
+	var rng := _prm(aid, "range", 15.0)
+	var cone := _prm(aid, "cone", 0.2)
+	var fwd := _fwd()
+	var tg := []
+	for e in _foes():
+		var to: Vector3 = _flat(e.global_position - p.global_position)
+		if to.length() <= rng and (to.length() < 0.6 or fwd.dot(to.normalized()) >= cone):
+			tg.append(e)
+	if not _need_foe(aid, not tg.is_empty()):
+		return -1
+	var pw := _begin(aid, 6.0)
+	if pw <= 0.0:
+		return -1
+	tg = _close_first(tg).slice(0, int(_prm(aid, "targets", 4)))
+	var col := _style_col(Color(0.8, 0.9, 1.0))
+	var n := 0
+	for e in tg:
+		p._beam_fx(e.global_position)
+		if FX.on():
+			FX.hit(e.global_position + Vector3(0, 1.0, 0), col, false)
+		p._strike_hit(aid, e, _dmg(aid, _prm(aid, "mult", 1.0), pw), n, _src(aid))
+		n += 1
+	p._play("cast", true)
+	p._strike_practice(aid, n)
+	Game.log_event("art_used", {"hit": n, "art": aid})
+	return n
+
+
+func _pin(aid: String) -> int:
+	## a heavy shot that nails the foe you face where it stands
+	var tgt = _nearest_front(_prm(aid, "range", 18.0), 0.3)
+	if not _need_foe(aid, tgt != null):
+		return -1
+	var pw := _begin(aid, 7.0)
+	if pw <= 0.0:
+		return -1
+	p._beam_fx(tgt.global_position)
+	p._strike_hit(aid, tgt, _dmg(aid, _prm(aid, "mult", 1.2), pw), 0, _src(aid))
+	var secs := _prm(aid, "secs", 3.0)
+	tgt.stagger(secs if not bool(tgt.stats.get("boss", false)) else secs * 0.35)
+	if tgt.has_method("slow"):
+		tgt.slow(secs)
+	if FX.on():
+		FX.word(tgt.global_position + Vector3(0, 2.4, 0), I18n.t("PINNED"), Color(0.9, 0.8, 0.5), 36)
+	p._play("cast", true)
+	p._strike_practice(aid, 1)
+	Game.log_event("art_used", {"hit": 1, "art": aid})
+	return 1
+
+
+func _blade_arc(aid: String, r: float, plain := Color(0, 0, 0, 0)) -> void:
+	## (round 188) a weapon art's sweep is drawn as the blade's arc -- in your Strike Style if you wear one.
+	## Other arts draw nothing here unless given a plain colour.
+	if not FX.on():
+		return
+	if Game.sys("arts") == null or str(Game.sys("arts").weapon_of(aid)) == "":
+		if plain.a > 0.0:
+			FX.slash(p, plain, r * 0.8, p._model.rotation.y, 1.0)
+		return
+	var LK = Game.sys("looks")
+	var st: Dictionary = LK.strike_style() if LK != null and LK.has_method("strike_style") else {}
+	if st.is_empty():
+		st = {"style": "", "color": _style_col(Color(0.9, 0.95, 1.0))}
+	FX.strike(p, st, r * 0.8, p._model.rotation.y, 1.0)

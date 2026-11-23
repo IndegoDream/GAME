@@ -50,6 +50,122 @@
      0.95,
      1.0
     ]
+   },
+   "scaled": {
+    "name": "Scaled plates",
+    "desc": "Overlapping scales. More ward, a little slower.",
+    "min_skill": 2,
+    "ward_mult": 1.08,
+    "weight_mult": 1.1,
+    "effect": {
+     "attack_speed": 0.98
+    },
+    "look": "studs",
+    "expansion": "designers_trove"
+   },
+   "feathered": {
+    "name": "Feathered",
+    "desc": "Light plumes and cutaways. Quicker, less ward.",
+    "min_skill": 2,
+    "ward_mult": 0.93,
+    "weight_mult": 0.88,
+    "effect": {
+     "attack_speed": 1.03
+    },
+    "look": "filigree",
+    "expansion": "designers_trove"
+   },
+   "spiral": {
+    "name": "Spiral lines",
+    "desc": "Wound lines that lead qi round. Qi and calm.",
+    "min_skill": 3,
+    "value_mult": 1.15,
+    "effect": {
+     "qi_mult": 1.02,
+     "meditate_mult": 1.02
+    },
+    "look": "filigree",
+    "expansion": "designers_trove"
+   },
+   "thorned": {
+    "name": "Thorned",
+    "desc": "Hooked spines. You hit harder; so does everything else.",
+    "min_skill": 3,
+    "effect": {
+     "damage_mult": 1.03,
+     "damage_taken": 1.02
+    },
+    "look": "studs",
+    "expansion": "designers_trove"
+   },
+   "lacquered": {
+    "name": "Lacquered",
+    "desc": "Layered and polished. Tougher, worth more, heavier.",
+    "min_skill": 3,
+    "ward_mult": 1.05,
+    "value_mult": 1.25,
+    "weight_mult": 1.06,
+    "look": "flare",
+    "expansion": "designers_trove"
+   },
+   "sunburst": {
+    "name": "Sunburst",
+    "desc": "Rays of inlay. Finds go your way.",
+    "min_skill": 4,
+    "value_mult": 1.2,
+    "effect": {
+     "loot_luck": 0.02
+    },
+    "look": "runic",
+    "glow": [
+     1.0,
+     0.82,
+     0.35
+    ],
+    "expansion": "designers_trove"
+   },
+   "moonlit": {
+    "name": "Moonlit",
+    "desc": "Cold lines that drink the dark. A stiller mind, a softer guard.",
+    "min_skill": 4,
+    "ward_mult": 0.95,
+    "effect": {
+     "meditate_mult": 1.04
+    },
+    "look": "runic",
+    "glow": [
+     0.6,
+     0.7,
+     1.0
+    ],
+    "expansion": "designers_trove"
+   },
+   "stormwork": {
+    "name": "Stormwork",
+    "desc": "Forked lines of arc-light. Fast, and the lightning gets you too.",
+    "min_skill": 5,
+    "effect": {
+     "attack_speed": 1.04,
+     "damage_taken": 1.02
+    },
+    "look": "runic",
+    "glow": [
+     0.7,
+     0.5,
+     1.0
+    ],
+    "expansion": "designers_trove"
+   },
+   "dragonbone": {
+    "name": "Dragonbone ridges",
+    "desc": "Ridged like a spine. Strong everywhere, heavy everywhere.",
+    "min_skill": 6,
+    "ward_mult": 1.12,
+    "hp_mult": 1.03,
+    "weight_mult": 1.25,
+    "value_mult": 1.4,
+    "look": "flare",
+    "expansion": "designers_trove"
    }
   },
   "trims": {
@@ -109,6 +225,128 @@
      0.8,
      0.58
     ]
+   },
+   "copper": {
+    "name": "Copper trim",
+    "desc": "Costs a brass cog. Warm and cheap. A little worth.",
+    "min_skill": 1,
+    "cost": {
+     "brass_cog": 1
+    },
+    "value_mult": 1.08,
+    "color": [
+     0.8,
+     0.5,
+     0.3
+    ],
+    "expansion": "designers_trove"
+   },
+   "obsidian": {
+    "name": "Obsidian edge",
+    "desc": "Costs an obsidian edge. Hard black edging; keen.",
+    "min_skill": 3,
+    "cost": {
+     "obsidian_edge": 1
+    },
+    "effect": {
+     "damage_mult": 1.01
+    },
+    "color": [
+     0.1,
+     0.1,
+     0.14
+    ],
+    "expansion": "designers_trove"
+   },
+   "moonsilver": {
+    "name": "Moonsilver",
+    "desc": "Costs mirror silver. Pale and calm.",
+    "min_skill": 3,
+    "cost": {
+     "mirror_silver": 1
+    },
+    "effect": {
+     "meditate_mult": 1.02
+    },
+    "value_mult": 1.2,
+    "color": [
+     0.75,
+     0.85,
+     1.0
+    ],
+    "expansion": "designers_trove"
+   },
+   "ruby": {
+    "name": "Ruby studs",
+    "desc": "Costs a rough ruby. Fierce.",
+    "min_skill": 3,
+    "cost": {
+     "rough_ruby": 1
+    },
+    "effect": {
+     "damage_mult": 1.015
+    },
+    "color": [
+     0.8,
+     0.1,
+     0.18
+    ],
+    "expansion": "designers_trove"
+   },
+   "pearl": {
+    "name": "Pearl inlay",
+    "desc": "Costs a pearl. Gentle waters, gentle worth.",
+    "min_skill": 3,
+    "cost": {
+     "pearl_oyster": 1
+    },
+    "effect": {
+     "hp_mult": 1.015
+    },
+    "value_mult": 1.2,
+    "color": [
+     0.95,
+     0.93,
+     0.88
+    ],
+    "expansion": "designers_trove"
+   },
+   "starlight": {
+    "name": "Star-iron trim",
+    "desc": "Costs star iron. Heavier, luckier.",
+    "min_skill": 4,
+    "cost": {
+     "star_iron": 1
+    },
+    "effect": {
+     "loot_luck": 0.015
+    },
+    "weight_mult": 1.04,
+    "color": [
+     0.6,
+     0.65,
+     0.95
+    ],
+    "expansion": "designers_trove"
+   },
+   "imperial": {
+    "name": "Imperial gilt",
+    "desc": "Costs an imperial seal. Rich, heavy, a purse for thieves.",
+    "min_skill": 5,
+    "cost": {
+     "imperial_seal": 1
+    },
+    "value_mult": 1.7,
+    "effect": {
+     "loot_luck": 0.03
+    },
+    "weight_mult": 1.05,
+    "color": [
+     1.0,
+     0.84,
+     0.25
+    ],
+    "expansion": "designers_trove"
    }
   },
   "dyes": {
@@ -168,6 +406,201 @@
      0.88,
      0.8
     ]
+   },
+   "ember": {
+    "name": "Ember orange",
+    "desc": "Fire-lit. A bit fiercer.",
+    "min_skill": 1,
+    "effect": {
+     "damage_mult": 1.015
+    },
+    "color": [
+     0.9,
+     0.4,
+     0.1
+    ],
+    "expansion": "designers_trove"
+   },
+   "violet": {
+    "name": "Violet dusk",
+    "desc": "Deep purple. Qi settles.",
+    "min_skill": 1,
+    "effect": {
+     "qi_mult": 1.015
+    },
+    "color": [
+     0.35,
+     0.2,
+     0.55
+    ],
+    "expansion": "designers_trove"
+   },
+   "teal": {
+    "name": "Sea teal",
+    "desc": "Cool water-green. Steadier lungs.",
+    "min_skill": 1,
+    "effect": {
+     "hp_mult": 1.015
+    },
+    "color": [
+     0.1,
+     0.5,
+     0.5
+    ],
+    "expansion": "designers_trove"
+   },
+   "ivory": {
+    "name": "Ivory",
+    "desc": "Warm white. Looks expensive.",
+    "min_skill": 1,
+    "effect": {},
+    "color": [
+     0.93,
+     0.9,
+     0.8
+    ],
+    "expansion": "designers_trove"
+   },
+   "ash": {
+    "name": "Ash grey",
+    "desc": "Quiet grey. Hard to notice.",
+    "min_skill": 1,
+    "effect": {
+     "dodge_chance": 0.008
+    },
+    "color": [
+     0.45,
+     0.45,
+     0.48
+    ],
+    "expansion": "designers_trove"
+   },
+   "rose": {
+    "name": "Rose",
+    "desc": "Soft pink. Calm minds.",
+    "min_skill": 1,
+    "effect": {
+     "meditate_mult": 1.015
+    },
+    "color": [
+     0.85,
+     0.45,
+     0.55
+    ],
+    "expansion": "designers_trove"
+   },
+   "verdant": {
+    "name": "Verdant",
+    "desc": "Leaf green. Herbs come easier.",
+    "min_skill": 2,
+    "effect": {
+     "gather_chance": 0.03
+    },
+    "color": [
+     0.25,
+     0.6,
+     0.25
+    ],
+    "expansion": "designers_trove"
+   },
+   "storm": {
+    "name": "Storm blue",
+    "desc": "Dark blue-grey. Quick.",
+    "min_skill": 2,
+    "effect": {
+     "attack_speed": 1.015
+    },
+    "color": [
+     0.2,
+     0.3,
+     0.5
+    ],
+    "expansion": "designers_trove"
+   },
+   "saffron": {
+    "name": "Saffron",
+    "desc": "Bright gold-orange. Finds.",
+    "min_skill": 2,
+    "effect": {
+     "loot_luck": 0.015
+    },
+    "color": [
+     0.95,
+     0.65,
+     0.1
+    ],
+    "expansion": "designers_trove"
+   },
+   "plum": {
+    "name": "Plum",
+    "desc": "Dark wine. Sturdier.",
+    "min_skill": 2,
+    "effect": {
+     "hp_mult": 1.01,
+     "damage_taken": 0.995
+    },
+    "color": [
+     0.35,
+     0.12,
+     0.25
+    ],
+    "expansion": "designers_trove"
+   },
+   "frost": {
+    "name": "Frost white",
+    "desc": "Icy pale. A cold calm.",
+    "min_skill": 2,
+    "effect": {
+     "meditate_mult": 1.02
+    },
+    "color": [
+     0.8,
+     0.92,
+     0.98
+    ],
+    "expansion": "designers_trove"
+   },
+   "obsid": {
+    "name": "Obsidian black",
+    "desc": "Total black. A little dodge, a little gloom.",
+    "min_skill": 3,
+    "effect": {
+     "dodge_chance": 0.012
+    },
+    "color": [
+     0.04,
+     0.04,
+     0.06
+    ],
+    "expansion": "designers_trove"
+   },
+   "sunset": {
+    "name": "Sunset",
+    "desc": "Orange to red. Fierce and showy.",
+    "min_skill": 3,
+    "effect": {
+     "damage_mult": 1.02
+    },
+    "color": [
+     0.95,
+     0.4,
+     0.25
+    ],
+    "expansion": "designers_trove"
+   },
+   "aurora": {
+    "name": "Aurora green",
+    "desc": "Shifting green-blue. Qi flows.",
+    "min_skill": 4,
+    "effect": {
+     "qi_mult": 1.025
+    },
+    "color": [
+     0.2,
+     0.85,
+     0.65
+    ],
+    "expansion": "designers_trove"
    }
   },
   "_groups": [
@@ -185,8 +618,97 @@
     "dyes",
     "dye",
     "Dye"
+   ],
+   [
+    "aspects",
+    "aspect",
+    "Aspect"
+   ],
+   [
+    "methods",
+    "method",
+    "Method"
    ]
-  ]
+  ],
+  "aspects": {
+   "none": {
+    "name": "No infusion",
+    "desc": "Nothing infused. Handle enough materials of one element and you will learn to draw out its aspect.",
+    "min_skill": 0
+   },
+   "fire": {
+    "name": "Fire infusion",
+    "desc": "Costs one fire-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "fire",
+    "secret": "infuse:fire",
+    "element": "fire"
+   },
+   "water": {
+    "name": "Water infusion",
+    "desc": "Costs one water-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "water",
+    "secret": "infuse:water",
+    "element": "water"
+   },
+   "earth": {
+    "name": "Earth infusion",
+    "desc": "Costs one earth-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "earth",
+    "secret": "infuse:earth",
+    "element": "earth"
+   },
+   "metal": {
+    "name": "Metal infusion",
+    "desc": "Costs one metal-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "metal",
+    "secret": "infuse:metal",
+    "element": "metal"
+   },
+   "wood": {
+    "name": "Wood infusion",
+    "desc": "Costs one wood-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "wood",
+    "secret": "infuse:wood",
+    "element": "wood"
+   }
+  },
+  "methods": {
+   "plain": {
+    "name": "No method",
+    "desc": "Just add it. Without a method the aspect only half takes.",
+    "min_skill": 0
+   },
+   "fold": {
+    "name": "Fold",
+    "desc": "Fold the work over itself again and again. Which aspect likes it? Try and see.",
+    "min_skill": 1
+   },
+   "quench": {
+    "name": "Quench",
+    "desc": "Plunge it hot into something cold. Which aspect likes it? Try and see.",
+    "min_skill": 1
+   },
+   "bed": {
+    "name": "Bed",
+    "desc": "Bed it in the ground to settle. Which aspect likes it? Try and see.",
+    "min_skill": 2
+   },
+   "layer": {
+    "name": "Layer",
+    "desc": "Build it up in thin bonded layers. Which aspect likes it? Try and see.",
+    "min_skill": 2
+   },
+   "bind": {
+    "name": "Bind",
+    "desc": "Bind it in something living. Which aspect likes it? Try and see.",
+    "min_skill": 3
+   }
+  }
  },
  "alchemy": {
   "_groups": [
@@ -204,6 +726,16 @@
     "seals",
     "seal",
     "Seal"
+   ],
+   [
+    "aspects",
+    "aspect",
+    "Aspect"
+   ],
+   [
+    "methods",
+    "method",
+    "Method"
    ]
   ],
   "vials": {
@@ -238,6 +770,31 @@
     "cost": {
      "silver_ore": 1
     }
+   },
+   "gourd": {
+    "name": "Gourd flask",
+    "desc": "Fat and slow. Makes a stronger dose, rarely.",
+    "min_skill": 2,
+    "heal_mult": 1.18,
+    "item_qi_mult": 1.18,
+    "value_mult": 0.85,
+    "expansion": "designers_trove"
+   },
+   "crystal": {
+    "name": "Crystal vial",
+    "desc": "Clear and fine. Sells well.",
+    "min_skill": 3,
+    "value_mult": 1.3,
+    "expansion": "designers_trove"
+   },
+   "bamboo": {
+    "name": "Bamboo tube",
+    "desc": "Light and cheap. A little weaker.",
+    "min_skill": 1,
+    "heal_mult": 0.95,
+    "item_qi_mult": 0.95,
+    "value_mult": 0.9,
+    "expansion": "designers_trove"
    }
   },
   "tinctures": {
@@ -281,6 +838,41 @@
     "heal_mult": 1.1,
     "item_qi_mult": 1.1,
     "value_mult": 1.25
+   },
+   "venom": {
+    "name": "Venom-reed tincture",
+    "desc": "Costs a venom reed. Sharp: more qi, less healing.",
+    "min_skill": 3,
+    "cost": {
+     "venom_reed": 1
+    },
+    "item_qi_mult": 1.2,
+    "heal_mult": 0.9,
+    "value_mult": 1.1,
+    "expansion": "designers_trove"
+   },
+   "lotus": {
+    "name": "Frost-lotus tincture",
+    "desc": "Costs a frost lotus. Cooling: more healing.",
+    "min_skill": 3,
+    "cost": {
+     "frost_lotus": 1
+    },
+    "heal_mult": 1.15,
+    "value_mult": 1.1,
+    "expansion": "designers_trove"
+   },
+   "pearl": {
+    "name": "Pearl-dust tincture",
+    "desc": "Costs a pearl. Fine and rich.",
+    "min_skill": 4,
+    "cost": {
+     "pearl_oyster": 1
+    },
+    "heal_mult": 1.1,
+    "item_qi_mult": 1.1,
+    "value_mult": 1.25,
+    "expansion": "designers_trove"
    }
   },
   "seals": {
@@ -316,6 +908,106 @@
     "heal_mult": 1.03,
     "item_qi_mult": 1.03,
     "value_mult": 1.6
+   },
+   "amber": {
+    "name": "Amber seal",
+    "desc": "Costs old amber. Keeps for years: sells high.",
+    "min_skill": 3,
+    "cost": {
+     "old_amber": 1
+    },
+    "value_mult": 1.3,
+    "expansion": "designers_trove"
+   },
+   "ghost": {
+    "name": "Ghost-oil seal",
+    "desc": "Costs ghost-lantern oil. Slightly stronger.",
+    "min_skill": 4,
+    "cost": {
+     "ghost_lantern_oil": 1
+    },
+    "heal_mult": 1.08,
+    "item_qi_mult": 1.08,
+    "expansion": "designers_trove"
+   }
+  },
+  "aspects": {
+   "none": {
+    "name": "No infusion",
+    "desc": "Nothing infused. Handle enough materials of one element and you will learn to draw out its aspect.",
+    "min_skill": 0
+   },
+   "fire": {
+    "name": "Fire infusion",
+    "desc": "Costs one fire-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "fire",
+    "secret": "infuse:fire",
+    "element": "fire"
+   },
+   "water": {
+    "name": "Water infusion",
+    "desc": "Costs one water-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "water",
+    "secret": "infuse:water",
+    "element": "water"
+   },
+   "earth": {
+    "name": "Earth infusion",
+    "desc": "Costs one earth-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "earth",
+    "secret": "infuse:earth",
+    "element": "earth"
+   },
+   "metal": {
+    "name": "Metal infusion",
+    "desc": "Costs one metal-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "metal",
+    "secret": "infuse:metal",
+    "element": "metal"
+   },
+   "wood": {
+    "name": "Wood infusion",
+    "desc": "Costs one wood-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "wood",
+    "secret": "infuse:wood",
+    "element": "wood"
+   }
+  },
+  "methods": {
+   "plain": {
+    "name": "No method",
+    "desc": "Just add it. Without a method the aspect only half takes.",
+    "min_skill": 0
+   },
+   "sear": {
+    "name": "Sear",
+    "desc": "Flash the mix over a high flame. Which aspect likes it? Try and see.",
+    "min_skill": 1
+   },
+   "steep": {
+    "name": "Steep",
+    "desc": "Let it stand in the liquid. Which aspect likes it? Try and see.",
+    "min_skill": 1
+   },
+   "grind": {
+    "name": "Grind",
+    "desc": "Grind it fine and press it. Which aspect likes it? Try and see.",
+    "min_skill": 2
+   },
+   "fume": {
+    "name": "Fume",
+    "desc": "Pass it through vapour. Which aspect likes it? Try and see.",
+    "min_skill": 2
+   },
+   "ferment": {
+    "name": "Ferment",
+    "desc": "Seal it and leave it to turn. Which aspect likes it? Try and see.",
+    "min_skill": 3
    }
   }
  },
@@ -330,6 +1022,16 @@
     "tinctures",
     "tincture",
     "Tincture"
+   ],
+   [
+    "aspects",
+    "aspect",
+    "Aspect"
+   ],
+   [
+    "methods",
+    "method",
+    "Method"
    ]
   ],
   "preps": {
@@ -359,6 +1061,30 @@
     "min_skill": 3,
     "heal_mult": 1.3,
     "item_qi_mult": 0.85
+   },
+   "salve": {
+    "name": "Thick salve",
+    "desc": "Heals more; sells less.",
+    "min_skill": 1,
+    "heal_mult": 1.2,
+    "value_mult": 0.9,
+    "expansion": "designers_trove"
+   },
+   "compress": {
+    "name": "Cool compress",
+    "desc": "Slow, gentle. A little more qi.",
+    "min_skill": 2,
+    "item_qi_mult": 1.1,
+    "heal_mult": 0.95,
+    "expansion": "designers_trove"
+   },
+   "elixir": {
+    "name": "Clear elixir",
+    "desc": "Light but potent. Worth more.",
+    "min_skill": 3,
+    "heal_mult": 1.1,
+    "value_mult": 1.2,
+    "expansion": "designers_trove"
    }
   },
   "tinctures": {
@@ -402,6 +1128,108 @@
     "heal_mult": 1.1,
     "item_qi_mult": 1.1,
     "value_mult": 1.25
+   },
+   "lotus": {
+    "name": "Frost-lotus tincture",
+    "desc": "Costs a frost lotus. Cooling: more healing.",
+    "min_skill": 3,
+    "cost": {
+     "frost_lotus": 1
+    },
+    "heal_mult": 1.15,
+    "value_mult": 1.1,
+    "expansion": "designers_trove"
+   },
+   "pearl": {
+    "name": "Pearl-dust tincture",
+    "desc": "Costs a pearl. Fine and rich.",
+    "min_skill": 4,
+    "cost": {
+     "pearl_oyster": 1
+    },
+    "heal_mult": 1.1,
+    "item_qi_mult": 1.1,
+    "value_mult": 1.25,
+    "expansion": "designers_trove"
+   }
+  },
+  "aspects": {
+   "none": {
+    "name": "No infusion",
+    "desc": "Nothing infused. Handle enough materials of one element and you will learn to draw out its aspect.",
+    "min_skill": 0
+   },
+   "fire": {
+    "name": "Fire infusion",
+    "desc": "Costs one fire-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "fire",
+    "secret": "infuse:fire",
+    "element": "fire"
+   },
+   "water": {
+    "name": "Water infusion",
+    "desc": "Costs one water-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "water",
+    "secret": "infuse:water",
+    "element": "water"
+   },
+   "earth": {
+    "name": "Earth infusion",
+    "desc": "Costs one earth-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "earth",
+    "secret": "infuse:earth",
+    "element": "earth"
+   },
+   "metal": {
+    "name": "Metal infusion",
+    "desc": "Costs one metal-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "metal",
+    "secret": "infuse:metal",
+    "element": "metal"
+   },
+   "wood": {
+    "name": "Wood infusion",
+    "desc": "Costs one wood-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "wood",
+    "secret": "infuse:wood",
+    "element": "wood"
+   }
+  },
+  "methods": {
+   "plain": {
+    "name": "No method",
+    "desc": "Just add it. Without a method the aspect only half takes.",
+    "min_skill": 0
+   },
+   "warm": {
+    "name": "Warm",
+    "desc": "Bring it gently up to blood heat. Which aspect likes it? Try and see.",
+    "min_skill": 1
+   },
+   "cool": {
+    "name": "Cool",
+    "desc": "Chill it before you give it. Which aspect likes it? Try and see.",
+    "min_skill": 1
+   },
+   "press": {
+    "name": "Press",
+    "desc": "Press out the heart of it. Which aspect likes it? Try and see.",
+    "min_skill": 2
+   },
+   "strain": {
+    "name": "Strain",
+    "desc": "Strain it clean, twice. Which aspect likes it? Try and see.",
+    "min_skill": 2
+   },
+   "mash": {
+    "name": "Mash",
+    "desc": "Work it to a paste. Which aspect likes it? Try and see.",
+    "min_skill": 3
    }
   }
  },
@@ -421,6 +1249,16 @@
     "polishes",
     "polish",
     "Finish"
+   ],
+   [
+    "aspects",
+    "aspect",
+    "Aspect"
+   ],
+   [
+    "methods",
+    "method",
+    "Method"
    ]
   ],
   "cuts": {
@@ -456,6 +1294,55 @@
      "damage_taken": 1.01
     },
     "value_mult": 1.4
+   },
+   "marquise": {
+    "name": "Marquise",
+    "desc": "Long and sharp. Hits land harder.",
+    "min_skill": 3,
+    "effect": {
+     "damage_mult": 1.02
+    },
+    "value_mult": 1.1,
+    "expansion": "designers_trove"
+   },
+   "star": {
+    "name": "Star cut",
+    "desc": "Rays of light. Worth much more.",
+    "min_skill": 4,
+    "effect": {
+     "qi_mult": 1.02
+    },
+    "value_mult": 1.3,
+    "expansion": "designers_trove"
+   },
+   "briolette": {
+    "name": "Briolette",
+    "desc": "Teardrop facets all round. A lucky finder.",
+    "min_skill": 4,
+    "effect": {
+     "loot_luck": 0.02
+    },
+    "value_mult": 1.15,
+    "expansion": "designers_trove"
+   },
+   "heartstone": {
+    "name": "Heartstone cut",
+    "desc": "Warm, rounded. A fuller heart.",
+    "min_skill": 3,
+    "effect": {
+     "hp_mult": 1.02
+    },
+    "expansion": "designers_trove"
+   },
+   "void": {
+    "name": "Void cut",
+    "desc": "Takes light in. Calm, deep and cheap to sell.",
+    "min_skill": 5,
+    "effect": {
+     "meditate_mult": 1.05
+    },
+    "value_mult": 0.9,
+    "expansion": "designers_trove"
    }
   },
   "settings": {
@@ -481,6 +1368,44 @@
      "dodge_chance": 0.01,
      "damage_mult": 0.99
     }
+   },
+   "prong": {
+    "name": "Crown prongs",
+    "desc": "Lets the light in. A little more qi, a little less guard.",
+    "min_skill": 2,
+    "effect": {
+     "qi_mult": 1.015,
+     "damage_taken": 1.005
+    },
+    "expansion": "designers_trove"
+   },
+   "cage": {
+    "name": "Wire cage",
+    "desc": "Holds loosely and lightly. Quicker hands.",
+    "min_skill": 3,
+    "effect": {
+     "attack_speed": 1.02
+    },
+    "expansion": "designers_trove"
+   },
+   "inlay": {
+    "name": "Flush inlay",
+    "desc": "Sits low. Safe: less taken.",
+    "min_skill": 3,
+    "effect": {
+     "damage_taken": 0.99
+    },
+    "expansion": "designers_trove"
+   },
+   "ward": {
+    "name": "Warded setting",
+    "desc": "Rune-cut seat. More dodge, less strike.",
+    "min_skill": 4,
+    "effect": {
+     "dodge_chance": 0.015,
+     "damage_mult": 0.99
+    },
+    "expansion": "designers_trove"
    }
   },
   "polishes": {
@@ -503,6 +1428,119 @@
      "damage_taken": 0.99
     },
     "value_mult": 0.9
+   },
+   "satin": {
+    "name": "Satin",
+    "desc": "Soft glow. Calm.",
+    "min_skill": 1,
+    "effect": {
+     "meditate_mult": 1.01
+    },
+    "value_mult": 1.05,
+    "expansion": "designers_trove"
+   },
+   "frosted": {
+    "name": "Frosted",
+    "desc": "Like sea-glass. Quiet worth.",
+    "min_skill": 2,
+    "value_mult": 1.1,
+    "expansion": "designers_trove"
+   },
+   "opalescent": {
+    "name": "Opalescent",
+    "desc": "Shifting colours. Worth a lot.",
+    "min_skill": 3,
+    "value_mult": 1.4,
+    "expansion": "designers_trove"
+   },
+   "sunwashed": {
+    "name": "Sun-washed",
+    "desc": "Warm shine. Lucky.",
+    "min_skill": 3,
+    "effect": {
+     "loot_luck": 0.01
+    },
+    "value_mult": 1.1,
+    "expansion": "designers_trove"
+   }
+  },
+  "aspects": {
+   "none": {
+    "name": "No infusion",
+    "desc": "Nothing infused. Handle enough materials of one element and you will learn to draw out its aspect.",
+    "min_skill": 0
+   },
+   "fire": {
+    "name": "Fire infusion",
+    "desc": "Costs one fire-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "fire",
+    "secret": "infuse:fire",
+    "element": "fire"
+   },
+   "water": {
+    "name": "Water infusion",
+    "desc": "Costs one water-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "water",
+    "secret": "infuse:water",
+    "element": "water"
+   },
+   "earth": {
+    "name": "Earth infusion",
+    "desc": "Costs one earth-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "earth",
+    "secret": "infuse:earth",
+    "element": "earth"
+   },
+   "metal": {
+    "name": "Metal infusion",
+    "desc": "Costs one metal-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "metal",
+    "secret": "infuse:metal",
+    "element": "metal"
+   },
+   "wood": {
+    "name": "Wood infusion",
+    "desc": "Costs one wood-aspect material (the cheapest you carry; a richer one infuses more strongly). The right method makes it take; the wrong one fights it. You will learn which by trying.",
+    "min_skill": 2,
+    "cost_element": "wood",
+    "secret": "infuse:wood",
+    "element": "wood"
+   }
+  },
+  "methods": {
+   "plain": {
+    "name": "No method",
+    "desc": "Just add it. Without a method the aspect only half takes.",
+    "min_skill": 0
+   },
+   "anneal": {
+    "name": "Anneal",
+    "desc": "Heat the stone slow and let it rest. Which aspect likes it? Try and see.",
+    "min_skill": 1
+   },
+   "soak": {
+    "name": "Soak",
+    "desc": "Leave it submerged to take on colour. Which aspect likes it? Try and see.",
+    "min_skill": 1
+   },
+   "bury": {
+    "name": "Bury",
+    "desc": "Bury it with the clay it came from. Which aspect likes it? Try and see.",
+    "min_skill": 2
+   },
+   "foil": {
+    "name": "Foil",
+    "desc": "Back it with a leaf of bright metal. Which aspect likes it? Try and see.",
+    "min_skill": 2
+   },
+   "wrap": {
+    "name": "Wrap",
+    "desc": "Wrap it in a living thread. Which aspect likes it? Try and see.",
+    "min_skill": 3
    }
   }
  }

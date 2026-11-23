@@ -46,8 +46,11 @@ static func expand(d: Dictionary) -> Dictionary:
 	for r in src:
 		w = maxi(w, str(r).length())
 	var h := src.size()
-	var W := w + PAD
-	var H := h + PAD
+	var fnum := str(d.get("id", "")).substr(5).to_int() if str(d.get("id", "")).substr(5).is_valid_int() else 0
+	var mid := fnum >= 6 and fnum <= 30          # 2026-11-06: the middle floors were the smallest for how long you spend in them
+	var pad := PAD + (16 if mid else 0)
+	var W := w + pad
+	var H := h + pad
 	var g := []                 # g[y][x] -> one-character String
 	for y in H:
 		var row := []
@@ -64,7 +67,9 @@ static func expand(d: Dictionary) -> Dictionary:
 		return d
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash(str(d.get("id", "")) + ":expanse:" + str(floor_cells.size()))
-	var want := clampi(floor_cells.size() / 300 + 3, 3, 6)
+	var want := clampi(floor_cells.size() / 220 + 5, 6, 12)          # 2026-11-03: was 3 to 6 -- the floors are fuller now
+	if mid:
+		want = clampi(floor_cells.size() / 160 + 9, 10, 16)
 	var kinds := KINDS_CORE.duplicate()
 	var more := KINDS_MORE.duplicate()
 	for i in more.size():
@@ -73,6 +78,8 @@ static func expand(d: Dictionary) -> Dictionary:
 		more[i] = more[j]
 		more[j] = t
 	kinds += more
+	while kinds.size() < want and not KINDS_MORE.is_empty():          # more chambers than kinds: repeat kinds (each is placed and seeded separately)
+		kinds.append(KINDS_MORE[rng.randi() % KINDS_MORE.size()])
 	kinds = kinds.slice(0, want)
 	var weak := _weak_letter(d)
 	var extras := []
@@ -81,14 +88,14 @@ static func expand(d: Dictionary) -> Dictionary:
 	for kind in kinds:
 		var placed := false
 		for attempt in 500:
-			var cw := rng.randi_range(7, 11)
-			var chh := rng.randi_range(6, 8)
+			var cw := rng.randi_range(9, 14) if mid else rng.randi_range(7, 11)
+			var chh := rng.randi_range(7, 10) if mid else rng.randi_range(6, 8)
 			var x0 := rng.randi_range(2, W - cw - 3)
 			var y0 := rng.randi_range(2, H - chh - 3)
 			if not _clear(g, x0 - 2, y0 - 2, cw + 4, chh + 4):
 				continue
 			var c := Vector2i(x0 + cw / 2, y0 + chh / 2)
-			var tgt := _nearest(floor_cells, c, 34)
+			var tgt := _nearest(floor_cells, c, 46 if mid else 34)
 			if tgt.x < 0:
 				continue
 			var path := _corridor(g, c, tgt, Rect2i(x0, y0, cw, chh))

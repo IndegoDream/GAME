@@ -14,6 +14,21 @@ const BAR := "PageTabs"
 static var _sel := {}
 
 
+static func _build(nd: Node) -> void:
+	if nd.has_meta("lazy_build"):
+		var cb: Callable = nd.get_meta("lazy_build")
+		nd.remove_meta("lazy_build")
+		cb.call()
+
+
+static func build_all(box: Node) -> void:
+	## make every section that is waiting for its tab (tests, and pages shown without tabs)
+	if box == null:
+		return
+	for c in box.get_children():
+		_build(c)
+
+
 static func _title(t: String) -> String:
 	var s := t.strip_edges()
 	for sep in [" -- ", "  --  ", ":", "  (", " ("]:
@@ -43,6 +58,7 @@ static func apply(box: Node, key: String, accent: Color = Color(1.0, 0.85, 0.5),
 		elif not segs.is_empty():
 			segs.back()["nodes"].append(c)
 	if segs.size() < min_tabs:
+		build_all(box)                     # (no tabs after all: every section is on show)
 		return
 	if str(segs[0]["title"]).to_lower() == key.to_lower():
 		segs[0]["title"] = "Overview"          # (the page's own title heading)
@@ -71,6 +87,8 @@ static func apply(box: Node, key: String, accent: Color = Color(1.0, 0.85, 0.5),
 			for nd in s2["nodes"]:
 				if is_instance_valid(nd):
 					nd.visible = vis
+					if vis:
+						_build(nd)             # round 200: a long section is made when its tab is first shown
 	for s in segs:
 		var b := Button.new()
 		b.text = s["title"]

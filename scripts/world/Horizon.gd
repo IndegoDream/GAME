@@ -200,6 +200,10 @@ static func land_material(lvl) -> Material:
 		if frontier:
 			gf = str((lvl.look.get("floor", ["grass_ground"]) as Array)[0])
 			rf = str((lvl.look.get("wall", ["rock_face"]) as Array)[0])
+			var cl: Array = preload("res://scripts/core/ArtPack.gd").land(L.key_for(lvl.def))
+			if not cl.is_empty():
+				gf = str(cl[0])          # 2026-11-06: a Land's real ground (snow, sand, gravel, leaf litter)
+				rf = str(cl[1])
 		m.set_shader_parameter("grass_tex", L.texture(gf, "albedo"))
 		m.set_shader_parameter("rock_tex", L.texture(rf, "albedo"))
 	var W = Game.sys("world")
@@ -210,6 +214,9 @@ static func land_material(lvl) -> Material:
 	m.set_shader_parameter("grass_tint", gt.get(sid, Color(0.85, 0.9, 0.75)))
 	if frontier:
 		m.set_shader_parameter("grass_tint", L.color3(lvl.def.get("ground_tint", []), Color(0.8, 0.8, 0.8)))
+		var cl2: Array = preload("res://scripts/core/ArtPack.gd").land(L.key_for(lvl.def)) if lvl else []
+		if cl2.size() >= 3 and cl2[2] is Array:
+			m.set_shader_parameter("grass_tint", L.color3(cl2[2], Color(0.9, 0.9, 0.9)))   # (a photo ground needs no heavy tint)
 		m.set_shader_parameter("snow_line", 9999.0)
 	if lvl and lvl.get("road_mask") != null:
 		m.set_shader_parameter("use_roads", 1.0)

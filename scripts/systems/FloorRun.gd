@@ -148,9 +148,12 @@ func note_hit(dmg: int) -> void:
 
 
 func tick(_delta: float) -> void:
-	if run.is_empty() or G.max_hp() <= 0:
+	if run.is_empty():
 		return
-	run["low"] = minf(float(run.get("low", 1.0)), clampf(float(G.hp) / float(G.max_hp()), 0.0, 1.0))
+	var mh: int = G.max_hp(true)          # round 195: every frame -- the kept effect list (two exact rebuilds a frame before)
+	if mh <= 0:
+		return
+	run["low"] = minf(float(run.get("low", 1.0)), clampf(float(G.hp) / float(mh), 0.0, 1.0))
 
 
 # ---- the verdict ------------------------------------------------------------------------

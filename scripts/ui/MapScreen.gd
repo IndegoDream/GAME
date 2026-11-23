@@ -29,6 +29,12 @@ var _drag := false
 var _pulse := 0.0
 var lit_rect := Rect2i()        # the part of the place you've seen (the map opens zoomed to it)
 var _pending_fit := false
+var _seen_img: Image = null         # round 176 (Assist map warp): which cells are drawn, so a tap only lands on ground you have seen
+var warp_target := Vector2i(-1, -1)
+var _press_pos := Vector2.ZERO
+var _moved := false
+var _warp_btn: Button
+var _warp_btn2: Button
 
 
 func setup(h) -> void:
@@ -46,6 +52,12 @@ func setup(h) -> void:
 	_tab(_bar, "+", func(): zoom_by(1.35))
 	_tab(_bar, "-", func(): zoom_by(1.0 / 1.35))
 	_tab(_bar, "Centre", func(): recentre())
+	_warp_btn = _tab(_bar, "Warp here", func(): _do_warp(false))          # round 176: Assist / test kit only
+	_warp_btn.custom_minimum_size = Vector2(120, 34)
+	_warp_btn.visible = false
+	_warp_btn2 = _tab(_bar, "Warp to the way down", func(): _do_warp(true))
+	_warp_btn2.custom_minimum_size = Vector2(190, 34)
+	_warp_btn2.visible = false
 	_info = Label.new()
 	_info.add_theme_font_size_override("font_size", 14)
 	_info.add_theme_color_override("font_color", Color(0.85, 0.88, 0.95))
@@ -68,6 +80,7 @@ func _tab(box: Node, text: String, cb: Callable) -> Button:
 func set_view(v: String) -> void:
 	view = v
 	picked = ""
+	warp_target = Vector2i(-1, -1)
 	pan = Vector2.ZERO
 	zoom = 1.0
 	refresh()
@@ -148,6 +161,7 @@ func build_texture() -> void:
 		w = maxi(w, str(row).length())
 	if w == 0 or h == 0:
 		tex = null
+		_seen_img = null
 		tex_size = Vector2i.ZERO
 		return
 	var fogged: bool = atlas.is_fogged(place_id)
@@ -171,6 +185,7 @@ func build_texture() -> void:
 				x1 = maxi(x1, x)
 				y1 = maxi(y1, y)
 	tex = ImageTexture.create_from_image(img)
+	_seen_img = img
 	tex_size = Vector2i(w, h)
 	lit_rect = Rect2i(x0, y0, x1 - x0 + 1, y1 - y0 + 1) if x1 >= 0 else Rect2i(0, 0, w, h)
 
@@ -188,6 +203,59 @@ func _set_info() -> void:
 	else:
 		var n: int = atlas.visits.size()
 		_info.text = ("%d places so far" % n) if picked == "" else picked_text()
+	if _can_warp():
+		_info.text += "   ·   " + tr("Tap a spot, then Warp.")
+	_update_warp()
+
+
+func _can_warp() -> bool:
+	var tk = Game.sys("tester")
+	return tk != null and tk.can_warp()
+
+
+func _warpable(id: String) -> bool:
+	return id != "" and id != place_id and (id == "village" or id == "valley" or id.begins_with("floor")) and Game.sys("tester").floor_ids().has(id)
+
+
+func _update_warp() -> void:
+	if _warp_btn == null:
+		return
+	var ok := _can_warp()
+	if view == "place":
+		_warp_btn.visible = ok and warp_target.x >= 0
+		_warp_btn2.visible = false
+	else:
+		_warp_btn.visible = ok and _warpable(picked)
+		_warp_btn.text = tr("Warp to the start") if _warp_btn.visible else "Warp here"
+		_warp_btn2.visible = ok and _warpable(picked) and picked.begins_with("floor")
+
+
+func _do_warp(way_down: bool) -> void:
+	var tk = Game.sys("tester")
+	if tk == null or not tk.can_warp():
+		return
+	if view == "place":
+		if warp_target.x >= 0 and tk.warp_cell(warp_target):
+			warp_target = Vector2i(-1, -1)
+			hud._hub.close_hub()
+	elif _warpable(picked):
+		var id := picked
+		hud._hub.close_hub()
+		tk.teleport(id, ">" if way_down else ("P" if id == "village" or id == "valley" else "<"))
+
+
+func _tap_place(pos: Vector2) -> void:
+	if tex == null or _seen_img == null or not _can_warp():
+		return
+	var t := tile()
+	var tl := origin() - Vector2(tex_size) * t * 0.5
+	var c := Vector2i(int(floor((pos.x - tl.x) / t)), int(floor((pos.y - tl.y) / t)))
+	if c.x < 0 or c.y < 0 or c.x >= tex_size.x or c.y >= tex_size.y or _seen_img.get_pixel(c.x, c.y).a < 0.5:
+		warp_target = Vector2i(-1, -1)
+	else:
+		warp_target = c
+	_update_warp()
+	queue_redraw()
 
 
 func picked_text() -> String:
@@ -264,6 +332,12 @@ func _draw_place() -> void:
 				draw_circle(p, r * 0.7, col)
 		if zoom >= 1.6 or t >= 9.0:
 			draw_string(ThemeDB.fallback_font, p + Vector2(r + 3, 4), str(m["name"]), HORIZONTAL_ALIGNMENT_LEFT, 180, 12, Color(col, 0.95))
+	if warp_target.x >= 0:
+		var wp_ := tl + (Vector2(warp_target) + Vector2(0.5, 0.5)) * t
+		var wr := maxf(5.0, t * 0.8)
+		draw_arc(wp_, wr, 0, TAU, 24, Color(1.0, 0.85, 0.3, 0.95), 2.5)
+		draw_line(wp_ + Vector2(-wr, 0), wp_ + Vector2(wr, 0), Color(1.0, 0.85, 0.3, 0.9), 1.5)
+		draw_line(wp_ + Vector2(0, -wr), wp_ + Vector2(0, wr), Color(1.0, 0.85, 0.3, 0.9), 1.5)
 	var pc := player_cell()
 	if pc.x > -9000:
 		var pp := tl + (Vector2(pc) + Vector2(0.5, 0.5)) * t
@@ -336,10 +410,17 @@ func _gui_input(event: InputEvent) -> void:
 			accept_event()
 		elif mb.button_index == MOUSE_BUTTON_LEFT:
 			_drag = mb.pressed
-			if not mb.pressed and view == "world":
+			if mb.pressed:
+				_press_pos = mb.position
+				_moved = false
+			elif view == "world":
 				_tap(mb.position)
+			elif not _moved:
+				_tap_place(mb.position)
 	elif event is InputEventMouseMotion and _drag:
 		pan += (event as InputEventMouseMotion).relative
+		if (event as InputEventMouseMotion).position.distance_to(_press_pos) > 10.0:
+			_moved = true
 		queue_redraw()
 	elif event is InputEventScreenDrag:
 		pan += (event as InputEventScreenDrag).relative

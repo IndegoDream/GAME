@@ -1,0 +1,20 @@
+{
+  "_about": "Round 177 (Robert, 2026-10-25): 'allow for crafting to show likelihood of positive effects and negative effects, allow for user to pick for items benefit and then the user will have a list of choices to further tailor the choices to the users wishes.' The Tailor reads the bench: pick an item and a goal, and it ranks what you could work into it, with the odds of every good and bad turn shown. Then narrow it by style, number of materials and what to avoid.",
+  "goals": {
+    "power":  {"name": "Power",     "desc": "hit harder and faster",       "keys": ["damage_mult", "attack_speed"]},
+    "guard":  {"name": "Guard",     "desc": "turn blows aside",            "keys": ["ward", "damage_taken", "hp_mult"]},
+    "life":   {"name": "Life",      "desc": "health and mending",          "keys": ["hp_mult", "regen", "heal_on_kill"]},
+    "spirit": {"name": "Spirit",    "desc": "qi and deeper sitting",       "keys": ["qi_mult", "meditate_mult"]},
+    "swarm":  {"name": "Swarm",     "desc": "feed the nanites",            "keys": ["swarm_mult"]},
+    "forage": {"name": "Foraging",  "desc": "gathering and senses",        "keys": ["gather_chance", "sense_radius"]},
+    "craft":  {"name": "Craft",     "desc": "steadier hands at the bench", "keys": ["craft_success"]}
+  },
+  "styles": {
+    "safe":     {"name": "Safe",     "desc": "favour the likeliest result",        "exp": 2.0, "risk": 3.0},
+    "balanced": {"name": "Balanced", "desc": "weigh gain against risk",             "exp": 1.0, "risk": 1.5},
+    "bold":     {"name": "Bold",     "desc": "chase the best result, risk be damned", "exp": 0.5, "risk": 0.5}
+  },
+  "pool": 10,
+  "synergy_points": 3.0,
+  "volatile_half": 0.5
+}

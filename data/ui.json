@@ -101,16 +101,16 @@
     ]
   },
   "radius": {
-    "panel": 16,
-    "button": 12,
-    "bar": 7,
-    "card": 14,
-    "chip": 999
+    "panel": 8,
+    "button": 4,
+    "bar": 3,
+    "card": 6,
+    "chip": 6
   },
   "shadow": {
-    "panel": 18,
+    "panel": 10,
     "button": 0,
-    "card": 6
+    "card": 0
   },
   "motion": {
     "open": 0.18,

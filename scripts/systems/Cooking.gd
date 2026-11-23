@@ -50,7 +50,7 @@ func why_not(id: String) -> String:
 	var m := meal(id)
 	if m.is_empty():
 		return I18n.t("No such meal.")
-	if not (G.havens.has(G.current_level) or G.tester_unlocked()):
+	if not (G.havens.has(G.current_level) or G.tester_unlocked() or G._god_craft()):
 		return I18n.t("Cook at a hearth -- in any town.")
 	for it in m["needs"]:
 		if G.count(str(it)) < int(m["needs"][it]):

@@ -144,6 +144,8 @@ static func menu(hud) -> void:
 		opts.append(["Get the full game%s" % (("  (%s)" % st.price_text()) if st.price_text() != "" else ""), func():
 			hud.close_dialog()
 			hud.open_unlock("", "")])
+	if Game.sys("looks"):
+		opts.append(["Looks (pet coats, breakthrough skies, sitting, strike glows)...", func(): Game.sys("looks").menu(hud)])      # round 183
 	if style():
 		opts.append(["Aura: %s  (tap to change)" % AURAS[aura_index()][1], func():
 			cycle_aura()

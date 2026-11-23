@@ -1,0 +1,311 @@
+{
+ "_about": "Round 179 (Robert, 2026-10-25): 'i want each pet and construct to be unique and modifiable toward their strengths' and 'allow for them to tend the internal garden or to go out and train or gather, they can each have a job when not active with me, same for the companions.' scripts/systems/Crew.gd reads this. Every hand (beast, construct, companion) has a SPECIALTY (unique, from its name), a FOCUS skill you set, and a JOB while it is not with you.",
+ "jobs": {
+  "rest": {
+   "name": "Rest",
+   "desc": "Idle, at ease."
+  },
+  "tend": {
+   "name": "Tend the garden",
+   "desc": "Waters and weeds your gardens: plots ripen sooner and the inner world's flora grows.",
+   "skills": [
+    "mend",
+    "gather"
+   ]
+  },
+  "train": {
+   "name": "Go out and train",
+   "desc": "Drills away from you: bond or warmth grows, its focus deepens, and some of the practice reaches you as qi.",
+   "skills": [
+    "combat",
+    "guard"
+   ]
+  },
+  "gather": {
+   "name": "Go out and gather",
+   "desc": "Forages and brings things back to the haul bin.",
+   "skills": [
+    "gather",
+    "scout",
+    "haul",
+    "fortune"
+   ]
+  }
+ },
+ "specialties": {
+  "early_riser": {
+   "name": "Early Riser",
+   "desc": "Up before the light; the gardens love it.",
+   "mods": {
+    "tend": 1.4,
+    "train": 1.0,
+    "gather": 1.0
+   },
+   "effect": {
+    "regen": 0.05
+   },
+   "likes": "gather"
+  },
+  "green_paw": {
+   "name": "Green Paw",
+   "desc": "Things grow where it walks.",
+   "mods": {
+    "tend": 1.6,
+    "train": 0.9,
+    "gather": 1.1
+   },
+   "effect": {
+    "gather_chance": 0.01
+   },
+   "likes": "gather"
+  },
+  "iron_will": {
+   "name": "Iron Will",
+   "desc": "Never quits a drill.",
+   "mods": {
+    "tend": 0.9,
+    "train": 1.5,
+    "gather": 0.9
+   },
+   "effect": {
+    "damage_taken": 0.99
+   },
+   "likes": "guard"
+  },
+  "sharp_eyed": {
+   "name": "Sharp-Eyed",
+   "desc": "Sees what others walk past.",
+   "mods": {
+    "tend": 0.9,
+    "train": 1.0,
+    "gather": 1.5
+   },
+   "effect": {
+    "sense_radius": 0.2
+   },
+   "likes": "scout"
+  },
+  "lucky_streak": {
+   "name": "Lucky Streak",
+   "desc": "Finds are richer, somehow.",
+   "mods": {
+    "tend": 1.0,
+    "train": 0.9,
+    "gather": 1.3
+   },
+   "effect": {
+    "loot_luck": 0.004
+   },
+   "likes": "fortune"
+  },
+  "nimble": {
+   "name": "Nimble",
+   "desc": "Light on its feet.",
+   "mods": {
+    "tend": 1.0,
+    "train": 1.2,
+    "gather": 1.2
+   },
+   "effect": {
+    "move_mult": 1.003
+   },
+   "likes": "haul"
+  },
+  "patient": {
+   "name": "Patient",
+   "desc": "Waits for the right moment.",
+   "mods": {
+    "tend": 1.4,
+    "train": 1.1,
+    "gather": 0.9
+   },
+   "effect": {
+    "timing": 0.004
+   },
+   "likes": "mend"
+  },
+  "stout": {
+   "name": "Stout",
+   "desc": "Carries more than it should.",
+   "mods": {
+    "tend": 0.9,
+    "train": 1.1,
+    "gather": 1.4
+   },
+   "effect": {
+    "hp_mult": 1.004
+   },
+   "likes": "haul"
+  },
+  "quick_study": {
+   "name": "Quick Study",
+   "desc": "Learns from everything.",
+   "mods": {
+    "tend": 1.1,
+    "train": 1.4,
+    "gather": 1.1
+   },
+   "effect": {
+    "insight_mult": 1.005
+   },
+   "likes": "arcana"
+  },
+  "tireless": {
+   "name": "Tireless",
+   "desc": "Does not tire, does not complain.",
+   "mods": {
+    "tend": 1.2,
+    "train": 1.2,
+    "gather": 1.2
+   },
+   "effect": {},
+   "likes": "haul"
+  },
+  "fierce": {
+   "name": "Fierce",
+   "desc": "Fights its own shadow.",
+   "mods": {
+    "tend": 0.8,
+    "train": 1.6,
+    "gather": 0.9
+   },
+   "effect": {
+    "damage_mult": 1.004
+   },
+   "likes": "combat"
+  },
+  "gentle": {
+   "name": "Gentle",
+   "desc": "Calm hands, calm plants.",
+   "mods": {
+    "tend": 1.5,
+    "train": 0.8,
+    "gather": 1.1
+   },
+   "effect": {
+    "regen": 0.07
+   },
+   "likes": "mend"
+  },
+  "curious": {
+   "name": "Curious",
+   "desc": "Pokes at every stone.",
+   "mods": {
+    "tend": 1.0,
+    "train": 1.0,
+    "gather": 1.5
+   },
+   "effect": {
+    "insight_mult": 1.004
+   },
+   "likes": "scout"
+  },
+  "spirit_touched": {
+   "name": "Spirit-Touched",
+   "desc": "Qi runs close to the surface.",
+   "mods": {
+    "tend": 1.3,
+    "train": 1.1,
+    "gather": 1.0
+   },
+   "effect": {
+    "qi_mult": 1.004
+   },
+   "likes": "arcana"
+  },
+  "steady": {
+   "name": "Steady",
+   "desc": "The same every day.",
+   "mods": {
+    "tend": 1.2,
+    "train": 1.2,
+    "gather": 1.0
+   },
+   "effect": {
+    "dodge_chance": 0.004
+   },
+   "likes": "guard"
+  },
+  "scrounger": {
+   "name": "Scrounger",
+   "desc": "Nothing is wasted.",
+   "mods": {
+    "tend": 1.0,
+    "train": 0.9,
+    "gather": 1.4
+   },
+   "effect": {
+    "keep_gold": 0.004
+   },
+   "likes": "fortune"
+  }
+ },
+ "focus": {
+  "levels": [
+   40,
+   120,
+   280,
+   560,
+   1000
+  ],
+  "per_level": 4.0,
+  "change_gold": 60,
+  "keep_share": 0.25,
+  "like_bonus": 1.25
+ },
+ "rates": {
+  "floor": 0.5,
+  "per_apt": 0.02,
+  "offline_cap_minutes": 480,
+  "tend_minutes_per_hour": 20.0,
+  "tend_flora": 0.6,
+  "train_bond_per_hour": 1.5,
+  "train_warmth_per_hour": 0.12,
+  "train_qi_per_hour": 3.0,
+  "gather_minutes": 50,
+  "haul_cap": 24,
+  "day_cap": 40,
+  "focus_per_hour": 6.0
+ },
+ "gather": {
+  "low": [
+   "goblin_tooth",
+   "iron_ore",
+   "spirit_herb",
+   "bone_shard",
+   "beast_hide",
+   "iron_thistle",
+   "ember_root",
+   "moonpetal"
+  ],
+  "mid": [
+   "silver_ore",
+   "spirit_resin",
+   "rough_jade",
+   "ancient_clay",
+   "slag_iron",
+   "firestone",
+   "heartwood",
+   "bloodsap"
+  ],
+  "high": [
+   "cloud_jade",
+   "immortal_dust",
+   "star_iron",
+   "grave_steel",
+   "thunder_iron",
+   "spirit_silk",
+   "storm_glass",
+   "singing_crystal"
+  ],
+  "rare": [
+   "nanite_shard",
+   "bionic_scrap",
+   "blood_essence"
+  ],
+  "rare_base": 0.04,
+  "rare_per_fortune": 0.0012,
+  "mid_realm": 3,
+  "high_realm": 6
+ }
+}

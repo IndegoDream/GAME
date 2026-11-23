@@ -1,0 +1,11 @@
+Tap a spot, then Warp.||点一个地方，然后点“传送”。||Toca un lugar y luego Teletransportar.||Toque num ponto e depois em Teletransportar.||Нажмите на место, затем «Прыжок».||Tippe auf eine Stelle, dann auf „Springen“.||Touchez un endroit, puis Se téléporter.||場所をタップして「ワープ」を押す。||장소를 누른 뒤 '이동'을 누르세요.||Bir yere dokun, sonra Işınlan'a bas.
+Warp to the start||传送到起点||Ir al inicio||Ir ao início||В начало||Zum Anfang springen||Aller au début||入口へワープ||시작 지점으로 이동||Başlangıca ışınlan
+Warp here||传送到这里||Teletransportar aquí||Teletransportar aqui||Прыгнуть сюда||Hierher springen||Se téléporter ici||ここへワープ||여기로 이동||Buraya ışınlan
+Warp to the way down||传送到下行入口||Ir a la bajada||Ir à descida||К спуску||Zum Abstieg springen||Aller à la descente||下り口へワープ||내려가는 길로 이동||Aşağı yola ışınlan
+Assist (god mode, floor warp, map warp)||辅助（无敌、楼层传送、地图传送）||Ayuda (modo dios, salto de piso, salto de mapa)||Ajuda (modo deus, salto de andar, salto de mapa)||Помощь (бессмертие, прыжок по этажам, прыжок по карте)||Hilfe (Gottmodus, Etagensprung, Kartensprung)||Aide (mode dieu, saut d'étage, saut de carte)||アシスト（無敵・階層ワープ・マップワープ）||도움 (무적, 층 이동, 지도 이동)||Yardım (tanrı modu, kat atlama, harita atlama)
+Assist||辅助||Ayuda||Ajuda||Помощь||Hilfe||Aide||アシスト||도움||Yardım
+Floor warp||楼层传送||Salto de piso||Salto de andar||Прыжок по этажам||Etagensprung||Saut d'étage||階層ワープ||층 이동||Kat atlama
+Map warp (open the map)||地图传送（打开地图）||Salto de mapa (abre el mapa)||Salto de mapa (abra o mapa)||Прыжок по карте (открыть карту)||Kartensprung (Karte öffnen)||Saut de carte (ouvrir la carte)||マップワープ（地図を開く）||지도 이동 (지도 열기)||Harita atlama (haritayı aç)
+God mode: %s (tap to switch)||无敌模式：%s（点击切换）||Modo dios: %s (toca para cambiar)||Modo deus: %s (toque para alternar)||Бессмертие: %s (нажмите, чтобы переключить)||Gottmodus: %s (zum Umschalten tippen)||Mode dieu : %s (touchez pour changer)||無敵モード：%s（タップで切替）||무적 모드: %s (눌러서 전환)||Tanrı modu: %s (değiştirmek için dokun)
+You can't stand there.||你站不到那里。||No puedes estar ahí.||Você não pode ficar ali.||Туда встать нельзя.||Dort kannst du nicht stehen.||Vous ne pouvez pas vous tenir là.||そこには立てない。||그곳에는 설 수 없다.||Orada duramazsın.
+You step across the map.||你在地图上一步跨过。||Cruzas el mapa de un paso.||Você atravessa o mapa num passo.||Вы шагаете через карту.||Du schreitest über die Karte.||Vous traversez la carte d'un pas.||地図を一歩で渡った。||지도를 한 걸음에 건넜다.||Haritayı tek adımda geçtin.

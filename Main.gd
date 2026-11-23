@@ -43,6 +43,10 @@ func _ready() -> void:
 	hud = HUDScript.new()
 	hud.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(hud)
+	if Game.sys("fellowship") != null:
+		Game.sys("fellowship").welcome_back()            # round 188: the guild says hello; what came in while you were away
+	if Game.sys("own_sect") != null and Game.sys("own_sect").founded():
+		Game.sys("own_sect").greet()
 	if ml != null:
 		ml.crumb("HUD up; loading level " + str(Game.current_level))
 	Game.level_change_requested.connect(_on_level_change)
@@ -56,9 +60,24 @@ func _ready() -> void:
 		hud.show_away_report.call_deferred()        # what happened while you were away
 	if not OS.has_feature("headless") and DisplayServer.get_name() != "headless":
 		hud.show_title.call_deferred()              # round 31: the front door
+	if (DisplayServer.get_name() != "headless" and preload("res://scripts/core/PerfProbe.gd").wanted()) or force_veil:
+		perf_probe = preload("res://scripts/core/PerfProbe.gd").new()      # round 188: what is slow on this machine (crumbs.txt, perf_probe.txt)
+		perf_probe.name = "PerfProbe"
+		add_child(perf_probe)
+	if DisplayServer.get_name() != "headless":
+		auto_res = preload("res://scripts/core/AutoRes.gd").new()          # round 192: picture size follows the GPU
+		auto_res.name = "AutoRes"
+		add_child(auto_res)
+	if DisplayServer.get_name() != "headless" and preload("res://scripts/core/GpuCourtesy.gd").wanted():
+		gpu_courtesy = preload("res://scripts/core/GpuCourtesy.gd").new()      # round 192: a local AI holding the graphics card made his game crawl
+		gpu_courtesy.name = "GpuCourtesy"
+		add_child(gpu_courtesy)
 
 
 var _world_frozen: bool = false
+var perf_probe: Node = null
+var gpu_courtesy: Node = null
+var auto_res: Node = null
 
 
 var _warm = null          # round 158: reads the levels' models on background threads (Warm.gd)
@@ -68,9 +87,20 @@ var _crumb_t := 0.0
 var _crumb_n := 0
 
 
+var _fit_t := 0.0
+var _fit_last := Vector2i.ZERO
+
+
 func _process(delta: float) -> void:
+	_fit_t += delta       # 2026-11-01: a maximize that lands after startup must re-pick the UI scale
+	if _fit_t >= 0.4:
+		_fit_t = 0.0
+		var _ws := DisplayServer.window_get_size()
+		if _ws != _fit_last:
+			_fit_last = _ws
+			preload("res://scripts/core/Gfx.gd").fit_small_window(get_tree())
 	_crumb_t += delta
-	if _crumb_t >= 0.5 and _crumb_n < 80:          # round 169: the first 40 s leave a trail
+	if _crumb_t >= 0.5 and _crumb_n < 80 and perf_probe != null:          # round 169: the first 40 s leave a trail
 		_crumb_t = 0.0
 		_crumb_n += 1
 		var ml = get_node_or_null("/root/MemLog")
@@ -78,7 +108,7 @@ func _process(delta: float) -> void:
 			var pp := Vector3.ZERO
 			if player != null:
 				pp = player.global_position
-			ml.crumb("fps=%d nodes=%d lvl=%s pos=%s warm=%s stream=%s" % [int(Performance.get_monitor(Performance.TIME_FPS)), int(Performance.get_monitor(Performance.OBJECT_NODE_COUNT)), str(level.level_id) if level != null else "-", str(pp.snapped(Vector3.ONE * 0.1)), str(_warm.pending()) if _warm != null else "off", str(level.stream_left()) if level != null and level.has_method("stream_left") else "-"])
+			ml.crumb(("fps=%d %s nodes=%d lvl=%s pos=%s warm=%s stream=%s" + ("  " + str(gpu_courtesy.last_seen) if gpu_courtesy != null and str(gpu_courtesy.last_seen) != "" else "")) % [int(Performance.get_monitor(Performance.TIME_FPS)), preload("res://scripts/core/PerfProbe.gd").stats(get_viewport()), int(Performance.get_monitor(Performance.OBJECT_NODE_COUNT)), str(level.level_id) if level != null else "-", str(pp.snapped(Vector3.ONE * 0.1)), str(_warm.pending()) if _warm != null else "off", str(level.stream_left()) if level != null and level.has_method("stream_left") else "-"])
 	if _warm != null:
 		_warm.tick()
 		if _warm.pending() == 0:
@@ -129,8 +159,7 @@ func _on_level_change(level_id: String, arrive_at: String) -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	_load_level(level_id, arrive_at)
-	await get_tree().process_frame
-	await get_tree().process_frame
+	await get_tree().process_frame          # round 175: one frame is enough to settle (was two)
 	_changing = false
 	if not _queued.is_empty():
 		var q: Array = _queued

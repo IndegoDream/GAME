@@ -119,6 +119,22 @@ func _run() -> void:
 	on.send({"t": "chat", "ch": "hub", "text": "hello there"})
 	var ch: Dictionary = await b.wait_for("chat", 3.0)
 	check("chat arrives", ch.get("text", "") == "hello there")
+	# --- round 182: a join code, through the real party page
+	var hud0 = root.get_tree().get_first_node_in_group("hud")
+	on.send({"t": "p_code"})
+	await until(func(): return on.party_code != "", 4.0)
+	check("the leader's join code arrives", on.party_code.length() == 6, on.party_code)
+	if hud0:
+		load("res://scripts/net/OnlineMenu.gd").party(hud0, "run")
+		check("the party page shows the code to the leader", hud0._dialog_body.text.contains(on.party_code) if hud0.get("_dialog_body") else true)
+		hud0.close_dialog()
+	b.send({"t": "p_join", "code": on.party_code})
+	await until(func(): return on.party.get("members", []).size() == 2, 4.0)
+	check("a friend joins with the code", on.party.get("members", []).size() == 2)
+	b.send({"t": "p_leave"})
+	await until(func(): return on.party.get("members", []).size() == 1, 4.0)
+	on.send({"t": "p_leave"})
+	await wait_s(0.5)
 	# --- party and a run
 	on.send({"t": "p_invite", "name": "Bot2"})
 	var inv: Dictionary = await b.wait_for("p_invited", 4.0)

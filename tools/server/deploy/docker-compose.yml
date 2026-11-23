@@ -1,0 +1,42 @@
+# Round 182: one small server runs the shared world with TLS.   (from the project folder)
+#   1. a VPS with a domain name pointing at it (an A record), ports 80 and 443 open
+#   2. copy .env.example to .env and fill it in
+#   3. docker compose -f tools/server/deploy/docker-compose.yml up -d --build
+# The game then connects to wss://YOUR_DOMAIN (Gate window > Server address, or data/online.json "url").
+services:
+  elite:
+    build:
+      context: ../../..
+      dockerfile: tools/server/Dockerfile
+    restart: always
+    env_file: .env
+    environment:
+      ELITE_HOST: 0.0.0.0
+      ELITE_PORT: "8765"
+    volumes:
+      - elitedata:/var/lib/elite
+    expose:
+      - "8765"
+  caddy:
+    image: caddy:2
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    env_file: .env
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddydata:/data
+    depends_on:
+      - elite
+  backup:
+    # a copy of the database every six hours, the last 28 kept (a week)
+    image: alpine:3
+    restart: always
+    volumes:
+      - elitedata:/var/lib/elite
+      - ./backups:/backups
+    entrypoint: ["/bin/sh", "-c", "while true; do cp /var/lib/elite/elite.db /backups/elite-$$(date +%Y%m%d-%H%M).db 2>/dev/null; ls -1t /backups/elite-*.db | tail -n +29 | xargs -r rm; sleep 21600; done"]
+volumes:
+  elitedata:
+  caddydata:

@@ -1,0 +1,46 @@
+{
+"Took %d × %s.": [
+"服用了 %d × %s。",
+"Tomaste %d × %s.",
+"Tomou %d × %s.",
+"Принято: %d × %s.",
+"%d × %s eingenommen.",
+"Pris : %d × %s.",
+"%d × %s を服用した。",
+"%d × %s 복용.",
+"%d × %s alındı."
+],
+"+%s qi.": [
+"+%s 气。",
+"+%s de qi.",
+"+%s de qi.",
+"+%s ци.",
+"+%s Qi.",
+"+%s qi.",
+"+%s 気。",
+"+%s 기.",
+"+%s qi."
+],
+"Use all (%d)": [
+"全部使用（%d）",
+"Usar todo (%d)",
+"Usar tudo (%d)",
+"Использовать все (%d)",
+"Alle benutzen (%d)",
+"Tout utiliser (%d)",
+"すべて使う（%d）",
+"모두 사용 (%d)",
+"Hepsini kullan (%d)"
+],
+"Take every one you carry -- their qi, attunement and cleansing add up.": [
+"把身上的全部服下——它们的气、亲和与洗涤效果会叠加。",
+"Tómalas todas: su qi, afinidad y limpieza se suman.",
+"Tome todas que carrega -- o qi, a sintonia e a purificação se somam.",
+"Принять все, что есть, -- их ци, настрой и очищение складываются.",
+"Nimm alle, die du trägst -- ihr Qi, ihre Einstimmung und Reinigung addieren sich.",
+"Prenez-les toutes -- leur qi, leur harmonisation et leur purification s'additionnent.",
+"持っている分をすべて服用する――気・親和・浄化は積み重なる。",
+"가진 것을 모두 복용 -- 기, 조율, 정화가 합산된다.",
+"Taşıdığın hepsini al -- qi, uyum ve arınma etkileri toplanır."
+]
+}

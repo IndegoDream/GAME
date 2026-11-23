@@ -771,6 +771,346 @@
     "vital": 1,
     "volatile": 2
    }
+  },
+  "glowcap": {
+   "element": "wood",
+   "traits": {
+    "living": 2,
+    "seeking": 1
+   }
+  },
+  "ghostmoth_wing": {
+   "element": "wood",
+   "traits": {
+    "supple": 2,
+    "seeking": 2
+   }
+  },
+  "stag_antler": {
+   "element": "wood",
+   "traits": {
+    "vital": 2,
+    "resonant": 1
+   }
+  },
+  "wolf_pelt": {
+   "element": "wood",
+   "traits": {
+    "supple": 2,
+    "warding": 1
+   }
+  },
+  "old_amber": {
+   "element": "earth",
+   "traits": {
+    "binding": 2,
+    "resonant": 2
+   }
+  },
+  "bog_lotus": {
+   "element": "water",
+   "traits": {
+    "vital": 2,
+    "warding": 1
+   }
+  },
+  "venom_reed": {
+   "element": "wood",
+   "traits": {
+    "volatile": 2,
+    "keen": 1
+   }
+  },
+  "peat_core": {
+   "element": "earth",
+   "traits": {
+    "binding": 2,
+    "living": 1
+   }
+  },
+  "will_o_oil": {
+   "element": "fire",
+   "traits": {
+    "seeking": 2,
+    "volatile": 2
+   }
+  },
+  "toad_gland": {
+   "element": "water",
+   "traits": {
+    "vital": 1,
+    "volatile": 1
+   }
+  },
+  "drowned_pearl": {
+   "element": "water",
+   "traits": {
+    "resonant": 2,
+    "warding": 2
+   }
+  },
+  "grave_bloom": {
+   "element": "earth",
+   "traits": {
+    "vital": 1,
+    "warding": 2
+   }
+  },
+  "battle_iron": {
+   "element": "metal",
+   "traits": {
+    "hard": 3,
+    "binding": 1
+   }
+  },
+  "marrow_salt": {
+   "element": "earth",
+   "traits": {
+    "vital": 2,
+    "volatile": 1
+   }
+  },
+  "widow_shroud": {
+   "element": "wood",
+   "traits": {
+    "warding": 3,
+    "supple": 1
+   }
+  },
+  "war_standard": {
+   "element": "metal",
+   "traits": {
+    "resonant": 2,
+    "keen": 1,
+    "binding": 1
+   }
+  },
+  "terrace_jade": {
+   "element": "earth",
+   "traits": {
+    "resonant": 2,
+    "warding": 2
+   }
+  },
+  "cloud_rice": {
+   "element": "wood",
+   "traits": {
+    "vital": 3,
+    "living": 1
+   }
+  },
+  "crane_feather": {
+   "element": "wood",
+   "traits": {
+    "supple": 3,
+    "seeking": 1
+   }
+  },
+  "sage_tea_leaf": {
+   "element": "wood",
+   "traits": {
+    "seeking": 2,
+    "vital": 2
+   }
+  },
+  "monkey_charm": {
+   "element": "metal",
+   "traits": {
+    "keen": 2,
+    "supple": 2
+   }
+  },
+  "pearl_oyster": {
+   "element": "water",
+   "traits": {
+    "resonant": 3,
+    "warding": 1
+   }
+  },
+  "serpent_scale": {
+   "element": "water",
+   "traits": {
+    "hard": 2,
+    "supple": 2
+   }
+  },
+  "kelp_silk": {
+   "element": "water",
+   "traits": {
+    "supple": 3,
+    "living": 1
+   }
+  },
+  "drowned_crown": {
+   "element": "metal",
+   "traits": {
+    "resonant": 3,
+    "binding": 1
+   }
+  },
+  "river_otter_pelt": {
+   "element": "water",
+   "traits": {
+    "supple": 2,
+    "warding": 1
+   }
+  },
+  "roc_quill": {
+   "element": "wood",
+   "traits": {
+    "supple": 2,
+    "keen": 2
+   }
+  },
+  "sky_lichen": {
+   "element": "wood",
+   "traits": {
+    "warding": 2,
+    "vital": 1
+   }
+  },
+  "tempest_heart": {
+   "element": "fire",
+   "traits": {
+    "volatile": 3,
+    "resonant": 2
+   }
+  },
+  "ash_blossom": {
+   "element": "fire",
+   "traits": {
+    "vital": 2,
+    "volatile": 1
+   }
+  },
+  "magma_crab_shell": {
+   "element": "fire",
+   "traits": {
+    "hard": 3,
+    "warding": 1
+   }
+  },
+  "drake_ember": {
+   "element": "fire",
+   "traits": {
+    "volatile": 3,
+    "keen": 1
+   }
+  },
+  "obsidian_edge": {
+   "element": "earth",
+   "traits": {
+    "keen": 3,
+    "hard": 1
+   }
+  },
+  "frost_lotus": {
+   "element": "water",
+   "traits": {
+    "warding": 2,
+    "vital": 2
+   }
+  },
+  "rime_crystal": {
+   "element": "water",
+   "traits": {
+    "resonant": 3,
+    "keen": 1
+   }
+  },
+  "snow_lynx_pelt": {
+   "element": "water",
+   "traits": {
+    "supple": 3,
+    "warding": 1
+   }
+  },
+  "wendigo_horn": {
+   "element": "water",
+   "traits": {
+    "hard": 2,
+    "volatile": 2
+   }
+  },
+  "glacier_heart": {
+   "element": "water",
+   "traits": {
+    "resonant": 2,
+    "warding": 3
+   }
+  },
+  "desert_rose": {
+   "element": "earth",
+   "traits": {
+    "seeking": 2,
+    "keen": 1
+   }
+  },
+  "scorpion_stinger": {
+   "element": "earth",
+   "traits": {
+    "keen": 2,
+    "volatile": 2
+   }
+  },
+  "hourglass_sand": {
+   "element": "earth",
+   "traits": {
+    "resonant": 2,
+    "binding": 2
+   }
+  },
+  "sun_scarab": {
+   "element": "fire",
+   "traits": {
+    "hard": 2,
+    "living": 2
+   }
+  },
+  "sand_giant_core": {
+   "element": "earth",
+   "traits": {
+    "hard": 3,
+    "binding": 2
+   }
+  },
+  "blight_bloom": {
+   "element": "wood",
+   "traits": {
+    "nano": 2,
+    "volatile": 2,
+    "vital": 1
+   }
+  },
+  "nanite_sap": {
+   "element": "wood",
+   "traits": {
+    "nano": 3,
+    "living": 2
+   }
+  },
+  "warped_heartwood": {
+   "element": "wood",
+   "traits": {
+    "nano": 2,
+    "hard": 3
+   }
+  },
+  "corrupted_antler": {
+   "element": "wood",
+   "traits": {
+    "nano": 2,
+    "keen": 2,
+    "volatile": 1
+   }
+  },
+  "root_king_seed": {
+   "element": "wood",
+   "traits": {
+    "nano": 3,
+    "living": 3,
+    "resonant": 1
+   }
   }
  },
  "products": {
@@ -1000,6 +1340,155 @@
     "resonant": 1
    },
    "desc": "A cloth woven from desert reed and fern-light. Light as a thought."
+  },
+  "wildwood_tonic": {
+   "name": "Wildwood Tonic",
+   "value": 150,
+   "element": "wood",
+   "traits": {
+    "vital": 3,
+    "living": 2
+   },
+   "desc": "A green, thick tonic. It mends and it steadies."
+  },
+  "heartwood_bow": {
+   "name": "Heartwood Stave",
+   "value": 210,
+   "element": "wood",
+   "traits": {
+    "hard": 2,
+    "supple": 2,
+    "living": 1
+   },
+   "desc": "A bow stave that keeps its draw for a lifetime."
+  },
+  "fen_antivenom": {
+   "name": "Fen Antivenom",
+   "value": 140,
+   "element": "water",
+   "traits": {
+    "vital": 3,
+    "warding": 2
+   },
+   "desc": "Bitter, quick, and it ends most poisons."
+  },
+  "wisp_lantern": {
+   "name": "Wisp Lantern",
+   "value": 260,
+   "element": "fire",
+   "traits": {
+    "seeking": 3,
+    "resonant": 1
+   },
+   "desc": "A lantern that shows what is hidden nearby."
+  },
+  "grave_ward": {
+   "name": "Grave Ward",
+   "value": 200,
+   "element": "earth",
+   "traits": {
+    "warding": 3,
+    "resonant": 1
+   },
+   "desc": "A charm of shroud and bloom that quiets the restless dead."
+  },
+  "warsteel": {
+   "name": "Warsteel",
+   "value": 280,
+   "element": "metal",
+   "traits": {
+    "hard": 3,
+    "binding": 3
+   },
+   "desc": "Battle iron re-folded with marrow salt. It rings like a bell."
+  },
+  "terrace_elixir": {
+   "name": "Terrace Elixir",
+   "value": 290,
+   "element": "wood",
+   "traits": {
+    "vital": 3,
+    "seeking": 2,
+    "living": 1
+   },
+   "desc": "Rice and tea, brewed into something that sharpens the mind."
+  },
+  "crane_cloak": {
+   "name": "Crane-Feather Cloak",
+   "value": 310,
+   "element": "wood",
+   "traits": {
+    "supple": 3,
+    "seeking": 2,
+    "warding": 1
+   },
+   "desc": "A cloak that makes the wearer lighter on their feet."
+  },
+  "mere_mail": {
+   "name": "Serpent Mail",
+   "value": 340,
+   "element": "water",
+   "traits": {
+    "hard": 3,
+    "supple": 2,
+    "warding": 1
+   },
+   "desc": "Scale armour that turns blades like water turns stones."
+  },
+  "storm_edge": {
+   "name": "Stormsteel",
+   "value": 380,
+   "element": "metal",
+   "traits": {
+    "conductive": 3,
+    "keen": 2,
+    "hard": 2
+   },
+   "desc": "Thunder iron tempered in a bolt. It bites."
+  },
+  "cinder_plate": {
+   "name": "Cinder Plate",
+   "value": 360,
+   "element": "fire",
+   "traits": {
+    "hard": 3,
+    "warding": 2,
+    "volatile": 1
+   },
+   "desc": "Magma-crab plate fired a last time. Fireproof, nearly."
+  },
+  "frost_draught": {
+   "name": "Frost Draught",
+   "value": 350,
+   "element": "water",
+   "traits": {
+    "warding": 3,
+    "vital": 2,
+    "resonant": 1
+   },
+   "desc": "A calm, cold drink that settles the meridians."
+  },
+  "sand_lens": {
+   "name": "Hourglass Lens",
+   "value": 400,
+   "element": "earth",
+   "traits": {
+    "resonant": 3,
+    "seeking": 2,
+    "binding": 1
+   },
+   "desc": "A lens of old sand that slows what it looks at."
+  },
+  "blight_graft": {
+   "name": "Blight Graft",
+   "value": 520,
+   "element": "wood",
+   "traits": {
+    "nano": 3,
+    "living": 3,
+    "hard": 1
+   },
+   "desc": "A living graft of wood and swarm. It keeps growing."
   }
  },
  "formulas": [
@@ -1341,6 +1830,230 @@
     "merchant"
    ],
    "hint": "Reed fibre and fern, spun until it glows faintly."
+  },
+  {
+   "id": "wildwood_tonic",
+   "needs": {
+    "glowcap": 2,
+    "stag_antler": 1
+   },
+   "makes": "wildwood_tonic",
+   "n": 1,
+   "skill": "alchemy",
+   "difficulty": 4,
+   "price": 180,
+   "sold": [
+    "alchemist"
+   ],
+   "hint": "Glowcap and antler together make the oldest tonic in the wood."
+  },
+  {
+   "id": "heartwood_bow",
+   "needs": {
+    "heartwood": 2,
+    "wolf_pelt": 1
+   },
+   "makes": "heartwood_bow",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 5,
+   "price": 240,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Heartwood and pelt for a stave and its grip."
+  },
+  {
+   "id": "fen_antivenom",
+   "needs": {
+    "bog_lotus": 2,
+    "toad_gland": 1
+   },
+   "makes": "fen_antivenom",
+   "n": 1,
+   "skill": "alchemy",
+   "difficulty": 4,
+   "price": 170,
+   "sold": [
+    "alchemist"
+   ],
+   "hint": "Lotus cools, toad draws it out."
+  },
+  {
+   "id": "wisp_lantern",
+   "needs": {
+    "will_o_oil": 1,
+    "drowned_pearl": 1
+   },
+   "makes": "wisp_lantern",
+   "n": 1,
+   "skill": "jewelcrafting",
+   "difficulty": 6,
+   "price": 300,
+   "sold": [
+    "merchant"
+   ],
+   "hint": "Oil in a pearl shell."
+  },
+  {
+   "id": "grave_ward",
+   "needs": {
+    "grave_bloom": 2,
+    "widow_shroud": 1
+   },
+   "makes": "grave_ward",
+   "n": 1,
+   "skill": "jewelcrafting",
+   "difficulty": 6,
+   "price": 240,
+   "sold": [
+    "merchant"
+   ],
+   "hint": "Bloom and shroud, bound with a knot."
+  },
+  {
+   "id": "warsteel",
+   "needs": {
+    "battle_iron": 2,
+    "marrow_salt": 1
+   },
+   "makes": "warsteel",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 7,
+   "price": 320,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Fold the iron with salt from the bones."
+  },
+  {
+   "id": "terrace_elixir",
+   "needs": {
+    "cloud_rice": 2,
+    "sage_tea_leaf": 1
+   },
+   "makes": "terrace_elixir",
+   "n": 1,
+   "skill": "alchemy",
+   "difficulty": 7,
+   "price": 330,
+   "sold": [
+    "alchemist"
+   ],
+   "hint": "Rice, sage, and patience."
+  },
+  {
+   "id": "crane_cloak",
+   "needs": {
+    "crane_feather": 3,
+    "kelp_silk": 1
+   },
+   "makes": "crane_cloak",
+   "n": 1,
+   "skill": "jewelcrafting",
+   "difficulty": 7,
+   "price": 350,
+   "sold": [
+    "merchant"
+   ],
+   "hint": "Feathers stitched with silk."
+  },
+  {
+   "id": "mere_mail",
+   "needs": {
+    "serpent_scale": 3,
+    "kelp_silk": 1
+   },
+   "makes": "mere_mail",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 8,
+   "price": 380,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Scales overlap like a fish."
+  },
+  {
+   "id": "storm_edge",
+   "needs": {
+    "thunder_iron": 2,
+    "storm_glass": 1
+   },
+   "makes": "storm_edge",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 9,
+   "price": 420,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Iron and glass struck by the same sky."
+  },
+  {
+   "id": "cinder_plate",
+   "needs": {
+    "magma_crab_shell": 2,
+    "firestone": 1
+   },
+   "makes": "cinder_plate",
+   "n": 1,
+   "skill": "smithing",
+   "difficulty": 9,
+   "price": 400,
+   "sold": [
+    "smith"
+   ],
+   "hint": "Shell and stone, cooked slowly."
+  },
+  {
+   "id": "frost_draught",
+   "needs": {
+    "frost_lotus": 2,
+    "rime_crystal": 1
+   },
+   "makes": "frost_draught",
+   "n": 1,
+   "skill": "alchemy",
+   "difficulty": 9,
+   "price": 390,
+   "sold": [
+    "alchemist"
+   ],
+   "hint": "Lotus petals dissolved in rime."
+  },
+  {
+   "id": "sand_lens",
+   "needs": {
+    "hourglass_sand": 2,
+    "desert_rose": 1
+   },
+   "makes": "sand_lens",
+   "n": 1,
+   "skill": "jewelcrafting",
+   "difficulty": 10,
+   "price": 450,
+   "sold": [
+    "merchant"
+   ],
+   "hint": "Sand, ground and set."
+  },
+  {
+   "id": "blight_graft",
+   "needs": {
+    "nanite_sap": 2,
+    "warped_heartwood": 1
+   },
+   "makes": "blight_graft",
+   "n": 1,
+   "skill": "alchemy",
+   "difficulty": 12,
+   "price": 600,
+   "sold": [
+    "alchemist"
+   ],
+   "hint": "The sap wants to be part of something."
   }
  ],
  "odds": {

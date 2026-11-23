@@ -1,0 +1,4 @@
+# TLS from Let's Encrypt, automatically, for the domain in .env
+{$ELITE_DOMAIN} {
+	reverse_proxy elite:8765
+}

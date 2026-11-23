@@ -99,7 +99,7 @@ func fade_out() -> void:
 		return
 	_shown = false
 	var tw := create_tween()
-	tw.tween_property(_bg, "modulate:a", 0.0, 0.35)
+	tw.tween_property(_bg, "modulate:a", 0.0, 0.18)          # round 175: snappier (was 0.35)
 	tw.tween_callback(func(): visible = false)
 
 

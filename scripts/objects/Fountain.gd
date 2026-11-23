@@ -51,6 +51,21 @@ func interact(_player) -> void:
 	elif n == 100:
 		Game.message.emit("One hundred coins. The fountain sighs, and a pill rises from the basin.")
 		Game.add_item("breakthrough_pill", 1)
+	elif n == 500:
+		# round 190: Robert has thrown in hundreds -- the fountain keeps counting
+		Game.message.emit(I18n.t("Five hundred coins. The basin glows gold for a breath, and the water hands back a small bag, heavier than it should be."))
+		Game.add_item("gold", 250)
+		Game.add_qi(250.0, "the fountain")
+	elif n == 777:
+		Game.message.emit(I18n.t("Seven hundred and seventy-seven. Every coin you ever threw rises at once, spins, and sinks again. You feel lighter."))
+		Game.add_qi(777.0, "the fountain")
+		Game.add_item("breakthrough_pill", 1)
+	elif n > 0 and n % 1000 == 0:
+		Game.message.emit(I18n.t("%d coins. Somewhere far below, something old turns over in its sleep and leaves you a gift.") % n)
+		Game.add_item("breakthrough_pill", 2)
+		Game.add_qi(1000.0, "the fountain")
+	elif n % 50 == 0:
+		Game.message.emit(I18n.t("Plink. The water seems to be counting -- %d.") % n)
 	elif randf() < 0.08:
 		Game.message.emit("A ripple runs the wrong way across the water.")
 		Game.add_qi(5.0)

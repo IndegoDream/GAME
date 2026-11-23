@@ -6,7 +6,7 @@ extends Node3D
 ## them follows you around, so a big floor costs no more than a small one.
 ## Looks only: nothing here touches play. Off on the headless engine check.
 
-const FOLLOW_KINDS := ["dust", "embers", "spores", "leaves", "drips", "sparks", "snow", "glints", "ash", "rain", "mist"]
+const FOLLOW_KINDS := ["dust", "embers", "spores", "leaves", "drips", "sparks", "snow", "glints", "ash", "rain", "mist", "fireflies", "petals", "fluff", "splashes"]
 const SPEC := {
 	# amount, lifetime, size, colour, gravity y, initial speed, spread, emissive, box half-extents
 	"dust":   [70, 9.0, 0.05, Color(0.95, 0.9, 0.8, 0.35), 0.02, 0.15, 180.0, 0.0, Vector3(13, 2.5, 13)],
@@ -21,6 +21,12 @@ const SPEC := {
 	"rain":   [260, 0.9, 0.035, Color(0.7, 0.8, 0.95, 0.55), -16.0, 4.0, 4.0, 0.0, Vector3(14, 0.3, 14)],     # round 44: weather
 	"mist":   [40, 12.0, 2.6, Color(0.85, 0.88, 0.92, 0.18), 0.02, 0.08, 180.0, 0.0, Vector3(14, 1.2, 14)],
 	"smoke":  [14, 6.0, 0.9, Color(0.55, 0.55, 0.58, 0.35), 0.35, 0.3, 15.0, 0.0, Vector3(0.15, 0.1, 0.15)],
+	# round 184b: the life of the air (WorldFX "life"): fireflies on warm nights, petals on spring days,
+	# seed fluff in summer, rain landing on the ground
+	"fireflies": [50, 7.0, 0.26, Color(0.85, 1.0, 0.45, 1.0), 0.0, 0.22, 180.0, 6.0, Vector3(10, 1.1, 10)],
+	"petals":    [44, 9.0, 0.17, Color(1.0, 0.78, 0.86, 0.95), -0.22, 0.3, 50.0, 0.0, Vector3(11, 0.5, 11)],
+	"fluff":     [40, 12.0, 0.11, Color(1.0, 1.0, 0.95, 0.85), 0.03, 0.18, 180.0, 0.5, Vector3(11, 2.0, 11)],
+	"splashes":  [170, 0.3, 0.16, Color(0.85, 0.9, 1.0, 0.65), -5.0, 1.0, 25.0, 0.0, Vector3(11, 0.02, 11)],
 }
 
 var kind := ""
@@ -33,6 +39,9 @@ func _ready() -> void:
 		set_process(false)
 		return
 	var s: Array = SPEC[kind]
+	if kind in FOLLOW_KINDS:
+		_process(0.0)          # round 184b: stand where they'll fall from BEFORE the warm-up -- it used to warm up at the
+		                       # world's origin, so snow, leaves and ash were missing for their first lifetime (8-9 s)
 	_p = CPUParticles3D.new()
 	_p.amount = int(s[0])
 	_p.lifetime = float(s[1])
@@ -46,7 +55,7 @@ func _ready() -> void:
 	_p.spread = float(s[6])
 	_p.scale_amount_min = 0.6
 	_p.scale_amount_max = 1.4
-	if kind == "leaves" or kind == "ash":
+	if kind == "leaves" or kind == "ash" or kind == "petals":
 		_p.angular_velocity_min = -90.0
 		_p.angular_velocity_max = 90.0
 	if kind == "smoke":
@@ -63,6 +72,10 @@ func _ready() -> void:
 	# round 37: soft round motes, and smoke that billows instead of squares
 	var FXs := preload("res://scripts/fx/FX.gd")
 	m.albedo_texture = FXs.puff_texture() if kind in ["smoke", "mist", "steam", "spores"] else FXs.soft_dot()
+	# 2026-11-06 (CC0 art pack -- Kenney's Particle Pack): drawn smoke, sparks and glints
+	var pk: Texture2D = pack_texture(kind)
+	if pk != null:
+		m.albedo_texture = pk
 	if kind == "smoke":
 		_p.angular_velocity_min = -25.0
 		_p.angular_velocity_max = 25.0
@@ -84,6 +97,20 @@ func _ready() -> void:
 	g.offsets = PackedFloat32Array([0.0, 0.2, 0.8, 1.0])
 	g.colors = PackedColorArray([Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)])
 	_p.color_ramp = g
+	if kind == "splashes":
+		_p.direction = Vector3.UP              # (rain landing: a tiny jump back up off the ground)
+	if kind == "fireflies":
+		# they glow, go dark, glow again -- each on its own beat (the life's offset is random per mote)
+		var b := Gradient.new()
+		b.offsets = PackedFloat32Array([0.0, 0.08, 0.22, 0.3, 0.45, 0.55, 0.7, 0.78, 0.92, 1.0])
+		b.colors = PackedColorArray([Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.05), Color(1, 1, 1, 0.05),
+			Color(1, 1, 1, 1), Color(1, 1, 1, 0.9), Color(1, 1, 1, 0.05), Color(1, 1, 1, 0.8), Color(1, 1, 1, 0)])
+		_p.color_ramp = b
+		_p.direction = Vector3(1, 0.2, 0)
+		_p.damping_min = 0.0
+		_p.damping_max = 0.05
+		_p.hue_variation_min = -0.04
+		_p.hue_variation_max = 0.04
 	add_child(_p)
 	set_process(kind in FOLLOW_KINDS)
 
@@ -98,6 +125,22 @@ func _process(_delta: float) -> void:
 			y = 9.0
 		elif kind == "mist":
 			y = 1.2
+		elif kind == "fireflies":
+			y = 1.3
+		elif kind == "petals":
+			y = 5.0
+		elif kind == "splashes":
+			y = player.global_position.y + 0.05
 		elif kind == "embers":
 			y = 0.3
 		global_position = Vector3(player.global_position.x, y, player.global_position.z)
+
+
+const PACK_FX := {"smoke": "smoke_04", "mist": "smoke_07", "steam": "smoke_07", "sparks": "spark_05", "embers": "spark_06", "glints": "star_06"}
+
+
+static func pack_texture(k: String) -> Texture2D:
+	if not PACK_FX.has(k) or not preload("res://scripts/core/ArtPack.gd").on():
+		return null
+	var p := "res://assets/cc0/fx/%s.png" % PACK_FX[k]
+	return load(p) as Texture2D if ResourceLoader.exists(p) else null

@@ -1,0 +1,22 @@
+Works||工坊||Taller||Oficina||Мастерская||Werkstatt||Atelier||工房||작업장||Atölye
+Foundry||铸造坊||Fundición||Fundição||Литейная||Gießerei||Fonderie||鋳造所||주조소||Döküm Atölyesi
+Nanite Farm||纳米农场||Granja de nanos||Fazenda de nanites||Ферма нанитов||Nanitenfarm||Ferme de nanites||ナナイト農場||나나이트 농장||Nanit Çiftliği
+Tailor||定制台||Sastre||Alfaiate||Подгонка||Schneider||Ajusteur||仕立て||맞춤대||Terzi
+Gene Splicer||基因拼接仪||Empalmador de genes||Emendador de genes||Сплайсер генов||Gen-Spleißer||Épisseur de gènes||遺伝子スプライサー||유전자 접합기||Gen Birleştirici
+Tattoo Parlour||纹身馆||Salón de tatuajes||Estúdio de tatuagem||Тату-салон||Tattoo-Studio||Salon de tatouage||タトゥー工房||문신 가게||Dövme Salonu
+Eggs||蛋||Huevos||Ovos||Яйца||Eier||Œufs||卵||알||Yumurtalar
+Make parts||制作零件||Fabricar piezas||Fazer peças||Изготовить детали||Teile herstellen||Fabriquer des pièces||部品を作る||부품 만들기||Parça yap
+Work it||开工||Trabajarlo||Trabalhar||Приступить||Ausführen||Lancer||実行||진행||Uygula
+Warm||孵化||Calentar||Aquecer||Греть||Wärmen||Couver||温める||품기||Isıt
+Hatch||孵出||Eclosionar||Chocar||Вылупить||Schlüpfen||Éclore||孵化||부화||Çıkart
+Take out||取出||Sacar||Retirar||Достать||Herausnehmen||Retirer||取り出す||꺼내기||Çıkar
+Remove||拆下||Quitar||Remover||Снять||Entfernen||Retirer||外す||제거||Kaldır
+Open the splicer||打开拼接仪||Abrir el empalmador||Abrir o emendador||Открыть сплайсер||Spleißer öffnen||Ouvrir l'épisseur||スプライサーを開く||접합기 열기||Birleştiriciyi aç
+Hide the splicer||收起拼接仪||Cerrar el empalmador||Fechar o emendador||Скрыть сплайсер||Spleißer schließen||Fermer l'épisseur||スプライサーを閉じる||접합기 닫기||Birleştiriciyi kapat
+Open the parlour||打开纹身馆||Abrir el salón||Abrir o estúdio||Открыть салон||Studio öffnen||Ouvrir le salon||工房を開く||가게 열기||Salonu aç
+Hide the parlour||收起纹身馆||Cerrar el salón||Fechar o estúdio||Скрыть салон||Studio schließen||Fermer le salon||工房を閉じる||가게 닫기||Salonu kapat
+Feed essence (%d)||喂养精华（%d）||Dar esencia (%d)||Dar essência (%d)||Скормить эссенцию (%d)||Essenz füttern (%d)||Donner l'essence (%d)||エッセンスを与える (%d)||정수 먹이기 (%d)||Öz ver (%d)
+Bloodline Essence||血脉精华||Esencia de linaje||Essência de linhagem||Эссенция рода||Blutlinien-Essenz||Essence de lignée||血統のエッセンス||혈통의 정수||Soy Özü
+Harvest||收获||Cosechar||Colher||Собрать||Ernten||Récolter||収穫||수확||Hasat
+Self-replication skills||自我复制技能||Habilidades de autorreplicación||Habilidades de autorreplicação||Навыки самовоспроизведения||Selbstreplikations-Fähigkeiten||Compétences d'auto-réplication||自己複製スキル||자기 복제 기술||Kendini çoğaltma becerileri
+The pouch holds any amount||行囊可装任意数量||La bolsa admite cualquier cantidad||A bolsa guarda qualquer quantidade||Мешок вмещает сколько угодно||Der Beutel fasst beliebig viel||La bourse tient n'importe quelle quantité||袋には無制限に入る||주머니에는 무제한으로 들어갑니다||Kese istediğin kadar alır

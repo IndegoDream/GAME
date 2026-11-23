@@ -1,0 +1,481 @@
+{
+ "_note": "2026-11-06 art pack (CC0, Poly Haven): photographed day skies, picked by the weather and the land. Off = the drawn sky only (the old look).",
+ "skies": {
+  "aarfontein_dusk": {
+   "file": "res://assets/sky/aarfontein_dusk_2k.hdr",
+   "sun_u": 0.5981,
+   "energy": 0.76
+  },
+  "approaching_storm": {
+   "file": "res://assets/sky/approaching_storm_2k.hdr",
+   "sun_u": 0.5991,
+   "energy": 1.16
+  },
+  "autumn_field_puresky": {
+   "file": "res://assets/sky/autumn_field_puresky_2k.hdr",
+   "sun_u": 0.6006,
+   "energy": 2.0
+  },
+  "bambanani_sunset": {
+   "file": "res://assets/sky/bambanani_sunset_2k.hdr",
+   "sun_u": 0.6001,
+   "energy": 0.85
+  },
+  "belfast_sunset_puresky": {
+   "file": "res://assets/sky/belfast_sunset_puresky_2k.hdr",
+   "sun_u": 0.605,
+   "energy": 0.81
+  },
+  "bloem_hill_01": {
+   "file": "res://assets/sky/bloem_hill_01_2k.hdr",
+   "sun_u": 0.5898,
+   "energy": 0.62
+  },
+  "cape_hill": {
+   "file": "res://assets/sky/cape_hill_2k.hdr",
+   "sun_u": 0.6016,
+   "energy": 2.0
+  },
+  "citrus_orchard_puresky": {
+   "file": "res://assets/sky/citrus_orchard_puresky_2k.hdr",
+   "sun_u": 0.7036,
+   "energy": 0.74
+  },
+  "clarens_midday": {
+   "file": "res://assets/sky/clarens_midday_2k.hdr",
+   "sun_u": 0.6006,
+   "energy": 1.07
+  },
+  "cloud_layers": {
+   "file": "res://assets/sky/cloud_layers_2k.hdr",
+   "sun_u": 0.8813,
+   "energy": 2.0
+  }
+ },
+ "weather": {
+  "clear": [
+   "clarens_midday",
+   "cloud_layers",
+   "autumn_field_puresky"
+  ],
+  "leaves": [
+   "clarens_midday",
+   "cloud_layers"
+  ],
+  "heat": [
+   "autumn_field_puresky",
+   "clarens_midday"
+  ],
+  "rain": [
+   "bloem_hill_01",
+   "aarfontein_dusk"
+  ],
+  "fog": [
+   "citrus_orchard_puresky",
+   "bloem_hill_01"
+  ],
+  "storm": [
+   "approaching_storm",
+   "cape_hill"
+  ],
+  "snow": [
+   "bloem_hill_01",
+   "citrus_orchard_puresky"
+  ]
+ },
+ "dusk": [
+  "bambanani_sunset",
+  "belfast_sunset_puresky"
+ ],
+ "looks": {
+  "frost": [
+   "citrus_orchard_puresky",
+   "bloem_hill_01"
+  ],
+  "storm": [
+   "approaching_storm",
+   "cape_hill"
+  ],
+  "ash": [
+   "aarfontein_dusk",
+   "cape_hill"
+  ],
+  "glassdune": [
+   "autumn_field_puresky"
+  ],
+  "barrows": [
+   "aarfontein_dusk",
+   "bloem_hill_01"
+  ],
+  "drowned": [
+   "citrus_orchard_puresky",
+   "bloem_hill_01"
+  ],
+  "fungal": [
+   "bloem_hill_01"
+  ],
+  "grove": [
+   "cloud_layers",
+   "clarens_midday"
+  ],
+  "canopy": [
+   "clarens_midday",
+   "cloud_layers"
+  ]
+ },
+ "land": {
+  "grove": [
+   "cc0:acg_ground037",
+   "cc0:acg_rock063",
+   [
+    0.92,
+    0.95,
+    0.88
+   ]
+  ],
+  "canopy": [
+   "cc0:acg_grass004",
+   "cc0:acg_rock063",
+   [
+    0.95,
+    0.92,
+    0.88
+   ]
+  ],
+  "drowned": [
+   "cc0:acg_ground109",
+   "cc0:acg_rock064",
+   [
+    0.85,
+    0.92,
+    0.9
+   ]
+  ],
+  "barrows": [
+   "cc0:acg_ground111",
+   "cc0:acg_rock058",
+   [
+    0.95,
+    0.9,
+    0.85
+   ]
+  ],
+  "storm": [
+   "cc0:acg_ground110",
+   "cc0:acg_rock058",
+   [
+    0.85,
+    0.87,
+    0.92
+   ]
+  ],
+  "ash": [
+   "cc0:acg_ground106",
+   "cc0:acg_rock058",
+   [
+    0.75,
+    0.7,
+    0.66
+   ]
+  ],
+  "frost": [
+   "cc0:acg_snow014",
+   "cc0:acg_snow015",
+   [
+    0.97,
+    0.98,
+    1.0
+   ]
+  ],
+  "glassdune": [
+   "cc0:acg_ground080",
+   "cc0:acg_ground054",
+   [
+    1.0,
+    0.96,
+    0.9
+   ]
+  ],
+  "fungal": [
+   "cc0:acg_scatteredleaves008",
+   "cc0:acg_rock063",
+   [
+    0.8,
+    0.82,
+    0.7
+   ]
+  ]
+ },
+ "surfaces": {
+  "mirror": {
+   "floor": [
+    "cc0:acg_marble012",
+    [
+     0.9,
+     0.9,
+     0.95
+    ],
+    2.5
+   ]
+  },
+  "sanctum": {
+   "floor": [
+    "cc0:acg_marble012",
+    [
+     0.75,
+     0.82,
+     0.95
+    ],
+    2.5
+   ]
+  },
+  "cloudruins": {
+   "floor": [
+    "cc0:acg_marble012",
+    [
+     0.95,
+     0.95,
+     0.97
+    ],
+    2.5
+   ]
+  },
+  "crystal": {
+   "wall": [
+    "cc0:acg_onyx015",
+    [
+     0.7,
+     0.82,
+     1.0
+    ],
+    3.0
+   ]
+  },
+  "frost": {
+   "floor": [
+    "cc0:acg_snow014",
+    [
+     0.92,
+     0.95,
+     1.0
+    ],
+    3.0
+   ],
+   "wall": [
+    "cc0:acg_snow015",
+    [
+     0.95,
+     0.97,
+     1.0
+    ],
+    4.0
+   ]
+  },
+  "forge": {
+   "floor": [
+    "cc0:acg_rock058",
+    [
+     0.85,
+     0.62,
+     0.5
+    ],
+    3.0
+   ]
+  },
+  "dragonspine": {
+   "floor": [
+    "cc0:acg_rock058",
+    [
+     0.85,
+     0.6,
+     0.48
+    ],
+    3.0
+   ],
+   "wall": [
+    "cc0:acg_rock058",
+    [
+     0.85,
+     0.6,
+     0.5
+    ],
+    4.0
+   ]
+  },
+  "clockwork": {
+   "floor": [
+    "cc0:acg_woodfloor043",
+    [
+     0.85,
+     0.75,
+     0.62
+    ],
+    2.5
+   ]
+  },
+  "silk": {
+   "floor": [
+    "cc0:acg_woodfloor064",
+    [
+     0.85,
+     0.8,
+     0.82
+    ],
+    2.5
+   ]
+  },
+  "warrens": {
+   "floor": [
+    "cc0:acg_ground110",
+    [
+     0.9,
+     0.85,
+     0.78
+    ],
+    3.0
+   ]
+  },
+  "grove": {
+   "floor": [
+    "cc0:acg_ground037",
+    [
+     0.85,
+     0.92,
+     0.8
+    ],
+    3.0
+   ],
+   "wall": [
+    "cc0:acg_rock063",
+    [
+     0.85,
+     0.9,
+     0.82
+    ],
+    4.0
+   ]
+  },
+  "fungal": {
+   "floor": [
+    "cc0:acg_ground109",
+    [
+     0.85,
+     0.88,
+     0.72
+    ],
+    3.0
+   ],
+   "wall": [
+    "cc0:acg_rock063",
+    [
+     0.8,
+     0.82,
+     0.7
+    ],
+    4.0
+   ]
+  },
+  "canopy": {
+   "floor": [
+    "cc0:acg_scatteredleaves008",
+    [
+     0.9,
+     0.75,
+     0.7
+    ],
+    3.0
+   ],
+   "wall": [
+    "cc0:acg_rock063",
+    [
+     0.9,
+     0.85,
+     0.8
+    ],
+    4.0
+   ]
+  },
+  "barrows": {
+   "floor": [
+    "cc0:acg_ground111",
+    [
+     0.95,
+     0.85,
+     0.72
+    ],
+    3.0
+   ],
+   "wall": [
+    "cc0:acg_rock058",
+    [
+     0.9,
+     0.8,
+     0.72
+    ],
+    4.0
+   ]
+  },
+  "ash": {
+   "floor": [
+    "cc0:acg_ground106",
+    [
+     0.7,
+     0.65,
+     0.6
+    ],
+    3.0
+   ],
+   "wall": [
+    "cc0:acg_rock058",
+    [
+     0.7,
+     0.62,
+     0.58
+    ],
+    4.0
+   ]
+  },
+  "storm": {
+   "floor": [
+    "cc0:acg_ground110",
+    [
+     0.65,
+     0.68,
+     0.78
+    ],
+    3.0
+   ],
+   "wall": [
+    "cc0:acg_rock058",
+    [
+     0.75,
+     0.78,
+     0.88
+    ],
+    4.0
+   ]
+  },
+  "settlement": {
+   "road": [
+    "cc0:acg_bricks106a",
+    [
+     0.9,
+     0.88,
+     0.85
+    ],
+    2.0
+   ]
+  },
+  "drowned": {
+   "wall": [
+    "cc0:acg_rock064",
+    [
+     0.8,
+     0.88,
+     0.88
+    ],
+    3.5
+   ]
+  }
+ }
+}

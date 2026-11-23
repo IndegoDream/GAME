@@ -2165,5 +2165,44 @@
   "gold": 0,
   "skill": "medicine",
   "difficulty": 2
+ },
+ {
+  "makes": "hide_barding",
+  "needs": {
+   "beast_hide": 3
+  },
+  "gold": 5,
+  "skill": "smithing",
+  "difficulty": 1
+ },
+ {
+  "makes": "iron_barding",
+  "needs": {
+   "iron_ore": 6,
+   "beast_hide": 1
+  },
+  "gold": 15,
+  "skill": "smithing",
+  "difficulty": 3
+ },
+ {
+  "makes": "jade_barding",
+  "needs": {
+   "rough_jade": 3,
+   "beast_hide": 2
+  },
+  "gold": 30,
+  "skill": "smithing",
+  "difficulty": 4
+ },
+ {
+  "makes": "spiritsilk_barding",
+  "needs": {
+   "spirit_silk": 3,
+   "beast_hide": 2
+  },
+  "gold": 60,
+  "skill": "smithing",
+  "difficulty": 6
  }
 ]

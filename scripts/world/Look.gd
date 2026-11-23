@@ -143,7 +143,19 @@ static func key_for(d: Dictionary) -> String:
 
 
 static func get_look(d: Dictionary) -> Dictionary:
-	return LOOKS.get(key_for(d), LOOKS["warrens"])
+	var k := key_for(d)
+	var l: Dictionary = LOOKS.get(k, LOOKS["warrens"])
+	# 2026-11-06: with the CC0 art pack on, some looks get better surfaces
+	# (marble halls, snow, real gravel and leaf litter); off = untouched
+	var AP := preload("res://scripts/core/ArtPack.gd")
+	if AP.on():
+		for which in ["floor", "wall", "road"]:
+			var sw: Array = AP.surface_swap(k, which)
+			if not sw.is_empty():
+				if l == LOOKS.get(k, LOOKS["warrens"]):
+					l = l.duplicate()
+				l[which] = sw
+	return l
 
 
 const OWN_TEX := "res://assets/own/textures/"
@@ -172,6 +184,8 @@ static func texture(folder: String, which: String) -> Texture2D:
 	if folder.begins_with("proc_"):
 		return preload("res://scripts/world/TechTex.gd").texture(folder, which)         # round 123: drawn in code, not a picture file
 	var p := "%s%s/%s.jpg" % [TEX, folder, which]
+	if folder.begins_with("cc0:"):
+		p = preload("res://scripts/core/ArtPack.gd").tex_path(folder, which)            # 2026-11-06: the CC0 art pack's own surfaces
 	# r115: Dev's own textures (assets/own/, drawn by the art studio). map.json says which photo folder each one
 	# stands in for and whether the swap is switched on; a missing own file just falls back to the photo.
 	var own := _own_folder(folder)

@@ -59,15 +59,43 @@ static func font(kind: String = "body") -> Font:
 		else:
 			chain.append(ff)
 	if main:
+		# round 198: ticks, arrows, diamonds and stars come from our own small symbol font (a 17 KB cut of DejaVu Sans).
+		# The themed fonts have none of them, and the engine also shapes a control's text against its own fallback font,
+		# which then asked the SYSTEM for a font every time: 0.6-1.5 ms a label with a tick, an arrow or a CJK letter
+		# (160 ms of the Quests page on Robert's save). The engine's fallback font now knows our symbols and the CJK
+		# font too, so nothing is looked up twice. Other scripts (Arabic, Thai, emoji) still fall back to the system.
+		var sym := symbols_font()
+		if sym and not chain.has(sym):
+			chain.append(sym)
 		var fb := ThemeDB.fallback_font
 		if fb and not chain.has(fb):
 			chain.append(fb)
 		var cjk: Font = I18n.cjk_font()      # round 140: Chinese, Japanese, Korean letters come from the player's own system font
 		if cjk and not chain.has(cjk):
 			chain.append(cjk)
+		if fb is FontFile and (fb as FontFile).fallbacks.is_empty():
+			var fbc: Array[Font] = []
+			if sym:
+				fbc.append(sym)
+			if cjk:
+				fbc.append(cjk)
+			(fb as FontFile).fallbacks = fbc
 		main.fallbacks = chain
 	_fonts[kind] = main
 	return main
+
+
+static var _sym: FontFile = null
+
+
+static func symbols_font() -> FontFile:
+	if _sym == null:
+		_sym = _font_file(FONT_DIR + "dce-symbols.ttf")
+		if _sym:
+			# it holds no letters, so the engine would skip it for a line of Latin (or any) text unless told otherwise
+			for sc in ["Latn", "Zyyy", "Zinh", "Cyrl", "Grek", "Hani", "Hira", "Kana", "Hang"]:
+				_sym.set_script_support_override(sc, true)
+	return _sym
 
 
 static func _font_file(p: String) -> FontFile:
@@ -485,3 +513,31 @@ static func stagger(box: Control) -> void:
 		tw.tween_interval(0.05 + step * i)
 		tw.tween_property(ci, "modulate:a", 1.0, 0.25).set_trans(Tween.TRANS_SINE)
 		i += 1
+
+
+static func input_busy(page: Node) -> bool:
+	## round 181: true while a dropdown list is open (or a text box has focus) anywhere inside `page` -- a passive redraw
+	## must wait, or the list is freed under the player's finger and the menu feels stuck
+	if page == null or not is_instance_valid(page):
+		return false
+	if _has_open_popup(page):
+		return true
+	var vp := page.get_viewport()
+	if vp != null:
+		var fo := vp.gui_get_focus_owner()
+		if fo != null and (fo is LineEdit or fo is TextEdit) and page.is_ancestor_of(fo):
+			return true
+	return false
+
+
+static func _has_open_popup(n: Node) -> bool:
+	if n is OptionButton and (n as OptionButton).get_popup().visible:
+		return true
+	if n is MenuButton and (n as MenuButton).get_popup().visible:
+		return true
+	for c in n.get_children():
+		if c is Window:
+			continue
+		if _has_open_popup(c):
+			return true
+	return false

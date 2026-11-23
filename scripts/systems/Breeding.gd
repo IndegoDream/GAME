@@ -261,6 +261,9 @@ func make_young(a: Dictionary, b: Dictionary) -> Dictionary:
 		c["trait"] = tr
 	if vr != "":
 		c["variant"] = vr
+	var GN = G.sys("genome")
+	if GN != null:
+		GN.inherit_into(c, a, b)                     # round 177: genes from both, a synergy if two kinds meet
 	return c
 
 
@@ -271,6 +274,9 @@ func line_mult(c: Dictionary) -> float:
 	var m := 1.0 + _f("gen_bonus", 0.03) * float(g)
 	if str(c.get("variant", "")) != "":
 		m *= _f("variant_mult", 1.25)
+	var EG = G.sys("eggs")
+	if EG != null:
+		m *= EG.blood_mult(c)                          # round 177: blood grows it
 	return m
 
 

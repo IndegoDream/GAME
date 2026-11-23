@@ -144,7 +144,28 @@ func comfort() -> bool:
 
 func style() -> bool:
 	## the cosmetic Style pack: bought on phones, included in the paid Steam game
-	return backend == "full" or owned.has("style_pack")
+	return backend == "full" or owned.has("style_pack") or owned.has("look_collection") or (Game.ads != null and Game.ads.style_trial())    # round 182: an ad's day of it
+
+
+func owns_look(key: String) -> bool:
+	## round 183: a look pack (data/looks.json) -- bought, or in the Look Collection, or an ad's try-on day.
+	## Steam: its own DLC or the Collection's (unset ids: not owned on Steam); the box's own builds: yes.
+	var prods: Dictionary = data().get("products", {})
+	var p: Dictionary = prods.get(key, {})
+	if p.is_empty() or str(p.get("kind", "")) != "cosmetic" or key in ["style_pack", "look_collection"]:
+		return false
+	if Game.ads != null and Game.ads.style_trial():
+		return true
+	if backend == "full":
+		if OS.has_feature("steam"):
+			var ok := false
+			for k in [key, "look_collection"]:
+				var dlc := int(prods.get(k, {}).get("steam_dlc", 0))
+				if dlc > 0 and Game.steam != null and Game.steam.has_method("dlc_installed") and Game.steam.dlc_installed(dlc):
+					ok = true
+			return ok
+		return true
+	return owned.has(key) or owned.has("look_collection")
 
 
 func depth_of(level_id: String) -> int:
@@ -155,6 +176,11 @@ func depth_of(level_id: String) -> int:
 	if SG.is_scavenge(level_id):
 		var p: Dictionary = SG.parse(level_id)
 		return int(str(p.get("to", "floor0")).trim_prefix("floor"))
+	var FG = load("res://scripts/world/Frontier.gd")
+	if FG.is_frontier(level_id):
+		## 2026-11-03: the Lands and the tech frontier count as deep as their region says (Whisperwood 9 ... the Blight 30),
+		## so the demo (and the locked model) stop at the gate instead of handing out the full game's world
+		return int(FG.region(FG.region_id(level_id)).get("depth", 0))
 	return 0
 
 
@@ -266,6 +292,8 @@ func can_buy(key: String = "full_game") -> bool:
 		return key == "full_game"
 	if not (backend in ["google", "apple", "test"]) or not catalogue().has(key):
 		return false
+	if key != "look_collection" and key != "style_pack" and str(catalogue().get(key, {}).get("kind", "")) == "cosmetic" and owned.has("look_collection"):
+		return false                                  # (round 183: already in the Collection)
 	return not full_game() if key == "full_game" else not owned.has(key)
 
 
@@ -350,6 +378,10 @@ func grant(key: String, how: String = "") -> void:
 			note.emit("THE FULL GAME: no more ads, ever. Thank you!" if model() == "ads" else "THE FULL GAME: the way down is open. Thank you!")
 		elif key == "style_pack":
 			note.emit("THE STYLE PACK: your auras are in Comforts & Style. Thank you!")
+		elif key == "look_collection":
+			note.emit("THE LOOK COLLECTION: every look is yours -- Comforts & Style > Looks. Thank you!")
+		elif str(catalogue().get(key, {}).get("kind", "")) == "cosmetic":
+			note.emit(I18n.t("%s is yours -- Comforts & Style > Looks. Thank you!") % I18n.t(str(Game.sys("looks").pack(key).get("name", key)) if Game.sys("looks") else key))
 		elif expansion(key).has("name"):
 			note.emit("%s is yours. Thank you!" % str(expansion(key)["name"]))
 	changed.emit()

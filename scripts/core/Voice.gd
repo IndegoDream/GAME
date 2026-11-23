@@ -38,6 +38,9 @@ func say(text: String, cb: Callable) -> void:
 	if Game.llm_override.is_valid():
 		_answer(str(Game.llm_override.call(msgs)), cb)
 		return
+	if Game.llm_url == "":           # (r186: no model to ask -- answer at once instead of an HTTP error)
+		cb.call("(%s doesn't seem to hear you. The box's voice isn't answering right now.)" % npc_name)
+		return
 	if _http == null:
 		_http = HTTPRequest.new()
 		_http.timeout = 60.0

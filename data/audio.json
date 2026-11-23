@@ -1,8 +1,1362 @@
 {
-  "effects": {
-    "elite_aura": [
-      "elite_aura_1",
-      "elite_aura_2"
-    ]
+ "_note": "Round 59: how the game sounds (scripts/Audio.gd). Robert: 'I almost always turn off both the sound effects and music because it gets boring.' Music comes as PIECES with quiet stretches between (gaps, by the Menu -> Sound setting); the ambience is always there underneath; drums come up under a fight. Pieces are made by tools/music_gen2.py. titles: shown for a moment when a piece starts (Dev's names in data/drafts/music_titles.json win). 2026-11-06: restored from .backups/pre-round63 (an Oct 13 write had left only 'effects', so no piece played since); the newer looks and places added (Lands, roads, the Common City, your own world).",
+ "sets": {
+  "village": [
+   "village_1",
+   "village_2",
+   "village_3"
+  ],
+  "village_night": [
+   "village_night_1",
+   "village_night_2"
+  ],
+  "valley": [
+   "valley_1",
+   "valley_2",
+   "valley_3"
+  ],
+  "dungeon": [
+   "dungeon_1",
+   "dungeon_2",
+   "dungeon_3"
+  ],
+  "deep": [
+   "deep_1",
+   "deep_2",
+   "deep_3"
+  ],
+  "abyss": [
+   "abyss_1",
+   "abyss_2"
+  ],
+  "haven": [
+   "haven_1",
+   "haven_2"
+  ],
+  "title": [
+   "title_1"
+  ]
+ },
+ "gaps": {
+  "often": [
+   15,
+   40
+  ],
+  "sometimes": [
+   60,
+   150
+  ],
+  "rarely": [
+   180,
+   420
+  ]
+ },
+ "first_delay": [
+  2.0,
+  6.0
+ ],
+ "levels": {
+  "music": 0.8,
+  "ambience": 0.75,
+  "combat": 0.85,
+  "steps": 0.9
+ },
+ "combat": {
+  "dungeon": [
+   "combat_1",
+   "combat_2"
+  ],
+  "deep": [
+   "combat_deep_1",
+   "combat_deep_2"
+  ],
+  "boss": [
+   "boss_1",
+   "boss_2"
+  ],
+  "radius": 22,
+  "hold": 5.0,
+  "fade_in": 1.2,
+  "fade_out": 3.5,
+  "duck": 0.25,
+  "ambience_duck": 0.6
+ },
+ "ambience": {
+  "look": {
+   "warrens": "cave",
+   "barrows": "crypt",
+   "crypt": "crypt",
+   "swordgrave": "crypt",
+   "ossuary": "crypt",
+   "drowned": "water",
+   "sanctum": "arcane",
+   "mirror": "arcane",
+   "crystal": "arcane",
+   "cloudruins": "arcane",
+   "grove": "forest_under",
+   "canopy": "forest_under",
+   "fungal": "forest_under",
+   "forge": "fire",
+   "dragonspine": "fire",
+   "ash": "fire",
+   "storm": "storm",
+   "frost": "frost",
+   "clockwork": "machine",
+   "starmine": "machine",
+   "ghostmarket": "machine",
+   "silk": "silk",
+   "settlement": "town",
+   "village": "village_day",
+   "scrapfield": "machine",
+   "launchpad": "machine",
+   "station": "machine",
+   "foundry": "fire",
+   "regolith": "deep",
+   "glassdune": "storm"
+  },
+  "outdoor_look": {
+   "storm": "storm",
+   "frost": "frost",
+   "ash": "fire",
+   "drowned": "water",
+   "glassdune": "storm",
+   "regolith": "deep",
+   "scrapfield": "machine",
+   "launchpad": "machine",
+   "station": "machine",
+   "foundry": "fire"
   }
+ },
+ "titles": {
+  "village_1": "Morning over Eliet",
+  "village_2": "The Well and the Willow",
+  "village_3": "Smoke from the Smithy",
+  "village_night_1": "Lanterns on the Lane",
+  "village_night_2": "Elder Mo Cannot Sleep",
+  "valley_1": "Where the Sects Walk",
+  "valley_2": "Bells Across the Valley",
+  "valley_3": "Grass Under Wind",
+  "dungeon_1": "The First Stair",
+  "dungeon_2": "Rats in the Warrens",
+  "dungeon_3": "Torchlight, Then None",
+  "deep_1": "The Long Way Down",
+  "deep_2": "What the Rock Remembers",
+  "deep_3": "A Zither in the Dark",
+  "abyss_1": "The Swarm's Cold Hands",
+  "abyss_2": "Toward the Heart",
+  "haven_1": "A Hearth Below",
+  "haven_2": "Shellhaven Evening",
+  "title_1": "Dungeon Crawl Elite"
+ },
+ "effects": {
+  "elite_aura": [
+   "elite_aura_1",
+   "elite_aura_2"
+  ]
+ },
+ "frontier_music": {
+  "grove": "valley",
+  "canopy": "valley",
+  "drowned": "valley",
+  "fungal": "deep",
+  "frost": "valley",
+  "storm": "deep",
+  "ash": "deep",
+  "barrows": "deep",
+  "glassdune": "valley",
+  "scrapfield": "deep",
+  "launchpad": "deep",
+  "station": "deep",
+  "regolith": "abyss",
+  "foundry": "abyss"
+ },
+ "spots": {
+  "village_day": [
+   {
+    "s": "bird_song",
+    "every": [
+     9,
+     22
+    ],
+    "vol": 0.3,
+    "dist": [
+     8,
+     22
+    ],
+    "h": [
+     2,
+     7
+    ],
+    "not_weather": [
+     "rain",
+     "storm",
+     "snow",
+     "fog"
+    ]
+   },
+   {
+    "s": "coo",
+    "every": [
+     30,
+     70
+    ],
+    "vol": 0.25,
+    "dist": [
+     12,
+     24
+    ],
+    "h": [
+     3,
+     8
+    ],
+    "hours": [
+     6,
+     12
+    ],
+    "not_weather": [
+     "rain",
+     "storm"
+    ]
+   },
+   {
+    "s": "chime",
+    "every": [
+     25,
+     55
+    ],
+    "vol": 0.22,
+    "dist": [
+     6,
+     16
+    ],
+    "h": [
+     2,
+     3
+    ]
+   },
+   {
+    "s": "anvil",
+    "every": [
+     30,
+     70
+    ],
+    "vol": 0.28,
+    "dist": [
+     14,
+     24
+    ],
+    "hours": [
+     8,
+     18
+    ]
+   },
+   {
+    "s": "woodchop",
+    "every": [
+     40,
+     90
+    ],
+    "vol": 0.28,
+    "dist": [
+     16,
+     26
+    ],
+    "hours": [
+     7,
+     17
+    ],
+    "not_weather": [
+     "storm"
+    ]
+   },
+   {
+    "s": "temple_bell",
+    "every": [
+     240,
+     420
+    ],
+    "vol": 0.3,
+    "dist": [
+     22,
+     28
+    ],
+    "h": [
+     4,
+     6
+    ]
+   },
+   {
+    "s": "leaf_rustle",
+    "every": [
+     25,
+     55
+    ],
+    "vol": 0.2,
+    "dist": [
+     4,
+     10
+    ],
+    "h": [
+     2,
+     5
+    ],
+    "season": [
+     "harvest",
+     "thaw",
+     "blaze"
+    ]
+   },
+   {
+    "s": "fly_by",
+    "every": [
+     70,
+     160
+    ],
+    "vol": 0.22,
+    "dist": [
+     1.5,
+     3
+    ],
+    "h": [
+     1,
+     2
+    ],
+    "season": [
+     "blaze",
+     "thaw"
+    ],
+    "not_weather": [
+     "rain",
+     "storm",
+     "snow"
+    ]
+   },
+   {
+    "s": "cicada",
+    "every": [
+     25,
+     50
+    ],
+    "vol": 0.18,
+    "dist": [
+     10,
+     20
+    ],
+    "h": [
+     3,
+     6
+    ],
+    "weather": [
+     "heat"
+    ]
+   }
+  ],
+  "village_night": [
+   {
+    "s": "owl",
+    "every": [
+     35,
+     80
+    ],
+    "vol": 0.28,
+    "dist": [
+     14,
+     26
+    ],
+    "h": [
+     4,
+     9
+    ],
+    "not_weather": [
+     "storm"
+    ]
+   },
+   {
+    "s": "frog",
+    "every": [
+     20,
+     45
+    ],
+    "vol": 0.2,
+    "dist": [
+     10,
+     22
+    ],
+    "season": [
+     "thaw",
+     "blaze",
+     "harvest"
+    ]
+   },
+   {
+    "s": "chime",
+    "every": [
+     40,
+     90
+    ],
+    "vol": 0.16,
+    "dist": [
+     6,
+     16
+    ],
+    "h": [
+     2,
+     3
+    ]
+   },
+   {
+    "s": "leaf_rustle",
+    "every": [
+     35,
+     80
+    ],
+    "vol": 0.16,
+    "dist": [
+     4,
+     10
+    ],
+    "h": [
+     2,
+     5
+    ]
+   }
+  ],
+  "valley_day": [
+   {
+    "s": "bird_song",
+    "every": [
+     8,
+     20
+    ],
+    "vol": 0.3,
+    "dist": [
+     8,
+     24
+    ],
+    "h": [
+     2,
+     8
+    ],
+    "not_weather": [
+     "rain",
+     "storm",
+     "snow",
+     "fog"
+    ]
+   },
+   {
+    "s": "coo",
+    "every": [
+     35,
+     80
+    ],
+    "vol": 0.22,
+    "dist": [
+     12,
+     26
+    ],
+    "h": [
+     3,
+     8
+    ],
+    "not_weather": [
+     "rain",
+     "storm"
+    ]
+   },
+   {
+    "s": "leaf_rustle",
+    "every": [
+     18,
+     40
+    ],
+    "vol": 0.22,
+    "dist": [
+     4,
+     12
+    ],
+    "h": [
+     1,
+     5
+    ]
+   },
+   {
+    "s": "wind_gust",
+    "every": [
+     30,
+     70
+    ],
+    "vol": 0.25,
+    "dist": [
+     10,
+     20
+    ],
+    "h": [
+     2,
+     4
+    ]
+   },
+   {
+    "s": "fly_by",
+    "every": [
+     60,
+     140
+    ],
+    "vol": 0.22,
+    "dist": [
+     1.5,
+     3
+    ],
+    "h": [
+     1,
+     2
+    ],
+    "season": [
+     "blaze",
+     "thaw"
+    ],
+    "not_weather": [
+     "rain",
+     "storm",
+     "snow"
+    ]
+   },
+   {
+    "s": "cicada",
+    "every": [
+     20,
+     45
+    ],
+    "vol": 0.2,
+    "dist": [
+     10,
+     20
+    ],
+    "h": [
+     3,
+     6
+    ],
+    "weather": [
+     "heat"
+    ]
+   }
+  ],
+  "valley_night": [
+   {
+    "s": "owl",
+    "every": [
+     30,
+     70
+    ],
+    "vol": 0.3,
+    "dist": [
+     14,
+     26
+    ],
+    "h": [
+     4,
+     9
+    ],
+    "not_weather": [
+     "storm"
+    ]
+   },
+   {
+    "s": "frog",
+    "every": [
+     20,
+     45
+    ],
+    "vol": 0.22,
+    "dist": [
+     10,
+     22
+    ],
+    "season": [
+     "thaw",
+     "blaze",
+     "harvest"
+    ]
+   },
+   {
+    "s": "wind_gust",
+    "every": [
+     35,
+     80
+    ],
+    "vol": 0.22,
+    "dist": [
+     10,
+     20
+    ],
+    "h": [
+     2,
+     4
+    ]
+   }
+  ],
+  "town": [
+   {
+    "s": "anvil",
+    "every": [
+     30,
+     70
+    ],
+    "vol": 0.25,
+    "dist": [
+     12,
+     22
+    ]
+   },
+   {
+    "s": "fire_pop",
+    "every": [
+     20,
+     45
+    ],
+    "vol": 0.2,
+    "dist": [
+     5,
+     12
+    ]
+   },
+   {
+    "s": "drip_far",
+    "every": [
+     25,
+     60
+    ],
+    "vol": 0.2,
+    "dist": [
+     10,
+     20
+    ],
+    "h": [
+     2,
+     4
+    ]
+   },
+   {
+    "s": "chime",
+    "every": [
+     60,
+     140
+    ],
+    "vol": 0.14,
+    "dist": [
+     6,
+     14
+    ],
+    "h": [
+     2,
+     3
+    ]
+   }
+  ],
+  "cave": [
+   {
+    "s": "drip_far",
+    "every": [
+     14,
+     32
+    ],
+    "vol": 0.22,
+    "dist": [
+     8,
+     20
+    ],
+    "h": [
+     1,
+     3
+    ]
+   },
+   {
+    "s": "pebbles",
+    "every": [
+     40,
+     90
+    ],
+    "vol": 0.25,
+    "dist": [
+     10,
+     22
+    ]
+   },
+   {
+    "s": "rumble",
+    "every": [
+     150,
+     320
+    ],
+    "vol": 0.3,
+    "dist": [
+     18,
+     24
+    ]
+   }
+  ],
+  "deep": [
+   {
+    "s": "rumble",
+    "every": [
+     60,
+     140
+    ],
+    "vol": 0.35,
+    "dist": [
+     16,
+     24
+    ]
+   },
+   {
+    "s": "pebbles",
+    "every": [
+     30,
+     70
+    ],
+    "vol": 0.25,
+    "dist": [
+     10,
+     22
+    ]
+   },
+   {
+    "s": "moan",
+    "every": [
+     90,
+     200
+    ],
+    "vol": 0.2,
+    "dist": [
+     14,
+     24
+    ]
+   },
+   {
+    "s": "drip_far",
+    "every": [
+     25,
+     55
+    ],
+    "vol": 0.2,
+    "dist": [
+     8,
+     20
+    ],
+    "h": [
+     1,
+     3
+    ]
+   }
+  ],
+  "crypt": [
+   {
+    "s": "moan",
+    "every": [
+     40,
+     90
+    ],
+    "vol": 0.24,
+    "dist": [
+     12,
+     22
+    ]
+   },
+   {
+    "s": "bones",
+    "every": [
+     50,
+     120
+    ],
+    "vol": 0.25,
+    "dist": [
+     8,
+     18
+    ]
+   },
+   {
+    "s": "pebbles",
+    "every": [
+     60,
+     140
+    ],
+    "vol": 0.2,
+    "dist": [
+     10,
+     22
+    ]
+   },
+   {
+    "s": "drip_far",
+    "every": [
+     30,
+     70
+    ],
+    "vol": 0.18,
+    "dist": [
+     8,
+     20
+    ],
+    "h": [
+     1,
+     3
+    ]
+   }
+  ],
+  "water": [
+   {
+    "s": "water_lap",
+    "every": [
+     10,
+     24
+    ],
+    "vol": 0.25,
+    "dist": [
+     5,
+     14
+    ]
+   },
+   {
+    "s": "bubble",
+    "every": [
+     25,
+     55
+    ],
+    "vol": 0.2,
+    "dist": [
+     4,
+     12
+    ]
+   },
+   {
+    "s": "drip_far",
+    "every": [
+     12,
+     30
+    ],
+    "vol": 0.2,
+    "dist": [
+     8,
+     20
+    ],
+    "h": [
+     1,
+     3
+    ]
+   }
+  ],
+  "arcane": [
+   {
+    "s": "crystal_hum",
+    "every": [
+     35,
+     80
+    ],
+    "vol": 0.2,
+    "dist": [
+     8,
+     18
+    ],
+    "h": [
+     1,
+     3
+    ]
+   },
+   {
+    "s": "pebbles",
+    "every": [
+     70,
+     160
+    ],
+    "vol": 0.18,
+    "dist": [
+     10,
+     22
+    ]
+   }
+  ],
+  "forest_under": [
+   {
+    "s": "leaf_rustle",
+    "every": [
+     10,
+     25
+    ],
+    "vol": 0.22,
+    "dist": [
+     4,
+     12
+    ],
+    "h": [
+     1,
+     5
+    ]
+   },
+   {
+    "s": "bird_song",
+    "every": [
+     25,
+     60
+    ],
+    "vol": 0.18,
+    "dist": [
+     12,
+     24
+    ],
+    "h": [
+     4,
+     9
+    ]
+   },
+   {
+    "s": "frog",
+    "every": [
+     30,
+     70
+    ],
+    "vol": 0.18,
+    "dist": [
+     10,
+     22
+    ]
+   },
+   {
+    "s": "fly_by",
+    "every": [
+     60,
+     140
+    ],
+    "vol": 0.2,
+    "dist": [
+     1.5,
+     3
+    ],
+    "h": [
+     1,
+     2
+    ]
+   }
+  ],
+  "fire": [
+   {
+    "s": "fire_pop",
+    "every": [
+     10,
+     25
+    ],
+    "vol": 0.25,
+    "dist": [
+     5,
+     14
+    ]
+   },
+   {
+    "s": "steam_hiss",
+    "every": [
+     40,
+     90
+    ],
+    "vol": 0.18,
+    "dist": [
+     8,
+     18
+    ]
+   },
+   {
+    "s": "rumble",
+    "every": [
+     90,
+     200
+    ],
+    "vol": 0.3,
+    "dist": [
+     16,
+     24
+    ]
+   }
+  ],
+  "storm": [
+   {
+    "s": "thunder_far",
+    "every": [
+     40,
+     100
+    ],
+    "vol": 0.4,
+    "dist": [
+     22,
+     28
+    ],
+    "h": [
+     8,
+     14
+    ]
+   },
+   {
+    "s": "wind_gust",
+    "every": [
+     18,
+     40
+    ],
+    "vol": 0.3,
+    "dist": [
+     8,
+     18
+    ],
+    "h": [
+     2,
+     4
+    ]
+   }
+  ],
+  "frost": [
+   {
+    "s": "wind_gust",
+    "every": [
+     20,
+     45
+    ],
+    "vol": 0.28,
+    "dist": [
+     8,
+     18
+    ],
+    "h": [
+     2,
+     4
+    ]
+   },
+   {
+    "s": "pebbles",
+    "every": [
+     60,
+     140
+    ],
+    "vol": 0.18,
+    "dist": [
+     10,
+     22
+    ]
+   }
+  ],
+  "machine": [
+   {
+    "s": "gear_clank",
+    "every": [
+     20,
+     50
+    ],
+    "vol": 0.25,
+    "dist": [
+     8,
+     20
+    ]
+   },
+   {
+    "s": "steam_hiss",
+    "every": [
+     35,
+     80
+    ],
+    "vol": 0.18,
+    "dist": [
+     8,
+     18
+    ]
+   },
+   {
+    "s": "rumble",
+    "every": [
+     120,
+     260
+    ],
+    "vol": 0.25,
+    "dist": [
+     16,
+     24
+    ]
+   }
+  ],
+  "silk": [
+   {
+    "s": "leaf_rustle",
+    "every": [
+     30,
+     70
+    ],
+    "vol": 0.16,
+    "dist": [
+     4,
+     10
+    ],
+    "h": [
+     2,
+     5
+    ]
+   },
+   {
+    "s": "bones",
+    "every": [
+     70,
+     160
+    ],
+    "vol": 0.2,
+    "dist": [
+     8,
+     18
+    ]
+   },
+   {
+    "s": "drip_far",
+    "every": [
+     30,
+     70
+    ],
+    "vol": 0.18,
+    "dist": [
+     8,
+     20
+    ],
+    "h": [
+     1,
+     3
+    ]
+   }
+  ]
+ },
+ "weather_spots": {
+  "storm": [
+   {
+    "s": "thunder_far",
+    "every": [
+     35,
+     90
+    ],
+    "vol": 0.45,
+    "dist": [
+     22,
+     28
+    ],
+    "h": [
+     8,
+     14
+    ]
+   },
+   {
+    "s": "wind_gust",
+    "every": [
+     20,
+     45
+    ],
+    "vol": 0.3,
+    "dist": [
+     8,
+     18
+    ],
+    "h": [
+     2,
+     4
+    ]
+   }
+  ],
+  "snow": [
+   {
+    "s": "wind_gust",
+    "every": [
+     30,
+     70
+    ],
+    "vol": 0.22,
+    "dist": [
+     8,
+     18
+    ],
+    "h": [
+     2,
+     4
+    ]
+   }
+  ],
+  "tremor": [
+   {
+    "s": "rumble",
+    "every": [
+     25,
+     60
+    ],
+    "vol": 0.4,
+    "dist": [
+     14,
+     22
+    ]
+   },
+   {
+    "s": "pebbles",
+    "every": [
+     20,
+     45
+    ],
+    "vol": 0.28,
+    "dist": [
+     8,
+     18
+    ]
+   }
+  ],
+  "drip": [
+   {
+    "s": "drip_far",
+    "every": [
+     6,
+     14
+    ],
+    "vol": 0.22,
+    "dist": [
+     6,
+     18
+    ],
+    "h": [
+     1,
+     3
+    ]
+   }
+  ],
+  "qi_mist": [
+   {
+    "s": "crystal_hum",
+    "every": [
+     45,
+     100
+    ],
+    "vol": 0.16,
+    "dist": [
+     8,
+     18
+    ],
+    "h": [
+     1,
+     3
+    ]
+   }
+  ]
+ },
+ "weather_beds": {
+  "_note": "surface weather under the sky (and a few deep currents): [ambience file, loudness]",
+  "rain": [
+   "rain_light",
+   1.0
+  ],
+  "storm": [
+   "rain_heavy",
+   1.0
+  ],
+  "snow": [
+   "wind_soft",
+   0.8
+  ],
+  "fog": [
+   "wind_soft",
+   0.35
+  ],
+  "leaves": [
+   "wind_soft",
+   0.5
+  ],
+  "cold_seep": [
+   "wind_soft",
+   0.3
+  ]
+ },
+ "rooms": {
+  "_note": "[room size, wet] of the echo on the world's sounds, by the place's bed; outdoors gets 'open'",
+  "open": [
+   0.15,
+   0.03
+  ],
+  "village_day": [
+   0.25,
+   0.05
+  ],
+  "village_night": [
+   0.25,
+   0.05
+  ],
+  "valley_day": [
+   0.15,
+   0.03
+  ],
+  "valley_night": [
+   0.15,
+   0.03
+  ],
+  "town": [
+   0.55,
+   0.12
+  ],
+  "cave": [
+   0.65,
+   0.2
+  ],
+  "deep": [
+   0.85,
+   0.26
+  ],
+  "crypt": [
+   0.75,
+   0.24
+  ],
+  "water": [
+   0.8,
+   0.25
+  ],
+  "arcane": [
+   0.7,
+   0.2
+  ],
+  "forest_under": [
+   0.35,
+   0.08
+  ],
+  "fire": [
+   0.6,
+   0.16
+  ],
+  "storm": [
+   0.3,
+   0.06
+  ],
+  "frost": [
+   0.5,
+   0.12
+  ],
+  "machine": [
+   0.6,
+   0.18
+  ],
+  "silk": [
+   0.55,
+   0.16
+  ]
+ },
+ "ground": {
+  "_note": "what your feet sound on: by the place's look, else grass under the sky and stone below; snow weather under the sky -> snow",
+  "look": {
+   "frost": "snow",
+   "drowned": "water",
+   "glassdune": "sand",
+   "regolith": "sand",
+   "ash": "sand",
+   "clockwork": "metal",
+   "starmine": "metal",
+   "station": "metal",
+   "launchpad": "metal",
+   "scrapfield": "metal",
+   "foundry": "metal",
+   "settlement": "wood",
+   "ghostmarket": "wood"
+  },
+  "theme": {
+   "settlement": "wood"
+  }
+ }
 }

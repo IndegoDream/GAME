@@ -66,6 +66,17 @@ static func giant(L, cell: Vector2i, kind: String) -> void:
 	L._count("tech_giants")
 	if _headless():
 		return
+	if kind.begins_with("nat:"):
+		# 2026-11-03: the Lands -- real trees, stones and growth from the nature kit, picked and turned at random ("nat:a|b|c:scale")
+		var parts := kind.split(":")
+		var models := str(parts[1]).split("|")
+		var sc2 := float(parts[2]) if parts.size() > 2 else 1.0
+		var mp: String = "nature-kit/%s.glb" % models[rng.randi() % models.size()]
+		var jit := Vector3(rng.randf_range(-0.5, 0.5), 0, rng.randf_range(-0.5, 0.5))
+		var sv: float = sc2 * rng.randf_range(0.85, 1.25)
+		var yaw: float = rng.randf() * TAU
+		L._vis(at + jit, func(): L._prop(mp, at + jit, sv, yaw))
+		return
 	var glow := Look.color3(L.look.get("glow", []), Color(0.4, 0.8, 1.0))
 	var metal := _surf(L, "wall")
 	match kind:
@@ -187,6 +198,8 @@ static func rim(L, cell: Vector2i, at: Vector3, style: String, r: RandomNumberGe
 			var hh := r.randf_range(1.2, 3.0)
 			_mi(L, _box(r.randf_range(1.0, 1.8), hh, 0.14), metal, at + j + Vector3(r.randf_range(-0.7, 0.7), hh / 2.0, r.randf_range(-0.7, 0.7)),
 				Vector3(r.randf_range(-0.3, 0.3), r.randf() * TAU, r.randf_range(-0.4, 0.4)))
+	elif L.has_method("_crag") and preload("res://scripts/core/ArtPack.gd").on():
+		L._crag(cell, at + j, r.randf_range(0.95, 1.25))          # 2026-11-06 (CC0 art pack): photo-scanned boulders, not grey boxes
 	else:
 		var rockm := _mat(Color(0.34, 0.34, 0.4), 0.0, 0.95)
 		var s := r.randf_range(0.8, 1.6)

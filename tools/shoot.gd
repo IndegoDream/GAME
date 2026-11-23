@@ -59,6 +59,9 @@ func _setup() -> void:
 	_player = load("res://scripts/actors/Player.gd").new()
 	root.add_child(_player)
 	_player.global_position = _level.spawn_point(_tag)
+	var at_env := OS.get_environment("SHOOT_AT")          # 2026-11-06: stand at a cell "x,y" instead (looking at a spot)
+	if at_env != "":
+		_player.global_position = _level.cell_to_world(Vector2i(int(at_env.get_slice(",", 0)), int(at_env.get_slice(",", 1))))
 	_player.face_camera_toward(_yaw)
 	hud.set_level_name(_level.display_name())
 	if OS.get_environment("DCE_TOUCH") != "":
@@ -94,5 +97,19 @@ func _process(_d: float) -> bool:
 				n.visible = false
 	if _frames == 46:
 		root.get_texture().get_image().save_png(_out + "/" + _id + "_overhead.png")
+		if OS.get_environment("SHOOT_HORIZON") == "":
+			quit()
+			return false
+		# 2026-11-06: a look along the ground to the horizon (the sky, the far land, the houses)
+		var hc := Camera3D.new()
+		root.add_child(hc)
+		var p0: Vector3 = _player.global_position + Vector3(0, float(OS.get_environment("SHOOT_HORIZON")), 0)
+		hc.global_position = p0
+		var fwd := Vector3(sin(_yaw), 0, cos(_yaw))
+		hc.look_at(p0 + fwd * 10.0 + Vector3(0, 1.5, 0))
+		hc.fov = 70
+		hc.current = true
+	if _frames == 54:
+		root.get_texture().get_image().save_png(_out + "/" + _id + "_horizon.png")
 		quit()
 	return false

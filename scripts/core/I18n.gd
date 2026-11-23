@@ -103,6 +103,10 @@ static func coverage(code: String = "") -> int:
 static func cjk_font() -> Font:
 	## the player's own CJK-capable font, chained behind the themed ones (cheap if never needed: glyphs load on demand)
 	if _cjk == null:
+		if OS.has_feature("web"):
+			# Browsers cannot access installed system fonts.
+			_cjk = load("res://assets/fonts/NotoSansCJKsc-Regular.otf")
+			return _cjk
 		var sf := SystemFont.new()
 		sf.font_names = PackedStringArray(["Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", "PingFang SC", "Source Han Sans SC", "Noto Sans CJK JP", "Yu Gothic",
 			"Noto Sans CJK KR", "Malgun Gothic", "Apple SD Gothic Neo", "WenQuanYi Micro Hei", "Droid Sans Fallback", "sans-serif"])

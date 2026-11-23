@@ -1,0 +1,8 @@
+Crew||伙伴队||Equipo||Equipe||Команда||Mannschaft||Équipe||仲間たち||동료들||Ekip
+Collect the haul||收取收获||Recoger el botín||Recolher o butim||Забрать добычу||Beute einsammeln||Récupérer le butin||収穫を受け取る||수확물 받기||Ganimeti topla
+Job:||工作：||Trabajo:||Trabalho:||Работа:||Aufgabe:||Tâche :||仕事：||일:||İş:
+Focus on:||专注于：||Enfoque en:||Foco em:||Упор на:||Schwerpunkt:||Spécialité :||注力：||집중:||Odak:
+Rest||休息||Descansar||Descansar||Отдых||Ruhen||Se reposer||休む||휴식||Dinlen
+Tend the garden||照料花园||Cuidar el jardín||Cuidar do jardim||Ухаживать за садом||Garten pflegen||Soigner le jardin||庭の世話||정원 가꾸기||Bahçeye bak
+Go out and train||外出训练||Salir a entrenar||Sair para treinar||Уйти тренироваться||Trainieren gehen||Partir s'entraîner||訓練に出る||훈련 나가기||Antrenmana çık
+Go out and gather||外出采集||Salir a recolectar||Sair para coletar||Уйти собирать||Sammeln gehen||Partir cueillir||採集に出る||채집 나가기||Toplamaya çık

@@ -77,7 +77,13 @@ static func area() -> float:
 	return SPREAD * SPREAD
 
 
-static func make_def(V: Dictionary, enemy_ids: Dictionary) -> Dictionary:
+## round 188: the seventh seat -- the Empty Seat, an old compound south of the river by the north road, where you
+## found your own sect (OwnSect.gd). Always stamped (so the valley's layout doesn't move when you found it).
+const BASE_OWN_SEAT := Vector2i(72, 76)
+static var OWN_SEAT: Vector2i = sc2(BASE_OWN_SEAT)
+
+
+static func make_def(V: Dictionary, enemy_ids: Dictionary, own: Dictionary = {}) -> Dictionary:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash("valley-of-eliet:v1")
 	var g := []
@@ -164,6 +170,18 @@ static func make_def(V: Dictionary, enemy_ids: Dictionary) -> Dictionary:
 					discs[k] if k < discs.size() else "a disciple", s.get("name", ""), str(s.get("nanite_way", "")).left(200)],
 				"line": I18n.t("We of the %s train from dawn. %s") % [s.get("name", ""), str(s.get("seat", "")).left(120)]}
 		sects_out.append({"id": str(s["id"]), "slot": slot, "cell": [c.x, c.y - 1], "element": el})
+	# ---- round 188: the Empty Seat (yours, once you found a sect)
+	var own_c: Vector2i = OWN_SEAT
+	_stamp_compound(g, own_c, reserved)
+	var oroad := sc(84)
+	for y in range(own_c.y + 7, oroad + 1):
+		for dx in [-1, 0]:
+			set_.call(own_c.x + dx, y, ",")
+			reserved[Vector2i(own_c.x + dx, y)] = true
+	if bool(own.get("founded", false)):
+		sects_out.append({"id": "own", "slot": 6, "cell": [own_c.x, own_c.y - 1], "element": str(own.get("element", "earth"))})
+	var own_out := own.duplicate(true)
+	own_out["cell"] = [own_c.x, own_c.y]
 	# ---- towers
 	var exits := {"<": {"to": "village", "arrive": "@valley", "label": "Back to Eliet", "down": false}}
 	var towers_out := []
@@ -490,7 +508,7 @@ static func make_def(V: Dictionary, enemy_ids: Dictionary) -> Dictionary:
 	for row in g:
 		out.append("".join(PackedStringArray(row)))
 	return {"id": "valley", "name": "The Valley of Eliet", "theme": "wilds", "look": "village", "depth": 3, "no_expand": true, "spread": SPREAD,
-		"map": out, "enemies": enemies, "npcs": npcs, "exits": exits, "extras": extras, "sects": sects_out, "towers": towers_out, "grounds": grounds_out}
+		"map": out, "enemies": enemies, "npcs": npcs, "exits": exits, "extras": extras, "sects": sects_out, "towers": towers_out, "grounds": grounds_out, "own_seat": own_out}
 
 
 static func _stamp_compound(g: Array, c: Vector2i, reserved: Dictionary) -> void:

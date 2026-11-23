@@ -2307,3 +2307,561 @@ Robert: "I really want Dev to weigh in more with the coding so I can utilize you
 - **Report a problem** (pause menu, HUD.open_report/save_report): writes `user://bug_reports/r_<time>.json` with the words, version, level, position, what's on screen and the last 25 play-log events. On Robert's PC the workshop reads them straight from `%APPDATA%/Godot/app_userdata/Dungeon Crawl Elite/bug_reports`; reports from anywhere else go in `data/godot_bug_reports/` (.txt or .json).
 - **Dev finds its own work** when the queue is empty (`find_work()`): reports first (each once, not capped); then SCRIPT ERRORs the game actually hit in play (Godot's own log, `.../app_userdata/Dungeon Crawl Elite/logs/godot*.log`); then playtest checks that fail in the game as it is. At most 2 self-given tasks a day.
 - **Gemini**: switched to gemini-3.8-flash (half price until 2027-01-01) with the daily cap doubled to 80,000 tokens -- the same money as 40,000 before. `promo_guard()` puts the cap back to 40,000 by itself on 2027-01-01 and buzzes Robert. Backup: `save-data/cloud-helper.json.bak-promo-20261005`.
+
+## Mysteries and treasure hunts (2026-11-03)
+
+Robert: "more mystery and intrigue -- a treasure hunt, a whodunit, conspiracies, secret societies." They are side quests
+kept in their own file, `data/mysteries.json`, written by `tools/gen/mysteries_gen.py` (edit the generator, run it, never
+hand-edit the JSON). `scripts/systems/Quests.gd` (`_mysteries`) reads them. Six so far: The Empty Strongbox (Eliet ->
+Shellhaven), The Founders' Cache (treasure: the fountain -> the ford -> Floor 1 -> Floor 3), The Cut Lift Rope
+(Shellhaven), The Ninth Lamp (the deep's secret society), The Missing Stags and The Cartographer's Last Map (the Lands).
+
+What a mystery can say that an ordinary side quest can't:
+- `"kind": "mystery"` or `"treasure"` -- the Quests page files them under Mysteries / Treasure hunts, and a clue opens
+  a page to read instead of flashing past.
+- `find.place`: any place -- `"village"`, `"valley"`, `"floor5"`, `"frontier:whisperwood"` -- not only a floor number.
+  Towns hold a quest's thing too, but only where the quest says (`near`).
+- `find.near`: where the clue lies, so the words can point at it: `"fountain"`, `"water"`, `"stairs"` (the way down),
+  `"spawn"` (where you arrive), `"lore"` (the place's lore stone), `"npc:<their name>"` (by that person), or one map letter.
+- `find.subtle`: a treasure hunt's find has no diamond until you are about six metres from it. The stage's `log` is the
+  riddle -- write it so a player who reads it can walk there.
+- `"clues"`: every clue is an item with its own words; the player reads it in the bag, and the accusation lists them.
+- `choices[].needs`: a charge you can only make holding the proof (`{"mc_lotus_tally": 1}`, or `{"gold": 90}`).
+  Without it the choice isn't offered and the dialog says something unfound would let them say more. Always leave
+  at least one WRONG choice that is open to everyone -- guessing has to be possible, and has to cost.
+- `"reward": {"pay": 90}` takes gold (an ending you pay for). A negative `bond` is a person who trusts you less.
+
+Rules: every giver and witness must be a real person standing where the quest says (the check reads every level and the
+Lands); the demo is floors 1-5, so a mystery the demo should show must stay at Floor 5 or above. Check your work with
+`tools/mystery_check.gd` -- it builds every place a clue names and fails if the clue has nowhere to stand.
+
+## The solo world, the Common City, your own world (2026-11-06)
+
+Robert: "is our world too small for solo play" -- it was, about 1.8 km^2 in all. Now:
+- **Lands 1.7x per side** (`data/frontier.json`, written by `tools/gen/world_gen.py`; backup `data/frontier.json.bak-world-20261106`),
+  each with **groves and caves** inside (`Frontier.gd` `_feature_grove` / `_feature_cave`), and **8 roads** between neighbouring
+  Lands (`road_<a>_to_<b>`, with a waystation merchant and a warden). Gate A leads onto the road, the road's gate "1" into B.
+- **Floors 6-30 are bigger** (`Expanse.gd`). **Roaming events** in the Lands: a travelling merchant cart and a named roaming
+  elite (`data/retention.json` `travelling_merchant`, `roaming_elite`; `wild_mult` 4 makes them more common out there).
+- **The Common City** (`levels/city.json`, `tools/gen/city_gen.py`): 176x140, walled, 142 houses; the village's exit `C`.
+  Its **auction house** (`scripts/systems/Auction.gd`, `data/auction.json`): list with a 2% fee, the house keeps 8% of a sale,
+  buyers come while you are away (`settle()`), daily market lots never cheaper than a trader pays, and what you bought
+  there can't be relisted (the mark leaves with the pieces when you sell or use them).
+- **Your own world** (`scripts/systems/Worldkeeper.gd`, `scripts/world/KeeperGen.gd`, level `realm:own`): opens with the
+  Worldkeeper title or at realm 10; 4-12 plots by realm (house, shrine, pond, grove, herb garden, mine, orchard, lanterns),
+  the look of any Land you have walked, a daily tithe. Shaped at the keeper's lectern.
+- Checks: `tools/solo_world_check.gd`.
+
+## The CC0 art pack (2026-11-06)
+
+Robert: "Yes, CC0 only" -- free art swapped in, the old look kept as the backup. All of it is public domain;
+`assets/cc0/README.md` and `manifest.json` say where each piece came from. One switch: `scripts/core/ArtPack.gd`
+`on()` = Medium graphics or higher, not a phone, and pause menu > Graphics fine-tune > "Art: new art packs" (the setting
+`art_pack`, "new" / "previous"). Off, every look below is exactly what it was.
+
+- **Houses** (`scripts/world/Houses.gd`, Quaternius Medieval Village MegaKit in `assets/cc0/village/`): every block of
+  "H" cells becomes ONE house -- walls with windows, a door on the street side, a second storey on bigger ones, a tiled
+  roof the size of the house, gable ends, a chimney (smoke comes from those now). `Houses.fit` splits a block into
+  sizes the kit has roofs for; a 1-cell-wide strip keeps the old block. Collision is untouched: every "H" cell is
+  still solid with the same box (the check builds the village both ways and compares). Each house shape is built
+  once and shared; tiles and plaster get a colour per house.
+- **Skies**: ten Poly Haven HDRIs in `assets/sky/`, laid into `sky.gdshader` (`photo`) by day by `ArtPack.dress_sky`,
+  picked by the weather, the Land and dusk (`data/art_pack.json` skies/weather/looks/dusk). It fades as the light
+  goes, so night keeps the drawn stars and moon. Under a photo sky a Land's fog is thinner.
+- **Ground**: ambientCG sets in `assets/cc0/textures/acg_*` (albedo/normal/arm, like the Poly Haven sets; a folder name
+  "cc0:acg_x" reaches them through `Look.texture`). `art_pack.json` "land" = a Land's open ground and rock (snow,
+  sand, gravel, mud, leaf litter); "surfaces" = a look's floor/wall/road swapped (marble halls, snow, wood floors).
+- **Props** (`Art.SWAP_PACK`, "pk:" = `assets/cc0/props/`, "vk:" = `assets/cc0/village/`): stalls, wagons, barrels,
+  tables, bookcases mixed in with the photo-scanned ones; `Level._workplaces` sets an anvil by the smith, a cauldron by
+  the alchemist, crates by the merchant, a workbench by the guild (looks only, never in the road).
+- **Livestock** (`Critter.gd` cow / horse / sheep / pig / llama, Quaternius Farm Animals): herds graze the village, the
+  city, the valley and your own world (`Level._place_livestock`), never the wild Lands.
+- **Particles** (`Motes.pack_texture`, Kenney Particle Pack in `assets/cc0/fx/`): chimney smoke, mist, sparks, glints.
+- The phone exports leave `assets/cc0/` out (`export_presets.cfg`), and `assets/sky/` was already out.
+- Check: `tools/art_pack_check.gd` (in the gate). Screens: `SHOOT_HORIZON=3 DCE_ART_PACK=on` with `tools/shoot.gd`
+  adds a look along the ground to the horizon; `tools/_house_shot.gd` draws a street of test houses and the animals.
+
+**Performance (same day).** The bigger Lands held ~94,000 nodes -- 56,000 of them the meshes of 5,400 photo-scanned
+flower and grass tufts. The open ground's tufts are now drawn in batches (`Level._deco_prop` / `_flush_deco`): each kind
+folded into one mesh, one MultiMesh per 32 m patch, nothing past 85 m drawn, no shadows. A Land is ~26,000 nodes now
+(fewer than the old, smaller Land). Gather spots' little lights fade out past 32 m. `tools/_landmem.gd <level>` prints
+what a level holds by kind and by model.
+
+**Pets wear their barding** (`Beast.barding`, called from `Familiar._build`): hide, iron, jade or spirit-silk over the
+back, plates down the spine (more as it grows), a brow-guard; and an evolution is SEEN (`Familiar._transform`: a
+turning column of light, a flare, the beast swells into its new body). Preview: `BARDING=iron_barding` with
+`tools/beast_probe.gd`.
+
+**Later the same day (2026-11-06):**
+- **Music was silent since Oct 13.** Something wrote `data/audio.json` with nothing but `"effects"` -- no `sets`, so no
+  piece ever played (nor fight drums, nor per-look ambience). Restored from `.backups/pre-round63-*.tgz`, the effects
+  entry kept. `tools/audio_check.gd` (in the gate) now fails if any place has no music or a file is missing.
+  Music per place: the Common City and your own world play the town's music; the open Lands play the valley's (green
+  ones) or the deep's (strange or ruined ones) from `audio.json` `frontier_music` (they all played the deep's);
+  outdoors a Land has its own air (`ambience.outdoor_look`) or the valley's birds and wind.
+  **Music style** (Sound menu): "new" = the harmonised pieces (`assets/audio/music2_new`, r117: the tunes' strong-beat
+  notes on notes that agree with the chord, 27% clashing -> 1%), "original" = the pieces as first made (`music2`, the
+  backup), "classic" = round 31's loops. `Audio.piece_dir()`.
+- **The Lands' rock edges** (art pack): every solid cell facing open ground was a 2 m cliff block, and the "rocks" rim
+  style was grey boxes. Now photo-scanned boulders (`Level._crag`, batched per 48 m patch, nothing past 170 m), using
+  LOW-POLY copies in `assets/cc0/rocks/*_lo.gltf` (~2,000 triangles; made by `tools/gen/decimate_gltf.py` with
+  fast-simplification -- a MultiMesh can't use the engine's detail levels, and the full scans are 15k-98k triangles).
+  The Lands' big Kenney stones (`rock_large*`, `rock_tall*`, `stone_large*`, `stone_tall*`, `cliff_rock`) take the
+  photo rocks too (`Art.SWAP_PACK`). Collision unchanged (checked).
+- **Pets grow their role's own body** at fierce, bigger and lit at spirit beast (`Beast.role_form`, `ROLE_BODY`):
+  wings (courier, lucky, scholar), shell (guardian, warden, sentinel), great horns and tusks (striker, fury, hunter),
+  more tails (tracker, forager, charmer), crystal (digger, hoarder), flame (ember, brewer), light-antlers and a halo
+  (lantern, mystic, healer), a crest and long ears (marksman). Preview: `ROLE=courier` with `tools/beast_probe.gd`.
+- `tools/shoot.gd`: `SHOOT_AT=x,y` stands the player at a cell.
+- **Calmer caves** (Robert: "the dungeon play track with the dripping sounds is a bit much"): the "cave" ambience bed
+  (floors 1-5 and every warren-like place) was a high plink every ~2 s; "water" (the flooded halls) 1.4 a second.
+  New beds (`tools/music_gen2.py` kinds `cave` / `water`, `far_drip`): warm room tone, slow air through the tunnels,
+  a stream far below, the stone settling, a soft low drop every ~12 s; 2.7 dB quieter, high-pitched energy 18% -> 2%.
+  The old beds are kept as `cave_classic.ogg` / `water_classic.ogg` (kinds `cave_classic` / `water_classic`) and
+  Sound -> "Ambience: classic" plays them (`Audio.amb_file`, setting `amb_style`).
+- **Pets move by stage** (note item 5: "idle, walk, bite, deed, down; faster, heavier, more confident as it grows"):
+  `Beast.MOTION` (4 rows) -- young is light and quick, glances about, bounces; grown (row 1) is the old motion exactly,
+  so every enemy and wild beast moves as before; fierce and spirit beast stride long, land heavy, hold the head high,
+  breathe slow and deep, bite faster and further. `Beast.act("bite" | "deed" | "down" | "up")`: Familiar plays the
+  bite on its bite, the deed (nose down, then a proud rear) on a find, and lies down beside you while you sit
+  (`Game.sitting`); a beast enemy lunges with `act("bite")` on its swing. The per-frame work is `Beast.animate(delta)`
+  (headless tests drive it). Check: `tools/pet_motion_check.gd` (in the gate). Preview: `POSE=down|bite|deed|walk`
+  with `tools/beast_probe.gd`.
+- `tools/playtest.gd` (not in the gate) now compiles under `--script`: its `preload()`s of Reach/Look/Expanse pulled
+  in scripts that name the `Game` autoload before it exists, so the whole test failed to compile. Its ~63 remaining
+  FAILs are expectations from older rounds (27 wear slots, menu rail order, main-quest start, village rim) -- the same
+  set noted on 2026-10-15; the gate's own checks cover those systems as they are now.
+- **Spirit beast rebuilt** (Robert: "the final form is kinda childish and bland"). It was the cub's blobs made bigger,
+  the whole coat glowing one flat colour, round spots, a party-hat ring of cones, three flat cones for a tail.
+  Now (`Beast._spirit_form`, `_beast_body`, `_loft`): wolves/foxes, boars, deer, hares and lizards get ONE smooth
+  lofted body (rounded rump, haunch, tucked waist, deep chest, ruff, the head carried up on a neck), lofted legs
+  (thigh to ankle, broad paws), a full brush tail (a long tapering one for lizards); coat / darker back / paler belly
+  by vertex colour. The cub's blobs stay, hidden, so `_extent` still measures; role parts, barding and lineage marks
+  sit on `_torso.get_meta("back_y")`. Light: thin swept flank stripes, soft streamers off the ruff, a plume off the
+  tail tip, a pool under it, and a fresnel aura shell (`_aura_mat`; skipped on phones / Low). Birds get fans of
+  flight feathers on their own wing pivots and a fanned tail (`_feather_wings`); crabs, worms, toads, golems keep
+  their build with stripes and the aura. Lit horns/antlers/crests are shaded bone that glows (`litbone`), not flat
+  cut-outs; the shell is scale-plates; role wings are feather fans. Fierce spines are slimmer and swept back.
+  Also fixed: `Beast.plan_for` took the first match, and "fox" contains "ox" -- Cinder Fox and Void Fox were built as
+  stags; the longest matching word wins now. Check: `tools/pet_motion_check.gd` (173). Look:
+  `tools/_final_form_shot.gd -- out.png [stage] [index]` (with `BARDING=...`).
+- **Power frame, again** (Robert, 11-06 15:37: "my qi is still draining i took everything off but it looks like im
+  still wearing some"). His save (slot 2) still had `constructs.mech` on: 1.93e10 qi a minute, 6% of his step; nothing
+  else drained (swarm upkeep 0, gear empty; the 9 bionics fitted show on the body but cost nothing). "Take everything
+  off" only cleared gear. Now `Game.unequip_all` opens the frame too, sitting to cultivate opens it
+  (`Player.start_meditating`), and the Kit page shows "Power frame ON -- drinking N qi a minute [Leave the frame]"
+  while it's worn. Checks in `tools/constructs_check.gd`; `tools/_qi_flow_probe.gd -- /abs/save.json` prints a real
+  save's drains and proves the take-off (his copy: -1.93e10 a minute before, 0 after).
+- Both eyes now take the stage-2 glow: `_eyes` named both "Eye", the tree renamed the second, and every check by name
+  found only one. Eyes are marked with meta `eye` now.
+- Final form, second pass: one smooth lofted head (cranium, stop, muzzle, nose, mouth line, slit pupils) for
+  wolves/foxes, boars, deer, hares, lizards and toads (`Beast._beast_head`, `HEAD_SHAPE`); toads are lofted too;
+  crabs get a carapace with seams of light and a rim of spines (`_spirit_carapace`), worms bands of light
+  (`_spirit_rings`), golems veins of light and stones hanging round the shoulders (`_spirit_veins`). A golem doesn't
+  grow a shell, wings or tails from its role; a worm no shell, wings, tails or horns. Role wings' lit tips dropped
+  (a sheen instead).
+- **Keeper's gate across the road** (found triaging the old playtest). `SetPieces.place` measured reach over
+  `_free_cells` only -- plain floor marks. The side chambers' tunnels and every walkable mark (stairs, traps,
+  torches, nooks...) weren't "free", so the reach from the stairs stopped at the first room (155 of 3,786 cells on
+  floor 6, 1 cell on floor 8). The check "the way down must stay on the near side" never saw the way down, and on 37
+  floors (8, 12, 13, 14, 16, 25-29, 31, 34, 36, 37, 39 ...) the Keeper's gate or the lever gate stood across the only
+  road on: no Keeper's key, no stairs. Now the reach walks `SetPieces._walk_cells` (everything the pathfinder walks,
+  less secret walls -- they aren't a way through until found); objects still go on free cells. Gate positions moved on
+  those floors (they're seeded per floor, so a gate opened before may stand somewhere new; its Keeper comes back while
+  the key is still needed). Check: `tools/gate_reach_check.gd` (49 floors: with each gate shut the stairs down, the
+  boss and the Keeper are reachable and the vault isn't; lever gates leave the levers and stairs open) -- in the gate.
+- `tools/playtest.gd` brought up to date: 63 stale expectations from rounds 119-181 (28 gear slots, the rail order,
+  more chapters, the story drafts' names and hints, deeper masters wanting more talks, one follower and one searcher,
+  the bag opening as slots, the 10-31 idle-thread hand-back, upkeep that doesn't leak from a full sea, the local
+  calendar for streaks, the Store copy reading the same backend...). 1871/0. It's in the gate now.
+
+## Round 182 (2026-11-07): fair ads, play stats, mods, the Chinese review, co-op join codes
+
+Robert, 2026-11-06: "maximize potential of earnings, game mechanic and balance" -> "ok start building the structure to it".
+
+- **Ad rewards give looks only.** The old rewarded ads ("the deep's blessing": +10% insight and loot luck; "gold back"
+  after a fall) sold what `store.json fair_play.never_sold` forbids, and paying players (no ads) couldn't get them.
+  Now the one gift is `try_style`: a day of the Style pack's auras (`Ads.style_trial()`, `Store.style()` asks it;
+  saved in the ads record, never more than a day ahead). `tools/fair_check.gd` now checks every ad gift: no
+  `effect`, no power words in its offer, `Ads._give` never touches gold/buffs/items/qi/insight, and a full numbers
+  snapshot before/after an ad is identical. A fall's gold loss is the same for everyone.
+- **Play stats (opt-in)**: `scripts/systems/PlayStats.gd` (system `playstats`). Off until yes; asked once at a town after
+  20 minutes (`HUD.queue_moment("__ask_stats")`), Settings > "Share anonymous play stats" any time. Rows: day,
+  minutes, kind (death, enter_level, boss_kill, breakthrough, levelup, floor_cleared, tribulation_*, trial_start,
+  session_start/end), floor, level id, realm step, build, platform, tier -- ids and numbers only (`_short` drops
+  anything with a space). `user://playstats.jsonl`, trimmed past ~384 KB. With `data/cloud.json` set up, batches of
+  200 go to the `play_stats` table every 10 minutes (migration 04: insert-only, only the service role reads).
+  `tools/stats_report.py <files/dirs/export>` prints falls, quits, boss kills and minutes-to-reach per floor and flags
+  walls. Checks: `tools/playstats_check.gd` (against `tools/cloud/mock_supabase.py`), `tools/stats_report_test.py`,
+  `supabase/tests/run_sql_tests.mjs` (gate runs it when `PGLITE_DIR` points at a folder with @electric-sql/pglite).
+- **Mods**: `scripts/core/Mods.gd`. `user://mods/<id>/mod.json` + `data/*.json`, laid over the game's file in
+  `Game._load_json` (dict merge, `null` removes, `{"__append": [...]}` adds to a list). Off until turned on (Menu >
+  Mods, PC only), applied at the next start. Never moddable: `Mods.PROTECTED` (store, cloud, online, build files,
+  retail). Any mod on: `Online.connect_now` refuses (`last_code "mods"`) and `SteamLink.leaderboard` posts nothing.
+  Saves record `mods`. Workshop: `SteamLink.note_workshop()` writes subscribed folders to `user://mods_workshop.json`,
+  read at the next start. Guide `docs/MODDING.md`, example `docs/modding/ashlight_fern` (ship it beside the exe).
+  Check: `tools/mods_check.gd`.
+- **Chinese review**: `tools/i18n/review_export.py zh_CN` writes `tools/i18n/review/zh_CN_review.xlsx` (a glossary of
+  48 core words with suggested cultivation-novel terms and how many strings use the current one, and all strings
+  most-seen first). A native reviewer fills the yellow columns; `tools/i18n/review_import.py <file>` turns them into
+  `tools/i18n/override/zh_CN.json` (a glossary choice swaps the old word in every string whose English uses that
+  word; placeholders must survive), then `python3 tools/build_i18n.py`. Found: "swarm" is 蜂群 (bees) in 199
+  strings, alchemy is 炼金术 (Western alchemy), meditate is 冥想 -- left for the reviewer. Check: `tools/i18n/review_test.py`.
+- **Co-op join codes**: the server's parties (up to 8) can share a six-letter code (`p_code`, `p_join`; no 0/O/1/I;
+  ends with the party; renew to retire it; only the leader shares; refused while the party is on a run). Party page:
+  "Get a join code for friends" / "Join with a code...". `data/online.json "url"` is the shipped server address once
+  the shared world has a public home (`tools/server/deploy/`: docker compose with Caddy TLS and 6-hourly DB backups,
+  `GO_LIVE.md`). Checks: `tools/server/e2e_test.py` (54), `tools/online_check.gd` via `run_online_check.sh` (now in the gate).
+
+## Round 183 (2026-11-07): the store's look packs, the path art on the pad
+
+Robert: "keep working on rounding out the whole project".
+
+- **Look packs** (`scripts/systems/Looks.gd`, system `looks`; `data/looks.json`): Spirit Beast Coats (pet coat + accent,
+  `Familiar._build` asks `coat()`), Tribulation Skies (the strike when you break through: `on_event("breakthrough")` ->
+  `sky_burst`, a column and jagged bolts; with no pack a plain pale strike so every breakthrough is seen), Cultivation
+  Seats (lotus of light, floating stones, koi ring, ink circle -- built in code by `make_seat`, drawn by
+  `Player.start_meditating`, removed by `stop_meditating`), Weapon Spirits (`slash_color()` in `Player._deal_hit`).
+  Products `coats_pack`, `skies_pack`, `seats_pack`, `spirits_pack` and `look_collection` (every pack + the Style
+  pack) in `data/store.json`, kind cosmetic, `steam_dlc` 0 until Steamworks gives ids. `Store.owns_look`: bought, the
+  Collection, Steam DLC, the box's own builds, or an ad's try-on day (the ad gift is now "Try on every look"). Chosen
+  looks are per save. Page: Comforts & Style > Looks. Proof: `tools/fair_check.gd` (182: every pack owned and every
+  look chosen changes no power number; Looks.gd never touches qi/insight/gold/buffs/items) and `tools/looks_check.gd`
+  (44). Picture: `tools/_looks_shot.gd`.
+- **Pad**: hold Back -- LB is the path art, RB readies the next (the path art had no pad button). `tools/pad_check.gd` 21.
+- **Path page**: a second path's card now says it works at 50% (art x0.75 power, x1.25 wait).
+- **Round 183b**: **Familiar Trinkets** (`trinkets_pack`: red cord and bell, jade ribbons, silver chain, sect saddle
+  cloth -- `Beast.trinket(spec)`, a collar torus at the back of the head, a bell, ribbons, a girth band of cloth with
+  hems and tassels that wraps every body including the lofted spirit form; `Familiar._build` asks
+  `Looks.current("trinkets")`). **Wardrobe** (free, not a pack): `Looks.seen` remembers every wearable that comes
+  into your bag (`Game.add_item` -> `Looks.saw`; old saves are seeded from what you carry and wear), `set_wardrobe(slot,
+  id | "-" | "")` draws a slot as another held piece, hides it, or shows what you really wear; `Game.worn_looks`
+  applies it (drawing only -- fair_check hides three slots with every number unchanged). Page: Looks > Wardrobe.
+  **Music room** (free): Settings > Sound > "Music room": tap any piece (`Audio.play_now`), its set then plays
+  everywhere (`Audio.pin_set`, `next_piece`) until "Let the places choose the music again" (`unpin`). Checks:
+  looks_check 71, audio_check 200, fair_check 184. Pictures: `tools/_trinket_shot.gd` (STAGE=, CLOSE=).
+- **Round 183c, refined music** (Robert: "make the music more refined and subtle -- it doesn't need to be a lot, just
+  add flavor and substance"). `tools/music_gen2.py` `sketch()` (run with `MUSIC_SUBTLE=1 MUSIC_HARMONISE=1
+  MUSIC_FOLDER=music3_subtle`): about 75-110 s instead of 130-160; a breathing low drone and a dark pad, ONE voice
+  saying the motif, a rest, the answer on the second voice, a single bell or harmonic at the turn, the motif once more,
+  softer, then home -- flutes pure (no buzz, little breath), no drums, no busy accompaniment, a darker top (6.5 kHz)
+  and about 4-5 LU quieter (-22 to -25 LUFS). `assets/audio/music3_subtle/` (19). Music style "subtle" is the
+  default and every saved setting moves to it once (`Gfx` `music_v` 1 -> 2); "new" (full harmonised), "original" and
+  "classic" stay in Sound > Music style. In the subtle style the fight drums sit at 60%. Checks:
+  `tools/music_subtle_test.py` (every refined piece quieter by 2.5 LU+, shorter, -20 LUFS or less), audio_check 203.
+
+## Round 184 (2026-11-08): a world you can hear, and folk who notice you
+Robert: "keep working on making the details of the game better, more immersive".
+- **The day beds were silent.** `village_day.ogg` and `valley_day.ogg` had been all zeros since they were made: a
+  NaN in `music_gen2.chirp` (`sin(pi*t/t[-1])` a hair below zero at the end, raised to 0.7). Fixed (clipped) and
+  both remade -- the village by day now has its birds, breeze and far voices. `tools/world_sfx_test.py` now checks
+  every bed is audible.
+- **WorldSound.gd** (child of Audio, runs headless for tests):
+  - *Spots*: one-off sounds placed around you in 3D -- songbirds, a dove in the morning, owls and frogs at night,
+    porch chimes, the smith's hammer in working hours, a woodcutter, the temple bell; below: drops in the dark,
+    stones settling, the deep's rumble, a crypt's moaning air, bones, lapping water, crystals humming, the forge's
+    pops and steam, gears catching. `data/audio.json` "spots" (by the place's bed: every / vol / dist / h / hours /
+    day / weather / not_weather / season) and "weather_spots" (storm: far thunder; tremor: the rumble; drip ...).
+    Birds keep quiet in rain, snow and fog. Hushed in a fight, in menus (world_frozen) and when paused. Captioned.
+  - *Weather you can hear*: rain (light / heavy in a storm), soft wind for snow, fog and falling leaves -- under the
+    sky only ("weather_beds"); a cold seep in the deep.
+  - *Echo*: a "World" bus with a reverb sized to the place ("rooms": dry in the open, a little in the village, long
+    in the deep, crypts and flooded halls). Blows, steps and spots go through it; menus, fanfares, loot and coins
+    stay dry (`Audio.DRY`). `Audio.at()` / `Game.sfx_at()` now play from AudioStreamPlayer3D -- heard from that side,
+    duller with distance.
+  - *Ground*: steps on snow, water, sand, metal and wood ("ground": by look, by theme; snow weather under the sky),
+    grass and stone as before, and a splash under the grass in the rain.
+  - Settings > Sound: "Sounds of the world", "Echo in caves and halls" (both on).
+- **Passing greetings** (`NPC.gd`, `data/greetings.json`, 54 lines): come within 4.5 m and folk turn and say a word
+  over their head -- hurt first ("You're bleeding. Sit down a moment."), a deep town's welcome, the weather, their
+  trade, the season, else the hour. Once per approach, 150 s per person, 6 s between any two, never in a menu or a
+  fight. Settings > Sound: "Villagers greet you as you pass".
+- Sounds are made by `tools/world_sfx_gen.py` (steps 20, spots 57, weather loops 4; fixed seeds).
+- Checks: `tools/world_sound_check.gd` 399 (every file, every bed has spots and a room, the gates, ten simulated
+  minutes per place, grounds, dry/wet, greetings), `tools/world_sfx_test.py` 321, both in the gate.
+  `tools/world_sound_live.gd` (xvfb, ~5 min, not in the gate): real 3D players, the World bus, rain, a real
+  villager greeting you; picture in /tmp/greet.png.
+- **Round 184b, the life of the air** (looks only; off on Low effects): `WorldFX.life_for` puts fireflies over the
+  grass on warm nights (thaw/blaze/harvest, not in rain, snow or fog), drifting petals on spring days, seed fluff on
+  summer days, and rain landing around you (`Motes` kinds fireflies -- blinking -- petals, fluff, splashes). Your
+  breath shows in the cold (`WorldFX.is_cold`: snow, Frost, late Harvest nights, a frost floor, a cold seep;
+  `FX.breath`), and so does a villager's when they greet you. Footfalls throw up snow, sand or a splash
+  (`WorldSound.step_fx_kind`, `FX.step_puff`), puddle splashes on wet grass. A storm's thunder now follows its
+  lightning by 1-4 s, from where it struck (`WorldSound.thunder_after`). **Bug fixed**: Motes warmed up at the
+  world's origin before moving to you, so snow, leaves, ash and drips were missing for their first 8-9 s in a
+  place. Checks: world_sound_check 421. Pictures: `tools/_life_shot.gd`, `tools/_motes_shot.gd` (KIND=).
+
+## Round 185 (2026-11-08): the wow -- northern lights, falling stars, cloud shadows, lantern night
+Robert: "keep bringing it to life -- I want a wow factor for an indie creator".
+- **Northern lights** (`sky.gdshader` `aurora`): curtains along the northern sky -- a folding foot, fine rays
+  standing up them, green fading to violet at the top, gaps that drift. Clear nights only: every Frost night, one
+  Harvest night in three, now and then otherwise (`WorldFX.sky_wonders`). "The northern lights are out tonight."
+- **Shooting stars** (`meteors`): a chance every 6 s on any clear night (0.18), a shower one night in ten (0.75,
+  "Stars are falling tonight."). `meteor_test` holds one in place for `tools/_sky_shot.gd`.
+- **Cloud shadows** (`terrain.gdshader` `cloud_shadow`, `cloud_wind`): shadows ~90 m across sweeping over the land
+  at ~6 m/s by day, strongest under a broken sky (`WorldFX.cloud_shadow_for`).
+- **Lantern night** (`scripts/world/SkyLanterns.gd`): on a clear evening every other day (19:00-22:30) and every
+  festival evening, Eliet sends up paper lanterns -- warm glowing bodies with a soft halo, lifting off from all over
+  the village (half near you), climbing and drifting on the wind to 150 m; up to 70 at once; arriving mid-evening
+  the sky is already full (prewarm). "Lantern night -- the village sends its wishes up."
+- Folk talk about it (greetings "lanterns", "aurora", "meteors"; `NPC.greeting_for(..., sky)`).
+- All looks only and off on Low effects. Checks: world_sound_check 448. Pictures: `tools/_wow_shot.gd`,
+  `tools/_sky_shot.gd` (AURORA= PITCH= YAW= FOV=).
+
+## Round 186 (2026-11-08): cleaning up -- Eliet was drawing at 3-4 frames a second
+Robert: "keep cleaning up and improving the game". His own crumbs.txt / memlog on the PC showed the village at
+3-4 fps on an RTX 5060 Ti (Forward+, Medium), 19-21k nodes. Headless profiling with his save (tools/_perf_village.gd,
+SAVE=...) and a fresh one gave the same picture -- the scripts took ~7 ms; the drawing was the problem:
+- **Trees**: every limb was its own MeshInstance3D with its own CylinderMesh -- ~5 per tree, 1,658 trees, 8,297
+  draws, each drawn again per shadow cascade. `Tree.make` now builds one merged bark mesh + one leaf MultiMesh and
+  shares 24 built variants per kind/season/height (`Tree.VARIANTS`, `variant_key`); and once a place has finished
+  streaming in, `Level` gathers its trees by 32 m patch -- one bark mesh per patch and bark, one leaf MultiMesh per
+  patch and leaf -- one patch a frame (`_begin_tree_batch`, `_batch_tree_chunk`, `batch_trees_now` for tests).
+  Shadow casters 10,782 -> 934; draws (xvfb) 10,253 -> ~1,800.
+- **Photo scans**: the grass tuft was 24,730 triangles x 670 tufts = 16.6 M triangles; shrubs 27k, the chest 103k,
+  stumps 41-62k... Low-poly copies (`<id>_lo.gltf` beside each, 2,000-8,000 triangles, same textures; 30 models,
+  `tools/gen/decimate_gltf.py`) are used on every preset but Ultra (`Art.real_path`, `Art.full_detail`). The
+  village's triangles 21 M -> 5.8 M. Side-by-side pictures: `tools/_lo_shot.gd` (ID=).
+- `tools/perf_check.gd` (in the gate) holds the line: Eliet under 3,000 shadow casters, 3,500 draws, 8 M triangles.
+- Voice.say with no model to ask (llm_url "") answers at once instead of an HTTP "Error parsing URL" (was in every
+  playtest log). NPC greeting poll no longer looks the player up every frame.
+- bionics_check flake (r185) fixed.
+- **From Robert's play log** (6,908 events, 10 days): 831 of his 881 item uses were the same pill again within a few
+  seconds -> **Use all (N)** on pills whose good adds up (qi, attunement, cleansing -- `Game.can_use_many`,
+  `use_many`, one summary line; healing, buffs, coatings and gated pills stay one at a time). And 790 "pouch is full
+  ... went to your chest at home" lines -> said once per kind per two minutes (`_overflow_said`; nothing is lost).
+  `tools/use_many_check.gd` (14) in the gate.
+
+## Round 187 (2026-11-08): cleaning up -- the valley, ponds, lamps
+Robert: "keep working". After r186 the village was fine but the valley still drew 4,266 times a frame (xvfb,
+real renderer -- `tools/_perf_live.gd`, ID=). What was left (`tools/_perf_one.gd`, `_perf_who.gd`, `_perf_scan.gd`):
+- **Still props** (`Level._prop`): every shrub (four pieces each, 846 of them), boulder, wall block and roof cap was
+  its own draw and its own shadow. `_prop` now marks what it makes (`meta pp` = its name). After the trees, the
+  level gathers the props nothing else will touch (`prop_batchable`: made by _prop, still a child of the level, not
+  renamed since, no script, no group, nothing but Node3D/MeshInstance3D inside, no meta on a mesh) by 32 m patch
+  into one MultiMesh per patch and kind of piece (per-surface materials folded into a shared copy, `_fold_mesh`).
+  Pieces under 3 m stop drawing past 150 m, under 7 m past 260 m (x0.75 Low, x1.4 High, x2 Ultra). One-offs stay.
+  Gather nodes and anything scripted are left alone. `_begin_prop_batch`, `_batch_prop_chunk`, `batch_props_now`.
+- **Ponds**: every water cell was its own mesh *and its own material* (687 in the valley) -- now one shared material
+  (`_water_mats`), no shadow, and merged into one mesh per patch.
+- **Tints**: `_tint` / `_glow_tint` made a new material per piece (389 wall caps = 389 materials) -- now one per
+  material and colour (`_tints`), so they batch.
+- **Lamps**: small lights (range <= 16 m) fade out past 70 m (`_fade_far_lights`; Gather nodes already did).
+- `flower_empodium` and `fern_02` got low-poly copies (3,053 -> 1,596 and 6,232 -> 2,596 triangles).
+- Valley: draws 7,593 -> 2,731, shadow casters 6,508 -> 1,622 (all of it); xvfb frame draws 4,266 -> 1,649. Village:
+  880 draws, 561 casters. `tools/perf_check.gd` now also checks the valley (under 3,500 draws / 2,500 casters,
+  ponds batched, lamps fading) and which props may batch; Eliet tightened to 1,500 draws / 1,200 casters.
+- Before/after pictures of the same view: `tools/_batch_shot.gd` (ID=, NEAR=shrub) -> /tmp/bs_a.png, bs_b.png.
+- The Lands (frontier) still count ~2,800 draws in all, but only ~290 a frame are in view (their dressing is
+  mostly GatherNodes, which already cull) -- left as they are.
+
+## Round 188 (2026-11-08): guilds with a group chat, your own sect, weapon arts, strike styles, a slowness probe
+Robert: "fun and addicting... group chat guilds that can give some support but not push the balance, or start our own
+sect and own guild" (chat: NPC guildmates now, real players when online is live; support: gifts and trades, help
+requests, guild tasks, cosmetic rewards; own sect: full founding). Then: "more variety in the martial arts and their
+special abilities for the type of skill it is. Allow for packs to also change attack appearance".
+- **Guilds** (`scripts/systems/Fellowship.gd`, `data/fellowship.json`, page `scripts/ui/GuildPage.gd`, Hub tab
+  "Guild", F6). Three NPC guilds to join, or found your own for 500 gold (key `own:TAG:XXXX`, recruit NPC members).
+  Chat: channels, keyword answers (or the Voice LLM, child `GuildVoice`), ambient talk by persona, reactions to what
+  you do. Support never adds power: gifts (daily cap), fair trades (within 5% of value), help requests (you pay 2x
+  value, delivered in 8-20 min), weekly guild tasks for renown, renown buys titles, crests, emblems, hall decor.
+  `effects()` is always `[]` (fair_check). HUD chat box (`scripts/ui/ChatBox.gd`): Enter to type, last 6 lines, fades.
+  Online: `Online._send_guild_key`, server `h_guild_key` + guild chat broadcast to the same key (e2e 59/0).
+- **Your own sect** (`scripts/systems/OwnSect.gd`): found at realm 3 with 3000 gold -- name, element, colour, creed,
+  the arts it teaches. `G.sect = {"id": "own"}`, Sect Master. Disciples (4/8/12 slots by hall), teach, encourage,
+  errands (daily), they grow in real time (max 24 h catch-up, cap: your realm - 1). Hall upgrades; at hall 3 a mature
+  gift (x1.15, `mature_effect`). The Empty Seat in the valley (`Valley.OWN_SEAT`, road from its gate) becomes the
+  sect's grounds (`scripts/world/OwnSectSite.gd`: board, banners in the sect colour, lanterns, statue, disciples).
+- **Weapon arts** (`data/weapon_arts.json` from `tools/gen/weapon_arts_gen.py`): 36 arts, three per kind of weapon
+  (sword, dagger, saber, spear, axe, hammer, halberd, staff, unarmed, bow, crossbow, ki) at weapon skill 5/15/30.
+  Learned by fighting with that weapon (`Arts.sync`), usable only with one in hand (`Arts.gate` via
+  `G.weapon_skill()`), the new one goes on an empty quick key if it's for the weapon in hand. Fifteen ways of
+  fighting, seven new in `ArtCaster.gd`: flurry, whirlwind (move while spinning), throw (out and back / fan),
+  volley (arrows fall on a spot), counter_stance (`Player.take_damage` -> `counter_strike`), multi_bolt (one orb per
+  foe), pin; blink gained `behind` (step behind the nearest foe). `tools/weapon_arts_check.gd` (29) casts every art
+  for real against goblins in floor1.
+- **Strike Styles** look pack (`strikes_pack`, cosmetic, in the Look Collection): Twin Crescent, Falling Petals,
+  Dragon Fire, Thunder Edge, Ink Brush, Frost Fang. `Looks.strike_style()` / `strike_color()`; `FX.strike` (the sweep)
+  and `FX.impact` (where it lands) draw them; your shots (`Shot.gd`) and weapon arts take the colour. A Weapon Spirit
+  tints the style. Looks only -- same reach, same damage. looks_check now 6 packs (77 headless / 78 with a renderer).
+  Pictures: `tools/_strike_shot.gd` (xvfb; slows time to catch the sweep) -> /tmp/strike_*.png.
+- **Slowness probe** (`scripts/core/PerfProbe.gd`): a "perf" crumb every 15 s (gpu/cpu/draws/prims/objects); in test
+  builds, once a run, if fps < 12 for 8 s after the place settles it switches each suspect off in turn (shadows, sky,
+  MSAA, half resolution, lamps, particles, trees, props, water, actors, HUD...) and writes `user://perf_probe.txt`.
+  `tools/perf_probe_check.gd` (20).
+- Tools writing saves must set `G.save_base` away from `user://save` (else the tester state lands in
+  `user://save_account.json` and fair/lite/design checks fail).
+
+## Round 190 (2026-11-08): from Robert's play log -- points, armour, the fountain
+His `playlog.jsonl` (6,908 events) and save (`save_slot2.json`, realm 15) from the PC:
+- 107 of his 110 attribute points went in one click each -> character page: **+5**, **All (n)** beside each attribute,
+  and **Spread them evenly (n)** (`Game.attr_spread`: each point to the lowest, the balance-friendly choice).
+- 54 pieces of armour put on one after another, and his save had **7 empty armour slots** -> Pack: **Wear the better
+  pieces** (`Game.wear_better`). Armour only; a piece is swapped only for one with at least as much health AND ward
+  (`better_piece`); jewellery, weapons and pieces made for you / with affixes / with runes are never touched
+  (`_plain_piece`). On his save: health 34,951 -> 66,782, ward 73 -> 396.
+- 400 coins in the fountain, nothing after the 100th -> it counts every 50th, and gives back at 500, 777 and each 1000.
+- Bench: **Work it again and again (up to 5)** when the odds are 95%+ (his 240 god-craft workings, one click each); stops at the first failure, change or anything running out (`Kit.bench_go_many`).
+- A seasoned fighter loading an older save earns twenty-odd weapon arts at once (his save: 21) -> `Arts.sync` learns them quietly (`Game.learn(..., quiet)`) and says it in one line.
+- 647 menu opens, most a look and a close (Swarm 86, Meridians 85, Mind 60) -> the rail puts a gold dot on a page
+  where something waits (`Hub.ready_marks`, every 1.5 s, ~2 ms on his save): points to spend, no meridian focus,
+  nothing being researched, a dao contemplation left, no path, a guild trade offer, better armour in the pack.
+  The dot's reason is the button's tooltip.
+- Fixed (found by the gate on a new day): your own sect showed two hopefuls at the gate, not three, on ~1 day in 7 --
+  one shared a name with a disciple from before and was dropped (`OwnSect.candidates` now never draws them).
+  fellowship_check now tries 300 draws, and counts errands home in pouch + chest.
+- `tools/qol190_check.gd` (35, in the gate).
+- Profiling his own save: `ROB=1` in `tools/_cpu_who.gd` (headless CPU: scripts ~24 ms/frame on this 2-core box) and
+  `tools/_gpu_probe.gd` (Vulkan: village 2,142 draws, 4.8 M triangles with his save). Copy his save to
+  `user://tool_rob_slot2.json` first. His last run (before r186) still showed 3-4 fps; nothing since -- PerfProbe will say.
+
+## Round 192 (2026-11-08): the graphics card is shared -- and the picture follows the GPU
+Robert played twice on r192: "its very laggy keep trying to improve quickness and snappy response". His
+`perf_probe.txt` (the r188 probe, first real reading): 2560x1440, medium, **503 ms of GPU per frame for 1,321 draws**,
+CPU 2.7 ms; every suspect cost its share (sky ~40%, SSAO ~30%, MSAA ~25%, half resolution -60%) -- a card starved,
+not a scene too heavy. His box's Model Manager (localhost:9114) said why: **Ollama held qwen3.5:9b at 14.04 of 15.9 GB
+of VRAM**, spilling into system RAM; the game's ~1.2 GB had nowhere to live, so every frame paged.
+- `scripts/core/GpuCourtesy.gd` (Main adds it, desktop only, not headless/phone/web): 3 s after start and every 90 s
+  while focused, GET 127.0.0.1:11434/api/ps; if a local model holds >1 GB of the card, POST /api/generate
+  {model, keep_alive: 0} for each (Ollama's documented unload -- it reloads by itself when next asked). Tells the
+  player once; crumbs + perf_probe.txt say what it saw ("ollama: qwen3.5:9b 14.0 GB on the card").
+  Setting (pause menu): "Local AI on the graphics card while playing: free it / leave it" (`gpu_ai`). Skipped when
+  the game's own AI words are on (ai_on.txt). Test: `tools/gpu_courtesy_check.gd` (14) against
+  `tools/server/mock_ollama.py`.
+- `scripts/core/AutoRes.gd`: Picture size "auto" (new default; anyone on the old default 100% moves once, `res_v`):
+  GPU time over budget x1.15 for 1.5 s -> 3D drawn 8-15% smaller (min 60%, FSR upscale on Forward+); under 60% of
+  budget for 6 s -> back up 5%. Only GPU time counts. Menus stay full size. PerfProbe pauses it while measuring and
+  writes picture=% and video memory in its header. Test: `tools/auto_res_check.gd` (10).
+- Sky: the sky shader reads TIME, so Godot rebuilt its 256 px radiance cubemap every frame -- for nothing (ambient
+  is a set colour, reflections are off). `Level._cheap_radiance`: 32 px, PROCESS_MODE_QUALITY (rebuilt only when
+  the sky changes).
+
+## Round 194 (2026-11-08): why the card was full -- and no Gate nobody can reach
+- The 14 GB wasn't the model: Ollama's /api/ps said `qwen3.5:9b ... context_length 262144`. A 9B model at Q4 is about
+  6 GB; the rest was a 256k context. The box's two warm-ups (smart_llm.warm_model, dev_talk.warm) sent no num_ctx, so
+  Ollama used its server default (256k on this box). Fixed on the box itself (bundle claude-r193-warm-ctx-b: warm-ups
+  ask for 8192, Dev's NUM_CTX). The game now logs the context per model ("qwen3.5:9b 14.0 GB ctx 256k") and the
+  crumbs name the card that draws ("card: <adapter> | <vendor> | <api> <renderer>").
+- `Online.open_to_players()`: a CLEAN build stands the Gate to Elite Online only when data/online.json has a public
+  "url". Without one the Gate led to the HomeAI box over Tailscale -- "can't connect" for every store player. Test
+  builds keep it. Robert's rule: a server only once the game has traction. Test: `tools/online_open_check.gd` (9).
+- Steam full-game preset exports `build/steam/DungeonCrawlElite.exe` (was "Eliet").
+- Android target SDK: blank in the presets = Godot 4.6.3's default, which is **36** (checked in the built APK with
+  aapt2: targetSdkVersion 36, compileSdk 36) -- Play's 2026 rule is already met.
+- Delete my cloud account (Google Play requires an in-app way): Cloud window -> "Delete my cloud account..." ->
+  confirm -> `CloudSave.delete_account()` -> `supabase/functions/delete-account` (saves, then their history -- deleting a
+  save copies it into history, so history goes last -- then the account; purchase_events keep the sale, user_id ->
+  null). Device saves untouched. Tests: `supabase/tests/delete_account_test.mjs` (14), `tools/cloud_check.gd` (58,
+  now in the gate).
+- `verify-purchase` knew 2 of the 9 products -- any look pack would have been refused once purchase checks were on.
+  `PRODUCTS` now matches data/store.json and the test fails if they drift.
+- GpuCourtesy unloads only above 8 GB (was 1 GB): at an 8k context the box's model is ~6.5 GB and leaves the game
+  room; unloading it every 90 s only made the box reload it every 90 s (his log: freed at 13 s, 104 s, 199 s).
+
+## Round 195 (2026-11-09): the frame was spent asking "what bonuses do I have?"
+With the graphics card freed, Robert's village ran at a median 26 fps with the GPU at 4 ms -- the CPU was the limit.
+Note first: `Performance.TIME_PROCESS` (the crumbs' "proc=") is the WORST frame of the last second, not an average --
+per-script toggling on it was noise. `tools/_cpu_wall.gd` measures average WALL time per frame instead: 27 ms in the
+village on his save (headless), of which Game.gd's _process alone was 10-15 ms.
+- `tech_effect()` rebuilt `_effects()` on every call: 131 entries (every pack item checked for treasure, every system's
+  effects, gear, runes, lattice...) -- 2.2 ms a call, and the per-frame readers asked several times a frame: the HP bar
+  (max_hp x3), FloorRun's low-HP watch (max_hp x2), movement (move_mult), regeneration, spirit sense, research and
+  cleansing speed. Those readers now use `fx_now(key)` / `max_hp(true)`: a kept copy of the list, rebuilt when
+  `stats_changed` fires, when a cheap signature moves (techniques/inventory/buffs/lattice/guilds/contracts/sect sizes,
+  weapon, gear, partner, place, realm) or after FX_KEEP_MS (250 ms). `tech_effect()` itself stays exact (rules, menus,
+  tests -- dao_check changes a system's focus and reads it in the same frame). Village/valley/floors 22 and 33/frontier:
+  27 -> 7 ms a frame headless (7 ms is the headless floor -- an empty scene measures the same). New per-frame code:
+  use fx_now, not tech_effect.
+- The autosave (every 60 s) took ~65 ms on a 730 KB save: stringify + two full JSON parses that were only checks.
+  The new file is checked by reading it back and comparing; the old file is parsed only if this run didn't write it.
+  ~19 ms now. Test: `tools/perf195_check.gd` (14).
+
+## Round 196 (2026-11-09): the lag after every fight
+`tools/_spike.gd` (frame-time trace over 20 s on Robert's save) showed the village going from 7 ms frames to 100-190 ms
+seven seconds after standing still -- the moment wounds start to close. With a big HP pool, survival regen heals some HP
+every physics tick, and every heal called `add_skill_xp("survival")` -> check_unlocks() + stats_changed -> a full
+HUD.refresh() (~5 ms) and Player._dress_up -- 24 exact effect-list builds a frame.
+- Player._regen batches the survival XP: added once a second of healing (and when healing stops). survival_regen()
+  reads max_hp(true).
+- HUD listens to stats_changed through `_refresh_soon()`: one refresh at the end of the frame however many changes
+  came in (a kill alone emits several). One stats_changed: 9 ms -> 0.4 ms.
+- HUD's "dmg" uses Game.damage(true) (kept effect list). Game.damage()/weapon_damage() take `now`.
+- Sitting with the practice ground: 7 ms frames. perf195_check now 21 checks.
+
+## Round 197 (2026-11-09): the hitch on every kill
+`tools/_fight_spike.gd` (real blows through Player._start_blow on floor 22, his save) and `tools/_fx_parts.gd` (what each
+effect source and kill step costs). A kill took 25-40 ms synchronously: record_kill, Hook.on_kill (watch_power, chain),
+add_qi, train_weapon, roll_loot, add_item (pouch_cap), drop_gear + Hook.compare -- ~10 exact tech_effect() calls at
+~2 ms each.
+- `Game.fx_hold(true/false)`: while held, tech_effect() builds the effect list once and rebuilds it only when the
+  signature moves (an item gained, a technique learned, the realm...). Enemy._die and Player._deal_hit hold it.
+  Kill: 25-40 ms -> 12-19 ms. Nested holds count. Pair every hold(true) with hold(false).
+- perf195_check: 23 checks.
+
+## Round 198 (2026-11-09): Use all, the bag, idle foes
+Robert's play (build 85): mostly 55-60 fps now. Three things left. "Use all" on 999 pills froze the game 10-20 s (the
+crumbs have a 26-36 s gap between perf lines). The bag took 160 ms to redraw on every tap. Floor 34 ran 37-45 fps.
+Probes: `tools/_useall.gd`, `tools/_hubfill.gd` (every menu page's redraw time), `tools/_foe_cost.gd`, `tools/_arrive.gd`.
+- `Game.use_many` holds the effect list (`fx_hold`) and the play log (`log_hold`) for the batch: 4.5 -> 0.38 ms a pill.
+  The effect signature now also covers `affinity.hash()` and `_fx_bump` (a cleansing or blood pill bumps it). A held list
+  can't go stale.
+- `log_hold(on)`: nested; lines are written in one go, in order, when the outer hold ends. The size check / rotation
+  moved into `_log_write`.
+- `Quests.qdef` was a linear walk over every quest (plus a new array each call), run for every active quest on every
+  logged event: 0.8 ms an event. It's now an id index, rebuilt when `data["quests"]` grows or is replaced. It checks the
+  id on every hit. Legacy lines are still searched after the base list (same first-match order as `all()`).
+- Kit: `_bag_order` works its sort keys out once (47 -> 4 ms). The slot grid (`_grid`) stays in the page and its
+  buttons are re-dressed in place (`_new_slot`/`_dress_slot`, item read from meta "id"). Styles are shared via
+  `_shared_style`. The list view and the choose-a-slot view drop the grid. Pack redraw: 163 -> 38 ms headless.
+- Player: `stats_changed` -> `_look_soon`, which runs the clothes, the aura and the first-person hand once next frame.
+  It used to run on every change.
+- Enemy `_rest_slide`: a foe standing still on the ground checks its footing every 0.4-0.6 s instead of sliding every
+  tick. Any velocity slides at once. 89 idle foes: 1.5 -> 0.24 ms a physics tick.
+- PerfProbe: waits for two matching baseline frames (within 25%, up to ~3 s) before switching things off. It writes
+  a "settling" line and says when the slowness eased by itself. His floor-24 probe had blamed shadows and SSAO for a
+  passing storm.
+- Not reproducible headless: floor 24's first ~20 s after arriving ran at 4-5 fps (proc 215-272 ms, gpu 25 ms), then
+  recovered. Likely the card preparing shaders for a new place. The next probe will show it in its settling line.
+- Still heavy: the Swarm page redraws all 50 design cards per click (~40 ms headless).
+- perf198_check: 36 checks, in the gate.
+
+## Round 199 (2026-11-09): menu pages, the symbol font, boss young
+`tools/_hubfill.gd` times every menu page's redraw on his save (ROB=1; PAGES=Road,Works to pick). Before -> after, headless:
+Road 1304 -> 52 ms, Works 1250 -> 247, Journal 718 -> 379, Craft 436 -> 377, Quests 216 -> 38, Party 179 -> 85, Mind 81 -> 28.
+- `Game.errand_defs()` read every floor's level file on each call (20-30 ms) and the Road page called it twice per
+  errand. Cached per (reach_depth, language, item and enemy counts). Treat the returned dictionary as read-only.
+- `Hub._fill` and `Kit._refresh_now` hold the effect list (`fx_hold`) while a page draws. Drawing changes nothing, and
+  the Works page asked `tech_effect()` ~120 times.
+- `HUD._place_name` caches a place's name per language. It used to parse the whole level file per mention.
+- **Symbols.** Any control whose text has a glyph the engine's fallback font lacks (ticks, arrows, diamonds, stars,
+  CJK) made the engine ask the OS for a font on every shape: 0.6-1.5 ms a label (found with gdb: FcFontMatch under the
+  text server). The engine shapes against `ThemeDB.fallback_font` as well as the themed chain, so adding a font to our
+  own chain alone doesn't help. Fix in `UiStyle.font()`: `assets/fonts/dce-symbols.ttf` (53 glyphs cut from DejaVu
+  Sans with fontTools, 17 KB, licence beside it and in the export filter) goes into our chain AND into
+  `ThemeDB.fallback_font.fallbacks`, together with the CJK font. It needs script-support overrides
+  (`symbols_font()`), or the text server skips a letterless font for Latin text. A tick label: 0.63 -> 0.018 ms.
+  Arabic, Thai and emoji still use the system fallback.
+  To add a symbol: add it to the subset (the char list is in the r199 project doc) and to polish199_check.
+- **Boss young.** A boss's brood and a splitting boss's pieces were spawned with the boss's sheet, `boss: true`
+  included: each dropped boss-tier gear, logged `boss_kill`, ran boss phases and could brood again. `Enemy.setup` now
+  clears `boss`/`world_boss` on a minion.
+- Not done: Journal, Craft and Works still build 1,000-2,900 nodes per redraw. Building them detached and re-adding
+  was slower (750-1230 ms). The real fix is to build only the open tab (PageTabs).
+- polish199_check: 36 checks, in the gate.
+
+## Round 200 (2026-11-09): boss ease, lazy tab sections, spread button
+- **Boss ease** (`data/combat.json "boss_ease"`, `Game.boss_ease(d, key)`, applied in `Enemy._round30_numbers` to floor
+  masters only: `stats.boss`, not a world boss, level id `floor*`). Health and damage ease evenly from floor 25 (x1) to
+  floor 49 (x0.75 / x0.85); floor 50 has its own (x0.7 / x0.8). balance_report, kills-you / time-to-kill: floor 49
+  17s/66s -> 22s/50s, floor 50 15s/107s -> 19s/74s; floors 26-49 now hold at about 0.43, where floor 25 was. Set the
+  numbers to 1 to switch it off. A Keeper flagged boss after setup (Level.gd) is not eased.
+- **Lazy tab sections.** `Hub._lazy(owner, prop, build)` adds an empty box with a "lazy_build" meta; `PageTabs` calls
+  it the first time that tab is shown (and at once when a page ends up without tabs). The builder runs with the
+  page's box variable pointed at the new box, so existing code that writes to `_craft` / `_works` / `_jr_body` needs
+  no change. Wrapped: Journal (things found, places), Craft (recipes, herbology, supplies, bestiary), Works (foundry,
+  crew, tailor). A lazy body must not hold a tab-level heading (size >= 16 directly in the page). To read a whole page
+  in a test: `PageTabs.build_all(box)`. Redraw, headless, his save: Journal 379 -> 27 ms, Craft 377 -> 16, Works 247 -> 18.
+  Outer locals are captured by value in the lambdas; declare anything you assign inside the body.
+- The Works page's Tailor buttons called `_fill(I18n.t("Works"))`, which did nothing in any language but English. Fixed.
+- "Spread them evenly" is at the top of the attributes, lit, when there is more than one point to spend.
+- round200_check: 29 checks, in the gate (123 steps).

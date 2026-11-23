@@ -16,6 +16,8 @@ func _initialize() -> void:
 	root.add_child(m)
 	for i in 40:
 		await physics_frame
+	# Assertions below compare English captions, independent of the host locale.
+	load("res://scripts/core/I18n.gd").apply("en")
 	G.skills["taming"] = 10.0 * 12 * 12 + 1.0
 	G.bond_familiar("cave_hare")
 	G.contracts[0]["gen"] = 2

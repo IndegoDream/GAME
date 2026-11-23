@@ -47,6 +47,14 @@ func setup(who: Node, from: Vector3, d: Vector3, st: String, ranged: Dictionary,
 			color = Color(0.85, 0.85, 0.9)
 		_:
 			color = Color(0.95, 0.88, 0.7)
+	# round 188: a worn Strike Style recolours your own shots (looks only -- never damage)
+	var LK = Game.sys("looks")
+	if LK != null and who != null and who.is_in_group("player") and LK.has_method("strike_style"):
+		_strike_st = LK.strike_style()
+		color = LK.strike_color(color)
+
+
+var _strike_st: Dictionary = {}
 
 
 func _ready() -> void:
@@ -163,6 +171,8 @@ func _strike(e) -> void:
 		e.poise_hit(float(n) * (2.0 if heavy else 0.8), heavy)
 	if FX.on() and is_instance_valid(e):
 		FX.hit(e.global_position + Vector3(0, 1.1, 0), color, heavy)
+		if not _strike_st.is_empty():
+			FX.impact(e.global_position + Vector3(0, 1.1, 0), _strike_st, heavy)
 	if (heavy or burst > 0.0) and is_instance_valid(e) and e.get("affixes") != null and "armoured" in e.affixes and R.has("sunder"):
 		e.set("sundered", float(R.get("sunder_secs", 4.0)))        # round 121: a full draw splits the plating
 		e.set("sunder_mult", 1.0 + float(R["sunder"]))

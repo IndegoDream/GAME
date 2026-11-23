@@ -14,6 +14,8 @@ var built := 0
 var _shell: Node3D
 var _t := 0.0
 var _drain_acc := 0.0
+var _drunk := 0.0                  # qi the frame has drunk since the last warning (a step's quarter -> say it)
+var _remind_on_load := false
 
 
 func setup(game) -> void:
@@ -35,6 +37,9 @@ func save_state() -> Dictionary:
 
 func load_state(d: Dictionary) -> void:
 	mech_on = bool(d.get("mech", false))
+	_drunk = 0.0
+	if mech_on:
+		_remind_on_load = true          # 2026-11-06: a frame left on stays on across saves -- say so when the game starts
 	var v = d.get("voyage", {})
 	voyage = v if v is Dictionary else {}
 	built = int(d.get("built", 0))
@@ -138,6 +143,15 @@ func mech_block() -> String:
 	return ""
 
 
+func mech_drain_frac() -> float:
+	## the share of a step's qi the frame drinks a minute (6%, less with Foundry parts)
+	return float(cfg.get("mech", {}).get("drain_per_min", 0.06)) * (G.sys("foundry").mech_drain_mult() if G.sys("foundry") != null else 1.0)
+
+
+func mech_drain_per_min() -> float:
+	return G.qi_to_next() * mech_drain_frac()
+
+
 func toggle_mech() -> String:
 	var why: String = mech_block()
 	if mech_on:
@@ -146,6 +160,8 @@ func toggle_mech() -> String:
 		return why
 	mech_on = not mech_on
 	_drain_acc = 0.0
+	_drunk = 0.0
+	_remind_on_load = false
 	G.jingle("trial" if mech_on else "levelup")
 	G.log_event("mech_on" if mech_on else "mech_off", {})
 	G.stats_changed.emit()
@@ -156,7 +172,11 @@ func toggle_mech() -> String:
 func effects() -> Array:
 	var out := []
 	if mech_on:
-		out.append(cfg.get("mech", {}).get("effect", {}))
+		var me: Dictionary = (cfg.get("mech", {}).get("effect", {}) as Dictionary).duplicate()
+		var FD = G.sys("foundry")
+		if FD != null:
+			FD._combine(me, FD.mech_effects())                 # round 177: its parts and runes
+		out.append(me)
 	return out
 
 
@@ -266,7 +286,8 @@ func start_voyage(vid: String, crew_index: int = -1) -> String:
 	if bool(c.get("out", false)):
 		c["out"] = false
 	var now: float = G._now()
-	voyage = {"id": vid, "crew": str(c.get("name", "")), "start": now, "end": now + float(v.get("hours", 1.0)) * 3600.0}
+	var sm: Dictionary = G.sys("foundry").ship_mods() if G.sys("foundry") != null else {}
+	voyage = {"id": vid, "crew": str(c.get("name", "")), "start": now, "end": now + float(v.get("hours", 1.0)) * 3600.0 * float(sm.get("hours", 1.0))}
 	G.log_event("voyage_start", {"id": vid})
 	G.message.emit(I18n.t("%s casts off on the %s.") % [str(c.get("name", "")), I18n.t(str(v.get("name", ""))).to_lower()])
 	G.familiar_changed.emit()
@@ -286,18 +307,19 @@ func finish_voyage() -> Array:
 	var out := []
 	var v: Dictionary = _voyage_def(str(voyage.get("id", "")))
 	var hours: float = float(v.get("hours", 1.0))
+	var sm2: Dictionary = G.sys("foundry").ship_mods() if G.sys("foundry") != null else {}
 	var rng := RandomNumberGenerator.new()
 	rng.seed = int(voyage.get("start", 0.0)) + 7
 	for id in v.get("loot", {}):
 		var r: Array = v["loot"][id]
-		var n: int = rng.randi_range(int(r[0]), int(r[1]))
+		var n: int = int(round(float(rng.randi_range(int(r[0]), int(r[1]))) * float(sm2.get("loot", 1.0))))
 		if n > 0 and G.items.has(str(id)):
 			G.add_item(str(id), n, false)
 			out.append("%d %s" % [n, G.item_name(str(id))])
-	var gold: int = int(hours * float(v.get("gold_per_hour", 30)))
+	var gold: int = int(hours * float(v.get("gold_per_hour", 30)) * float(sm2.get("gold", 1.0)))
 	G.gold += gold
 	out.append(I18n.t("%d gold") % gold)
-	var ins: float = float(v.get("insight", 0))
+	var ins: float = float(v.get("insight", 0)) * float(sm2.get("insight", 1.0))
 	if ins > 0.0:
 		G.gain_insight(ins)
 	var cn := str(voyage.get("crew", ""))
@@ -320,9 +342,17 @@ func tick(delta: float) -> void:
 	if mech_on:
 		_drain_acc += delta
 		if _drain_acc >= 1.0:
-			var per_sec: float = G.qi_to_next() * float(cfg.get("mech", {}).get("drain_per_min", 0.06)) / 60.0
-			G.qi = maxf(G.qi - per_sec * _drain_acc, 0.0)
+			if _remind_on_load:
+				_remind_on_load = false
+				G.message.emit(I18n.t("You're still in the power frame -- it drinks qi while worn. Backslash takes it off."))
+			var per_sec: float = mech_drain_per_min() / 60.0
+			var took: float = minf(per_sec * _drain_acc, G.qi)
+			G.qi = maxf(G.qi - took, 0.0)
 			_drain_acc = 0.0
+			_drunk += took
+			if _drunk >= G.qi_to_next() * 0.25:
+				_drunk = 0.0
+				G.message.emit(I18n.t("The power frame has drunk a quarter of a step's qi -- press backslash to step out."))
 			if G.qi <= 0.01:
 				mech_on = false
 				G.message.emit(I18n.t("The frame runs dry of qi and opens."))

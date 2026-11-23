@@ -1,0 +1,13 @@
+{
+ "__append": [
+  {
+   "makes": "healing_salve",
+   "needs": {
+    "ashlight_fern": 2
+   },
+   "gold": 0,
+   "skill": "medicine",
+   "difficulty": 0
+  }
+ ]
+}

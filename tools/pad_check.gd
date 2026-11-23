@@ -27,7 +27,7 @@ func _initialize() -> void:
 	_btn(JOY_BUTTON_BACK, true)
 	await process_frame
 	check("layer on", G.pad_layer)
-	for pair in [[JOY_BUTTON_A, "quick1", "jump"], [JOY_BUTTON_B, "quick2", "wind_step"], [JOY_BUTTON_X, "quick3", "attack"], [JOY_BUTTON_Y, "quick4", "interact"]]:
+	for pair in [[JOY_BUTTON_A, "quick1", "jump"], [JOY_BUTTON_B, "quick2", "wind_step"], [JOY_BUTTON_X, "quick3", "attack"], [JOY_BUTTON_Y, "quick4", "interact"], [JOY_BUTTON_LEFT_SHOULDER, "path_art", "guard"], [JOY_BUTTON_RIGHT_SHOULDER, "path_cycle", "qi_burst"]]:
 		_btn(pair[0], true)
 		await process_frame
 		check("%s is %s with Back held" % [pair[0], pair[1]], Input.is_action_pressed(pair[1]) and not Input.is_action_pressed(pair[2]))

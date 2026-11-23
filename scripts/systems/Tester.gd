@@ -19,6 +19,8 @@ var locks_off := true             # round 159: every lock is open (gates, key st
 var infinite_on := true          # round 158: unlimited materials and reagents for crafting and advancing
 const STOCK := 99
 const _FREE := ["material", "consumable"]
+const _GOD_FREE := ["material", "consumable", "rune"]     # round 180: what god mode keeps stocked and never lets run out
+const GOD_STOCK := 999
 var refund_done := false
 var _loaded := false
 var _dirty := false
@@ -30,12 +32,39 @@ func _path() -> String:
 	return str(G.save_base) + "_account.json"
 
 
+static var flavor_path := "res://data/build_flavor.json"          # (a check can point this at a scratch file)
+
+
 static func clean() -> bool:
 	## CLEAN build: data/build_flavor.json {"clean": true} switches the whole test kit off for good (no god mode, vault, free tables, open locks)
-	if not FileAccess.file_exists("res://data/build_flavor.json"):
+	if not FileAccess.file_exists(flavor_path):
 		return false
-	var d = JSON.parse_string(FileAccess.get_file_as_string("res://data/build_flavor.json"))
+	var d = JSON.parse_string(FileAccess.get_file_as_string(flavor_path))
 	return d is Dictionary and bool(d.get("clean", false))
+
+
+static func assist() -> bool:
+	## ASSIST (round 176, Robert: "god mode but I can still use all the items and progress as normal, plus floor warp and map warp"):
+	## data/build_flavor.json {"clean": true, "assist": true} keeps the clean build clean -- items are used up, locks stay, nothing is free --
+	## and adds ONE small page to the pause menu: god mode (no damage, no death), a floor warp and a map warp. Nothing else changes.
+	if not FileAccess.file_exists(flavor_path):
+		return false
+	var d = JSON.parse_string(FileAccess.get_file_as_string(flavor_path))
+	return d is Dictionary and bool(d.get("assist", false))
+
+
+var assist_god := false           # the Assist page's god mode (clean builds); remembered beside the saves
+
+
+func assist_ok() -> bool:
+	## the Assist page is on in this build (never in the online world)
+	return assist() and not OnlineGen.is_online(str(G.current_level))
+
+
+func can_warp() -> bool:
+	## floor warp and map warp: the test kit's open locks, or the Assist page
+	_ensure()
+	return unlocked() or assist_ok()
 
 
 func _ensure() -> void:
@@ -49,6 +78,10 @@ func _ensure() -> void:
 		endless_on = false
 		locks_off = false
 		refund_done = true
+		if FileAccess.file_exists(_path()):
+			var ad = JSON.parse_string(FileAccess.get_file_as_string(_path()))
+			if ad is Dictionary:
+				assist_god = bool(ad.get("assist_god", false))
 		return
 	var real := str(G.save_base) == "user://save" and not ("--script" in OS.get_cmdline_args() or DisplayServer.get_name() == "headless")      # (tools and tests: the kit is off unless a test turns it on)
 	enabled = real
@@ -78,9 +111,15 @@ func _ensure() -> void:
 
 func _flush() -> void:
 	_dirty = false
+	var out := {"vault": vault, "tester": enabled, "god": god_on, "infinite": infinite_on, "endless": endless_on, "locks_off": locks_off, "refund_nanites": refund_done, "assist_god": assist_god}
+	if clean() and FileAccess.file_exists(_path()):
+		var old = JSON.parse_string(FileAccess.get_file_as_string(_path()))          # a clean build only ever touches its own switch -- the test kit's vault on this account is left exactly as it was
+		if old is Dictionary:
+			old["assist_god"] = assist_god
+			out = old
 	var f := FileAccess.open(_path(), FileAccess.WRITE)
 	if f != null:
-		f.store_string(JSON.stringify({"vault": vault, "tester": enabled, "god": god_on, "infinite": infinite_on, "endless": endless_on, "locks_off": locks_off, "refund_nanites": refund_done}))
+		f.store_string(JSON.stringify(out))
 
 
 func touch() -> void:
@@ -104,6 +143,9 @@ func active() -> bool:
 
 
 func god() -> bool:
+	_ensure()
+	if clean():
+		return assist_ok() and assist_god          # the Assist page's switch (damage, and consumables/materials you hold never run out)
 	return active() and god_on
 
 
@@ -128,12 +170,56 @@ func floor_ids() -> Array:
 
 
 func teleport(id: String, arrive: String = "") -> void:
-	if not unlocked():
+	if not can_warp():
 		G.message.emit(I18n.t("Teleport needs the test kit's open locks."))
 		return
+	G.warp_pass = true                       # (the warp walks past the paywall / Lite checks only; gates and key stairs stay as they are)
 	G.message.emit(I18n.t("You step through to %s.") % id)
 	var tag: String = arrive if arrive != "" else ("P" if id == "village" or id == "valley" else "<")
 	G.go_to(id, tag)
+
+
+func warp_cell(cell: Vector2i) -> bool:
+	## MAP WARP, within the place you are in: stand on a cell you have seen
+	if not can_warp():
+		return false
+	var at = G.sys("atlas")
+	var lv = at.live_level() if at != null else null
+	var pl = hud_player()
+	if lv == null or pl == null or not lv.is_free(cell):
+		G.message.emit(I18n.t("You can't stand there."))
+		return false
+	pl.global_position = lv.cell_to_world(cell) + Vector3(0, 0.6, 0)
+	if "velocity" in pl:
+		pl.velocity = Vector3.ZERO
+	G.message.emit(I18n.t("You step across the map."))
+	return true
+
+
+func hud_player():
+	var tr_ = G.get_tree()
+	return tr_.get_first_node_in_group("player") if tr_ != null else null
+
+
+func assist_menu(hud) -> void:
+	_ensure()
+	var lines := [
+		I18n.t("God mode: %s. Nothing can hurt you or end you, and the potions, salves and materials you hold never run out -- they still work when used. Every lock, gate and fight is as it was, so you progress as normal.") % (I18n.t("on") if assist_god else I18n.t("off")),
+		I18n.t("Floor warp: the village, the valley, any floor (its start or its way down)."),
+		I18n.t("Map warp: open the map, tap a spot you have seen (or another place on The world), then press Warp."),
+		I18n.t("You are standing on: %s.") % str(G.current_level)]
+	var opts := []
+	opts.append([I18n.t("God mode: %s (tap to switch)") % (I18n.t("on") if assist_god else I18n.t("off")), func():
+		assist_god = not assist_god
+		_dirty = true
+		_flush()
+		assist_menu(hud)])
+	opts.append([I18n.t("Floor warp"), func(): teleport_menu(hud)])
+	opts.append([I18n.t("Map warp (open the map)"), func():
+		hud.close_dialog()
+		hud.open_hub("Map")])
+	opts.append([I18n.t("Close"), hud.close_dialog])
+	hud.open_dialog(I18n.t("Assist"), "\n".join(lines), opts)
 
 
 func teleport_menu(hud, band: int = -1) -> void:
@@ -152,8 +238,8 @@ func teleport_menu(hud, band: int = -1) -> void:
 			var lo := b
 			var hi := mini(b + 10, floors.size())
 			opts.append([I18n.t("Floors %d to %d") % [lo + 1, hi], func(): teleport_menu(hud, lo)])
-		opts.append([I18n.t("Back"), func(): menu(hud)])
-		hud.open_dialog(I18n.t("Teleport"), I18n.t("Where to? Locks are open while the test kit's switch is on. You are standing on floor: %s.") % str(G.current_level), opts)
+		opts.append([I18n.t("Back"), func(): assist_menu(hud) if clean() else menu(hud)])
+		hud.open_dialog(I18n.t("Teleport"), I18n.t("Where to? You are standing on floor: %s.") % str(G.current_level), opts)
 		return
 	var fl := ids.filter(func(i): return str(i).begins_with("floor"))
 	for i in range(band, mini(band + 10, fl.size())):
@@ -183,7 +269,23 @@ func infinite() -> bool:
 
 func free_item(id: String) -> bool:
 	## is this one of the things the kit never lets run out? (materials and consumables -- not gear, treasures or quest things)
-	return infinite() and str(G.item_def(id).get("type", "")) in _FREE
+	var ty := str(G.item_def(id).get("type", ""))
+	if infinite() and ty in _FREE:
+		return true
+	return ty in _GOD_FREE and assist_ok() and god()    # round 178: god mode in the Assist build -- what you hold never runs out, and it still works
+
+
+func god_stock() -> void:
+	## round 180 (Robert: "i still do not have unlimited items of everything"): god mode in the Assist build keeps EVERY material,
+	## consumable and rune in the pack at 999, and they never run out. (Gear is made at the bench: 100%, anywhere, from this stock.)
+	var changed := false
+	for id in G.items:
+		var sid := str(id)
+		if str(G.items[id].get("type", "")) in _GOD_FREE and int(G.inventory.get(sid, 0)) < GOD_STOCK:
+			G.inventory[sid] = GOD_STOCK
+			changed = true
+	if changed:
+		G.stats_changed.emit()
 
 
 func restock() -> void:
@@ -195,7 +297,13 @@ func restock() -> void:
 
 
 func portable_bench() -> bool:
-	return active()
+	return active() or god_craft()
+
+
+func god_craft() -> bool:
+	## round 179 (Robert: craft from anywhere at 100% in god mode): god mode in any build, never in the online world
+	_ensure()
+	return god() and not OnlineGen.is_online(str(G.current_level))
 
 
 func reset() -> void:
@@ -214,9 +322,13 @@ func save_state() -> Dictionary:
 
 func tick(delta: float) -> void:
 	_t += delta
-	if god() and G.hp < G.max_hp():
-		G.hp = G.max_hp()
+	if god():
+		var mh: int = G.max_hp(true)          # round 195: every frame -- the kept effect list
+		if G.hp < mh:
+			G.hp = mh
 		G.stats_changed.emit()
+	if assist_ok() and god() and _t >= 4.0:
+		god_stock()
 	if infinite() and not _stocked:
 		_stocked = true
 		restock()
@@ -266,6 +378,8 @@ func pull_all() -> int:
 func pull_for(r: Dictionary) -> void:
 	## short of something a recipe needs? take it from the vault
 	_ensure()
+	if god_craft():
+		G._pull_for(r)                     # god mode: the chest at home feeds the table from anywhere
 	if not enabled or vault.is_empty():
 		return
 	for need in r.get("needs", {}):

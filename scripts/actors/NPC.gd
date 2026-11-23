@@ -22,6 +22,9 @@ const ROLE_TINT := {
 	"academy": Color(0.95, 0.75, 0.95),
 	"tournament": Color(1.0, 0.9, 0.4),
 	"villager": Color(0.9, 1.0, 0.85),
+	"auction": Color(1.0, 0.8, 0.35),
+	"keeper": Color(0.75, 1.0, 0.9),
+	"notice": Color(0.8, 0.9, 1.0),
 }
 const SHOP := ["healing_salve", "qi_pill", "calming_incense", "padded_vest", "storage_ring"]
 
@@ -157,6 +160,12 @@ func _usual(extra: String = "") -> void:
 	match role:
 		"merchant":
 			_merchant(extra)
+		"auction":
+			_auction(extra)
+		"keeper":
+			_keeper(extra)
+		"notice":
+			_notice(extra)
 		"smith":
 			_smith(extra)
 		"alchemist":
@@ -273,6 +282,176 @@ func _merchant(extra: String = "") -> void:
 	if extra != "":
 		body = extra + "\n\n" + body
 	_hud().open_dialog(npc_name, body, opts)
+
+
+# ---- 2026-11-06: the Common City -------------------------------------------------------------
+
+func _auction(extra: String = "") -> void:
+	var A = Game.sys("auction")
+	if A == null:
+		return
+	A.settle()
+	var body := I18n.t("The Exchange of the Common City. Travellers from every Land leave their goods here, and buy.")
+	body += I18n.t("\n\nYour lots up: %d of %d.   Waiting at the counter: %d gold.   You have %d gold.") % [A.lots.size(), int(A._n("max_lots", 8)), A.proceeds, Game.gold]
+	if extra != "":
+		body = extra + "\n\n" + body
+	var opts := []
+	if A.proceeds > 0:
+		opts.append([I18n.t("Collect %d gold") % A.proceeds, func(): _auction(A.collect())])
+	opts.append([I18n.t("Browse today's lots"), _auction_market])
+	opts.append([I18n.t("Sell something through the house"), _auction_pick.bind(0)])
+	if not A.lots.is_empty():
+		opts.append([I18n.t("Your lots (%d)") % A.lots.size(), _auction_mine])
+	opts.append(["Goodbye", _close])
+	_hud().open_dialog(npc_name, body, opts)
+
+
+func _auction_market() -> void:
+	var A = Game.sys("auction")
+	var m: Array = A.market()
+	var opts := []
+	for i in m.size():
+		var lot: Dictionary = m[i]
+		if A.lot_gone(i):
+			continue
+		opts.append(["%d %s -- %d gold%s" % [int(lot["n"]), Game.item_name(str(lot["item"])), int(lot["price"]), (I18n.t("  (%d each)") % int(lot["each"])) if int(lot["n"]) > 1 else ""],
+			func(): _auction(A.buy(i))])
+	opts.append(["Back", _auction.bind("")])
+	_hud().open_dialog(npc_name, I18n.t("Today's lots. New ones come in tomorrow. You have %d gold.") % Game.gold, opts)
+
+
+func _auction_pick(page: int) -> void:
+	var A = Game.sys("auction")
+	var ids := []
+	for id in Game.inventory:
+		if A.listable(str(id)) == "":
+			ids.append(str(id))
+	ids.sort_custom(func(a, b): return Game.item_name(a) < Game.item_name(b))
+	var per := 10
+	var opts := []
+	for id in ids.slice(page * per, page * per + per):
+		opts.append(["%s  (%d to sell, worth about %d each)" % [Game.item_name(id), A.free_to_list(id), A.value_of(id)], _auction_price.bind(id)])
+	if (page + 1) * per < ids.size():
+		opts.append([I18n.t("More..."), _auction_pick.bind(page + 1)])
+	opts.append(["Back", _auction.bind("")])
+	_hud().open_dialog(npc_name, I18n.t("What will you put up? (Not the heirloom, treasures, quest things, or what you bought here.)") if not ids.is_empty() else I18n.t("Nothing you carry can go up for sale."), opts)
+
+
+func _auction_price(id: String) -> void:
+	var A = Game.sys("auction")
+	var n: int = A.free_to_list(id)
+	var opts := []
+	for t in A.tiers():
+		var key: String = t[0]
+		opts.append(["%s -- %d gold for %d (%s)" % [t[1], A.price_for(id, key, n), n, {"quick": I18n.t("sells within the hour, usually"), "fair": I18n.t("a few hours"), "dear": I18n.t("a day or so, if at all")}[key]],
+			func(): _auction(A.list_item(id, n, key))])
+	opts.append(["Back", _auction_pick.bind(0)])
+	_hud().open_dialog(npc_name, I18n.t("%d %s. The house keeps 8%% of the sale, and 2%% to list it.") % [n, Game.item_name(id)], opts)
+
+
+func _auction_mine() -> void:
+	var A = Game.sys("auction")
+	var opts := []
+	for i in A.lots.size():
+		var l: Dictionary = A.lots[i]
+		opts.append([I18n.t("Take back: %d %s (%d gold)") % [int(l["n"]), Game.item_name(str(l["item"])), int(l["price"])], func(): _auction(A.withdraw(i))])
+	opts.append(["Back", _auction.bind("")])
+	_hud().open_dialog(npc_name, I18n.t("Your lots. Buyers come while you're away."), opts)
+
+
+func _keeper(extra: String = "") -> void:
+	## 2026-11-06: your own world's lectern -- name it, choose its land, build on its plots, collect what it grew
+	var K = Game.sys("worldkeeper")
+	if K == null:
+		return
+	var body := I18n.t("%s. %d of 12 plots open (more as your realm climbs). It looks like %s.") % [K.world_name(), K.plot_count(), Game.FrontierGen.name_of("frontier:" + K.land)]
+	var built := []
+	for i in K.plot_count():
+		built.append("- %s: %s" % [K.plot_name(i).capitalize(), K.kind_name(str(K.plots[str(i)])) if K.plots.has(str(i)) else I18n.t("meadow, waiting")])
+	body += "\n\n" + "\n".join(built)
+	if extra != "":
+		body = extra + "\n\n" + body
+	var tp: Dictionary = K.tithe_preview()
+	var opts := []
+	if int(tp.get("gold", 0)) > 0 or tp.size() > 1:
+		opts.append([I18n.t("Collect what your world grew"), func(): _keeper(K.collect_tithe())])
+	opts.append([I18n.t("Build on a plot"), _keeper_plot])
+	opts.append([I18n.t("Change its land"), _keeper_land])
+	opts.append([I18n.t("Name it"), _keeper_name])
+	opts.append(["Goodbye", _close])
+	_hud().open_dialog(npc_name, body, opts)
+
+
+func _keeper_plot() -> void:
+	var K = Game.sys("worldkeeper")
+	var opts := []
+	for i in K.plot_count():
+		opts.append(["%s (%s)" % [K.plot_name(i).capitalize(), K.kind_name(str(K.plots[str(i)])) if K.plots.has(str(i)) else I18n.t("meadow")], _keeper_kind.bind(i)])
+	opts.append(["Back", _keeper.bind("")])
+	_hud().open_dialog(npc_name, I18n.t("Which plot? You have %d gold.") % Game.gold, opts)
+
+
+func _keeper_kind(i: int) -> void:
+	var K = Game.sys("worldkeeper")
+	var opts := []
+	for k in K.KINDS:
+		opts.append(["%s -- %d gold" % [K.kind_name(k).capitalize(), K.build_cost(k)], func():
+			var r: String = K.build(i, k)
+			_keeper(r)
+			if str(K.plots.get(str(i), "")) == k and Game.current_level == "realm:own":
+				Game.go_to("realm:own", "K")])          # (redraw it, back by the lectern)
+	if K.plots.has(str(i)):
+		opts.append([I18n.t("Let it return to meadow"), func():
+			_keeper(K.clear_plot(i))
+			Game.go_to("realm:own", "K")])
+	opts.append(["Back", _keeper_plot])
+	_hud().open_dialog(npc_name, I18n.t("What will %s be?") % K.plot_name(i), opts)
+
+
+func _keeper_land() -> void:
+	var K = Game.sys("worldkeeper")
+	var opts := []
+	for rid in K.lands_walked():
+		opts.append([Game.FrontierGen.name_of("frontier:" + rid), func():
+			_keeper(K.set_land(rid))
+			Game.go_to("realm:own", "K")])
+	opts.append(["Back", _keeper.bind("")])
+	_hud().open_dialog(npc_name, I18n.t("Your world can take the look of any Land you have walked."), opts)
+
+
+func _keeper_name() -> void:
+	var K = Game.sys("worldkeeper")
+	var opts := []
+	for nm in [I18n.t("Stillwater"), I18n.t("The Quiet Hollow"), I18n.t("Lanternfall"), I18n.t("Greenreach"), I18n.t("The Long Garden"), I18n.t("Highmeadow"), I18n.t("Your World")]:
+		opts.append([nm, func():
+			K.name_ = "" if nm == I18n.t("Your World") else nm
+			if Game.sys("travel") != null and Game.sys("travel").stones.has("realm:own"):
+				Game.sys("travel").stones["realm:own"]["name"] = K.world_name()
+			_keeper(I18n.t("It is %s now.") % K.world_name())])
+	opts.append(["Back", _keeper.bind("")])
+	_hud().open_dialog(npc_name, I18n.t("What will your world be called?"), opts)
+
+
+func _notice(extra: String = "") -> void:
+	## the Common City's notice wall: offline, rumours and the day's world; online, other players' posts and co-op calls
+	var lines := []
+	var W = Game.sys("world")
+	if W != null and W.has_method("festival"):
+		var fe = W.festival()
+		if fe is Dictionary and not (fe as Dictionary).is_empty():
+			lines.append(I18n.t("TODAY: %s") % str(fe.get("name", "")))
+	var rum: Array = Game.valley_data().get("rumours", []) if Game.has_method("valley_data") else []
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash("notice|" + Game.today())
+	for i in 4:
+		if rum.is_empty():
+			break
+		var rg = rum[rng.randi() % rum.size()]
+		var rl: Array = rg.get("lines", []) if rg is Dictionary else [str(rg)]
+		if not rl.is_empty():
+			lines.append("- " + str(rl[rng.randi() % rl.size()]))
+	lines.append(I18n.t("\n(When Elite Online opens, this wall carries other cultivators' posts, trades and calls for company in the deep.)"))
+	_hud().open_dialog(npc_name, (extra + "\n\n" if extra != "" else "") + "\n".join(lines), [["Goodbye", _close]])
 
 
 func faction() -> String:
@@ -485,6 +664,14 @@ func _heirloom(crafts: Array, extra: String = "") -> void:
 		else:
 			var dc := "jewel" if str(Game.gear_data()["families"][str(p["family"])].get("kind", "")) == "jewel" else "forge"
 			opts.append(["Make it", _heirloom_design.bind(crafts, i, dc, 0, {})])
+	for li in H.lost_pieces():
+		var lp: Dictionary = H.pieces()[li]
+		var lw: String = H.why_not(li)
+		var ldc := "jewel" if str(Game.gear_data()["families"][str(lp["family"])].get("kind", "")) == "jewel" else "forge"
+		if lw == "":
+			opts.append([I18n.t("Remake the lost %s (%s)") % [str(lp["name"]).to_lower(), H.needs_text(li).split(" -- ")[1] if " -- " in H.needs_text(li) else ""], _heirloom_design.bind(crafts, li, ldc, 0, {"_remake": true})])
+		else:
+			body += I18n.t("\n\nLost: the %s -- the smith can make it again (%s)") % [str(lp["name"]).to_lower(), lw.trim_suffix(".")]
 	if H.worn_count() > 0:
 		for id in H.feed_options().slice(0, 5):
 			opts.append(["Feed it: %s (%d)" % [Game.item_name(id), Game.count(id)], func(): _heirloom(crafts, H.feed(id))])
@@ -518,7 +705,9 @@ func _heirloom_design(crafts: Array, i: int, dc: String, gi: int, design: Dictio
 			_hud().open_dialog(npc_name, I18n.t("Heirloom %s -- choose the %s.") % [str(H.pieces()[i]["name"]).to_lower(), str(gs[gi][2]).to_lower()], opts)
 			return
 		gi += 1
-	var res: Dictionary = H.make(i, design)
+	var remaking := bool(design.get("_remake", false))
+	design.erase("_remake")
+	var res: Dictionary = H.remake(i, design) if remaking else H.make(i, design)
 	_heirloom(crafts, str(res.get("text", "")))
 
 
@@ -1182,6 +1371,163 @@ func _commissioned(d, gid: String, back: Callable, p: Dictionary, r: float) -> v
 var _qmark: Label3D
 var _qmark_t := 0.0
 
+## ---- round 184: a word as you pass ------------------------------------------------------------------
+## Folk notice you: come within a few steps and they turn and say something -- the hour ("Late to be
+## about."), the weather ("You're soaked through."), the season, their trade ("Mind the sparks."), how
+## you look ("You're bleeding. Sit down a moment."), or, in a town of the deep, that you came down from the
+## surface. A little speech line over their head, then they let you go. Once in a while per person, never
+## two at once, never mid-fight. data/greetings.json; Sound -> "Villagers greet you as you pass".
+const GREET_DATA := "res://data/greetings.json"
+static var _greet_data := {}
+static var _last_greet_ms := -999999
+var _greet_poll := 0.0
+var _greet_cd := 0.0
+var _greet_near := false
+var _bubble: Label3D
+var _bubble_t := 0.0
+var said_last := ""          # (tests: what they said last)
+
+
+static func greet_data() -> Dictionary:
+	if _greet_data.is_empty():
+		var d = JSON.parse_string(FileAccess.get_file_as_string(GREET_DATA)) if FileAccess.file_exists(GREET_DATA) else null
+		_greet_data = d if d is Dictionary else {"lines": {}}
+	return _greet_data
+
+
+static func hour_part(hr: float) -> String:
+	var H: Dictionary = greet_data().get("hours", {})
+	for k in ["dawn", "morning", "afternoon", "evening"]:
+		var r: Array = H.get(k, [])
+		if r.size() == 2 and hr >= float(r[0]) and hr < float(r[1]):
+			return k
+	return "night"
+
+
+static func greeting_for(npc_role: String, hr: float, wx: String, sea: String, hurt: bool, deep_town: bool, rng: RandomNumberGenerator, sky: String = "") -> String:
+	## one line, in this order of what's most worth saying
+	var D := greet_data()
+	var L: Dictionary = D.get("lines", {})
+	var ch: Dictionary = D.get("chance", {})
+	var pick := func(key: String) -> String:
+		var a: Array = L.get(key, [])
+		return str(a[rng.randi() % a.size()]) if a.size() > 0 else ""
+	if hurt and L.has("hurt"):
+		return pick.call("hurt")
+	if sky != "" and L.has(sky) and rng.randf() < 0.65:         # round 185: lantern night, the northern lights, falling stars
+		return pick.call(sky)
+	if deep_town and L.has("deep_town") and rng.randf() < 0.5:
+		return pick.call("deep_town")
+	if wx != "" and L.has(wx) and rng.randf() < float(ch.get("weather", 0.5)):
+		return pick.call(wx)
+	if L.has(npc_role) and rng.randf() < float(ch.get("role", 0.4)):
+		return pick.call(npc_role)
+	if sea != "" and L.has(sea) and rng.randf() < float(ch.get("season", 0.2)):
+		return pick.call(sea)
+	return pick.call(hour_part(hr))
+
+
+func _greet_tick(delta: float) -> void:
+	_greet_cd -= delta
+	_greet_poll -= delta
+	if _bubble_t <= 0.0 and _greet_poll > 0.0:
+		return                      # (r186: most frames, nothing to do -- don't even look for the player)
+	var pl = get_tree().get_first_node_in_group("player") if is_inside_tree() else null
+	if _bubble_t > 0.0:
+		_bubble_t -= delta
+		if _bubble:
+			_bubble.modulate.a = clampf(_bubble_t / 0.6, 0.0, 1.0) * clampf((float(greet_data().get("show", 3.6)) - _bubble_t) / 0.25 + 0.0, 0.0, 1.0)
+			_bubble.visible = _bubble_t > 0.0
+		if pl and _body_model:            # they look at you while they speak
+			var to: Vector3 = pl.global_position - global_position
+			_body_model.rotation.y = lerp_angle(_body_model.rotation.y, atan2(to.x, to.z), minf(delta * 5.0, 1.0))
+	if _greet_poll > 0.0:
+		return
+	_greet_poll = 0.25
+	if pl == null or not visible or level == null:
+		return
+	var d: float = global_position.distance_to(pl.global_position)
+	var near_r := float(greet_data().get("near", 4.5))
+	if d > near_r + 1.5:
+		_greet_near = false
+		return
+	if d > near_r or _greet_near:
+		return
+	# not now (a menu is open, a fight is on, someone else just spoke): try again in a moment
+	var hud = _hud()
+	if hud and hud.has_method("is_blocking") and hud.is_blocking():
+		return
+	if Game.audio and float(Game.audio.combat_level) > 0.3:
+		return
+	if Time.get_ticks_msec() - _last_greet_ms < int(float(greet_data().get("between", 6)) * 1000.0):
+		return
+	_greet_near = true                 # (this time you came by counts, whether they speak or not)
+	if str(preload("res://scripts/core/Gfx.gd").settings.get("greetings", "on")) != "on" or _greet_cd > 0.0:
+		return
+	greet()
+
+
+func greet() -> String:
+	## say a passing word now (the director calls this; tests may too)
+	var W = Game.sys("world")
+	var wx := ""
+	var sea := ""
+	if W != null:
+		var reg := str(W.region())
+		wx = str(W.weather(reg).get("id", ""))
+		if wx in ["clear", "still"]:
+			wx = ""
+		if reg == "surface":
+			sea = str(W.season_id())
+	var hurt: bool = Game.hp < int(Game.max_hp() * 0.35)
+	var deep_town := level != null and str(level.get("theme")) == "settlement"
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash("%s|%d" % [npc_name, Time.get_ticks_msec()])
+	var sky := ""
+	var wfx0 = level.get_node_or_null("WorldFX") if level != null else null
+	if wfx0 != null:
+		if bool(wfx0.state.get("sky_lanterns", false)):
+			sky = "lanterns"
+		elif float(wfx0.state.get("aurora", 0.0)) >= 0.5:
+			sky = "aurora"
+		elif float(wfx0.state.get("meteors", 0.0)) >= 0.5:
+			sky = "meteors"
+	var ln := greeting_for(role, Game.hour(), wx, sea, hurt, deep_town, rng, sky)
+	if ln == "":
+		return ""
+	said_last = ln
+	_last_greet_ms = Time.get_ticks_msec()
+	_greet_cd = float(greet_data().get("cooldown", 150))
+	if DisplayServer.get_name() == "headless":
+		return ln
+	var wfx = level.get_node_or_null("WorldFX") if level != null else null
+	if wfx != null and bool(wfx.state.get("cold", false)) and _body_model:       # round 184b: their words show as breath in the cold
+		var pl2 = get_tree().get_first_node_in_group("player")
+		var fwd := Vector3(sin(_body_model.rotation.y), 0, cos(_body_model.rotation.y))
+		if pl2 is Node3D:
+			var to2: Vector3 = (pl2 as Node3D).global_position - global_position
+			to2.y = 0.0
+			if to2.length() > 0.1:
+				fwd = to2.normalized()          # (they turn to you as they speak)
+		preload("res://scripts/fx/FX.gd").breath(global_position + Vector3(0, 1.55, 0) + fwd * 0.22, fwd)
+	if _bubble == null:
+		_bubble = Label3D.new()
+		_bubble.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		_bubble.pixel_size = 0.0075
+		_bubble.no_depth_test = true
+		_bubble.font_size = 34
+		_bubble.outline_size = 12
+		_bubble.outline_modulate = Color(0.05, 0.04, 0.03, 0.9)
+		_bubble.width = 520.0
+		_bubble.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		add_child(_bubble)
+	_bubble.position = Vector3(0, 3.2 if (_qmark and _qmark.text != "") else 2.6, 0)
+	_bubble.text = "\u201c" + I18n.t(ln) + "\u201d"
+	_bubble.modulate = Color(1.0, 0.98, 0.92, 0.0)
+	_bubble.visible = true
+	_bubble_t = float(greet_data().get("show", 3.6))
+	return ln
+
 
 func _qmark_update() -> void:
 	var Q = Game.sys("quests")
@@ -1196,6 +1542,7 @@ func _process(delta: float) -> void:
 		if _qmark_t <= 0.0:
 			_qmark_t = 1.0
 			_qmark_update()
+	_greet_tick(delta)
 	if not wander or not visible or level == null:
 		return
 	var player = get_tree().get_first_node_in_group("player")

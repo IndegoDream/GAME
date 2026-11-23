@@ -195,6 +195,47 @@ func make(i: int, design: Dictionary = {}) -> Dictionary:
 	return {"ok": true, "item": id, "text": str(p.get("done", "It is made."))}
 
 
+# ---- remaking a lost piece (2026-11-06) ------------------------------------------------
+## A piece you made and no longer have (sold, worked into something, lost to an edit) can be made again at the smith,
+## for the same recipe. The set's growth lives in the set, not the piece, so nothing you grew is lost.
+
+func owned_piece(i: int) -> String:
+	## the id of a piece you hold (worn or in the bag) that is heirloom piece i, or ""
+	for id in G.inventory:
+		var sid := str(id)
+		if G.count(sid) > 0 and G.has_item_def(sid) and int(G.item_def(sid).get("heirloom", 0)) == i + 1:
+			return sid
+	for s in G.gear_slots():
+		var w: String = G.worn(str(s[0]))
+		if w != "" and G.has_item_def(w) and int(G.item_def(w).get("heirloom", 0)) == i + 1:
+			return w
+	return ""
+
+
+func lost_pieces() -> Array:
+	var out := []
+	for i in made:
+		if owned_piece(int(i)) == "":
+			out.append(int(i))
+	return out
+
+
+func remake(i: int, design: Dictionary = {}) -> Dictionary:
+	if not (i in made):
+		return {"ok": false, "text": I18n.t("That piece hasn't been made yet -- make it in order first.")}
+	if owned_piece(i) != "":
+		return {"ok": false, "text": I18n.t("You still have that piece.")}
+	var keep := made.duplicate()
+	made = made.filter(func(x): return int(x) < i)          # make() checks "the next piece"; put the line back to it for one breath
+	var res := make(i, design)
+	made = keep
+	_fx_key = ""
+	if bool(res.get("ok", false)):
+		G.log_event("heirloom_remade", {"n": i, "item": str(res.get("item", ""))})
+		res["text"] = I18n.t("The smith works from the old sheet again. \"Some things are worth making twice.\" The set knows its own piece -- what it has grown into, it still is.")
+	return res
+
+
 # ---- growth ---------------------------------------------------------------------
 
 func worn_count() -> int:

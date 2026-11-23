@@ -9,6 +9,13 @@ extends Node3D
 ##   * in the deep: the light dims with the night, and the air carries what
 ##     the deep is doing (qi mist, spores, ash, a cold seep, dripping dark)
 ##   * on a festival day, Eliet is strung with coloured lanterns
+##   * round 184b, the life of the air: fireflies on warm nights, petals drifting on spring days, seed
+##     fluff in summer, rain landing on the ground around you; your breath shows in the cold; and the
+##     thunder comes a few seconds after the flash, from where it struck
+##   * round 185, the wow: the northern lights on clear cold nights, shooting stars (a shower some
+##     nights), cloud shadows sweeping over the land by day, and lantern night in Eliet -- on a clear
+##     evening every other day and every festival, the village sends up glowing paper lanterns that
+##     rise and drift until they're sparks among the stars
 ## Nothing here touches play -- that's World.gd. Recomputed every few seconds.
 
 const Look := preload("res://scripts/world/Look.gd")
@@ -27,6 +34,11 @@ var _fog_on0 := false
 var _snow: MeshInstance3D
 var _rng := RandomNumberGenerator.new()
 var state := {}           # what's showing now (for tests and the World page)
+var _life: Node3D         # round 184b: fireflies, petals, fluff, rain landing (beside the weather's own motes)
+var _life_kind := ""
+var _breath_t := 2.0
+var _lanterns: Node3D     # round 185: lantern night (SkyLanterns.gd)
+static var _told := {}    # round 185: "lanterns|day" etc. -- said once
 var _dressed := {}        # what the season and the festival put down (kept in state)
 
 
@@ -67,6 +79,18 @@ func _process(delta: float) -> void:
 	elif _flash and bool(state.get("flash", false)) and _rng.randf() < delta * 0.08:
 		_flash_t = 0.25            # lightning
 		_flash.position = Vector3(_rng.randf_range(-20, 20), 30, _rng.randf_range(-20, 20)) + _player_pos()
+		if Game.audio and Game.audio.get("world") != null:
+			Game.audio.world.thunder_after(_rng.randf_range(1.2, 3.8), _flash.position)     # round 184b: then the thunder, from there
+	# round 184b: a breath you can see in the cold
+	if bool(state.get("cold", false)):
+		_breath_t -= delta
+		if _breath_t <= 0.0:
+			_breath_t = _rng.randf_range(2.8, 4.2)
+			var pl = get_tree().get_first_node_in_group("player") if is_inside_tree() else null
+			if pl and pl.get("_model") != null and not bool(pl.get("meditating")):
+				var yaw: float = (pl.get("_model") as Node3D).rotation.y
+				var fwd := Vector3(sin(yaw), 0, cos(yaw))
+				preload("res://scripts/fx/FX.gd").breath(pl.global_position + Vector3(0, 1.55, 0) + fwd * 0.22, fwd)
 
 
 func _player_pos() -> Vector3:
@@ -102,7 +126,7 @@ func apply() -> void:
 		if level.sun_light:
 			var sun: DirectionalLight3D = level.sun_light
 			sun.rotation_degrees = Vector3(-52, -35, 0) if dl >= 1.0 else Vector3(-18 - 30 * dl, -35, 0)
-			sun.light_energy = (0.18 + 1.07 * dl) * dim
+			sun.light_energy = (0.36 + 0.89 * dl) * dim
 			sun.light_color = Color(0.6, 0.7, 1.0).lerp(Color(1.0, 0.97, 0.92), dl).lerp(Color(1.0, 0.7, 0.45), dusk * 0.6) * season_tint
 			if bool(w.get("warm", false)):
 				sun.light_color = sun.light_color.lerp(Color(1.0, 0.85, 0.6), 0.25)
@@ -112,8 +136,8 @@ func apply() -> void:
 			level._sky_mat.set_shader_parameter("cloud_cover", float(w.get("cloud", 0.4)))
 			if level.sun_light:
 				level._sky_mat.set_shader_parameter("sun_dir", level.sun_light.transform.basis.z.normalized())
-		env.ambient_light_color = Color(0.4, 0.45, 0.65).lerp(Color(0.62, 0.6, 0.58), dl) * season_tint
-		env.ambient_light_energy = (0.3 + 0.25 * dl) * lerpf(1.0, dim, 0.6)
+		env.ambient_light_color = Color(0.5, 0.58, 0.82).lerp(Color(0.62, 0.6, 0.58), dl) * season_tint
+		env.ambient_light_energy = (0.48 + 0.07 * dl) * lerpf(1.0, dim, 0.6)
 		if fogm > 1.05:
 			env.fog_enabled = true
 			env.fog_light_color = Color(0.55, 0.6, 0.7).lerp(Color(0.85, 0.87, 0.9), dl)
@@ -130,6 +154,10 @@ func apply() -> void:
 			env.fog_light_color = _fog_col0 if _fog_on0 else hnight.lerp(hday, dl).lerp(hdusk, dusk * 0.5)
 			env.fog_density = maxf(_fog0 if _fog_on0 else 0.0, haze)
 			env.fog_sky_affect = 0.0
+		if Look.detail:
+			# Keep foreground materials clear; the existing distant ridge shader
+			# supplies layered aerial perspective without extra geometry.
+			env.fog_density *= 0.55
 		state["daylight"] = dl
 	else:
 		var dd: float = W.deep_dim() if not W.calm else 1.0
@@ -141,6 +169,13 @@ func apply() -> void:
 		env.fog_light_color = _fog_col0.lerp(tint * 0.5, 0.3 if tc.size() >= 3 else 0.0)
 		state["dim"] = dd
 	_set_fx(str(w.get("fx", "")))
+	_wonders(W, w)
+	var lk := str(level.get("look_key")) if level.get("look_key") != null else ""
+	var dl2: float = Game.daylight()
+	var low: bool = preload("res://scripts/core/Gfx.gd").effects_level() == "low"
+	_set_life("" if low else life_for(level.is_outdoor(), dl2, str(state.get("season", "")), str(state.get("weather", "")), str(state.get("fx", ""))))
+	state["life"] = _life_kind
+	state["cold"] = is_cold(level.is_outdoor(), str(state.get("season", "")), str(state.get("weather", "")), lk, dl2)
 	if bool(w.get("flash", false)) and _flash == null and level.is_outdoor():
 		_flash = OmniLight3D.new()
 		_flash.light_color = Color(0.8, 0.85, 1.0)
@@ -162,6 +197,122 @@ func _set_fx(kind: String) -> void:
 	m.kind = kind
 	m.tint = Color(0.6, 0.9, 1.0)
 	_motes = m
+	add_child(m)
+
+
+# ---- round 184b: the life of the air ------------------------------------------------------------
+
+static func life_for(outdoor: bool, dl: float, sea: String, wx: String, fx: String) -> String:
+	## what lives in the air around you here, now (looks only)
+	if not outdoor:
+		return ""
+	if fx == "rain":
+		return "splashes"
+	if wx in ["rain", "storm", "snow", "fog"]:
+		return ""
+	if dl < 0.25 and sea in ["thaw", "blaze", "harvest"]:
+		return "fireflies"
+	if dl >= 0.6 and wx in ["clear", "heat", ""]:
+		if sea == "thaw":
+			return "petals"
+		if sea == "blaze":
+			return "fluff"
+	return ""
+
+
+static func is_cold(outdoor: bool, sea: String, wx: String, look_key: String, dl: float = 1.0) -> bool:
+	## cold enough to see your breath
+	if outdoor:
+		return wx == "snow" or sea == "frost" or (sea == "harvest" and dl < 0.15)
+	return look_key == "frost" or wx == "cold_seep"
+
+
+# ---- round 185: the wow -- the sky at night, cloud shadows, lantern night -----------------------------
+
+static func sky_wonders(sea: String, wx: String, cloud: float, d: int, dl: float) -> Array:
+	## [northern lights 0..1, shooting stars 0..1] for a night like this
+	if dl >= 0.25 or not (wx in ["clear", "heat", "leaves", ""]) or cloud > 0.6:
+		return [0.0, 0.0]
+	var a := 0.0
+	if sea == "frost":
+		a = 1.0
+	elif sea == "harvest" and d % 3 == 0:
+		a = 0.6
+	elif d % 9 == 4:
+		a = 0.4
+	var m := 0.75 if d % 10 == 3 else 0.18          # a shower some nights; otherwise one now and then
+	return [a, m]
+
+
+static func cloud_shadow_for(dl: float, cloud: float) -> float:
+	## how dark the clouds' shadows lie on the land: none at night or under a sky that's all cloud or none
+	if dl < 0.3:
+		return 0.0
+	return 0.34 * dl * clampf(1.0 - absf(cloud - 0.45) * 1.8, 0.0, 1.0)
+
+
+static func lanterns_tonight(level_id: String, hr: float, wx: String, festival: bool, d: int) -> bool:
+	if level_id != "village" or hr < 19.0 or hr >= 22.5:
+		return false
+	if wx in ["rain", "storm", "snow", "fog"]:
+		return false
+	return festival or d % 2 == 0
+
+
+func _tell_once(key: String, text: String) -> void:
+	if _told.has(key) or DisplayServer.get_name() == "headless":
+		return
+	_told[key] = true
+	Game.message.emit(I18n.t(text))
+
+
+func _wonders(W, w: Dictionary) -> void:
+	var low: bool = preload("res://scripts/core/Gfx.gd").effects_level() == "low"
+	var out: bool = level.is_outdoor()
+	var dl: float = Game.daylight()
+	var d: int = int(W.day())
+	var cloud := float(w.get("cloud", 0.4))
+	var sw := sky_wonders(str(state.get("season", "")), str(state.get("weather", "")), cloud, d, dl) if out else [0.0, 0.0]
+	state["aurora"] = float(sw[0])
+	state["meteors"] = float(sw[1])
+	if level._sky_mat:
+		level._sky_mat.set_shader_parameter("aurora", float(sw[0]))
+		level._sky_mat.set_shader_parameter("meteors", 0.0 if low else float(sw[1]))
+	if float(sw[0]) >= 0.5:
+		_tell_once("aurora|%d" % d, "The northern lights are out tonight.")
+	if float(sw[1]) >= 0.5:
+		_tell_once("meteors|%d" % d, "Stars are falling tonight.")
+	var cs := 0.0 if (low or not out) else cloud_shadow_for(dl, cloud)
+	state["cloud_shadow"] = cs
+	if out and DisplayServer.get_name() != "headless":
+		var lm = preload("res://scripts/world/Horizon.gd").land_material(level)
+		if lm is ShaderMaterial:
+			(lm as ShaderMaterial).set_shader_parameter("cloud_shadow", cs)
+	var lt := lanterns_tonight(str(level.level_id), Game.hour(), str(state.get("weather", "")), not W.festival().is_empty(), d) and not low
+	state["sky_lanterns"] = lt
+	if lt:
+		if _lanterns == null:
+			_lanterns = preload("res://scripts/world/SkyLanterns.gd").new()
+			_lanterns.setup(level)
+			add_child(_lanterns)
+		_lanterns.start(Game.hour() >= 19.4)
+		_tell_once("lanterns|%d" % d, "Lantern night -- the village sends its wishes up.")
+	elif _lanterns != null:
+		_lanterns.stop()
+
+
+func _set_life(kind: String) -> void:
+	if kind == _life_kind:
+		return
+	_life_kind = kind
+	if _life:
+		_life.queue_free()
+		_life = null
+	if kind == "":
+		return
+	var m = preload("res://scripts/fx/Motes.gd").new()
+	m.kind = kind
+	_life = m
 	add_child(m)
 
 

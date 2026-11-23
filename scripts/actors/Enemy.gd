@@ -102,6 +102,12 @@ func setup(lvl, args: Dictionary) -> void:
 	cell = args.get("cell", Vector2i.ZERO)
 	stats = Game.enemies.get(etype, {}).duplicate(true)       # (this one's own numbers: styles and affixes change them)
 	minion = bool(args.get("minion", false))
+	if minion:
+		# round 198: a boss's young (and a splitting boss's pieces) are not bosses. They carried the boss's whole sheet,
+		# so each one left boss-grade gear, counted as a boss kill, went through the boss's phases and could call a
+		# brood of its own -- Robert's floor-34 Queen logged three boss kills and three gear drops in one second.
+		stats["boss"] = false
+		stats.erase("world_boss")
 	_roll(args)
 	_round30_numbers(args)
 	hp = int(stats.get("hp", 20))
@@ -274,6 +280,10 @@ func _round30_numbers(args: Dictionary) -> void:
 	var dmg_ad := 1.0 + ramp * float(AD.get("damage_share", 0.8))
 	stats["hp"] = maxi(1, int(round(float(stats.get("hp", 20)) * cm * hp_ad * Game.level_mod(ld, "foe_hp") * Game.curve_mult(dcv, "hp"))))
 	stats["damage"] = maxi(1, int(round(float(stats.get("damage", 5)) * (1.0 + (cm - 1.0) * 0.8) * dmg_ad * Game.level_mod(ld, "foe_damage") * Game.curve_mult(dcv, "damage"))))
+	if bool(stats.get("boss", false)) and not bool(stats.get("world_boss", false)) and _level_id().begins_with("floor"):
+		# round 200: the deep floors' masters ease a little (they out-traded the expected cultivator 4 to 1 by floor 49)
+		stats["hp"] = maxi(1, int(round(float(stats["hp"]) * Game.boss_ease(dcv, "hp"))))
+		stats["damage"] = maxi(1, int(round(float(stats["damage"]) * Game.boss_ease(dcv, "damage"))))
 	var dfc = Game.sys("difficulty")                                                       # round 139: your own difficulty (offline game)
 	if dfc != null and not dfc.is_standard():
 		stats["hp"] = maxi(1, int(round(float(stats["hp"]) * dfc.foe_hp())))
@@ -379,7 +389,12 @@ const FX := preload("res://scripts/fx/FX.gd")
 var body_kind := "beast"            # what it's built as: kenney | imp | puglin | golem | human | beast (round 29)
 
 
+const ARRIVAL_GRACE_MS := 2500
+var _born_ms := 0
+
+
 func _ready() -> void:
+	_born_ms = Time.get_ticks_msec()
 	add_to_group("enemy")
 	if bool(stats.get("passive", false)) and int(stats.get("tameable", 0)) > 0:
 		add_to_group("interactable")
@@ -638,12 +653,13 @@ func _physics_process(delta: float) -> void:
 			velocity.x = away.x * spd0
 			velocity.z = away.z * spd0
 			_face(away)
+			move_and_slide()
 		else:
 			_idle()
-		move_and_slide()
+			_rest_slide(delta)
 		return
-	if not _chasing and dist < aggro and _can_see(player):
-		_chasing = true
+	if not _chasing and dist < aggro and _can_see(player) and Time.get_ticks_msec() - _born_ms > ARRIVAL_GRACE_MS:
+		_chasing = true          # (2026-11-03: not in the first breath after you arrive -- a foe by the stair hit before the floor had drawn)
 	if not _revealed and dist < float(_sd.get("reveal", 4.5)):
 		_reveal()
 	if _chasing and dist > aggro * 2.2:
@@ -651,7 +667,7 @@ func _physics_process(delta: float) -> void:
 
 	if not _chasing:
 		_idle()
-		move_and_slide()
+		_rest_slide(delta)
 		return
 
 	if style == "swarmer" and not _brood_done and not minion:
@@ -697,6 +713,22 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+var _rest_t := 0.0
+
+
+func _rest_slide(delta: float) -> void:
+	## round 198: a foe standing still on the ground doesn't need the full slide every tick (two thirds of what 89 idle
+	## foes cost a floor) -- it checks its footing a couple of times a second instead; anything that moves it slides at once
+	if is_on_floor() and velocity.length_squared() < 0.0001:
+		_rest_t -= delta
+		if _rest_t > 0.0:
+			return
+		_rest_t = 0.4 + randf() * 0.2
+	else:
+		_rest_t = 0.0
+	move_and_slide()
+
+
 func _idle() -> void:
 	velocity.x = 0.0
 	velocity.z = 0.0
@@ -713,6 +745,8 @@ func _attack(player) -> void:
 	_cooldown = float(stats.get("cooldown", 1.4))
 	_attacking = 0.6
 	_play("attack-melee-right", true)
+	if _model and _model.has_method("act"):
+		_model.act("bite")              # a beast lunges and snaps (Beast.act)
 	Game.sfx_at("swing", global_position, 0.4)
 	# the blow lands a moment into the swing -- step back in time and it misses
 	get_tree().create_timer(0.3).timeout.connect(func():
@@ -901,6 +935,12 @@ func _boss_phases(mx: float) -> void:
 
 
 func _die() -> void:
+	Game.fx_hold(true)                 # round 197: a kill asks for the player's effects ~10 times -- build them once
+	_die_inner()
+	Game.fx_hold(false)
+
+
+func _die_inner() -> void:
 	_dead = true
 	Game.sfx_at("thud", global_position, 0.7)
 	FX.puff(global_position + Vector3(0, _mid_height() * 0.6, 0), Color(0.5, 0.48, 0.45), clampf(float(stats.get("scale", 1.0)), 0.6, 2.5))
@@ -964,7 +1004,11 @@ func _die() -> void:
 			Game.drop_gear(d, 2)
 		elif randf() < float(stats.get("gear_chance", Game.BRUTE_GEAR_CHANCE if int(stats.get("hp", 0)) >= Game.brute_hp_line(d) else Game.GEAR_CHANCE)):
 			Game.drop_gear(d, 0)
-	if stats.get("boss", false):
+	if stats.get("world_boss", false):
+		Game.set_flag("%s:wb:%s:%d" % [level.level_id, etype, Game.sys("world").day()])
+		Game.message.emit("%s has fallen! It will not stir again for days." % stats.get("name", etype))
+		Game.guild_event("boss")
+	elif stats.get("boss", false):
 		Game.boss_fell(not Game.has_flag("%s:boss:%s" % [level.level_id, etype]))
 		Game.set_flag("%s:boss:%s" % [level.level_id, etype])
 		Game.message.emit("%s has fallen!" % stats.get("name", etype))

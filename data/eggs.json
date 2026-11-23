@@ -1,0 +1,30 @@
+{
+  "_about": "Round 177 (Robert, 2026-10-25): 'allow for user to find beast eggs maybe they will be great bloodline beast or can take some of the bloodline resources to grow stronger.' Eggs turn up on floors, in chests and in the herb beds; a few carry a bloodline. Bloodline Essence grows any beast's blood; a bloodline-born one can take more.",
+  "carry": 6,
+  "slots": 2,
+  "third_slot_taming": 10,
+  "hours": 3.0,
+  "visit_cut_secs": 900.0,
+  "find": {"enter_floor": 0.12, "chest": 0.07, "harvest": 0.03, "kill": 0.006, "per_depth": 0.002, "scout": 0.12, "cap": 0.5},
+  "bloodline_chance": 0.12,
+  "bloodline_per_depth": 0.01,
+  "bloodline_cap": 0.4,
+  "potential": [[1, 0.6], [2, 0.3], [3, 0.1]],
+  "reveal_at": 0.5,
+  "blood_max": 3,
+  "blood_max_line": 6,
+  "blood_line_mult": 0.04,
+  "feed_base": 1,
+  "essence": {"item": "blood_essence", "kill": 0.025, "chest": 0.1, "hatch": [1, 2]},
+  "start_bond": 10.0,
+  "bloodlines": {
+    "ashen":    {"name": "Ashenblood",    "desc": "the old hearth-fires still burn in it",   "effect": {"damage_mult": 1.004, "burn_on_hit": 0.004}},
+    "frost":    {"name": "Frostborn",     "desc": "slow, cold and patient",                  "effect": {"damage_taken": 0.996, "ward": 0.2}},
+    "thorn":    {"name": "Thornkin",      "desc": "wild green strength",                     "effect": {"regen": 0.1, "gather_chance": 0.006}},
+    "storm":    {"name": "Stormcall",     "desc": "restless as the sky",                     "effect": {"move_mult": 1.004, "dodge_chance": 0.004}},
+    "gilded":   {"name": "Gilded Line",   "desc": "luck pools around it",                    "effect": {"loot_luck": 0.006, "keep_gold": 0.004}},
+    "moonlit":  {"name": "Moonlit",       "desc": "sees what hides",                         "effect": {"sense_radius": 0.35, "qi_mult": 1.004}}
+  },
+  "egg_names": ["Speckled", "Pale", "Mottled", "Dusky", "Smooth", "Warm", "Ridged", "Heavy"],
+  "item": {"id": "blood_essence", "name": "Bloodline Essence", "type": "material", "value": 120, "desc": "A drop of old, strong blood. Feed it to a beast to deepen its bloodline."}
+}

@@ -9,7 +9,7 @@ func _initialize() -> void:
 	var checks := []
 	checks.append(["plain is plain", D.is_plain({}) and D.is_plain({"motif": "plain", "trim": "none", "dye": "natural"})])
 	checks.append(["studded is not plain", not D.is_plain({"motif": "studded"})])
-	checks.append(["options listed", D.options("forge", "motifs").size() == 5 and D.options("forge", "dyes").size() == 5])
+	checks.append(["options listed", D.options("forge", "motifs").size() >= 5 and D.options("forge", "dyes").size() >= 5])          # (2026-11-03: design_more_gen added more)
 	G.skills["smithing"] = 0.0
 	checks.append(["low skill refused", D.check("forge", {"motif": "runic"}, 0) != ""])
 	checks.append(["trim needs material", D.check("forge", {"trim": "gold"}, 9) != ""])

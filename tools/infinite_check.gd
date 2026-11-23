@@ -20,6 +20,17 @@ func _initialize() -> void:
 	wf.close()
 	G.new_game()
 	var T = G.sys("tester")
+	if T.clean():
+		check("clean build rejects infinite stock", not T.infinite())
+		G.inventory["iron_ore"] = 5
+		T.tick(0.1)
+		check("tick does not conjure stock", G.count("iron_ore") == 5)
+		check("items are not free", not T.free_item("iron_ore"))
+		check("normal removal works", G.remove_item("iron_ore", 3) and G.count("iron_ore") == 2)
+		print("infinite_check: %d passed, %d failed (clean build)" % [total - fails, fails])
+		DirAccess.remove_absolute(ap)
+		quit(1 if fails > 0 else 0)
+		return
 	check("infinite is on", T.infinite())
 	T.tick(0.1)
 	check("iron ore stocked", G.count("iron_ore") >= 99)

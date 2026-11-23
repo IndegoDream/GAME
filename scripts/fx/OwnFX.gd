@@ -43,7 +43,7 @@ static func on(force: bool = false) -> bool:
 		return true
 	if DisplayServer.get_name() == "headless":
 		return false
-	return _setting("own_fx", "on") != "off" and _setting("preset", "high") != "low"
+	return _setting("own_fx", "on") != "off" and preload("res://scripts/core/Gfx.gd").effects_level() == "high"
 
 
 static func _meshes(n: Node, out: Array) -> void:

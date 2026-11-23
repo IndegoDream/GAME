@@ -1,4 +1,6 @@
 {
  "require_full_game": false,
- "note": "Set require_full_game to true to make the Gate part of the paid game (the free tier then sees the Gate but is told it is a full-game place)."
+ "note": "Set require_full_game to true to make the Gate part of the paid game (the free tier then sees the Gate but is told it is a full-game place).",
+ "url": "",
+ "_url_note": "Round 182: the shared world's public address (wss://...). Empty = the HomeAI box over Tailscale (Online.DEFAULT_URL). tools/server/deploy/GO_LIVE.md."
 }

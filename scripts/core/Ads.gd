@@ -14,9 +14,11 @@ extends Node
 ##             first minutes of a sitting (first_after_s), a cap an hour.
 ##             A short line says "A short break." first; the game pauses and
 ##             goes quiet while it plays, and picks up where it was.
-##   gifts     ads the player CHOOSES to watch, for something: getting back the
-##             gold lost in a fall, or the deep's blessing (insight and luck for
-##             a while). Never offered to someone who bought the full game.
+##   gifts     ads the player CHOOSES to watch, for something -- LOOKS ONLY
+##             (round 182): a day wearing the Style pack's auras. Never power:
+##             the old gold-back and blessing gifts broke fair_play.never_sold
+##             (tools/fair_check.gd now checks every gift). Never offered to
+##             someone who bought the full game.
 ##   consent   Google's consent form (UMP) where the law asks for it (EU/UK),
 ##             before any ad; a "Privacy choices" button in the menu then.
 ##
@@ -211,14 +213,23 @@ func gift_why_not(id: String) -> String:
 		return "no such gift"
 	if showing != "":
 		return "already showing"
-	if id == "recover_gold" and last_fall_gold < int(g.get("min_gold", 20)):
-		return "nothing to get back"
+	if id == "try_style" and (Game.store == null or Game.store.owned.has("look_collection") or Game.store.backend == "full" or style_trial()):
+		return "already yours"
 	var cd := float(g.get("cooldown_s", 0))
 	if cd > 0.0 and _now() - float(_rec.get("gifts", {}).get(id, 0.0)) < cd:
 		return "not yet"
 	if backend == "admob" and not (_bridge and _bridge.ready_gift()):
 		return "no ad loaded"
 	return ""
+
+
+func style_trial() -> bool:
+	## round 182: a rewarded ad's day of the Style pack (looks only)
+	return _now() < float(_rec.get("style_until", 0.0))
+
+
+func style_trial_left() -> float:
+	return maxf(0.0, float(_rec.get("style_until", 0.0)) - _now())
 
 
 func gift_ask(id: String) -> String:
@@ -256,13 +267,12 @@ func _give(id: String) -> void:
 	_rec["gifts"][id] = _now()
 	_save()
 	match id:
-		"recover_gold":
-			Game.gold += last_fall_gold
-			Game.message.emit("Your %d gold is back in the ring." % last_fall_gold)
-			last_fall_gold = 0
-		"blessing":
-			Game.add_buff("deep_blessing", g.get("effect", {}), float(g.get("seconds", 1200)))
-			Game.message.emit("The deep's blessing settles on you (%s)." % Game._dur(float(g.get("seconds", 1200))))
+		"try_style":
+			# looks only: the Style pack's auras for a while (Store.style() asks style_trial())
+			_rec["style_until"] = _now() + float(g.get("seconds", 86400))
+			_save()
+			Game.message.emit(I18n.t("Every look in the store is yours to wear for %s: Comforts & Style, then Looks and Aura.") % Game._dur(float(g.get("seconds", 86400))))
+			Game.familiar_changed.emit()          # (round 183: a chosen pet coat shows straight away)
 	Game.log_event("ad_gift", {"gift": id})
 	Game.stats_changed.emit()
 	gift_given.emit(id)
@@ -339,6 +349,7 @@ func _load() -> void:
 	if d is Dictionary:
 		_rec["shown"] = d.get("shown", []) if d.get("shown", []) is Array else []
 		_rec["gifts"] = d.get("gifts", {}) if d.get("gifts", {}) is Dictionary else {}
+		_rec["style_until"] = clampf(float(d.get("style_until", 0.0)), 0.0, _now() + 86400.0)    # (never more than a day ahead: a hand-edit can't make it forever)
 
 
 func _save() -> void:

@@ -29,6 +29,9 @@ var _stick_origin := Vector2.ZERO
 var _stick_now := Vector2.ZERO
 var _look_finger := -1
 var _look_last := Vector2.ZERO
+var _pinch_finger := -1          # 2026-11-16: a second finger on the right half: pinch to zoom the view
+var _pinch_pos := Vector2.ZERO
+var _pinch_last := 0.0
 var _draw: Control
 var _play_buttons: Array = []      # [TouchScreenButton, anchor, offset, size]
 var _close_button: TouchScreenButton
@@ -43,6 +46,10 @@ static func wanted() -> bool:
 	if mode == "on":
 		return true
 	if mode == "off":
+		return false
+	# 2026-10-31: a PC with a touch screen (or a touch driver) used to switch the touch overlay on by itself; its buttons answer only a real
+	# finger, so a mouse click did nothing. On a desktop OS "auto" now means off -- set Touch controls to On in settings to use them.
+	if OS.has_feature("windows") or OS.has_feature("linuxbsd") or OS.has_feature("macos"):
 		return false
 	return DisplayServer.is_touchscreen_available() or OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")
 
@@ -114,6 +121,8 @@ func _ready() -> void:
 		i += 1
 	for qi in range(4):                      # round 158: the quick-art keys continue the quick row
 		_play_buttons.append([_button("Q%d" % (qi + 1), "quick%d" % (qi + 1), 48.0), "bl", Vector2(320.0 + float(qi) * 58.0, 100.0), 48.0, 5 + qi])
+	_play_buttons.append([_button("+", "zoom_in", 48.0), "bl", Vector2(320.0 + 4.0 * 58.0, 100.0), 48.0, 9])      # 2026-11-16: closer / further view
+	_play_buttons.append([_button("-", "zoom_out", 48.0), "bl", Vector2(320.0 + 5.0 * 58.0, 100.0), 48.0, 10])
 	_turn = Label.new()
 	_turn.text = "Turn your phone or tablet sideways to play."
 	_turn.add_theme_font_size_override("font_size", 34)
@@ -260,22 +269,54 @@ func _input(event: InputEvent) -> void:
 			elif not in_stick and _look_finger < 0:
 				_look_finger = t.index
 				_look_last = t.position
+			elif not in_stick and _pinch_finger < 0 and t.index != _look_finger:
+				_pinch_finger = t.index
+				_pinch_pos = t.position
+				_pinch_last = _look_last.distance_to(_pinch_pos)
 		else:
 			if t.index == _stick_finger:
 				_release_stick()
+			elif t.index == _pinch_finger:
+				_pinch_finger = -1
+				_pinch_done()
 			elif t.index == _look_finger:
 				_look_finger = -1
+				if _pinch_finger >= 0:
+					_pinch_finger = -1
+					_pinch_done()
 	elif event is InputEventScreenDrag:
 		var d := event as InputEventScreenDrag
 		if d.index == _stick_finger:
 			_stick_now = d.position
 			_push_stick()
+		elif d.index == _pinch_finger:
+			_pinch_pos = d.position
+			_pinch_update()
 		elif d.index == _look_finger:
 			var rel := d.position - _look_last
 			_look_last = d.position
+			if _pinch_finger >= 0:
+				_pinch_update()
+				return
 			var player = get_tree().get_first_node_in_group("player")
 			if player and player.has_method("touch_look"):
 				player.touch_look(rel * LOOK_SPEED / maxf(_unit, 0.5))
+
+
+func _pinch_update() -> void:
+	## two fingers on the right: spread = a closer view, pinch = more of the level
+	var d := _look_last.distance_to(_pinch_pos)
+	if _pinch_last > 8.0 and d > 8.0:
+		var player = get_tree().get_first_node_in_group("player")
+		if player and player.has_method("zoom_view"):
+			player.zoom_view(clampf(_pinch_last / d, 0.8, 1.25), false)
+	_pinch_last = d
+
+
+func _pinch_done() -> void:
+	var player = get_tree().get_first_node_in_group("player")
+	if player and player.has_method("zoom_save"):
+		player.zoom_save()
 
 
 func _push_stick() -> void:

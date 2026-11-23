@@ -1,0 +1,955 @@
+{
+ "_about": "Round 188 (Robert, 2026-11-08: 'There needs to be more variety in the martial arts and their special abilities for the type of skill it is'). Three arts for every kind of weapon, learned at skill 5, 15 and 30 of that weapon and used only with it in hand. They are arts like any other (scripts/systems/Arts.gd merges them; scripts/actors/ArtCaster.gd casts them): F or V, the quick keys R / F3 / F4 / F5, practice, mastery, branches. New ways of fighting for them: flurry, whirlwind, throw, volley, counter_stance, multi_bolt.",
+ "levels": [
+  5,
+  15,
+  30
+ ],
+ "arts": [
+  {
+   "id": "w_flowing_cut",
+   "name": "Flowing Cut",
+   "family": "step",
+   "template": "leap_strike",
+   "cooldown": 7.0,
+   "heat": 16,
+   "route": [],
+   "branches": [
+    "metal",
+    "water"
+   ],
+   "params": {
+    "distance": 6.0,
+    "radius": 2.6,
+    "mult": 1.6,
+    "stagger": 0.6
+   },
+   "desc": "A gliding lunge six metres forward that ends in a cut around you: 1.6x to everything within 2.6 m.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "sword",
+    "level": 5
+   },
+   "weapon": "sword"
+  },
+  {
+   "id": "w_petal_flurry",
+   "name": "Thousand Petal Flurry",
+   "family": "strike",
+   "template": "flurry",
+   "cooldown": 6.0,
+   "heat": 24,
+   "route": [],
+   "branches": [
+    "metal",
+    "wood"
+   ],
+   "params": {
+    "hits": 6,
+    "mult": 0.5,
+    "reach": 3.2,
+    "arc": 110.0,
+    "interval": 0.09,
+    "crit": 0.3
+   },
+   "desc": "Six cuts in a single breath at whatever is in front of you (0.5x each), each with a 30% chance to strike true.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "sword",
+    "level": 15
+   },
+   "weapon": "sword"
+  },
+  {
+   "id": "w_mirror_stance",
+   "name": "Mirror Stance",
+   "family": "strike",
+   "template": "counter_stance",
+   "cooldown": 9.0,
+   "heat": 18,
+   "route": [],
+   "branches": [
+    "metal",
+    "water"
+   ],
+   "params": {
+    "secs": 1.6,
+    "mult": 3.2,
+    "stagger": 1.4
+   },
+   "desc": "Raise the blade and wait: the next blow aimed at you in 1.6 seconds is turned aside and answered for 3.2x, staggering them.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "sword",
+    "level": 30
+   },
+   "weapon": "sword"
+  },
+  {
+   "id": "w_shadow_step",
+   "name": "Shadow Step",
+   "family": "step",
+   "template": "blink",
+   "cooldown": 4.0,
+   "heat": 14,
+   "route": [],
+   "branches": [
+    "water",
+    "metal"
+   ],
+   "params": {
+    "range": 6.0,
+    "iframes": 0.35,
+    "behind": 1.0
+   },
+   "desc": "Vanish and step six metres (behind the nearest foe, if one is close), untouchable for a moment.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "dagger",
+    "level": 5
+   },
+   "weapon": "dagger"
+  },
+  {
+   "id": "w_viper_flurry",
+   "name": "Viper Flurry",
+   "family": "strike",
+   "template": "flurry",
+   "cooldown": 5.0,
+   "heat": 22,
+   "route": [],
+   "branches": [
+    "water",
+    "wood"
+   ],
+   "params": {
+    "hits": 7,
+    "mult": 0.4,
+    "reach": 2.6,
+    "arc": 90.0,
+    "interval": 0.07,
+    "bleed": 0.8
+   },
+   "desc": "Seven quick stabs (0.4x each); the last leaves a cut that bleeds for most of what they dealt again.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "dagger",
+    "level": 15
+   },
+   "weapon": "dagger"
+  },
+  {
+   "id": "w_fan_of_knives",
+   "name": "Fan of Knives",
+   "family": "strike",
+   "template": "throw",
+   "cooldown": 7.0,
+   "heat": 24,
+   "route": [],
+   "branches": [
+    "metal",
+    "fire"
+   ],
+   "params": {
+    "range": 11.0,
+    "width": 3.2,
+    "mult": 1.3,
+    "returns": 0.0,
+    "bleed": 0.5
+   },
+   "desc": "A fan of thrown blades eleven metres ahead and three wide: 1.3x and a bleeding cut to all they find.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "dagger",
+    "level": 30
+   },
+   "weapon": "dagger"
+  },
+  {
+   "id": "w_crescent_moon",
+   "name": "Crescent Moon",
+   "family": "strike",
+   "template": "arc_sweep",
+   "cooldown": 5.0,
+   "heat": 22,
+   "route": [],
+   "branches": [
+    "metal",
+    "water"
+   ],
+   "params": {
+    "radius": 4.2,
+    "arc": 240.0,
+    "mult": 1.5,
+    "stagger": 0.4
+   },
+   "desc": "A wide crescent cut, 240 degrees and 4.2 m: 1.5x to everything it catches.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "saber",
+    "level": 5
+   },
+   "weapon": "saber"
+  },
+  {
+   "id": "w_cyclone_edge",
+   "name": "Cyclone Edge",
+   "family": "strike",
+   "template": "whirlwind",
+   "cooldown": 8.0,
+   "heat": 28,
+   "route": [],
+   "branches": [
+    "metal",
+    "wood"
+   ],
+   "params": {
+    "radius": 3.2,
+    "ticks": 5,
+    "interval": 0.22,
+    "mult": 0.65,
+    "move": 1.15
+   },
+   "desc": "Spin with the blade out for a second: five turns, 0.65x to everything within 3.2 m each turn, and you can still move.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "saber",
+    "level": 15
+   },
+   "weapon": "saber"
+  },
+  {
+   "id": "w_returning_crescent",
+   "name": "Returning Crescent",
+   "family": "strike",
+   "template": "throw",
+   "cooldown": 7.0,
+   "heat": 24,
+   "route": [],
+   "branches": [
+    "metal",
+    "water"
+   ],
+   "params": {
+    "range": 10.0,
+    "width": 1.8,
+    "mult": 1.2,
+    "returns": 1.0
+   },
+   "desc": "Hurl the saber spinning ten metres out and back: 1.2x going, 1.2x coming home.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "saber",
+    "level": 30
+   },
+   "weapon": "saber"
+  },
+  {
+   "id": "w_dragon_thrust",
+   "name": "Dragon Thrust",
+   "family": "strike",
+   "template": "lance_line",
+   "cooldown": 5.0,
+   "heat": 22,
+   "route": [],
+   "branches": [
+    "metal",
+    "wood"
+   ],
+   "params": {
+    "range": 7.0,
+    "width": 1.4,
+    "mult": 2.0,
+    "knock": 4.0
+   },
+   "desc": "A thrust that carries its qi seven metres through every foe in line: 2x, and they are driven back.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "spear",
+    "level": 5
+   },
+   "weapon": "spear"
+  },
+  {
+   "id": "w_vaulting_spear",
+   "name": "Vaulting Spear",
+   "family": "step",
+   "template": "leap_strike",
+   "cooldown": 8.0,
+   "heat": 18,
+   "route": [],
+   "branches": [
+    "wood",
+    "earth"
+   ],
+   "params": {
+    "distance": 8.0,
+    "radius": 3.0,
+    "mult": 1.7,
+    "stagger": 1.0
+   },
+   "desc": "Plant the spear and vault eight metres, landing point-first: 1.7x within 3 m and a stagger.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "spear",
+    "level": 15
+   },
+   "weapon": "spear"
+  },
+  {
+   "id": "w_hundred_points",
+   "name": "Hundred Points",
+   "family": "strike",
+   "template": "flurry",
+   "cooldown": 7.0,
+   "heat": 28,
+   "route": [],
+   "branches": [
+    "metal",
+    "wood"
+   ],
+   "params": {
+    "hits": 8,
+    "mult": 0.45,
+    "reach": 4.4,
+    "arc": 50.0,
+    "interval": 0.08
+   },
+   "desc": "Eight thrusts so fast they look like a hedge of points, 4.4 m straight ahead (0.45x each).",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "spear",
+    "level": 30
+   },
+   "weapon": "spear"
+  },
+  {
+   "id": "w_cleaving_arc",
+   "name": "Cleaving Arc",
+   "family": "strike",
+   "template": "shatter",
+   "cooldown": 6.0,
+   "heat": 24,
+   "route": [],
+   "branches": [
+    "metal",
+    "earth"
+   ],
+   "params": {
+    "reach": 3.4,
+    "arc": 140.0,
+    "mult": 1.7,
+    "vs_staggered": 1.6,
+    "vs_armoured": 1.7,
+    "sunder": 6.0
+   },
+   "desc": "A downward cleave across 140 degrees: 1.7x, far more against the staggered and the armoured, whose plating it splits.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "axe",
+    "level": 5
+   },
+   "weapon": "axe"
+  },
+  {
+   "id": "w_whirling_axe",
+   "name": "Whirling Axe",
+   "family": "strike",
+   "template": "whirlwind",
+   "cooldown": 9.0,
+   "heat": 30,
+   "route": [],
+   "branches": [
+    "metal",
+    "fire"
+   ],
+   "params": {
+    "radius": 3.0,
+    "ticks": 4,
+    "interval": 0.26,
+    "mult": 0.85,
+    "move": 1.0,
+    "bleed": 0.4
+   },
+   "desc": "Four heavy turns with the axe out: 0.85x to everything within 3 m each turn, each cut bleeding.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "axe",
+    "level": 15
+   },
+   "weapon": "axe"
+  },
+  {
+   "id": "w_hurled_axe",
+   "name": "Hurled Axe",
+   "family": "strike",
+   "template": "throw",
+   "cooldown": 7.0,
+   "heat": 24,
+   "route": [],
+   "branches": [
+    "metal",
+    "earth"
+   ],
+   "params": {
+    "range": 12.0,
+    "width": 1.6,
+    "mult": 1.8,
+    "returns": 1.0,
+    "stagger": 0.8
+   },
+   "desc": "Throw the axe twelve metres: it splits what it meets (1.8x) and spins back to your hand.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "axe",
+    "level": 30
+   },
+   "weapon": "axe"
+  },
+  {
+   "id": "w_earthbreaker",
+   "name": "Earthbreaker",
+   "family": "strike",
+   "template": "ground_slam",
+   "cooldown": 7.0,
+   "heat": 28,
+   "route": [],
+   "branches": [
+    "earth",
+    "metal"
+   ],
+   "params": {
+    "reach": 2.6,
+    "radius": 3.6,
+    "mult": 2.1,
+    "stagger": 1.4
+   },
+   "desc": "Bring the hammer down into the ground ahead: a shock of 3.6 m, 2.1x and a long stagger.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "hammer",
+    "level": 5
+   },
+   "weapon": "hammer"
+  },
+  {
+   "id": "w_meteor_drop",
+   "name": "Meteor Drop",
+   "family": "step",
+   "template": "leap_strike",
+   "cooldown": 10.0,
+   "heat": 24,
+   "route": [],
+   "branches": [
+    "earth",
+    "fire"
+   ],
+   "params": {
+    "distance": 7.0,
+    "radius": 4.2,
+    "mult": 2.2,
+    "stagger": 1.5
+   },
+   "desc": "Leap high and fall hammer-first: 2.2x and a stagger within 4.2 m where you land.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "hammer",
+    "level": 15
+   },
+   "weapon": "hammer"
+  },
+  {
+   "id": "w_fault_line",
+   "name": "Fault Line",
+   "family": "strike",
+   "template": "lance_line",
+   "cooldown": 7.0,
+   "heat": 30,
+   "route": [],
+   "branches": [
+    "earth",
+    "metal"
+   ],
+   "params": {
+    "range": 10.0,
+    "width": 3.0,
+    "mult": 1.9,
+    "knock": 2.5
+   },
+   "desc": "Split the ground in a line ten metres long and three wide: 1.9x to all in it, thrown off their feet.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "hammer",
+    "level": 30
+   },
+   "weapon": "hammer"
+  },
+  {
+   "id": "w_reaping_sweep",
+   "name": "Reaping Sweep",
+   "family": "strike",
+   "template": "arc_sweep",
+   "cooldown": 6.0,
+   "heat": 24,
+   "route": [],
+   "branches": [
+    "metal",
+    "wood"
+   ],
+   "params": {
+    "radius": 4.8,
+    "arc": 300.0,
+    "mult": 1.4,
+    "stagger": 0.6
+   },
+   "desc": "A sweep almost all the way round, 4.8 m long: 1.4x to everything it reaches.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "halberd",
+    "level": 5
+   },
+   "weapon": "halberd"
+  },
+  {
+   "id": "w_hooking_pull",
+   "name": "Hooking Pull",
+   "family": "step",
+   "template": "pull",
+   "cooldown": 6.0,
+   "heat": 16,
+   "route": [],
+   "branches": [
+    "metal",
+    "water"
+   ],
+   "params": {
+    "range": 7.0,
+    "mult": 1.0,
+    "stagger": 1.5
+   },
+   "desc": "Hook a foe up to seven metres off and drag them to your feet, staggered (bosses are too heavy to move).",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "halberd",
+    "level": 15
+   },
+   "weapon": "halberd"
+  },
+  {
+   "id": "w_halberd_storm",
+   "name": "Halberd Storm",
+   "family": "strike",
+   "template": "whirlwind",
+   "cooldown": 9.0,
+   "heat": 30,
+   "route": [],
+   "branches": [
+    "metal",
+    "wood"
+   ],
+   "params": {
+    "radius": 4.4,
+    "ticks": 4,
+    "interval": 0.25,
+    "mult": 0.8,
+    "move": 0.9,
+    "knock": 3.0
+   },
+   "desc": "Spin the halberd at full length: four turns, 0.8x within 4.4 m each, throwing them back.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "halberd",
+    "level": 30
+   },
+   "weapon": "halberd"
+  },
+  {
+   "id": "w_cloud_vault",
+   "name": "Cloud Vault",
+   "family": "step",
+   "template": "leap_strike",
+   "cooldown": 6.0,
+   "heat": 14,
+   "route": [],
+   "branches": [
+    "wood",
+    "water"
+   ],
+   "params": {
+    "distance": 7.0,
+    "radius": 2.4,
+    "mult": 1.2,
+    "stagger": 1.0
+   },
+   "desc": "Pole-vault seven metres and land with a sweep: 1.2x and a stagger within 2.4 m.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "staff",
+    "level": 5
+   },
+   "weapon": "staff"
+  },
+  {
+   "id": "w_monkey_flurry",
+   "name": "Monkey King's Flurry",
+   "family": "strike",
+   "template": "flurry",
+   "cooldown": 6.0,
+   "heat": 20,
+   "route": [],
+   "branches": [
+    "wood",
+    "earth"
+   ],
+   "params": {
+    "hits": 6,
+    "mult": 0.5,
+    "reach": 3.4,
+    "arc": 160.0,
+    "interval": 0.1,
+    "stagger": 0.3
+   },
+   "desc": "Six spinning blows of the staff across a wide arc (0.5x each), each one rocking them.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "staff",
+    "level": 15
+   },
+   "weapon": "staff"
+  },
+  {
+   "id": "w_still_lake",
+   "name": "Still Lake Stance",
+   "family": "strike",
+   "template": "counter_stance",
+   "cooldown": 8.0,
+   "heat": 0,
+   "route": [],
+   "branches": [
+    "water",
+    "wood"
+   ],
+   "params": {
+    "secs": 1.8,
+    "mult": 2.6,
+    "stagger": 1.8,
+    "cool_heat": 25.0
+   },
+   "desc": "Hold the staff level and breathe: the next blow in 1.8 seconds is turned and answered for 2.6x, and your nanites cool by 25.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "staff",
+    "level": 30
+   },
+   "weapon": "staff"
+  },
+  {
+   "id": "w_hundred_fists",
+   "name": "Hundred Fists",
+   "family": "strike",
+   "template": "flurry",
+   "cooldown": 5.0,
+   "heat": 20,
+   "route": [],
+   "branches": [
+    "fire",
+    "earth"
+   ],
+   "params": {
+    "hits": 9,
+    "mult": 0.32,
+    "reach": 2.4,
+    "arc": 100.0,
+    "interval": 0.06
+   },
+   "desc": "Nine blows in the time it takes to blink (0.32x each) on whatever stands in front of you.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "unarmed",
+    "level": 5
+   },
+   "weapon": "unarmed"
+  },
+  {
+   "id": "w_mountain_palm",
+   "name": "Mountain Palm",
+   "family": "strike",
+   "template": "lance_line",
+   "cooldown": 6.0,
+   "heat": 24,
+   "route": [],
+   "branches": [
+    "earth",
+    "fire"
+   ],
+   "params": {
+    "range": 5.0,
+    "width": 2.6,
+    "mult": 1.9,
+    "knock": 6.0
+   },
+   "desc": "An open palm that pushes the air itself five metres ahead: 1.9x and everything it hits is hurled back.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "unarmed",
+    "level": 15
+   },
+   "weapon": "unarmed"
+  },
+  {
+   "id": "w_flowing_water",
+   "name": "Flowing Water Stance",
+   "family": "strike",
+   "template": "counter_stance",
+   "cooldown": 7.0,
+   "heat": 16,
+   "route": [],
+   "branches": [
+    "water",
+    "wood"
+   ],
+   "params": {
+    "secs": 1.5,
+    "mult": 3.0,
+    "stagger": 2.0
+   },
+   "desc": "Empty hands, soft knees: the next blow in 1.5 seconds slides past you and is answered for 3x with a long stagger.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "unarmed",
+    "level": 30
+   },
+   "weapon": "unarmed"
+  },
+  {
+   "id": "w_rain_of_arrows",
+   "name": "Rain of Arrows",
+   "family": "strike",
+   "template": "volley",
+   "cooldown": 8.0,
+   "heat": 24,
+   "route": [],
+   "branches": [
+    "wood",
+    "metal"
+   ],
+   "params": {
+    "radius": 3.6,
+    "arrows": 10,
+    "mult": 0.55,
+    "range": 22.0
+   },
+   "desc": "Loose ten arrows high: they come down within 3.6 m of the foe you face, up to 22 m off (0.55x each).",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "bow",
+    "level": 5
+   },
+   "weapon": "bow"
+  },
+  {
+   "id": "w_gale_shot",
+   "name": "Piercing Gale Shot",
+   "family": "strike",
+   "template": "lance_line",
+   "cooldown": 6.0,
+   "heat": 22,
+   "route": [],
+   "branches": [
+    "wood",
+    "metal"
+   ],
+   "params": {
+    "range": 24.0,
+    "width": 1.2,
+    "mult": 2.1
+   },
+   "desc": "One arrow on a gale of qi: 24 metres straight through everything in its path, 2.1x.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "bow",
+    "level": 15
+   },
+   "weapon": "bow"
+  },
+  {
+   "id": "w_scatter_shot",
+   "name": "Scatter Shot",
+   "family": "strike",
+   "template": "multi_bolt",
+   "cooldown": 6.0,
+   "heat": 22,
+   "route": [],
+   "branches": [
+    "wood",
+    "fire"
+   ],
+   "params": {
+    "range": 16.0,
+    "targets": 5,
+    "mult": 1.0,
+    "cone": 0.2
+   },
+   "desc": "Five arrows at once, each to a different foe in front of you up to 16 m away (1x each).",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "bow",
+    "level": 30
+   },
+   "weapon": "bow"
+  },
+  {
+   "id": "w_bolt_barrage",
+   "name": "Bolt Barrage",
+   "family": "strike",
+   "template": "volley",
+   "cooldown": 9.0,
+   "heat": 26,
+   "route": [],
+   "branches": [
+    "metal",
+    "earth"
+   ],
+   "params": {
+    "radius": 2.8,
+    "arrows": 7,
+    "mult": 0.8,
+    "range": 20.0
+   },
+   "desc": "Seven bolts cranked and loosed in a blur onto the foe you face (within 2.8 m, 0.8x each).",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "crossbow",
+    "level": 5
+   },
+   "weapon": "crossbow"
+  },
+  {
+   "id": "w_pinning_bolt",
+   "name": "Pinning Bolt",
+   "family": "strike",
+   "template": "pin",
+   "cooldown": 7.0,
+   "heat": 16,
+   "route": [],
+   "branches": [
+    "earth",
+    "metal"
+   ],
+   "params": {
+    "range": 18.0,
+    "secs": 3.0,
+    "mult": 1.2
+   },
+   "desc": "A heavy bolt that pins the foe you face to the ground for three seconds, 1.2x.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "crossbow",
+    "level": 15
+   },
+   "weapon": "crossbow"
+  },
+  {
+   "id": "w_siege_bolt",
+   "name": "Siege Bolt",
+   "family": "strike",
+   "template": "lance_line",
+   "cooldown": 8.0,
+   "heat": 30,
+   "route": [],
+   "branches": [
+    "metal",
+    "fire"
+   ],
+   "params": {
+    "range": 28.0,
+    "width": 1.6,
+    "mult": 2.6
+   },
+   "desc": "A bolt meant for gates: 28 metres through everything in line for 2.6x.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "crossbow",
+    "level": 30
+   },
+   "weapon": "crossbow"
+  },
+  {
+   "id": "w_spirit_orbs",
+   "name": "Spirit Orbs",
+   "family": "strike",
+   "template": "multi_bolt",
+   "cooldown": 5.0,
+   "heat": 20,
+   "route": [],
+   "branches": [
+    "fire",
+    "water"
+   ],
+   "params": {
+    "range": 14.0,
+    "targets": 4,
+    "mult": 1.0,
+    "cone": -0.3
+   },
+   "desc": "Four orbs of ki that each find a foe of their own within 14 m, in any direction (1x each).",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "ki",
+    "level": 5
+   },
+   "weapon": "ki"
+  },
+  {
+   "id": "w_ki_lance",
+   "name": "Ki Lance",
+   "family": "strike",
+   "template": "lance_line",
+   "cooldown": 5.0,
+   "heat": 22,
+   "route": [],
+   "branches": [
+    "fire",
+    "metal"
+   ],
+   "params": {
+    "range": 18.0,
+    "width": 1.4,
+    "mult": 2.0
+   },
+   "desc": "Gather the pool into one line of light: 18 metres through everything, 2x.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "ki",
+    "level": 15
+   },
+   "weapon": "ki"
+  },
+  {
+   "id": "w_qi_nova",
+   "name": "Qi Nova",
+   "family": "strike",
+   "template": "ground_slam",
+   "cooldown": 9.0,
+   "heat": 32,
+   "route": [],
+   "branches": [
+    "fire",
+    "earth"
+   ],
+   "params": {
+    "reach": 0.0,
+    "radius": 5.2,
+    "mult": 2.0,
+    "stagger": 1.0
+   },
+   "desc": "Let it all go at once: a nova of ki 5.2 m around you, 2x and a stagger.",
+   "hint": "It comes to anyone who fights long enough with that kind of weapon.",
+   "req": {
+    "weapon": "ki",
+    "level": 30
+   },
+   "weapon": "ki"
+  }
+ ]
+}

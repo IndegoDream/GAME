@@ -66,7 +66,8 @@ func _initialize() -> void:
 		again.pressed.emit()
 		await process_frame
 	ch.append(["pressing it keeps the page alive", hub._craft.get_child_count() > 0])
-	# text content has what we expect
+	# text content has what we expect (round 200: a section is made when its tab is first shown -- make them all to read them)
+	load("res://scripts/ui/PageTabs.gd").build_all(hub._craft)
 	var all_text := ""
 	for l in hub._craft.find_children("*", "Label", true, false):
 		all_text += (l as Label).text + "\n"

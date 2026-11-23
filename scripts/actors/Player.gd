@@ -55,6 +55,8 @@ var _roll_dir := Vector3.ZERO
 var _roll_cool := 0.0
 var lock_target: Node = null
 var _ambush_t := 0.0        # Hollow Step / fire step: the next strike lands harder
+var _counter_t := 0.0       # round 188: a counter stance holds (a weapon art): the next blow is turned and answered
+var _counter := {}
 var _ambush_mult := 1.0
 var _air_kicks := 0         # Cloud Ladder: kicks off the air since you last stood
 var _water_t := 0.0
@@ -71,8 +73,7 @@ func _ready() -> void:
 	_model = preload("res://scripts/core/Art.gd").person(dress_spec())       # realistic at Medium+, Kenney at Low
 	add_child(_model)
 	_dress_up()
-	Game.stats_changed.connect(_dress_up)
-	Game.stats_changed.connect(_blood_aura)
+	Game.stats_changed.connect(_look_soon)       # round 198: once a frame (was: the look rebuilt on every change -- 999 pills, 999 times)
 	_anim = _find_anim(_model)
 	for n in ["idle", "walk", "sprint", "sit"]:
 		if _anim and _anim.has_animation(n):
@@ -107,6 +108,9 @@ func _ready() -> void:
 	camera.fov = 62.0
 	camera.current = true
 	_spring.add_child(camera)
+	# High-detail PC framing leaves room for the existing horizon; Low keeps its original view.
+	_pitch = -0.42 if preload("res://scripts/world/Look.gd").detail else -0.62
+	_load_zoom()
 	set_camera_mode(str(preload("res://scripts/core/Gfx.gd").load_settings()["camera"]))
 	_xr_try()
 
@@ -121,6 +125,59 @@ const OWN_BODY_LAYER := 1 << 19          # your own body: hidden from your eyes 
 var _vm = null               # round 128: the first-person hand and weapon (ViewModel.gd)
 var cam_mode := "far"
 var _far_len := 9.0
+var _sh_len := 3.0             # 2026-11-16: how far out each view sits, remembered (Settings zoom_*)
+var _fp_fov := 75.0
+const ZOOM_FAR := [3.5, 22.0]
+const ZOOM_SH := [1.6, 7.0]
+const ZOOM_FOV := [55.0, 100.0]
+
+
+func _load_zoom() -> void:
+	var st: Dictionary = preload("res://scripts/core/Gfx.gd").load_settings()
+	_far_len = clampf(float(str(st.get("zoom_far", "9.0"))), float(ZOOM_FAR[0]), float(ZOOM_FAR[1]))
+	_sh_len = clampf(float(str(st.get("zoom_sh", "3.0"))), float(ZOOM_SH[0]), float(ZOOM_SH[1]))
+	_fp_fov = clampf(float(str(st.get("zoom_fov", "75.0"))), float(ZOOM_FOV[0]), float(ZOOM_FOV[1]))
+
+
+func zoom_view(mult: float, save: bool = true) -> void:
+	## the + / - keys, the phone's + / - buttons, the wheel and a two-finger pinch: mult > 1 pulls the view out (more of the level), < 1 closer
+	if _spring == null or camera == null:
+		return
+	match cam_mode:
+		"far":
+			_far_len = clampf(_far_len * mult, float(ZOOM_FAR[0]), float(ZOOM_FAR[1]))
+			_spring.spring_length = _far_len
+		"shoulder":
+			_sh_len = clampf(_sh_len * mult, float(ZOOM_SH[0]), float(ZOOM_SH[1]))
+			_spring.spring_length = _sh_len
+		"first":
+			_fp_fov = clampf(_fp_fov * mult, float(ZOOM_FOV[0]), float(ZOOM_FOV[1]))
+			camera.fov = _fp_fov
+			_fov_base = _fp_fov
+	if save:
+		_queue_zoom_save()
+
+
+var _zoom_q := false
+
+
+func _queue_zoom_save() -> void:
+	## a burst of wheel notches or button taps writes the settings file once, not every time
+	if _zoom_q:
+		return
+	_zoom_q = true
+	await get_tree().create_timer(0.8).timeout
+	_zoom_q = false
+	zoom_save()
+
+
+func zoom_save() -> void:
+	var gx := preload("res://scripts/core/Gfx.gd")
+	var st: Dictionary = gx.load_settings()
+	st["zoom_far"] = str(snappedf(_far_len, 0.05))
+	st["zoom_sh"] = str(snappedf(_sh_len, 0.05))
+	st["zoom_fov"] = str(snappedf(_fp_fov, 0.5))
+	gx.save_settings()
 
 
 func set_camera_mode(m: String) -> void:
@@ -139,11 +196,11 @@ func set_camera_mode(m: String) -> void:
 			camera.position = Vector3.ZERO
 			camera.fov = 62.0
 			if _pitch > -0.15:
-				_pitch = -0.62
+				_pitch = -0.42 if preload("res://scripts/world/Look.gd").detail else -0.62
 		"shoulder":
 			_cam_base = Vector3(0, 1.85, 0)
 			_cam_rig.position = _cam_base
-			_spring.spring_length = 3.0
+			_spring.spring_length = _sh_len
 			camera.position = Vector3(0.75, 0, 0)
 			camera.fov = 70.0
 			_pitch = clampf(_pitch, -0.6, 0.2) if _pitch > -0.6 else -0.25
@@ -152,7 +209,7 @@ func set_camera_mode(m: String) -> void:
 			_cam_rig.position = _cam_base
 			_spring.spring_length = 0.0
 			camera.position = Vector3(0, 0, -0.12)
-			camera.fov = 75.0
+			camera.fov = _fp_fov
 			_pitch = clampf(_pitch, -0.5, 0.3) if _pitch > -0.5 else -0.1
 	camera.cull_mask = (camera.cull_mask & ~OWN_BODY_LAYER) if m == "first" else (camera.cull_mask | OWN_BODY_LAYER)
 	_viewmodel_for(m)
@@ -178,7 +235,7 @@ func _xr_try() -> void:
 	_vm.tracked = true
 	_xr.right.add_child(_vm)
 	_vm.setup(self)
-	Game.stats_changed.connect(func(): if _vm != null and is_instance_valid(_vm): _vm.refresh())
+	pass                           # (round 198: _look_soon refreshes the hand once a frame)
 
 
 func _viewmodel_for(m: String) -> void:
@@ -191,7 +248,7 @@ func _viewmodel_for(m: String) -> void:
 			_vm.name = "ViewModel"
 			camera.add_child(_vm)
 			_vm.setup(self)
-			Game.stats_changed.connect(func(): if _vm != null and is_instance_valid(_vm): _vm.refresh())
+			pass                           # (round 198: _look_soon refreshes the hand once a frame)
 		_vm.visible = true
 	elif _vm != null and is_instance_valid(_vm):
 		_vm.visible = false
@@ -220,6 +277,14 @@ func _face_camera() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("zoom_in") and not _ui_open():
+		zoom_view(0.88)
+		get_viewport().set_input_as_handled()
+		return
+	if event.is_action_pressed("zoom_out") and not _ui_open():
+		zoom_view(1.14)
+		get_viewport().set_input_as_handled()
+		return
 	if event.is_action_pressed("camera_view") and not _ui_open():
 		cycle_camera()
 		get_viewport().set_input_as_handled()
@@ -236,9 +301,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		set_camera_mode("first" if event.button_index == MOUSE_BUTTON_WHEEL_UP else "shoulder")
 	elif event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			_spring.spring_length = max(_spring.spring_length - 0.8, 3.5)
+			zoom_view(0.9)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			_spring.spring_length = min(_spring.spring_length + 0.8, 16.0)
+			zoom_view(1.1)
 		elif Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not _ui_open():
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -376,6 +441,7 @@ func _physics_process(delta: float) -> void:
 	_guard_t += delta
 	_dodge_t = maxf(_dodge_t - delta, 0.0)
 	_ambush_t = maxf(_ambush_t - delta, 0.0)
+	_counter_t = maxf(_counter_t - delta, 0.0)
 	Game.heat_tick(delta, _calm_t > 3.0, guarding, meditating)
 	_water_t -= delta
 	if _water_t <= 0.0:
@@ -385,10 +451,10 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		_air_kicks = 0
 
-	var speed := (SPRINT_SPEED if Acc.held("sprint") else WALK_SPEED) * Game.tech_effect("move_mult", 1.0)
+	var speed := (SPRINT_SPEED if Acc.held("sprint") else WALK_SPEED) * Game.fx_now("move_mult", 1.0)
 	var asp0 = Game.sys("aspect")
 	if asp0 != null and asp0.flowing:
-		speed = minf(speed, WALK_SPEED * float(asp0.data.get("walk_mult", 0.85)) * Game.tech_effect("move_mult", 1.0))    # round 146: flowing is a walk
+		speed = minf(speed, WALK_SPEED * float(asp0.data.get("walk_mult", 0.85)) * Game.fx_now("move_mult", 1.0))    # round 146: flowing is a walk
 	if _attack_t > 0.0 or _charging:
 		speed *= 0.35
 	if guarding:
@@ -571,10 +637,20 @@ func _physics_process(delta: float) -> void:
 
 
 func _deal_hit() -> void:
+	Game.fx_hold(true)                 # round 197: one blow asks for the player's effects many times (damage, crit, each foe hit)
+	_deal_hit_inner()
+	Game.fx_hold(false)
+
+
+func _deal_hit_inner() -> void:
 	var fwd := Vector3(sin(_model.rotation.y), 0, cos(_model.rotation.y))
 	# the blade's sweep, drawn (a fist's is short and faint)
-	if Game.weapon != "":
-		FX.slash(self, Color(0.85, 0.92, 1.0), 1.0 + Game.weapon_reach() * 0.6 + 0.6, _model.rotation.y)
+	var LKs = Game.sys("looks")
+	var sty: Dictionary = LKs.strike_style() if LKs != null else {}      # round 188: a Strike Style look (how blows look -- never what they do)
+	if not sty.is_empty():
+		FX.strike(self, sty, (1.0 + Game.weapon_reach() * 0.6 + 0.6) if Game.weapon != "" else 1.1, _model.rotation.y, 1.1 if Game.weapon != "" else 1.2)
+	elif Game.weapon != "":
+		FX.slash(self, LKs.slash_color(Color(0.85, 0.92, 1.0)) if LKs else Color(0.85, 0.92, 1.0), 1.0 + Game.weapon_reach() * 0.6 + 0.6, _model.rotation.y)     # round 183: a Weapon Spirit's colour
 	else:
 		FX.slash(self, Color(1.0, 0.9, 0.75), 1.1, _model.rotation.y, 1.2)
 	var hit_any := false
@@ -611,6 +687,8 @@ func _deal_hit() -> void:
 				e.set_meta("_crit_next", true)          # round 52: the number says so
 				_punch(1.0)
 			e.take_damage(dmg, "you" if not _heavy else "you (heavy)")
+			if not sty.is_empty() and is_instance_valid(e):
+				FX.impact(e.global_position + Vector3(0, 1.1, 0), sty, _heavy or finisher)
 			if e.has_method("poise_hit") and is_instance_valid(e):
 				e.poise_hit(float(dmg) * (float(C.get("heavy", {}).get("poise_mult", 3.0)) if _heavy else 1.0) * float(W.get("poise_mult", 1.0)), _heavy)
 			if finisher and is_instance_valid(e) and e.has_method("stagger") and not bool(e.stats.get("boss", false)):
@@ -1601,7 +1679,7 @@ func _burst_fx(r: float) -> void:
 	add_child(ring)
 	var tw := create_tween()
 	tw.set_parallel(true)
-	tw.tween_property(ring, "scale", Vector3.ONE * r, 0.35)
+	tw.tween_property(ring, "scale", Vector3(r, 1.0, r), 0.35)          # round 188: flat -- it was a fat donut that swallowed the camera up close
 	tw.tween_property(m, "albedo_color:a", 0.0, 0.35)
 	tw.chain().tween_callback(ring.queue_free)
 
@@ -1610,7 +1688,7 @@ func _spirit_sense() -> void:
 	var bloom := Game.augment_on("sensor_bloom")
 	if not Game.has_tech("spirit_sense") and not bloom:
 		return
-	var r := (Game.tech_effect("sense_radius", 12.0) if Game.has_tech("spirit_sense") else 4.0) + (8.0 if bloom else 0.0)
+	var r := (Game.fx_now("sense_radius", 12.0) if Game.has_tech("spirit_sense") else 4.0) + (8.0 if bloom else 0.0)
 	for n in get_tree().get_nodes_in_group("discoverable"):
 		if not (n is Node3D) or n.has_node("SenseGlow"):
 			continue
@@ -1643,6 +1721,12 @@ func take_damage(amount: int, source: String = "", from: Node = null) -> void:
 			_dodge_t = 0.0
 			if heavy:
 				_perfect_dodge(from)
+		return
+	if _counter_t > 0.0 and from != null and is_instance_valid(from):
+		_counter_t = 0.0                                                 # round 188: the stance turns it -- and answers
+		_hurt_cool = 0.35
+		_ac.counter_strike(from)
+		Game.sfx("parry", 1.0)
 		return
 	if guarding and from != null and is_instance_valid(from) and from is Node3D:
 		var fwd := Vector3(sin(_model.rotation.y), 0, cos(_model.rotation.y))
@@ -1703,6 +1787,7 @@ func take_damage(amount: int, source: String = "", from: Node = null) -> void:
 			if amount <= 0:
 				_hurt_cool = 0.35
 				return
+	amount = Game.pet_intercept(amount)                            # round 182: an armoured animal turns some of it aside
 	_hurt_cool = 0.35
 	_calm_t = 0.0
 	if meditating:
@@ -1774,6 +1859,11 @@ func start_meditating(at_shrine: bool) -> void:
 	_at_shrine = at_shrine or _near_shrine()
 	if _at_shrine:
 		Game.refill_gourd()
+	# 2026-11-06: you can't sit in the power frame -- it opens (it was quietly drinking qi through his sittings)
+	var CNs = Game.sys("constructs")
+	if CNs != null and CNs.mech_on:
+		CNs.toggle_mech()
+		Game.message.emit(I18n.t("You step out of the power frame to sit -- it stops drinking your qi."))
 	meditating = true
 	Game.sitting = true                     # round 40: the swarm can be rewired while you sit
 	Game.set_flag("fs:meditate")
@@ -1781,6 +1871,8 @@ func start_meditating(at_shrine: bool) -> void:
 	Game.meditating = _at_shrine
 	velocity = Vector3.ZERO
 	_play("sit", true)
+	if Game.sys("looks"):
+		Game.sys("looks").seat_on(self)              # round 183: a Cultivation Seat, if one's chosen (looks only)
 	Game.message.emit(I18n.t("You sit and cultivate%s.  Focus: %s -- change it in the menu (Tab, Mind).") % [(I18n.t(" at the shrine (fast qi)") if _at_shrine else ""), Game.sys("mind").summary() if Game.sys("mind") else "Cultivate"])
 	_offer_tribulation()
 
@@ -1809,6 +1901,8 @@ func stop_meditating() -> void:
 	Game.sit_aid = 1.0          # (a hermitage's quiet only lasts while you sit in it)
 	Game.meditating = false
 	Game.sitting = false
+	if Game.sys("looks"):
+		Game.sys("looks").seat_off()
 	_play("idle")
 
 
@@ -1892,22 +1986,40 @@ func _regen(delta: float) -> void:
 	## Survival: away from a fight long enough, your wounds close on their own.
 	_calm_t += delta
 	# round 27: gear that mends you (Evergreen, Mending Swarm, Self-repair) works even mid-fight
-	var gr := Game.tech_effect("regen", 0.0)
-	if gr > 0.0 and Game.hp > 0 and Game.hp < Game.max_hp():
+	var gr := Game.fx_now("regen", 0.0)
+	if gr > 0.0 and Game.hp > 0 and Game.hp < Game.max_hp(true):
 		_gear_regen_acc += gr * delta
 		if _gear_regen_acc >= 1.0:
 			var gn := int(_gear_regen_acc)
 			_gear_regen_acc -= gn
-			Game.hp = mini(Game.hp + gn, Game.max_hp())
-	if _calm_t < CALM_BEFORE_REGEN or Game.hp >= Game.max_hp() or Game.hp <= 0 or Game.no_regen_here():
+			Game.hp = mini(Game.hp + gn, Game.max_hp(true))
+	if _calm_t < CALM_BEFORE_REGEN or Game.hp >= Game.max_hp(true) or Game.hp <= 0 or Game.no_regen_here():
 		_regen_acc = 0.0
+		_flush_survival_xp()
 		return
 	_regen_acc += Game.survival_regen() * delta
 	if _regen_acc >= 1.0:
 		var n := int(_regen_acc)
 		_regen_acc -= n
-		Game.hp = mini(Game.hp + n, Game.max_hp())
-		Game.add_skill_xp("survival", 0.05 * n, "resting your wounds")
+		Game.hp = mini(Game.hp + n, Game.max_hp(true))
+		# round 196: the skill XP for it goes in once a second, not every tick. With a big HP pool the wounds close
+		# by some HP every physics tick -- and each add_skill_xp() checks unlocks and redraws the whole HUD. Robert's
+		# village: 7 ms frames became 100-190 ms seven seconds after a fight, for as long as he was healing.
+		_surv_xp_acc += 0.05 * n
+	_surv_xp_t += delta
+	if _surv_xp_t >= 1.0:
+		_flush_survival_xp()
+
+
+var _surv_xp_acc := 0.0
+var _surv_xp_t := 0.0
+
+
+func _flush_survival_xp() -> void:
+	if _surv_xp_acc > 0.0:
+		Game.add_skill_xp("survival", _surv_xp_acc, "resting your wounds")
+	_surv_xp_acc = 0.0
+	_surv_xp_t = 0.0
 
 
 # ---- what you wear (Dress.gd) ------------------------------------------------------
@@ -1956,6 +2068,27 @@ func rebuild_model() -> void:
 		if _anim and _anim.has_animation(n):
 			_anim.get_animation(n).loop_mode = Animation.LOOP_LINEAR
 	_play("sit" if meditating else "idle")
+
+
+var _look_due := false
+
+
+func _look_soon() -> void:
+	## round 198: something changed -- the clothes, the aura and the first-person hand catch up once, next frame
+	if _look_due:
+		return
+	_look_due = true
+	_look_now.call_deferred()
+
+
+func _look_now() -> void:
+	_look_due = false
+	if not is_inside_tree():
+		return
+	_dress_up()
+	_blood_aura()
+	if _vm != null and is_instance_valid(_vm):
+		_vm.refresh()
 
 
 func _dress_up() -> void:

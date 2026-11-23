@@ -20,6 +20,7 @@ extends PanelContainer
 
 var hud
 var rail: VBoxContainer
+var _rail_scroll: ScrollContainer
 var holder: Control
 var header: Label
 var hint: Label
@@ -28,6 +29,7 @@ var buttons := {}               # section -> Button
 var current := ""
 var last := "You"
 var _party: VBoxContainer
+var _works: VBoxContainer
 var _bonds: VBoxContainer
 var _road: VBoxContainer
 var _system: VBoxContainer
@@ -39,12 +41,13 @@ var _quests: VBoxContainer          # round 52: side quests
 var _craft: VBoxContainer           # round 137: the crafting journal
 var _dao: VBoxContainer             # round 139: dao sense and the eight daos
 var _map: Control                   # round 75: the map
+var guild_page                      # round 188: GuildPage.gd
 var swarm_branch := ""          # the Swarm page's filter ("" = every branch)
 var _stable_pick := -1
 var _confirm_release := -1      # a release needs a second press
 var _dirty := false
 
-const ORDER := ["You", "Spirit", "Dao", "Mind", "Meridians", "Swarm", "Path", "Pack", "Party", "Bonds", "Quests", "Road", "Journal", "Craft", "Map", "World", "Guide", "System"]     # round 119: grouped, so the rail reads in three parts
+const ORDER := ["You", "Spirit", "Dao", "Mind", "Meridians", "Swarm", "Path", "Pack", "Party", "Works", "Bonds", "Guild", "Quests", "Road", "Journal", "Craft", "Map", "World", "Guide", "System"]     # round 119: grouped, so the rail reads in three parts
 const GROUP_AT := {"You": "CHARACTER", "Pack": "PEOPLE AND GEAR", "Quests": "JOURNEY"}
 const PageTabs := preload("res://scripts/ui/PageTabs.gd")
 const Guide := preload("res://scripts/systems/Guide.gd")
@@ -57,8 +60,8 @@ var _tour_card: PanelContainer
 var _tour := {}                        # the lesson being walked, {} = none
 var _tour_i := 0
 var _offer_shown := {}
-const KEYS := {"You": "P", "Spirit": "", "Dao": "", "Pack": "I", "Party": "O", "Bonds": "U", "Road": "L", "Quests": "", "World": "", "Map": "F2", "Mind": "", "Swarm": "Y", "Path": "", "Journal": "N", "Craft": "", "Meridians": "K", "Guide": "", "System": "Esc"}
-const COL := {"You": Color(1.0, 0.85, 0.5), "Pack": Color(0.6, 0.85, 1.0), "Party": Color(0.75, 1.0, 0.8), "Bonds": Color(1.0, 0.75, 0.85),
+const KEYS := {"You": "P", "Spirit": "", "Dao": "", "Pack": "I", "Party": "O", "Works": "", "Bonds": "U", "Guild": "F6", "Road": "L", "Quests": "", "World": "", "Map": "F2", "Mind": "", "Swarm": "Y", "Path": "", "Journal": "N", "Craft": "", "Meridians": "K", "Guide": "", "System": "Esc"}
+const COL := {"You": Color(1.0, 0.85, 0.5), "Pack": Color(0.6, 0.85, 1.0), "Party": Color(0.75, 1.0, 0.8), "Works": Color(1.0, 0.85, 0.55), "Bonds": Color(1.0, 0.75, 0.85), "Guild": Color(0.95, 0.75, 0.45),
 	"Road": Color(1.0, 0.9, 0.6), "Quests": Color(1.0, 0.82, 0.45), "Journal": Color(0.95, 0.85, 0.65), "Craft": Color(1.0, 0.78, 0.5), "Meridians": Color(0.6, 0.85, 1.0), "System": Color(0.8, 0.8, 0.9),
 	"Mind": Color(0.85, 0.75, 1.0), "Swarm": Color(0.5, 1.0, 0.9), "Spirit": Color(0.7, 0.95, 0.75), "Dao": Color(0.72, 0.85, 1.0), "World": Color(0.75, 0.9, 1.0), "Map": Color(0.8, 0.95, 0.7), "Guide": Color(1.0, 0.95, 0.6), "Path": Color(1.0, 0.8, 0.5)}
 
@@ -102,13 +105,21 @@ func setup(h) -> void:
 	rsb.set_content_margin_all(8)
 	rail_box.add_theme_stylebox_override("panel", rsb)
 	body.add_child(rail_box)
+	var rail_col := VBoxContainer.new()               # the rail scrolls inside whatever height the window has; Close stays put under it
+	rail_col.add_theme_constant_override("separation", 6)
+	rail_box.add_child(rail_col)
+	_rail_scroll = ScrollContainer.new()
+	_rail_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_rail_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	rail_col.add_child(_rail_scroll)
 	rail = VBoxContainer.new()
 	rail.add_theme_constant_override("separation", 4)
 	rail.custom_minimum_size = Vector2(124, 0)
-	rail_box.add_child(rail)
+	rail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_rail_scroll.add_child(rail)
 	var grp := ButtonGroup.new()
 	for sec in ORDER:
-		if GROUP_AT.has(sec) and get_viewport_rect().size.y >= 680.0:
+		if GROUP_AT.has(sec) and get_viewport_rect().size.y >= 860.0:
 			var cap := Label.new()
 			cap.text = str(GROUP_AT[sec])
 			cap.add_theme_font_size_override("font_size", 11)
@@ -130,20 +141,18 @@ func setup(h) -> void:
 		b.pressed.connect(func(): show_page(sec))
 		rail.add_child(b)
 		buttons[sec] = b
-	var sp := Control.new()
-	sp.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	rail.add_child(sp)
 	var close := Button.new()
 	close.text = I18n.t("Close   Tab")
 	close.add_theme_font_size_override("font_size", 14)
 	close.pressed.connect(close_hub)
-	rail.add_child(close)
+	rail_col.add_child(close)
 	holder = Control.new()
 	holder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	holder.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	holder.clip_contents = true
 	body.add_child(holder)
 	_party = _scroll_page("Party")
+	_works = _scroll_page("Works")            # round 177: the foundry, the nanite farm, the tailor
 	_bonds = _scroll_page("Bonds")
 	_road = _scroll_page("Road")
 	_system = _scroll_page("System")
@@ -158,6 +167,12 @@ func setup(h) -> void:
 	_dao.add_theme_constant_override("separation", 10)
 	_craft = _scroll_page("Craft")            # round 137: recipes, herbology, supplies, bestiary
 	_craft.add_theme_constant_override("separation", 10)
+	guild_page = preload("res://scripts/ui/GuildPage.gd").new()    # round 188: the guild chat, your guild, your sect
+	var gp_holder := PanelContainer.new()
+	gp_holder.name = "Guild"
+	gp_holder.add_child(guild_page)
+	guild_page.setup(self)
+	adopt("Guild", gp_holder)
 	_map = preload("res://scripts/ui/MapScreen.gd").new()          # round 75: where you've been
 	_map.setup(hud)
 	adopt("Map", _map)
@@ -209,7 +224,68 @@ func _scroll_page(sec: String) -> VBoxContainer:
 # ---- opening, switching, closing -------------------------------------------------------
 
 func _rail_text(sec: String) -> String:
-	return "%s   %s" % [tr(sec), KEYS[sec]] if KEYS[sec] != "Esc" and KEYS[sec] != "" else tr(sec)
+	var t: String = "%s   %s" % [tr(sec), KEYS[sec]] if KEYS[sec] != "Esc" and KEYS[sec] != "" else tr(sec)
+	return t + ("  •" if _marks.has(sec) else "")
+
+
+# ---- round 190: a dot on the pages where something is waiting for you --------------------------------
+# His play log: 647 menu opens, most of them a look and a close (Swarm 86, Meridians 85, Mind 60) -- checking
+# whether anything was ready. Now the rail says so. Cheap checks only; at most every 1.5 s.
+var _marks := {}                 # section -> why (the button's tooltip)
+var _marks_ms := -100000
+
+
+static func ready_marks() -> Dictionary:
+	var m := {}
+	var free := Game.attr_points_free()
+	if free > 0:
+		m["You"] = I18n.t("Attribute points to spend: %d") % free
+	if Game.lattice.size() < 36 and (Game.lattice_focus == "" or Game.lattice.has(Game.lattice_focus)):
+		m["Meridians"] = I18n.t("No meridian point is your focus -- pick the next one")
+	var R = Game.sys("research")
+	if R != null and R.current == "":
+		var found := ""
+		for bid in R.data.get("branches", {}):
+			for nid in R.branch_nodes(str(bid)):
+				var st: String = R.state_of(str(nid))
+				if st in ["open", "begun"] or (st == "known" and str(R.node(str(nid)).get("kind", "")) in ["design", "install"]):
+					found = str(nid)
+					break
+			if found != "":
+				break
+		if found != "":
+			m["Swarm"] = I18n.t("Nothing is being researched -- a card is waiting")
+	var D = Game.sys("dao")
+	if D != null and D.stage() >= 2 and D.contemplates_left() > 0:
+		m["Dao"] = I18n.t("You can contemplate the dao here today")
+	var P = Game.sys("paths")
+	if P != null and P.primary == "":
+		m["Path"] = I18n.t("Pick a path -- the first is free")
+	var F = Game.sys("fellowship")
+	if F != null and F.in_guild() and not F.trades.is_empty():
+		m["Guild"] = I18n.t("A guildmate offers a trade")
+	var nb := Game.better_pieces_count()
+	if nb > 0:
+		m["Pack"] = I18n.t("Armour slots that could wear something better: %d") % nb
+	return m
+
+
+func _update_marks(force: bool = false) -> void:
+	if not force and Time.get_ticks_msec() - _marks_ms < 1500:
+		return
+	_marks_ms = Time.get_ticks_msec()
+	var m := ready_marks()
+	if m == _marks and not force:
+		return
+	_marks = m
+	for sec in buttons:
+		var b: Button = buttons[sec]
+		b.text = _rail_text(sec)
+		b.tooltip_text = str(_marks.get(sec, ""))
+		if _marks.has(sec):
+			b.add_theme_color_override("font_color", Color(1.0, 0.82, 0.4))
+		else:
+			b.remove_theme_color_override("font_color")
 
 
 func _on_language_changed() -> void:
@@ -248,6 +324,8 @@ func show_page(sec: String) -> void:
 	_fill(sec)
 	_header()
 	hud.pad_focus.call_deferred(rail)
+	if _rail_scroll != null and buttons.has(sec):
+		_rail_scroll.ensure_control_visible.call_deferred(buttons[sec])
 
 
 func toggle_page(sec: String) -> void:
@@ -287,28 +365,77 @@ func step(d: int) -> void:
 
 func _mark() -> void:
 	## something changed: the open page refreshes once, next frame (not once per change)
-	if visible and not _dirty and current in ["Party", "Bonds", "Road", "Mind", "Swarm", "Spirit", "World", "Guide", "Path"]:
+	if visible and not _dirty and current in ["Party", "Works", "Bonds", "Road", "Mind", "Swarm", "Spirit", "World", "Guide", "Path"]:
 		_dirty = true
-		_refill.call_deferred()
+		_refill_soon.call_deferred()
 	elif visible:
 		_header.call_deferred()
 
 
+const REFILL_GAP_MS := 350          # round 181: a passive redraw at most ~3 a second (sitting ticks used to rebuild the page every beat)
+var _last_fill_ms := 0
+
+
+func _refill_soon() -> void:
+	var wait := REFILL_GAP_MS - (Time.get_ticks_msec() - _last_fill_ms)
+	if wait > 0:
+		get_tree().create_timer(float(wait) / 1000.0).timeout.connect(_refill)
+	else:
+		_refill()
+
+
 func _refill() -> void:
-	_dirty = false
-	if visible and current != "":
-		_fill(current)
+	if not visible or current == "":
+		_dirty = false
+		return
+	if preload("res://scripts/core/UiStyle.gd").input_busy(pages.get(current)):
+		# round 181: a dropdown is open (or a box is being typed in) -- leave the page alone and look again shortly
+		get_tree().create_timer(0.4).timeout.connect(_refill)
 		_header()
+		return
+	_dirty = false
+	_last_fill_ms = Time.get_ticks_msec()
+	_fill(current)
+	_header()
 
 
 func _header() -> void:
-	header.text = I18n.t("%s%s   ·   HP %d / %d   ·   Qi %d / %d   ·   %d gold   ·   %s") % [(Game.char_name + "  --  ") if Game.char_name != "" else "",
-		Game.cultivation_label(), Game.hp, Game.max_hp(), int(Game.qi), int(Game.qi_to_next()), Game.gold, Game.current_level.capitalize() if Game.current_level != "village" else "Eliet"]
+	_update_marks()
+	header.text = I18n.t("%s%s   ·   HP %d / %d   ·   Qi %s / %s   ·   %d gold   ·   %s") % [(Game.char_name + "  --  ") if Game.char_name != "" else "",
+		Game.cultivation_label(), Game.hp, Game.max_hp(), Game.big(Game.qi), Game.big(Game.qi_to_next()), Game.gold, Game.current_level.capitalize() if Game.current_level != "village" else "Eliet"]
+	var cbk = Game.sys("craftbook")
+	if cbk != null and cbk.sit_active():
+		header.text += "   ·   " + I18n.t("making %s: %d done, %d to go") % [cbk.sit_name(), cbk.sit_done, cbk.sit_left] + ("" if Game.sitting else I18n.t(" (sit to continue)"))
 	_next_line()
 
 
+func _lazy(owner: Object, prop: String, build: Callable) -> void:
+	## round 200: a long section of a tabbed page is built when its tab is first shown, not on every redraw (the
+	## Journal's finds, the Craft page's recipes, supplies and bestiary, the Works page's foundry and crew were
+	## 250-380 ms a redraw on Robert's save). The section goes into its own box; PageTabs calls the builder.
+	var box: Node = owner.get(prop)
+	var w := VBoxContainer.new()
+	w.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	if box is BoxContainer:
+		w.add_theme_constant_override("separation", (box as BoxContainer).get_theme_constant("separation"))
+	box.add_child(w)
+	w.set_meta("lazy_build", func():
+		var was = owner.get(prop)
+		owner.set(prop, w)
+		Game.fx_hold(true)
+		build.call()
+		Game.fx_hold(false)
+		owner.set(prop, was)
+		if visible and current != "":
+			_fit.call_deferred(current))
+
+
 func _fill(sec: String) -> void:
+	# round 198: drawing a page changes nothing, so the effect list is built once for the whole page -- the Works page
+	# asked tech_effect() ~120 times (a rune's chance, 2 ms each): 300 ms of its 1.25 s on Robert's save
+	Game.fx_hold(true)
 	_fill_raw(sec)
+	Game.fx_hold(false)
 	_fit.call_deferred(sec)
 
 
@@ -350,6 +477,10 @@ func _fit(sec: String) -> void:
 			if h == null or not is_instance_valid(h) or h.is_queued_for_deletion() or h.get_child_count() < 2 or not h.is_visible_in_tree():
 				continue
 			if h.get_combined_minimum_size().x <= lim:
+				continue
+			if h.get_script() != null:
+				# 2026-10-31: a row that is a script's own node (the Pack's Kit is one) must never be taken apart and freed -- the HUD still
+				# holds it, so every button on the Pack page died the moment the window was small. It stacks its columns instead.
 				continue
 			_shrink_row(h, lim)
 			if h.get_combined_minimum_size().x <= lim:
@@ -451,6 +582,8 @@ func _fill_raw(sec: String) -> void:
 			hud._fill_lattice()
 		"Party":
 			fill_party()
+		"Works":
+			fill_works()
 		"Bonds":
 			fill_bonds()
 		"Road":
@@ -477,7 +610,9 @@ func _fill_raw(sec: String) -> void:
 			fill_dao()
 		"Map":
 			_map.refresh()
-	var tabbed := {"Party": _party, "Road": _road, "Quests": _quests, "Mind": _mind, "Spirit": _spirit, "World": _world, "Craft": _craft}     # round 119: long pages become tabs
+		"Guild":
+			guild_page.refresh()
+	var tabbed := {"Party": _party, "Works": _works, "Road": _road, "Quests": _quests, "Mind": _mind, "Spirit": _spirit, "World": _world, "Craft": _craft}     # round 119: long pages become tabs
 	if tabbed.has(sec):
 		PageTabs.apply(tabbed[sec], sec, COL[sec])
 	elif sec == "Journal":
@@ -837,6 +972,7 @@ func fill_party() -> void:
 			_btn(pr, I18n.t("Separate"), func(): _say(BRs.separate(pi)); _fill(I18n.t("Party")))
 		if _stable_pick >= 0 and _stable_pick < Game.contracts.size():
 			_p(_party, I18n.t("Choose a partner for %s from the cards below (press Pair on another beast).") % str(Game.contracts[_stable_pick].get("name", "")), Color(1.0, 0.9, 0.6), 13)
+	_eggs_block(_party)
 	for i in Game.contracts.size():
 		var c: Dictionary = Game.contracts[i]
 		var lead := is_same(c, Game.familiar)
@@ -855,6 +991,22 @@ func fill_party() -> void:
 		if MN2 != null:
 			for bl in MN2.beast_lines(c):
 				_p(v2, bl, Color(0.75, 0.95, 0.8), 13)
+		var GN = Game.sys("genome")
+		var EGs = Game.sys("eggs")
+		var TTs = Game.sys("tattoos")
+		if TTs != null:
+			for tl4 in TTs.lines(c):
+				_p(v2, tl4, Color(0.7, 1.0, 0.85), 12)
+		if EGs != null:
+			for el2 in EGs.lines(c):
+				_p(v2, el2, Color(1.0, 0.7, 0.6), 13)
+		if GN != null and bool(c.get("construct", false)) and Game.sys("foundry") != null:
+			_aptitude_block(v2, c, GN, "golem:" + str(c.get("name", "")))
+		elif GN != null and not bool(c.get("construct", false)):
+			_aptitude_block(v2, c, GN)
+			if _stable_pick >= 0 and _stable_pick != i and _stable_pick < Game.contracts.size() and not bool(c.get("breeding", false)):
+				for pv in GN.pair_preview(Game.contracts[_stable_pick], c):
+					_p(v2, pv, Color(0.7, 0.9, 1.0), 12)
 		if BRs != null:
 			for ll in BRs.lineage_lines(c):
 				_p(v2, ll, Color(1.0, 0.88, 0.65), 13)
@@ -865,6 +1017,9 @@ func fill_party() -> void:
 			var bdi: Dictionary = MN2.beast_deed_info(c)
 			_btn(_row(v2), I18n.t("Ask: %s") % str(bdi.get("name", "")), func(): _say(MN2.ask_beast(c)), float(bdi.get("left", 0.0)) > 0.0, str(bdi.get("desc", "")))
 		var a2 := _row(v2)
+		if EGs != null and not bool(c.get("construct", false)):
+			var fwhy: String = EGs.feed_block(c)
+			_btn(a2, I18n.t("Feed essence (%d)") % EGs.feed_cost(c), func(): _say(EGs.feed(c)); _fill(I18n.t("Party")), fwhy != "", fwhy if fwhy != "" else I18n.t("Deepen its blood."))
 		if BRs != null and not bool(c.get("construct", false)):
 			if _stable_pick == i:
 				_btn(a2, I18n.t("Cancel pairing"), func(): _stable_pick = -1; _fill(I18n.t("Party")))
@@ -911,6 +1066,8 @@ func fill_party() -> void:
 			else:
 				_confirm_release = i
 				_fill("Party"))
+	_splicer_block(_party)
+	_tattoo_block(_party)
 	# round 154: constructs -- golems, the mech suit, voyages
 	var CN = Game.sys("constructs")
 	if CN != null:
@@ -1369,8 +1526,11 @@ func fill_swarm() -> void:
 	if R == null:
 		return
 	_t(_swarm, "The swarm", COL["Swarm"])
-	_p(_swarm, I18n.t("%s  ·  integration %d  ·  bandwidth %d of %d  ·  body load %d of %d  ·  upkeep %d (%.1f qi a minute)%s") % [Game.tier_name(), int(Game.integration),
-		R.bandwidth_used(), R.bandwidth_cap(), R.load_used(), R.load_cap(), R.upkeep_points(), Y.upkeep_per_minute() if Y else 0.0, "  ·  RUN DRY" if Y and Y.starved else ""], Color(0.8, 1.0, 0.95), 13)
+	_p(_swarm, I18n.t("%s  ·  integration %s  ·  bandwidth %d of %d  ·  body load %d of %d  ·  upkeep %d (%s qi a minute)%s") % [Game.tier_name(), Game.big(Game.integration),
+		R.bandwidth_used(), R.bandwidth_cap(), R.load_used(), R.load_cap(), R.upkeep_points(), Game.big(Y.upkeep_per_minute() if Y else 0.0), "  ·  RUN DRY" if Y and Y.starved else ""], Color(0.8, 1.0, 0.95), 13)
+	var CNm = Game.sys("constructs")
+	if CNm != null and CNm.mech_on:          # 2026-11-06: the frame's drain is not swarm upkeep -- say it here too, where players look for "why is my qi falling"
+		_p(_swarm, I18n.t("You are wearing the power frame: it drinks %s qi a minute (about %d%% of a step). Backslash, or Leave the frame on Constructs, takes it off.") % [Game.big(CNm.mech_drain_per_min()), int(round(CNm.mech_drain_frac() * 100.0))], Color(1.0, 0.8, 0.45), 13)
 	_mind_section()
 	_aspect_section()
 	_inner_section()
@@ -1430,7 +1590,7 @@ func _design_card(R, nid: String, col: Color) -> void:
 			var why: String = R.can_research(nid)
 			_btn(a, I18n.t("Research") if st == "open" else I18n.t("Continue"), func(): _say(R.start(nid)), why != "", why)
 			if st == "open":
-				hud._label(a, I18n.t("%s of sitting  ·  %d qi  ·  %s") % [Game._dur(float(c.get("seconds", 600))), int(R.cost_qi(nid)),
+				hud._label(a, I18n.t("%s of sitting  ·  %s qi  ·  %s") % [Game._dur(float(c.get("seconds", 600))), Game.big(R.cost_qi(nid)),
 					", ".join((c.get("items", {}) as Dictionary).keys().map(func(it): return "%d %s (%d)" % [int(c["items"][it]), Game.item_name(str(it)), Game.count(str(it))]))], 11, Color(0.7, 0.75, 0.75))
 			else:
 				_bar(a, float(R.progress.get(nid, 0.0)), R.cost_seconds(nid), Color(0.4, 0.8, 0.75), 140)
@@ -1816,6 +1976,8 @@ func _path_card(P, pid: String, is_second: bool) -> void:
 			P.drop_second()
 			_say(I18n.t("You set your second path aside.")))
 	_p(v, str(p.get("blurb", "")), Color(0.85, 0.88, 0.9), 13)
+	if is_second:                                 # round 183: the half strength was only in the rules text
+		_p(v, I18n.t("As a second path it works at %d%% strength: its gifts count for that much, and its art hits softer (x0.75) and waits longer (x1.25).") % int(round(P.share_of(pid) * 100.0)), Color(1.0, 0.82, 0.5), 12)
 	var wl: Array = p.get("weapons", [])
 	_p(v, (I18n.t("Favours: ") + ", ".join(wl) + I18n.t(" (weapon gifts count only while one is in hand)")) if wl.size() > 0 else I18n.t("Works with any weapon."), Color(0.65, 0.72, 0.8), 12)
 	# the next rank
@@ -1898,77 +2060,102 @@ func fill_craft() -> void:
 		_btn(cpr, I18n.t("Craft mini-games: %s") % (I18n.t("on") if CPl.enabled else I18n.t("off")), func():
 			CPl.enabled = not CPl.enabled
 			_fill("Craft"), CPl.enabled, I18n.t("A short skill game before you smith, brew, pour, cut or carve. A good game nudges the odds and the quality a little; skipping costs nothing."))
+		if CPl.enabled:
+			_btn(cpr, I18n.t("Master mode: %s") % (I18n.t("on") if CPl.master else I18n.t("off")), func():
+				CPl.master = not CPl.master
+				_fill("Craft"), CPl.master, I18n.t("For those who want a real challenge: three passes of the craft's game, each harder than the last. A clean run is a Masterwork -- a much bigger boost to odds, quality and skill xp. Skip any pass and nothing is lost."))
 		var lst: Dictionary = CPl.last
 		_p(cpr, I18n.t("Last game: %s") % (str(lst.get("text", "")) + " (" + str(int(round(float(lst.get("score", 0.0)) * 100.0))) + "%)") if not lst.is_empty() else I18n.t("Hammer, simmer, pour, facet, trace -- one for each craft."), Color(0.7, 0.74, 0.82), 13)
 	_workshop_section()
 	_commission_section()
 	_h(_craft, tr("Recipes"), acc)
-	_p(_craft, tr("Everything you make is written down here: what went in, who made it, how many times. Make it again from the page."), Color(0.7, 0.74, 0.82), 13)
-	var keys: Array = CB.recipe_keys()
-	if keys.is_empty():
-		_p(_craft, tr("Nothing made yet. Craft something at a bench, forge a piece, or mix at the bench and its recipe appears here."), Color(0.6, 0.62, 0.68))
-	for k in keys:
-		var v: Dictionary = CB.recipe_view(str(k))
-		if v.is_empty():
-			continue
-		var card := _card(_craft, acc)
-		var head := _row(card)
-		_h(head, str(v["name"]), Color(0.97, 0.94, 0.86), 17)
-		_pill(head, I18n.t("%s · %s · made %d×") % [str(v["kind"]), Game.skill_name(str(v["skill"])) if str(v["skill"]) != "" else "", int(v["times"])], Color(0.62, 0.68, 0.78))
-		var ing := []
-		for it in v["inputs"]:
-			ing.append("%d %s%s" % [int(it["need"]), str(it["name"]), "" if int(it["have"]) >= int(it["need"]) else I18n.t(" (have %d)") % int(it["have"])])
-		_p(card, tr("Needs: ") + (", ".join(ing) if ing.size() > 0 else "-") + ((" · %d gold" % int(v["gold"])) if int(v["gold"]) > 0 else ""), Color(0.86, 0.88, 0.92), 13)
-		if not (v["design"] as Dictionary).is_empty():
-			var dl := []
-			for dk in v["design"]:
-				dl.append("%s %s" % [str(dk), str(v["design"][dk])])
-			_p(card, tr("Design: ") + ", ".join(dl), Color(0.8, 0.75, 0.95), 12)
-		if bool(v["remake"]):
-			var rk := str(k)
-			var b := _btn(card, tr("Make again"), func(): _say(CB.remake(rk)), not bool(v["have_all"]), tr("Uses the same materials and design."))
-			b.custom_minimum_size = Vector2(130, 30)
+	var lz_recipes := func():
+		_p(_craft, tr("Everything you make is written down here: what went in, who made it, how many times. Make it again from the page."), Color(0.7, 0.74, 0.82), 13)
+		var keys: Array = CB.recipe_keys()
+		if keys.is_empty():
+			_p(_craft, tr("Nothing made yet. Craft something at a bench, forge a piece, or mix at the bench and its recipe appears here."), Color(0.6, 0.62, 0.68))
+		for k in keys:
+			var v: Dictionary = CB.recipe_view(str(k))
+			if v.is_empty():
+				continue
+			var card := _card(_craft, acc)
+			var head := _row(card)
+			_h(head, str(v["name"]), Color(0.97, 0.94, 0.86), 17)
+			_pill(head, I18n.t("%s · %s · made %d×") % [str(v["kind"]), Game.skill_name(str(v["skill"])) if str(v["skill"]) != "" else "", int(v["times"])], Color(0.62, 0.68, 0.78))
+			var ing := []
+			for it in v["inputs"]:
+				ing.append("%d %s%s" % [int(it["need"]), str(it["name"]), "" if int(it["have"]) >= int(it["need"]) else I18n.t(" (have %d)") % int(it["have"])])
+			_p(card, tr("Needs: ") + (", ".join(ing) if ing.size() > 0 else "-") + ((" · %d gold" % int(v["gold"])) if int(v["gold"]) > 0 else ""), Color(0.86, 0.88, 0.92), 13)
+			if not (v["design"] as Dictionary).is_empty():
+				var dl := []
+				for dk in v["design"]:
+					dl.append("%s %s" % [str(dk), str(v["design"][dk])])
+				_p(card, tr("Design: ") + ", ".join(dl), Color(0.8, 0.75, 0.95), 12)
+			if bool(v["remake"]):
+				var rk := str(k)
+				var b := _btn(card, tr("Make again"), func(): _say(CB.remake(rk)), not bool(v["have_all"]), tr("Uses the same materials and design."))
+				b.custom_minimum_size = Vector2(130, 30)
+				# round 181: let the sitting do the work -- every few seconds while you meditate, one more
+				var sr := _row(card)
+				for nn in [10, 50, 200]:
+					var cnt: int = nn
+					var sb := _btn(sr, I18n.t("Make %d while I sit") % cnt, func():
+						_say(CB.sit_start(rk, cnt))
+						_header()
+						_fill("Craft"), false, tr("Sit (M) and it makes one every few seconds from your pouch and chest. Standing up pauses it."))
+					sb.custom_minimum_size = Vector2(150, 28)
+				if CB.sit_active() and CB.sit_key == rk:
+					_btn(sr, I18n.t("Stop (%d to go)") % CB.sit_left, func():
+						CB.sit_stop()
+						_fill("Craft"))
+	_lazy(self, "_craft", lz_recipes)
 	# ---- herbology -----
 	_kitchen_section()
 	_t(_craft, tr("Herbology"), COL["Spirit"])
-	_shelf_page(CB, "herbs")
+	var lz_herbs := func():
+		_shelf_page(CB, "herbs")
+	_lazy(self, "_craft", lz_herbs)
 	# ---- supplies -----
 	_t(_craft, tr("Supplies"), COL["Pack"])
-	_p(_craft, tr("Handle a material in a craft and the journal learns its traits; use it a few times and it learns what it adds and what suits it."), Color(0.7, 0.74, 0.82), 13)
-	for sh in ["ores", "gems", "beast", "reagents", "tech"]:
-		_shelf_page(CB, sh)
+	var lz_supplies := func():
+		_p(_craft, tr("Handle a material in a craft and the journal learns its traits; use it a few times and it learns what it adds and what suits it."), Color(0.7, 0.74, 0.82), 13)
+		for sh in ["ores", "gems", "beast", "reagents", "tech"]:
+			_shelf_page(CB, sh)
+	_lazy(self, "_craft", lz_supplies)
 	# ---- bestiary -----
 	_h(_craft, tr("Bestiary"), Color(1.0, 0.7, 0.65))
-	var fm: Array = CB.foes_met()
-	_p(_craft, tr("Foes met: %d of %d. Defeat one to open its page; fight it more and the page shows its strength and what it carries.") % [int(fm[0]), int(fm[1])], Color(0.7, 0.74, 0.82), 13)
-	var last_floor := -1
-	for fid in CB.foes():
-		var c: Dictionary = CB.foe_card(str(fid))
-		if not bool(c["met"]):
-			continue
-		if int(c["floor"]) != last_floor:
-			last_floor = int(c["floor"])
-			var fl: Label = hud._label(_craft, I18n.t("Floor %d") % last_floor, 14, Color(0.6, 0.66, 0.78))
-		var card2 := _card(_craft, Color(1.0, 0.7, 0.65))
-		var hr := _row(card2)
-		_h(hr, str(c["name"]), Color(0.97, 0.94, 0.86), 16)
-		_pill(hr, I18n.t("defeated %d×%s") % [int(c["kills"]), I18n.t("  · boss") if bool(c.get("boss", false)) else ""], Color(0.8, 0.66, 0.62))
-		if c.has("hp"):
-			_p(card2, I18n.t("Strength: %d health, %d damage, speed %.1f") % [int(c["hp"]), int(c["damage"]), float(c["speed"])], Color(0.86, 0.88, 0.92), 13)
-		else:
-			_p(card2, tr("Fight it a few more times to learn its strength."), Color(0.55, 0.58, 0.65), 12)
-		var dr: Array = c.get("drops", [])
-		if dr.size() > 0:
-			_p(card2, tr("Dropped for you: ") + ", ".join(dr.map(func(i): return Game.item_name(str(i)))), Color(0.8, 0.9, 0.8), 13)
-		if c.has("table"):
-			var unseen := []
-			for it in c["table"]:
-				if not (it in dr):
-					unseen.append(Game.item_name(str(it)))
-			if unseen.size() > 0:
-				_p(card2, tr("Also carries: ") + ", ".join(unseen), Color(0.95, 0.85, 0.6), 13)
-		elif dr.size() == 0:
-			_p(card2, tr("Nothing learned about what it carries yet."), Color(0.55, 0.58, 0.65), 12)
+	var lz_bestiary := func():
+		var fm: Array = CB.foes_met()
+		_p(_craft, tr("Foes met: %d of %d. Defeat one to open its page; fight it more and the page shows its strength and what it carries.") % [int(fm[0]), int(fm[1])], Color(0.7, 0.74, 0.82), 13)
+		var last_floor := -1
+		for fid in CB.foes():
+			var c: Dictionary = CB.foe_card(str(fid))
+			if not bool(c["met"]):
+				continue
+			if int(c["floor"]) != last_floor:
+				last_floor = int(c["floor"])
+				var fl: Label = hud._label(_craft, I18n.t("Floor %d") % last_floor, 14, Color(0.6, 0.66, 0.78))
+			var card2 := _card(_craft, Color(1.0, 0.7, 0.65))
+			var hr := _row(card2)
+			_h(hr, str(c["name"]), Color(0.97, 0.94, 0.86), 16)
+			_pill(hr, I18n.t("defeated %d×%s") % [int(c["kills"]), I18n.t("  · boss") if bool(c.get("boss", false)) else ""], Color(0.8, 0.66, 0.62))
+			if c.has("hp"):
+				_p(card2, I18n.t("Strength: %d health, %d damage, speed %.1f") % [int(c["hp"]), int(c["damage"]), float(c["speed"])], Color(0.86, 0.88, 0.92), 13)
+			else:
+				_p(card2, tr("Fight it a few more times to learn its strength."), Color(0.55, 0.58, 0.65), 12)
+			var dr: Array = c.get("drops", [])
+			if dr.size() > 0:
+				_p(card2, tr("Dropped for you: ") + ", ".join(dr.map(func(i): return Game.item_name(str(i)))), Color(0.8, 0.9, 0.8), 13)
+			if c.has("table"):
+				var unseen := []
+				for it in c["table"]:
+					if not (it in dr):
+						unseen.append(Game.item_name(str(it)))
+				if unseen.size() > 0:
+					_p(card2, tr("Also carries: ") + ", ".join(unseen), Color(0.95, 0.85, 0.6), 13)
+			elif dr.size() == 0:
+				_p(card2, tr("Nothing learned about what it carries yet."), Color(0.55, 0.58, 0.65), 12)
+	_lazy(self, "_craft", lz_bestiary)
 
 
 func _story_row(v: Node, nm: String) -> void:
@@ -2601,3 +2788,480 @@ func _language_section() -> void:
 		_p(_system, "English is the source text.", Color(0.62, 0.68, 0.78), 12)
 	else:
 		_p(_system, (I18n.t("%d phrases are translated: menus, items, floors, quests and story. Anything not yet reviewed by a native speaker may read oddly -- tell us what to fix.") % I18n.coverage()), Color(0.62, 0.68, 0.78), 12)
+
+
+# ---- round 177: genes, aptitude, the gene splicer ----------------------------------------------------------------------
+
+var _gs_target := -1
+var _gs_sample := -1
+var _gs_cat := ""
+var _gs_open := false
+const GRADE_COL := {"S": Color(1.0, 0.85, 0.35), "A": Color(0.6, 1.0, 0.6), "B": Color(0.6, 0.9, 1.0), "C": Color(0.85, 0.85, 0.9), "D": Color(0.75, 0.7, 0.65), "E": Color(0.6, 0.58, 0.58)}
+
+
+func _aptitude_block(v2: Control, c: Dictionary, GN, target: String = "") -> void:
+	var FD = Game.sys("foundry")
+	_p(v2, FD.suited_text(target) if target != "" else GN.suited_text(c), Color(1.0, 0.92, 0.6), 13)
+	for r in (FD.breakdown(target) if target != "" else GN.breakdown(c)):
+		var row := _row(v2)
+		var nl: Label = hud._label(row, str(r["name"]), 12, Color(0.8, 0.85, 0.82))
+		nl.custom_minimum_size = Vector2(78, 0)
+		_bar(row, float(r["score"]), 100.0, GRADE_COL.get(str(r["grade"]), Color.WHITE), 150)
+		hud._label(row, ("%s  %s %d" % [str(r["grade"]), GN.gene_name(str(r["gene"])), int(r["level"])]) if int(r["level"]) >= 0 else str(r["grade"]), 12, GRADE_COL.get(str(r["grade"]), Color.WHITE))
+	for el in GN.extra_lines(c):
+		_p(v2, el, Color(0.85, 0.8, 1.0), 12)
+	if target != "" and target != "ship":
+		_p(v2, FD.rune_line(target), Color(0.85, 0.8, 1.0), 12)
+
+
+func _splicer_block(parent: Control) -> void:
+	var GN = Game.sys("genome")
+	if GN == null or Game.contracts.is_empty():
+		return
+	_h(parent, I18n.t("Gene Splicer"), Color(0.7, 0.95, 1.0))
+	var why: String = GN.splicer_open()
+	if why != "":
+		_p(parent, why, Color(0.65, 0.68, 0.72), 13)
+		return
+	_p(parent, I18n.t("Take a sample of a gene from one beast, graft it onto another. The odds are shown first; a rejected graft costs a step. Samples kept: %d of %d  ·  splices: %d") % [GN.samples.size(), GN.max_samples(), GN.splices], Color(0.75, 0.8, 0.85), 13)
+	var card := _card(parent, Color(0.4, 0.65, 0.8))
+	_btn(_row(card), I18n.t("Hide the splicer") if _gs_open else I18n.t("Open the splicer"), func(): _gs_open = not _gs_open; _fill(I18n.t("Party")))
+	if not _gs_open:
+		return
+	_h(card, I18n.t("1. Take a sample"), Color(0.8, 0.95, 1.0), 14)
+	for i in Game.contracts.size():
+		var c: Dictionary = Game.contracts[i]
+		if bool(c.get("construct", false)):
+			continue
+		var rw := _row(card)
+		var nl: Label = hud._label(rw, str(c.get("name", "")), 12, Color(0.85, 0.9, 0.87))
+		nl.custom_minimum_size = Vector2(90, 0)
+		for gk in GN.genes():
+			var lv: int = GN.level(c, str(gk))
+			if lv <= 0:
+				continue
+			var bw: String = GN.sample_block(c, str(gk))
+			_btn(rw, "%s %d" % [GN.gene_name(str(gk)), lv], func(): _say(GN.take_sample(c, str(gk))); _fill(I18n.t("Party")), bw != "", bw if bw != "" else I18n.t("Take a sample of this gene."))
+	_h(card, I18n.t("2. Graft it"), Color(0.8, 0.95, 1.0), 14)
+	if GN.samples.is_empty():
+		_p(card, I18n.t("The sample case is empty."), Color(0.65, 0.68, 0.72), 12)
+	for si in GN.samples.size():
+		var sm: Dictionary = GN.samples[si]
+		var sr := _row(card)
+		var sl: Label = hud._label(sr, "%s %d  (from %s)" % [GN.gene_name(str(sm["gene"])), int(sm["level"]), str(sm["from"])], 12, Color(1.0, 0.95, 0.7) if si == _gs_sample else Color(0.85, 0.9, 0.87))
+		sl.custom_minimum_size = Vector2(180, 0)
+		_btn(sr, I18n.t("Choose") if si != _gs_sample else I18n.t("Chosen"), func(): _gs_sample = si; _fill(I18n.t("Party")))
+	if _gs_sample >= GN.samples.size():
+		_gs_sample = -1
+	if _gs_sample >= 0:
+		_p(card, I18n.t("Graft onto:"), Color(0.8, 0.95, 1.0), 12)
+		var tr := _row(card)
+		for i in Game.contracts.size():
+			var c2: Dictionary = Game.contracts[i]
+			if bool(c2.get("construct", false)):
+				continue
+			var tw: String = GN.splice_block(c2, _gs_sample)
+			_btn(tr, str(c2.get("name", "")) + ("  <" if i == _gs_target else ""), func(): _gs_target = i; _fill(I18n.t("Party")), false, tw)
+		if _gs_target >= 0 and _gs_target < Game.contracts.size():
+			var tc: Dictionary = Game.contracts[_gs_target]
+			var cr := _row(card)
+			hud._label(cr, I18n.t("Catalyst:"), 12, Color(0.8, 0.85, 0.9))
+			var cats: Dictionary = GN.data.get("splicer", {}).get("catalysts", {})
+			_btn(cr, I18n.t("None") + ("  <" if _gs_cat == "" else ""), func(): _gs_cat = ""; _fill(I18n.t("Party")))
+			for ck in cats:
+				var have: int = Game.count(str(ck))
+				_btn(cr, "%s x%d%s" % [I18n.t(str(cats[ck].get("name", ck))), have, "  <" if _gs_cat == str(ck) else ""], func(): _gs_cat = str(ck); _fill(I18n.t("Party")), have <= 0, I18n.t(str(cats[ck].get("desc", ""))))
+			var odds: Dictionary = GN.splice_odds(tc, _gs_sample, _gs_cat)
+			_p(card, GN.odds_text(odds), Color(1.0, 0.9, 0.7), 12)
+			var sblock: String = GN.splice_block(tc, _gs_sample)
+			var cost: int = GN.splice_cost(tc, str(GN.samples[_gs_sample]["gene"]))
+			_btn(_row(card), I18n.t("Splice onto %s (%d gold)") % [str(tc.get("name", "")), cost], func(): _say(GN.splice(tc, _gs_sample, _gs_cat)); _gs_sample = -1; _fill(I18n.t("Party")), sblock != "", sblock)
+	_h(card, I18n.t("3. Tailor"), Color(0.8, 0.95, 1.0), 14)
+	_p(card, I18n.t("Quiet a gene you do not want (the strand is kept as a sample), or smooth away a quirk."), Color(0.7, 0.75, 0.78), 12)
+	for i in Game.contracts.size():
+		var c3: Dictionary = Game.contracts[i]
+		if bool(c3.get("construct", false)):
+			continue
+		var qr := _row(card)
+		var ql: Label = hud._label(qr, str(c3.get("name", "")), 12, Color(0.85, 0.9, 0.87))
+		ql.custom_minimum_size = Vector2(90, 0)
+		for gk2 in GN.genes():
+			if GN.level(c3, str(gk2)) <= 0:
+				continue
+			var sw: String = GN.suppress_block(c3, str(gk2))
+			_btn(qr, I18n.t("Quiet %s") % GN.gene_name(str(gk2)), func(): _say(GN.suppress(c3, str(gk2))); _fill(I18n.t("Party")), sw != "", sw if sw != "" else I18n.t("%d gold") % GN.splice_cost(c3, str(gk2)))
+		if str(c3.get("quirk", "")) != "":
+			_btn(qr, I18n.t("Clear quirk (100 gold)"), func(): _say(GN.clear_quirk(c3)); _fill(I18n.t("Party")), Game.gold < 100)
+
+
+func _eggs_block(parent: Control) -> void:
+	var EG = Game.sys("eggs")
+	if EG == null:
+		return
+	_h(parent, I18n.t("Eggs"), Color(1.0, 0.82, 0.6))
+	_p(parent, I18n.t("Eggs turn up on new floors, in chests and in the beds (a good Scout finds more). Warm them in a town; some carry a bloodline. Found %d  ·  hatched %d  ·  carrying %d of %d  ·  nest %d of %d  ·  Bloodline Essence: %d") % [
+		EG.found, EG.hatched, EG.eggs.size(), EG.carry(), EG.warming(), EG.slots(), Game.count("blood_essence")], Color(0.75, 0.8, 0.85), 13)
+	for e in EG.eggs:
+		var row := _row(_card(parent, Color(0.8, 0.65, 0.4)))
+		var l: Label = hud._label(row, EG.status_text(e), 13, Color(1.0, 0.9, 0.7))
+		l.custom_minimum_size = Vector2(330, 0)
+		var eid := int(e["id"])
+		var ww: String = EG.warm_block(e)
+		if not bool(e["warm"]):
+			_btn(row, I18n.t("Warm"), func(): _say(EG.warm(eid)); _fill(I18n.t("Party")), ww != "", ww)
+		else:
+			_btn(row, I18n.t("Take out"), func(): _say(EG.cool_egg(eid)); _fill(I18n.t("Party")))
+		var hw: String = EG.hatch_block(e)
+		_btn(row, I18n.t("Hatch"), func(): _say(EG.hatch(eid)); _fill(I18n.t("Party")), hw != "", hw)
+
+
+# ---- round 177: Works -- the foundry (modular golems, frame and skiff), the nanite farm, the tailor ---------------
+
+func fill_works() -> void:
+	_clear(_works)
+	var acc: Color = COL["Works"]
+	_t(_works, "Works", acc)
+	_p(_works, I18n.t("Things you build and tune: golems, the power frame and the skiff from swappable parts; bionics and augments for your own body; the nanite farm; and the tailor, where you steer what a craft is for. Nothing here is bought -- it is all earned in play."), Color(0.7, 0.74, 0.82), 13)
+	_works_foundry(acc)
+	_works_crew(acc)
+	_works_bionics(acc)
+	_works_farm(acc)
+	_works_tailor(acc)
+
+
+func _works_foundry(acc: Color) -> void:
+	var FD = Game.sys("foundry")
+	var GN = Game.sys("genome")
+	if FD == null or GN == null:
+		return
+	_h(_works, I18n.t("Foundry"), acc)
+	var lz_foundry := func():
+		_p(_works, I18n.t("Golems, the power frame and the skiff are built from parts in slots. Make a part from materials, fit it in a town, swap it any time (the old one goes back to the bin). Parts add gifts and decide what it is good at. Runes can be cut into golems and the frame. Parts made: %d") % FD.made, Color(0.75, 0.8, 0.85), 13)
+		var bin_txt := []
+		for pid in FD.bin:
+			bin_txt.append("%s x%d" % [FD.part_name(str(pid)), int(FD.bin[pid])])
+		_p(_works, I18n.t("Bin: ") + (", ".join(bin_txt) if not bin_txt.is_empty() else I18n.t("empty")), Color(0.85, 0.9, 0.87), 13)
+		var targets := []
+		for g in FD.golems():
+			targets.append(["golem:" + str(g.get("name", "")), str(g.get("name", "")) + " (" + I18n.t("golem") + ")", g])
+		targets.append(["mech", I18n.t("The power frame"), {}])
+		targets.append(["ship", I18n.t("The skiff"), {}])
+		for t in targets:
+			var tg: String = t[0]
+			var kind: String = FD.target_kind(tg)
+			var cd := _card(_works, acc)
+			_h(cd, str(t[1]), Color(1.0, 0.92, 0.7), 16)
+			_aptitude_block(cd, t[2], GN, tg)
+			if tg == "mech":
+				var me: Dictionary = Game.sys("constructs").cfg.get("mech", {}).get("effect", {}).duplicate()
+				FD._combine(me, FD.mech_effects())
+				_p(cd, I18n.t("Worn: ") + Game.sys("menagerie")._eff_text(me) + I18n.t("  ·  qi drain x%.2f") % FD.mech_drain_mult(), Color(0.8, 0.9, 1.0), 12)
+			elif tg == "ship":
+				var sm: Dictionary = FD.ship_mods()
+				_p(cd, I18n.t("Voyages take x%.2f the time, cargo x%.2f, gold x%.2f, insight x%.2f.") % [sm["hours"], sm["loot"], sm["gold"], sm["insight"]], Color(0.8, 0.9, 1.0), 12)
+			else:
+				var gf: Dictionary = FD.gifts(tg)
+				if not gf.is_empty():
+					_p(cd, I18n.t("Parts give: ") + Game.sys("menagerie")._eff_text(gf), Color(0.8, 0.9, 1.0), 12)
+			for slot in FD.slots_of(kind):
+				var sr := _row(cd)
+				var cur: String = str(FD.target_parts(tg).get(slot, ""))
+				var sl: Label = hud._label(sr, "%s: %s" % [FD.slot_name(str(slot)), FD.part_name(cur) if cur != "" else I18n.t("(empty)")], 12, Color(0.88, 0.9, 0.95))
+				sl.custom_minimum_size = Vector2(190, 0)
+				for pid in FD.for_slot(kind, str(slot)):
+					if int(FD.bin.get(pid, 0)) <= 0 or pid == cur:
+						continue
+					var fw: String = FD.fit_block(tg, str(slot), pid)
+					_btn(sr, I18n.t("Fit %s") % FD.part_name(pid), func(): _say(FD.fit(tg, str(slot), pid)), fw != "", fw if fw != "" else FD.part_effect_text(pid))
+				if cur != "":
+					_btn(sr, I18n.t("Remove"), func(): _say(FD.unfit(tg, str(slot))), not FD.in_town())
+			if kind != "ship":
+				var rr := _row(cd)
+				var any_rune := false
+				for rk in Game.runes_data().get("runes", {}):
+					if Game.count(str(rk)) <= 0:
+						continue
+					any_rune = true
+					var iw: String = FD.inscribe_block(tg, str(rk))
+					_btn(rr, "%s (%d%%)" % [Game.rune_mark(str(rk)), int(round(FD.inscribe_chance(tg, str(rk)) * 100.0))], func(): _say(str(FD.inscribe(tg, str(rk)).get("text", ""))), iw != "", iw if iw != "" else I18n.t("Cut this rune into it."))
+				if not any_rune:
+					hud._label(rr, I18n.t("No runes in your pack."), 12, Color(0.6, 0.62, 0.6))
+				if not FD.runes_on(tg).is_empty():
+					_btn(rr, I18n.t("Scour (%d gold)") % FD.scour_cost(tg), func(): _say(FD.scour(tg)), Game.gold < FD.scour_cost(tg))
+		# making parts
+		var mc := _card(_works, acc)
+		_h(mc, I18n.t("Make parts"), Color(1.0, 0.92, 0.7), 16)
+		for kind2 in ["golem", "mech", "ship"]:
+			_p(mc, {"golem": I18n.t("Golem parts"), "mech": I18n.t("Power-frame parts"), "ship": I18n.t("Skiff parts")}[kind2], Color(0.8, 0.95, 1.0), 13)
+			for slot2 in FD.slots_of(kind2):
+				var mr := _row(mc)
+				var ml: Label = hud._label(mr, FD.slot_name(str(slot2)), 12, Color(0.8, 0.85, 0.82))
+				ml.custom_minimum_size = Vector2(70, 0)
+				for pid2 in FD.for_slot(kind2, str(slot2)):
+					var mw: String = FD.make_block(pid2)
+					_btn(mr, FD.part_name(pid2), func(): _say(FD.make(pid2)), mw != "", (mw + "\n" if mw != "" else "") + FD.needs_text(pid2) + "\n" + FD.part_effect_text(pid2) + "\n" + I18n.t(str(FD.parts()[pid2].get("desc", ""))))
+	_lazy(self, "_works", lz_foundry)
+
+
+func _works_crew(acc: Color) -> void:
+	var CR = Game.sys("crew")
+	var GN = Game.sys("genome")
+	if CR == null or GN == null:
+		return
+	_h(_works, I18n.t("Crew"), acc)
+	var lz_crew := func():
+		_p(_works, I18n.t("Everyone resting at home -- beasts, constructs and the companions you have travelled with -- can work while you are away: tend the gardens, go out and train, or go out and gather. Each has a knack of its own and a focus you can steer; the work deepens the focus. Those at your side do not work."), Color(0.75, 0.8, 0.85), 13)
+		var top := _card(_works, acc)
+		for ln in CR.status_lines():
+			_p(top, str(ln), Color(0.8, 0.9, 1.0), 12)
+		var ht := []
+		for k in CR.haul:
+			ht.append("%s x%d" % [Game.item_name(str(k)), int(CR.haul[k])])
+		_p(top, I18n.t("Haul bin: ") + (", ".join(ht) if not ht.is_empty() else I18n.t("empty")), Color(0.85, 0.9, 0.87), 12)
+		_btn(top, I18n.t("Collect the haul"), func(): _say(CR.collect()), CR.haul.is_empty())
+		var hs: Array = CR.hands()
+		if hs.is_empty():
+			_p(_works, I18n.t("Nobody is resting at home right now."), Color(0.65, 0.68, 0.72), 13)
+			return
+		for h in hs:
+			var cd := _card(_works, acc)
+			var rec: Dictionary = h["rec"]
+			_h(cd, "%s  (%s)" % [str(h["name"]), I18n.t({"beast": "beast", "construct": "construct", "companion": "companion"}[h["kind"]])], Color(1.0, 0.92, 0.7), 15)
+			_p(cd, I18n.t("Knack: %s -- %s") % [CR.spec_name(rec), I18n.t(str(CR.spec_of(rec).get("desc", "")))], Color(0.85, 0.8, 1.0), 12)
+			var fl: float = CR.focus_next(rec)
+			_p(cd, I18n.t("Focus: %s, level %d%s") % [CR._skill_name(str(rec.get("focus", ""))), CR.focus_level(rec), (I18n.t(" (%d of %d)") % [int(rec.get("fxp", 0.0)), int(fl)]) if fl > 0.0 else I18n.t(" (mastered)")], Color(0.8, 0.9, 1.0), 12)
+			var ap: Dictionary = CR.aptitude(h)
+			var bits := []
+			for sk in GN.skills():
+				bits.append("%s %d" % [CR._skill_name(str(sk)), int(ap.get(sk, 0.0))])
+			_p(cd, " · ".join(bits), Color(0.7, 0.75, 0.8), 11)
+			var jr := _row(cd)
+			hud._label(jr, I18n.t("Job:"), 12, Color(0.8, 0.85, 0.82))
+			var cur: String = CR.job_of(h)
+			for j in CR.job_ids():
+				var jw: String = CR.job_block(h, str(j))
+				var tip: String = I18n.t(str(CR.jobs()[j].get("desc", "")))
+				if str(j) != "rest":
+					tip += "  " + CR.rate_text(h, str(j))
+				_btn(jr, ("> " if cur == str(j) else "") + CR.job_name(str(j)), func(): _say(CR.set_job(h, str(j))), cur == str(j) or jw != "", jw if jw != "" else tip)
+			var fr := _row(cd)
+			hud._label(fr, I18n.t("Focus on:"), 12, Color(0.8, 0.85, 0.82))
+			for sk2 in GN.skills():
+				var fw: String = CR.set_focus_block(h, str(sk2))
+				_btn(fr, CR._skill_name(str(sk2)), func(): _say(CR.set_focus(h, str(sk2))), fw != "" and str(rec.get("focus", "")) == str(sk2) or (fw != "" and str(rec.get("focus", "")) != str(sk2)), fw)
+	_lazy(self, "_works", lz_crew)
+
+
+func _works_bionics(acc: Color) -> void:
+	var BI = Game.sys("bionics")
+	if BI == null:
+		return
+	_h(_works, I18n.t("Bionics"), acc)
+	_p(_works, I18n.t("Augments and bionics for your own body: build them from materials and Bionic Scrap, or find them in chests and on fallen foes. Fit them in a town against your strain. A fitted part begins at a quarter of its power while the swarm synchronises it -- faster while you sit, a Nanite Shard sets it on -- until it reaches full power and function."), Color(0.75, 0.8, 0.85), 13)
+	var cd := _card(_works, acc)
+	for ln in BI.status_lines():
+		_p(cd, str(ln), Color(0.8, 0.9, 1.0), 12)
+	_bar(cd, float(BI.strain_used()), float(maxi(1, BI.capacity())), Color(0.9, 0.6, 0.4), 220.0)
+	var g: Dictionary = BI.gifts()
+	if not g.is_empty():
+		_p(cd, I18n.t("Worn now: ") + Game.sys("menagerie")._eff_text(g), Color(0.85, 0.95, 0.8), 12)
+	var bt := []
+	for pid in BI.bin:
+		bt.append("%s x%d" % [BI.part_name(str(pid)), int(BI.bin[pid])])
+	_p(cd, I18n.t("Bin: ") + (", ".join(bt) if not bt.is_empty() else I18n.t("empty")) + "   " + I18n.t("Bionic Scrap: %d") % Game.count("bionic_scrap"), Color(0.85, 0.9, 0.87), 12)
+	_btn(cd, I18n.t("Synchronise all (nanite shards)"), func(): _say(BI.sync_all()), BI.sync_all_block() != "", BI.sync_all_block() if BI.sync_all_block() != "" else I18n.t("Pour Nanite Shards into every part that is not yet at full power."))
+	for slot in BI.slots():
+		var sr := _row(cd)
+		var cur: String = str(BI.fitted.get(slot, {}).get("part", ""))
+		var txt := "%s: %s" % [BI.slot_name(str(slot)), I18n.t("(empty)")]
+		if cur != "":
+			txt = "%s: %s  %d%%" % [BI.slot_name(str(slot)), BI.part_name(cur), int(round(BI.sync_of(str(slot)) * 100.0))]
+			if BI.is_full(str(slot)):
+				txt += " " + I18n.t("(full power)")
+			else:
+				txt += " " + I18n.t("(%.1f h to full)") % BI.hours_left(str(slot))
+		var sl: Label = hud._label(sr, txt, 12, Color(0.88, 0.9, 0.95))
+		sl.custom_minimum_size = Vector2(250, 0)
+		if cur != "":
+			_btn(sr, I18n.t("Resync"), func(): _say(BI.resync(str(slot))), BI.resync_block(str(slot)) != "", BI.resync_block(str(slot)) if BI.resync_block(str(slot)) != "" else I18n.t("A Nanite Shard sets the synchronisation on."))
+			_btn(sr, I18n.t("Remove"), func(): _say(BI.remove(str(slot))), not BI.in_town())
+		for pid in BI.for_slot(str(slot)):
+			if int(BI.bin.get(pid, 0)) <= 0 or pid == cur:
+				continue
+			var iw: String = BI.install_block(str(slot), pid)
+			_btn(sr, I18n.t("Fit %s (%d%%)") % [BI.part_name(pid), int(round(BI.install_chance() * 100.0))], func(): _say(str(BI.install(str(slot), pid).get("text", ""))), iw != "", iw if iw != "" else BI.effect_text(pid, 1.0))
+			if Game.count("nanite_shard") > 0:
+				_btn(sr, I18n.t("+shard (%d%%)") % int(round(BI.install_chance(true) * 100.0)), func(): _say(str(BI.install(str(slot), pid, true).get("text", ""))), iw != "" or BI.install_block(str(slot), pid, true) != "", I18n.t("A Nanite Shard steadies the graft."))
+	var mc := _card(_works, acc)
+	_h(mc, I18n.t("Build bionics"), Color(1.0, 0.92, 0.7), 16)
+	for slot2 in BI.slots():
+		var mr := _row(mc)
+		var ml: Label = hud._label(mr, BI.slot_name(str(slot2)), 12, Color(0.8, 0.85, 0.82))
+		ml.custom_minimum_size = Vector2(70, 0)
+		for pid2 in BI.for_slot(str(slot2)):
+			var mw: String = BI.make_block(pid2)
+			_btn(mr, BI.part_name(pid2), func(): _say(BI.make(pid2)), mw != "", (mw + "\n" if mw != "" else "") + BI.needs_text(pid2) + "\n" + I18n.t("Strain %d") % int(BI.parts()[pid2].get("strain", 0)) + "  " + BI.effect_text(pid2, 1.0) + "\n" + I18n.t(str(BI.parts()[pid2].get("desc", ""))))
+	var dm := _row(mc)
+	for pid3 in BI.bin:
+		_btn(dm, I18n.t("Strip %s") % BI.part_name(str(pid3)), func(): _say(BI.dismantle(str(pid3))), false, I18n.t("Break it down for Bionic Scrap."))
+
+
+func _works_farm(acc: Color) -> void:
+	var NF = Game.sys("farm")
+	if NF == null:
+		return
+	_h(_works, I18n.t("Nanite Farm"), acc)
+	_p(_works, I18n.t("Vats at home hold a culture that replicates. Left alone it stagnates -- diversity drains and the yield falls -- so answer its events, learn skills, and harvest. Lore: %d  ·  harvests: %d") % [NF.lore, NF.harvests], Color(0.75, 0.8, 0.85), 13)
+	var why: String = NF.open_block()
+	var cd := _card(_works, acc)
+	if why != "" and NF.vats <= 0:
+		_p(cd, why, Color(0.8, 0.7, 0.6), 13)
+		return
+	for ln in NF.status_lines():
+		_p(cd, ln, Color(0.85, 1.0, 0.9), 13)
+	if NF.vats > 0:
+		var br := _row(cd)
+		hud._label(br, I18n.t("Colony"), 12, Color(0.8, 0.85, 0.82))
+		_bar(br, NF.pop, maxf(NF.cap(), 1.0), Color(0.5, 1.0, 0.8), 220)
+		hud._label(br, I18n.t("Diversity"), 12, Color(0.8, 0.85, 0.82))
+		_bar(br, NF.diversity, 1.0, Color(1.0, 0.8, 0.4) if NF.diversity < 0.5 else Color(0.6, 0.9, 1.0), 140)
+	var vw: String = NF.vat_block()
+	_btn(_row(cd), I18n.t("Build a vat (%d of %d): %s") % [NF.vats + 1, int(NF.data["vats"]["max"]), NF.vat_text()], func(): _say(NF.build_vat()), vw != "", vw)
+	if NF.vats <= 0:
+		return
+	var hp: Dictionary = NF.harvest_preview()
+	var hw: String = NF.harvest_block()
+	_btn(_row(cd), I18n.t("Harvest: %d shards, swarm +%.1f") % [int(hp["shards"]), float(hp["integ"])] + (I18n.t(", %d qi") % int(hp["qi"]) if float(hp["qi"]) >= 0.5 else ""), func(): _say(NF.harvest()), hw != "", hw)
+	# the line to grow
+	_p(cd, I18n.t("Line:"), Color(0.8, 0.95, 0.9), 12)
+	var lr := _row(cd)
+	for sid in NF.data["strains"]:
+		if not NF.found.has(str(sid)):
+			continue
+		_btn(lr, I18n.t(str(NF.data["strains"][sid]["name"])) + ("  <" if NF.strain == str(sid) else ""), func(): _say(NF.set_strain(str(sid))), false, I18n.t(str(NF.data["strains"][sid]["desc"])))
+	if not NF.unfound().is_empty():
+		_p(cd, I18n.t("%d lines still to find -- cultivate stray strands.") % NF.unfound().size(), Color(0.65, 0.68, 0.72), 12)
+	# a decision waiting
+	if not NF.event.is_empty():
+		var ev: Dictionary = NF.event_def()
+		var ec := _card(_works, Color(1.0, 0.7, 0.4))
+		_h(ec, I18n.t(str(ev.get("title", ""))), Color(1.0, 0.85, 0.6), 16)
+		_p(ec, I18n.t(str(ev.get("text", ""))), Color(0.85, 0.87, 0.9), 13)
+		for ch in ev.get("choices", []):
+			var cw: String = NF.choice_block(ch)
+			_btn(_row(ec), I18n.t(str(ch.get("name", ""))), func(): _say(NF.resolve(str(ch.get("id", "")))), cw != "", cw if cw != "" else I18n.t(str(ch.get("desc", ""))))
+			_p(ec, "    " + I18n.t(str(ch.get("desc", ""))) + "  ->  " + NF.odds_text(ch), Color(0.7, 0.8, 0.9), 12)
+	else:
+		_p(cd, I18n.t("Nothing waits on you. A decision comes every hour or two."), Color(0.65, 0.68, 0.72), 12)
+	# skills
+	var sc := _card(_works, acc)
+	_h(sc, I18n.t("Self-replication skills"), Color(1.0, 0.92, 0.7), 16)
+	for sk in NF.data["skills"]:
+		var sd: Dictionary = NF.data["skills"][sk]
+		var sr := _row(sc)
+		var sl: Label = hud._label(sr, "%s %d/%d  --  %s" % [I18n.t(str(sd["name"])), NF.lv(str(sk)), int(sd["max"]), I18n.t(str(sd["desc"]))], 12, Color(0.88, 0.9, 0.95))
+		sl.custom_minimum_size = Vector2(330, 0)
+		var sw: String = NF.skill_block(str(sk))
+		var cost: int = NF.skill_cost(str(sk))
+		_btn(sr, I18n.t("Learn (%d lore)") % cost if cost >= 0 else I18n.t("Maxed"), func(): _say(NF.learn(str(sk))), sw != "", sw)
+
+
+var _tl_base := ""
+var _tl_goal := "power"
+var _tl_style := "balanced"
+var _tl_max := 3
+var _tl_avoid := false
+
+
+func _works_tailor(acc: Color) -> void:
+	var TL = Game.sys("tailor")
+	if TL == null:
+		return
+	_h(_works, I18n.t("Tailor"), acc)
+	var lz_tailor := func():
+		_p(_works, I18n.t("Pick what you want worked on and what you want from it. The Tailor ranks what you could work in, with the odds of every good and bad turn shown first. Then narrow it: how bold, how many materials, what to avoid. Nothing happens until you press Work it."), Color(0.75, 0.8, 0.85), 13)
+		var cd := _card(_works, acc)
+		var bases: Array = TL.bases()
+		if bases.is_empty():
+			_p(cd, I18n.t("Nothing in your pack can be worked at the bench yet."), Color(0.65, 0.68, 0.72), 13)
+			return
+		if not bases.has(_tl_base):
+			_tl_base = str(bases[0])
+		var ob := OptionButton.new()
+		for i in bases.size():
+			ob.add_item("%s  x%d" % [Game.item_name(str(bases[i])), Game.count(str(bases[i]))])
+			if str(bases[i]) == _tl_base:
+				ob.select(i)
+		ob.item_selected.connect(func(ix: int): _tl_base = str(bases[ix]); _fill("Works"))
+		var br := _row(cd)
+		hud._label(br, I18n.t("Work on:"), 12, Color(0.8, 0.85, 0.82))
+		br.add_child(ob)
+		_p(cd, I18n.t("I want:"), Color(0.8, 0.95, 0.9), 12)
+		var gr := _row(cd)
+		for gk in TL.goals():
+			_btn(gr, I18n.t(str(TL.goals()[gk]["name"])) + ("  <" if _tl_goal == str(gk) else ""), func(): _tl_goal = str(gk); _fill("Works"), false, I18n.t(str(TL.goals()[gk]["desc"])))
+		_p(cd, I18n.t("Style:"), Color(0.8, 0.95, 0.9), 12)
+		var sr := _row(cd)
+		for sk in TL.styles():
+			_btn(sr, I18n.t(str(TL.styles()[sk]["name"])) + ("  <" if _tl_style == str(sk) else ""), func(): _tl_style = str(sk); _fill("Works"), false, I18n.t(str(TL.styles()[sk]["desc"])))
+		var mr := _row(cd)
+		hud._label(mr, I18n.t("Materials at most:"), 12, Color(0.8, 0.85, 0.82))
+		for n in [1, 2, 3]:
+			_btn(mr, str(n) + ("  <" if _tl_max == n else ""), func(): _tl_max = n; _fill("Works"))
+		_btn(mr, I18n.t("Avoid volatile: on") if _tl_avoid else I18n.t("Avoid volatile: off"), func(): _tl_avoid = not _tl_avoid; _fill("Works"))
+		var rows: Array = TL.suggest(_tl_base, _tl_goal, _tl_style, _tl_max, _tl_avoid, 6)
+		if rows.is_empty():
+			_p(cd, I18n.t("Nothing you carry would bring that. Try another goal, or gather more materials."), Color(0.8, 0.7, 0.6), 13)
+		for ri in rows.size():
+			var r: Dictionary = rows[ri]
+			var rc := _card(_works, Color(0.55, 0.85, 0.7) if ri == 0 else Color(0.4, 0.5, 0.6))
+			_h(rc, "%d. %s" % [ri + 1, TL.adds_text(r)], Color(1.0, 0.95, 0.8), 14)
+			_p(rc, TL.odds_text(r), Color(1.0, 0.9, 0.7), 12)
+			_p(rc, TL.good_text(r), Color(0.7, 1.0, 0.8), 12)
+			_p(rc, TL.bad_text(r), Color(1.0, 0.75, 0.7), 12)
+			_btn(_row(rc), I18n.t("Work it"), func(): _say(TL.run(_tl_base, r)))
+	_lazy(self, "_works", lz_tailor)
+
+
+var _tt_target := -1
+var _tt_place := "paw"
+var _tt_open := false
+
+
+func _tattoo_block(parent: Control) -> void:
+	var TT = Game.sys("tattoos")
+	if TT == null or Game.contracts.is_empty():
+		return
+	_h(parent, I18n.t("Tattoo Parlour"), Color(0.7, 1.0, 0.85))
+	_p(parent, I18n.t("Cut a rune into a beast in a town. Where you cut it leans the gift: the brow for senses and luck, the paw for fighting and speed, the flank for toughness, the back for gathering and bonds. Slots grow with Runecraft (now %d). Tattoos cut: %d") % [TT.slots(), TT.cut], Color(0.75, 0.8, 0.85), 13)
+	var card := _card(parent, Color(0.4, 0.8, 0.65))
+	_btn(_row(card), I18n.t("Hide the parlour") if _tt_open else I18n.t("Open the parlour"), func(): _tt_open = not _tt_open; _fill(I18n.t("Party")))
+	if not _tt_open:
+		return
+	_p(card, I18n.t("Who:"), Color(0.8, 0.95, 0.9), 12)
+	var wr := _row(card)
+	for i in Game.contracts.size():
+		var c: Dictionary = Game.contracts[i]
+		if bool(c.get("construct", false)):
+			continue
+		_btn(wr, "%s (%d/%d)%s" % [str(c.get("name", "")), TT.marks(c).size(), TT.slots(), "  <" if i == _tt_target else ""], func(): _tt_target = i; _fill(I18n.t("Party")))
+	_p(card, I18n.t("Where:"), Color(0.8, 0.95, 0.9), 12)
+	var pr := _row(card)
+	for pk in TT.placements():
+		_btn(pr, TT.place_name(str(pk)) + ("  <" if _tt_place == str(pk) else ""), func(): _tt_place = str(pk); _fill(I18n.t("Party")), false, I18n.t(str(TT.placements()[pk].get("desc", ""))))
+	if _tt_target >= 0 and _tt_target < Game.contracts.size():
+		var tc: Dictionary = Game.contracts[_tt_target]
+		_p(card, I18n.t("Which rune:"), Color(0.8, 0.95, 0.9), 12)
+		var rr := _row(card)
+		var any := false
+		for rk in Game.runes_data().get("runes", {}):
+			if Game.count(str(rk)) <= 0:
+				continue
+			any = true
+			var bw: String = TT.block(tc, str(rk), _tt_place)
+			var o: Dictionary = TT.odds(tc, str(rk))
+			_btn(rr, "%s x%d (%d%%)" % [Game.rune_mark(str(rk)), Game.count(str(rk)), int(round(float(o["ok"]) * 100.0))], func(): _say(str(TT.apply(tc, str(rk), _tt_place).get("text", ""))), bw != "", bw if bw != "" else TT.odds_text(o))
+		if not any:
+			hud._label(rr, I18n.t("No runes in your pack."), 12, Color(0.6, 0.62, 0.6))
+		if not TT.marks(tc).is_empty():
+			_btn(_row(card), I18n.t("Scour %s (%d gold)") % [str(tc.get("name", "")), TT.scour_cost(tc)], func(): _say(TT.scour(tc)), Game.gold < TT.scour_cost(tc))

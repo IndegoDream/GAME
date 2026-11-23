@@ -1,0 +1,8 @@
+{
+ "ashlight_fern": {
+  "name": "Ashlight Fern",
+  "type": "material",
+  "value": 6,
+  "desc": "A fern whose fronds glow like banked coals. Brewed like spirit herb."
+ }
+}

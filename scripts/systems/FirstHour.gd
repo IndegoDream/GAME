@@ -69,9 +69,7 @@ func key_of(action: String) -> String:
 	var ks: Array = C.keys(action)
 	if ks.is_empty():
 		return {"attack": I18n.t("left mouse button")}.get(action, action)
-	if DisplayServer.get_name() == "headless":
-		return action
-	return OS.get_keycode_string(DisplayServer.keyboard_get_keycode_from_physical(int(ks[0])))
+	return C.key_name(int(ks[0]))
 
 
 func line_of(s: Dictionary) -> String:

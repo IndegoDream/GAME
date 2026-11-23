@@ -7,6 +7,7 @@ USERS = {"robert@example.com": {"id": "u-1", "password": "correct horse"}}
 TOKENS = {}
 ROWS = {}
 STATS = {"refreshes": 0, "logins": 0, "posts": 0}
+PLAY = []                      # round 182: play_stats rows (insert-only, like the real table)
 ENTS = {}                      # (user, product) -> {"state", "token"}
 OWNERS = {}                    # token -> user id (one purchase, one account)
 def mint(email):
@@ -29,7 +30,8 @@ class H(BaseHTTPRequestHandler):
         return TOKENS.get(a[7:]) if a.startswith("Bearer ") else None
     def do_GET(self):
         u = urllib.parse.urlparse(self.path); q = urllib.parse.parse_qs(u.query)
-        if u.path == "/__state": return self._send(200, {"rows": {"%s|%s|%s" % k: v["saved_at"] for k, v in ROWS.items()}, "stats": STATS})
+        if u.path == "/__state": return self._send(200, {"rows": {"%s|%s|%s" % k: v["saved_at"] for k, v in ROWS.items()}, "stats": STATS, "play": PLAY})
+        if u.path == "/rest/v1/play_stats": return self._send(401, {"message": "permission denied for table play_stats"})
         if u.path == "/rest/v1/entitlements":
             em = self._user()
             if not em: return self._send(401, {"message": "JWT expired"})
@@ -76,6 +78,25 @@ class H(BaseHTTPRequestHandler):
             if not tok.startswith(("good", "refund")): return self._send(402, {"error": "pending or unknown purchase state"})
             OWNERS[tok] = uid; ENTS[(uid, prod)] = {"state": "active", "token": tok}
             return self._send(200, {"product": prod, "state": "active"})
+        if u.path == "/functions/v1/delete-account":          # round 194
+            em = self._user()
+            if not em: return self._send(401, {"error": "sign in first"})
+            if b.get("confirm") != "DELETE": return self._send(400, {"error": 'send {"confirm": "DELETE"}'})
+            uid = USERS[em]["id"]
+            for k in [k for k in ROWS if k[0] == uid]: del ROWS[k]
+            for k in [k for k in ENTS if k[0] == uid]: del ENTS[k]
+            for t in [t for t, e in TOKENS.items() if e == em]: del TOKENS[t]
+            del USERS[em]
+            return self._send(200, {"deleted": True})
+        if u.path == "/rest/v1/play_stats":
+            if self.headers.get("apikey") != ANON: return self._send(401, {"message": "bad key"})
+            rows = b if isinstance(b, list) else [b]
+            import re
+            for r in rows:
+                if not re.fullmatch(r"[0-9a-f]{16,32}", str(r.get("install", ""))) or not isinstance(r.get("data"), dict) or "k" not in r["data"] or len(json.dumps(r["data"])) > 1024:
+                    return self._send(400, {"message": "new row violates check constraint"})
+            PLAY.extend(rows)
+            return self._send(201)
         if u.path == "/rest/v1/game_saves":
             em = self._user()
             if not em: return self._send(401, {"message": "JWT expired"})

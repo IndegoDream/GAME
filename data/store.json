@@ -13,6 +13,55 @@
    "apple": "com.grimm82.dungeoncrawlelite.style_pack",
    "name": "Dungeon Crawl Elite -- the Style pack (cosmetic auras)",
    "kind": "cosmetic"
+  },
+  "coats_pack": {
+   "google": "coats_pack",
+   "apple": "com.grimm82.dungeoncrawlelite.coats_pack",
+   "name": "Dungeon Crawl Elite -- Spirit Beast Coats (pet looks)",
+   "kind": "cosmetic",
+   "steam_dlc": 0
+  },
+  "skies_pack": {
+   "google": "skies_pack",
+   "apple": "com.grimm82.dungeoncrawlelite.skies_pack",
+   "name": "Dungeon Crawl Elite -- Tribulation Skies (breakthrough looks)",
+   "kind": "cosmetic",
+   "steam_dlc": 0
+  },
+  "seats_pack": {
+   "google": "seats_pack",
+   "apple": "com.grimm82.dungeoncrawlelite.seats_pack",
+   "name": "Dungeon Crawl Elite -- Cultivation Seats (sitting looks)",
+   "kind": "cosmetic",
+   "steam_dlc": 0
+  },
+  "spirits_pack": {
+   "google": "spirits_pack",
+   "apple": "com.grimm82.dungeoncrawlelite.spirits_pack",
+   "name": "Dungeon Crawl Elite -- Weapon Spirits (strike glow looks)",
+   "kind": "cosmetic",
+   "steam_dlc": 0
+  },
+  "look_collection": {
+   "google": "look_collection",
+   "apple": "com.grimm82.dungeoncrawlelite.look_collection",
+   "name": "Dungeon Crawl Elite -- The Look Collection (every look pack and the Style pack)",
+   "kind": "cosmetic",
+   "steam_dlc": 0
+  },
+  "trinkets_pack": {
+   "google": "trinkets_pack",
+   "apple": "com.grimm82.dungeoncrawlelite.trinkets_pack",
+   "name": "Dungeon Crawl Elite -- Familiar Trinkets (pet looks)",
+   "kind": "cosmetic",
+   "steam_dlc": 0
+  },
+  "strikes_pack": {
+   "google": "strikes_pack",
+   "apple": "com.grimm82.dungeoncrawlelite.strikes_pack",
+   "name": "Dungeon Crawl Elite -- Strike Styles (how your blows look)",
+   "kind": "cosmetic",
+   "steam_dlc": 0
   }
  },
  "pitch": {
@@ -46,6 +95,45 @@
    },
    "steam_dlc": 0,
    "needs_full_game": false
+  },
+  {
+   "id": "wardens_hunt",
+   "name": "The Wardens' Hunt",
+   "status": "released",
+   "pitch": "World bosses that stir across the Lands one day in five, each with a relic ring or amulet no shop sells, and World-Boss Cores for the rarest crafts.",
+   "levels_prefix": "",
+   "products": {
+    "google": "wardens_hunt",
+    "apple": "com.grimm82.dungeoncrawlelite.wardens_hunt"
+   },
+   "steam_dlc": 0,
+   "needs_full_game": false
+  },
+  {
+   "id": "land_tales",
+   "name": "Tales of the Lands",
+   "status": "released",
+   "pitch": "Seventy more quests across the ten Lands: gatherers, hunters, secret-seekers, lorekeepers and a last word from each Land's guardian.",
+   "levels_prefix": "",
+   "products": {
+    "google": "land_tales",
+    "apple": "com.grimm82.dungeoncrawlelite.land_tales"
+   },
+   "steam_dlc": 0,
+   "needs_full_game": false
+  },
+  {
+   "id": "designers_trove",
+   "name": "The Designer's Trove",
+   "status": "released",
+   "pitch": "Dozens more motifs, trims, dyes, cuts, settings, polishes, vials, tinctures, seals and preparations, so no two pieces look alike. Looks and small tradeoffs only; nothing makes you stronger than the base game does.",
+   "levels_prefix": "",
+   "products": {
+    "google": "designers_trove",
+    "apple": "com.grimm82.dungeoncrawlelite.designers_trove"
+   },
+   "steam_dlc": 0,
+   "needs_full_game": false
   }
  ],
  "expansions_note": "Planned expansions -- not built yet. How one is made (DEV_GUIDE 'Adding an expansion'): its places are levels whose id starts with levels_prefix (e.g. levels/east_of_the_hills_road.json); its quests, items and words carry \"expansion\": \"<id>\". Set status to \"released\", steam_dlc to the DLC's Steam app id, and make the products in the phone stores. Store.owns_expansion(id) and Game.expansion_open(id) are what everything checks; Game.go_to refuses an expansion's places until it's owned and opens its window instead.",
@@ -71,20 +159,11 @@
   "delay_s": 1.2,
   "notice": "A short break.",
   "gifts": {
-   "recover_gold": {
-    "name": "Get your gold back",
-    "ask": "Watch a short ad to get back the %d gold you lost in the fall?",
-    "min_gold": 20
-   },
-   "blessing": {
-    "name": "The deep's blessing",
-    "ask": "Watch a short ad for the deep's blessing: +10% insight and a little more luck with loot, for 20 minutes.",
-    "effect": {
-     "insight_mult": 1.1,
-     "loot_luck": 0.04
-    },
-    "seconds": 1200,
-    "cooldown_s": 2400
+   "try_style": {
+    "name": "Try on every look",
+    "ask": "Watch a short ad to wear every look in the store for a day -- auras, pet coats, breakthrough skies, sitting and strike glows. Looks only -- your strength, finds and pace stay exactly the same.",
+    "seconds": 86400,
+    "cooldown_s": 86400
    }
   },
   "units": {
@@ -97,7 +176,8 @@
     "rewarded": "ca-app-pub-3940256099942544/1712485313"
    }
   },
-  "max_content_rating": "T"
+  "max_content_rating": "T",
+  "_gifts_note": "Round 182 (Robert 2026-11-06, earnings & balance review): a rewarded ad gives looks only, never power. The old 'deep's blessing' (+insight, loot luck) and 'gold back' broke fair_play.never_sold and also left paying players (no ads) without a boost free players had. tools/fair_check.gd now checks every gift."
  },
  "steam": {
   "_note": "The Steam demo (export preset 'Windows (Steam Demo)', feature tag 'demo'): floors 1-5, then 'Get the full game on Steam'. It's its own free app on Steam (its app id goes in project.godot steam/app_id.demo); full_app_id is the full game's (it opens that store page). Both builds keep saves in the same folder on the PC, so the full game picks up the demo's character.",

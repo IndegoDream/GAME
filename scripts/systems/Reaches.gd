@@ -126,3 +126,46 @@ func lands_found() -> Array:
 func summary() -> Dictionary:
 	var all: Dictionary = preload("res://scripts/world/Reach.gd").data().get("biomes", {})
 	return {"lands": lands_found().size(), "of": all.size(), "reaches": seen.size(), "hearts": claimed.size(), "keepsakes": keepsakes.size()}
+
+
+func get_reaches_config() -> Dictionary:
+	if not FileAccess.file_exists("res://data/reaches.json"):
+		return {}
+	var file: FileAccess = FileAccess.open("res://data/reaches.json", FileAccess.READ)
+	if file == null:
+		return {}
+	var content: String = file.get_as_text()
+	var json: JSON = JSON.new()
+	if json.parse(content) == OK and json.data is Dictionary:
+		return json.data as Dictionary
+	return {}
+
+func fix_floor_reach(floor_num: int, level_node: Node) -> void:
+	var cfg: Dictionary = get_reaches_config()
+	var blocked_chests: Array = cfg.get("blocked_chest_floors", [16, 24, 26, 36, 42, 43])
+	var secret_floors: Array = cfg.get("secret_route_floors", [6, 34])
+	var snags: Array = cfg.get("snag_cells", [])
+	
+	if secret_floors.has(floor_num) and level_node.has_method("_ensure_path_without_secrets"):
+		level_node.call("_ensure_path_without_secrets")
+		
+	if blocked_chests.has(floor_num) and level_node.has_node("Chests"):
+		var chests_node: Node = level_node.get_node("Chests")
+		if chests_node:
+			for chest: Node in chests_node.get_children():
+				if chest.has_method("set_roomy_only_solid"):
+					chest.call("set_roomy_only_solid")
+				elif chest.has_node("CollisionShape3D"):
+					var col: CollisionShape3D = chest.get_node("CollisionShape3D") as CollisionShape3D
+					if col:
+						col.disabled = true
+					
+	if level_node.get("astar"):
+		var astar: Object = level_node.get("astar") as Object
+		if astar != null:
+			for snag_item in snags:
+				if snag_item is Dictionary:
+					var snag_dict: Dictionary = snag_item as Dictionary
+					var cell_pos: Vector2i = Vector2i(int(snag_dict.get("x", 0)), int(snag_dict.get("y", 0)))
+					if astar.has_method("set_point_solid"):
+						astar.call("set_point_solid", cell_pos, false)

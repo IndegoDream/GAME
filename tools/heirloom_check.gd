@@ -78,6 +78,23 @@ func _initialize() -> void:
 	var g1: float = H.growth
 	H.feed("emperor_jade")
 	ch.append(["feeding grows it", H.growth > g1])
+	# ---- 2026-11-06: the set is protected, and a lost piece can be made again (Robert sold four and brewed one away) ----
+	ch.append(["a trader won't buy a piece", G.sell_price(ids[1]) == 0 and not (ids[1] in G.sellables()) and G.sell(ids[1], 1) == 0])
+	G.add_item("iron_ore", 5, false)
+	var bench_why: String = G.combine_check("iron_ore", [ids[2]])
+	ch.append(["a piece can't be worked into something else", bench_why != "" and "Heirloom" in bench_why])
+	ch.append(["nothing lost while you hold all seven", H.lost_pieces().is_empty()])
+	var gone: String = ids[3]
+	for sl in G.equipment.keys():
+		if str(G.equipment[sl]) == gone:
+			G.equipment.erase(sl)
+	G.remove_item(gone, G.count(gone))
+	ch.append(["a piece you no longer have is lost", H.lost_pieces() == [3]])
+	var grown: float = H.growth
+	var rm: Dictionary = H.remake(3)
+	ch.append(["the smith remakes it", bool(rm.get("ok", false)) and G.item_def(str(rm.get("item", ""))).get("heirloom", 0) == 4])
+	ch.append(["remaking keeps the line and its growth", H.complete() and H.made.size() == 7 and H.growth == grown and H.lost_pieces().is_empty()])
+	ch.append(["a piece you still have can't be remade", not bool(H.remake(0).get("ok", true))])
 	var st: Dictionary = H.save_state()
 	H.reset()
 	ch.append(["reset clears", not H.started])

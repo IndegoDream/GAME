@@ -434,6 +434,319 @@
     "insight": 20,
     "title": "The Deep's Equal"
    }
+  },
+  {
+   "id": "land_wood",
+   "name": "The Wood Beyond the Valley",
+   "who": "Elder Mo",
+   "brief": "Whisperwood stands at the valley's edge. Warden Isolde keeps its paths. Bring her proof you can walk where the wood watches: glowcap, heartwood, and the elder treant's head.",
+   "goals": [
+    {
+     "talk": "Warden Isolde",
+     "text": "Speak with Warden Isolde in Whisperwood"
+    },
+    {
+     "item": "glowcap",
+     "count": 3,
+     "text": "Gather 3 glowcap"
+    },
+    {
+     "item": "heartwood",
+     "count": 3,
+     "text": "Gather 3 heartwood"
+    },
+    {
+     "kill": "elder_treant",
+     "text": "Fell the Elder Treant of Whisperwood"
+    }
+   ],
+   "reward": {
+    "gold": 500,
+    "qi": 800,
+    "items": {
+     "wildwood_tonic": 2
+    },
+    "insight": 4,
+    "title": "Wood-Walker"
+   }
+  },
+  {
+   "id": "land_fen",
+   "name": "What the Fen Keeps",
+   "who": "Warden Isolde",
+   "brief": "Past the wood, the mist. Ferryman Oss will take news for passage. The Hag of the Fen keeps a string of drowned pearls. Break her hold on the water.",
+   "goals": [
+    {
+     "talk": "Ferryman Oss",
+     "text": "Speak with Ferryman Oss in Mistfen"
+    },
+    {
+     "item": "bog_lotus",
+     "count": 3,
+     "text": "Gather 3 bog lotus"
+    },
+    {
+     "kill": "hag_of_the_fen",
+     "text": "Defeat the Hag of the Fen"
+    }
+   ],
+   "reward": {
+    "gold": 700,
+    "qi": 1200,
+    "items": {
+     "fen_antivenom": 2
+    },
+    "insight": 4,
+    "title": "Fen-Crosser"
+   }
+  },
+  {
+   "id": "land_bones",
+   "name": "The Banners Still Point",
+   "who": "Elder Mo",
+   "brief": "Two armies met on the Bonefields and neither went home. Gravewalker Hesk has buried what he could. Bring the standard down and quiet the field.",
+   "goals": [
+    {
+     "talk": "Gravewalker Hesk",
+     "text": "Speak with Gravewalker Hesk in the Bonefields"
+    },
+    {
+     "item": "battle_iron",
+     "count": 3,
+     "text": "Gather 3 battle iron"
+    },
+    {
+     "kill": "general_of_the_fallen",
+     "text": "Defeat the General of the Fallen"
+    }
+   ],
+   "reward": {
+    "gold": 900,
+    "qi": 1500,
+    "items": {
+     "warsteel": 1
+    },
+    "insight": 5,
+    "title": "Gravewalker's Friend"
+   }
+  },
+  {
+   "id": "land_jade",
+   "name": "Terraces in the Cloud",
+   "who": "Elder Mo",
+   "brief": "The Jadehill terraces are tended by people no one meets. The Jade Hermit keeps the gate. Earn the right to climb: cloud rice, sage leaf, and the hermit's answer.",
+   "goals": [
+    {
+     "realm": 3,
+     "text": "Reach Core Formation"
+    },
+    {
+     "item": "cloud_rice",
+     "count": 3,
+     "text": "Gather 3 cloud rice"
+    },
+    {
+     "kill": "jade_hermit",
+     "text": "Answer the Jade Hermit"
+    }
+   ],
+   "reward": {
+    "gold": 1200,
+    "qi": 2500,
+    "items": {
+     "terrace_elixir": 2
+    },
+    "insight": 6,
+    "title": "Terrace-Walker"
+   }
+  },
+  {
+   "id": "land_mere",
+   "name": "The Drowned King's Mere",
+   "who": "Diver Maru",
+   "brief": "The Mere swallowed a kingdom. Diver Maru works its rooftops. Reach the pearl beds, and settle the matriarch who guards them.",
+   "goals": [
+    {
+     "item": "pearl_oyster",
+     "count": 2,
+     "text": "Gather 2 mere pearls"
+    },
+    {
+     "kill": "mere_matriarch",
+     "text": "Defeat the Mere Matriarch"
+    }
+   ],
+   "reward": {
+    "gold": 1500,
+    "qi": 3000,
+    "items": {
+     "mere_mail": 1
+    },
+    "insight": 6,
+    "title": "Pearl-Diver"
+   }
+  },
+  {
+   "id": "land_storm",
+   "name": "A Language of Thunder",
+   "who": "Stormsmith Brae",
+   "brief": "The Stormcliffs speak in lightning. Stormsmith Brae will teach the first words if you can stand the weather. Take the Storm Lord's heart.",
+   "goals": [
+    {
+     "realm": 4,
+     "text": "Reach Nascent Soul"
+    },
+    {
+     "item": "thunder_iron",
+     "count": 3,
+     "text": "Gather 3 thunder iron"
+    },
+    {
+     "kill": "storm_lord",
+     "text": "Defeat the Storm Lord"
+    }
+   ],
+   "reward": {
+    "gold": 2000,
+    "qi": 4000,
+    "items": {
+     "storm_edge": 1
+    },
+    "insight": 7,
+    "title": "Storm-Speaker"
+   }
+  },
+  {
+   "id": "land_ember",
+   "name": "The Sleeping Mountain",
+   "who": "Cinder-Priest Vahl",
+   "brief": "The caldera is waiting. Vahl tends the shrine at its lip. Bring cinderstone and a steady hand, and the tyrant's fire will let you pass.",
+   "goals": [
+    {
+     "item": "firestone",
+     "count": 3,
+     "text": "Gather 3 cinderstone"
+    },
+    {
+     "kill": "caldera_tyrant",
+     "text": "Defeat the Caldera Tyrant"
+    }
+   ],
+   "reward": {
+    "gold": 2600,
+    "qi": 5000,
+    "items": {
+     "cinder_plate": 1
+    },
+    "insight": 7,
+    "title": "Ember-Walker"
+   }
+  },
+  {
+   "id": "land_frost",
+   "name": "The Singing Ice",
+   "who": "Ice-Fisher Torvald",
+   "brief": "The lake sings at night. Torvald listens. The Glacier Empress is what he listens for. Quiet her.",
+   "goals": [
+    {
+     "realm": 5,
+     "text": "Reach Soul Transformation"
+    },
+    {
+     "item": "frost_lotus",
+     "count": 3,
+     "text": "Gather 3 frost lotus"
+    },
+    {
+     "kill": "glacier_empress",
+     "text": "Defeat the Glacier Empress"
+    }
+   ],
+   "reward": {
+    "gold": 3200,
+    "qi": 7000,
+    "items": {
+     "frost_draught": 2
+    },
+    "insight": 8,
+    "title": "Frost-Walker"
+   }
+  },
+  {
+   "id": "land_sand",
+   "name": "Hours in the Dunes",
+   "who": "Hourkeeper Isra",
+   "brief": "The Sandglass Dunes keep time their own way. Isra counts the grains. Gather what the sand gives up and stop the pharaoh's clock.",
+   "goals": [
+    {
+     "item": "hourglass_sand",
+     "count": 3,
+     "text": "Gather 3 hourglass sand"
+    },
+    {
+     "kill": "pharaoh_of_hours",
+     "text": "Defeat the Pharaoh of Hours"
+    }
+   ],
+   "reward": {
+    "gold": 4000,
+    "qi": 9000,
+    "items": {
+     "sand_lens": 1
+    },
+    "insight": 8,
+    "title": "Time-Walker"
+   }
+  },
+  {
+   "id": "land_blight",
+   "name": "The Root King",
+   "who": "Last Warden Ysolde",
+   "brief": "The Blighted Deep Wood grew around what the swarm left behind. Ysolde has held its edge alone. Go in, take what the roots hold, and end the Root King.",
+   "goals": [
+    {
+     "realm": 7,
+     "text": "Reach Body Integration"
+    },
+    {
+     "item": "nanite_sap",
+     "count": 3,
+     "text": "Gather 3 nanite sap"
+    },
+    {
+     "kill": "root_king",
+     "text": "Defeat the Root King"
+    }
+   ],
+   "reward": {
+    "gold": 7000,
+    "qi": 15000,
+    "items": {
+     "blight_graft": 1
+    },
+    "insight": 12,
+    "title": "Root-Breaker"
+   }
+  },
+  {
+   "id": "ascend_road",
+   "name": "The Road Upward",
+   "who": "Elder Mo",
+   "brief": "The Lands are behind you. What is left is the road itself: break through the Tribulation, take your place among the immortals, and become something that can keep a world. When you do, a world of your own opens -- reach it from any waystone. (When Elite Online opens, it becomes your world there too.)",
+   "goals": [
+    {
+     "realm": 9,
+     "text": "Break through the Tribulation"
+    },
+    {
+     "realm": 10,
+     "text": "Reach Immortal Ascension"
+    }
+   ],
+   "reward": {
+    "insight": 25,
+    "title": "Worldkeeper"
+   }
   }
  ],
  "errands": {

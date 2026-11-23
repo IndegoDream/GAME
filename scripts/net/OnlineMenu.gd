@@ -240,7 +240,10 @@ static func party(hud, back_kind: String = "run", note: String = "") -> void:
 	var lines := []
 	for p in on.party.get("members", []):
 		lines.append("  %s%s" % [p.get("name", "?"), I18n.t("  (leader)") if str(p.get("id", "")) == str(on.party.get("leader", "")) else ""])
-	var body := "Your party:\n%s" % ("\n".join(lines) if lines.size() > 0 else "  (nobody -- you're alone)")
+	var body := I18n.t("Your party:\n%s") % ("\n".join(lines) if lines.size() > 0 else I18n.t("  (nobody -- you're alone)"))
+	var code := str(on.party.get("code", on.party_code)) if not on.party.is_empty() else ""
+	if code != "" and str(on.party.get("leader", "")) == _me():
+		body += "\n\n" + I18n.t("Join code: %s  -- tell a friend; they choose 'Join with a code' in the Gate.") % code
 	if note != "":
 		body += "\n\n" + note
 	var opts := []
@@ -258,6 +261,18 @@ static func party(hud, back_kind: String = "run", note: String = "") -> void:
 					on.send({"t": "p_invite", "name": str(v[0]).strip_edges()})
 					var r: Dictionary = await on.wait_any(["party", "party_error"], 4.0)
 					party(hud, back_kind, str(r.get("msg", "Invitation sent."))), func(): party(hud, back_kind))])
+	if on.party.is_empty() or str(on.party.get("leader", "")) == _me():
+		opts.append(["Get a join code for friends" if code == "" else "A new join code (the old one stops working)", func():          # round 182
+			on.send({"t": "p_code", "renew": code != ""})
+			var r: Dictionary = await on.wait_any(["p_code", "party_error"], 4.0)
+			party(hud, back_kind, str(r.get("msg", "")))])
+	if on.party.is_empty():
+		opts.append(["Join with a code...", func():
+			_form(hud, "Join a party", "The six letters your friend's party shows.", [["code", "ABC234", false, ""]], "Join",
+				func(v):
+					on.send({"t": "p_join", "code": str(v[0]).strip_edges()})
+					var r: Dictionary = await on.wait_any(["party", "party_error"], 4.0)
+					party(hud, back_kind, str(r.get("msg", ""))), func(): party(hud, back_kind))])
 	if not on.party.is_empty():
 		opts.append(["Leave the party", func():
 			on.send({"t": "p_leave"})

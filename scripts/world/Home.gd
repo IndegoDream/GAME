@@ -537,6 +537,17 @@ func chest_menu() -> void:
 		Game.message.emit("You put %d things away in the chest." % n if n > 0 else "You've no materials to put away.")
 		Game.save_game()
 		chest_menu()]]
+	if Game.unlimited_stores() and Game.sys("tester") != null and Game.sys("tester").god():
+		opts.append(["Put away everything you carry", func():
+			var n2 := Game.stash_everything()
+			Game.message.emit("You put %d things away in the chest." % n2 if n2 > 0 else "You've nothing to put away.")
+			Game.save_game()
+			chest_menu()])
+		opts.append(["Take everything out", func():
+			var n3 := Game.take_everything()
+			Game.message.emit("You take %d things from the chest." % n3 if n3 > 0 else "The chest is empty.")
+			Game.save_game()
+			chest_menu()])
 	for id in ids.slice(0, 10):
 		opts.append(["Take %s (%d)" % [Game.item_name(str(id)), int(st[id])], func():
 			var n := Game.take_from_stash(str(id))

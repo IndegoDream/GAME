@@ -144,6 +144,79 @@ func effects() -> Array:
 			var two := {}
 			_scale(w.get("sworn_gift", {}), 1.0, two)
 			out.append(two)
+	out.append_array(style_effects())                # round 182: how a companion fights is also what they give you
+	out.append_array(pet_effects())                  # round 182: what a bonded animal has learned
+	return out
+
+
+func pet_effects() -> Array:
+	## round 182 -- Robert: "more pet skills". Tricks wake at bond levels (data/companions.json familiar.tricks), and the
+	## taming tree's later tiers (Taming 7, 9, 12, 15) give a gift for the side you choose.
+	var out := []
+	var tr: Array = G.companions_data().get("familiar", {}).get("tricks", [])
+	for b in G.beasts_out():
+		var share := 1.0 if is_same(b, G.familiar) else float(G.party_data().get("beasts", {}).get("second_share", 0.6))
+		for t in tr:
+			if float(b.get("bond", 0.0)) >= float(t.get("bond", 9999)):
+				var one := {}
+				_scale(t.get("gift", {}), share, one)
+				out.append(one)
+	if G.beasts_out().is_empty():
+		return out
+	for row in G.taming_tiers():
+		var chosen := str(row[1])
+		if chosen == "":
+			continue
+		for side in ["a", "b"]:
+			var o: Dictionary = (row[0] as Dictionary)[side]
+			if str(o.get("id", "")) == chosen and o.has("gift"):
+				var two := {}
+				_scale(o["gift"], 1.0, two)
+				out.append(two)
+	return out
+
+
+func pet_trick_lines(b: Dictionary) -> Array:
+	## for the animal's talk window: what it has learned, and what it is learning next
+	var out := []
+	for t in G.companions_data().get("familiar", {}).get("tricks", []):
+		var on := float(b.get("bond", 0.0)) >= float(t.get("bond", 9999))
+		out.append("%s %s -- %s%s" % ["*" if on else "-", str(t.get("name", "")), str(t.get("desc", "")), "" if on else I18n.t("  (bond %d)") % int(t.get("bond", 0))])
+	return out
+
+
+func style_effects() -> Array:
+	## round 182 -- Robert: "make the companion skills more useful and diverse". Every fighting style (data/companions.json)
+	## carries a GIFT, which grows from half to full with the companion's level, and TRICKS that switch on at levels 3, 6 and 9.
+	var out := []
+	for s in G.party_slots():
+		if bool(G.cslot(s).get("away", false)):
+			continue
+		var sd: Dictionary = G.style_def("", s)
+		var lv: int = G.companion_level(s)
+		var gift: Dictionary = sd.get("gift", {})
+		if not gift.is_empty():
+			var one := {}
+			_scale(gift, 0.5 + 0.5 * float(lv) / 9.0, one)
+			out.append(one)
+		for t in sd.get("tricks", []):
+			if lv >= int(t.get("level", 99)):
+				var two := {}
+				_scale(t.get("gift", {}), 1.0, two)
+				out.append(two)
+	return out
+
+
+func style_lines(slot: int) -> Array:
+	## the skills a companion's style has, and when the rest wake up (for their talk window)
+	var out := []
+	var sd: Dictionary = G.style_def("", slot)
+	var lv: int = G.companion_level(slot)
+	if not (sd.get("gift", {}) as Dictionary).is_empty():
+		out.append(I18n.t("Gift while they travel with you: %s (grows with their level).") % G.effect_text(sd["gift"]))
+	for t in sd.get("tricks", []):
+		var on := lv >= int(t.get("level", 99))
+		out.append("%s %s -- %s%s" % ["*" if on else "-", str(t.get("name", "")), str(t.get("desc", "")), "" if on else I18n.t("  (level %d)") % int(t.get("level", 99))])
 	return out
 
 

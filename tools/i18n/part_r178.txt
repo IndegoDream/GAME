@@ -1,0 +1,6 @@
+Bionics||仿生体||Biónicos||Biônicos||Бионика||Bionik||Bioniques||バイオニクス||바이오닉||Biyonikler
+Build bionics||制造仿生部件||Fabricar biónicos||Construir biônicos||Создать бионику||Bionik bauen||Fabriquer des bioniques||バイオニクスを作る||바이오닉 제작||Biyonik yap
+Resync||重新同步||Resincronizar||Ressincronizar||Синхронизировать||Neu synchronisieren||Resynchroniser||再同期||재동기화||Yeniden eşitle
+(full power)||（满功率）||(a plena potencia)||(potência total)||(полная мощность)||(volle Leistung)||(pleine puissance)||（フルパワー）||(최대 출력)||(tam güç)
+(empty)||（空）||(vacío)||(vazio)||(пусто)||(leer)||(vide)||（空）||(비어 있음)||(boş)
+Synchronise all (nanite shards)||全部同步（纳米碎片）||Sincronizar todo (fragmentos de nanos)||Sincronizar tudo (fragmentos de nanites)||Синхронизировать всё (осколки нанитов)||Alles synchronisieren (Nanitsplitter)||Tout synchroniser (éclats de nanites)||すべて同期（ナナイトの欠片）||모두 동기화 (나나이트 파편)||Hepsini eşitle (nanit parçaları)

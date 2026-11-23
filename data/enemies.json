@@ -9119,5 +9119,2049 @@
   "qi": 3,
   "loot": {},
   "construct": true
+ },
+ "whisper_wolf": {
+  "floor": 8,
+  "name": "Whisper-Wolf",
+  "model": "beast",
+  "tint": [
+   0.55,
+   0.58,
+   0.62
+  ],
+  "scale": 1.0,
+  "hp": 405,
+  "damage": 59,
+  "speed": 5.0,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 141,
+  "loot": {
+   "gold": [
+    14,
+    30
+   ],
+   "wolf_pelt": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "thornling_ranger": {
+  "floor": 9,
+  "name": "Thornling Ranger",
+  "model": "human",
+  "tint": [
+   0.45,
+   0.7,
+   0.4
+  ],
+  "scale": 0.95,
+  "hp": 426,
+  "damage": 62,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 6.0,
+  "cooldown": 1.2,
+  "qi": 149,
+  "loot": {
+   "gold": [
+    16,
+    34
+   ],
+   "heartwood": [
+    0,
+    1
+   ],
+   "glowcap": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "moss_ogre": {
+  "floor": 10,
+  "name": "Moss Ogre",
+  "model": "orc",
+  "tint": [
+   0.4,
+   0.6,
+   0.35
+  ],
+  "scale": 1.5,
+  "hp": 1167,
+  "damage": 84,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 408,
+  "loot": {
+   "gold": [
+    50,
+    90
+   ],
+   "heartwood": [
+    1,
+    2
+   ],
+   "old_amber": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "spirit_stag": {
+  "floor": 9,
+  "name": "Spirit Stag",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.9,
+   0.95
+  ],
+  "scale": 1.3,
+  "hp": 222,
+  "damage": 37,
+  "speed": 5.2,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 77,
+  "loot": {
+   "gold": [
+    10,
+    24
+   ],
+   "stag_antler": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "passive": true
+ },
+ "ghost_moth": {
+  "floor": 8,
+  "name": "Ghost Moth",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.9,
+   1.0
+  ],
+  "scale": 0.7,
+  "hp": 211,
+  "damage": 35,
+  "speed": 4.5,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 73,
+  "loot": {
+   "gold": [
+    6,
+    14
+   ],
+   "ghostmoth_wing": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "passive": true
+ },
+ "elder_treant": {
+  "floor": 10,
+  "name": "The Elder Treant of Whisperwood",
+  "model": "orc",
+  "tint": [
+   0.45,
+   0.65,
+   0.35
+  ],
+  "scale": 2.7,
+  "hp": 5839,
+  "damage": 107,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 4671,
+  "loot": {
+   "gold": [
+    700,
+    950
+   ],
+   "old_amber": [
+    2,
+    4
+   ],
+   "heartwood": [
+    3,
+    5
+   ],
+   "stag_antler": [
+    1,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "boss": true
+ },
+ "fen_toad": {
+  "floor": 10,
+  "name": "Fen Toad",
+  "model": "beast",
+  "tint": [
+   0.45,
+   0.62,
+   0.4
+  ],
+  "scale": 0.9,
+  "hp": 233,
+  "damage": 39,
+  "speed": 4.2,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 81,
+  "loot": {
+   "gold": [
+    8,
+    20
+   ],
+   "toad_gland": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "bog_wraith": {
+  "floor": 11,
+  "name": "Bog Wraith",
+  "model": "human",
+  "tint": [
+   0.55,
+   0.7,
+   0.6
+  ],
+  "scale": 1.05,
+  "hp": 469,
+  "damage": 69,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 164,
+  "loot": {
+   "gold": [
+    22,
+    44
+   ],
+   "will_o_oil": [
+    0,
+    1
+   ],
+   "peat_core": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "leech_swarm": {
+  "floor": 10,
+  "name": "Leech Swarm",
+  "model": "beast",
+  "tint": [
+   0.25,
+   0.3,
+   0.25
+  ],
+  "scale": 0.8,
+  "hp": 447,
+  "damage": 65,
+  "speed": 4.8,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 156,
+  "loot": {
+   "gold": [
+    14,
+    28
+   ],
+   "venom_reed": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "mire_hulk": {
+  "floor": 12,
+  "name": "Mire Hulk",
+  "model": "orc",
+  "tint": [
+   0.3,
+   0.4,
+   0.3
+  ],
+  "scale": 1.6,
+  "hp": 1314,
+  "damage": 95,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 459,
+  "loot": {
+   "gold": [
+    70,
+    120
+   ],
+   "peat_core": [
+    1,
+    3
+   ],
+   "drowned_pearl": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "hag_of_the_fen": {
+  "floor": 12,
+  "name": "The Hag of the Fen",
+  "model": "human",
+  "tint": [
+   0.4,
+   0.55,
+   0.45
+  ],
+  "scale": 2.3,
+  "hp": 6573,
+  "damage": 121,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 5258,
+  "loot": {
+   "gold": [
+    900,
+    1200
+   ],
+   "drowned_pearl": [
+    2,
+    3
+   ],
+   "will_o_oil": [
+    2,
+    3
+   ],
+   "bog_lotus": [
+    3,
+    5
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "boss": true
+ },
+ "bone_hound": {
+  "floor": 11,
+  "name": "Bone Hound",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.82,
+   0.75
+  ],
+  "scale": 1.0,
+  "hp": 469,
+  "damage": 69,
+  "speed": 5.0,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 164,
+  "loot": {
+   "gold": [
+    20,
+    40
+   ],
+   "marrow_salt": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "restless_soldier": {
+  "floor": 12,
+  "name": "Restless Soldier",
+  "model": "human",
+  "tint": [
+   0.7,
+   0.68,
+   0.62
+  ],
+  "scale": 1.05,
+  "hp": 504,
+  "damage": 74,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 176,
+  "loot": {
+   "gold": [
+    24,
+    46
+   ],
+   "battle_iron": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "carrion_crow": {
+  "floor": 11,
+  "name": "Carrion Crow",
+  "model": "beast",
+  "tint": [
+   0.15,
+   0.15,
+   0.2
+  ],
+  "scale": 0.8,
+  "hp": 245,
+  "damage": 41,
+  "speed": 5.0,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 85,
+  "loot": {
+   "gold": [
+    8,
+    18
+   ],
+   "widow_shroud": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "grave_knight": {
+  "floor": 13,
+  "name": "Grave Knight",
+  "model": "orc",
+  "tint": [
+   0.7,
+   0.72,
+   0.8
+  ],
+  "scale": 1.6,
+  "hp": 1406,
+  "damage": 102,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 492,
+  "loot": {
+   "gold": [
+    90,
+    150
+   ],
+   "battle_iron": [
+    1,
+    3
+   ],
+   "war_standard": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "general_of_the_fallen": {
+  "floor": 13,
+  "name": "The General of the Fallen",
+  "model": "human",
+  "tint": [
+   0.8,
+   0.8,
+   0.9
+  ],
+  "scale": 2.4,
+  "hp": 7032,
+  "damage": 129,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 5625,
+  "loot": {
+   "gold": [
+    1100,
+    1500
+   ],
+   "war_standard": [
+    2,
+    3
+   ],
+   "battle_iron": [
+    4,
+    6
+   ],
+   "marrow_salt": [
+    2,
+    3
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "boss": true
+ },
+ "monkey_bandit": {
+  "floor": 14,
+  "name": "Monkey Bandit",
+  "model": "human",
+  "tint": [
+   0.7,
+   0.5,
+   0.3
+  ],
+  "scale": 0.85,
+  "hp": 574,
+  "damage": 84,
+  "speed": 5.2,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 200,
+  "loot": {
+   "gold": [
+    40,
+    80
+   ],
+   "monkey_charm": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "terrace_guardian": {
+  "floor": 15,
+  "name": "Terrace Guardian",
+  "model": "orc",
+  "tint": [
+   0.5,
+   0.75,
+   0.6
+  ],
+  "scale": 1.6,
+  "hp": 1589,
+  "damage": 115,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 556,
+  "loot": {
+   "gold": [
+    110,
+    170
+   ],
+   "terrace_jade": [
+    1,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "white_crane": {
+  "floor": 14,
+  "name": "White Crane",
+  "model": "beast",
+  "tint": [
+   0.97,
+   0.97,
+   1.0
+  ],
+  "scale": 1.1,
+  "hp": 300,
+  "damage": 50,
+  "speed": 4.6,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 105,
+  "loot": {
+   "gold": [
+    12,
+    26
+   ],
+   "crane_feather": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "passive": true
+ },
+ "jade_hermit": {
+  "floor": 16,
+  "name": "The Jade Hermit",
+  "model": "human",
+  "tint": [
+   0.5,
+   0.85,
+   0.65
+  ],
+  "scale": 2.4,
+  "hp": 8408,
+  "damage": 155,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 6726,
+  "loot": {
+   "gold": [
+    1500,
+    2000
+   ],
+   "terrace_jade": [
+    4,
+    6
+   ],
+   "sage_tea_leaf": [
+    3,
+    5
+   ],
+   "monkey_charm": [
+    1,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "boss": true
+ },
+ "mere_serpent": {
+  "floor": 15,
+  "name": "Mere Serpent",
+  "model": "beast",
+  "tint": [
+   0.3,
+   0.6,
+   0.7
+  ],
+  "scale": 1.4,
+  "hp": 609,
+  "damage": 89,
+  "speed": 4.4,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 213,
+  "loot": {
+   "gold": [
+    45,
+    85
+   ],
+   "serpent_scale": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "drowned_one": {
+  "floor": 16,
+  "name": "Drowned One",
+  "model": "human",
+  "tint": [
+   0.5,
+   0.65,
+   0.7
+  ],
+  "scale": 1.0,
+  "hp": 644,
+  "damage": 94,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 225,
+  "loot": {
+   "gold": [
+    50,
+    90
+   ],
+   "kelp_silk": [
+    0,
+    2
+   ],
+   "drowned_crown": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "river_otter_pack": {
+  "floor": 14,
+  "name": "River Otter",
+  "model": "beast",
+  "tint": [
+   0.45,
+   0.35,
+   0.3
+  ],
+  "scale": 0.8,
+  "hp": 300,
+  "damage": 50,
+  "speed": 5.0,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 105,
+  "loot": {
+   "gold": [
+    8,
+    20
+   ],
+   "river_otter_pelt": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "passive": true
+ },
+ "kelp_horror": {
+  "floor": 17,
+  "name": "Kelp Horror",
+  "model": "orc",
+  "tint": [
+   0.25,
+   0.5,
+   0.35
+  ],
+  "scale": 1.8,
+  "hp": 1773,
+  "damage": 129,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 620,
+  "loot": {
+   "gold": [
+    130,
+    200
+   ],
+   "kelp_silk": [
+    1,
+    3
+   ],
+   "pearl_oyster": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "mere_matriarch": {
+  "floor": 17,
+  "name": "The Mere Matriarch",
+  "model": "beast",
+  "tint": [
+   0.2,
+   0.55,
+   0.65
+  ],
+  "scale": 3.0,
+  "hp": 8866,
+  "damage": 163,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 7092,
+  "loot": {
+   "gold": [
+    1700,
+    2300
+   ],
+   "pearl_oyster": [
+    3,
+    5
+   ],
+   "serpent_scale": [
+    4,
+    6
+   ],
+   "drowned_crown": [
+    1,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "boss": true
+ },
+ "cliff_roc": {
+  "floor": 18,
+  "name": "Cliff Roc",
+  "model": "beast",
+  "tint": [
+   0.7,
+   0.62,
+   0.5
+  ],
+  "scale": 1.5,
+  "hp": 715,
+  "damage": 105,
+  "speed": 5.5,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 250,
+  "loot": {
+   "gold": [
+    60,
+    100
+   ],
+   "roc_quill": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "storm_sprite": {
+  "floor": 19,
+  "name": "Storm Sprite",
+  "model": "human",
+  "tint": [
+   0.7,
+   0.85,
+   1.0
+  ],
+  "scale": 0.7,
+  "hp": 750,
+  "damage": 110,
+  "speed": 5.0,
+  "aggro": 10,
+  "range": 7.0,
+  "cooldown": 1.2,
+  "qi": 262,
+  "loot": {
+   "gold": [
+    60,
+    105
+   ],
+   "storm_glass": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "thunder_ram": {
+  "floor": 20,
+  "name": "Thunder Ram",
+  "model": "beast",
+  "tint": [
+   0.8,
+   0.8,
+   0.9
+  ],
+  "scale": 1.7,
+  "hp": 2048,
+  "damage": 149,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 716,
+  "loot": {
+   "gold": [
+    150,
+    230
+   ],
+   "thunder_iron": [
+    1,
+    3
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "storm_lord": {
+  "floor": 20,
+  "name": "The Storm Lord",
+  "model": "human",
+  "tint": [
+   0.65,
+   0.8,
+   1.0
+  ],
+  "scale": 2.6,
+  "hp": 10242,
+  "damage": 189,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 8193,
+  "loot": {
+   "gold": [
+    2300,
+    3000
+   ],
+   "tempest_heart": [
+    1,
+    2
+   ],
+   "thunder_iron": [
+    4,
+    6
+   ],
+   "storm_glass": [
+    3,
+    5
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "boss": true
+ },
+ "magma_crab": {
+  "floor": 20,
+  "name": "Magma Crab",
+  "model": "beast",
+  "tint": [
+   0.9,
+   0.4,
+   0.2
+  ],
+  "scale": 1.2,
+  "hp": 785,
+  "damage": 115,
+  "speed": 4.0,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 274,
+  "loot": {
+   "gold": [
+    70,
+    115
+   ],
+   "magma_crab_shell": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "cinder_imp_pack": {
+  "floor": 21,
+  "name": "Cinder Imp",
+  "model": "human",
+  "tint": [
+   1.0,
+   0.5,
+   0.25
+  ],
+  "scale": 0.8,
+  "hp": 820,
+  "damage": 120,
+  "speed": 5.0,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 287,
+  "loot": {
+   "gold": [
+    75,
+    120
+   ],
+   "firestone": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "ash_drake": {
+  "floor": 22,
+  "name": "Ash Drake",
+  "model": "beast",
+  "tint": [
+   0.55,
+   0.3,
+   0.25
+  ],
+  "scale": 1.9,
+  "hp": 2231,
+  "damage": 162,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 780,
+  "loot": {
+   "gold": [
+    200,
+    300
+   ],
+   "drake_ember": [
+    0,
+    1
+   ],
+   "obsidian_edge": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "caldera_tyrant": {
+  "floor": 22,
+  "name": "The Caldera Tyrant",
+  "model": "beast",
+  "tint": [
+   0.9,
+   0.35,
+   0.15
+  ],
+  "scale": 3.2,
+  "hp": 11159,
+  "damage": 206,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 8927,
+  "loot": {
+   "gold": [
+    3000,
+    3800
+   ],
+   "drake_ember": [
+    3,
+    5
+   ],
+   "magma_crab_shell": [
+    4,
+    6
+   ],
+   "ash_blossom": [
+    3,
+    5
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "boss": true
+ },
+ "snow_lynx": {
+  "floor": 22,
+  "name": "Snow Lynx",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.97,
+   1.0
+  ],
+  "scale": 1.1,
+  "hp": 855,
+  "damage": 125,
+  "speed": 5.4,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 299,
+  "loot": {
+   "gold": [
+    80,
+    130
+   ],
+   "snow_lynx_pelt": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "ice_wight": {
+  "floor": 23,
+  "name": "Ice Wight",
+  "model": "human",
+  "tint": [
+   0.7,
+   0.88,
+   1.0
+  ],
+  "scale": 1.05,
+  "hp": 891,
+  "damage": 131,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 311,
+  "loot": {
+   "gold": [
+    85,
+    135
+   ],
+   "rime_crystal": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "wendigo": {
+  "floor": 24,
+  "name": "Wendigo",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.9,
+   0.95
+  ],
+  "scale": 1.9,
+  "hp": 2415,
+  "damage": 175,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 845,
+  "loot": {
+   "gold": [
+    220,
+    330
+   ],
+   "wendigo_horn": [
+    0,
+    1
+   ],
+   "frost_lotus": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "glacier_empress": {
+  "floor": 24,
+  "name": "The Glacier Empress",
+  "model": "human",
+  "tint": [
+   0.7,
+   0.9,
+   1.0
+  ],
+  "scale": 2.7,
+  "hp": 12077,
+  "damage": 223,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 9661,
+  "loot": {
+   "gold": [
+    3400,
+    4300
+   ],
+   "glacier_heart": [
+    1,
+    2
+   ],
+   "rime_crystal": [
+    4,
+    6
+   ],
+   "frost_lotus": [
+    3,
+    5
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "boss": true
+ },
+ "dune_scorpion": {
+  "floor": 23,
+  "name": "Dune Scorpion",
+  "model": "beast",
+  "tint": [
+   0.85,
+   0.7,
+   0.4
+  ],
+  "scale": 1.3,
+  "hp": 891,
+  "damage": 131,
+  "speed": 4.6,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 311,
+  "loot": {
+   "gold": [
+    85,
+    135
+   ],
+   "scorpion_stinger": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "sun_scarab_swarm": {
+  "floor": 22,
+  "name": "Sun Scarab",
+  "model": "beast",
+  "tint": [
+   0.95,
+   0.8,
+   0.2
+  ],
+  "scale": 0.8,
+  "hp": 447,
+  "damage": 74,
+  "speed": 5.0,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 156,
+  "loot": {
+   "gold": [
+    20,
+    40
+   ],
+   "sun_scarab": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "sand_giant": {
+  "floor": 25,
+  "name": "Sand Giant",
+  "model": "orc",
+  "tint": [
+   0.85,
+   0.75,
+   0.5
+  ],
+  "scale": 2.1,
+  "hp": 2507,
+  "damage": 182,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 877,
+  "loot": {
+   "gold": [
+    260,
+    380
+   ],
+   "sand_giant_core": [
+    0,
+    1
+   ],
+   "hourglass_sand": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "pharaoh_of_hours": {
+  "floor": 25,
+  "name": "The Pharaoh of Hours",
+  "model": "human",
+  "tint": [
+   1.0,
+   0.85,
+   0.45
+  ],
+  "scale": 2.7,
+  "hp": 12535,
+  "damage": 231,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 10028,
+  "loot": {
+   "gold": [
+    4000,
+    5000
+   ],
+   "hourglass_sand": [
+    4,
+    6
+   ],
+   "sand_giant_core": [
+    2,
+    3
+   ],
+   "desert_rose": [
+    3,
+    5
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "boss": true
+ },
+ "blight_stag": {
+  "floor": 28,
+  "name": "Blight Stag",
+  "model": "beast",
+  "tint": [
+   0.5,
+   0.75,
+   0.7
+  ],
+  "scale": 1.4,
+  "hp": 1066,
+  "damage": 156,
+  "speed": 5.4,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 373,
+  "loot": {
+   "gold": [
+    140,
+    220
+   ],
+   "corrupted_antler": [
+    0,
+    1
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "wire_treant": {
+  "floor": 30,
+  "name": "Wire Treant",
+  "model": "orc",
+  "tint": [
+   0.45,
+   0.6,
+   0.55
+  ],
+  "scale": 2.1,
+  "hp": 2965,
+  "damage": 215,
+  "speed": 2.6,
+  "aggro": 11,
+  "range": 2.2,
+  "cooldown": 1.2,
+  "qi": 1037,
+  "loot": {
+   "gold": [
+    320,
+    480
+   ],
+   "warped_heartwood": [
+    1,
+    2
+   ],
+   "nanite_sap": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "spore_wraith": {
+  "floor": 29,
+  "name": "Spore Wraith",
+  "model": "human",
+  "tint": [
+   0.6,
+   0.85,
+   0.7
+  ],
+  "scale": 1.0,
+  "hp": 1102,
+  "damage": 162,
+  "speed": 3.9,
+  "aggro": 10,
+  "range": 1.8,
+  "cooldown": 1.2,
+  "qi": 385,
+  "loot": {
+   "gold": [
+    150,
+    230
+   ],
+   "blight_bloom": [
+    0,
+    2
+   ]
+  },
+  "frontier": true,
+  "land": true
+ },
+ "root_king": {
+  "floor": 32,
+  "name": "The Root King",
+  "model": "orc",
+  "tint": [
+   0.4,
+   0.7,
+   0.55
+  ],
+  "scale": 3.4,
+  "hp": 15746,
+  "damage": 290,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 12596,
+  "loot": {
+   "gold": [
+    7000,
+    9000
+   ],
+   "root_king_seed": [
+    1,
+    2
+   ],
+   "nanite_sap": [
+    4,
+    6
+   ],
+   "warped_heartwood": [
+    3,
+    5
+   ]
+  },
+  "frontier": true,
+  "land": true,
+  "boss": true
+ },
+ "wb_crash_site": {
+  "floor": 12,
+  "name": "Beacon Prime",
+  "model": "human",
+  "tint": [
+   0.6799999999999999,
+   0.86,
+   0.95
+  ],
+  "scale": 3.1,
+  "hp": 15775,
+  "damage": 181,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 10516,
+  "loot": {
+   "gold": [
+    2700,
+    3600
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_crash_site": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_launch_yard": {
+  "floor": 11,
+  "name": "The Skyhook Colossus",
+  "model": "human",
+  "tint": [
+   0.6799999999999999,
+   0.83,
+   0.86
+  ],
+  "scale": 3.1,
+  "boss": true,
+  "hp": 14676,
+  "damage": 169,
+  "speed": 3.0,
+  "aggro": 15,
+  "range": 3.2,
+  "cooldown": 1.4,
+  "qi": 7146,
+  "loot": {
+   "gold": [
+    1320,
+    1980
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_launch_yard": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_ashen_moon": {
+  "floor": 17,
+  "name": "Moonwake Sovereign",
+  "model": "human",
+  "tint": [
+   0.7999999999999999,
+   0.83,
+   0.9199999999999999
+  ],
+  "scale": 3.24,
+  "hp": 21278,
+  "damage": 244,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 14184,
+  "loot": {
+   "gold": [
+    4800,
+    6300
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_ashen_moon": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_glass_desert": {
+  "floor": 19,
+  "name": "The Shard Emperor",
+  "model": "human",
+  "tint": [
+   0.95,
+   0.86,
+   0.6499999999999999
+  ],
+  "scale": 3.38,
+  "hp": 23481,
+  "damage": 270,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 15654,
+  "loot": {
+   "gold": [
+    6300,
+    8100
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_glass_desert": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_whisperwood": {
+  "floor": 10,
+  "name": "Ancient of Whispers",
+  "model": "orc",
+  "tint": [
+   0.62,
+   0.74,
+   0.5599999999999999
+  ],
+  "scale": 3.65,
+  "hp": 14013,
+  "damage": 160,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 9342,
+  "loot": {
+   "gold": [
+    2100,
+    2850
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_whisperwood": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "land": true,
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_mistfen": {
+  "floor": 12,
+  "name": "The Drowned Queen",
+  "model": "human",
+  "tint": [
+   0.59,
+   0.6799999999999999,
+   0.62
+  ],
+  "scale": 3.1,
+  "hp": 15775,
+  "damage": 181,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 10516,
+  "loot": {
+   "gold": [
+    2700,
+    3600
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_mistfen": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "land": true,
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_bonefields": {
+  "floor": 13,
+  "name": "Marshal of the Unburied",
+  "model": "human",
+  "tint": [
+   0.83,
+   0.83,
+   0.89
+  ],
+  "scale": 3.24,
+  "hp": 16876,
+  "damage": 193,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 11250,
+  "loot": {
+   "gold": [
+    3300,
+    4500
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_bonefields": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "land": true,
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_jadehill": {
+  "floor": 16,
+  "name": "The Terrace Warden",
+  "model": "human",
+  "tint": [
+   0.6499999999999999,
+   0.86,
+   0.74
+  ],
+  "scale": 3.24,
+  "hp": 20179,
+  "damage": 232,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 13452,
+  "loot": {
+   "gold": [
+    4500,
+    6000
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_jadehill": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "land": true,
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_sunken_mere": {
+  "floor": 17,
+  "name": "Leviathan of the Mere",
+  "model": "beast",
+  "tint": [
+   0.47,
+   0.6799999999999999,
+   0.74
+  ],
+  "scale": 4.05,
+  "hp": 21278,
+  "damage": 244,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 14184,
+  "loot": {
+   "gold": [
+    5100,
+    6900
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_sunken_mere": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "land": true,
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_stormcliffs": {
+  "floor": 20,
+  "name": "The Thunder Regent",
+  "model": "human",
+  "tint": [
+   0.74,
+   0.83,
+   0.95
+  ],
+  "scale": 3.51,
+  "hp": 24580,
+  "damage": 283,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 16386,
+  "loot": {
+   "gold": [
+    6900,
+    9000
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_stormcliffs": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "land": true,
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_emberwaste": {
+  "floor": 22,
+  "name": "The Magma Sovereign",
+  "model": "beast",
+  "tint": [
+   0.89,
+   0.5599999999999999,
+   0.43999999999999995
+  ],
+  "scale": 4.32,
+  "hp": 26781,
+  "damage": 309,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 17854,
+  "loot": {
+   "gold": [
+    9000,
+    11400
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_emberwaste": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "land": true,
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_frostmere": {
+  "floor": 24,
+  "name": "The Winter Throne",
+  "model": "human",
+  "tint": [
+   0.77,
+   0.89,
+   0.95
+  ],
+  "scale": 3.65,
+  "hp": 28984,
+  "damage": 334,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 19322,
+  "loot": {
+   "gold": [
+    10200,
+    12900
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_frostmere": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "land": true,
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_sandglass": {
+  "floor": 25,
+  "name": "Khet, Keeper of Hours",
+  "model": "human",
+  "tint": [
+   0.95,
+   0.86,
+   0.62
+  ],
+  "scale": 3.65,
+  "hp": 30084,
+  "damage": 346,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 20056,
+  "loot": {
+   "gold": [
+    12000,
+    15000
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_sandglass": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "land": true,
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
+ },
+ "wb_blighted_wood": {
+  "floor": 32,
+  "name": "The Rot King's Shadow",
+  "model": "orc",
+  "tint": [
+   0.59,
+   0.77,
+   0.6799999999999999
+  ],
+  "scale": 4.59,
+  "hp": 37790,
+  "damage": 435,
+  "speed": 3.0,
+  "aggro": 16,
+  "range": 3.6,
+  "cooldown": 1.2,
+  "qi": 25192,
+  "loot": {
+   "gold": [
+    21000,
+    27000
+   ],
+   "worldboss_core": [
+    1,
+    2
+   ],
+   "relic_blighted_wood": [
+    1,
+    1
+   ],
+   "qi_pill": [
+    3,
+    5
+   ]
+  },
+  "land": true,
+  "boss": true,
+  "world_boss": true,
+  "frontier": true
  }
 }

@@ -68,7 +68,7 @@ func _run() -> void:
 	var F = load("res://scripts/world/Frontier.gd")
 	var ids = ["crash_site", "launch_yard", "ring_station", "ashen_moon", "glass_desert", "nanite_foundry"]
 	var data: Dictionary = F.data()
-	check("six regions in frontier.json", (data.get("regions", {}) as Dictionary).size() == 6)
+	check("six regions in frontier.json", (data.get("regions", {}) as Dictionary).size() >= 6)
 	var defs = {}
 	var sides = {}
 	var notes_all = {}

@@ -75,6 +75,13 @@ const CAPTIONS := {
 	"parry": "Parried", "door": "A door", "creak": "Something creaks", "chest": "A chest", "crystal": "A crystal hums",
 	"waystone": "A waystone", "loot_epic": "A rare find", "floor_clear": "Floor cleared", "hit_heavy": "A heavy blow", "coins": "Coins",
 	"dig": "Digging",
+	# round 184: the world's own small sounds (WorldSound.gd)
+	"bird_song": "A bird sings", "coo": "A dove calls", "owl": "An owl hoots", "frog": "Frogs croak", "chime": "Wind chimes",
+	"anvil": "A hammer on an anvil, far off", "woodchop": "An axe on wood, far off", "temple_bell": "A temple bell, far off",
+	"pebbles": "Stones settle", "rumble": "A deep rumble", "wind_gust": "A gust of wind", "thunder_far": "Thunder, far off",
+	"fire_pop": "A fire crackles", "steam_hiss": "Steam hisses", "gear_clank": "Gears clank", "moan": "Air moans through the halls",
+	"bones": "Bones rattle", "water_lap": "Water laps", "bubble": "Bubbles rise", "crystal_hum": "Crystals hum",
+	"leaf_rustle": "Leaves rustle", "fly_by": "A fly buzzes past", "cicada": "Cicadas", "drip_far": "Water drips",
 }
 
 static var _tog := {}

@@ -75,7 +75,15 @@ func upkeep_per_minute() -> float:
 		pts = float(r.upkeep_points())
 	if pts <= 0.0:
 		return 0.0
-	return pts * float(data.get("upkeep_per_point", 0.00015)) * G.qi_to_next() * G.tech_effect("upkeep_mult", 1.0)
+	# 2026-11-01: the drain used to scale with the breakthrough step's DOUBLED cost and kept running with the sea already full, so a high-realm
+	# player with a dozen designs connected lost ~5,000 qi a minute and could not climb ("my ki keeps trending down"). Now it is charged against the
+	# ordinary step cost, and nothing leaks once the sea is full (the designs keep running).
+	var need: float = G.qi_to_next()
+	if G.sublevel == G.SUBLEVELS:
+		need *= 0.5
+	if G.qi >= G.qi_to_next() * 0.995:
+		return 0.0
+	return pts * float(data.get("upkeep_per_point", 0.00015)) * need * G.tech_effect("upkeep_mult", 1.0)
 
 
 func tick(delta: float) -> void:
